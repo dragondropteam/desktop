@@ -373,7 +373,8 @@ exports.WorkspaceConfig = class {
 
         this.registerComponents = config.registerComponents || exports.registerDefaultComponents;
         this.editorLanguage = config.editorLanguage || 'ace/mode/html';
-        this.editorReadOnly = config.editorReadOnly === null ? true : config.editorReadOnly;
+        this.editorReadOnly = "editorReadOnly" in config ? config.editorReadOnly : true;
+
         this.onComponentOpen = config.onComponentOpen;
     }
 };
