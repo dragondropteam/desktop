@@ -1,0 +1,44 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  
+buildMacOS:
+  before_script:
+    - cd desktop
+    - npm install
+    - cd ..
+  script:
+    - cd desktop
+    - gulp
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  tags:
+    - macOS
+
+#buildWindows:
+# script:
+#    - cd desktop
+#    - call npm install
+#    - call gulp
+#    - cd ..
+#  artifacts:
+#    paths:
+#    - dist
+#  tags:
+#    - windows
+    
+#buildLinux:
+#  before_script:
+#    - cd desktop
+#    - npm install
+#    - cd .. 
+#  script:
+#    - cd desktop
+#    - gulp
+#    - cd ..
+#  artifacts:
+#    paths:
+#    - dist
+#  tags:
+#    - linux
