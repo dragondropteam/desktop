@@ -75,3 +75,11 @@ desktop/app/workspace/
 dist/
 
 \.idea/atlassian-ide-plugin\.xml
+
+*_compressed.js
+
+desktop/blockly_uncompressed\.js
+
+desktop/app/gulpfile\.js
+
+desktop/app/blockly_uncompressed\.js
