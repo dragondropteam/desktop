@@ -72,7 +72,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     load: loadProjectFile,
     save: save,
     reload: () => {
-        //Limit the number of reloads in case the user ends up spamming thiss
+        //Limit the number of reloads in case the user ends up spamming this
         if(!reload){
             reload = setTimeout(() =>{
                 workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
