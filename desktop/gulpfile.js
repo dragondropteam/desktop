@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const clean = require('gulp-clean');
 
-const builder = require("electron-builder")
+const builder = require("electron-builder");
 const Platform = builder.Platform;
 const install = require("gulp-install");
 const uglifyjs = require('uglify-es');
@@ -99,8 +99,8 @@ gulp.task('projectTypes', ['arduino', 'basic_javascript', 'ringo_robot', 'text_p
 //endregion
 
 gulp.task('ace-builds', () => {
-    return gulp.src('ace-builds/**/*')
-        .pipe(gulp.dest('app/ace-builds'));
+    return gulp.src('ace-builds/src-noconflict/**/*')
+        .pipe(gulp.dest('app/ace-builds/src-noconflict'));
 });
 
 gulp.task('arduino_core', () => {
