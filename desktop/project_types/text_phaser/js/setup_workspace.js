@@ -69,6 +69,7 @@ let project = null;
 const workspace = new Workspace(new WorkspaceConfig({
     layoutConfig: layoutConfig,
     blocklyConfig: workspaceConfig,
+    editorReadOnly: false,
     load: loadProjectFile,
     save: save,
     reload: () => {

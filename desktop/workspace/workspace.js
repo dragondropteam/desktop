@@ -267,6 +267,16 @@ function loadProject(loadedProject, loadPath) {
     config.load(loadedProject);
 }
 
+ipcRenderer.on('show_embedded', (event, arg) =>{
+    // console.log('show_embedded');
+
+    if(!phaserContainer || !webview){
+        return;
+    }
+
+    webview.openDevTools();
+});
+
 ipcRenderer.on('set_project', (event, arg) => {
     loadProject(arg.loadedProject, arg.loadPath);
 });
@@ -363,7 +373,8 @@ exports.WorkspaceConfig = class {
 
         this.registerComponents = config.registerComponents || exports.registerDefaultComponents;
         this.editorLanguage = config.editorLanguage || 'ace/mode/html';
-        this.editorReadOnly = config.editorReadOnly === null ? true : config.editorReadOnly;
+        this.editorReadOnly = "editorReadOnly" in config ? config.editorReadOnly : true;
+
         this.onComponentOpen = config.onComponentOpen;
     }
 };
