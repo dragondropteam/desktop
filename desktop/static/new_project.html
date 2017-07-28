@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Project</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="DragonDrop" ng-cloak layout="row" ng-controller="projects-controller">
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="true"
+        md-whiteframe="4"
+        flex="25">
+
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Project Types</h1>
+        </md-toolbar>
+
+        <md-content layout-padding >
+            <md-radio-group ng-model="projectType">
+                <md-radio-button ng-repeat="project in projects" ng-value="project.tag" aria-label="{{project.display}}">
+                    {{project.display}}
+                </md-radio-button>
+            </md-radio-group>
+        </md-content>
+
+        <!--<md-button class="md-icon-button md-accent" layout="end end">-->
+            <!--<md-icon md-svg-icon="img/ic_add_circle_outline_black_24px.svg"></md-icon>-->
+        <!--</md-button>-->
+    </md-sidenav>
+
+    <md-content flex="75">
+        <form name="projectSettingsForm"  layout="column">
+            <md-input-container>
+                <label>Project Name</label>
+                <input  name="projectName" id="projectName" ng-model="project.name" type="text" maxlength="100"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Path</label>
+                <input id="projectPath" ng-model="project.path" type="text"/>
+            </md-input-container>
+            <md-button ng-click="browse()" class="md-raised md-primary">Browse</md-button>
+            <md-button ng-click="createProject()" id="createProject" class="md-raised md-primary" type="submit">Create Project</md-button>
+        </form>
+    </md-content>
+
+    <!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Insert this line after script imports -->
+     <script>if (window.module) module = window.module;</script>
+
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = require('electron');
+        const path = require('path');
+        var defaultPath = path.join(electron.remote.app.getPath('documents'), "DragonDropProjects");
+        const fs = require('fs-extra');
+        const {dialog} = require('electron').remote;
+
+        var pathChangedManually = false;
+        var project = {path: path.join(defaultPath,"Untitled"), name: "Untitled"};
+        var type = 'wink';
+        var app = angular.module('DragonDrop', ['ngMaterial']);
+        app.controller('projects-controller', function($scope){
+            const projectTypes = require('project_types');
+            $scope.projects = projectTypes.getProjectTypes();
+            $scope.project = project;
+            $scope.projectType = 'wink';
+
+            $scope.createProject = () => {
+                project.name = project.name.replace(/\s/g, '_');
+
+                if(!(/^[A-Za-z]\w+$/.test(project.name))){
+                    alert('Project name must start with a character and use only A-Z a-z 0-9 _ and -');
+                    return;
+                }
+
+                var isInvalid = require('is-invalid-path');
+                if(isInvalid(project.path)){
+                    alert('The selected path is invalid');
+                    return;
+                }
+
+                if(fs.existsSync(project.path)){
+                    const selection = dialog.showMessageBox({type: 'question', buttons: ['Cancel', 'Overwrite'], defaultId: 0, title: 'Directory Already Exists', message: 'Directory Already Exists:\nOverwrite directory?\nThis cannot be undone!'});
+                    if(selection == 0){
+                        return;
+                    }
+                    else{
+                        const err = fs.emptyDirSync(project.path);
+                        //If we could not overwrite the folder it is not safe to use it for the new project show the
+                        //user an error and abort
+                        if(err){
+                            debug.log(err);
+                            dialog.showErrorBox('Could not delete directory', err.message());
+                            return;
+                        }
+                    }
+                }
+
+                ipcRenderer.sendSync('create_new_project', project, $scope.projectType);
+            };
+
+            $scope.browse = () => {
+                const folderPath = dialog.showOpenDialog({title: 'Select Project Path', defaultPath: defaultPath, properties: ['openDirectory']});
+                if(folderPath){
+                    //The result is an array even if we do not explicitly allow for the use of multiselect so just grab the first element
+                    defaultPath = folderPath[0];
+                    var clean = $('#projectName').val().replace(/\s/g, '_');
+                    var newPath = path.join(defaultPath, clean);
+                    project.path = newPath;
+                    $('#projectPath').val(newPath);
+                }
+            };
+        });
+
+        $('document').ready(function() {
+            $('#projectName').on('input', function () {
+                if (!pathChangedManually) {
+                    var clean = $(this).val().replace(/\s/g, '_');
+                    var newPath = path.join(defaultPath, clean);
+                    project.path = newPath;
+                    $('#projectPath').val(newPath);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

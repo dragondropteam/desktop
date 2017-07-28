@@ -1,0 +1,11 @@
+{
+  "name": "arduino-blocks",
+  "description": "",
+  "main": "main.js",
+  "license": "UNLICENSED",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  }
+}

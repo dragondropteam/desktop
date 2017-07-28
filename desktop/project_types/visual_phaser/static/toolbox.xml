@@ -1,0 +1,521 @@
+ <xml id="toolbox-categories" style="display: none">
+<category name="Logic" colour="210">
+    <block type="controls_if"/>
+    <block type="logic_compare"/>
+    <block type="logic_operation"/>
+    <block type="logic_negate"/>
+    <block type="logic_boolean"/>
+    <block type="logic_null" disabled="true"/>
+    <block type="logic_ternary"/>
+</category>
+<category name="Loops" colour="120">
+    <block type="controls_repeat_ext">
+        <value name="TIMES">
+            <shadow type="math_number">
+                <field name="NUM">10</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="controls_repeat" disabled="true"/>
+    <block type="controls_whileUntil"/>
+    <block type="controls_doWhile"/>
+    <block type="controls_for">
+        <value name="FROM">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="TO">
+            <shadow type="math_number">
+                <field name="NUM">10</field>
+            </shadow>
+        </value>
+        <value name="BY">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="controls_forEach"/>
+    <block type="controls_flow_statements"/>
+</category>
+<category name="Math" colour="230">
+    <block type="math_number" gap="32"/>
+    <block type="math_number_binary" gap="32"/>
+    <block type="math_arithmetic">
+        <value name="A">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="B">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_single">
+        <value name="NUM">
+            <shadow type="math_number">
+                <field name="NUM">9</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_trig">
+        <value name="NUM">
+            <shadow type="math_number">
+                <field name="NUM">45</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_constant"/>
+    <block type="math_number_property">
+        <value name="NUMBER_TO_CHECK">
+            <shadow type="math_number">
+                <field name="NUM">0</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_change">
+        <value name="DELTA">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_round">
+        <value name="NUM">
+            <shadow type="math_number">
+                <field name="NUM">3.1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_on_list"/>
+    <block type="math_modulo">
+        <value name="DIVIDEND">
+            <shadow type="math_number">
+                <field name="NUM">64</field>
+            </shadow>
+        </value>
+        <value name="DIVISOR">
+            <shadow type="math_number">
+                <field name="NUM">10</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_constrain">
+        <value name="VALUE">
+            <shadow type="math_number">
+                <field name="NUM">50</field>
+            </shadow>
+        </value>
+        <value name="LOW">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="HIGH">
+            <shadow type="math_number">
+                <field name="NUM">100</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_random_int">
+        <value name="FROM">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="TO">
+            <shadow type="math_number">
+                <field name="NUM">100</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="math_random_float"/>
+</category>
+<category name="Text" colour="160">
+    <block type="text"/>
+    <block type="text_join"/>
+    <block type="text_append">
+        <value name="TEXT">
+            <shadow type="text"/>
+        </value>
+    </block>
+    <block type="text_length">
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">abc</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="text_isEmpty">
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT"/>
+            </shadow>
+        </value>
+    </block>
+    <block type="text_indexOf">
+        <value name="VALUE">
+            <block type="variables_get">
+                <field name="VAR">text</field>
+            </block>
+        </value>
+        <value name="FIND">
+            <shadow type="text">
+                <field name="TEXT">abc</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="text_charAt">
+        <value name="VALUE">
+            <block type="variables_get">
+                <field name="VAR">text</field>
+            </block>
+        </value>
+    </block>
+    <block type="text_getSubstring">
+        <value name="STRING">
+            <block type="variables_get">
+                <field name="VAR">text</field>
+            </block>
+        </value>
+    </block>
+    <block type="text_changeCase">
+        <value name="TEXT">
+            <shadow type="text">
+                <field name="TEXT">abc</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="text_trim">
+        <value name="TEXT">
+            <shadow type="text">
+                <field name="TEXT">abc</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="text_print">
+        <value name="TEXT">
+            <shadow type="text">
+                <field name="TEXT">abc</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="text_prompt_ext">
+        <value name="TEXT">
+            <shadow type="text">
+                <field name="TEXT">abc</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="log_console"/>
+</category>
+<category name="Lists" colour="260">
+    <block type="lists_create_with">
+        <mutation items="0"/>
+    </block>
+    <block type="lists_create_with"/>
+    <block type="lists_repeat">
+        <value name="NUM">
+            <shadow type="math_number">
+                <field name="NUM">5</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="lists_length"/>
+    <block type="lists_isEmpty"/>
+    <block type="lists_indexOf">
+        <value name="VALUE">
+            <block type="variables_get">
+                <field name="VAR">list</field>
+            </block>
+        </value>
+    </block>
+    <block type="lists_getIndex">
+        <value name="VALUE">
+            <block type="variables_get">
+                <field name="VAR">list</field>
+            </block>
+        </value>
+    </block>
+    <block type="lists_setIndex">
+        <value name="LIST">
+            <block type="variables_get">
+                <field name="VAR">list</field>
+            </block>
+        </value>
+    </block>
+    <block type="lists_getSublist">
+        <value name="LIST">
+            <block type="variables_get">
+                <field name="VAR">list</field>
+            </block>
+        </value>
+    </block>
+    <block type="lists_split">
+        <value name="DELIM">
+            <shadow type="text">
+                <field name="TEXT">,</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="lists_sort"/>
+</category>
+<category name="Colour" colour="20">
+    <block type="colour_picker"/>
+    <block type="colour_random"/>
+    <block type="colour_rgb">
+        <value name="RED">
+            <shadow type="math_number">
+                <field name="NUM">100</field>
+            </shadow>
+        </value>
+        <value name="GREEN">
+            <shadow type="math_number">
+                <field name="NUM">50</field>
+            </shadow>
+        </value>
+        <value name="BLUE">
+            <shadow type="math_number">
+                <field name="NUM">0</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="colour_blend">
+        <value name="COLOUR1">
+            <shadow type="colour_picker">
+                <field name="COLOUR">#ff0000</field>
+            </shadow>
+        </value>
+        <value name="COLOUR2">
+            <shadow type="colour_picker">
+                <field name="COLOUR">#3333ff</field>
+            </shadow>
+        </value>
+        <value name="RATIO">
+            <shadow type="math_number">
+                <field name="NUM">0.5</field>
+            </shadow>
+        </value>
+    </block>
+</category>
+<sep/>
+<category name="Phaser" colour="#BCD5D1">
+    <category name="Startup" colour="120">
+        <block type="phaser_simple_init"/>
+        <block type="start_phaser_for_states"/>
+        <block type="center_and_stretch"/>
+    </category>
+    <category name="Stepping" colour="128">
+        <block type="enable_step"/>
+        <block type="disable_step"/>
+        <block type="step"/>
+    </category>
+    <category name="Game Object" colour="80">
+        <block type="set_object_anchor"/>
+        <block type="set_scale"/>
+        <block type="kill_object"/>
+        <block type="get_bounds"/>
+        <block type="get_rotation"/>
+        <block type="rotate"/>
+        <block type="set_rotation"/>
+        <block type="get_local_bounds"/>
+        <block type="reset"/>
+        <block type="revive"/>
+        <block type="set_pos"/>
+        <block type="set_velocity"/>
+        <block type="get_param"/>
+        <block type="object_inCamera"/>
+        <block type='get_camera'/>
+        <block type='camera_follow'/>
+        <block type='send_to_back'/>
+        <block type='object_set_to'/>
+    </category>
+    <category name="States">
+        <block type="class_type">
+            <mutation name="Phaser.State">
+            </mutation>
+        </block>
+        <block type="statemanager_add_state"/>
+        <block type="statemanager_start_state"/>
+    </category>
+    <category name="Graphics" colour="330">
+        <block type="create_graphics_object">
+          <value name="x">
+              <shadow type="math_number">
+                  <field name="NUM">0</field>
+              </shadow>
+          </value>
+          <value name="y">
+              <shadow type="math_number">
+                  <field name="NUM">0</field>
+              </shadow>
+          </value>
+        </block>
+        <block type="draw_shapes_with_colour">
+          <value name="colour">
+              <shadow type="colour_picker">
+                  <field name="COLOUR">#ff0000</field>
+              </shadow>
+          </value>
+        </block>
+        <block type="draw_rectangle">
+          <value name="x">
+              <shadow type="math_number">
+                  <field name="NUM">0</field>
+              </shadow>
+          </value>
+          <value name="y">
+              <shadow type="math_number">
+                  <field name="NUM">0</field>
+              </shadow>
+          </value>
+          <value name="w">
+              <shadow type="math_number">
+                  <field name="NUM">50</field>
+              </shadow>
+          </value>
+          <value name="h">
+              <shadow type="math_number">
+                  <field name="NUM">50</field>
+              </shadow>
+          </value>
+        </block>
+    </category>
+    <category name="Sprites and Images" colour="20">
+        <block type="create_image"/>
+        <block type='addspritewithatlas'/>
+        <block type='imagesubtextureatlas'/>
+        <block type="create_sprite_sheet"/>
+        <block type="add_image"/>
+        <block type="load_texture"/>
+        <block type="destroy_sprite"/>
+        <block type="check_world_bounds"/>
+        <block type="out_of_bounds_kill"/>
+        <block type="align_in"/>
+        <block type="align_to"/>
+        <block type="crop"/>
+        <block type="clear_cropping"/>
+        <block type="bring_to_top"/>
+        <block type="send_to_back"/>
+        <block type="move_up"/>
+        <block type="move_down"/>
+        <block type="sprite_overlap"/>
+        <block type="add_child"/>
+        <block type="add_child_at"/>
+        <block type="get_child_at"/>
+        <block type="get_child_index"/>
+        <block type="set_child_index"/>
+        <block type="swap_children"/>
+        <block type="contains"/>
+        <block type="remove_child"/>
+        <block type="remove_child_at"/>
+        <block type="remove_children"/>
+        <block type="set_scale_min_max"/>
+        <block type="clear_scale_min_max"/>
+        <block type="reset_frame"/>
+        <block type="resize_frame"/>
+        <block type="set_sprite_frame"/>
+        <block type="set_texture"/>
+    </category>
+    <category name="Animation" colour="20">
+        <block type="add_animation"/>
+        <block type="play_animation"/>
+        <block type="stop_animation"/>
+        <block type="set_frame"/>
+        <block type="animation_get_animation"/>
+        <block type="animation_next"/>
+        <block type="animation_previous"/>
+        <block type="refresh_frame"/>
+        <block type="animation_update"/>
+        <block type="validate_frames"/>
+        <block type="animation_destroy"/>
+        <block type="get_animation_property"/>
+        <block type="set_animation_property"/>
+    </category>
+    <category name="Text" colour="190">
+        <block type="add_text"/>
+        <block type="set_text"/>
+        <block type="create_bitmapFont"/>
+    </category>
+    <category name="Groups" colour="60">
+        <block type="create_group"/>
+        <block type="create_object_in_group"/>
+        <block type="create_object_in_group_with_frame"/>
+        <block type="call_function_on_group"/>
+    </category>
+    <category name="Input" colour="160">
+        <block type="is_key_down"/>
+        <block type="create_cursor_keys"/>
+    </category>
+    <category name="World" colour="#BA9077">
+        <block type="get_world_property"/>
+        <block type="set_world_bounds"/>
+        <block type="create_point"/>
+    </category>
+    <category name="Physics" colour="#5A5C51">
+        <category name="Setup" colour="#5A5C51">
+            <block type="start_physics"/>
+            <block type="enable_body_group"/>
+            <block type="enable_arcade_physics_for_object"/>
+        </category>
+        <category name="Body" colour="#5A5C51">
+            <block type="set_body_field_point"/>
+            <block type="set_immovable"/>
+            <block type="is_body_touching"/>
+            <block type="collide_with_world_bounds"/>
+        </category>
+        <category name="Collision" colour="#5A5C51">
+            <block type="collide"/>
+            <block type="check_overlap"/>
+            <block type="move_to_pointer"/>
+        </category>
+          <block type='acceleration_from_rotation'/>
+    </category>
+    <category name="Particles" colour="#83C2D1">
+      <category name="Emitters" colour="#83C2D1">
+        <block type="addemitter">
+          <value name="X">
+              <shadow type="math_number">
+                  <field name="NUM">0</field>
+              </shadow>
+          </value>
+          <value name="Y">
+              <shadow type="math_number">
+                  <field name="NUM">0</field>
+              </shadow>
+          </value>
+          <value name="maxParticles">
+              <shadow type="math_number">
+                  <field name="NUM">1</field>
+              </shadow>
+          </value>
+        </block>
+        <block type="emitters_start"/>
+        <block type="emitters_set_width"/>
+        <block type="emitters_make_particles">
+        </block>
+        <block type="emitters_set_alpha">
+        </block>
+        <block type="emitters_set_rotation">
+        </block>
+        <block type="emitters_set_gravity">
+        </block>
+        <block type="emitters_set_scale">
+        </block>
+        <block type="emitters_set_speed"/>
+        <block type='set_emit_from'>
+        </block>
+      </category>
+    </category>
+    <category name="Debug" colour="#00AAFF">
+        <block type="debug_sprite"/>
+    </category>
+</category>
+     <sep/>
+     <category name="Class" colour="230" custom="CLASSES"/>
+     <category name="Variables" colour="#381ECC" custom="VARIABLE"/>
+     <category name="Functions" colour="#AA3A69" custom="PROCEDURE"/>
+</xml>

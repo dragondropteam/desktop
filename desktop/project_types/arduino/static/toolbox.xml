@@ -1,0 +1,339 @@
+<xml id="toolbox" style="display: none">
+    <category name="Logic" colour="210">
+        <block type="controls_if"/>
+        <block type="logic_compare"/>
+        <block type="logic_operation"/>
+        <block type="logic_negate"/>
+        <block type="logic_boolean"/>
+        <block type="logic_null" disabled="true"/>
+        <block type="logic_ternary"/>
+    </category>
+    <category name="Loops" colour="120">
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_whileUntil"/>
+        <block type="controls_for">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="BY">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_flow_statements"/>
+    </category>
+    <category name="Arrays">
+        <block type="typed_arrays_create_with"/>
+        <block type="typed_arrays_setIndex"/>
+        <block type="typed_arrays_getIndex"/>
+        <block type="typed_arrays_delete"/>
+    </category>
+    <category name="Math" colour="230">
+        <block type="math_number" gap="32"/>
+        <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_single">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">9</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_trig">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">45</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constant"/>
+        <block type="math_change">
+            <value name="DELTA">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">3.1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_modulo">
+            <value name="DIVIDEND">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="DIVISOR">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constrain">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="LOW">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="HIGH">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_random_int">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <sep/>
+    <category name="Time" colour="120" enabled="false">
+        <block type="delayms">
+            <value name="MILLISECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="delaymicroseconds">
+            <value name="MICROSECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="microseconds"/>
+        <block type="milliseconds"/>
+    </category>
+    <category name="Digital I/O" colour="120">
+        <block type="pininput">
+            <value name='PIN'>
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="digitalwrite">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="digital_read">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Analog I/O" colour="120">
+        <block type="analog_reference"/>
+        <block type="analog_read">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="analog_write">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Advanced I/O" colour="120">
+        <block type="tone_pin_freq">
+            <value name="FREQUENCY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="tone_pin_freq_duration">
+            <value name="FREQUENCY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="DURATION">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="EEPROM" colour="120">
+        <block type="eeprom_read">
+            <value name="ADDRESS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="eeprom_write">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="ADDRESS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="eeprom_update">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="ADDRESS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="eeprom_get">
+            <value name="ADDRESS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="DATA">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="eeprom_put">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="ADDRESS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="SERVO" colour="120">
+        <block type="servo_attach">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="SERVO">
+            </value>
+        </block>
+        <block type="servo_write">
+            <value name="ANGLE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="SERVO">
+            </value>
+        </block>
+        <block type="servo_write_microseconds">
+            <value name="MICROS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="SERVO">
+            </value>
+        </block>
+        <block type="servo_read">
+            <value name="SERVO">
+            </value>
+        </block>
+        <block type="servo_attached">
+            <value name="SERVO">
+            </value>
+        </block>
+        <block type="servo_detach">
+            <value name="SERVO">
+            </value>
+        </block>
+    </category>
+    <category name="Constants" colour="120">
+        <block type="high"/>
+        <block type="low"/>
+        <block type="led_builtin"/>
+    </category>
+    <category name="Serial" colour="120">
+        <block type="text"/>
+        <block type="serial_begin"/>
+        <block type="serial_end"/>
+        <block type="serial_print_line"/>
+        <block type="serial_print"/>
+        <block type="serial_read"/>
+    </category>
+    <sep/>
+    <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
+    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
+</xml>

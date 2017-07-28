@@ -1,0 +1,11 @@
+{
+  "name": "project_types",
+  "version": "1.0.3",
+  "description": "",
+  "main": "project_types.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DigiPen Institute of Technology",
+  "license": "UNLICENSED"
+}
