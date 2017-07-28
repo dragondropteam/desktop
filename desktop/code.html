@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Code</title>
+  <style type="text/css" media="screen">
+    #editor {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="editor"></div>
+
+  <script src="./ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+      const {ipcRenderer} = require('electron');
+      const electron = require('electron');
+      const app = electron.app;  // Module to control application life.
+      const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+
+      var editor = ace.edit("editor");
+      editor.getSession().setMode("ace/mode/c_cpp");
+      editor.setReadOnly(true);
+
+      const Config = require('electron-store');
+      const config = new Config();
+
+      document.getElementById('editor').style.fontSize = `${config.get('fontsize') || '12'}px`
+
+      editor.$blockScrolling = Infinity;
+
+      let theme = config.get('theme');
+      if(theme){
+          theme = theme.toLowerCase().replace(' ', '_');
+          editor.setTheme(`ace/theme/${theme}`);
+      }
+
+      ipcRenderer.on('settings_updated', () =>{
+          let theme = config.get('theme');
+          if(theme){
+              theme = theme.toLowerCase().replace(' ', '_');
+              editor.setTheme(`ace/theme/${theme}`);
+          }
+
+
+          document.getElementById('editor').style.fontSize = `${config.get('fontsize') || '12'}px`
+      });
+
+
+      ipcRenderer.on('show_code', (event, arg) => {
+        editor.setValue(arg);
+      });
+  </script>
+
+</body>
+</html>

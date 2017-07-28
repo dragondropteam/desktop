@@ -1,0 +1,11 @@
+{
+  "name": "arduino",
+  "version": "1.1.0",
+  "description": "Project Settings for Arduino boards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DigiPen Institute of Technology",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,475 @@
+<xml id="toolbox" style="display: none">
+    <category name="Logic" colour="210">
+        <block type="controls_if"/>
+        <block type="logic_compare"/>
+        <block type="logic_operation"/>
+        <block type="logic_negate"/>
+        <block type="logic_boolean"/>
+        <block type="logic_null" disabled="true"/>
+        <block type="logic_ternary"/>
+    </category>
+    <category name="Loops" colour="120">
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_whileUntil"/>
+        <block type="controls_for">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="BY">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_flow_statements"/>
+    </category>
+    <category name="Math" colour="230">
+        <block type="math_number" gap="32"/>
+        <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_single">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">9</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_trig">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">45</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constant"/>
+        <block type="math_change">
+            <value name="DELTA">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">3.1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_modulo">
+            <value name="DIVIDEND">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="DIVISOR">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constrain">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="LOW">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="HIGH">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_random_int">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <sep/>
+    <category name="Time" colour="120" enabled="false">
+        <block type="delayms">
+            <value name="MILLISECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="delaymicroseconds">
+            <value name="MICROSECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="microseconds"/>
+        <block type="milliseconds"/>
+    </category>
+    <category name="Digital I/O" colour="120">
+        <block type="pininput">
+            <value name='PIN'>
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="digitalwrite">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="digital_read">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Analog I/O" colour="120">
+        <block type="analog_reference"/>
+        <block type="analog_read">
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="analog_write">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Advanced I/O" colour="120">
+        <block type="tone_pin_freq">
+            <value name="FREQUENCY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="tone_pin_freq_duration">
+            <value name="FREQUENCY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="DURATION">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Constants" colour="120">
+        <block type="high"/>
+        <block type="low"/>
+        <block type="led_builtin"/>
+    </category>
+    <category name="Serial" colour="120">
+        <block type="text"/>
+        <block type="serial_begin"/>
+        <block type="serial_end"/>
+        <block type="serial_print_line"/>
+        <block type="serial_print"/>
+        <block type="serial_read"/>
+    </category>
+    <sep/>
+    <category name="Ringo Hardware" colour="290">
+        <category name="Pixels" colour="290">
+            <block type="set_pixel_rgb">
+                <value name="RED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="GREEN">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="BLUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="set_all_pixel_rgb">
+                <value name="RED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="GREEN">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="BLUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="set_pixel_rgb_colour"/>
+            <block type="set_all_pixel_rgb_colour"/>
+        </category>
+        <category name="Ringo Motors" colour="290">
+            <block type="get_motor_max"/>
+            <block type="get_left_motor"/>
+            <block type="get_right_motor"/>
+            <block type="motors_begin"/>
+            <block type="motors">
+                <value name="leftspeed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="rightspeed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Ringo Movement" colour="290">
+            <block type="maintain_heading_reset"/>
+            <block type="maintain_heading">
+                <value name="HEADING">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="SPEED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="WIGGLE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="drive_arc">
+                <value name="HEADING">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="LEFT_SPEED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="RIGHT_SPEED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="MAX_EXPECTED_TURN_TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="MAX_EXPECTED_SKID_TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <!--<block type="heading_with_shortest_distance">-->
+            <!--<value name="HEADING">-->
+            <!--<shadow type="math_number">-->
+            <!--<field name="NUM">0</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
+            <!--</block>-->
+        </category>
+        <category name="Ringo IR Communication" colour="290">
+            <block type="restart_ir"/>
+            <block type="is_ir_done"/>
+            <block type="ir_when"/>
+        </category>
+    </category>
+    <category name="Ringo Navigation" colour="290">
+        <category name="Navigation" colour="290">
+            <block type="get_gyro_calibration_multiplier"/>
+            <block type="begin_navigation"/>
+            <block type="simple_gyro_navigation"/>
+            <block type="simple_navigation"/>
+            <block type="navigation_xy">
+                <value name="gyro_sensitivity">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="accel_sensitivity">
+                    <shadow type="math_number">
+                        <field name="NUM">800</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="calibrate_navigation_sensors"/>
+            <block type="zero_navigation"/>
+            <block type="pause_navigation"/>
+            <block type="resume_navigation"/>
+            <block type="navigation_paused"/>
+            <block type="delay_with_navigation_ms">
+                <value name="milliseconds">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delay_with_simple_navigation_ms">
+                <value name="milliseconds">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="present_heading"/>
+            <block type="get_degrees_x"/>
+            <block type="get_degrees_per_second_z"/>
+            <block type="get_degrees_per_second_x"/>
+            <block type="get_degrees_per_second_y"/>
+            <block type="get_degrees_to_stop"/>
+            <block type="get_accel_x"/>
+            <block type="get_accel_y"/>
+            <block type="get_accel_y_unzeroed"/>
+            <block type="get_accel_z"/>
+            <block type="get_vel_x"/>
+            <block type="get_vel_y"/>
+            <block type="get_pos_x"/>
+            <block type="get_pos_y"/>
+            <block type="is_stationary"/>
+            <block type="non_stationary_value"/>
+            <block type="non_stationary_axis"/>
+        </category>
+        <category name="Calculation" colour="290">
+            <block type="min_turn">
+                <value name="changeInDegrees">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="min_turn_to_heading">
+                <value name="desiredHeading">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="vector_to_degrees">
+                <value name="xComponent">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="yComponent">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+    </category>
+    <category name="Ringo Fun Stuff" colour="290">
+        <category name="Eyes" colour="290">
+            <block type="off_pixels"/>
+            <block type="off_pixel"/>
+            <block type="random_eyes"/>
+        </category>
+        <category name="Short Animations" colour="290">
+            <block type="play_start_chirp"/>
+            <block type="play_ack"/>
+            <block type="play_non_ack"/>
+            <block type="play_anger"/>
+            <block type="play_boredom"/>
+            <block type="play_excited"/>
+        </category>
+        <category name="Sound" colour="290">
+            <block type="play_chirp">
+                <value name="FREQUENCY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="AMPLITUDE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="off_chirp"/>
+        </category>
+    </category>
+    <!--<category name="Wink Input" colour="330">-->
+        <!--<block type="buttonwait"/>-->
+        <!--<block type="button_pressed"/>-->
+    <!--</category>-->
+    <!--<category name="Wink Lights and Sensors" colour="330">-->
+        <!--<block type="setirlight"/>-->
+        <!--<block type="readsensor"/>-->
+    <!--</category>-->
+    <sep/>
+    <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
+    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
+</xml>

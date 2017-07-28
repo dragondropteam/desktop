@@ -1,0 +1,14 @@
+{
+  "name": "arduino_core",
+  "version": "1.0.3",
+  "description": "Core functionality for all Arduino based projects",
+  "main": "arduino_core.js",
+  "scripts": {
+    "test": "electron-mocha"
+  },
+  "author": "DigiPen Insitute of Technology",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron-mocha": "^3.3.0"
+  }
+}

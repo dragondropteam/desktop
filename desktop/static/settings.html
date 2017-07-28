@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preferences</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="projects-controller">
+
+    <md-toolbar layout="row" class="md-primary">
+        <h1 layout-padding>Preferences</h1>
+    </md-toolbar>
+
+    <md-content layout="column" layout-padding>
+        <div layout="row" >
+            <md-input-container flex="90">
+                <label>Arduino Path</label>
+                <input  name="arduinoPath" id="projectName" ng-model="path" type="text"/>
+            </md-input-container>
+            <md-button ng-click="browse()" class="md-primary">Browse</md-button>
+        </div>
+
+        <md-input-container>
+            <md-select ng-model="selectedTheme" placeholder="Select a Theme">
+                <md-option ng-value="theme" ng-repeat="theme in themes">{{theme}}</md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <md-select ng-model="selectedFontSize" placeholder="Select a Font Size">
+                <md-option ng-value="size" ng-repeat="size in fontSizes">{{size}}</md-option>
+            </md-select>
+        </md-input-container>
+
+
+        <div layout="row" layout-align="center">
+            <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
+            <md-button class="md-primary" ng-click="updatePath()">Save</md-button>
+        </div>
+    </md-content>
+
+    <!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Insert this line after script imports -->
+     <script>if (window.module) module = window.module;</script>
+
+    <script>
+        const {ipcRenderer} = require('electron');
+        const arduinoCore = require('arduino_core');
+        const dialog = require('electron').remote.dialog;
+
+        var path = arduinoCore.getArduinoPath();
+
+        /**
+         * The path for windows is simply to the executable to path on MacOS
+         * needs /Contents/... added afterwards. We do not want to show that detail to
+         * the user as far as they are concerned they only need to see the .app portion
+         */
+        if(process.platform == 'darwin'){
+            console.log(arduinoCore.macPrefix);
+            path = path.replace(arduinoCore.macPrefix, '');
+        }
+        const Config = require('electron-store');
+        const config = new Config();
+
+        var app = angular.module('DragonDrop', ['ngMaterial']);
+        app.controller('projects-controller', function($scope){
+            $scope.path = path;
+
+            $scope.selectedTheme = config.get('theme') || 'Ambiance';
+            $scope.selectedFontSize = config.get('fontsize') || '12';
+            $scope.themes = ['Ambiance', 'Chaos', 'Chrome', 'Clouds', 'Clouds Midnight', 'Cobalt', 'Crimson Editor', 'Dawn', 'Dream Weaver', 'Eclipse', 'GitHub', 'Idle Fingers', 'iPlastic', 'Katzenmilch', 'Kr Theme', 'Kuroir', 'Merbivore Soft', 'Merbivore', 'Mono Industrial', 'Monokai', 'Pastel on Dark', 'Solarized Dark', 'Solarized Light', 'SQLserver', 'Terminal', 'TextMate', 'Tomorrow', 'Tomorrow Night', 'Tomorrow Night Blue', 'Tomorrow Night Bright', 'Tomorrow Night Eighties', 'Twilight', 'Vibrant', 'Vibrant Ink', 'XCode'];
+            $scope.fontSizes = ['10', '12', '24', '36', '72'];
+            $scope.browse = () => {
+                var defaultPath = '/bin';
+                if(process.platform == 'darwin'){
+                    defaultPath = '/Applications';
+                }else if(process.platform == 'win32'){
+                    defaultPath = 'C:\\Program Files (x86)';
+                }
+
+                var type = 'exe';
+                if(process.platform == 'darwin'){
+                    type = 'app';
+                }else{
+                    type = null;
+                }
+
+                var newPath = dialog.showOpenDialog({title:'Select path to Arduino executable', defaultPath: defaultPath, filters: [{name: 'Arduino Executable', extensions: [type]}]});
+
+                if(newPath){
+                    $scope.path = newPath[0];
+                }
+            };
+
+            $scope.updatePath = () => {
+                config.set('theme', $scope.selectedTheme);
+                config.set('fontsize', $scope.selectedFontSize);
+                ipcRenderer.send('update_settings');
+                ipcRenderer.send('update_arduino_path', $scope.path);
+            };
+
+            $scope.cancel = () =>{
+                ipcRenderer.send('cancel_settings');
+            }
+        });
+
+    </script>
+</body>
+</html>
