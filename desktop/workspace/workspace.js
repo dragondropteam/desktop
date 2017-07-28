@@ -230,11 +230,12 @@ class PhaserComponent extends exports.BaseComponent {
     setSource(source) {
         console.log(`setSource to ${source}`);
         webview.src = source;
+        this.source  = source;
     }
 
     reload() {
         if(!webview.src){
-            webview.src = source;
+            webview.src = this.source;
         }else{
             webview.reload();
         }
