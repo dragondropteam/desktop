@@ -267,6 +267,16 @@ function loadProject(loadedProject, loadPath) {
     config.load(loadedProject);
 }
 
+ipcRenderer.on('show_embedded', (event, arg) =>{
+    // console.log('show_embedded');
+
+    if(!phaserContainer || !webview){
+        return;
+    }
+
+    webview.openDevTools();
+});
+
 ipcRenderer.on('set_project', (event, arg) => {
     loadProject(arg.loadedProject, arg.loadPath);
 });

@@ -195,7 +195,7 @@ exports.setupPhaserMenu = (menu, project) => {
         click(item, displayedWindow){
             //Send message to renderer to give us the workspace
             if (displayedWindow) {
-                displayedWindow.send('show_code');
+                displayedWindow.send('show_embedded');
             }
         }
 
