@@ -179,10 +179,9 @@ function loadProjectFile(project) {
         setBlocklyBlocks(data);
         const blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
         setCode(blocklyWorkspace);
-        setPhaserSource(loadedProject);
     });
 
-
+    setPhaserSource(loadedProject);
 }
 
 function myUpdateFunction(event) {

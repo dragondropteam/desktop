@@ -145,10 +145,10 @@ function loadProjectFile(project) {
             if (err) {
                 fs.copySync(filesystem.getFilePath('project_types/text_phaser/core_files/phaser_base.html'), path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`));
             }
-
-            setPhaserSource(loadedProject);
             setCode(data.toString());
         });
+
+        setPhaserSource(loadedProject);
 }
 
 function myUpdateFunction(event) {
