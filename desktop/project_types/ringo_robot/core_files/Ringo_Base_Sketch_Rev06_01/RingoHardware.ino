@@ -15,8 +15,8 @@ Visit http://www.arduino.cc to learn about the Arduino.
 
 */
 
-#include "RingoHardware.h"
-#include "Navigation.h"
+#include "RingoHardware.hpp"
+#include "Navigation.hpp"
 #include <Adafruit_NeoPixel.h>
 #include <EEPROM.h>
 

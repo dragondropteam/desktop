@@ -140,7 +140,7 @@ Blockly.C.finish = function (code) {
         'This code is licensed under: Creative Commons Attribution-ShareAlike 2.0 Generic (CC BY-SA 2.0)\n' +
         'https://creativecommons.org/licenses/by-sa/2.0/ Visit http://www.plumgeek.com for Ringo information.\n' +
         'Visit http://www.arduino.cc to learn about the Arduino.*/\n' +
-        '#include "RingoHardware.h"\n';
+        '#include "RingoHardware.hpp"\n';
 
     //2 spaces instead of a tab
     var end = '\n  return 0;\n}\n';
