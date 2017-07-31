@@ -45,7 +45,7 @@
     "start-dev": "electron main_dev.js",
     "test": "electron-mocha",
     "rebuild": "electron-rebuild .",
-    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true build ."
+    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp" 
   },
   "devDependencies": {
     "arduino": "file:project_types/arduino",

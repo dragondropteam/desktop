@@ -234,8 +234,12 @@ class PhaserComponent extends exports.BaseComponent {
     }
 
     reload() {
+        console.log(webview);
+        console.log(!webview.src);
+        console.log(!webview.getWebContents());
+
         if(!webview.src){
-            webview.src = this.source;
+            this.setSource(this.source);
         }else{
             webview.reload();
         }
