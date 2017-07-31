@@ -152,7 +152,7 @@ Blockly.C.finish = function (code) {
 
             '*/\n' +
 
-            '#include "WinkHardware.h"  // Leave this line first. Do not edit this line. This causes Arduino\n' +
+            '#include "WinkHardware.hpp"  // Leave this line first. Do not edit this line. This causes Arduino\n' +
             '                           // to include background functions when turning your code into\n' +
             '                           // machine language Wink can understand.\n'
         ;

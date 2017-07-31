@@ -1,6 +1,6 @@
 {
   "name": "DragonDrop",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
@@ -44,13 +44,13 @@
     "start": "electron main.js",
     "start-dev": "electron main_dev.js",
     "test": "electron-mocha",
-    "rebuild": "electron-rebuild ."
+    "rebuild": "electron-rebuild .",
+    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp" 
   },
   "devDependencies": {
     "arduino": "file:project_types/arduino",
     "devtron": "^1.4.0",
-    "electron": "^1.4.4",
-    "electron-builder": "^19.16.0",
+    "electron": "1.6.11",
     "electron-rebuild": "^1.5.7",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
@@ -71,7 +71,7 @@
     "arduino_core": "file:arduino_core",
     "electron-store": "*",
     "filesystem": "file:filesystem",
-    "fs-extra": "^0.30.0",
+    "fs-extra": "^4.0.0",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
     "is-invalid-path": "*",
@@ -82,7 +82,8 @@
     "wink_robot": "file:project_types/wink_robot",
     "workspace": "file:workspace",
     "yargs": "*",
-    "zip-folder": "*"
+    "zip-folder": "*",
+    "electron-builder": "^19.18.0"
   },
   "license": "UNLICENSED",
   "private": true

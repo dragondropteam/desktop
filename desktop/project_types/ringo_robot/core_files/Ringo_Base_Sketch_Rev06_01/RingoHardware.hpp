@@ -19,7 +19,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 #define RINGO_HARDWARE_H
 
 #include "Arduino.h"
-#include "FunStuff.h"
+#include "FunStuff.hpp"
 #include "Navigation.h"
 #include <Adafruit_NeoPixel.h>
 

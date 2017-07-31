@@ -24,7 +24,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 #define WINK_HARDWARE_H
 
 #include "Arduino.h"
-#include "FunStuff.h"
+#include "FunStuff.hpp"
 #include <Adafruit_NeoPixel.h>
 
 

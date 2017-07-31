@@ -15,7 +15,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 
 */
 
-#include "Navigation.h"
+#include "Navigation.hpp"
 
 //Ver. 1.0, Dustin Soodak
 
