@@ -5,6 +5,9 @@ const {exec} = require('child_process');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
 
+const builder = require("electron-builder")
+const Platform = builder.Platform
+
 function getCurrentPlatform() {
     switch (process.platform) {
         case 'linux':
@@ -90,7 +93,7 @@ function exportExecutable(sourceDir, name, callback) {
         },
         scripts: {
             start: "electron .",
-            package: `build --${platformOut}`
+            package: `build --${Platform.current()}`
         },
         author: username.sync(),
         license: "UNLICENSED",

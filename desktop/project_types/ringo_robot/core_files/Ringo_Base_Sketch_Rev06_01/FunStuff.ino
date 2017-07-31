@@ -19,7 +19,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 
 */
 
-#include "FunStuff.h"
+#include "FunStuff.hpp"
 
 
 // ***************************************************
