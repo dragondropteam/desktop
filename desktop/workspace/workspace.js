@@ -161,6 +161,7 @@ class CodeComponent extends exports.BaseComponent {
 
         document.getElementById(EDITOR_ID).style.fontSize = `${electronConfig.get('fontsize') || '12'}px`;
         this.editor = ace.edit(EDITOR_ID);
+        editor = this.editor;
         this.editor.$blockScrolling = Infinity;
         this.editor.getSession().setMode(config.editorLanguage);
         this.editor.setReadOnly(config.editorReadOnly);
@@ -234,8 +235,12 @@ class PhaserComponent extends exports.BaseComponent {
     }
 
     reload() {
+        console.log(webview);
+        console.log(!webview.src);
+        console.log(!webview.getWebContents());
+
         if(!webview.src){
-            webview.src = this.source;
+            this.setSource(this.source);
         }else{
             webview.reload();
         }
@@ -284,7 +289,7 @@ ipcRenderer.on('set_project', (event, arg) => {
 
 ipcRenderer.on('settings_updated', () => {
     let theme = electronConfig.get('theme');
-    if (theme) {
+    if (theme && editor) {
         theme = theme.toLowerCase().replace(' ', '_');
         editor.setTheme(`ace/theme/${theme}`);
     }
