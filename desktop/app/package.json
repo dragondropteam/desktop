@@ -1,13 +1,13 @@
 {
   "name": "DragonDrop",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
     "url": "wwwprod5.digipen.edu"
   },
   "description": "Blockly based visual programming IDE",
-  "homepage": "wwprod5.digipen.edu",
+  "homepage": "wwwwprod5.digipen.edu",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -16,14 +16,6 @@
     "rebuild": "electron-rebuild .",
     "codestyle": "standard main_core.js",
     "windows": "build -w --x64"
-  },
-  "devDependencies": {
-    "arduino": "file:project_types/arduino",
-    "devtron": "^1.4.0",
-    "electron": "^1.4.4",
-    "electron-builder": "^10.5.0",
-    "electron-rebuild": "*",
-    "username": "*"
   },
   "dependencies": {
     "angular": "*",
@@ -45,7 +37,8 @@
     "wink_robot": "file:project_types/wink_robot",
     "workspace": "file:workspace",
     "yargs": "*",
-    "zip-folder": "*"
+    "zip-folder": "*",
+    "electron-builder": "^19.18.0"
   },
   "license": "UNLICENSED",
   "private": true

@@ -5,6 +5,10 @@ const {exec} = require('child_process');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
 
+const builder = require("electron-builder");
+const Platform = builder.Platform;
+const {shell} = require('electron');
+
 function getCurrentPlatform() {
     switch (process.platform) {
         case 'linux':
@@ -15,6 +19,7 @@ function getCurrentPlatform() {
             return;
     }
 }
+
 function exportExecutable(sourceDir, name, callback) {
     const defaultStartupJs =
         `const electron = require('electron')
@@ -90,7 +95,7 @@ function exportExecutable(sourceDir, name, callback) {
         },
         scripts: {
             start: "electron .",
-            package: `build --${platformOut}`
+            package: `build --${Platform.current()}`
         },
         author: username.sync(),
         license: "UNLICENSED",
@@ -186,6 +191,34 @@ exports.setupPhaserMenu = (menu, project) => {
                     console.log('Success');
                 }
             });
+        }
+    });
+
+    let label = 'File Manager';
+
+    switch(process.platform){
+        case 'darwin':
+            label = 'Finder';
+            break;
+        case 'win32':
+            label = 'Explorer';
+            break;
+    }
+
+    menu['Project'].push({
+        label: `Open Assets Directory in ${label}`,
+        click(item, displayedWindow){
+            const assetsDir = path.join(project.loadPath, project.getName(), 'assets');
+            fs.ensureDir(assetsDir)
+                .then(() => {
+                    shell.showItemInFolder(assetsDir)
+                })
+                .catch((error) =>{
+                    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                        type: 'error',
+                        message: error.getMsg()
+                    });
+                });
         }
     });
 

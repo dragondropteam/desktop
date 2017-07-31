@@ -14,7 +14,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 
 */
 
-#include "WinkHardware.h"
+#include "WinkHardware.hpp"
 #include <Adafruit_NeoPixel.h>
 #include <EEPROM.h>
 
