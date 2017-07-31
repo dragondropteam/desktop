@@ -50,7 +50,7 @@
   "devDependencies": {
     "arduino": "file:project_types/arduino",
     "devtron": "^1.4.0",
-    "electron": "^1.4.4",
+    "electron": "1.6.11",
     "electron-rebuild": "^1.5.7",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
