@@ -26,7 +26,7 @@
     "arduino_core": "file:arduino_core",
     "electron-store": "*",
     "filesystem": "file:filesystem",
-    "fs-extra": "^0.30.0",
+    "fs-extra": "^4.0.0",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
     "is-invalid-path": "*",
