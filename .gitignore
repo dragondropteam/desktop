@@ -83,3 +83,7 @@ desktop/blockly_uncompressed\.js
 desktop/app/gulpfile\.js
 
 desktop/app/blockly_uncompressed\.js
+
+desktop/app/main_core\.js
+
+desktop/app/setup_workspace\.js
