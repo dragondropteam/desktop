@@ -9,7 +9,7 @@ require('../../project/projects');
  *
  * @type {number}
  */
-const buildNumber = 1;
+const buildNumber = 2;
 const fs = require('fs-extra');
 const path = require('path');
 const {Project} = require('project');
@@ -27,8 +27,8 @@ exports.createProjectDir = function (name, filePath) {
     }
 
     try {
-        var version;
-        var electron = require('electron');
+        let version;
+        let electron = require('electron');
 
         if (!electron.remote) {
             version = global.version;
@@ -42,12 +42,13 @@ exports.createProjectDir = function (name, filePath) {
         fs.createFileSync(path.join(filePath, name, `${name}.ino`));
         fs.copySync(filesystem.getFilePath('project_types/ringo_robot/core_files/Ringo_Base_Sketch_Rev06_01'), path.join(filePath, name));
 
-        var project = new Project();
+        let project = new Project();
         project.name = name;
         project.version = version;
         project.type = 'ringo';
         project.meta = {
             'version': buildNumber,
+            'board': 'Arduino Pro or Pro Mini'
         };
         fs.writeJsonSync(`${filePath}/${name}.digiblocks`, project);
         return new LoadedProject(project, filePath);
@@ -59,8 +60,8 @@ exports.createProjectDir = function (name, filePath) {
 };
 
 exports.loadProject = function (filePath) {
-    var project = fs.readJsonSync(filePath);
-    var loadedProject = new LoadedProject(project, path.dirname(filePath));
+    let project = fs.readJsonSync(filePath);
+    let loadedProject = new LoadedProject(project, path.dirname(filePath));
 
     if ((project.meta && project.meta.version < buildNumber) || (!project.meta) || (!project.type)) {
         exports.migrate(loadedProject);
@@ -80,10 +81,17 @@ exports.saveProject = function (project) {
 exports.migrate = function (loadedProject) {
     if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
         loadedProject.loadedProject.meta = {
-            'version': buildNumber
+            'version': buildNumber,
+            'board': 'Arduino Pro or Pro Mini'
         };
         loadedProject.loadedProject.type = 'wink';
     }
+
+    if(loadedProject.getMetaData().version === 1){
+        loadedProject.getMetaData().board = 'Arduino Pro or Pro Mini';
+        loadedProject.getMetaData().version = 2;
+    }
+
     exports.saveProject(loadedProject);
 };
 
@@ -131,7 +139,7 @@ exports.mutateMenu = function (menu, project, success, failure, refresh) {
  * @param project The loadedProject to display in the opened window
  */
 exports.displayProject = function (window, debug, project) {
-    var index = debug ? 'index_dev.html' : 'index.html';
+    let index = debug ? 'index_dev.html' : 'index.html';
 
     //Load the loadedProject view
     window.loadURL(`file://${__dirname}/static/${index}`);
