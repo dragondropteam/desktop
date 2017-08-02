@@ -95,4 +95,8 @@ exports.LoadedProject = class LoadedProject{
   getType(){
     return this.loadedProject.type;
   }
+
+  getMetaData(){
+    return this.loadedProject.meta;
+  }
 };
