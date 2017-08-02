@@ -81,6 +81,7 @@ exports.loadInArduino = function (path) {
 
 exports.uploadToArduino = function (path, board, port) {
     var args = ['--upload'];
+    console.log(`Uploading to Arudino platform with board ${board} and port ${port}`)
 
     if (board != null) {
         args.push(`--board`);
@@ -185,7 +186,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
         accelerator: 'CmdOrCtrl+U',
         click(){
             try {
-                const child = exports.uploadToArduino(exports.getInoPath(project), project.meta != null ? project.meta.board : null, global.selectedPort);
+                const child = exports.uploadToArduino(exports.getInoPath(project), project.getMetaData() != null ? project.getMetaData().board : null, project.getMetaData() != null ? project.getMetaData().port : global.selectedPort);
                 let runningOutput = '';
                 let error = false;
 

@@ -1,6 +1,6 @@
 {
   "name": "arduino_core",
-  "version": "1.0.3",
+  "version": "2.0.1",
   "description": "Core functionality for all Arduino based projects",
   "main": "arduino_core.js",
   "scripts": {
