@@ -65,6 +65,7 @@ let layoutConfig = {
     }]
 };
 let project = null;
+let reload = null;
 
 const workspace = new Workspace(new WorkspaceConfig({
     layoutConfig: layoutConfig,
@@ -73,7 +74,13 @@ const workspace = new Workspace(new WorkspaceConfig({
     load: loadProjectFile,
     save: save,
     reload: () => {
-        workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
+        //Limit the number of reloads in case the user ends up spamming this
+        if (!reload) {
+            reload = setTimeout(() => {
+                workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
+                reload = null;
+            }, 500);
+        }
     },
     onComponentOpen: (component) => {
         console.log(component);
@@ -113,14 +120,7 @@ function setCode(code) {
 function save() {
     const dialog = require('electron').remote.dialog;
     try {
-        fs.writeFile(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), workspace.getComponent(workspaceCore.CODE_COMPONENT).getCode(), err =>{
-            if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
-                console.log(err);
-                return false;
-            }
-        });
-
+        fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), workspace.getComponent(workspaceCore.CODE_COMPONENT).getCode());
         return true;
     } catch (e) {
         dialog.showErrorBox('Error in code', e.message);
