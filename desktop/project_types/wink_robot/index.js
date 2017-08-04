@@ -132,7 +132,7 @@ function completedVerify(code, output) {
  * @param failure The callback to make if some error prevents the menu from being created
  */
 exports.mutateMenu = function (menu, project, success, failure, refresh) {
-    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot');
+    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot', 'Uploading Program to Wink Bot');
     arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
 };
 
