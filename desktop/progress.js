@@ -15,8 +15,8 @@ exports.ProgressWindow  = class {
     }
 
     destroy(){
-        // if(this.modalWindow){
-        //     this.modalWindow.close();
-        // }
+        if(this.modalWindow){
+            this.modalWindow.close();
+        }
     }
 };
