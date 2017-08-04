@@ -11,6 +11,7 @@ const defaultMac = '/Applications/Arduino.app/Contents/MacOS/Arduino';
 const {spawn} = require('child_process');
 const path = require('path');
 const {dialog} = require('electron');
+const ipcRenderer = require('electron').ipcRenderer;
 
 /**
  * To actually call the application on Mac this string needs to be appended
@@ -18,6 +19,8 @@ const {dialog} = require('electron');
  * @type {string}
  */
 const macPrefix = '/Contents/MacOS/Arduino';
+const {BrowserWindow} = require('electron');
+const {ProgressWindow} = require('../progress');
 
 exports.macPrefix = macPrefix;
 
@@ -190,6 +193,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 let runningOutput = '';
                 let error = false;
 
+                let progress = new ProgressWindow(uploadLabel);
                 child.on('error', (err) => {
                     invalidArduinoPath(err);
                     error = true;
@@ -206,6 +210,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 });
 
                 child.on('close', (code) => {
+                    progress.destroy();
                     if (error) {
                         return;
                     }
