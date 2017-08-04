@@ -163,8 +163,10 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
  * @param project The project that is currently loaded
  * @param uploadComplete A function to call when uploading a project completes
  * @param verifyComplete A function to call when verifying a project completes
+ * @param uploadLabel Text to display in the menu bar for the upload action
+ * @param uploadingLabel Optional message to display when uploading defaults to uploadLabel
  */
-exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, verifyComplete, uploadLabel) {
+exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, verifyComplete, uploadLabel, uploadingLabel) {
     menu['Project'] = [];
 
     menu['Project'].push({
@@ -193,7 +195,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 let runningOutput = '';
                 let error = false;
 
-                let progress = new ProgressWindow(uploadLabel);
+                let progress = new ProgressWindow(uploadingLabel || uploadLabel);
                 child.on('error', (err) => {
                     invalidArduinoPath(err);
                     error = true;
