@@ -1,0 +1,11 @@
+{
+  "name": "phaser_core",
+  "version": "1.0.0",
+  "description": "Core utilities for Phaser based project types",
+  "main": "phaser_core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Powell (DigiPen Institute of Technology)",
+  "license": "UNLICENSED"
+}
