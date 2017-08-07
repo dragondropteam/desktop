@@ -20,7 +20,7 @@ const ipcRenderer = require('electron').ipcRenderer;
  */
 const macPrefix = '/Contents/MacOS/Arduino';
 const {BrowserWindow} = require('electron');
-const {ProgressWindow} = require('../progress');
+const {ProgressWindow} = require('progress_dialog');
 
 exports.macPrefix = macPrefix;
 
@@ -59,9 +59,26 @@ Boards['Arduino Gemma'] = 'arduino:avr:gemma';
 
 exports.Boards = Boards;
 
+/**
+ * arduino_debug.exe is necessary on Windows if the user attempts to use arduino.exe simply silently replace it and
+ * update the preferences. This may occur if the user incorrectly sets the path manually, or if they had an older
+ * version of DragonDrop installed and any setting was updated.
+ *
+ * @returns {string} The path to arduino_debug.exe
+ */
+function getArduinoPathWindowsFixed(){
+    let path = config.get(pathKey) || defaultWindows;
+    if(path === 'C:\\Program Files (x86)\\Arduino\\arduino.exe'){
+        path = defaultWindows;
+        config.set(pathKey, defaultWindows);
+    }
+
+    return path;
+}
+
 function getArduinoPath() {
     if (process.platform == 'win32') {
-        return config.get(pathKey) || defaultWindows;
+        return getArduinoPathWindowsFixed();
     } else if (process.platform == 'darwin') {
         return config.get(pathKey) || defaultMac;
     } else {

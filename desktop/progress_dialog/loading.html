@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <style>
+        #progress {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body ng-app="DragonDrop" ng-cloak layout="column">
+
+<!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+<script>if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}</script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+<script>
+    angular.module('DragonDrop', ['ngMaterial']);
+
+    const ipcRenderer = require('electron').ipcRenderer;
+
+    ipcRenderer.on('display_message', (event, msg) => {
+        $('#loading_header').html(msg);
+        console.log(msg);
+    });
+</script>
+
+<div layout="column" layout-align="center center">
+    <md-toolbar layout-align="center center" id="loading_header">Loading Project</md-toolbar>
+    <br/>
+    <md-progress-circular  id="progress" style="display:flex; width:99%; height:99%; margin:auto;" md-mode="indeterminate"></md-progress-circular>
+</div>
+</body>
+</html>
