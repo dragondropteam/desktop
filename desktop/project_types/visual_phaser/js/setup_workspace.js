@@ -73,13 +73,12 @@ const workspace = new Workspace(new WorkspaceConfig({
     save: save,
     reload: () => {
         //Limit the number of reloads in case the user ends up spamming this
-        if(!reload){
-            reload = setTimeout(() =>{
+        if (!reload) {
+            reload = setTimeout(() => {
                 workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
                 reload = null;
             }, 500);
         }
-        //workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
     },
     onComponentOpen: (component) => {
         console.log(component);
@@ -88,7 +87,7 @@ const workspace = new Workspace(new WorkspaceConfig({
             case workspaceCore.BLOCKLY_COMPONENT:
                 blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
                 blocklyWorkspace.addChangeListener(myUpdateFunction);
-                if(loadedProject){
+                if (loadedProject) {
                     loadProjectFile(loadedProject);
                 }
                 break;
@@ -129,22 +128,22 @@ function save() {
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
 
         xml = Blockly.Xml.domToPrettyText(xml);
-        fs.writeFile(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), code, function (err) {
-            if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
-                console.log(err);
-                return false;
-            }
-        });
 
-        fs.writeFile(loadedProject.getBlocksPath(), xml, (err) => {
-            if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
-                console.log(err);
-                return false;
-            }
-        });
+        try {
+            fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), code);
+        } catch (err) {
+            dialog.showErrorBox('Error in code!', err.message);
+            console.log(err);
+            return false;
+        }
 
+        try {
+            fs.writeFileSync(loadedProject.getBlocksPath(), xml);
+        } catch (err) {
+            dialog.showErrorBox('Error in code!', err.message);
+            console.log(err);
+            return false;
+        }
 
         return true;
     } catch (e) {

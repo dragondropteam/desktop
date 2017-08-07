@@ -11,6 +11,7 @@ const defaultMac = '/Applications/Arduino.app/Contents/MacOS/Arduino';
 const {spawn} = require('child_process');
 const path = require('path');
 const {dialog} = require('electron');
+const ipcRenderer = require('electron').ipcRenderer;
 
 /**
  * To actually call the application on Mac this string needs to be appended
@@ -18,6 +19,8 @@ const {dialog} = require('electron');
  * @type {string}
  */
 const macPrefix = '/Contents/MacOS/Arduino';
+const {BrowserWindow} = require('electron');
+const {ProgressWindow} = require('progress_dialog');
 
 exports.macPrefix = macPrefix;
 
@@ -56,9 +59,26 @@ Boards['Arduino Gemma'] = 'arduino:avr:gemma';
 
 exports.Boards = Boards;
 
+/**
+ * arduino_debug.exe is necessary on Windows if the user attempts to use arduino.exe simply silently replace it and
+ * update the preferences. This may occur if the user incorrectly sets the path manually, or if they had an older
+ * version of DragonDrop installed and any setting was updated.
+ *
+ * @returns {string} The path to arduino_debug.exe
+ */
+function getArduinoPathWindowsFixed(){
+    let path = config.get(pathKey) || defaultWindows;
+    if(path === 'C:\\Program Files (x86)\\Arduino\\arduino.exe'){
+        path = defaultWindows;
+        config.set(pathKey, defaultWindows);
+    }
+
+    return path;
+}
+
 function getArduinoPath() {
     if (process.platform == 'win32') {
-        return config.get(pathKey) || defaultWindows;
+        return getArduinoPathWindowsFixed();
     } else if (process.platform == 'darwin') {
         return config.get(pathKey) || defaultMac;
     } else {
@@ -81,6 +101,7 @@ exports.loadInArduino = function (path) {
 
 exports.uploadToArduino = function (path, board, port) {
     var args = ['--upload'];
+    console.log(`Uploading to Arudino platform with board ${board} and port ${port}`)
 
     if (board != null) {
         args.push(`--board`);
@@ -159,8 +180,10 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
  * @param project The project that is currently loaded
  * @param uploadComplete A function to call when uploading a project completes
  * @param verifyComplete A function to call when verifying a project completes
+ * @param uploadLabel Text to display in the menu bar for the upload action
+ * @param uploadingLabel Optional message to display when uploading defaults to uploadLabel
  */
-exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, verifyComplete, uploadLabel) {
+exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, verifyComplete, uploadLabel, uploadingLabel) {
     menu['Project'] = [];
 
     menu['Project'].push({
@@ -185,10 +208,11 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
         accelerator: 'CmdOrCtrl+U',
         click(){
             try {
-                const child = exports.uploadToArduino(exports.getInoPath(project), project.meta != null ? project.meta.board : null, global.selectedPort);
+                const child = exports.uploadToArduino(exports.getInoPath(project), project.getMetaData() != null ? project.getMetaData().board : null, project.getMetaData() != null ? project.getMetaData().port : global.selectedPort);
                 let runningOutput = '';
                 let error = false;
 
+                let progress = new ProgressWindow(uploadingLabel || uploadLabel);
                 child.on('error', (err) => {
                     invalidArduinoPath(err);
                     error = true;
@@ -205,6 +229,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 });
 
                 child.on('close', (code) => {
+                    progress.destroy();
                     if (error) {
                         return;
                     }
