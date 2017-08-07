@@ -8,7 +8,7 @@ const {dialog} = require('electron');
 const builder = require("electron-builder");
 const Platform = builder.Platform;
 const {shell} = require('electron');
-
+const {ProgressWindow} = require('../progress');
 function getCurrentPlatform() {
     switch (process.platform) {
         case 'linux':
@@ -21,6 +21,7 @@ function getCurrentPlatform() {
 }
 
 function exportExecutable(sourceDir, name, callback) {
+    const progress = new ProgressWindow('Exporting Executable');
     const defaultStartupJs =
         `const electron = require('electron')
         // Module to control application life.
@@ -131,6 +132,7 @@ function exportExecutable(sourceDir, name, callback) {
 
     install.on('close', (code) => {
         if (code != 0) {
+            progress.destroy();
             callback(error, code);
             console.error('Process exited unsuccessfully');
             return;
@@ -150,11 +152,11 @@ function exportExecutable(sourceDir, name, callback) {
         });
 
         spawned.on('close', (code) => {
+            progress.destroy();
             callback(error, code);
             console.log(`child process exited with code ${code}`);
         });
     });
-
     //May want to research this again later
     //packager(options, callback);
 }
