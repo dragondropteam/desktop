@@ -107,21 +107,23 @@ function save() {
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
 
         xml = Blockly.Xml.domToPrettyText(xml);
-        fs.writeFile(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`), code, function (err) {
-            if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
-                console.log(err);
-                return false;
-            }
-        });
 
-        fs.writeFile(loadedProject.getBlocksPath(), xml, (err) => {
-            if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
-                console.log(err);
-                return false;
-            }
-        });
+        try {
+            fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`), code);
+        } catch (err) {
+            dialog.showErrorBox('Error in code!', err.message);
+            console.log(err);
+            return false;
+        }
+
+        try{
+            fs.writeFileSync(loadedProject.getBlocksPath(), xml);
+        }catch(err){
+            dialog.showErrorBox('Error in code!', err.message);
+            console.log(err);
+            return false;
+        }
+
         return true;
     } catch (e) {
         dialog.showErrorBox('Error in code', e.message);

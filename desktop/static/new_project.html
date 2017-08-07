@@ -20,7 +20,7 @@
 
         <md-content layout-padding >
             <md-radio-group ng-model="projectType">
-                <md-radio-button ng-repeat="project in projects" ng-value="project.tag" aria-label="{{project.display}}">
+                <md-radio-button ng-repeat="project in projects" ng-value="project.tag" aria-label="{{project.display}}" ng-if="project.enabled == true">
                     {{project.display}}
                 </md-radio-button>
             </md-radio-group>

@@ -1,11 +1,11 @@
 {
-  "name": "project_types",
-  "version": "2.0.0",
+  "name": "progress_dialog",
+  "version": "1.0.0",
   "description": "",
-  "main": "project_types.js",
+  "main": "progress.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "DigiPen Institute of Technology",
+  "author": "Luke Powell",
   "license": "UNLICENSED"
 }

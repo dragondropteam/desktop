@@ -9,14 +9,14 @@ require('../../project/projects');
  *
  * @type {number}
  */
-const buildNumber = 1;
+const buildNumber = 2;
 const fs = require('fs-extra');
 const path = require('path');
 const {Project} = require('project');
 const {LoadedProject} = require('project');
 
 const filesystem = require(`filesystem`);
-const arduino = require('arduino_core');
+const arduino = require('../../arduino_core/arduino_core');
 const electron = require('electron');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
@@ -48,6 +48,7 @@ exports.createProjectDir = function (name, filePath) {
         project.type = 'wink';
         project.meta = {
             'version': buildNumber,
+            'board': 'Arduino Fio'
         };
         fs.writeJsonSync(`${filePath}/${name}.digiblocks`, project);
         return new LoadedProject(project, filePath);
@@ -61,6 +62,8 @@ exports.createProjectDir = function (name, filePath) {
 exports.loadProject = function (filePath) {
     let project = fs.readJsonSync(filePath);
     let loadedProject = new LoadedProject(project, path.dirname(filePath));
+
+    console.log(loadedProject);
 
     if ((project.meta && project.meta.version < buildNumber) || (!project.meta) || (!project.type)) {
         exports.migrate(loadedProject);
@@ -78,12 +81,21 @@ exports.saveProject = function (project) {
  * @param loadedProject The loadedProject to migrate to the new version
  */
 exports.migrate = function (loadedProject) {
+    console.log(`Migrating project from ${loadedProject.loadedProject.meta} to ${buildNumber}`);
+
     if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
         loadedProject.loadedProject.meta = {
-            'version': buildNumber
+            'version': buildNumber,
+            'board': 'Arduino Fio'
         };
         loadedProject.loadedProject.type = 'wink';
     }
+
+    if(loadedProject.loadedProject.meta.version === 1){
+        loadedProject.loadedProject.meta.board = 'Arduino Fio';
+        loadedProject.loadedProject.meta.version++;
+    }
+
     exports.saveProject(loadedProject);
 };
 
@@ -120,7 +132,7 @@ function completedVerify(code, output) {
  * @param failure The callback to make if some error prevents the menu from being created
  */
 exports.mutateMenu = function (menu, project, success, failure, refresh) {
-    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot');
+    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot', 'Uploading Program to Wink Bot');
     arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
 };
 
