@@ -20,7 +20,7 @@ const ipcRenderer = require('electron').ipcRenderer;
  */
 const macPrefix = '/Contents/MacOS/Arduino';
 const {BrowserWindow} = require('electron');
-const {ProgressWindow} = require('../progress');
+const {ProgressWindow} = require('progress_dialog');
 
 exports.macPrefix = macPrefix;
 
