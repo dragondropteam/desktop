@@ -1,1 +1,0 @@
-"use strict";global.development=!1;const core=require("./main_core");core.setIndex("index.html");
