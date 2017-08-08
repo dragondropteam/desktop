@@ -66,7 +66,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     load: loadProjectFile,
     save: save,
     reload: () => {
-        workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
+        // workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
     },
     onComponentOpen: (component) => {
         console.log(component);
@@ -117,7 +117,7 @@ function save() {
         }
 
         try{
-            fs.writeFileSync(path.getBlocksPath(), xml);
+            fs.writeFileSync(loadedProject.getBlocksPath() , xml);
         }catch(err){
             dialog.showErrorBox('Error in code!', err.message);
             console.log(err);
