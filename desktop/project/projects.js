@@ -99,4 +99,12 @@ exports.LoadedProject = class LoadedProject{
   getMetaData(){
     return this.loadedProject.meta;
   }
+
+  getProjectDir(){
+    return path.join(this.loadPath, this.getName());
+  }
+
+  getFileInProjectDir(file){
+    return path.join(this.getProjectDir(), file);
+  }
 };
