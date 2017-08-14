@@ -1028,3 +1028,14 @@ Blockly.Blocks['ir_button'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['get_pressed_ir_button'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Get Pressed IR Button");
+        this.setOutput(true, "Number");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};

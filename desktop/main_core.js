@@ -202,8 +202,8 @@ function createProjectMenu(arg) {
     menuHash['File'].push({
         label: "Save Project",
         accelerator: 'CmdOrCtrl+S',
-        click(){
-            mainWindow.webContents.send('save_project');
+        click(item, displayedWindow){
+            displayedWindow.webContents.send('save_project');
         }
     });
 

@@ -383,5 +383,9 @@ Blockly.C['ir_when'] = function (block) {
 
 Blockly.C['ir_button'] = function (block) {
     let irButton = block.getFieldValue('BUTTONS');
-    return [irButton, Blockly.JavaScript.ORDER_ATOMIC];
+    return [irButton, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['get_pressed_ir_button'] = function() {
+    return ['GetIRButton()', Blockly.C.ORDER_ATOMIC];
 };
