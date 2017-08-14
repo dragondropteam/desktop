@@ -560,7 +560,8 @@
     <category name="Wink IR Communication" colour="330">
         <block type="restart_ir"/>
         <block type="is_ir_done"/>
-        <block type="ir_when"/>
+        <block type="get_pressed_ir_button"/>
+        <!--<block type="ir_when"/>-->
         <block type="ir_button"/>
     </category>
     <sep/>
