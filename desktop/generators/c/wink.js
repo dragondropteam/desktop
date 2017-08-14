@@ -366,18 +366,17 @@ Blockly.C['ir_when'] = function (block) {
         return '';
     }
 
-    let code = 'if(IsIRDone()){\n';
+    let code = 'if(IsIRDone()){\n\tint button = GetIRButton();\n';
 
     for (let i = 1; i <= block.keyPressChecks; ++i) {
         let prefix = i == 1 ? '\tif' : '\telse if';
         let dropDown = block.getFieldValue('BUTTON' + i);
         let statement = Blockly.C.statementToCode(block, 'CHECK' + i);
         statement = statement.replace('\n', '\n\t');
-        code += `${prefix}(${dropDown}){\n${statement}\t}\n`;
+        code += `${prefix}(button == ${dropDown}){\n  ${statement}  RxIRRestart(4);\n  }\n`;
     }
 
-
-    code += '}\nelse{\n\tRxIRRestart(4);\n}\n';
+    code += '\telse{\n    RxIRRestart(4);\n  }\n}\n';
     return code;
 };
 
