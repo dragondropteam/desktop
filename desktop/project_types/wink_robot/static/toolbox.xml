@@ -1,4 +1,4 @@
-<xml id="toolbox" style="display: none">
+ <xml id="toolbox" style="display: none">
     <category name="Logic" colour="210">
         <block type="controls_if"/>
         <block type="logic_compare"/>
@@ -561,6 +561,7 @@
         <block type="restart_ir"/>
         <block type="is_ir_done"/>
         <block type="ir_when"/>
+        <block type="ir_button"/>
     </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
