@@ -32,23 +32,17 @@ exports.clearRecentProjects = function(){
  * Add files to a list no more then RECENT_FILES_LIMIT
  * Files accessed more recently will appear towards the beginning of
  * the list older files will appear towards the end of the list
- * @param path
+ * @param loadedProject
  */
 exports.addToRecentProjects = function(loadedProject) {
-  var recentFiles = getRecentProjects();
+  let recentFiles = getRecentProjects();
 
   /**
    * We want our recent files list to be ordered by time removed
    * if a path already exists remove it, it will be added back to
    * the beginning.
    */
-  var index = -1;
-  for(var i = 0; i < recentFiles.length; ++i){
-    if(recentFiles[i].loadPath == loadedProject.loadPath){
-      index = i;
-      break;
-    }
-  }
+  let index = recentFiles.indexOf(loadedProject.loadPath);
 
   if(index != -1){
     recentFiles.splice(index, 1);
