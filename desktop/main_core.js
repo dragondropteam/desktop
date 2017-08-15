@@ -522,7 +522,7 @@ app.on('ready', function () {
     // Create the browser window.
     mainWindow = new BrowserWindow({width: 600, height: 500, resizable: false});
     
-    if (args._.length >= 1 && !process.defaultApp && process.env === 'win32') {
+    if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
     } else {
         // and load the index.html of the app.
