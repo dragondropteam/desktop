@@ -9,7 +9,7 @@ require('../../project/projects');
  *
  * @type {number}
  */
-const buildNumber = 2;
+const buildNumber = 3;
 const fs = require('fs-extra');
 const path = require('path');
 const {Project} = require('project');
@@ -81,7 +81,7 @@ exports.saveProject = function (project) {
  * @param loadedProject The loadedProject to migrate to the new version
  */
 exports.migrate = function (loadedProject) {
-    console.log(`Migrating project from ${loadedProject.loadedProject.meta} to ${buildNumber}`);
+    console.log(`Migrating project from ${loadedProject.loadedProject.meta.version} to ${buildNumber}`);
 
     if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
         loadedProject.loadedProject.meta = {
@@ -91,9 +91,31 @@ exports.migrate = function (loadedProject) {
         loadedProject.loadedProject.type = 'wink';
     }
 
-    if(loadedProject.loadedProject.meta.version === 1){
+    if (loadedProject.loadedProject.meta.version === 1) {
+        console.log('1 => 2\n Update meta to include board');
         loadedProject.loadedProject.meta.board = 'Arduino Fio';
         loadedProject.loadedProject.meta.version++;
+    }
+
+    //For now remove any .h file and .ino file and replace with .hpp and the .ino that reference the .hpp files
+    if (loadedProject.loadedProject.meta.version === 2) {
+        console.log('2 => 3\n  - Update .h to .hpp');
+
+        try {
+            fs.removeSync(loadedProject.getFileInProjectDir('FunStuff.ino'));
+            console.log('FunStuff.ino deleted');
+            fs.removeSync(loadedProject.getFileInProjectDir('FunStuff.h'));
+            console.log('FunStuff.h deleted');
+            fs.removeSync(loadedProject.getFileInProjectDir('WinkHardware.ino'));
+            console.log('WinkHardware.ino deleted');
+            fs.removeSync(loadedProject.getFileInProjectDir('WinkHardware.h'));
+            console.log('WinkHardware.h deleted');
+            fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
+            console.log('.h updated to .hpp');
+            loadedProject.loadedProject.meta.version++;
+        } catch (err) {
+            return console.error(err);
+        }
     }
 
     exports.saveProject(loadedProject);
@@ -132,7 +154,7 @@ function completedVerify(code, output) {
  * @param failure The callback to make if some error prevents the menu from being created
  */
 exports.mutateMenu = function (menu, project, success, failure, refresh) {
-    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot');
+    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot', 'Uploading Program to Wink Bot');
     arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
 };
 
