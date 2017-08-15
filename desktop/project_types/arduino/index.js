@@ -124,7 +124,7 @@ function completedVerify(code, output) {
  * @param failure The callback to make if some error prevents the menu from being created
  */
 exports.mutateMenu = function (menu, project, success, failure, refresh) {
-    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Arduino Board');
+    arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Arduino Board', 'Uploading Program to Arduino Board');
     arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
 
     let start = true;
