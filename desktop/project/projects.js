@@ -7,25 +7,25 @@ const config = new Config();
 const recentFilesKey = 'RECENT_FILES';
 const RECENT_FILES_LIMIT = '10';
 
-function getRecentProjects(){
+function getRecentProjects() {
 
-  /**
-   * We always want some store of our recent projects
-   */
-  if(!config.has(recentFilesKey)){
-    config.set(recentFilesKey,[]);
-  }
+    /**
+     * We always want some store of our recent projects
+     */
+    if (!config.has(recentFilesKey)) {
+        config.set(recentFilesKey, []);
+    }
 
-  /**
-   * This should never be null
-   */
-  return config.get(recentFilesKey);
+    /**
+     * This should never be null
+     */
+    return config.get(recentFilesKey);
 }
 
 exports.getRecentProjects = getRecentProjects;
 
-exports.clearRecentProjects = function(){
-  config.set(recentFilesKey, []);
+exports.clearRecentProjects = function () {
+    config.set(recentFilesKey, []);
 };
 
 /**
@@ -34,71 +34,77 @@ exports.clearRecentProjects = function(){
  * the list older files will appear towards the end of the list
  * @param loadedProject
  */
-exports.addToRecentProjects = function(loadedProject) {
-  let recentFiles = getRecentProjects();
+exports.addToRecentProjects = function (loadedProject) {
+    let recentFiles = getRecentProjects();
 
-  /**
-   * We want our recent files list to be ordered by time removed
-   * if a path already exists remove it, it will be added back to
-   * the beginning.
-   */
-  let index = recentFiles.indexOf(loadedProject.loadPath);
+    /**
+     * We want our recent files list to be ordered by time removed
+     * if a path already exists remove it, it will be added back to
+     * the beginning.
+     */
+    let index = -1;
+    for (let i = 0; i < recentFiles.length; ++i) {
+        if (recentFiles[i].loadPath == loadedProject.loadPath) {
+            index = i;
+            break;
+        }
+    }
 
-  if(index != -1){
-    recentFiles.splice(index, 1);
-  }
+    if (index != -1) {
+        recentFiles.splice(index, 1);
+    }
 
-  /**
-   * If we are at our limit remove the last element the oldest
-   */
-  if(recentFiles.length == RECENT_FILES_LIMIT){
-    recentFiles.pop();
-  }
+    /**
+     * If we are at our limit remove the last element the oldest
+     */
+    if (recentFiles.length == RECENT_FILES_LIMIT) {
+        recentFiles.pop();
+    }
 
-  recentFiles.unshift(loadedProject);
+    recentFiles.unshift(loadedProject);
 
-  config.set(recentFilesKey, recentFiles);
+    config.set(recentFilesKey, recentFiles);
 };
 
-exports.Project = class Project{
-  constructor(name, version){
-    this.name = name;
-    this.version = version;
-    this.type = 'wink';
-  }
+exports.Project = class Project {
+    constructor(name, version) {
+        this.name = name;
+        this.version = version;
+        this.type = 'wink';
+    }
 };
 
-exports.LoadedProject = class LoadedProject{
-  constructor(project, loadPath){
-    this.loadedProject = project;
-    this.loadPath = loadPath;
-  }
+exports.LoadedProject = class LoadedProject {
+    constructor(project, loadPath) {
+        this.loadedProject = project;
+        this.loadPath = loadPath;
+    }
 
-  getBlocksPath(){
-    return path.join(this.loadPath, `${this.loadedProject.name}.xml`);
-  }
+    getBlocksPath() {
+        return path.join(this.loadPath, `${this.loadedProject.name}.xml`);
+    }
 
-  getProjectPath(){
-    return path.join(this.loadPath, `${this.loadedProject.name}.digiblocks`);
-  }
+    getProjectPath() {
+        return path.join(this.loadPath, `${this.loadedProject.name}.digiblocks`);
+    }
 
-  getName(){
-    return this.loadedProject.name;
-  }
+    getName() {
+        return this.loadedProject.name;
+    }
 
-  getType(){
-    return this.loadedProject.type;
-  }
+    getType() {
+        return this.loadedProject.type;
+    }
 
-  getMetaData(){
-    return this.loadedProject.meta;
-  }
+    getMetaData() {
+        return this.loadedProject.meta;
+    }
 
-  getProjectDir(){
-    return path.join(this.loadPath, this.getName());
-  }
+    getProjectDir() {
+        return path.join(this.loadPath, this.getName());
+    }
 
-  getFileInProjectDir(file){
-    return path.join(this.getProjectDir(), file);
-  }
+    getFileInProjectDir(file) {
+        return path.join(this.getProjectDir(), file);
+    }
 };
