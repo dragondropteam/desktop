@@ -29,10 +29,29 @@ exports.clearRecentProjects = function () {
 };
 
 /**
+ * Finds a loaded project from the most recent files.
+ *
+ * @param {Array.<LoadedProject>} recentFiles The array of LoadedProjects from our store
+ * @param {string} projectPath The path to the loaded project
+ * @return {number} -1 if not found else the index of the project
+ */
+function indexOfProject(recentFiles, projectPath){
+    let index = -1;
+    for (let i = 0; i < recentFiles.length; ++i) {
+        if (recentFiles[i].loadPath == projectPath) {
+            index = i;
+            break;
+        }
+    }
+
+    return index;
+}
+
+/**
  * Add files to a list no more then RECENT_FILES_LIMIT
  * Files accessed more recently will appear towards the beginning of
  * the list older files will appear towards the end of the list
- * @param loadedProject
+ * @param {LoadedProject} loadedProject
  */
 exports.addToRecentProjects = function (loadedProject) {
     let recentFiles = getRecentProjects();
@@ -42,13 +61,7 @@ exports.addToRecentProjects = function (loadedProject) {
      * if a path already exists remove it, it will be added back to
      * the beginning.
      */
-    let index = -1;
-    for (let i = 0; i < recentFiles.length; ++i) {
-        if (recentFiles[i].loadPath == loadedProject.loadPath) {
-            index = i;
-            break;
-        }
-    }
+    let index = indexOfProject(recentFiles, loadedProject.loadPath);
 
     if (index != -1) {
         recentFiles.splice(index, 1);
@@ -62,6 +75,25 @@ exports.addToRecentProjects = function (loadedProject) {
     }
 
     recentFiles.unshift(loadedProject);
+
+    config.set(recentFilesKey, recentFiles);
+};
+
+/**
+ * Removes a project from the list of recent projects. Uses the path to the project to allow deletion of a project
+ * when loading fails
+ * @param {string} projectPath Path to the project to be removed
+ */
+exports.removeFromRecentProjects = function(projectPath){
+    let recentFiles = getRecentProjects();
+
+    let index = indexOfProject(recentFiles, projectPath);
+
+    if(index === -1){
+        return;
+    }
+
+    recentFiles.splice(index, 1);
 
     config.set(recentFilesKey, recentFiles);
 };
