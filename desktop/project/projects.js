@@ -8,7 +8,6 @@ const recentFilesKey = 'RECENT_FILES';
 const RECENT_FILES_LIMIT = '10';
 
 function getRecentProjects() {
-
     /**
      * We always want some store of our recent projects
      */
@@ -106,36 +105,79 @@ exports.Project = class Project {
     }
 };
 
+/**
+ * Represents a project that has been loaded has helper methods to access directories, and information about the project
+ * and where it exists on disk.
+ * @type {LoadedProject}
+ */
 exports.LoadedProject = class LoadedProject {
+    /**
+     * Constructs a LoadedProject from the project loaded from disk or created and the path to the .digiblocks file
+     * where it should be saved/loaded form on disk.
+     *
+     * @param {Project} project Project loaded from disk
+     * @param {String} loadPath Path to the .digiblocks file defining the project on disk
+     */
     constructor(project, loadPath) {
         this.loadedProject = project;
         this.loadPath = loadPath;
     }
 
+    /**
+     * Helper to get the path to the blocks file (.xml) that contains all of the blocks the user has placed
+     * @return {string} The path to the blocks file (.xml)
+     */
     getBlocksPath() {
         return path.join(this.loadPath, `${this.loadedProject.name}.xml`);
     }
 
+    /**
+     * Helper to get the path to the project file (.digiblocks) this file contains JSON to describe the project and its
+     * metadata
+     * @return {string} The path to the project file (.digiblocks)
+     */
     getProjectPath() {
         return path.join(this.loadPath, `${this.loadedProject.name}.digiblocks`);
     }
 
+    /**
+     * Helper to get the name of the project
+     * @return {string} The name of the project
+     */
     getName() {
         return this.loadedProject.name;
     }
 
+    /**
+     * Get the string representing the type of the project ex. 'wink'
+     * @return {string} The type of the loaded project
+     */
     getType() {
         return this.loadedProject.type;
     }
 
+    /**
+     * Get any metadata on the current project
+     * @return {*} An object containing metadata for the currently loaded project
+     */
     getMetaData() {
         return this.loadedProject.meta;
     }
 
+    /**
+     * Get the inner project directory that contains the generated source code, and user added assets
+     * @return {string} The path to the project directory
+     */
     getProjectDir() {
         return path.join(this.loadPath, this.getName());
     }
 
+    /**
+     * Get a file from the inner project directory. The inner directory contains the actual files for the project.
+     *
+     * @param {string} file Path to the file in the project dir
+     * @return {string} The path to the given file
+     */
     getFileInProjectDir(file) {
         return path.join(this.getProjectDir(), file);
     }
