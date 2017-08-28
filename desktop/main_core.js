@@ -494,15 +494,36 @@ app.on('window-all-closed', function () {
     }
 });
 
-function loadProjectFromPath(path) {
-    let json = fs.readJsonSync(path);
-    ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
+/**
+ * Loads a project from the path to a given .digiblocks file if the file is able to be loaded it will then be displayed
+ * else it will display an error and remove from the list of recent projects as needed
+ * @param {string} projectPath Path to a .digiblocks file to load
+ */
+function loadProjectFromPath(projectPath) {
+    try{
+        let json = fs.readJsonSync(projectPath);
+        ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
 
-    let project = ProjectInterface.loadProject(path);
-    if (project !== null) {
-        displayProject(project);
-    } else {
-        dialog.showErrorBox('Could not open project', `Could not open project at ${path}`);
+        let project = ProjectInterface.loadProject(projectPath);
+        if (project !== null) {
+            displayProject(project);
+         } else {
+            dialog.showErrorBox('Could not open project', `Could not open project at ${projectPath}`);
+        }
+    }catch(ex){
+        const message = !fs.existsSync(projectPath) ? 'The selected project does not exist.\nIt will be removed from recent projects if present' : 'Could not open the selected project';
+        //There was an error trying to load the project, this most likely will occur when the user deleted a file from
+        //disk. So prompt the user with an error that the project cannot be loaded then remove it from the list of
+        //recent projects.
+        dialog.showMessageBox(mainWindow, {
+            type: "error",
+            message: message
+        });
+
+        projects.removeFromRecentProjects(path.dirname(projectPath));
+
+        //Update the mainWindow if it cares
+        mainWindow.send('recent_projects_updated');
     }
 }
 
