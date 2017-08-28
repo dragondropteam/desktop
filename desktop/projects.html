@@ -55,7 +55,12 @@
         $scope.recentPaths = projects.getRecentProjects();
         $scope.loadProject = function(loadPath, name){
           ipcRenderer.send('load_project', path.join(loadPath,`${name}.digiblocks`));
-        }
+        };
+
+        ipcRenderer.on('recent_projects_updated', () =>{
+            $scope.recentPaths = projects.getRecentProjects();
+            $scope.$apply();
+        });
     });
 
     const {ipcRenderer} = require('electron');
@@ -74,6 +79,7 @@
     function loadProjectDialog(){
       ipcRenderer.send('load_project_dialog');
     }
+
   </script>
 
 </body>
