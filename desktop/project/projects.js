@@ -5,6 +5,7 @@ const path = require('path');
 const Config = require('electron-store');
 const config = new Config();
 const recentFilesKey = 'RECENT_FILES';
+const fs = require('fs-extra');
 const RECENT_FILES_LIMIT = '10';
 
 function getRecentProjects() {
@@ -15,10 +16,20 @@ function getRecentProjects() {
         config.set(recentFilesKey, []);
     }
 
+    let projects = config.get(recentFilesKey);
+    console.log(projects);
+    for(let i = 0; i < projects.length; ){
+        if(!fs.existsSync(path.join(projects[i].loadPath, `${projects[i].loadedProject.name}.digiblocks`))){
+            projects.splice(i, 1);//[i].loadedProject.name += ' - Deleted';
+        }else{
+            ++i;
+        }
+    }
+
     /**
      * This should never be null
      */
-    return config.get(recentFilesKey);
+    return projects;
 }
 
 exports.getRecentProjects = getRecentProjects;
