@@ -435,7 +435,7 @@
         <block type="get_animation_property"/>
         <block type="set_animation_property"/>
     </category>
-    <category name="Text" colour="190">
+    <category name="Phaser Text" colour="190">
         <block type="add_text"/>
         <block type="set_text"/>
         <block type="create_bitmapFont"/>
