@@ -355,7 +355,7 @@ ipcMain.on('create_new_project', (event, project, type) => {
 
 function createProject() {
     if (!createProjectWindow) {
-        createProjectWindow = new BrowserWindow({width: 900, height: 600, show: false, resizable: false});
+        createProjectWindow = new BrowserWindow({width: 800, height: 400, show: false, resizable: false});
         createProjectWindow.once('ready-to-show', () => {
             createProjectWindow.show();
         });
