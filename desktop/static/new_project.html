@@ -8,13 +8,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .projectpath {
-            width: 80%;
+            width: 70%;
         }
 
         #path{
             width: 90%;
-            position: absolute;
-            bottom: 0;
         }
 
         .createProject{
@@ -48,20 +46,23 @@
         <!--</md-button>-->
     </md-sidenav>
 
-    <md-content flex="75" layout="column" layout-align="center center">
-        <h1 class="md-body-5">Name Your Project!</h1>
-        <md-input-container class="createProject">
-            <label for="projectName">Project Name</label>
-            <input  name="projectName" id="projectName" ng-model="project.name" type="text" maxlength="100"/>
-        </md-input-container>
-        <md-button ng-click="createProject()" id="createProject" class="md-raised md-primary createProject" type="submit">Create Project <md-icon>create</md-icon></md-button>
-        <div layout="row" layout-align="center center" id="path">
-            <md-input-container class="projectpath">
-                <label for="projectPath">Path</label>
-                <input id="projectPath" ng-model="project.path" type="text"/>
+    <md-content flex="75" layout="column" layout-align="center center" style="background-image: url('29.jpg');">
+        <div style="width: 60%; background: white" layout="column" layout-align="center center" md-whiteframe="5">
+            <h1 class="md-body-5">Name Your Project!</h1>
+            <md-input-container class="createProject">
+                <label for="projectName">Project Name</label>
+                <input  name="projectName" id="projectName" ng-model="project.name" type="text" maxlength="100"/>
             </md-input-container>
-            <md-button ng-click="browse()" class="md-raised md-primary">Browse <md-icon>search</md-icon></md-button>
+            <md-button layout-align="center center" ng-click="createProject()" id="createProject" class="md-raised md-primary createProject" type="submit">Create Project <md-icon>create</md-icon></md-button>
+            <div layout="row" layout-align="center center" id="path">
+                <md-input-container class="projectpath">
+                    <label for="projectPath">Path</label>
+                    <input id="projectPath" ng-model="project.path" type="text"/>
+                </md-input-container>
+                <md-button ng-click="browse()" class="md-raised md-primary">Browse <md-icon>search</md-icon></md-button>
+            </div>
         </div>
+
     </md-content>
 
     <!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
