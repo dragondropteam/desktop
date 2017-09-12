@@ -128,6 +128,15 @@ function addToggleDevTools(menuHash) {
 
 let wikiWindow = null;
 
+function addHelpMenu(menuHash) {
+    menuHash['Help'] = [{
+        label: 'View Wiki',
+        click(){
+            const {shell} = require('electron');
+            shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
+        }
+    }];
+}
 function createDefaultMenu() {
 
     let menuHash = Object.create(null);
@@ -165,14 +174,7 @@ function createDefaultMenu() {
     //Add Edit
     fillEditMenu(menuHash);
     addToggleDevTools(menuHash);
-
-    menuHash['Help'] = [{
-        label: 'View Wiki',
-        click(){
-            const {shell} = require('electron');
-            shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
-        }
-    }];
+    addHelpMenu(menuHash);
     let menu = Menu.buildFromTemplate(flattenMenu(menuHash));
     Menu.setApplicationMenu(menu);
 }
@@ -321,11 +323,11 @@ function createProjectMenu(arg) {
     //Add Edit
     fillEditMenu(menuHash);
     addToggleDevTools(menuHash);
-
     // console.log(menuHash);
 
 
     ProjectInterface.mutateMenu(menuHash, arg, () => {
+        addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
         dialog.showErrorBox('Could not create menu', 'Menu could not be created!');
