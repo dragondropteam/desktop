@@ -51,9 +51,10 @@
             <h1 class="md-body-5">Name Your Project!</h1>
             <md-input-container class="createProject">
                 <label for="projectName">Project Name</label>
-                <input required name="projectName" id="projectName" ng-model="projectName" type="text" md-maxlength="100" minlength="5"/>
-                <div ng-messages="project.projectName.$error">
+                <input required name="projectName" id="projectName" ng-pattern="/^[A-Za-z]/" ng-model="projectName" type="text" md-maxlength="100" minlength="5"/>
+                <div ng-messages="project.projectName.$error" ng-show="project.projectName.$dirty">
                     <div ng-message="required">This is required</div>
+                    <div ng-message="pattern">Can only contain A-Z, a-z, 1-9, _ and spaces must start with a letter</div>
                     <div ng-message="md-maxlength">Must be less then 100 characters</div>
                     <div ng-message="minlength">Must be at least 5 characters</div>
                 </div>
