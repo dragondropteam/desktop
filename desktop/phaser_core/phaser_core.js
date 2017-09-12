@@ -225,7 +225,7 @@ exports.setupPhaserMenu = (menu, project) => {
     });
 
     menu['View'].push({
-        label: 'View Embedded WebView Developer Tools',
+        label: 'Phaser Debug Console',
         accelerator: 'CmdOrCtrl+I+Shift+Alt',
         click(item, displayedWindow){
             //Send message to renderer to give us the workspace
