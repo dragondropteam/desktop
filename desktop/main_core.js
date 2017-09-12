@@ -117,7 +117,7 @@ function addMacOSX(menuHash) {
 
 function addToggleDevTools(menuHash) {
     menuHash['View'] = [{
-        label: 'Toggle Developer Tools',
+        label: 'DragonDrop Debug Console',
         accelerator: 'CmdOrCtrl+Shift+I',
         click(item, focusedWindow) {
             if (focusedWindow)
