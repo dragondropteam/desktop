@@ -117,7 +117,7 @@ function addMacOSX(menuHash) {
 
 function addToggleDevTools(menuHash) {
     menuHash['View'] = [{
-        label: 'Toggle Developer Tools',
+        label: 'DragonDrop Debug Console',
         accelerator: 'CmdOrCtrl+Shift+I',
         click(item, focusedWindow) {
             if (focusedWindow)
@@ -126,6 +126,17 @@ function addToggleDevTools(menuHash) {
     }];
 }
 
+let wikiWindow = null;
+
+function addHelpMenu(menuHash) {
+    menuHash['Help'] = [{
+        label: 'View Wiki',
+        click(){
+            const {shell} = require('electron');
+            shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
+        }
+    }];
+}
 function createDefaultMenu() {
 
     let menuHash = Object.create(null);
@@ -159,13 +170,15 @@ function createDefaultMenu() {
         }
     });
 
+
     //Add Edit
     fillEditMenu(menuHash);
     addToggleDevTools(menuHash);
-
+    addHelpMenu(menuHash);
     let menu = Menu.buildFromTemplate(flattenMenu(menuHash));
     Menu.setApplicationMenu(menu);
 }
+
 function createPreferenceWindow() {
     if (preferencesWindow) {
         return;
@@ -310,11 +323,11 @@ function createProjectMenu(arg) {
     //Add Edit
     fillEditMenu(menuHash);
     addToggleDevTools(menuHash);
-
     // console.log(menuHash);
 
 
     ProjectInterface.mutateMenu(menuHash, arg, () => {
+        addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
         dialog.showErrorBox('Could not create menu', 'Menu could not be created!');
@@ -511,6 +524,7 @@ function loadProjectFromPath(projectPath) {
             dialog.showErrorBox('Could not open project', `Could not open project at ${projectPath}`);
         }
     }catch(ex){
+        console.error(ex);
         const message = !fs.existsSync(projectPath) ? 'The selected project does not exist.\nIt will be removed from recent projects if present' : 'Could not open the selected project';
         //There was an error trying to load the project, this most likely will occur when the user deleted a file from
         //disk. So prompt the user with an error that the project cannot be loaded then remove it from the list of
