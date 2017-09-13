@@ -22,31 +22,33 @@
  * All changes copyright DigiPen Institute of Technology 2017
  * The above changes are not under the Apache license
  */
-
 const PHASER_COLOUR = 120;
 
+const PHASER_STARTUP_COLOUR = '#b71c1c';
+const PHASER_WORLD_COLOUR = '#d32f2f';
+const PHASER_STATES_COLOUR = '#c62828';
+const PHASER_UTILITY_COLOUR = '#ff6d00';
 //region STARTUP
 Blockly.Blocks['phaser_simple_init'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Run Phaser");
+            .appendField("run phaser");
         this.appendDummyInput()
-            .appendField("Width:")
+            .appendField("width:")
             .appendField(new Blockly.FieldNumber(800), "WIDTH")
-            .appendField("Height")
+            .appendField("height")
             .appendField(new Blockly.FieldNumber(600), "HEIGHT");
         this.appendStatementInput("PRELOAD")
             .setCheck(null)
-            .appendField("On Preload Do");
+            .appendField("on preload do");
         this.appendStatementInput("CREATE")
             .setCheck(null)
-            .appendField("On Create Do");
+            .appendField("on create do");
         this.appendStatementInput("UPDATE")
             .setCheck(null)
-            .appendField("On Update Do");
-        this.setColour(PHASER_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+            .appendField("on update do");
+        this.setColour(PHASER_STARTUP_COLOUR);
+        this.setTooltip('Create a Phaser Game with given width and height');
     }
 };
 
@@ -62,12 +64,13 @@ Blockly.Blocks['start_phaser_for_states'] = {
             .appendField(new Blockly.FieldNumber(600, 0), "HEIGHT");
         this.setInputsInline(true);
         this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setColour(PHASER_STARTUP_COLOUR);
+        this.setTooltip('Create a Phaser game using explicit states');
     }
 };
+//endregion
 
+//region UTILITY
 Blockly.Blocks['center_and_stretch'] = {
     init: function() {
         this.appendDummyInput()
@@ -75,25 +78,20 @@ Blockly.Blocks['center_and_stretch'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setColour(PHASER_UTILITY_COLOUR);
+        this.setTooltip('Tells Phaser to center and stretch the game view to fit its window');
     }
 };
-//endregion
-
-//region STEPPING
-const STEPPING_COLOUR = 128;
 
 Blockly.Blocks['enable_step'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField('Enable Stepping');
+            .appendField('enable stepping');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(STEPPING_COLOUR);
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Game.html#enableStep');
+        this.setColour(PHASER_UTILITY_COLOUR);
     }
 };
 
@@ -104,8 +102,8 @@ Blockly.Blocks['disable_step'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(STEPPING_COLOUR);
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Game.html#disableStep');
+        this.setColour(PHASER_UTILITY_COLOUR);
     }
 };
 
@@ -116,16 +114,13 @@ Blockly.Blocks['step'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(STEPPING_COLOUR);
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Game.html#step');
+        this.setColour(PHASER_UTILITY_COLOUR);
     }
 };
-
 //endregion
 
-
 //region DRAWPRIMITIVES
-
 Blockly.Blocks['create_graphics_object'] = {
   init: function() {
     this.appendDummyInput()
@@ -2082,7 +2077,7 @@ Blockly.Blocks['emitters_set_width'] = {
 };
 //endregion
 
-//region DEBUG
+//region UTILITY
 
 Blockly.Blocks['debug_sprite'] = {
   init: function() {
@@ -2110,26 +2105,26 @@ Blockly.Blocks['statemanager_add_state'] = {
     init: function () {
         this.appendValueInput("NAME")
             .setCheck(null)
-            .appendField("StateManager add state");
+            .appendField("add state");
         this.appendDummyInput()
-            .appendField("tagged")
-            .appendField(new Blockly.FieldTextInput("tag"), "KEY");
+            .appendField('tagged')
+            .appendField(new Blockly.FieldTextInput("tag"), "KEY")
+            .appendField("to state manager");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
     }
 };
 
 Blockly.Blocks['statemanager_start_state'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Start state with tag")
+            .appendField("start state with tag")
             .appendField(new Blockly.FieldTextInput("tag"), "TAG");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('');
         this.setHelpUrl('');
     }
