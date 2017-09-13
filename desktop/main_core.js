@@ -611,3 +611,12 @@ ipcMain.on('update_settings', () => {
         mainWindow.send('settings_updated');
     }
 });
+
+ipcMain.on('show_help', (event, url) => {
+    // console.log(url);
+    const window = new BrowserWindow({width: 800, height: 600, show: false});
+    window.loadURL(url);
+    window.on('ready-to-show', () =>{
+        window.show();
+    });
+});
