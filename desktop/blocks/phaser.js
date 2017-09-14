@@ -23,11 +23,13 @@
  * The above changes are not under the Apache license
  */
 const PHASER_COLOUR = 120;
-
 const PHASER_STARTUP_COLOUR = '#b71c1c';
 const PHASER_WORLD_COLOUR = '#d32f2f';
 const PHASER_STATES_COLOUR = '#c62828';
 const PHASER_UTILITY_COLOUR = '#ff6d00';
+const PHASER_SPRITE_AND_IMAGES_COLOUR = '#004d40';
+const PHASER_GROUPS_COLOUR = '#00695c';
+const PHASER_ANIMATION_COLOUR = '#00796b';
 //region STARTUP
 Blockly.Blocks['phaser_simple_init'] = {
     init: function() {
@@ -1034,61 +1036,58 @@ Blockly.Blocks['animation_get_animation'] = {
 //endregion
 
 //region GROUP
-const GROUP_COLOUR = 60;
-
 Blockly.Blocks['create_group'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField('Create Group');
+            .appendField('create group');
         this.setOutput(true, null);
-        this.setTooltip('');
-        this.setColour(GROUP_COLOUR);
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(GROUP_COLOUR);
+        this.setTooltip('Create a new group of display objects');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#group');
+        this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
 
 Blockly.Blocks['create_object_in_group'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField('Create Object at');
+            .appendField('create object at');
         this.appendValueInput('X_POS')
-            .appendField('X');
+            .appendField('x');
         this.appendValueInput('Y_POS')
-            .appendField('Y');
+            .appendField('y');
         this.appendDummyInput()
-            .appendField("From Tag")
+            .appendField("from tag")
             .appendField(new Blockly.FieldTextInput("default"), "TAG")
-            .appendField("In The")
+            .appendField("in the")
             .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP")
-            .appendField("Group");
+            .appendField("group");
         this.setOutput(true, null);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(GROUP_COLOUR);
+        this.setTooltip('Create a new sprite in the group');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
 
 Blockly.Blocks['create_object_in_group_with_frame'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField('Create Object at');
+            .appendField('create object at');
         this.appendValueInput('X_POS')
-            .appendField('X');
+            .appendField('x');
         this.appendValueInput('Y_POS')
-            .appendField('Y');
+            .appendField('y');
         this.appendDummyInput()
-            .appendField("From Tag")
+            .appendField("from tag")
             .appendField(new Blockly.FieldTextInput("default"), "TAG")
-            .appendField("In The")
+            .appendField("in the")
             .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP")
-            .appendField("Group");
+            .appendField("group");
         this.appendValueInput('FRAME')
-            .appendField('Displaying Frame');
+            .appendField('displaying frame #');
         this.setOutput(true, null);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(GROUP_COLOUR);
+        this.setTooltip('Creates a sprite in the new group using the specifed frame from a sprite sheet or texture atlas');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
 
@@ -1103,7 +1102,7 @@ Blockly.Blocks['call_function_on_group'] = {
         this.setNextStatement(true, null);
         this.setTooltip('');
         this.setHelpUrl('http://www.example.com/');
-        this.setColour(GROUP_COLOUR);
+        this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
 
@@ -1402,42 +1401,41 @@ Blockly.Blocks['is_key_down'] = {
 //endregion
 
 //region WORLD
-const WORLD_COLOUR = "#BA9077";
-
 Blockly.Blocks['get_world_property'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Get the")
-            .appendField(new Blockly.FieldDropdown([["Height", "height"], ["Width", "width"], ["Center X", "centerX"], ["Center Y", "centerY"], ["Random X", "randomX"], ["Random Y", "randomY"]]), "NAME")
+            .appendField("get")
+            .appendField(new Blockly.FieldDropdown([["height", "height"], ["width", "width"], ["center x", "centerX"], ["center y", "centerY"], ["random x", "randomX"], ["random y", "randomY"]]), "NAME")
             .appendField("of the World");
         this.setOutput(true, null);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(WORLD_COLOUR);
+        this.setTooltip('Get a property of the world');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.World.html');
+        this.setColour(PHASER_WORLD_COLOUR);
     }
 };
 
 Blockly.Blocks['set_world_bounds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField('Set world bounds');
+            .appendField('set world bounds');
         this.appendValueInput('X_POS')
             .setCheck("Number")
-            .appendField("X:");
+            .appendField("x:");
         this.appendValueInput("Y_POS")
             .setCheck("Number")
-            .appendField("Y:");
+            .appendField("y:");
         this.appendValueInput('WIDTH')
             .setCheck("Number")
-            .appendField("W:");
+            .appendField("width:");
         this.appendValueInput("HEIGHT")
             .setCheck("Number")
-            .appendField("H:");
+            .appendField("height:");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(WORLD_COLOUR);
+        this.setTooltip('Updates the size of the world and sets the leftmost corner');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.World.html#setBounds');
+        this.setColour(PHASER_WORLD_COLOUR);
+        this.setInputsInline(true);
     }
 };
 
@@ -1454,7 +1452,7 @@ Blockly.Blocks['create_point'] = {
         this.setOutput(true, null);
         this.setTooltip('');
         this.setHelpUrl('http://www.example.com/');
-        this.setColour(WORLD_COLOUR);
+        this.setColour(PHASER_WORLD_COLOUR);
     }
 };
 
@@ -2092,7 +2090,7 @@ Blockly.Blocks['debug_sprite'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(WORLD_COLOUR);
+    this.setColour(PHASER_WORLD_COLOUR);
     this.setTooltip('');
     this.setHelpUrl('');
   }
