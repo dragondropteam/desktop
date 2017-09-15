@@ -33,6 +33,12 @@ const PHASER_GROUPS_COLOUR = '#00695c';
 const PHASER_ANIMATION_COLOUR = '#00796b';
 const PHASER_GEOMETRY_COLOUR = '#b2dfdb';
 const PHASER_TEXT_COLOUR = '#009688';
+const PHASER_KEYBOARD_INPUT = '#1565c0';
+const PHASER_GAMEPAD_INPUT = '#42a5f5';
+const PHASER_MOUSE_INPUT = '#1976d2';
+const PHASER_PHYSICS_STARTUP = '#d500f9';
+const PHASER_PHYSICS_DYNAMICS = '#6a1b9a';
+const PHASER_PHYSICS_COLLISION = '#8e24aa';
 //endregion
 
 //region STARTUP
@@ -1138,6 +1144,216 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
     }
 };
 
+//endregion
+
+
+//region PHYSICS
+
+//region PHYSICS_STARTUP
+Blockly.Blocks['start_physics'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("start")
+            .appendField(new Blockly.FieldDropdown([["Arcade", "ARCADE"], ["P2JS", "P2JS"]]), "SYSTEM")
+            .appendField("physics system");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Start physics with the specified system');
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(PHASER_PHYSICS_STARTUP);
+    }
+};
+
+/**
+ * Other physics functions assume we will be going through the arcade system.  Will need to extend the above block to
+ * set something specifying which system was started. For now it will be removed from the toolbox and left for backwards
+ * compatibility
+ */
+Blockly.Blocks['start_arcade_physics'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("start arcade physics system");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Start the specified arcade physics system');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.html#startSystem');
+        this.setColour(PHASER_PHYSICS_STARTUP);
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.html#startSystem');
+        this.setTooltip('Starts an arcade physics system');
+    }
+};
+
+Blockly.Blocks['enable_body_group'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('Enable Body for')
+            .appendField(new Blockly.FieldVariable('defaultObject'), "object")
+            .appendField('Group');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_PHYSICS_STARTUP);
+
+    }
+};
+
+Blockly.Blocks['enable_body_group_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('enable body for group');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_PHYSICS_STARTUP);
+        this.setTooltip('Enable physics body on all sprites in or added to this group');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#enableBody');
+    }
+};
+
+Blockly.Blocks['enable_arcade_physics_for_object'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('Enable Arcade Physics for')
+            .appendField(new Blockly.FieldVariable('defaultObject'), "object");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_PHYSICS_STARTUP);
+        this.setTooltip('Enable physics for this object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#enable');
+    }
+};
+
+Blockly.Blocks['enable_arcade_physics_for_object_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('enable arcade physics for sprite');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_PHYSICS_STARTUP);
+        this.setTooltip('Enable physics for this sprite');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#enable')
+    }
+};
+//endregion
+
+//region COLLISION
+Blockly.Blocks['collide_with_arrow_function'] = {
+    init: function() {
+        this.appendValueInput("OBJECTA")
+            .setCheck(null)
+            .appendField("collide");
+        this.appendValueInput("OBJECTB")
+            .setCheck(null)
+            .appendField("with");
+        this.appendStatementInput("CALLBACK")
+            .setCheck(null)
+            .appendField("if collided do");
+        this.setInputsInline(true);
+        this.setColour(PHASER_PHYSICS_COLLISION);
+        this.setTooltip("Collide two objects, if they are collide do the statements in the block");
+        this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#collide");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+//endregion
+
+//region BODY
+Blockly.Blocks['set_body_field_point'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Set")
+            .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
+            .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "ELEMENT")
+            .appendField("for")
+            .appendField(new Blockly.FieldVariable("item"), "OBJECT");
+        this.appendValueInput("VALUE")
+            .setCheck(null)
+            .appendField("to");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the x or y value of the specified field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+Blockly.Blocks['set_body_field_point_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set")
+            .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
+            .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.appendValueInput("VALUE")
+            .setCheck('Number')
+            .appendField("to");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the x or y value of the specified field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+Blockly.Blocks['set_body_field_point_class_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set")
+            .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.appendValueInput("X_VALUE")
+            .setCheck('Number')
+            .appendField("to x");
+        this.appendValueInput("Y_VALUE")
+            .appendField('y')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the x or y value of the specified field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+Blockly.Blocks['set_body_boolean_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set")
+            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'],['immovable', 'immovable']]), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'VALUE');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the value of the specified boolean field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+Blockly.Blocks['get_body_boolean_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get")
+            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'],['immovable', 'immovable']]), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'VALUE');
+        this.setInputsInline(true);
+        this.setOutput(true, 'Boolean');
+        this.setTooltip('Set the value of the specified boolean field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+//endregion
 Blockly.Blocks['call_function_on_group'] = {
     init: function () {
         this.appendDummyInput()
@@ -1152,25 +1368,9 @@ Blockly.Blocks['call_function_on_group'] = {
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
-
-//endregion
-
-//region PHYSICS
 const PHYSICS_COLOUR = "#5A5C51";
 
-Blockly.Blocks['start_physics'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("Start")
-            .appendField(new Blockly.FieldDropdown([["Arcade", "ARCADE"], ["P2JS", "P2JS"]]), "SYSTEM")
-            .appendField("Physics System");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(PHYSICS_COLOUR);
-    }
-};
+
 Blockly.Blocks['acceleration_from_rotation'] = {
     init: function () {
         this.appendValueInput("rotation")
@@ -1187,48 +1387,9 @@ Blockly.Blocks['acceleration_from_rotation'] = {
     }
 };
 
-Blockly.Blocks['enable_body_group'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField('Enable Body for')
-            .appendField(new Blockly.FieldVariable('defaultObject'), "object")
-            .appendField('Group');
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHYSICS_COLOUR);
-    }
-};
 
-Blockly.Blocks['enable_arcade_physics_for_object'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField('Enable Arcade Physics for')
-            .appendField(new Blockly.FieldVariable('defaultObject'), "object");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHYSICS_COLOUR);
-    }
-};
 
-Blockly.Blocks['set_body_field_point'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("Set")
-            .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
-            .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "ELEMENT")
-            .appendField("for")
-            .appendField(new Blockly.FieldVariable("item"), "OBJECT");
-        this.appendValueInput("VALUE")
-            .setCheck(null)
-            .appendField("to");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(PHYSICS_COLOUR);
-    }
-};
+
 
 Blockly.Blocks['set_immovable'] = {
     init: function () {
@@ -1341,7 +1502,7 @@ Blockly.Blocks['create_cursor_keys'] = {
 Blockly.Blocks['is_key_down'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Key")
+            .appendField("key")
             .appendField(new Blockly.FieldDropdown([
                 ["A", "A"],
                 ["B", "B"],
@@ -1441,8 +1602,8 @@ Blockly.Blocks['is_key_down'] = {
             .appendField("is down?");
         this.setOutput(true, 'Boolean');
         this.setTooltip('Checks if the given key is down');
-        this.setHelpUrl('http://www.example.com/');
-        this.setColour(INPUT_COLOUR);
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Keyboard.html#isDown');
+        this.setColour(PHASER_KEYBOARD_INPUT);
     }
 };
 //endregion
@@ -2130,17 +2291,17 @@ Blockly.Blocks['emitters_set_width'] = {
 Blockly.Blocks['debug_sprite'] = {
     init: function () {
         this.appendValueInput('OBJECT')
-            .appendField("Debug for Object");
+            .appendField("write debug for sprite");
         this.appendValueInput("X_VAL")
             .setCheck("Number")
-            .appendField("X");
+            .appendField("at x");
         this.appendValueInput("Y_VAL")
             .setCheck("Number")
-            .appendField("Y");
+            .appendField("y");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHASER_WORLD_COLOUR);
+        this.setColour(PHASER_UTILITY_COLOUR);
         this.setTooltip('');
         this.setHelpUrl('');
     }
