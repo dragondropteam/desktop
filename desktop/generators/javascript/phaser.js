@@ -126,6 +126,17 @@ Blockly.JavaScript['add_animation'] = function (block) {
     return `${variable_object}.animations.add('${text_name}', ${value_frames}, ${number_fps}, ${checkbox_loop});\n`;
 };
 
+// These blocks move towards using value input verus variable fields, this allows the students to for example loop through
+// a list of objects they want an animation to start playing on
+Blockly.JavaScript['add_animation_vi'] = function (block) {
+    const variable_object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const text_name = block.getFieldValue('NAME');
+    const value_frames = Blockly.JavaScript.valueToCode(block, 'FRAMES', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const number_fps = block.getFieldValue('FPS');
+    const checkbox_loop = block.getFieldValue('LOOP') == 'TRUE';
+    return `${variable_object}.animations.add('${text_name}', ${value_frames}, ${number_fps}, ${checkbox_loop});\n`;
+};
+
 Blockly.JavaScript['create_sprite_sheet'] = function (block) {
     const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
     const source = Blockly.JavaScript.valueToCode(block, 'SRC', Blockly.JavaScript.ORDER_NONE);
@@ -421,6 +432,13 @@ Blockly.JavaScript['play_animation'] = function (block) {
     return `${object}.animations.play(${animation});\n`;
 };
 
+Blockly.JavaScript['play_animation_vi'] = function (block) {
+    const animation = Blockly.JavaScript.valueToCode(block, 'ANIMATION', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    return `${object}.animations.play(${animation});\n`;
+};
+
+
 Blockly.JavaScript['stop_animation'] = function (block) {
     const object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return `${object}.animations.stop();\n`;
@@ -600,6 +618,12 @@ Blockly.JavaScript['add_text'] = function(block) {
 
 Blockly.JavaScript['set_text'] = function(block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
+    const value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${variable_object}.text = ${value_text};\n`;
+};
+
+Blockly.JavaScript['set_text_vi'] = function(block) {
+    const variable_object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
     return `${variable_object}.text = ${value_text};\n`;
 };
@@ -792,5 +816,15 @@ Blockly.JavaScript['statemanager_start_state'] = function (block) {
     var text_tag = block.getFieldValue('TAG');
 
     return `game.state.start('${text_tag}');\n`
+};
+//endregion
+
+//region GEOMETRY
+Blockly.JavaScript['rectangle_create'] = function(block){
+    const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    const width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC) || 0 ;
+    const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    return [`new Phaser.Rectangle(${x}, ${y}, ${width}, ${height})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 //endregion
