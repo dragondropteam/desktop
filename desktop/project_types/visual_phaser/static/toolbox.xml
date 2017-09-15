@@ -918,12 +918,11 @@
                 <block type="reset"/>
                 <block type="revive"/>
                 <block type="set_pos"/>
-                <block type="set_velocity"/>
+                <!--<block type="set_velocity"/>-->
                 <block type="get_param"/>
                 <block type="object_inCamera"/>
                 <block type='get_camera'/>
                 <block type='camera_follow'/>
-                <block type='send_to_back'/>
                 <block type='object_set_to'/>
             </category>
             <!--TODO: Create remaining shape blocks -->
@@ -953,30 +952,104 @@
             </category>
         </category>
         <category name="Physics" colour="#aa00ff">
-            <category name="Setup" colour="#5A5C51">
-                <block type="start_physics"/>
-                <block type="enable_body_group"/>
-                <block type="enable_arcade_physics_for_object"/>
+            <category name="Setup" colour="#d500f9">
+                <block type="start_arcade_physics"/>
+                <block type="enable_body_group_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="enable_arcade_physics_for_object_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
-            <category name="Body" colour="#5A5C51">
-                <block type="set_body_field_point"/>
+            <category name="Body" colour="#6a1b9a">
+                <block type="set_body_field_point_vi">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_body_field_point_class_vi">
+                    <value name="X_VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_body_boolean_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="set_immovable"/>
-                <block type="is_body_touching"/>
-                <block type="collide_with_world_bounds"/>
+                <block type="move_to_pointer">
+                    <value name="GAMEOBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type='acceleration_from_rotation'/>
             </category>
-            <category name="Collision" colour="#5A5C51">
+            <category name="Collision" colour="#8e24aa">
                 <block type="collide"/>
+                <block type="collide_with_world_bounds"/>
+                <block type="is_body_touching"/>
+                <!--<block type="collide_with_arrow_function">-->
+                    <!--<value name="OBJECTA">-->
+                        <!--<shadow type="variables_get">-->
+                            <!--<field name="VAR">objectA</field>-->
+                        <!--</shadow>-->
+                    <!--</value>-->
+                    <!--<value name="OBJECTB">-->
+                        <!--<shadow type="variables_get">-->
+                            <!--<field name="VAR">objectB</field>-->
+                        <!--</shadow>-->
+                    <!--</value>-->
+                <!--</block>-->
                 <block type="check_overlap"/>
-                <block type="move_to_pointer"/>
             </category>
-            <block type='acceleration_from_rotation'/>
         </category>
-        <category name="Input" colour="#2962ff">
-            <category name="Keyboard">
+        <category name="Input" colour="#0d47a1">
+            <category name="Keyboard" colour="#1565c0">
                 <block type="is_key_down"/>
+                <!--TODO: Cursors, Key objects, and other input methods to allow students more control -->
                 <!--<block type="create_cursor_keys"/>-->
             </category>
-            <!--<category name="Mouse"></category>-->
+            <!--TODO: Mouse input functions for position, key down, etc... -->
+            <!--<category name="Mouse" colour="#1976d2"></category>-->
+            <!--TODO: Gamepad support-->
+            <!--<category name="Gamepad" colour="#42a5f5"></category>-->
         </category>
         <category name="Graphics" colour="">
             <block type="create_graphics_object">
@@ -1023,10 +1096,27 @@
         </category>
         <category name="Utility" colour="#ff6d00">
             <block type="center_and_stretch"/>
-            <block type="enable_step"/>
-            <block type="disable_step"/>
-            <block type="debug_sprite"/>
-            <block type="step"/>
+            <!--TODO: Renable once there is a UI to hook to-->
+            <!--<block type="enable_step"/>-->
+            <!--<block type="disable_step"/>-->
+            <!--<block type="step"/>-->
+            <block type="debug_sprite">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+                <value name="X_VAL">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="Y_VAL">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
         <!--<category name="Sound"></category>-->
     </category>
