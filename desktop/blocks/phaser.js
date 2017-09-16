@@ -1236,7 +1236,7 @@ Blockly.Blocks['enable_arcade_physics_for_object_vi'] = {
 
 //region COLLISION
 Blockly.Blocks['collide_with_arrow_function'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("OBJECTA")
             .setCheck(null)
             .appendField("collide");
@@ -1323,7 +1323,7 @@ Blockly.Blocks['set_body_boolean_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("set")
-            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'],['immovable', 'immovable']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'], ['immovable', 'immovable']]), "ELEMENT")
             .appendField("for");
         this.appendValueInput('OBJECT');
         this.appendDummyInput()
@@ -1341,7 +1341,7 @@ Blockly.Blocks['get_body_boolean_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("get")
-            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'],['immovable', 'immovable'], ['isMoving', 'isMoving']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'], ['immovable', 'immovable'], ['isMoving', 'isMoving']]), "ELEMENT")
             .appendField("for");
         this.appendValueInput('OBJECT');
         this.setInputsInline(true);
@@ -1353,6 +1353,39 @@ Blockly.Blocks['get_body_boolean_field'] = {
 };
 
 
+Blockly.Blocks['set_body_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set")
+            .appendField(new Blockly.FieldDropdown([['mass', 'mass'], ['rotation (degrees)', 'rotation'], ['maxVelocity', 'maxVelocity'], ['angularAcceleration', 'angularAcceleration'], ['angularVelocity', 'angularVelocity'], ['maxAngularVelocity', 'maxAngularVelocity'], ['angularDrag', 'angularDrag']]), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.appendValueInput('VALUE')
+            .appendField('to')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the value of the specified numeric field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+Blockly.Blocks['get_body_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get")
+            .appendField(new Blockly.FieldDropdown([['speed', 'speed'], ['mass', 'mass'], ['rotation (degrees)', 'rotation'], ['maxVelocity', 'maxVelocity'], ['angularAcceleration', 'angularAcceleration'], ['angularVelocity', 'angularVelocity'], ['maxAngularVelocity', 'maxAngularVelocity'], ['angularDrag', 'angularDrag']]), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.setInputsInline(true);
+        this.setOutput(true, 'Number');
+        this.setTooltip('Get the value of the specified numeric field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
 //endregion
 Blockly.Blocks['call_function_on_group'] = {
     init: function () {
@@ -1386,9 +1419,6 @@ Blockly.Blocks['acceleration_from_rotation'] = {
         this.setHelpUrl('');
     }
 };
-
-
-
 
 
 Blockly.Blocks['set_immovable'] = {
