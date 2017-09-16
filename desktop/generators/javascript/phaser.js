@@ -434,6 +434,19 @@ Blockly.JavaScript['get_body_boolean_field'] = function(block) {
     const element = block.getFieldValue('ELEMENT');
     return [`${object}.body.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.JavaScript['set_body_numeric_field'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const element = block.getFieldValue('ELEMENT');
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    return `${object}.body.${element} = ${value};\n`;
+};
+
+Blockly.JavaScript['get_body_numeric_field'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const element = block.getFieldValue('ELEMENT');
+    return [`${object}.body.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
 //endregion
 
 Blockly.JavaScript['create_object_in_group'] = function (block) {
