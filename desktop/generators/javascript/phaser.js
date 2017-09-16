@@ -428,6 +428,12 @@ Blockly.JavaScript['set_body_boolean_field'] = function(block) {
     const value = block.getFieldValue('VALUE') == 'TRUE';
     return `${object}.body.${element} = ${value};\n`;
 };
+
+Blockly.JavaScript['get_body_boolean_field'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const element = block.getFieldValue('ELEMENT');
+    return [`${object}.body.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
 //endregion
 
 Blockly.JavaScript['create_object_in_group'] = function (block) {

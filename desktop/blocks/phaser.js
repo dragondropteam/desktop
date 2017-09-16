@@ -1341,11 +1341,9 @@ Blockly.Blocks['get_body_boolean_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("get")
-            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'],['immovable', 'immovable']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown([['allowRotation', 'allowRotation'], ['allowGravity', 'allowGravity'],['immovable', 'immovable'], ['isMoving', 'isMoving']]), "ELEMENT")
             .appendField("for");
         this.appendValueInput('OBJECT');
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldCheckbox('TRUE'), 'VALUE');
         this.setInputsInline(true);
         this.setOutput(true, 'Boolean');
         this.setTooltip('Set the value of the specified boolean field');
@@ -1353,6 +1351,8 @@ Blockly.Blocks['get_body_boolean_field'] = {
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
+
+
 //endregion
 Blockly.Blocks['call_function_on_group'] = {
     init: function () {
