@@ -31,7 +31,7 @@ const PHASER_UTILITY_COLOUR = '#ff6d00';
 const PHASER_SPRITE_AND_IMAGES_COLOUR = '#004d40';
 const PHASER_GROUPS_COLOUR = '#00695c';
 const PHASER_ANIMATION_COLOUR = '#00796b';
-const PHASER_GEOMETRY_COLOUR = '#b2dfdb';
+const PHASER_GEOMETRY_COLOUR = '#26a69a';
 const PHASER_TEXT_COLOUR = '#009688';
 const PHASER_KEYBOARD_INPUT = '#1565c0';
 const PHASER_GAMEPAD_INPUT = '#42a5f5';
@@ -1983,7 +1983,7 @@ Blockly.Blocks['add_text'] = {
 Blockly.Blocks['set_text'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Set text for")
+            .appendField("set text for")
             .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
         this.appendValueInput("TEXT")
             .setCheck("String")
@@ -2372,6 +2372,8 @@ Blockly.Blocks['statemanager_start_state'] = {
 
 
 //region GEOMETRY
+
+//region RECTANGLE
 Blockly.Blocks['rectangle_create'] = {
     init: function () {
         this.appendDummyInput()
@@ -2391,4 +2393,69 @@ Blockly.Blocks['rectangle_create'] = {
         this.setOutput(true);
     }
 };
+//endregion
+
+//region POINT
+Blockly.Blocks['point_create'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('make point');
+        this.appendValueInput('X')
+            .appendField('x');
+        this.appendValueInput('Y')
+            .appendField('y');
+        this.setInputsInline(true);
+        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setTooltip('Defines a point which represents a location in 2D');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setOutput(true);
+    }
+};
+
+
+Blockly.Blocks['point_get_element'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('get point.');
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]), 'ELEMENT')
+            .appendField('x');
+        this.appendValueInput('Y')
+            .appendField('y');
+        this.appendDummyInput()
+            .appendField('for');
+        this.appendValueInput('POINT');
+        this.setInputsInline(true);
+        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setTooltip('Defines a point which represents a location in 2D');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setOutput(true);
+    }
+};
+
+
+Blockly.Blocks['point_set_element'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('set point.');
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]))
+            .appendField('x');
+        this.appendValueInput('Y')
+            .appendField('y');
+        this.appendDummyInput()
+            .appendField('for');
+        this.appendValueInput('POINT');
+        this.appendValueInput('VALUE')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setTooltip('Defines a point which represents a location in 2D');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+    }
+};
+//endregion
+
 //endregion

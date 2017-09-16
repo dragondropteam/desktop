@@ -422,27 +422,27 @@ Blockly.JavaScript['set_body_field_point_class_vi'] = function (block) {
     return `${object}.body.${field}.${element} = new Phaser.Point(${valueX}, ${valueY});\n`;
 };
 
-Blockly.JavaScript['set_body_boolean_field'] = function(block) {
+Blockly.JavaScript['set_body_boolean_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const element = block.getFieldValue('ELEMENT');
     const value = block.getFieldValue('VALUE') == 'TRUE';
     return `${object}.body.${element} = ${value};\n`;
 };
 
-Blockly.JavaScript['get_body_boolean_field'] = function(block) {
+Blockly.JavaScript['get_body_boolean_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const element = block.getFieldValue('ELEMENT');
     return [`${object}.body.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.JavaScript['set_body_numeric_field'] = function(block) {
+Blockly.JavaScript['set_body_numeric_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const element = block.getFieldValue('ELEMENT');
     const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     return `${object}.body.${element} = ${value};\n`;
 };
 
-Blockly.JavaScript['get_body_numeric_field'] = function(block) {
+Blockly.JavaScript['get_body_numeric_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const element = block.getFieldValue('ELEMENT');
     return [`${object}.body.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
@@ -902,4 +902,17 @@ Blockly.JavaScript['rectangle_create'] = function (block) {
     const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     return [`new Phaser.Rectangle(${x}, ${y}, ${width}, ${height})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
+
+Blockly.JavaScript['point_create'] = function (block) {
+    const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    return [`new Phaser.Point(${x}, ${y})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['point_get_element'] = function (block) {
+    const element = block.getFieldValue('ELEMENT');
+    const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${point}.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 //endregion
