@@ -478,9 +478,8 @@ Blockly.Blocks['add_child_vi'] = {
         this.appendValueInput("CHILD")
             .setCheck(null)
             .appendField("add child object");
-        this.appendDummyInput()
-            .appendField("to")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.appendValueInput('OBJECT')
+            .appendField("to");
         this.setInputsInline(true);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite. This will make them move together.');
@@ -502,6 +501,25 @@ Blockly.Blocks['add_child_at'] = {
             .appendField("at index");
         this.setInputsInline(true);
         this.setOutput(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Add a child to a sprite at a specific index so you can find it later. This will make them move together.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChildAt');
+    }
+};
+
+Blockly.Blocks['add_child_at_vi'] = {
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("add child");
+        this.appendValueInput('OBJECT')
+            .appendField("to");
+        this.appendValueInput("INDEX")
+            .setCheck("Number")
+            .appendField("at index");
+        this.setInputsInline(true);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite at a specific index so you can find it later. This will make them move together.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChildAt');
@@ -593,6 +611,10 @@ Blockly.Blocks['check_world_bounds'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.contains.init}}
+ */
 Blockly.Blocks['contains'] = {
     init: function () {
         this.appendValueInput("CHILD")
@@ -604,6 +626,22 @@ Blockly.Blocks['contains'] = {
             .appendField("?");
         this.setInputsInline(true);
         this.setOutput(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Checks to see if one sprite is the child of another.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#contains');
+    }
+};
+
+Blockly.Blocks['contains_vi'] = {
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("is");
+        this.appendValueInput('OBJECT')
+            .appendField("a child of")
+            .appendField("?");
+        this.setInputsInline(true);
+        this.setOutput(true, 'Boolean');
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Checks to see if one sprite is the child of another.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#contains');
@@ -657,14 +695,15 @@ Blockly.Blocks['destroy_sprite'] = {
     }
 };
 
-Blockly.Blocks['get_child_at'] = {
+Blockly.Blocks['get_child_at_vi'] = {
     init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('get child of');
         this.appendValueInput("INDEX")
             .setCheck("Number")
-            .appendField("Get child of")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT")
             .appendField("at index");
         this.setOutput(true, null);
+        this.setInputsInline(true);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Finds a specific child on this sprite/image by its index.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getChildAt');
@@ -679,6 +718,21 @@ Blockly.Blocks['get_child_index'] = {
         this.appendDummyInput()
             .appendField("on ")
             .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Finds an index that describes where on the parent this object is. ');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getChildIndex');
+    }
+};
+
+Blockly.Blocks['get_child_index_vi'] = {
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("get index of child");
+        this.appendValueInput('OBJECT')
+            .appendField("on ");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -770,6 +824,10 @@ Blockly.Blocks['out_of_bounds_kill'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.remove_child.init}}
+ */
 Blockly.Blocks['remove_child'] = {
     init: function () {
         this.appendValueInput("CHILD")
@@ -787,6 +845,42 @@ Blockly.Blocks['remove_child'] = {
     }
 };
 
+Blockly.Blocks['remove_child_vi'] = {
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("remove child");
+        this.appendValueInput('OBJECT')
+            .appendField("from");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Makes this sprite/image stop being a child and moving with its parent.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChild');
+    }
+};
+
+Blockly.Blocks['remove_child_at_vi'] = {
+    init: function () {
+        this.appendValueInput("INDEX")
+            .setCheck("Number")
+            .appendField("remove the child at index");
+        this.appendValueInput('OBJECT')
+            .appendField("from");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Finds the child at the given index and removes it from its parent. It will no longer move with the parent.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildAt');
+    }
+};
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.remove_child_at.init}}
+ */
 Blockly.Blocks['remove_child_at'] = {
     init: function () {
         this.appendValueInput("INDEX")
@@ -804,11 +898,27 @@ Blockly.Blocks['remove_child_at'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.remove_children.init}}
+ */
 Blockly.Blocks['remove_children'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("remove all children from")
             .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Removes all children from the parent. They will all stop moving together.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildren');
+    }
+};
+
+Blockly.Blocks['remove_children_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField("remove all children from");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -969,7 +1079,6 @@ Blockly.Blocks['set_frame_vi'] = {
 //endregion
 
 
-
 Blockly.Blocks['send_to_back'] = {
     init: function () {
         this.appendValueInput("OBJECT")
@@ -995,6 +1104,25 @@ Blockly.Blocks['set_child_index'] = {
             .setCheck("Number")
             .appendField("of")
             .appendField(new Blockly.FieldVariable("defaultObject"), "PARENT")
+            .appendField("to index");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Moves the child to a specific index on its parent. This will affect how you find it in the future.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setChildIndex');
+    }
+};
+
+Blockly.Blocks['set_child_index_vi'] = {
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("move the child");
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.appendValueInput("INDEX")
+            .setCheck("Number")
             .appendField("to index");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -1237,7 +1365,6 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
 
 //endregion
 
-
 //region PHYSICS
 
 //region PHYSICS_STARTUP
@@ -1302,7 +1429,7 @@ Blockly.Blocks['enable_body_group_vi'] = {
 Blockly.Blocks['enable_arcade_physics_for_object'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('Enable Arcade Physics for')
+            .appendField('enable arcade physics for')
             .appendField(new Blockly.FieldVariable('defaultObject'), "object");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -1395,16 +1522,27 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
             .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
             .appendField("for");
         this.appendValueInput('OBJECT');
-        this.appendValueInput("X_VALUE")
-            .setCheck('Number')
-            .appendField("to x");
-        this.appendValueInput("Y_VALUE")
-            .appendField('y')
-            .setCheck('Number');
+        this.appendValueInput('POINT')
+            .appendField('to');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('Set the x or y value of the specified field');
+        this.setTooltip('Set the value of the body point field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+Blockly.Blocks['get_body_field_point_class'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField('get')
+            .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
+            .appendField('for');
+        this.appendValueInput('OBJECT');
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setTooltip('Gets the value of the specified point as a point object');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
@@ -2130,7 +2268,6 @@ Blockly.Blocks['create_bitmapFont'] = {
 };
 //endregion
 
-//region to complete
 Blockly.Blocks['drawcircle'] = {
     init: function () {
         this.appendDummyInput()
@@ -2152,11 +2289,7 @@ Blockly.Blocks['drawcircle'] = {
         this.setHelpUrl('');
     }
 };
-//endregion
-//region to complete
 
-//endregion
-//region to complete
 Blockly.Blocks['get_object_width'] = {
     init: function () {
         this.appendDummyInput()
@@ -2169,8 +2302,7 @@ Blockly.Blocks['get_object_width'] = {
         this.setHelpUrl('');
     }
 };
-//end region
-//region to complete
+
 Blockly.Blocks['set_object_width'] = {
     init: function () {
         this.appendDummyInput()
@@ -2185,7 +2317,6 @@ Blockly.Blocks['set_object_width'] = {
         this.setHelpUrl('');
     }
 };
-//end region
 
 //region EMITTER
 const PARTICLE_COLOUR = '#83C2D1';
@@ -2430,7 +2561,6 @@ Blockly.Blocks['debug_sprite'] = {
         this.setHelpUrl('');
     }
 };
-
 //endregion
 
 //region STATES
@@ -2446,7 +2576,9 @@ Blockly.Blocks['statemanager_add_state'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_STATES_COLOUR);
-        this.setTooltip('');
+        this.setTooltip('Adds a state to the game engine, this should be an instance of a state class.');
+        //TODO: This will need supporting documentation on or side illustrating how to create this class with blocks
+        // this.setHelpUrl('')
     }
 };
 
@@ -2458,16 +2590,15 @@ Blockly.Blocks['statemanager_start_state'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_STATES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip('Start the specified state, this should be a state that has been added to the game engine');
+        this.setHelpUrl('https://phaser.io/docs/2.4.4/Phaser.StateManager.html#start');
     }
 };
 //endregion
 
-
 //region GEOMETRY
 
-    //region RECTANGLE
+//region RECTANGLE
 Blockly.Blocks['rectangle_create'] = {
     init: function () {
         this.appendDummyInput()
@@ -2512,7 +2643,7 @@ Blockly.Blocks['point_get_element'] = {
         this.appendDummyInput()
             .appendField('get point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]), 'ELEMENT')
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT')
         this.appendDummyInput()
             .appendField('for');
         this.appendValueInput('POINT');
@@ -2530,7 +2661,7 @@ Blockly.Blocks['point_set_element'] = {
         this.appendDummyInput()
             .appendField('set point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]));
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]));
         this.appendDummyInput()
             .appendField('for');
         this.appendValueInput('POINT');
