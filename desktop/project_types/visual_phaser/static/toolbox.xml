@@ -597,16 +597,16 @@
                     </value>
                 </block>
                 <!--<block type="sprite_overlap">-->
-                    <!--<value name="SPRITEA">-->
-                        <!--<shadow type="variables_get">-->
-                            <!--<field name="VAR">objectA</field>-->
-                        <!--</shadow>-->
-                    <!--</value>-->
-                    <!--<value name="SPRITEB">-->
-                        <!--<shadow type="variables_get">-->
-                            <!--<field name="VAR">objectB</field>-->
-                        <!--</shadow>-->
-                    <!--</value>-->
+                <!--<value name="SPRITEA">-->
+                <!--<shadow type="variables_get">-->
+                <!--<field name="VAR">objectA</field>-->
+                <!--</shadow>-->
+                <!--</value>-->
+                <!--<value name="SPRITEB">-->
+                <!--<shadow type="variables_get">-->
+                <!--<field name="VAR">objectB</field>-->
+                <!--</shadow>-->
+                <!--</value>-->
                 <!--</block>-->
                 <block type="add_child_vi">
                     <value name="CHILD">
@@ -954,40 +954,38 @@
             </category>
             <!--TODO: -> Value Input -->
             <category name="Particles" colour="#83C2D1">
-                <category name="Emitters" colour="#83C2D1">
-                    <block type="addemitter">
-                        <value name="X">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                        <value name="Y">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                        <value name="maxParticles">
-                            <shadow type="math_number">
-                                <field name="NUM">1</field>
-                            </shadow>
-                        </value>
-                    </block>
-                    <block type="emitters_start"/>
-                    <block type="emitters_set_width"/>
-                    <block type="emitters_make_particles">
-                    </block>
-                    <block type="emitters_set_alpha">
-                    </block>
-                    <block type="emitters_set_rotation">
-                    </block>
-                    <block type="emitters_set_gravity">
-                    </block>
-                    <block type="emitters_set_scale">
-                    </block>
-                    <block type="emitters_set_speed"/>
-                    <block type='set_emit_from'>
-                    </block>
-                </category>
+                <block type="addemitter">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="maxParticles">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_start"/>
+                <block type="emitters_set_width"/>
+                <block type="emitters_make_particles">
+                </block>
+                <block type="emitters_set_alpha">
+                </block>
+                <block type="emitters_set_rotation">
+                </block>
+                <block type="emitters_set_gravity">
+                </block>
+                <block type="emitters_set_scale">
+                </block>
+                <block type="emitters_set_speed"/>
+                <block type='set_emit_from'>
+                </block>
             </category>
             <!--TODO: -> Value Input and clean up of inline -->
             <category name="Game Object" colour="80">
@@ -1182,16 +1180,16 @@
                 <block type="collide_with_world_bounds"/>
                 <block type="is_body_touching"/>
                 <!--<block type="collide_with_arrow_function">-->
-                    <!--<value name="OBJECTA">-->
-                        <!--<shadow type="variables_get">-->
-                            <!--<field name="VAR">objectA</field>-->
-                        <!--</shadow>-->
-                    <!--</value>-->
-                    <!--<value name="OBJECTB">-->
-                        <!--<shadow type="variables_get">-->
-                            <!--<field name="VAR">objectB</field>-->
-                        <!--</shadow>-->
-                    <!--</value>-->
+                <!--<value name="OBJECTA">-->
+                <!--<shadow type="variables_get">-->
+                <!--<field name="VAR">objectA</field>-->
+                <!--</shadow>-->
+                <!--</value>-->
+                <!--<value name="OBJECTB">-->
+                <!--<shadow type="variables_get">-->
+                <!--<field name="VAR">objectB</field>-->
+                <!--</shadow>-->
+                <!--</value>-->
                 <!--</block>-->
                 <block type="check_overlap"/>
             </category>
