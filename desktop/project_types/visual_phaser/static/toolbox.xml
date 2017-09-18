@@ -779,15 +779,7 @@
                 </block>
             </category>
             <category name="Groups" colour="#00695c">
-                <!--<block type="variables_set">-->
-                <!--<field name="VAR">player</field>-->
-                <!--<value name="VALUE">-->
-                <!--<block type="create_object_in_group" id="k%)UnPljcpdLWU_@s6l^">-->
-                <!--<field name="TAG">default</field>-->
-                <!--<field name="GROUP">defaultGroup</field>-->
-                <!--</block>-->
-                <!--</value>-->
-                <!--</block>-->
+                <!--TODO: Add to group, block to allow a user to add existing objects to the group -->
                 <block type="create_group"/>
                 <block type="create_object_in_group">
                     <value name="X_POS">
@@ -852,16 +844,77 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="set_frame"></block>
-                <block type="animation_get_animation"></block>
-                <block type="animation_next"></block>
-                <block type="animation_previous"></block>
-                <block type="refresh_frame"></block>
-                <block type="animation_update"></block>
-                <block type="validate_frames"></block>
-                <block type="animation_destroy"></block>
-                <block type="get_animation_property"></block>
-                <block type="set_animation_property"></block>
+                <block type="set_frame_vi">
+                    <value name="FRAME_NUMBER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="animation_get_animation"></block>-->
+                <block type="animation_next_vi">
+                    <value name="FRAMECOUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="animation_previous_vi">
+                    <value name="FRAMECOUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="refresh_frame"></block>-->
+                <!--<block type="animation_update"></block>-->
+                <block type="validate_frames_vi">
+                    <value name="FRAMES">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="animation_destroy_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_animation_property">
+                    <value name="SPRITE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_animation_property_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
             <category name="Phaser Text" colour="#009688">
                 <block type="add_text">

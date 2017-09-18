@@ -616,22 +616,50 @@ Blockly.JavaScript['set_frame'] = function (block) {
     return `${object}.frame = ${frameNumber};\n`;
 };
 
+Blockly.JavaScript['set_frame_vi'] = function (block) {
+    const frameNumber = Blockly.JavaScript.valueToCode(block, 'FRAME_NUMBER', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.frame = ${frameNumber};\n`;
+};
+
 Blockly.JavaScript['animation_get_animation'] = function (block) {
     const value_sprite = Blockly.JavaScript.valueToCode(block, 'Sprite', Blockly.JavaScript.ORDER_ATOMIC);
     const text_name = block.getFieldValue('NAME');
     return [`${value_sprite}.animations.getAnimation("${text_name}")`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['animation_next'] = function (block) {
     const number_framecount = block.getFieldValue('FRAMECOUNT');
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return `${variable_object}.animations.next(${number_framecount});\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['animation_previous'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     const number_framecount = block.getFieldValue('FRAMECOUNT');
     return `${variable_object}.animations.previous(${number_framecount});\n`;
+};
+
+Blockly.JavaScript['animation_next_vi'] = function (block) {
+    const framecount = Blockly.JavaScript.valueToCode(block, 'FRAMECOUNT', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.animations.next(${framecount});\n`;
+};
+
+Blockly.JavaScript['animation_previous_vi'] = function (block) {
+    const framecount = Blockly.JavaScript.valueToCode(block, 'FRAMECOUNT', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.animations.previous(${framecount});\n`
 };
 
 Blockly.JavaScript['refresh_frame'] = function (block) {
@@ -644,15 +672,36 @@ Blockly.JavaScript['animation_update'] = function (block) {
     return [`${variable_object}.animations.update()`, Blockly.JavaScript.ORDER_NONE];
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {[string,*]}
+ */
 Blockly.JavaScript['validate_frames'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('Object'), Blockly.Variables.NAME_TYPE);
     const value_frames = Blockly.JavaScript.valueToCode(block, 'FRAMES', Blockly.JavaScript.ORDER_ATOMIC);
     return [`${variable_object}.animations.validateFrames(${value_frames}, true)`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['validate_frames_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const frames = Blockly.JavaScript.valueToCode(block, 'FRAMES', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${object}.animations.validateFrames(${frames}, true)`, Blockly.JavaScript.ORDER_NONE];
+};
+
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['animation_destroy'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return `${variable_object}.animations.destroy();\n`;
+};
+
+Blockly.JavaScript['animation_destroy_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.animations.destroy();\n`;
 };
 
 Blockly.JavaScript['get_animation_property'] = function (block) {
@@ -666,6 +715,13 @@ Blockly.JavaScript['set_animation_property'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     const value_newproperty = Blockly.JavaScript.valueToCode(block, 'NEWPROPERTY', Blockly.JavaScript.ORDER_ATOMIC);
     return `${variable_object}.animations.${dropdown_field} = ${value_newproperty};\n`;
+};
+
+Blockly.JavaScript['set_animation_property_vi'] = function (block) {
+    const field = block.getFieldValue('FIELD');
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const newproperty = block.getFieldValue('VALUE') == 'TRUE';
+    return `${object}.animations.${field} = ${newproperty};\n`;
 };
 //endregion
 
