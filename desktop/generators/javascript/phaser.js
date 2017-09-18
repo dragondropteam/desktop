@@ -151,6 +151,12 @@ Blockly.JavaScript['add_child'] = function (block) {
     return `${variable_object}.addChild(${value_child});\n`;
 };
 
+Blockly.JavaScript['add_child_vi'] = function (block) {
+    const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
+    const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${variable_object}.addChild(${value_child});\n`;
+};
+
 Blockly.JavaScript['add_child_at'] = function (block) {
     const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
@@ -915,4 +921,10 @@ Blockly.JavaScript['point_get_element'] = function (block) {
     return [`${point}.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.JavaScript['point_set_element'] = function (block) {
+    const element = block.getFieldValue('ELEMENT');
+    const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${point}.${element} = ${value};\n`;
+};
 //endregion
