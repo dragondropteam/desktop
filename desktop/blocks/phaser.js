@@ -999,6 +999,38 @@ Blockly.Blocks['animation_previous'] = {
     }
 };
 
+Blockly.Blocks['animation_next_vi'] = {
+    init: function () {
+        this.appendValueInput('FRAMECOUNT')
+            .appendField('increment current animation by');
+        this.appendDummyInput()
+            .appendField('frames');
+        this.appendValueInput('OBJECT')
+            .appendField('for');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Increment the current animation by a given amount of frames');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#next');
+    }
+};
+
+Blockly.Blocks['animation_previous_vi'] = {
+    init: function () {
+        this.appendValueInput('FRAMECOUNT')
+            .appendField('decrement current animation by');
+        this.appendDummyInput()
+            .appendField('frames');
+        this.appendValueInput('OBJECT')
+            .appendField('for');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('decrement the current animation by a given amount of frames');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#previous');
+    }
+};
+
 Blockly.Blocks['refresh_frame'] = {
     init: function () {
         this.appendDummyInput()
@@ -1024,6 +1056,10 @@ Blockly.Blocks['animation_update'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.validate_frames.init}}
+ */
 Blockly.Blocks['validate_frames'] = {
     init: function () {
         this.appendDummyInput()
@@ -1036,6 +1072,20 @@ Blockly.Blocks['validate_frames'] = {
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('');
         this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['validate_frames_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField("validate animation frames of ");
+        this.appendValueInput("FRAMES")
+            .setCheck("Array")
+            .appendField("array of frames");
+        this.setOutput(true, "Boolean");
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Validates the frames on the given Sprite');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#validateFrames');
     }
 };
 
@@ -1052,10 +1102,22 @@ Blockly.Blocks['animation_destroy'] = {
     }
 };
 
+Blockly.Blocks['animation_destroy_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField("destroy all animations in animation manager of ");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Destroy all animations on the object');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
+    }
+};
+
 Blockly.Blocks['stop_animation_vi'] = {
     init: function () {
         this.appendValueInput('OBJECT')
-            .appendField('Stop Animation on');
+            .appendField('stop animation on');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
@@ -1067,10 +1129,12 @@ Blockly.Blocks['stop_animation_vi'] = {
 Blockly.Blocks['set_frame_vi'] = {
     init: function () {
         this.appendValueInput('FRAME_NUMBER')
-            .appendField('Set Current Frame # For');
-        this.appendValueInput('OBJECT');
+            .appendField('set current frame # to');
+        this.appendValueInput('OBJECT')
+            .appendField('for');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
+        this.setInputsInline(true);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Sets the current frame number on the specified object');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Animation.html#frame');
@@ -1235,9 +1299,9 @@ Blockly.Blocks['get_animation_property'] = {
             .appendField("get animation.")
             .appendField(new Blockly.FieldDropdown([["currentAnim", "currentAnim"], ["currentFrame", "currentFrame"], ["frame", "frame"], ["frameData", "frameData"], ["frameName", "frameName"], ["frameTotal", "frameTotal"], ["game", "game"], ["isLoaded", "isLoaded"], ["name", "name"], ["paused", "paused"], ["sprite", "sprite"], ["updateIfVisible", "updateIfVisible"]]), "FIELD");
         this.setOutput(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Get a property on from the animaton manager on the object');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
     }
 };
 
@@ -1246,50 +1310,35 @@ Blockly.Blocks['set_animation_property'] = {
         this.appendValueInput("NEWPROPERTY")
             .setCheck(null)
             .appendField("set animation.")
-            .appendField(new Blockly.FieldDropdown([["frame", "frame"], ["frameName", "frameName"], ["name", "name"], ["paused", "paused"], ["updateIfVisible", "updateIfVisible"]]), "FIELD")
+            .appendField(new Blockly.FieldDropdown([["frame", "frame"], ["frameName", "frameName"], ["paused", "paused"], ["updateIfVisible", "updateIfVisible"]]), "FIELD")
             .appendField("on ")
             .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT")
             .appendField("to");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Set a property from the animation manager on the object');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
     }
 };
 
-Blockly.Blocks['get_animation_property'] = {
+Blockly.Blocks['set_animation_property_vi'] = {
     init: function () {
-        this.appendValueInput("SPRITE")
-            .setCheck(null)
-            .appendField("on gameobject");
+        this.appendDummyInput("NEWPROPERTY")
+            .appendField("set animation.")
+            .appendField(new Blockly.FieldDropdown([["paused", "paused"], ["updateIfVisible", "updateIfVisible"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField("on ");
         this.appendDummyInput()
-            .appendField("get animation.")
-            .appendField(new Blockly.FieldDropdown([["currentAnim", "currentAnim"], ["currentFrame", "currentFrame"], ["frame", "frame"], ["frameData", "frameData"], ["frameName", "frameName"], ["frameTotal", "frameTotal"], ["game", "game"], ["isLoaded", "isLoaded"], ["name", "name"], ["paused", "paused"], ["sprite", "sprite"], ["updateIfVisible", "updateIfVisible"]]), "FIELD");
-        this.setOutput(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['set_animation_property'] = {
-    init: function () {
-        this.appendValueInput("NEWPROPERTY")
-            .setCheck(null)
-            .appendField("set animation.")
-            .appendField(new Blockly.FieldDropdown([["frame", "frame"], ["frameName", "frameName"], ["name", "name"], ["paused", "paused"], ["updateIfVisible", "updateIfVisible"]]), "FIELD")
-            .appendField("on ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT")
-            .appendField("to");
+            .appendField("to")
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'VALUE');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Set a property from the animation manager on the object');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
     }
 };
-
 
 Blockly.Blocks['animation_get_animation'] = {
     init: function () {
