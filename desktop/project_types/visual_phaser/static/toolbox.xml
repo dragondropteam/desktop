@@ -407,7 +407,7 @@
                     </value>
                     <value name="text_xmlsource">
                         <shadow type="text">
-                            <field name="TEXT">assets/atlasXML.png</field>
+                            <field name="TEXT">assets/atlasXML.xml</field>
                         </shadow>
                     </value>
                 </block>
@@ -808,6 +808,11 @@
             <!--TODO: -> Value Input -->
             <category name="Animation" colour="#00796b">
                 <block type="add_animation_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
                     <value name="FRAMES">
                         <shadow type="logic_null">
                         </shadow>
@@ -819,8 +824,19 @@
                             <field name="TEXT">tag</field>
                         </shadow>
                     </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
                 </block>
-                <block type="stop_animation"></block>
+                <block type="stop_animation_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="set_frame"></block>
                 <block type="animation_get_animation"></block>
                 <block type="animation_next"></block>
@@ -855,9 +871,9 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="set_text">
+                <block type="set_text_vi">
                     <value name="OBJECT">
-                        <shadow type="varibles_get">
+                        <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
@@ -945,6 +961,39 @@
                             </shadow>
                         </value>
                         <value name="Y">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                </category>
+                <category name="Point" colour="#26a69a">
+                    <block type="point_create">
+                        <value name="X">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="Y">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="point_get_element">
+                        <value name="POINT">
+                            <shadow type="variables_get">
+                                <field name="VAR">defaultPoint</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="point_set_element">
+                        <value name="POINT">
+                            <shadow type="variables_get">
+                                <field name="VAR">defaultPoint</field>
+                            </shadow>
+                        </value>
+                        <value name="VALUE">
                             <shadow type="math_number">
                                 <field name="NUM">0</field>
                             </shadow>
@@ -1124,7 +1173,7 @@
         </category>
         <category name="Utility" colour="#ff6d00">
             <block type="center_and_stretch"/>
-            <!--TODO: Renable once there is a UI to hook to-->
+            <!--TODO: enable once there is a UI to hook to-->
             <!--<block type="enable_step"/>-->
             <!--<block type="disable_step"/>-->
             <!--<block type="step"/>-->

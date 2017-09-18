@@ -206,7 +206,164 @@ Blockly.Blocks['draw_rectangle'] = {
 
 //endregion
 
-//region SPRITE/IMAGE
+//region DEPRECATED
+
+//These blocks exist for backwards compatibility they should not be used in the toolbox going forward
+
+//region ANIMATION_DEPRECATED
+/**
+ * @Deprecated use stop_animation_vi instead
+ * @type {{init: Blockly.Blocks.stop_animation.init}}
+ */
+Blockly.Blocks['stop_animation'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('Stop Animation on')
+            .appendField(new Blockly.FieldVariable('defaultObject'), "OBJECT");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+    }
+};
+
+/**
+ * @Deprecated use play_animation_vi instead
+ * @type {{init: Blockly.Blocks.play_animation.init}}
+ */
+Blockly.Blocks['play_animation'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('play animation');
+        this.appendValueInput('ANIMATION');
+        this.appendDummyInput()
+            .appendField('on')
+            .appendField(new Blockly.FieldVariable('defaultObject'), "OBJECT");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#play');
+    }
+};
+
+/**
+ * @Deprecated use set_frame_vi instead
+ * @type {{init: Blockly.Blocks.set_frame.init}}
+ */
+Blockly.Blocks['set_frame'] = {
+    init: function () {
+        this.appendValueInput('FRAME_NUMBER')
+            .appendField('Set Current Frame # For')
+            .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+    }
+};
+
+/**
+ * @Deprecated used add_animation_vi instead
+ * @type {{init: Blockly.Blocks.add_animation.init}}
+ */
+Blockly.Blocks['add_animation'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("add animation to")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "object");
+        this.appendDummyInput()
+            .appendField("tagged")
+            .appendField(new Blockly.FieldTextInput("name"), "NAME");
+        this.appendValueInput("FRAMES")
+            .setCheck(null)
+            .appendField("with frames");
+        this.appendDummyInput()
+            .appendField("displayed at")
+            .appendField(new Blockly.FieldNumber(60), "FPS")
+            .appendField("FPS");
+        this.appendDummyInput()
+            .appendField("loop")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "LOOP");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Add an animation to an object based on a list of frames');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#add');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+    }
+};
+//endregion
+
+//region SPRITE_DEPRECATED
+/**
+ * @deprecated use add_child_vi instead
+ * @type {{init: Blockly.Blocks.add_child.init}}
+ */
+Blockly.Blocks['add_child'] = {
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("add child object");
+        this.appendDummyInput()
+            .appendField("to")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Add a child to a sprite. This will make them move together.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChild');
+    }
+};
+
+/**
+ * @deprecated this should never need to be called, no reason to expose to students preserved for backwards compatibility
+ * do not add to the toolbox
+ * @type {{init: Blockly.Blocks.reset_frame.init}}
+ */
+Blockly.Blocks['reset_frame'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("reset the frame dimensions of");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Resets the texture frame dimensions that the sprite uses for rendering.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#resetFrame');
+    }
+};
+
+/**
+ * @deprecated this should never need to be called, no reason to expose to students preserved for backwards compatibility
+ * do not add to the toolbox
+ * @type {{init: Blockly.Blocks.reset_frame.init}}
+ */
+Blockly.Blocks['resize_frame'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("resize the frame of");
+        this.appendValueInput("PARENT")
+            .setCheck(null)
+            .appendField("to accomodate");
+        this.appendValueInput("WIDTH")
+            .setCheck("Number")
+            .appendField("Width");
+        this.appendValueInput("HEIGHT")
+            .setCheck("Number")
+            .appendField("Height");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Resizes the Frame dimensions that the Game Object uses for rendering. You shouldn\'t normally need to ever call this, but in the case of special texture types such as Video or BitmapData it can be useful to adjust the dimensions directly in this way.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#resizeFrame');
+    }
+};
+//endregion
+
+//endregion
+
+//region SPRITES_AND_IMAGES
+
+//region SPRITES
 Blockly.Blocks['create_image'] = {
     init: function () {
         this.appendDummyInput()
@@ -315,193 +472,8 @@ Blockly.Blocks['imagesubtextureatlas'] = {
     }
 };
 
-Blockly.Blocks['add_animation'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("add animation to")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "object");
-        this.appendDummyInput()
-            .appendField("tagged")
-            .appendField(new Blockly.FieldTextInput("name"), "NAME");
-        this.appendValueInput("FRAMES")
-            .setCheck(null)
-            .appendField("with frames");
-        this.appendDummyInput()
-            .appendField("displayed at")
-            .appendField(new Blockly.FieldNumber(60), "FPS")
-            .appendField("FPS");
-        this.appendDummyInput()
-            .appendField("loop")
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "LOOP");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setTooltip('Add an animation to an object based on a list of frames');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#add');
-        this.setColour(PHASER_ANIMATION_COLOUR);
-    }
-};
 
-Blockly.Blocks['add_animation_vi'] = {
-    init: function () {
-        this.appendValueInput('OBJECT')
-            .appendField("add animation to");
-        this.appendDummyInput()
-            .appendField("tagged")
-            .appendField(new Blockly.FieldTextInput("name"), "NAME");
-        this.appendValueInput("FRAMES")
-            .setCheck(null)
-            .appendField("with frames");
-        this.appendDummyInput()
-            .appendField("displayed at")
-            .appendField(new Blockly.FieldNumber(60), "FPS")
-            .appendField("FPS");
-        this.appendDummyInput()
-            .appendField("loop")
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "LOOP");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setTooltip('Add an animation to an object based on a list of frames');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#add');
-        this.setColour(PHASER_ANIMATION_COLOUR);
-    }
-};
-
-Blockly.Blocks['play_animation'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField('play animation');
-        this.appendValueInput('ANIMATION');
-        this.appendDummyInput()
-            .appendField('on')
-            .appendField(new Blockly.FieldVariable('defaultObject'), "OBJECT");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#play');
-    }
-};
-
-Blockly.Blocks['play_animation_vi'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField('play animation');
-        this.appendValueInput('ANIMATION');
-        this.appendValueInput('OBJECT')
-            .appendField('on');
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#play');
-        this.setInputsInline(true);
-    }
-};
-
-Blockly.Blocks['animation_next'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("increment current animation by")
-            .appendField(new Blockly.FieldNumber(1, 1), "FRAMECOUNT")
-            .appendField("on ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['animation_previous'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("decrement current animation by")
-            .appendField(new Blockly.FieldNumber(1, 1), "FRAMECOUNT")
-            .appendField("on ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['refresh_frame'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("refresh frame of ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['animation_update'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("frame update of ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
-        this.setOutput(true, "Boolean");
-        this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['validate_frames'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("validate animation frames of ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "Object");
-        this.appendValueInput("FRAMES")
-            .setCheck("Array")
-            .appendField("array of frames");
-        this.setOutput(true, "Boolean");
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['animation_destroy'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("destroy all animations in animation manager of ")
-            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
-    }
-};
-
-Blockly.Blocks['stop_animation'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField('Stop Animation on')
-            .appendField(new Blockly.FieldVariable('defaultObject'), "OBJECT");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-    }
-};
-
-Blockly.Blocks['set_frame'] = {
-    init: function () {
-        this.appendValueInput('FRAME_NUMBER')
-            .appendField('Set Current Frame # For')
-            .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-    }
-};
-
-Blockly.Blocks['add_child'] = {
+Blockly.Blocks['add_child_vi'] = {
     init: function () {
         this.appendValueInput("CHILD")
             .setCheck(null)
@@ -510,10 +482,11 @@ Blockly.Blocks['add_child'] = {
             .appendField("to")
             .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
         this.setInputsInline(true);
-        this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite. This will make them move together.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChild');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
     }
 };
 
@@ -843,42 +816,159 @@ Blockly.Blocks['remove_children'] = {
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildren');
     }
 };
+//endregion
 
-Blockly.Blocks['reset_frame'] = {
+//region ANIMATION
+Blockly.Blocks['add_animation_vi'] = {
     init: function () {
-        this.appendValueInput("OBJECT")
+        this.appendValueInput('OBJECT')
+            .appendField("add animation to");
+        this.appendDummyInput()
+            .appendField("tagged")
+            .appendField(new Blockly.FieldTextInput("name"), "NAME");
+        this.appendValueInput("FRAMES")
             .setCheck(null)
-            .appendField("reset the frame dimensions of");
+            .appendField("with frames");
+        this.appendDummyInput()
+            .appendField("displayed at")
+            .appendField(new Blockly.FieldNumber(60), "FPS")
+            .appendField("FPS");
+        this.appendDummyInput()
+            .appendField("loop")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "LOOP");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('Resets the texture frame dimensions that the sprite uses for rendering.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#resetFrame');
+        this.setTooltip('Add an animation to an object based on a list of frames');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#add');
+        this.setColour(PHASER_ANIMATION_COLOUR);
     }
 };
 
-Blockly.Blocks['resize_frame'] = {
+Blockly.Blocks['play_animation_vi'] = {
     init: function () {
-        this.appendValueInput("OBJECT")
-            .setCheck(null)
-            .appendField("resize the frame of");
-        this.appendValueInput("PARENT")
-            .setCheck(null)
-            .appendField("to accomodate");
-        this.appendValueInput("WIDTH")
-            .setCheck("Number")
-            .appendField("Width");
-        this.appendValueInput("HEIGHT")
-            .setCheck("Number")
-            .appendField("Height");
-        this.setInputsInline(false);
+        this.appendDummyInput()
+            .appendField('play animation');
+        this.appendValueInput('ANIMATION');
+        this.appendValueInput('OBJECT')
+            .appendField('on');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#play');
+        this.setInputsInline(true);
+    }
+};
+
+Blockly.Blocks['animation_next'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("increment current animation by")
+            .appendField(new Blockly.FieldNumber(1, 1), "FRAMECOUNT")
+            .appendField("on ")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['animation_previous'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("decrement current animation by")
+            .appendField(new Blockly.FieldNumber(1, 1), "FRAMECOUNT")
+            .appendField("on ")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['refresh_frame'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("refresh frame of ")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['animation_update'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("frame update of ")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
+        this.setOutput(true, "Boolean");
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['validate_frames'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("validate animation frames of ")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "Object");
+        this.appendValueInput("FRAMES")
+            .setCheck("Array")
+            .appendField("array of frames");
+        this.setOutput(true, "Boolean");
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['animation_destroy'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("destroy all animations in animation manager of ")
+            .appendField(new Blockly.FieldVariable("defaultObject"), "OBJECT");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('Resizes the Frame dimensions that the Game Object uses for rendering. You shouldn\'t normally need to ever call this, but in the case of special texture types such as Video or BitmapData it can be useful to adjust the dimensions directly in this way.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#resizeFrame');
+        this.setTooltip('');
+        this.setHelpUrl('');
     }
 };
+
+Blockly.Blocks['stop_animation_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('Stop Animation on');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Stops the current animation on the specified Sprite')
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Animation.html#stop');
+    }
+};
+
+Blockly.Blocks['set_frame_vi'] = {
+    init: function () {
+        this.appendValueInput('FRAME_NUMBER')
+            .appendField('Set Current Frame # For');
+        this.appendValueInput('OBJECT');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip('Sets the current frame number on the specified object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Animation.html#frame');
+    }
+};
+//endregion
+
+
 
 Blockly.Blocks['send_to_back'] = {
     init: function () {
@@ -995,15 +1085,16 @@ Blockly.Blocks['swap_children'] = {
             .appendField("swap children of");
         this.appendValueInput("CHILD")
             .setCheck(null)
-            .appendField("Child 1");
+            .appendField("child 1");
         this.appendValueInput("CHILD2")
             .setCheck(null)
-            .appendField("Child 2");
+            .appendField("child 2");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Swaps the indices of the given children. They must both be on the same parent.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#swapChildren');
+        this.setInputsInline(true);
     }
 };
 
@@ -1980,6 +2071,10 @@ Blockly.Blocks['add_text'] = {
     }
 };
 
+/**
+ * @deprecated Use set_text_vi instead
+ * @type {{init: Blockly.Blocks.set_text.init}}
+ */
 Blockly.Blocks['set_text'] = {
     init: function () {
         this.appendDummyInput()
@@ -2317,7 +2412,6 @@ Blockly.Blocks['emitters_set_width'] = {
 //endregion
 
 //region UTILITY
-
 Blockly.Blocks['debug_sprite'] = {
     init: function () {
         this.appendValueInput('OBJECT')
@@ -2373,7 +2467,7 @@ Blockly.Blocks['statemanager_start_state'] = {
 
 //region GEOMETRY
 
-//region RECTANGLE
+    //region RECTANGLE
 Blockly.Blocks['rectangle_create'] = {
     init: function () {
         this.appendDummyInput()
@@ -2419,9 +2513,6 @@ Blockly.Blocks['point_get_element'] = {
             .appendField('get point.');
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]), 'ELEMENT')
-            .appendField('x');
-        this.appendValueInput('Y')
-            .appendField('y');
         this.appendDummyInput()
             .appendField('for');
         this.appendValueInput('POINT');
@@ -2439,14 +2530,12 @@ Blockly.Blocks['point_set_element'] = {
         this.appendDummyInput()
             .appendField('set point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]))
-            .appendField('x');
-        this.appendValueInput('Y')
-            .appendField('y');
+            .appendField(new Blockly.FieldDropdown([['x','x'], ['y', 'y']]));
         this.appendDummyInput()
             .appendField('for');
         this.appendValueInput('POINT');
         this.appendValueInput('VALUE')
+            .appendField('to')
             .setCheck('Number');
         this.setInputsInline(true);
         this.setColour(PHASER_GEOMETRY_COLOUR);
