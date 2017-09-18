@@ -152,7 +152,7 @@ Blockly.JavaScript['add_child'] = function (block) {
 };
 
 Blockly.JavaScript['add_child_vi'] = function (block) {
-    const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
+    const variable_object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
     return `${variable_object}.addChild(${value_child});\n`;
 };
@@ -162,6 +162,13 @@ Blockly.JavaScript['add_child_at'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     const value_index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
     return `${variable_object}.addChildAt(${value_child}, ${value_index});\n`;
+};
+
+Blockly.JavaScript['add_child_at_vi'] = function (block) {
+    const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const object =Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    return `${object}.addChildAt(${child}, ${index});\n`;
 };
 
 Blockly.JavaScript['align_in'] = function (block) {
@@ -193,10 +200,21 @@ Blockly.JavaScript['check_world_bounds'] = function (block) {
     return `${value_object}.checkWorldBounds = ${value_bool};\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {[string,*]}
+ */
 Blockly.JavaScript['contains'] = function (block) {
     const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return [`${variable_object}.contains(${value_child})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['contains_vi'] = function (block) {
+    const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${object}.contains(${value_child})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['crop'] = function (block) {
@@ -222,10 +240,28 @@ Blockly.JavaScript['get_child_at'] = function (block) {
     return [`${variable_object}.getChildAt(${value_index})`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.JavaScript['get_child_at_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const value_index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${object}.getChildAt(${value_index})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+/**
+ * @deprecated
+ * @param block
+ * @return {[string,*]}
+ */
 Blockly.JavaScript['get_child_index'] = function (block) {
     const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return [`${variable_object}.getChildIndex(${value_child})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+
+Blockly.JavaScript['get_child_index_vi'] = function (block) {
+    const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${object}.getChildIndex(${child})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['load_texture'] = function (block) {
@@ -256,21 +292,53 @@ Blockly.JavaScript['out_of_bounds_kill'] = function (block) {
     return `${value_object}.outOfBoundsKill = ${value_bool};\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['remove_child'] = function (block) {
     const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return `${variable_object}.removeChild(${value_child});\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['remove_child_at'] = function (block) {
     const value_index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return `${variable_object}.removeChildAt(${value_index});\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['remove_children'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     return `${variable_object}.removeChildren();\n`;
+};
+
+Blockly.JavaScript['remove_child_vi'] = function (block) {
+    const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.removeChild(${child});\n`;
+};
+
+Blockly.JavaScript['remove_child_at_vi'] = function (block) {
+    const value_index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.removeChildAt(${value_index});\n`;
+};
+
+Blockly.JavaScript['remove_children_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.removeChildren();\n`;
 };
 
 Blockly.JavaScript['reset_frame'] = function (block) {
@@ -291,11 +359,23 @@ Blockly.JavaScript['send_to_back'] = function (block) {
     return `${value_object}.sendToBack();\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['set_child_index'] = function (block) {
     const value_child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
     const variable_parent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('PARENT'), Blockly.Variables.NAME_TYPE);
     const value_index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
     return `${variable_parent}.setChildIndex(${value_child}, ${value_index});\n`;
+};
+
+Blockly.JavaScript['set_child_index_vi'] = function (block) {
+    const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.setChildIndex(${child}, ${index});\n`;
 };
 
 Blockly.JavaScript['set_sprite_frame'] = function (block) {
@@ -423,9 +503,14 @@ Blockly.JavaScript['set_body_field_point_class_vi'] = function (block) {
     const field = block.getFieldValue('FIELD');
     const element = block.getFieldValue('ELEMENT');
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
-    const valueX = Blockly.JavaScript.valueToCode(block, 'X_VALUE', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-    const valueY = Blockly.JavaScript.valueToCode(block, 'Y_VALUE', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-    return `${object}.body.${field}.${element} = new Phaser.Point(${valueX}, ${valueY});\n`;
+    const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC) || 'new Point()';
+    return `${object}.body.${field}.${element} = ${point};\n`;
+};
+
+Blockly.JavaScript['get_body_field_point_class'] = function(block) {
+    const field = block.getFieldValue('FIELD');
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return [`${object}.body.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['set_body_boolean_field'] = function (block) {
@@ -905,6 +990,7 @@ Blockly.JavaScript['rectangle_create'] = function (block) {
     const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     const width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     return [`new Phaser.Rectangle(${x}, ${y}, ${width}, ${height})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };

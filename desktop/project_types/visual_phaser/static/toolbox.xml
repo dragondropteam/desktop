@@ -312,7 +312,12 @@
                     <mutation name="Phaser.State">
                     </mutation>
                 </block>
-                <block type="statemanager_add_state"/>
+                <block type="statemanager_add_state">
+                    <value name="NAME">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
                 <block type="statemanager_start_state"/>
             </category>
             <category name="World" colour="#d32f2f">
@@ -591,19 +596,19 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="sprite_overlap">
-                    <value name="SPRITEA">
-                        <shadow type="variables_get">
-                            <field name="VAR">objectA</field>
-                        </shadow>
-                    </value>
-                    <value name="SPRITEB">
-                        <shadow type="variables_get">
-                            <field name="VAR">objectB</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="add_child">
+                <!--<block type="sprite_overlap">-->
+                    <!--<value name="SPRITEA">-->
+                        <!--<shadow type="variables_get">-->
+                            <!--<field name="VAR">objectA</field>-->
+                        <!--</shadow>-->
+                    <!--</value>-->
+                    <!--<value name="SPRITEB">-->
+                        <!--<shadow type="variables_get">-->
+                            <!--<field name="VAR">objectB</field>-->
+                        <!--</shadow>-->
+                    <!--</value>-->
+                <!--</block>-->
+                <block type="add_child_vi">
                     <value name="CHILD">
                         <shadow type="variables_get">
                             <field name="VAR">child</field>
@@ -615,7 +620,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="add_child_at">
+                <block type="add_child_at_vi">
                     <value name="CHILD">
                         <shadow type="variables_get">
                             <field name="VAR">child</field>
@@ -632,14 +637,19 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="get_child_at">
+                <block type="get_child_at_vi">
                     <value name="INDEX">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
                         </shadow>
                     </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
                 </block>
-                <block type="get_child_index">
+                <block type="get_child_index_vi">
                     <value name="CHILD">
                         <shadow type="variables_get">
                             <field name="VAR">child</field>
@@ -651,7 +661,12 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="set_child_index">
+                <block type="set_child_index_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
                     <value name="CHILD">
                         <shadow type="variables_get">
                             <field name="VAR">child</field>
@@ -685,7 +700,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="contains">
+                <block type="contains_vi">
                     <value name="CHILD">
                         <shadow type="variables_get">
                             <field name="VAR">child</field>
@@ -697,7 +712,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="remove_child">
+                <block type="remove_child_vi">
                     <value name="CHILD">
                         <shadow type="variables_get">
                             <field name="VAR">child</field>
@@ -709,7 +724,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="remove_child_at">
+                <block type="remove_child_at_vi">
                     <value name="INDEX">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
@@ -721,7 +736,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="remove_children">
+                <block type="remove_children_vi">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1034,16 +1049,27 @@
                     </value>
                 </block>
                 <block type="set_body_field_point_class_vi">
-                    <value name="X_VALUE">
-                        <shadow type="math_number">
-                            <field name="NUM">0</field>
+                    <value name="POINT">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
                         </shadow>
                     </value>
-                    <value name="Y_VALUE">
-                        <shadow type="math_number">
-                            <field name="NUM">0</field>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
+                </block>
+                <block type="get_body_field_point_class">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
