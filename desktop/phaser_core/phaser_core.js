@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const {exec} = require('child_process');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
+const {BrowserWindow} = require('electron');
 
 const builder = require("electron-builder");
 const Platform = builder.Platform;
@@ -181,7 +182,11 @@ exports.setupPhaserMenu = (menu, project) => {
         click(){
             exportExecutable(project.loadPath, project.getName(), (err, code) => {
                 if (code != 0) {
-                    dialog.showErrorBox('Error Creating Executable', 'Make sure you have the newest version of Node and NPM installed\n' + err);
+                    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                      type: 'error',
+                      title: 'Error Creating Executable',
+                      message: 'Make sure you have the newest version of Node and NPM installed\n' + err
+                    });
                     console.log(err.message);
                 }
                 else {

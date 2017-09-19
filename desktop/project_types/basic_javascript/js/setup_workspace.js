@@ -118,6 +118,7 @@ function save() {
     }
 
     const dialog = require('electron').remote.dialog;
+    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
@@ -125,7 +126,11 @@ function save() {
         xml = Blockly.Xml.domToPrettyText(xml);
         fs.writeFile(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.js`), code, err =>{
             if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
+                dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                  type: 'error',
+                  title: 'Error in code!',
+                  message: err.message
+                });
                 console.log(err);
                 return false;
             }
@@ -133,7 +138,11 @@ function save() {
 
         fs.writeFile(loadedProject.getBlocksPath(), xml, (err) => {
             if (err) {
-                dialog.showErrorBox('Error in code!', err.message);
+                dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                  type: 'error',
+                  title: 'Error in code!',
+                  message: err.message
+                });
                 console.log(err);
                 return false;
             }
@@ -143,7 +152,11 @@ function save() {
 
         return true;
     } catch (e) {
-        dialog.showErrorBox('Error in code', e.message);
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Error in code!',
+          message: e.message
+        });
         console.log(e);
         return false;
     }
@@ -262,6 +275,7 @@ function myUpdateFunction(event) {
 // onresize();
 // function save(){
 //   const dialog = require('electron').remote.dialog;
+//   const {BrowserWindow} = require('electron').remote;
 //   try{
 //     var code = Blockly.JavaScript.workspaceToCode(workspace);
 //     var xml = Blockly.Xml.workspaceToDom(workspace);
@@ -269,7 +283,10 @@ function myUpdateFunction(event) {
 //     xml = Blockly.Xml.domToPrettyText(xml);
 //     fs.writeFile(`${loadedProject.loadPath}/${loadedProject.getName()}/${loadedProject.getName()}.js`, code, function(err){
 //       if(err){
-//         dialog.showErrorBox('Error in code!', err.message);
+//         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+//           title: 'Error in code!',
+//           message: err.message
+//         });
 //         console.log(err);
 //         return false;
 //       }
@@ -277,7 +294,10 @@ function myUpdateFunction(event) {
 //
 //     fs.writeFile(loadedProject.getBlocksPath(), xml, (err) =>{
 //       if(err){
-//         dialog.showErrorBox('Error in code!', err.message);
+//         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+//           title: 'Error in code!',
+//           message: err.message
+//         });
 //         console.log(err);
 //         return false;
 //       }
@@ -285,7 +305,10 @@ function myUpdateFunction(event) {
 //     editor.setValue(code,-1);
 //     return true;
 //   }catch(e){
-//     dialog.showErrorBox('Error in code', e.message);
+//     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+//       title: 'Error in code!',
+//       message: e.message
+//     });
 //     console.log(e);
 //     return false;
 //   }

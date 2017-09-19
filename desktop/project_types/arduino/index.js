@@ -20,9 +20,14 @@ const arduino = require('../../arduino_core/arduino_core');
 const electron = require('electron');
 const {Boards} = require('../../arduino_core/arduino_core');
 const {dialog} = require('electron');
+const {BrowserWindow} = require('electron');
 
 function invalidArduinoPath() {
-    dialog.showErrorBox('Error launching Arduino', 'Make sure you have Arduino installed and the path correctly set in preferences.');
+    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+      type: 'error',
+      title: 'Error launching Arduino',
+      message: 'Make sure you have Arduino installed and the path correctly set in preferences.'
+    });
 }
 
 exports.createProjectDir = function (name, filePath) {
@@ -100,7 +105,11 @@ function completedProject(code, output) {
             buttons: ["OK"]
         });
     } else {
-        electron.dialog.showErrorBox("Error Uploading To Arduino",'See console for more details');
+        electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Error Uploading To Arduino',
+          message: 'See console for more details'
+        });
     }
 }
 
@@ -109,7 +118,11 @@ function completedVerify(code, output) {
         //success
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
-        electron.dialog.showErrorBox("Error Uploading To Arduino", 'See Arduino IDE for details');
+        electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Error Uploading To Arduino',
+          message: 'See Arduino IDE for details'
+        });
     }
 }
 
@@ -165,5 +178,3 @@ exports.displayProject = function (window, debug, project) {
         window.send('set_project', project);
     });
 };
-
-
