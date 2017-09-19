@@ -18,6 +18,7 @@ const {LoadedProject} = require('project');
 const filesystem = require(`filesystem`);
 const electron = require('electron');
 const {dialog} = require('electron');
+const {BrowserWindow} = require('electron');
 const PROJECT_TYPE = 'visual_phaser';
 let displayedWindow = null;
 const corePhaser = require('../../phaser_core/phaser_core');
@@ -67,7 +68,11 @@ exports.createProjectDir = function (name, filePath) {
         fs.writeJsonSync(`${filePath}/${name}.digiblocks`, project);
         return new LoadedProject(project, filePath);
     } catch (e) {
-        dialog.showErrorBox('Error', e.message);
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Error',
+          message: e.message
+        });
         console.error(e.message);
         return null;
     }
@@ -140,5 +145,3 @@ exports.displayProject = function (window, debug, project) {
         window.send('set_project', project);
     });
 };
-
-

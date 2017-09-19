@@ -23,6 +23,7 @@ const path = require('path');
 
 const {dialog} = require('electron');
 const {app} = require('electron');
+//const {BrowserWindow} = require('electron');
 
 const {ipcMain} = require('electron');
 const projects = require('project');
@@ -249,7 +250,11 @@ function createProjectMenu(arg) {
             if (fs.existsSync(loadedproject.getBlocksPath())) {
                 fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
                     if (err) {
-                        dialog.showErrorBox(`Could not save ${project.getName()}`, err.message);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: `Could not save ${project.getName()}`,
+                          message: err.message
+                        });
                         return;
                     }
 
@@ -260,7 +265,11 @@ function createProjectMenu(arg) {
             if(fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"))){
                 fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"), pathmod.join(project.loadPath, project.getName(), "js"), function (err) {
                     if (err) {
-                        dialog.showErrorBox(`Could not save ${project.getName()}`, err.message);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: `Could not save ${project.getName()}`,
+                          message: err.message
+                        });
                     }
                 });
             }
@@ -268,7 +277,11 @@ function createProjectMenu(arg) {
             if(fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"))){
                 fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"), pathmod.join(project.loadPath, project.getName(), "assets"), function (err) {
                     if (err) {
-                        dialog.showErrorBox(`Could not save ${project.getName()}`, err.message);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: `Could not save ${project.getName()}`,
+                          message: err.message
+                        });
                     }
                 });
             }
@@ -307,7 +320,11 @@ function createProjectMenu(arg) {
             if (zipFile) {
                 zipfolder(arg.loadPath, zipFile, (err) => {
                     if (err) {
-                        dialog.showErrorBox('Archive Failed', `Could not archive project\n${err.message()}`);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: 'Archive Failed',
+                          message: `Could not archive project\n${err.message()}`
+                        });
                     } else {
                         dialog.showMessageBox({
                             title: 'Project Archived',
@@ -330,7 +347,12 @@ function createProjectMenu(arg) {
         addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
-        dialog.showErrorBox('Could not create menu', 'Menu could not be created!');
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Could not create menu',
+          message: 'Menu could not be created!'
+        });
+
     }, createProjectMenu);
 }
 
@@ -357,7 +379,11 @@ ipcMain.on('create_new_project', (event, project, type) => {
         displayProject(newProject);
     } else {
         const {dialog} = require('electron');
-        dialog.showErrorBox('Could not create loadedProject', 'Check the path and try again!');
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Could not create loadedProject',
+          message: 'Check the path and try again!'
+        });
     }
 
     if (createProjectWindow) {
@@ -521,7 +547,11 @@ function loadProjectFromPath(projectPath) {
         if (project !== null) {
             displayProject(project);
          } else {
-            dialog.showErrorBox('Could not open project', `Could not open project at ${projectPath}`);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Could not open project',
+              message: `Could not open project at ${projectPath}`
+            });
         }
     }catch(ex){
         console.error(ex);
@@ -556,7 +586,7 @@ app.on('ready', function () {
     }
     // Create the browser window.
     mainWindow = new BrowserWindow({width: 600, height: 500, resizable: false});
-    
+
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
     } else {

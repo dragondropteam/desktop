@@ -96,6 +96,7 @@
         var defaultPath = path.join(electron.remote.app.getPath('documents'), "DragonDropProjects");
         const fs = require('fs-extra');
         const {dialog} = require('electron').remote;
+        const {BrowserWindow} = require('electron').remote;
 
         var pathChangedManually = false;
         var project = {path: null, name: null};
@@ -138,15 +139,20 @@
                         return;
                     }
                     else{
-                        const err = fs.emptyDirSync(project.path);
+                      try{
+                        fs.emptyDirSync(project.path);
+                      }catch(err){
                         //If we could not overwrite the folder it is not safe to use it for the new project show the
                         //user an error and abort
-                        if(err){
-                            debug.log(err);
-                            dialog.showErrorBox('Could not delete directory', err.message());
-                            return;
-                        }
+                        console.error(err);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: 'Could not delete directory',
+                          message: 'Make sure no files are still open.'
+                        });
+                        return;
                     }
+                  }
                 }
 
                 ipcRenderer.sendSync('create_new_project', project, $scope.projectType);
