@@ -33,6 +33,7 @@ const PHASER_GROUPS_COLOUR = '#00695c';
 const PHASER_ANIMATION_COLOUR = '#00796b';
 const PHASER_GEOMETRY_COLOUR = '#26a69a';
 const PHASER_TEXT_COLOUR = '#009688';
+const PHASER_GAMEOBJECT_COLOUR = '#00bfa5';
 const PHASER_KEYBOARD_INPUT = '#1565c0';
 const PHASER_GAMEPAD_INPUT = '#42a5f5';
 const PHASER_MOUSE_INPUT = '#1976d2';
@@ -40,6 +41,24 @@ const PHASER_PHYSICS_STARTUP = '#d500f9';
 const PHASER_PHYSICS_DYNAMICS = '#6a1b9a';
 const PHASER_PHYSICS_COLLISION = '#8e24aa';
 //endregion
+
+
+function createDropDownField(write, readOnly) {
+    const output = {
+        writable: [],
+        all: []
+    }
+
+    write.forEach(item => {
+        output.writable.unshift([item, item]);
+        output.all.unshift([item, item]);
+    });
+
+    readOnly.forEach(item => {
+        output.all.unshift([item, item]);
+    });
+    return output;
+}
 
 //region STARTUP
 Blockly.Blocks['phaser_simple_init'] = {
@@ -1583,7 +1602,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
 };
 
 Blockly.Blocks['get_body_field_point_class'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField('get')
             .appendField(new Blockly.FieldDropdown([["bounce", "bounce"], ["gravity", "gravity"], ['velocity', 'velocity'], ['acceleration', 'acceleration'], ['drag', 'drag'], ['friction', 'friction'], ['maxVelocity', 'maxVelocity'], ['worldBounce', 'worldBounce']]), "FIELD")
@@ -1977,34 +1996,78 @@ Blockly.Blocks['create_point'] = {
 //region GAME OBJECT
 const GAME_OBJECT_COLOUR = 60;
 
+const GAME_OBJECT_POINT_WRITABLE = ['anchor', 'cameraOffset', 'scaleMax', 'scaleMin', 'world'];
+const GAME_OBJECT_POINT_READABLE = ['previousPoint'];
+const GAME_OBJECT_POINT_FIELDS = createDropDownField(GAME_OBJECT_POINT_WRITABLE, GAME_OBJECT_POINT_READABLE);
+
+Blockly.Blocks['set_game_object_point_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('set point field')
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_POINT_FIELDS.writable), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.appendValueInput('POINT')
+            .appendField('to');
+        this.setInputsInline(true);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+    }
+};
+Blockly.Blocks['get_game_object_point_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('get point field')
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_POINT_FIELDS.all), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.setInputsInline(true);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+    }
+};
+
+// Blockly.Blocks['set_game_object_boolean_field'];
+// Blockly.Blocks['get_game_object_boolean_field'];
+
+// Blockly.Blocks['set_game_object_numeric_field'];
+// Blockly.Blocks['get_game_object_numeric_field'];
+
 Blockly.Blocks['set_object_anchor'] = {
     init: function () {
         this.appendValueInput('OBJECT')
-            .appendField('Set anchor for');
+            .appendField('set anchor for');
         this.appendDummyInput()
             .appendField('to');
         this.appendValueInput('X_POS')
             .setCheck("Number")
-            .appendField("X:");
+            .appendField("x");
         this.appendValueInput("Y_POS")
             .setCheck("Number")
-            .appendField("Y:");
+            .appendField("y");
+        this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
+        this.setTooltip('');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
 
 Blockly.Blocks['kill_object'] = {
     init: function () {
         this.appendValueInput('OBJECT')
-            .appendField('Kill');
+            .appendField('kill');
+        this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_scale.init}}
+ */
 Blockly.Blocks['set_scale'] = {
     init: function () {
         this.appendDummyInput()
@@ -2018,6 +2081,23 @@ Blockly.Blocks['set_scale'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
+    }
+};
+
+Blockly.Blocks['set_scale_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('scale');
+        this.appendDummyInput()
+            .appendField('by');
+        this.appendValueInput('SCALE_X')
+            .appendField('x');
+        this.appendValueInput('SCALE_Y')
+            .appendField('y');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
 
@@ -2135,10 +2215,9 @@ Blockly.Blocks['get_bounds'] = {
 Blockly.Blocks['get_rotation'] = {
     init: function () {
         this.appendValueInput("OBJECT")
-            .setCheck(null)
-            .appendField("Get rotation");
+            .appendField("get rotation");
         this.setOutput(true, "Number");
-        this.setColour(GAME_OBJECT_COLOUR);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Finds the rotation (in degrees) of a Game Object.');
         this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Sprite.html#angle');
     }
@@ -2148,7 +2227,7 @@ Blockly.Blocks['rotate'] = {
     init: function () {
         this.appendValueInput("OBJECT")
             .setCheck(null)
-            .appendField("Rotate");
+            .appendField("rotate");
         this.appendValueInput("ANGLE")
             .setCheck("Number")
             .appendField("by");
@@ -2157,8 +2236,8 @@ Blockly.Blocks['rotate'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
-        this.setTooltip('Rotates a Game Object by the given angle in degrees. Negative numbers will rotate it the opposite direction.');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Rotates a game object by the given angle in degrees. Negative numbers will rotate it the opposite direction.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#angle');
     }
 };
@@ -2167,7 +2246,7 @@ Blockly.Blocks['set_rotation'] = {
     init: function () {
         this.appendValueInput("OBJECT")
             .setCheck(null)
-            .appendField("Set the rotation of");
+            .appendField("set the rotation of");
         this.appendValueInput("ROTATION")
             .setCheck(null)
             .appendField("to");
@@ -2176,8 +2255,8 @@ Blockly.Blocks['set_rotation'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
-        this.setTooltip('Directly sets the rotation (in degrees) of this Game Object to the given value.');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Directly sets the rotation (in degrees) of this game object to the given value.');
         this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Sprite.html#angle');
     }
 };
@@ -2186,9 +2265,9 @@ Blockly.Blocks['get_local_bounds'] = {
     init: function () {
         this.appendValueInput("OBJECT")
             .setCheck(null)
-            .appendField("Get local bounds of");
+            .appendField("get local bounds of");
         this.setOutput(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Gets the rectangular bounds of an object. Bounds are relative to the object itself instead of the world.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getLocalBounds');
     }
@@ -2196,20 +2275,19 @@ Blockly.Blocks['get_local_bounds'] = {
 
 Blockly.Blocks['reset'] = {
     init: function () {
-        this.appendDummyInput()
-            .appendField("Reset");
         this.appendValueInput("OBJECT")
             .setCheck(null)
-            .appendField("Object");
+            .appendField("reset object");
         this.appendValueInput("X_POS")
             .setCheck(null)
-            .appendField("X");
+            .appendField("x");
         this.appendValueInput("Y_POS")
             .setCheck(null)
-            .appendField("Y");
+            .appendField("y");
+        this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Gets most objects ready to play again in various ways and treats it like new. Specifically, moves it to a new position then makes sure it is visible, rendering, alive, and actually exists in the game world.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#reset');
     }
@@ -2219,10 +2297,10 @@ Blockly.Blocks['revive'] = {
     init: function () {
         this.appendValueInput("OBJECT")
             .setCheck(null)
-            .appendField("Revive");
+            .appendField("revive");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Brings a "dead" Game Object back to life. Makes sure it counts as alive, existing, and visible. Will send an event named onRevived.');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#revive');
     }
@@ -2694,7 +2772,7 @@ Blockly.Blocks['point_get_element'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT')
         this.appendDummyInput()
-            .appendField('for');
+            .appendField('of');
         this.appendValueInput('POINT');
         this.setInputsInline(true);
         this.setColour(PHASER_GEOMETRY_COLOUR);
@@ -2712,7 +2790,7 @@ Blockly.Blocks['point_set_element'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]));
         this.appendDummyInput()
-            .appendField('for');
+            .appendField('of');
         this.appendValueInput('POINT');
         this.appendValueInput('VALUE')
             .appendField('to')

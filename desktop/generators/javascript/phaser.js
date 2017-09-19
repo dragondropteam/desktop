@@ -166,7 +166,7 @@ Blockly.JavaScript['add_child_at'] = function (block) {
 
 Blockly.JavaScript['add_child_at_vi'] = function (block) {
     const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
-    const object =Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     return `${object}.addChildAt(${child}, ${index});\n`;
 };
@@ -507,7 +507,7 @@ Blockly.JavaScript['set_body_field_point_class_vi'] = function (block) {
     return `${object}.body.${field}.${element} = ${point};\n`;
 };
 
-Blockly.JavaScript['get_body_field_point_class'] = function(block) {
+Blockly.JavaScript['get_body_field_point_class'] = function (block) {
     const field = block.getFieldValue('FIELD');
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     return [`${object}.body.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
@@ -763,6 +763,13 @@ Blockly.JavaScript['set_scale'] = function (block) {
     return `${object}.scale.setTo(${xScale}, ${yScale});\n`;
 };
 
+Blockly.JavaScript['set_scale_vi'] = function (block) {
+    const xScale = Blockly.JavaScript.valueToCode(block, 'SCALE_X', Blockly.JavaScript.ORDER_ATOMIC);
+    const yScale = Blockly.JavaScript.valueToCode(block, 'SCALE_Y', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.scale.setTo(${xScale}, ${yScale});\n`;
+};
+
 Blockly.JavaScript['set_pos'] = function (block) {
     const param_name = block.getFieldValue('PARAM');
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
@@ -789,13 +796,17 @@ Blockly.JavaScript['get_param'] = function (block) {
 
 //region GAME OBJECT
 
+Blockly.JavaScript['set_game_object_point_field'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.${field} = ${point};\n`;
+};
+
 Blockly.JavaScript['set_object_anchor'] = function (block) {
-
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_NONE);
-
     const value_x_pos = Blockly.JavaScript.valueToCode(block, 'X_POS', Blockly.JavaScript.ORDER_ATOMIC);
     const value_y_pos = Blockly.JavaScript.valueToCode(block, 'Y_POS', Blockly.JavaScript.ORDER_ATOMIC);
-
     return `${object}.anchor.setTo(${value_x_pos}, ${value_y_pos});\n`;
 };
 

@@ -812,7 +812,6 @@
                 </block>
                 <!--<block type="call_function_on_group"/>-->
             </category>
-            <!--TODO: -> Value Input -->
             <category name="Animation" colour="#00796b">
                 <block type="add_animation_vi">
                     <value name="OBJECT">
@@ -988,24 +987,117 @@
                 </block>
             </category>
             <!--TODO: -> Value Input and clean up of inline -->
-            <category name="Game Object" colour="80">
-                <block type="set_object_anchor"/>
-                <block type="set_scale"/>
-                <block type="kill_object"/>
-                <block type="get_bounds"/>
-                <block type="get_rotation"/>
-                <block type="rotate"/>
-                <block type="set_rotation"/>
-                <block type="get_local_bounds"/>
-                <block type="reset"/>
-                <block type="revive"/>
-                <block type="set_pos"/>
+            <category name="Game Object" colour="#00bfa5">
+                <!--<block type="set_object_anchor"/>-->
+                <block type="set_scale_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SCALE_X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="SCALE_Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="kill_object">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="get_bounds"></block>-->
+                <block type="get_rotation">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rotate">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="ANGLE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_rotation">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="ROTATION">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="get_local_bounds"></block>-->
+                <block type="reset">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="revive">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_game_object_point_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="POINT">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_pos"></block>
                 <!--<block type="set_velocity"/>-->
-                <block type="get_param"/>
-                <block type="object_inCamera"/>
-                <block type='get_camera'/>
-                <block type='camera_follow'/>
-                <block type='object_set_to'/>
+                <block type="get_param"></block>
+                <block type="object_inCamera"></block>
+                <block type='get_camera'></block>
+                <block type='camera_follow'></block>
+                <block type='object_set_to'></block>
             </category>
             <!--TODO: Create remaining shape blocks -->
             <category name="Geometry" colour="#26a69a">
