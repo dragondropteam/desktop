@@ -39,7 +39,8 @@ const PHASER_GAMEPAD_INPUT = '#42a5f5';
 const PHASER_MOUSE_INPUT = '#1976d2';
 const PHASER_PHYSICS_STARTUP = '#d500f9';
 const PHASER_PHYSICS_DYNAMICS = '#6a1b9a';
-const PHASER_PHYSICS_COLLISION = '#8e24aa';
+const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
+const PHASER_CAMERA_COLOUR = '#607d8b';
 //endregion
 
 
@@ -50,12 +51,12 @@ function createDropDownField(write, readOnly) {
     }
 
     write.forEach(item => {
-        output.writable.unshift([item, item]);
-        output.all.unshift([item, item]);
+        output.writable.push([item, item]);
+        output.all.push([item, item]);
     });
 
     readOnly.forEach(item => {
-        output.all.unshift([item, item]);
+        output.all.push([item, item]);
     });
     return output;
 }
@@ -1533,7 +1534,7 @@ Blockly.Blocks['collide_with_arrow_function'] = {
             .setCheck(null)
             .appendField("if collided do");
         this.setInputsInline(true);
-        this.setColour(PHASER_PHYSICS_COLLISION);
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
         this.setTooltip("Collide two objects, if they are collide do the statements in the block");
         this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#collide");
         this.setPreviousStatement(true, null);
@@ -1996,9 +1997,17 @@ Blockly.Blocks['create_point'] = {
 //region GAME OBJECT
 const GAME_OBJECT_COLOUR = 60;
 
-const GAME_OBJECT_POINT_WRITABLE = ['anchor', 'cameraOffset', 'scaleMax', 'scaleMin', 'world'];
+const GAME_OBJECT_POINT_WRITABLE = ['anchor', 'cameraOffset', 'scaleMax', 'scaleMin', 'world', 'scale'];
 const GAME_OBJECT_POINT_READABLE = ['previousPoint'];
 const GAME_OBJECT_POINT_FIELDS = createDropDownField(GAME_OBJECT_POINT_WRITABLE, GAME_OBJECT_POINT_READABLE);
+
+const GAME_OBJECT_BOOLEAN_WRITABLE = ['alive', 'checkWorldBounds', 'debug',  'exists', 'fixedToCamera', 'outOfBoundsKill', 'outOfCameraBoundsKill'];
+const GAME_OBJECT_BOOLEAN_READONLY = ['destroyPhase', 'inCamera', 'inWorld', 'pendingDestroy'];
+const GAME_OBJECT_BOOLEAN_FIELDS = createDropDownField(GAME_OBJECT_BOOLEAN_WRITABLE, GAME_OBJECT_BOOLEAN_READONLY);
+
+const GAME_OBJECT_NUMERIC_WRITABLE = ['x', 'y', 'angle', 'health', 'height', 'width', 'lifespan', 'maxHealth'];
+const GAME_OBJECT_NUMERIC_READONLY = ['bottom', 'top', 'left', 'right', 'centerX', 'centerY', 'deltaX', 'deltaY', 'deltaZ', 'offsetX', 'offsetY', 'previousRotation', 'z'];
+const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITABLE, GAME_OBJECT_NUMERIC_READONLY);
 
 Blockly.Blocks['set_game_object_point_field'] = {
     init: function () {
@@ -2012,8 +2021,12 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setInputsInline(true);
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
+        this.setTooltip('Set a point property on the object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
+
 Blockly.Blocks['get_game_object_point_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -2022,16 +2035,80 @@ Blockly.Blocks['get_game_object_point_field'] = {
         this.appendValueInput('OBJECT')
             .appendField('of');
         this.setInputsInline(true);
-        this.setNextStatement(true, null);
-        this.setPreviousStatement(true, null);
+        this.setOutput(true);
+        this.setTooltip('Get a point property on the object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
 
-// Blockly.Blocks['set_game_object_boolean_field'];
-// Blockly.Blocks['get_game_object_boolean_field'];
+Blockly.Blocks['set_game_object_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('set numeric field')
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_NUMERIC_FIELDS.writable), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.appendValueInput('VALUE')
+            .appendField('to');
+        this.setInputsInline(true);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setTooltip('Set a numeric property on the object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    }
+};
 
-// Blockly.Blocks['set_game_object_numeric_field'];
-// Blockly.Blocks['get_game_object_numeric_field'];
+Blockly.Blocks['get_game_object_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('get numeric field')
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_NUMERIC_FIELDS.all), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setTooltip('Get a numeric property on the object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    }
+};
+
+Blockly.Blocks['set_game_object_boolean_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('set boolean field')
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_BOOLEAN_FIELDS.writable), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.appendDummyInput()
+            .appendField('to')
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'BOOLEAN');
+        this.setInputsInline(true);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setTooltip('Set a boolean property on the object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    }
+};
+
+Blockly.Blocks['get_game_object_boolean_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('get boolean field')
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_BOOLEAN_FIELDS.all), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField('of');
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setTooltip('Get a boolean property on the object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    }
+};
+
 
 Blockly.Blocks['set_object_anchor'] = {
     init: function () {
@@ -2186,6 +2263,11 @@ Blockly.Blocks['get_camera'] = {
         this.setHelpUrl('');
     }
 };
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.camera_follow.init}}
+ */
 Blockly.Blocks['camera_follow'] = {
     init: function () {
         this.appendDummyInput()
@@ -2194,8 +2276,8 @@ Blockly.Blocks['camera_follow'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(GAME_OBJECT_COLOUR);
-        this.setTooltip('');
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Make the camera follow the specified game object');
         this.setHelpUrl('');
     }
 };
@@ -2805,4 +2887,21 @@ Blockly.Blocks['point_set_element'] = {
 };
 //endregion
 
+//endregion
+
+//region CAMERA
+//region CAMERA.METHODS
+Blockly.Blocks['camera_follow_vi'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField("make camera follow")
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip('Make the camera follow the specified game object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Camera.html#follow');
+    }
+};
+//endregion
 //endregion

@@ -796,12 +796,46 @@ Blockly.JavaScript['get_param'] = function (block) {
 
 //region GAME OBJECT
 
+//region GAME OBJECT PROPERTIES
 Blockly.JavaScript['set_game_object_point_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const field = block.getFieldValue('PROPERTY');
     const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
     return `${object}.${field} = ${point};\n`;
 };
+
+Blockly.JavaScript['get_game_object_point_field'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    return [`${object}.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['set_game_object_boolean_field'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    const boolean = block.getFieldValue('BOOLEAN') == 'TRUE';
+    return `${object}.${field} = ${boolean};\n`;
+};
+
+Blockly.JavaScript['get_game_object_boolean_field'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    return [`${object}.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['set_game_object_numeric_field'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.${field} = ${value};\n`;
+};
+
+Blockly.JavaScript['get_game_object_numeric_field'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    return [`${object}.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+//endregion
 
 Blockly.JavaScript['set_object_anchor'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_NONE);
@@ -825,6 +859,13 @@ Blockly.JavaScript['camera_follow'] = function (block) {
     return `game.camera.follow(${variable_object});\n`;
 
 };
+
+Blockly.JavaScript['camera_follow_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.camera.follow(${object});\n`;
+
+};
+
 Blockly.JavaScript['get_camera'] = function (block) {
     return [`game.camera`, Blockly.JavaScript.ORDER_ATOMIC];
 };
