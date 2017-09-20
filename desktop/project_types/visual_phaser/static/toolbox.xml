@@ -1406,7 +1406,7 @@
                 </block>
             </category>
             <category name="Dynamics">
-                <block type="move_to_pointer">
+                <block type="move_to_pointer_extended">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1417,7 +1417,35 @@
                             <field name="NUM">0</field>
                         </shadow>
                     </value>
+                    <value name="MAXIMUM_TIME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
                 </block>
+                <block type="move_to_object">
+                    <value name="GAMEOBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">destinationObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXIMUM_TIME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+
             </category>
             <category name="Collision" colour="#8e24aa">
                 <block type="collide"/>
