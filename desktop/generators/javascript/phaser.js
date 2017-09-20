@@ -578,11 +578,29 @@ Blockly.JavaScript['check_overlap'] = function (block) {
     const functionName = block.getFieldValue('NAME');
     return `game.physics.arcade.overlap(${lhs}, ${rhs}, ${functionName}, null, this);\n`;
 };
+
 Blockly.JavaScript['move_to_pointer'] = function (block) {
     const value_gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const value_speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
     return `game.physics.arcade.moveToPointer(${value_gameobject}, ${value_speed});\n`;
 };
+
+
+Blockly.JavaScript['move_to_pointer_extended'] = function (block) {
+    const gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    const maximumTime = Blockly.JavaScript.valueToCode(block, 'MAXIMUM_TIME', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.physics.arcade.moveToPointer(${gameobject}, ${speed}, game.input.activePointer, ${maximumTime});\n`;
+};
+
+Blockly.JavaScript['move_to_object'] = function (block) {
+    const gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    const maximumTime = Blockly.JavaScript.valueToCode(block, 'MAXIMUM_TIME', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.physics.arcade.moveToObject(${gameobject},${object}, ${speed}, ${maximumTime});\n`;
+};
+
 Blockly.JavaScript['acceleration_from_rotation'] = function (block) {
     const value_rotation = Blockly.JavaScript.valueToCode(block, 'rotation', Blockly.JavaScript.ORDER_ATOMIC);
     const value_speed = Blockly.JavaScript.valueToCode(block, 'speed', Blockly.JavaScript.ORDER_ATOMIC);

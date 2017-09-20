@@ -1795,6 +1795,11 @@ Blockly.Blocks['check_overlap'] = {
         this.setColour(PHYSICS_COLOUR);
     }
 };
+
+/**
+ * @deprecated use extended version
+ * @type {{init: Blockly.Blocks.move_to_pointer.init}}
+ */
 Blockly.Blocks['move_to_pointer'] = {
     init: function () {
         this.appendValueInput("GAMEOBJECT")
@@ -1808,9 +1813,53 @@ Blockly.Blocks['move_to_pointer'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHYSICS_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+        this.setTooltip('Move the object to the pointer at the given speed');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#moveToPointer');
+    }
+};
+
+Blockly.Blocks['move_to_pointer_extended'] = {
+    init: function () {
+        this.appendValueInput("GAMEOBJECT")
+            .setCheck(null)
+            .appendField("move game object");
+        this.appendValueInput("SPEED")
+            .setCheck("Number")
+            .appendField("to mouse pointer at");
+        this.appendDummyInput()
+            .appendField("pixels per second");
+        this.appendValueInput('MAXIMUM_TIME')
+            .appendField('max time (ms)');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+        this.setTooltip('Move the object to the pointer at the given speed');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#moveToPointer');
+    }
+};
+
+Blockly.Blocks['move_to_object'] = {
+    init: function () {
+        this.appendValueInput("GAMEOBJECT")
+            .setCheck(null)
+            .appendField("move game object");
+        this.appendValueInput('OBJECT')
+            .appendField('to object');
+        this.appendValueInput("SPEED")
+            .setCheck("Number")
+            .appendField("at");
+        this.appendDummyInput()
+            .appendField("pixels per second");
+        this.appendValueInput('MAXIMUM_TIME')
+            .appendField('max time (ms)');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+        this.setTooltip('Move the object to the given object at the given speed');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#moveToObject');
     }
 };
 //endregion
