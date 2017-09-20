@@ -111,8 +111,6 @@ const workspace = new Workspace(new WorkspaceConfig({
 workspace.init();
 
 function setCode(blocklyWorkspace) {
-    window.LoopTrap = 1000;
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
     let code = Blockly.JavaScript.workspaceToCode(blocklyWorkspace);
     workspace.getComponent(workspaceCore.CODE_COMPONENT).setCode(code);
     return code;
