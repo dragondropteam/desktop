@@ -117,7 +117,7 @@ function addMacOSX(menuHash) {
 
 function addToggleDevTools(menuHash) {
     menuHash['View'] = [{
-        label: 'Toggle Developer Tools',
+        label: 'DragonDrop Debug Console',
         accelerator: 'CmdOrCtrl+Shift+I',
         click(item, focusedWindow) {
             if (focusedWindow)
@@ -126,6 +126,17 @@ function addToggleDevTools(menuHash) {
     }];
 }
 
+let wikiWindow = null;
+
+function addHelpMenu(menuHash) {
+    menuHash['Help'] = [{
+        label: 'View Wiki',
+        click(){
+            const {shell} = require('electron');
+            shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
+        }
+    }];
+}
 function createDefaultMenu() {
 
     let menuHash = Object.create(null);
@@ -159,13 +170,15 @@ function createDefaultMenu() {
         }
     });
 
+
     //Add Edit
     fillEditMenu(menuHash);
     addToggleDevTools(menuHash);
-
+    addHelpMenu(menuHash);
     let menu = Menu.buildFromTemplate(flattenMenu(menuHash));
     Menu.setApplicationMenu(menu);
 }
+
 function createPreferenceWindow() {
     if (preferencesWindow) {
         return;
@@ -310,11 +323,11 @@ function createProjectMenu(arg) {
     //Add Edit
     fillEditMenu(menuHash);
     addToggleDevTools(menuHash);
-
     // console.log(menuHash);
 
 
     ProjectInterface.mutateMenu(menuHash, arg, () => {
+        addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
         dialog.showErrorBox('Could not create menu', 'Menu could not be created!');
@@ -355,7 +368,7 @@ ipcMain.on('create_new_project', (event, project, type) => {
 
 function createProject() {
     if (!createProjectWindow) {
-        createProjectWindow = new BrowserWindow({width: 900, height: 600, show: false});
+        createProjectWindow = new BrowserWindow({width: 800, height: 400, show: false, resizable: false});
         createProjectWindow.once('ready-to-show', () => {
             createProjectWindow.show();
         });
@@ -494,15 +507,37 @@ app.on('window-all-closed', function () {
     }
 });
 
-function loadProjectFromPath(path) {
-    let json = fs.readJsonSync(path);
-    ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
+/**
+ * Loads a project from the path to a given .digiblocks file if the file is able to be loaded it will then be displayed
+ * else it will display an error and remove from the list of recent projects as needed
+ * @param {string} projectPath Path to a .digiblocks file to load
+ */
+function loadProjectFromPath(projectPath) {
+    try{
+        let json = fs.readJsonSync(projectPath);
+        ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
 
-    let project = ProjectInterface.loadProject(path);
-    if (project !== null) {
-        displayProject(project);
-    } else {
-        dialog.showErrorBox('Could not open project', `Could not open project at ${path}`);
+        let project = ProjectInterface.loadProject(projectPath);
+        if (project !== null) {
+            displayProject(project);
+         } else {
+            dialog.showErrorBox('Could not open project', `Could not open project at ${projectPath}`);
+        }
+    }catch(ex){
+        console.error(ex);
+        const message = !fs.existsSync(projectPath) ? 'The selected project does not exist.\nIt will be removed from recent projects if present' : 'Could not open the selected project';
+        //There was an error trying to load the project, this most likely will occur when the user deleted a file from
+        //disk. So prompt the user with an error that the project cannot be loaded then remove it from the list of
+        //recent projects.
+        dialog.showMessageBox(mainWindow, {
+            type: "error",
+            message: message
+        });
+
+        projects.removeFromRecentProjects(path.dirname(projectPath));
+
+        //Update the mainWindow if it cares
+        mainWindow.send('recent_projects_updated');
     }
 }
 
@@ -575,4 +610,13 @@ ipcMain.on('update_settings', () => {
     if (mainWindow) {
         mainWindow.send('settings_updated');
     }
+});
+
+ipcMain.on('show_help', (event, url) => {
+    // console.log(url);
+    const window = new BrowserWindow({width: 800, height: 600, show: false});
+    window.loadURL(url);
+    window.on('ready-to-show', () =>{
+        window.show();
+    });
 });

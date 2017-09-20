@@ -89,3 +89,23 @@ desktop/app/main_core\.js
 desktop/app/setup_workspace\.js
 
 desktop/app/progress_dialog/
+
+desktop/app/menu\.js
+
+\.idea/inspectionProfiles/profiles_settings\.xml
+
+desktop/app/code\.html
+
+desktop/app/index_dev\.html
+
+desktop/app/index\.html
+
+desktop/app/loading\.html
+
+desktop/app/main_dev\.js
+
+desktop/app/main\.js
+
+desktop/app/progress\.js
+
+desktop/app/projects\.html

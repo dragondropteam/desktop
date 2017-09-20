@@ -176,25 +176,25 @@ exports.setupPhaserMenu = (menu, project) => {
         }
     }];
 
-    menu['Project'].push({
-        label: "Export Executable",
-        click(){
-            exportExecutable(project.loadPath, project.getName(), (err, code) => {
-                if (code != 0) {
-                    dialog.showErrorBox('Error Creating Executable', 'Make sure you have the newest version of Node and NPM installed\n' + err);
-                    console.log(err.message);
-                }
-                else {
-                    dialog.showMessageBox({
-                        type: "info",
-                        title: "Executable Created",
-                        message: `Created executable in ${path.join(project.loadPath, 'executables')}`
-                    });
-                    console.log('Success');
-                }
-            });
-        }
-    });
+    // menu['Project'].push({
+    //     label: "Export Executable",
+    //     click(){
+    //         exportExecutable(project.loadPath, project.getName(), (err, code) => {
+    //             if (code != 0) {
+    //                 dialog.showErrorBox('Error Creating Executable', 'Make sure you have the newest version of Node and NPM installed\n' + err);
+    //                 console.log(err.message);
+    //             }
+    //             else {
+    //                 dialog.showMessageBox({
+    //                     type: "info",
+    //                     title: "Executable Created",
+    //                     message: `Created executable in ${path.join(project.loadPath, 'executables')}`
+    //                 });
+    //                 console.log('Success');
+    //             }
+    //         });
+    //     }
+    // });
 
     let label = 'File Manager';
 
@@ -210,8 +210,8 @@ exports.setupPhaserMenu = (menu, project) => {
     menu['Project'].push({
         label: `Open Assets Directory in ${label}`,
         click(item, displayedWindow){
-            const assetsDir = path.join(project.loadPath, project.getName(), 'assets');
-            fs.ensureDir(assetsDir)
+            const assetsDir = path.join(project.loadPath, project.getName(), 'assets', '/IGNORE.txt');
+            fs.ensureFile(assetsDir)
                 .then(() => {
                     shell.showItemInFolder(assetsDir)
                 })
@@ -225,7 +225,7 @@ exports.setupPhaserMenu = (menu, project) => {
     });
 
     menu['View'].push({
-        label: 'View Embedded WebView Developer Tools',
+        label: 'Phaser Debug Console',
         accelerator: 'CmdOrCtrl+I+Shift+Alt',
         click(item, displayedWindow){
             //Send message to renderer to give us the workspace

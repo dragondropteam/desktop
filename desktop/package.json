@@ -45,12 +45,13 @@
     "start-dev": "electron main_dev.js",
     "test": "electron-mocha",
     "rebuild": "electron-rebuild .",
-    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp" 
+    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp"
   },
   "devDependencies": {
     "arduino": "file:project_types/arduino",
+    "del": "latest",
     "devtron": "^1.4.0",
-    "electron": "1.6.11",
+    "electron": "^1.7.0 ",
     "electron-rebuild": "^1.5.7",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
@@ -58,33 +59,32 @@
     "gulp-uglify": "^3.0.0",
     "pump": "^1.0.2",
     "standard": "^10.0.2",
-    "uglify-es": "^3.0.15",
-    "username": "*",
-    "del": "latest"
+    "uglify-es": "^3.1.0",
+    "username": "*"
   },
   "dependencies": {
     "angular": "*",
     "angular-animate": "*",
     "angular-aria": "*",
-    "angular-material": "*",
+    "angular-material": "^1.1.5",
     "arduino": "file:project_types/arduino",
     "arduino_core": "file:arduino_core",
+    "electron-builder": "^19.28.4",
     "electron-store": "*",
     "filesystem": "file:filesystem",
-    "fs-extra": "^4.0.0",
+    "fs-extra": "^4.0.2",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
     "is-invalid-path": "*",
+    "progress_dialog": "file:progress_dialog",
     "project": "file:project",
     "project_types": "file:project_types",
     "serialport": "^4.0.7",
     "username": "^2.3.0",
     "wink_robot": "file:project_types/wink_robot",
     "workspace": "file:workspace",
-    "progress_dialog": "file:progress_dialog",
-    "yargs": "*",
-    "zip-folder": "*",
-    "electron-builder": "^19.18.0"
+    "yargs": "^9.0.0",
+    "zip-folder": "*"
   },
   "license": "UNLICENSED",
   "private": true
