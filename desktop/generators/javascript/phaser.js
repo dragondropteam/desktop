@@ -554,27 +554,62 @@ Blockly.JavaScript['collide'] = function (block) {
     return `game.physics.arcade.collide(${variable_lhs}, ${variable_rhs});\n`;
 };
 
+Blockly.JavaScript['collide_vi'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.physics.arcade.collide(${lhs}, ${rhs});\n`;
+};
+
 Blockly.JavaScript['set_immovable'] = function (block) {
     const body = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('BODY'), Blockly.Variables.NAME_TYPE);
     const immovable = block.getFieldValue('IMMOVABLE') == 'TRUE';
     return `${body}.body.immovable = ${immovable};\n`;
 };
 
+/**
+ * @deprecated
+ * @param block
+ * @returns {*[]}
+ */
 Blockly.JavaScript['is_body_touching'] = function (block) {
     const body = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('BODY'), Blockly.Variables.NAME_TYPE);
     const direction = block.getFieldValue('DIRECTION');
     return [`${body}.body.touching.${direction}`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['is_body_touching_vi'] = function (block) {
+    const body = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC);
+    const direction = block.getFieldValue('DIRECTION');
+    return [`${body}.body.touching.${direction}`, Blockly.JavaScript.ORDER_NONE];
+};
+
+/**
+ * @deprecated
+ * @param block
+ * @returns {string}
+ */
 Blockly.JavaScript['collide_with_world_bounds'] = function (block) {
     const variable_body = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('BODY'), Blockly.Variables.NAME_TYPE);
     const collide = block.getFieldValue('COLLIDE') == 'TRUE';
     return `${variable_body}.body.collideWorldBounds = ${collide};\n`;
 };
 
+Blockly.JavaScript['collide_with_world_bounds_vi'] = function (block) {
+    const body = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC);
+    const collide = block.getFieldValue('COLLIDE') == 'TRUE';
+    return `${body}.body.collideWorldBounds = ${collide};\n`;
+};
+
 Blockly.JavaScript['check_overlap'] = function (block) {
     const lhs = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('LHS'), Blockly.Variables.NAME_TYPE);
     const rhs = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('RHS'), Blockly.Variables.NAME_TYPE);
+    const functionName = block.getFieldValue('NAME');
+    return `game.physics.arcade.overlap(${lhs}, ${rhs}, ${functionName}, null, this);\n`;
+};
+
+Blockly.JavaScript['check_overlap_vi'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
     const functionName = block.getFieldValue('NAME');
     return `game.physics.arcade.overlap(${lhs}, ${rhs}, ${functionName}, null, this);\n`;
 };
