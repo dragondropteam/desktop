@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <title>New Project</title>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .projectpath {
+            width: 70%;
+        }
+
+        #path{
+            width: 90%;
+        }
+
+        .createProject{
+            width: 80%;
+        }
+    </style>
 </head>
 <body ng-app="DragonDrop" ng-cloak layout="row" ng-controller="projects-controller">
 
@@ -31,19 +46,29 @@
         <!--</md-button>-->
     </md-sidenav>
 
-    <md-content flex="75">
-        <form name="projectSettingsForm"  layout="column">
-            <md-input-container>
-                <label>Project Name</label>
-                <input  name="projectName" id="projectName" ng-model="project.name" type="text" maxlength="100"/>
+    <md-content flex="75" layout="column" layout-align="center center" style="background-image: url('29.jpg');">
+        <form name="project" style="width: 60%; background: white" layout="column" layout-align="center center" md-whiteframe="5">
+            <h1 class="md-body-5">Name Your Project!</h1>
+            <md-input-container class="createProject">
+                <label for="projectName">Project Name</label>
+                <input required name="projectName" id="projectName" ng-pattern="/^[A-Za-z]([\w\s]|$)+$/" ng-model="projectName" type="text" md-maxlength="100" minlength="5"/>
+                <div ng-messages="project.projectName.$error" ng-show="project.projectName.$dirty">
+                    <div ng-message="required">This is required</div>
+                    <div ng-message="pattern">Can only contain A-Z, a-z, 1-9, _ and spaces must start with a letter</div>
+                    <div ng-message="minlength">Must be at least 5 characters</div>
+                    <div ng-message="md-maxlength">Must be less then 100 characters</div>
+                </div>
             </md-input-container>
-            <md-input-container>
-                <label>Path</label>
-                <input id="projectPath" ng-model="project.path" type="text"/>
-            </md-input-container>
-            <md-button ng-click="browse()" class="md-raised md-primary">Browse</md-button>
-            <md-button ng-click="createProject()" id="createProject" class="md-raised md-primary" type="submit">Create Project</md-button>
+            <md-button layout-align="center center" ng-click="createProject()" id="createProject" class="md-raised md-primary createProject" type="submit">Create Project <md-icon>create</md-icon></md-button>
+            <div layout="row" layout-align="center center" id="path">
+                <md-input-container class="projectpath">
+                    <label for="projectPath">Path</label>
+                    <input id="projectPath" ng-model="projectPath" type="text"/>
+                </md-input-container>
+                <md-button ng-click="browse()" type="submit" class="md-raised md-primary">Browse <md-icon>search</md-icon></md-button>
+            </div>
         </form>
+
     </md-content>
 
     <!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
@@ -54,6 +79,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
 
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
@@ -72,17 +98,28 @@
         const {dialog} = require('electron').remote;
 
         var pathChangedManually = false;
-        var project = {path: path.join(defaultPath,"Untitled"), name: "Untitled"};
+        var project = {path: null, name: null};
         var type = 'wink';
-        var app = angular.module('DragonDrop', ['ngMaterial']);
+        var app = angular.module('DragonDrop', ['ngMaterial', 'ngMessages']);
         app.controller('projects-controller', function($scope){
             const projectTypes = require('project_types');
             $scope.projects = projectTypes.getProjectTypes();
             $scope.project = project;
             $scope.projectType = 'wink';
+            $scope.projectPath = defaultPath;
 
             $scope.createProject = () => {
-                project.name = project.name.replace(/\s/g, '_');
+
+                if(!$scope.projectName){
+                    return;
+                }
+
+                project.name = $scope.projectName.replace(/\s/g, '_');
+
+                if(project.name.toLowerCase() === "untitled"){
+                    alert('Project must be named');
+                    return;
+                }
 
                 if(!(/^[A-Za-z]\w+$/.test(project.name))){
                     alert('Project name must start with a character and use only A-Z a-z 0-9 _ and -');
@@ -114,7 +151,6 @@
 
                 ipcRenderer.sendSync('create_new_project', project, $scope.projectType);
             };
-
             $scope.browse = () => {
                 const folderPath = dialog.showOpenDialog({title: 'Select Project Path', defaultPath: defaultPath, properties: ['openDirectory']});
                 if(folderPath){
@@ -131,8 +167,8 @@
         $('document').ready(function() {
             $('#projectName').on('input', function () {
                 if (!pathChangedManually) {
-                    var clean = $(this).val().replace(/\s/g, '_');
-                    var newPath = path.join(defaultPath, clean);
+                    const clean = $(this).val().replace(/\s/g, '_');
+                    const newPath = path.join(defaultPath, clean);
                     project.path = newPath;
                     $('#projectPath').val(newPath);
                 }

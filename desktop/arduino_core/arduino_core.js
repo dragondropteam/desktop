@@ -1,8 +1,9 @@
 /**
- * All content copyright DigiPen Institute of Technology
- *
- * Created by lukepowell on 11/15/16.
+ * @file
+ * @copyright All content copyright DigiPen Institute of Technology
+ * @author Luke Powell
  */
+
 const pathKey = 'ARDUINO_PATH';
 const Config = require('electron-store');
 const config = new Config();
@@ -11,7 +12,6 @@ const defaultMac = '/Applications/Arduino.app/Contents/MacOS/Arduino';
 const {spawn} = require('child_process');
 const path = require('path');
 const {dialog} = require('electron');
-const ipcRenderer = require('electron').ipcRenderer;
 
 /**
  * To actually call the application on Mac this string needs to be appended
@@ -27,13 +27,9 @@ exports.macPrefix = macPrefix;
 /**
  * Listing of display name to name that we pass to the command line
  * --board package:arch:board[:parameters]
- */
-
-/**
- *
  * @type {Array}
  */
-var Boards = [];
+const Boards = [];
 
 Boards['Arduino Yun'] = 'arduino:avr:yun';
 Boards['Arduino/Genuino Uno'] = 'arduino:avr:uno';
@@ -76,6 +72,11 @@ function getArduinoPathWindowsFixed(){
     return path;
 }
 
+/**
+ * Returns the platform correct path to Arduino, will use user entered path or the default if the user has not manually
+ * configured the path
+ * @return {string} The path to the Arduino executable for the platform we are currently executing on
+ */
 function getArduinoPath() {
     if (process.platform == 'win32') {
         return getArduinoPathWindowsFixed();
@@ -89,18 +90,30 @@ function getArduinoPath() {
 exports.getArduinoPath = getArduinoPath;
 
 /**
- * @param newPath
+ * @param newPath The path to the Arduino executable
  */
 exports.setArduinoPath = function (newPath) {
     config.set(pathKey, newPath);
 };
 
+/**
+ * Loads a project into the Arduino IDE
+ * @param path The path to .ino file for a given project
+ * @return {ChildProcess} The child process
+ */
 exports.loadInArduino = function (path) {
     return spawn(getArduinoPath(), [path]);
 };
 
+/**
+ * Uploads a project to a connected board
+ * @param path The path to .ino file for a given project
+ * @param board The identifier for a board should be one of {@link Boards}
+ * @param port The identifier for the port the board is connected to
+ * @return {ChildProcess} The spawned process of the Arduino IDE used to upload the project
+ */
 exports.uploadToArduino = function (path, board, port) {
-    var args = ['--upload'];
+    let args = ['--upload'];
     console.log(`Uploading to Arudino platform with board ${board} and port ${port}`)
 
     if (board != null) {
@@ -120,12 +133,22 @@ exports.uploadToArduino = function (path, board, port) {
     return spawn(getArduinoPath(), args);
 };
 
+/**
+ * Verifies a program, checks for compile errors
+ * @param path The path to .ino file for a given project
+ * @return {ChildProcess} The spawned process of the Arduino IDE used to upload the project
+ */
 exports.verifyProgram = function (path) {
     return spawn(getArduinoPath(), [path, '--verify']);
 };
 
+/**
+ * Helper function to return the path
+ * @param {LoadedProject} loadedProject
+ * @return {string} The path to the .ino file for the loaded project
+ */
 exports.getInoPath = function (loadedProject) {
-    return path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`);
+    return loadedProject.getFileInProjectDir(`${loadedProject.getName()}.ino`);
 };
 
 /**
@@ -139,6 +162,8 @@ function invalidArduinoPath(err) {
     }
     dialog.showErrorBox('Error launching Arduino', errorMessage);
 }
+
+
 exports.addPort = function (menu, project, success, failure, refresh, saveProject) {
     let start = true;
     const SerialPort = require('serialport');
@@ -175,7 +200,7 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
 };
 
 /**
- * Adds the Project menu
+ * Adds the Project menu for Arduino based projects
  * @param menu The current menuHash
  * @param project The project that is currently loaded
  * @param uploadComplete A function to call when uploading a project completes
@@ -248,8 +273,9 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
         click(){
             try {
                 const child = exports.verifyProgram(exports.getInoPath(project));
-                var runningOutput = '';
+                let runningOutput = '';
                 let error = false;
+                let progress = new ProgressWindow('Verifying Program');
 
                 child.on('error', (err) => {
                     invalidArduinoPath(err);
@@ -267,6 +293,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 });
 
                 child.on('close', (code) => {
+                    progress.destroy();
                     if (error) {
                         return;
                     }
