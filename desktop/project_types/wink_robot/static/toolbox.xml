@@ -553,7 +553,7 @@
         <block type="buttonwait"/>
         <block type="button_pressed"/>
     </category>
-    <category name="Wink Lights and Sensors" colour="330">
+    <category name="Wink Sensors" colour="330">
         <block type="setirlight"/>
         <block type="readsensor"/>
     </category>
