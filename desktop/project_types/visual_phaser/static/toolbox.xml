@@ -302,12 +302,12 @@
     </category>
     <sep/>
     <category name="Phaser" colour="#BCD5D1">
-        <category name="Game" colour="#d50000">
-            <category name="Startup" colour="#b71c1c">
+        <category name="Game" colour="#558b2f">
+            <category name="Startup" colour="#689f38">
                 <block type="phaser_simple_init"/>
                 <block type="start_phaser_for_states"/>
             </category>
-            <category name="States" colour="#c62828">
+            <category name="States" colour="#7cb342">
                 <block type="class_type">
                     <mutation name="Phaser.State">
                     </mutation>
@@ -320,7 +320,7 @@
                 </block>
                 <block type="statemanager_start_state"/>
             </category>
-            <category name="World" colour="#d32f2f">
+            <category name="World" colour="#8bc34a">
                 <block type="get_world_property"/>
                 <block type="set_world_bounds">
                     <value name="X_POS">
@@ -1405,7 +1405,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Dynamics">
+            <category name="Dynamics" colour="#b71c1c">
                 <block type="move_to_pointer_extended">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
@@ -1448,22 +1448,56 @@
 
             </category>
             <category name="Collision" colour="#8e24aa">
-                <block type="collide"/>
-                <block type="collide_with_world_bounds"/>
-                <block type="is_body_touching"/>
-                <!--<block type="collide_with_arrow_function">-->
-                <!--<value name="OBJECTA">-->
-                <!--<shadow type="variables_get">-->
-                <!--<field name="VAR">objectA</field>-->
-                <!--</shadow>-->
-                <!--</value>-->
-                <!--<value name="OBJECTB">-->
-                <!--<shadow type="variables_get">-->
-                <!--<field name="VAR">objectB</field>-->
-                <!--</shadow>-->
-                <!--</value>-->
-                <!--</block>-->
-                <block type="check_overlap"/>
+                <block type="collide_vi">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="collide_with_world_bounds_vi">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="is_body_touching_vi">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="collide_with_arrow_function">
+                    <value name="OBJECTA">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECTB">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="check_overlap_vi">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
         </category>
         <category name="Input" colour="#0d47a1">

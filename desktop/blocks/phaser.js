@@ -24,9 +24,9 @@
  */
 //region COLOURS
 const PHASER_COLOUR = 120;
-const PHASER_STARTUP_COLOUR = '#b71c1c';
-const PHASER_WORLD_COLOUR = '#d32f2f';
-const PHASER_STATES_COLOUR = '#c62828';
+const PHASER_STARTUP_COLOUR = '#689f38';
+const PHASER_WORLD_COLOUR = '#8bc34a';
+const PHASER_STATES_COLOUR = '#7cb342';
 const PHASER_UTILITY_COLOUR = '#ff6d00';
 const PHASER_SPRITE_AND_IMAGES_COLOUR = '#004d40';
 const PHASER_GROUPS_COLOUR = '#00695c';
@@ -47,7 +47,7 @@ const PHASER_CAMERA_COLOUR = '#607d8b';
 
 function createDropDownField(write, readOnly) {
     const output = {
-        writable: [],
+        writable: [],   
         all: []
     }
 
@@ -1734,6 +1734,10 @@ Blockly.Blocks['set_immovable'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.collide.init}}
+ */
 Blockly.Blocks['collide'] = {
     init: function () {
         this.appendDummyInput()
@@ -1749,12 +1753,27 @@ Blockly.Blocks['collide'] = {
     }
 };
 
+Blockly.Blocks['collide_vi'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField("collide");
+        this.appendValueInput('RHS')
+            .appendField("with");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Collide the first group/object with the second group/object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#collide');
+        this.setInputsInline(true);
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    }
+};
+
 Blockly.Blocks['is_body_touching'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(new Blockly.FieldVariable("defaultObject"), "BODY")
             .appendField("touching")
-            .appendField(new Blockly.FieldDropdown([["Up", "up"], ["Down", "down"], ["Left", "left"], ["Right", "Right"], ["None", "none"]]), "DIRECTION")
+
             .appendField("?");
         this.setOutput(true, null);
         this.setTooltip('');
@@ -1763,6 +1782,24 @@ Blockly.Blocks['is_body_touching'] = {
     }
 };
 
+Blockly.Blocks['is_body_touching_vi'] = {
+    init: function () {
+        this.appendValueInput('BODY');
+        this.appendDummyInput()
+            .appendField("is touching")
+            .appendField(new Blockly.FieldDropdown([["Up", "up"], ["Down", "down"], ["Left", "left"], ["Right", "Right"], ["None", "none"]]), "DIRECTION")
+            .appendField('?');
+        this.setOutput(true, null);
+        this.setTooltip('Check to see if the object is being touched in the given direction');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html#touching');
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    }
+};
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.collide_with_world_bounds.init}}
+ */
 Blockly.Blocks['collide_with_world_bounds'] = {
     init: function () {
         this.appendDummyInput()
@@ -1778,6 +1815,47 @@ Blockly.Blocks['collide_with_world_bounds'] = {
     }
 };
 
+
+Blockly.Blocks['collide_with_world_bounds_vi'] = {
+    init: function () {
+        this.appendValueInput('BODY')
+            .appendField('make');
+        this.appendDummyInput()
+            .appendField("collide with world bounds");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "COLLIDE");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Make this object collide with the world bounds');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Ninja.Body.html#collideWorldBounds');
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    }
+};
+
+
+Blockly.Blocks['check_overlap_vi'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField("check overlap between");
+        this.appendValueInput('RHS')
+            .appendField("and");
+        this.appendDummyInput()
+            .appendField("calling")
+            .appendField(new Blockly.FieldTextInput("functionName"), "NAME")
+            .appendField("if overlapping");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Check for overlap between objectA and objectB');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#overlap');
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    }
+};
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.check_overlap.init}}
+ */
 Blockly.Blocks['check_overlap'] = {
     init: function () {
         this.appendDummyInput()
