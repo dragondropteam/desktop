@@ -136,7 +136,16 @@ function addHelpMenu(menuHash) {
             shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
         }
     }];
+
+    menuHash['Help'].push({
+        label: 'Report Bug',
+        click(){
+            const {shell} = require('electron');
+            shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
+        }
+    })
 }
+
 function createDefaultMenu() {
 
     let menuHash = Object.create(null);
