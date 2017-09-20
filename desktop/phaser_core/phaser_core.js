@@ -210,8 +210,8 @@ exports.setupPhaserMenu = (menu, project) => {
     menu['Project'].push({
         label: `Open Assets Directory in ${label}`,
         click(item, displayedWindow){
-            const assetsDir = path.join(project.loadPath, project.getName(), 'assets');
-            fs.ensureDir(assetsDir)
+            const assetsDir = path.join(project.loadPath, project.getName(), 'assets', '/IGNORE.txt');
+            fs.ensureFile(assetsDir)
                 .then(() => {
                     shell.showItemInFolder(assetsDir)
                 })
