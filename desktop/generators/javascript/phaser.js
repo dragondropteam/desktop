@@ -976,7 +976,6 @@ Blockly.JavaScript['set_object_width'] = function (block) {
 //endregion
 
 //region PARTICLE_EMITTER
-//TODO: TO COMPLETE
 Blockly.JavaScript['addemitter'] = function (block) {
     const value_x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     const value_y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC) || '0';
@@ -984,24 +983,41 @@ Blockly.JavaScript['addemitter'] = function (block) {
 
     return [`game.add.emitter(${value_x}, ${value_y}, ${value_maxparticles})`, Blockly.JavaScript.ORDER_NONE];
 };
-//endregion
-
-//region EMITTERS_MAKE_PARTICLES
 Blockly.JavaScript['emitters_make_particles'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const text_tag = block.getFieldValue('TAG');
     return `${variable_emitter}.makeParticles('${text_tag}');\n`;
 };
-//endregion
-//region EMITTERS_SET_ROTATION
+
+Blockly.JavaScript['emitter_make_particles'] = function(block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const keys = Blockly.JavaScript.valueToCode(block, 'KEYS', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const frames = Blockly.JavaScript.valueToCode(block, 'FRAMES', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const quantity = Blockly.JavaScript.valueToCode(block, 'QUANTITY', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const collide = block.getFieldValue('COLLIDE') == 'TRUE';
+    const collideWorldBounds = block.getFieldValue('COLLIDEWORLDBOUNDS') == 'TRUE';
+    return `${emitter}.makeParticles(${keys}, ${frames}, ${quantity}, ${collide}, ${collideWorldBounds});\n`;
+};
+
 Blockly.JavaScript['emitters_set_rotation'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const x_rotation = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     const y_rotation = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     return `${variable_emitter}.setRotation(${x_rotation}, ${y_rotation});\n`;
 };
-//endregion
-//region EMITTERS_SET_ALPHA
+
+Blockly.JavaScript['emitters_set_rotation_vi'] = function (block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC);
+    const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
+    const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${emitter}.setRotation(${min}, ${max});\n`;
+};
+
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['emitters_set_alpha'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const value_min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
@@ -1009,8 +1025,15 @@ Blockly.JavaScript['emitters_set_alpha'] = function (block) {
     const value_rate = Blockly.JavaScript.valueToCode(block, 'RATE', Blockly.JavaScript.ORDER_ATOMIC) || null;
     return `${variable_emitter}.setAlpha(${value_min}, ${value_max}, ${value_rate});\n`;
 };
-//endregion
-//region EMITTERS_SET_SCALE
+
+Blockly.JavaScript['emitters_set_alpha_vi'] = function (block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC) || '1';
+    const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC) || '1';
+    const rate = Blockly.JavaScript.valueToCode(block, 'RATE', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${emitter}.setAlpha(${min}, ${max}, ${rate});\n`;
+};
+
 Blockly.JavaScript['emitters_set_scale'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const value_minx = Blockly.JavaScript.valueToCode(block, 'MINX', Blockly.JavaScript.ORDER_ATOMIC) || null;
@@ -1020,8 +1043,22 @@ Blockly.JavaScript['emitters_set_scale'] = function (block) {
     const value_rate = Blockly.JavaScript.valueToCode(block, 'RATE', Blockly.JavaScript.ORDER_ATOMIC) || null;
     return `${variable_emitter}.setScale(${value_minx}, ${value_maxx}, ${value_miny}, ${value_maxy}, ${value_rate});\n`;
 };
-//endregion
-//region EMITTERS_SET_SPEED
+
+Blockly.JavaScript['emitters_set_scale_vi'] = function (block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC);
+    const minx = Blockly.JavaScript.valueToCode(block, 'MINX', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const maxx = Blockly.JavaScript.valueToCode(block, 'MAXX', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const miny = Blockly.JavaScript.valueToCode(block, 'MINY', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const maxy = Blockly.JavaScript.valueToCode(block, 'MAXY', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const rate = Blockly.JavaScript.valueToCode(block, 'RATE', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    return `${emitter}.setScale(${minx}, ${maxx}, ${miny}, ${maxy}, ${rate});\n`;
+};
+
+/**
+ * @deprecated
+ * @param block
+ * @return {string}
+ */
 Blockly.JavaScript['emitters_set_speed'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const value_minx = Blockly.JavaScript.valueToCode(block, 'MINX', Blockly.JavaScript.ORDER_ATOMIC) || null;
@@ -1033,22 +1070,38 @@ Blockly.JavaScript['emitters_set_speed'] = function (block) {
     const setMax = `${variable_emitter}.maxParticleSpeed.set(${value_maxx}, ${value_maxy});\n`;
     return setMin + setMax;
 };
-//endregion
-//region EMITTERS_SET_GRAVITY
+
+Blockly.JavaScript['emitters_set_speed_vi'] = function (block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC);
+    const minx = Blockly.JavaScript.valueToCode(block, 'MINX', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const maxx = Blockly.JavaScript.valueToCode(block, 'MAXX', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const miny = Blockly.JavaScript.valueToCode(block, 'MINY', Blockly.JavaScript.ORDER_ATOMIC) || null;
+    const maxy = Blockly.JavaScript.valueToCode(block, 'MAXY', Blockly.JavaScript.ORDER_ATOMIC) || null;
+
+    const setMin = `${emitter}.minParticleSpeed.set(${minx}, ${miny});\n`;
+    const setMax = `${emitter}.maxParticleSpeed.set(${maxx}, ${maxy});\n`;
+
+    return setMin + setMax;
+};
+
 Blockly.JavaScript['emitters_set_gravity'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const value_gravity = Blockly.JavaScript.valueToCode(block, 'GRAVITY', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     return `${variable_emitter}.gravity = ${value_gravity};\n`;
 };
-//endregion
-//region EMITTERS_SET_WIDTH
+
+Blockly.JavaScript['emitters_set_gravity_vi'] = function (block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const gravity = Blockly.JavaScript.valueToCode(block, 'GRAVITY', Blockly.JavaScript.ORDER_ATOMIC) || 0;
+    return `${emitter}.gravity = ${gravity};\n`;
+};
+
 Blockly.JavaScript['emitters_set_width'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const value_width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     return `${variable_emitter}.width = ${value_width};\n`;
 };
-//endregion
-//region EMITTERS_START
+
 Blockly.JavaScript['emitters_start'] = function (block) {
     const variable_emitter = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EMITTER'), Blockly.Variables.NAME_TYPE);
     const bool_explode = Blockly.JavaScript.valueToCode(block, 'EXPLODE', Blockly.JavaScript.ORDER_ATOMIC) || null;
@@ -1057,16 +1110,23 @@ Blockly.JavaScript['emitters_start'] = function (block) {
     const value_quantity = Blockly.JavaScript.valueToCode(block, 'QUANTITY', Blockly.JavaScript.ORDER_ATOMIC) || null;
     return `${variable_emitter}.start(${bool_explode}, ${value_lifespan}, ${value_frequency}, ${value_quantity});\n`;
 };
-//endregion
-//region EMITTERS_xy
+
+Blockly.JavaScript['emitters_start_vi'] = function (block) {
+    const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const explode = block.getFieldValue('EXPLODE') == 'TRUE';
+    const lifespan = Blockly.JavaScript.valueToCode(block, 'LIFESPAN', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const frequency = Blockly.JavaScript.valueToCode(block, 'FREQUENCY', Blockly.JavaScript.ORDER_ATOMIC) || '250';
+    const quantity = Blockly.JavaScript.valueToCode(block, 'QUANTITY', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    return `${emitter}.start(${explode}, ${lifespan}, ${frequency}, ${quantity});\n`;
+};
+
 Blockly.JavaScript['set_emit_from'] = function (block) {
     const value_object = Blockly.JavaScript.valueToCode(block, 'Object', Blockly.JavaScript.ORDER_ATOMIC);
     const dropdown_cord = block.getFieldValue('cord');
     const value_emit_loc = Blockly.JavaScript.valueToCode(block, 'emit_loc', Blockly.JavaScript.ORDER_ATOMIC);
     return `${value_object}.emit${dropdown_cord} = ${value_emit_loc};\n`;
 };
-
-//endregion
+//endregion EMITTERS
 
 //region DEBUG
 Blockly.JavaScript['debug_sprite'] = function (block) {

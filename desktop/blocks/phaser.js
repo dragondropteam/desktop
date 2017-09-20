@@ -31,6 +31,7 @@ const PHASER_UTILITY_COLOUR = '#ff6d00';
 const PHASER_SPRITE_AND_IMAGES_COLOUR = '#004d40';
 const PHASER_GROUPS_COLOUR = '#00695c';
 const PHASER_ANIMATION_COLOUR = '#00796b';
+const PHASER_PARTICLES_COLOUR = '#83C2D1';
 const PHASER_GEOMETRY_COLOUR = '#26a69a';
 const PHASER_TEXT_COLOUR = '#009688';
 const PHASER_GAMEOBJECT_COLOUR = '#00bfa5';
@@ -1997,11 +1998,11 @@ Blockly.Blocks['create_point'] = {
 //region GAME OBJECT
 const GAME_OBJECT_COLOUR = 60;
 
-const GAME_OBJECT_POINT_WRITABLE = ['anchor', 'cameraOffset', 'scaleMax', 'scaleMin', 'world', 'scale'];
+const GAME_OBJECT_POINT_WRITABLE = ['position', 'anchor', 'cameraOffset', 'scaleMax', 'scaleMin', 'world', 'scale'];
 const GAME_OBJECT_POINT_READABLE = ['previousPoint'];
 const GAME_OBJECT_POINT_FIELDS = createDropDownField(GAME_OBJECT_POINT_WRITABLE, GAME_OBJECT_POINT_READABLE);
 
-const GAME_OBJECT_BOOLEAN_WRITABLE = ['alive', 'checkWorldBounds', 'debug',  'exists', 'fixedToCamera', 'outOfBoundsKill', 'outOfCameraBoundsKill'];
+const GAME_OBJECT_BOOLEAN_WRITABLE = ['alive', 'checkWorldBounds', 'debug', 'exists', 'fixedToCamera', 'outOfBoundsKill', 'outOfCameraBoundsKill'];
 const GAME_OBJECT_BOOLEAN_READONLY = ['destroyPhase', 'inCamera', 'inWorld', 'pendingDestroy'];
 const GAME_OBJECT_BOOLEAN_FIELDS = createDropDownField(GAME_OBJECT_BOOLEAN_WRITABLE, GAME_OBJECT_BOOLEAN_READONLY);
 
@@ -2528,29 +2529,64 @@ Blockly.Blocks['set_object_width'] = {
 };
 
 //region EMITTER
-const PARTICLE_COLOUR = '#83C2D1';
+const PARTICLE_COLOUR = '#80cbc4';
 
 Blockly.Blocks['addemitter'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Add Emitter");
+            .appendField("add emitter");
         this.appendValueInput("X")
             .setCheck("Number")
-            .appendField("X");
+            .appendField("x");
         this.appendValueInput("Y")
             .setCheck("Number")
-            .appendField("Y");
+            .appendField("y");
         this.appendValueInput("maxParticles")
             .setCheck("Number")
             .appendField("maxParticles");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip('Create a particle emitter');
+        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html');
     }
 };
 
+
+Blockly.Blocks['emitter_make_particles'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField('on emitter');
+        this.appendDummyInput()
+            .appendField('make particles');
+        this.appendValueInput('KEYS')
+            .appendField('keys')
+            .setCheck(['Array', 'String']);
+        this.appendValueInput('FRAMES')
+            .appendField('frames')
+            .setCheck(['Array', 'Number']);
+        this.appendValueInput('QUANTITY')
+            .appendField('quantity')
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField('collide')
+            .appendField(new Blockly.FieldCheckbox('FALSE'), 'COLLIDE');
+        this.appendDummyInput()
+            .appendField('collide world')
+            .appendField(new Blockly.FieldCheckbox('FALSE'), 'COLLIDEWORLDBOUNDS');
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setInputsInline(false);
+        this.setColour(PARTICLE_COLOUR);
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#makeParticles');
+        this.setTooltip('Generate a new set of particles for this emitter')
+    }
+};
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.emitters_make_particles.init}}
+ */
 Blockly.Blocks['emitters_make_particles'] = {
     init: function () {
         this.appendDummyInput()
@@ -2567,6 +2603,10 @@ Blockly.Blocks['emitters_make_particles'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.emitters_set_rotation.init}}
+ */
 Blockly.Blocks['emitters_set_rotation'] = {
     init: function () {
         this.appendDummyInput()
@@ -2588,6 +2628,31 @@ Blockly.Blocks['emitters_set_rotation'] = {
     }
 };
 
+Blockly.Blocks['emitters_set_rotation_vi'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField("on emitter");
+        this.appendDummyInput()
+            .appendField("set min/max angular velocity");
+        this.appendValueInput("MIN")
+            .setCheck("Number")
+            .appendField("min");
+        this.appendValueInput("MAX")
+            .setCheck("Number")
+            .appendField("max");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PARTICLE_COLOUR);
+        this.setTooltip('Set the angular velocity constraints of the particles');
+        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html#setRotation');
+    }
+};
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.emitters_start.init}}
+ */
 Blockly.Blocks['emitters_start'] = {
     init: function () {
         this.appendDummyInput()
@@ -2615,6 +2680,35 @@ Blockly.Blocks['emitters_start'] = {
     }
 };
 
+Blockly.Blocks['emitters_start_vi'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField("start emitter,")
+        this.appendDummyInput()
+            .appendField('explode')
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'EXPLODE');
+        this.appendValueInput("LIFESPAN")
+            .setCheck("Number")
+            .appendField("lifespan (ms)");
+        this.appendValueInput("FREQUENCY")
+            .setCheck("Number")
+            .appendField("frequency (ms)");
+        this.appendValueInput("QUANTITY")
+            .setCheck("Number")
+            .appendField("quantity");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PARTICLE_COLOUR);
+        this.setTooltip('Start emitting particles');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#start');
+    }
+};
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.emitters_set_alpha.init}}
+ */
 Blockly.Blocks['emitters_set_alpha'] = {
     init: function () {
         this.appendDummyInput()
@@ -2636,6 +2730,30 @@ Blockly.Blocks['emitters_set_alpha'] = {
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
         this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['emitters_set_alpha_vi'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField("on emitter,");
+        this.appendDummyInput()
+            .appendField("set alpha");
+        this.appendValueInput("MIN")
+            .setCheck("Number")
+            .appendField("min");
+        this.appendValueInput("MAX")
+            .setCheck("Number")
+            .appendField("max");
+        this.appendValueInput("RATE")
+            .setCheck("Number")
+            .appendField("rate");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PARTICLE_COLOUR);
+        this.setTooltip('Set the min and max alpha values for this emitter');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#setAlpha');
     }
 };
 
@@ -2666,6 +2784,36 @@ Blockly.Blocks['emitters_set_scale'] = {
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
         this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['emitters_set_scale_vi'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField("on emitter,");
+        this.appendDummyInput()
+            .appendField("set scale");
+        this.appendValueInput("MINX")
+            .setCheck("Number")
+            .appendField("min x");
+        this.appendValueInput("MAXX")
+            .setCheck("Number")
+            .appendField("max x");
+        this.appendValueInput("MINY")
+            .setCheck("Number")
+            .appendField("min y");
+        this.appendValueInput("MAXY")
+            .setCheck("Number")
+            .appendField("max y");
+        this.appendValueInput("RATE")
+            .setCheck("Number")
+            .appendField("rate");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PARTICLE_COLOUR);
+        this.setTooltip('Set the minimum/maximum scale for particles and the rate to go between');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#setScale');
     }
 };
 
@@ -2716,6 +2864,33 @@ Blockly.Blocks['emitters_set_speed'] = {
     }
 };
 
+Blockly.Blocks['emitters_set_speed_vi'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField("on emitter");
+        this.appendDummyInput()
+            .appendField("set speed");
+        this.appendValueInput("MINX")
+            .setCheck("Number")
+            .appendField("min x");
+        this.appendValueInput("MAXX")
+            .setCheck("Number")
+            .appendField("max x");
+        this.appendValueInput("MINY")
+            .setCheck("Number")
+            .appendField("min y");
+        this.appendValueInput("MAXY")
+            .setCheck("Number")
+            .appendField("max y");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PARTICLE_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['emitters_set_gravity'] = {
     init: function () {
         this.appendDummyInput()
@@ -2730,6 +2905,23 @@ Blockly.Blocks['emitters_set_gravity'] = {
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
         this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['emitters_set_gravity_vi'] = {
+    init: function () {
+        this.appendValueInput('EMITTER')
+            .appendField("on emitter");
+        this.appendDummyInput()
+            .appendField("set gravity:");
+        this.appendValueInput("GRAVITY")
+            .setCheck("Number");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PARTICLE_COLOUR);
+        this.setTooltip('Set the gravity of generated particles');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#gravity');
     }
 };
 
