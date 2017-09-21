@@ -123,6 +123,7 @@ function save() {
     }
 
     const dialog = require('electron').remote.dialog;
+    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
@@ -132,7 +133,11 @@ function save() {
         try {
             fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), code);
         } catch (err) {
-            dialog.showErrorBox('Error in code!', err.message);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Error in code!',
+              message: err.message
+            });
             console.log(err);
             return false;
         }
@@ -140,14 +145,22 @@ function save() {
         try {
             fs.writeFileSync(loadedProject.getBlocksPath(), xml);
         } catch (err) {
-            dialog.showErrorBox('Error in code!', err.message);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Error in code!',
+              message: err.message
+            });
             console.log(err);
             return false;
         }
 
         return true;
     } catch (e) {
-        dialog.showErrorBox('Error in code', e.message);
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Error in code!',
+          message: e.message
+        });
         console.log(e);
         return false;
     }

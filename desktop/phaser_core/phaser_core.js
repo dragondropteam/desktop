@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const {exec} = require('child_process');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
+const {BrowserWindow} = require('electron');
 
 const builder = require("electron-builder");
 const Platform = builder.Platform;
