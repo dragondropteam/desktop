@@ -440,6 +440,13 @@ Blockly.JavaScript['add_to_group'] = function(block) {
   return `${group}.add(${new_item});\n`;
 };
 
+Blockly.JavaScript['remove_from_group'] = function(block) {
+  const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+  const group = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('GROUP'), Blockly.Variables.NAME_TYPE);
+  const destroy = Blockly.JavaScript.valueToCode(block, 'DESTROY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${group}.remove(${child}, ${destroy});\n`;
+};
+
 //endregion
 
 //region PHYSICS
