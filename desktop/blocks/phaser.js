@@ -1558,6 +1558,22 @@ Blockly.Blocks['group_get_at'] = {
   }
 };
 
+Blockly.Blocks['group_get_closest_to'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get the member of group");
+    this.appendValueInput("OBJECT")
+        .setCheck(null)
+        .appendField("closest to");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns the object in the group whose position is closest to the specified object.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getClosestTo");
+  }
+};
+
 //endregion
 
 //region PHYSICS
