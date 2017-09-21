@@ -497,6 +497,11 @@ Blockly.JavaScript['group_get_random'] = function(block) {
   return [`${group}.getRandom()`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['group_get_random_exists'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getRandomExists()`, Blockly.JavaScript.ORDER_NONE];
+};
+
 //endregion
 
 //region PHYSICS
