@@ -1588,6 +1588,18 @@ Blockly.Blocks['group_get_first_alive_dead'] = {
   }
 };
 
+Blockly.Blocks['group_get_random'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get random member of group");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns a member of the group at random with no bias.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandom");
+  }
+};
+
 //endregion
 
 //region PHYSICS
