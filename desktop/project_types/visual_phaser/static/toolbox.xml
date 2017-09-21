@@ -810,6 +810,7 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="add_to_group"/>
                 <!--<block type="call_function_on_group"/>-->
             </category>
             <category name="Animation" colour="#00796b">

@@ -47,7 +47,7 @@ const PHASER_CAMERA_COLOUR = '#607d8b';
 
 function createDropDownField(write, readOnly) {
     const output = {
-        writable: [],   
+        writable: [],
         all: []
     }
 
@@ -1431,6 +1431,23 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
         this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
+};
+
+Blockly.Blocks['add_to_group'] = {
+  init: function() {
+    this.appendValueInput("NEW_ITEM")
+        .setCheck(null)
+        .appendField("Add");
+    this.appendDummyInput()
+        .appendField("to group")
+        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Adds an existing object to a group.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#add");
+  }
 };
 
 //endregion

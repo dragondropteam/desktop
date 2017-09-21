@@ -434,6 +434,12 @@ Blockly.JavaScript['call_function_on_group'] = function (block) {
     return `${group}.forEachAlive(${func_name}, this);\n`;
 };
 
+Blockly.JavaScript['add_to_group'] = function(block) {
+  const new_item = Blockly.JavaScript.valueToCode(block, 'NEW_ITEM', Blockly.JavaScript.ORDER_ATOMIC);
+  const group = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('GROUP'), Blockly.Variables.NAME_TYPE);
+  return `${group}.add(${new_item});\n`;
+};
+
 //endregion
 
 //region PHYSICS
