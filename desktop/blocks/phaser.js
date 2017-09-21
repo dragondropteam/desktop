@@ -1450,6 +1450,26 @@ Blockly.Blocks['add_to_group'] = {
   }
 };
 
+Blockly.Blocks['remove_from_group'] = {
+  init: function() {
+    this.appendValueInput("CHILD")
+        .setCheck(null)
+        .appendField("Remove");
+    this.appendDummyInput()
+        .appendField("from group")
+        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.appendValueInput("DESTROY")
+        .setCheck("Boolean")
+        .appendField("Destroy it too?");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Removes an object from a group. Optionally, destroy it as well.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#remove");
+  }
+};
+
 //endregion
 
 //region PHYSICS

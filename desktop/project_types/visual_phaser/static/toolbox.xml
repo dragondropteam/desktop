@@ -811,6 +811,13 @@
                     </value>
                 </block>
                 <block type="add_to_group"/>
+                <block type="remove_from_group">
+                    <value name="DESTROY">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">FALSE</field>
+                        </shadow>
+                    </value>
+                </block>
                 <!--<block type="call_function_on_group"/>-->
             </category>
             <category name="Animation" colour="#00796b">
