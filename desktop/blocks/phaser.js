@@ -1614,6 +1614,23 @@ Blockly.Blocks['group_get_random_exists'] = {
   }
 };
 
+Blockly.Blocks['group_remove_all'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("remove all members of group");
+    this.appendValueInput("DESTROY_CHILDREN")
+        .setCheck("Boolean")
+        .appendField("destroy them too?");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Empties the specified group. Can either do this by releasing its members or deleting them.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#removeAll");
+  }
+};
+
 //endregion
 
 //region PHYSICS
