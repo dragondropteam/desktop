@@ -1437,10 +1437,10 @@ Blockly.Blocks['add_to_group'] = {
   init: function() {
     this.appendValueInput("NEW_ITEM")
         .setCheck(null)
-        .appendField("Add");
-    this.appendDummyInput()
-        .appendField("to group")
-        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+        .appendField("add");
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("to group");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1454,13 +1454,13 @@ Blockly.Blocks['remove_from_group'] = {
   init: function() {
     this.appendValueInput("CHILD")
         .setCheck(null)
-        .appendField("Remove");
-    this.appendDummyInput()
-        .appendField("from group")
-        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+        .appendField("remove");
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("from group");
     this.appendValueInput("DESTROY")
         .setCheck("Boolean")
-        .appendField("Destroy it too?");
+        .appendField("destroy it too?");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1472,9 +1472,9 @@ Blockly.Blocks['remove_from_group'] = {
 
 Blockly.Blocks['group_contains'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Does group")
-        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("does group");
     this.appendValueInput("CHILD")
         .setCheck(null)
         .appendField("contain");
@@ -1490,9 +1490,10 @@ Blockly.Blocks['group_contains'] = {
 
 Blockly.Blocks['count_dead'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Number of \"dead\" objects in group")
-        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("number of \"dead\" objects in group");
+    this.setInputsInline(false);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
  this.setTooltip("Returns the number of \"dead\" objects in a group.");
@@ -1502,13 +1503,30 @@ Blockly.Blocks['count_dead'] = {
 
 Blockly.Blocks['count_living'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Number of \"alive\" objects in group")
-        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("number of \"alive\" objects in group");
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
  this.setTooltip("Returns the number of \"alive\" objects in a group.");
  this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
+  }
+};
+
+Blockly.Blocks['destroy_group'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("destroy group");
+    this.appendValueInput("HANDLE_CHILDREN")
+        .setCheck("Boolean")
+        .appendField("destroy children too?");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Destroys a group. Can either leave the members where they are, or destroy them too.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#destroy");
   }
 };
 
