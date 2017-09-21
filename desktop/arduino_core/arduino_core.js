@@ -160,7 +160,11 @@ function invalidArduinoPath(err) {
     if (err) {
         errorMessage += '\n' + err.message;
     }
-    dialog.showErrorBox('Error launching Arduino', errorMessage);
+    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+      type: 'error',
+      title: 'Error launching Arduino',
+      message: errorMessage
+    });
 }
 
 
