@@ -1500,6 +1500,18 @@ Blockly.Blocks['count_dead'] = {
   }
 };
 
+Blockly.Blocks['count_living'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Number of \"alive\" objects in group")
+        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns the number of \"alive\" objects in a group.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
+  }
+};
+
 //endregion
 
 //region PHYSICS
