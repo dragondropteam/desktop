@@ -502,6 +502,12 @@ Blockly.JavaScript['group_get_random_exists'] = function(block) {
   return [`${group}.getRandomExists()`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['group_remove_all'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const destroy_children = Blockly.JavaScript.valueToCode(block, 'DESTROY_CHILDREN', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${group}.removeAll(${destroy_children});\n`;
+};
+
 //endregion
 
 //region PHYSICS
