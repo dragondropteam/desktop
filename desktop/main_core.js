@@ -137,7 +137,16 @@ function addHelpMenu(menuHash) {
             shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
         }
     }];
+
+    menuHash['Help'].push({
+        label: 'Report Bug',
+        click(){
+            const {shell} = require('electron');
+            shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
+        }
+    })
 }
+
 function createDefaultMenu() {
 
     let menuHash = Object.create(null);
@@ -640,4 +649,13 @@ ipcMain.on('update_settings', () => {
     if (mainWindow) {
         mainWindow.send('settings_updated');
     }
+});
+
+ipcMain.on('show_help', (event, url) => {
+    // console.log(url);
+    const window = new BrowserWindow({width: 800, height: 600, show: false});
+    window.loadURL(url);
+    window.on('ready-to-show', () =>{
+        window.show();
+    });
 });
