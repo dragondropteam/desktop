@@ -1470,6 +1470,24 @@ Blockly.Blocks['remove_from_group'] = {
   }
 };
 
+Blockly.Blocks['group_contains'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Does group")
+        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.appendValueInput("CHILD")
+        .setCheck(null)
+        .appendField("contain");
+    this.appendDummyInput()
+        .appendField("?");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns true if a group contains a specified sprite.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#contains");
+  }
+};
+
 //endregion
 
 //region PHYSICS

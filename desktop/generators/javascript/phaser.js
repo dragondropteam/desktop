@@ -447,6 +447,13 @@ Blockly.JavaScript['remove_from_group'] = function(block) {
   return `${group}.remove(${child}, ${destroy});\n`;
 };
 
+Blockly.JavaScript['group_contains'] = function(block) {
+  const group = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('GROUP'), Blockly.Variables.NAME_TYPE);
+  const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.contains(${child})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+
 //endregion
 
 //region PHYSICS

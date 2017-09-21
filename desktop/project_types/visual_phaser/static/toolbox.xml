@@ -810,11 +810,29 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="add_to_group"/>
+                <block type="add_to_group">
+                    <value name="NEW_ITEM">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="remove_from_group">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
                     <value name="DESTROY">
                         <shadow type="logic_boolean">
                             <field name="BOOL">FALSE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_contains">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
                 </block>
