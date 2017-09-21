@@ -1542,6 +1542,22 @@ Blockly.Blocks['group_get_all'] = {
   }
 };
 
+Blockly.Blocks['group_get_at'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get member of group");
+    this.appendValueInput("INDEX")
+        .setCheck("Number")
+        .appendField("at index");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAt");
+  }
+};
+
 //endregion
 
 //region PHYSICS

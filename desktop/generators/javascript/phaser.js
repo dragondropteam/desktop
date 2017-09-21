@@ -474,6 +474,12 @@ Blockly.JavaScript['group_get_all'] = function(block) {
   return [`${group}.getAll()`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['group_get_at'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getAt(${index})`, Blockly.JavaScript.ORDER_NONE];
+};
+
 
 //endregion
 
