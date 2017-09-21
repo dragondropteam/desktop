@@ -469,6 +469,12 @@ Blockly.JavaScript['destroy_group'] = function(block) {
   return `${group}.destroy(${handle_children});\n`;
 };
 
+Blockly.JavaScript['group_get_all'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getAll()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+
 //endregion
 
 //region PHYSICS
