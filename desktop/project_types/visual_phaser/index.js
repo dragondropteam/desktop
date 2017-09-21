@@ -86,6 +86,8 @@ exports.loadProject = function (filePath) {
     let project = fs.readJsonSync(filePath);
     let loadedProject = new LoadedProject(project, path.dirname(filePath));
 
+    console.log('loadProject');
+
     if ((project.meta && project.meta.version < buildNumber) || (!project.meta) || (!project.type)) {
         exports.migrate(loadedProject);
     }
@@ -102,6 +104,7 @@ exports.saveProject = function (project) {
  * @param loadedProject The loadedProject to migrate to the new version
  */
 exports.migrate = function (loadedProject) {
+    console.log('migrating');
     if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
         loadedProject.loadedProject.meta = {
             'version': buildNumber
