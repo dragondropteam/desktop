@@ -453,6 +453,11 @@ Blockly.JavaScript['group_contains'] = function(block) {
   return [`${group}.contains(${child})`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['count_dead'] = function(block) {
+  const group = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('GROUP'), Blockly.Variables.NAME_TYPE);
+  return [`${group}.countDead()`, Blockly.JavaScript.ORDER_NONE];
+};
+
 
 //endregion
 

@@ -1488,6 +1488,18 @@ Blockly.Blocks['group_contains'] = {
   }
 };
 
+Blockly.Blocks['count_dead'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Number of \"dead\" objects in group")
+        .appendField(new Blockly.FieldVariable("defaultGroup"), "GROUP");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns the number of \"dead\" objects in a group.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countDead");
+  }
+};
+
 //endregion
 
 //region PHYSICS
