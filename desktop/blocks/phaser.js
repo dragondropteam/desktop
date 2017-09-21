@@ -1574,6 +1574,20 @@ Blockly.Blocks['group_get_closest_to'] = {
   }
 };
 
+Blockly.Blocks['group_get_first_alive_dead'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get first")
+        .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["dead","Dead"]]), "MODE")
+        .appendField("member of group");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+  }
+};
+
 //endregion
 
 //region PHYSICS

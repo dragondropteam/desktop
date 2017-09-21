@@ -486,6 +486,12 @@ Blockly.JavaScript['group_get_closest_to'] = function(block) {
   return [`${group}.getClosestTo(${object})`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['group_get_first_alive_dead'] = function(block) {
+  const mode = block.getFieldValue('MODE');
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getFirst${mode}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
 //endregion
 
 //region PHYSICS
