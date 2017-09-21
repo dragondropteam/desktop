@@ -480,6 +480,11 @@ Blockly.JavaScript['group_get_at'] = function(block) {
   return [`${group}.getAt(${index})`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['group_get_closest_to'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getClosestTo(${object})`, Blockly.JavaScript.ORDER_NONE];
+};
 
 //endregion
 
