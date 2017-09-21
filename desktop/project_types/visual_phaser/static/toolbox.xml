@@ -837,6 +837,7 @@
                     </value>
                 </block>
                 <block type="count_dead"/>
+                <block type="count_living"/>
                 <!--<block type="call_function_on_group"/>-->
             </category>
             <category name="Animation" colour="#00796b">
