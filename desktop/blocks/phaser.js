@@ -1530,6 +1530,18 @@ Blockly.Blocks['destroy_group'] = {
   }
 };
 
+Blockly.Blocks['group_get_all'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get all members of group");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns a list of all members in the specified group.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAll");
+  }
+};
+
 //endregion
 
 //region PHYSICS
