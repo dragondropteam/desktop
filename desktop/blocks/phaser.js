@@ -1600,6 +1600,20 @@ Blockly.Blocks['group_get_random'] = {
   }
 };
 
+Blockly.Blocks['group_get_random_exists'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get a random member of group");
+    this.appendDummyInput()
+        .appendField("that exists");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Returns a random member of the given group, picking from those whose \"exists\" field is set to true.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandomExists");
+  }
+};
+
 //endregion
 
 //region PHYSICS
