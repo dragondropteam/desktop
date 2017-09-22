@@ -833,11 +833,6 @@
                             <field name="VAR">defaultGroup</field>
                         </shadow>
                     </value>
-                    <value name="DESTROY">
-                        <shadow type="logic_boolean">
-                            <field name="BOOL">FALSE</field>
-                        </shadow>
-                    </value>
                 </block>
                 <block type="group_contains">
                     <value name="GROUP">
@@ -851,14 +846,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="count_dead">
-                  <value name="GROUP">
-                      <shadow type="variables_get">
-                          <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
-                </block>
-                <block type="count_living">
+                <block type="group_count_alive_dead">
                   <value name="GROUP">
                       <shadow type="variables_get">
                           <field name="VAR">defaultGroup</field>
@@ -869,11 +857,6 @@
                   <value name="GROUP">
                       <shadow type="variables_get">
                           <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
-                  <value name="HANDLE_CHILDREN">
-                      <shadow type="logic_boolean">
-                          <field name="BOOL">FALSE</field>
                       </shadow>
                   </value>
                 </block>
@@ -933,11 +916,6 @@
                   <value name="GROUP">
                       <shadow type="variables_get">
                           <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
-                  <value name="DESTROY_CHILDREN">
-                      <shadow type="logic_boolean">
-                          <field name="BOOL">FALSE</field>
                       </shadow>
                   </value>
                 </block>
