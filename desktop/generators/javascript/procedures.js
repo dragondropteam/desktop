@@ -107,3 +107,24 @@ Blockly.JavaScript['procedures_ifreturn'] = function(block) {
   code += '}\n';
   return code;
 };
+
+/**
+ * Begin modifications copyright DigiPen Institute of Technology
+ */
+/**
+ *
+ * @param block
+ * @return {string}
+ */
+Blockly.JavaScript['procedures_return'] = function(block) {
+    if (block.hasReturnValue_) {
+        let value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+                Blockly.JavaScript.ORDER_NONE) || 'null';
+       return  'return ' + value + ';\n';
+    } else {
+        return 'return;\n';
+    }
+};
+/**
+ * End modifications
+ */
