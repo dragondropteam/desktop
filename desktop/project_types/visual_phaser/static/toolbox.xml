@@ -1708,7 +1708,32 @@
             <!--<block type="camera_shake"></block>-->
             <!--<block type="camera_unfollow"></block>-->
         </category>
-        <!--<category name="Sound"></category>-->
+        <category name="Sound">
+          <block type="load_sound">
+            <value name="TAG">
+                <shadow type="text">
+                    <field name="TEXT">tag</field>
+                </shadow>
+            </value>
+            <value name="SOURCE">
+                <shadow type="text">
+                    <field name="TEXT">assets/example.wav</field>
+                </shadow>
+            </value>
+          </block>
+          <block type="play_sound">
+            <value name="TAG">
+                <shadow type="text">
+                    <field name="TEXT">tag</field>
+                </shadow>
+            </value>
+            <value name="VOLUME">
+                <shadow type="math_number">
+                    <field name="NUM">0.67</field>
+                </shadow>
+            </value>
+          </block>
+        </category>
     </category>
     <sep/>
     <category name="Class" colour="230" custom="CLASSES"/>
