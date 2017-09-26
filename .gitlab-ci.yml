@@ -5,8 +5,7 @@ stages:
  - build
  
 buildMacOS:
-  stage:
-   - build
+  stage: build
   before_script:
     - cd desktop
     - npm install
