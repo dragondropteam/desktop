@@ -1,7 +1,12 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  
+ 
+stages:
+ - build
+ 
 buildMacOS:
+  stage:
+   - build
   before_script:
     - cd desktop
     - npm install
@@ -13,6 +18,8 @@ buildMacOS:
   artifacts:
     paths:
     - dist
+  only:
+   - master
   tags:
     - macOS
 
