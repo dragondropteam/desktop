@@ -434,6 +434,76 @@ Blockly.JavaScript['call_function_on_group'] = function (block) {
     return `${group}.forEachAlive(${func_name}, this);\n`;
 };
 
+Blockly.JavaScript['add_to_group'] = function(block) {
+  const newItem = Blockly.JavaScript.valueToCode(block, 'NEW_ITEM', Blockly.JavaScript.ORDER_ATOMIC);
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${group}.add(${newItem});\n`;
+};
+
+Blockly.JavaScript['remove_from_group'] = function(block) {
+  const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const destroy = block.getFieldValue('DESTROY') == 'TRUE';
+  return `${group}.remove(${child}, ${destroy});\n`;
+};
+
+Blockly.JavaScript['group_contains'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.contains(${child})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_count_alive_dead'] = function(block) {
+  const state = block.getFieldValue('STATE');
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.count${state}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['destroy_group'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const handleChildren = block.getFieldValue('HANDLE_CHILDREN') == 'TRUE';
+  return `${group}.destroy(${handleChildren});\n`;
+};
+
+Blockly.JavaScript['group_get_all'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getAll()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_at'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getAt(${index})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_closest_to'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getClosestTo(${object})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_first_alive_dead'] = function(block) {
+  const mode = block.getFieldValue('MODE');
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getFirst${mode}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_random'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getRandom()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_random_exists'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getRandomExists()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_remove_all'] = function(block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const destroyChildren = block.getFieldValue('DESTROY_CHILDREN') == 'TRUE';
+  return `${group}.removeAll(${destroyChildren});\n`;
+};
+
 //endregion
 
 //region PHYSICS
