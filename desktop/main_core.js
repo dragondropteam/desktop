@@ -444,10 +444,7 @@ ipcMain.on('prompt', function (eventRet, arg) {
         width: 300,
         height: 200,
         show: false,
-        resizable: false,
-        movable: false,
-        alwaysOnTop: true,
-        frame: false
+        resizable: false
     });
     arg.val = arg.val || '';
     const promptHtml = '<label for="val">' + arg.title + '</label>\
