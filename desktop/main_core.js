@@ -434,11 +434,13 @@ function loadProjectDialog() {
     loadProjectFromPath(pathToProject[0]);
 }
 
-//region PromptReponse
+//region PromptResponse
 let promptResponse;
 ipcMain.on('prompt', function (eventRet, arg) {
     promptResponse = null;
     let promptWindow = new BrowserWindow({
+        parent: BrowserWindow.getFocusedWindow(),
+        modal: true,
         width: 300,
         height: 200,
         show: false,
