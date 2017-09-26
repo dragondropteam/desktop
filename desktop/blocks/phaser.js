@@ -3452,4 +3452,30 @@ Blockly.Blocks['play_sound'] = {
  this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play");
   }
 };
+
+Blockly.Blocks['remove_sound'] = {
+  init: function() {
+    this.appendValueInput("TAG")
+        .setCheck(null)
+        .appendField("stop all sounds tagged");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_SOUND_COLOUR);
+ this.setTooltip("Stops all sounds with the given tag.");
+ this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#removeByKey");
+  }
+};
+
+Blockly.Blocks['stop_pause_resume_sounds'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["stop","stop"], ["pause","pause"], ["resume","resume"]]), "OPTION")
+        .appendField("all sounds");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_SOUND_COLOUR);
+ this.setTooltip("Stop - Stop everything dead.\nPause - Stop everything, but remember where you were.\nResume - Start playing paused sounds from where they left off.");
+ this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll");
+  }
+};
 //endregion

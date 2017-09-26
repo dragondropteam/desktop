@@ -1733,6 +1733,14 @@
                 </shadow>
             </value>
           </block>
+          <block type="remove_sound">
+            <value name="TAG">
+                <shadow type="text">
+                    <field name="TEXT">tag</field>
+                </shadow>
+            </value>
+          </block>
+          <block type="stop_pause_resume_sounds"/>
         </category>
     </category>
     <sep/>
