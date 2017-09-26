@@ -25,8 +25,8 @@ const {BrowserWindow} = require('electron');
 function invalidArduinoPath() {
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
       type: 'error',
-      title: 'Error launching Arduino',
-      message: 'Make sure you have Arduino installed and the path correctly set in preferences.'
+      title: 'ERROR',
+      message: 'Error launching Arduino\nMake sure you have Arduino installed and the path correctly set in preferences.'
     });
 }
 
@@ -107,8 +107,8 @@ function completedProject(code, output) {
     } else {
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error Uploading To Arduino',
-          message: 'See console for more details'
+          title: 'ERROR',
+          message: 'Error Uploading To Arduino\nSee console for more details'
         });
     }
 }
@@ -120,8 +120,8 @@ function completedVerify(code, output) {
     } else {
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error Uploading To Arduino',
-          message: 'See Arduino IDE for details'
+          title: 'ERROR',
+          message: 'Error Uploading To Arduino\nSee Arduino IDE for details'
         });
     }
 }

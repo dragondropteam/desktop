@@ -125,8 +125,8 @@ exports.migrate = function (loadedProject) {
 function invalidArduinoPath() {
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
       type: 'error',
-      title: 'Error launching Arduino',
-      message: 'Make sure you have Arduino installed and the path correctly set in preferences.'
+      title: 'ERROR',
+      message: 'Error launching Arduino\nMake sure you have Arduino installed and the path correctly set in preferences.'
     });
 }
 
@@ -141,8 +141,8 @@ function completedProject(code, output) {
     } else {
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error Uploading To Wink Bot',
-          message: 'See Arduino IDE for details.'
+          title: 'ERROR',
+          message: 'Error Uploading To Wink Bot\nSee Arduino IDE for details.'
         });
     }
 }
@@ -154,8 +154,8 @@ function completedVerify(code, output) {
     } else {
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error Uploading To Wink Bot',
-          message: 'See Arduino IDE for details.'
+          title: 'ERROR',
+          message: 'Error Uploading To Wink Bot\nSee Arduino IDE for details.'
         });
     }
 }

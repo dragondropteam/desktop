@@ -41,8 +41,8 @@ exports.createProjectMenu = function(){
               if(err){
                 electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
-                  title: "Could not save project",
-                  message: err
+                  title: "ERROR",
+                  message: `Could not save project\n${err}`
                 });
                 return;
               }
@@ -107,8 +107,8 @@ exports.createProjectMenu = function(){
               }else{
                 electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
-                  title: "Error Uploading To Arduino",
-                  message: runningOutput
+                  title: "ERROR",
+                  message: `Error Uploading To Arduino\n${runningOutput}`
                 });
               }
               console.log(`child process exited with code ${code}`);

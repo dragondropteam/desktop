@@ -219,6 +219,7 @@ exports.setupPhaserMenu = (menu, project) => {
                 .catch((error) =>{
                     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                         type: 'error',
+                        title: 'ERROR'
                         message: error.getMsg()
                     });
                 });

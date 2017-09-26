@@ -91,8 +91,8 @@ function save(){
       if(err){
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error in code!',
-          message: err.message
+          title: 'ERROR',
+          message: `Error in code!\n${err.message}`
         });
         console.log(err);
         return false;
@@ -103,8 +103,8 @@ function save(){
       if(err){
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error in code!',
-          message: err.message
+          title: 'ERROR',
+          message: `Error in code!\n${err.message}`
         });
         console.log(err);
         return false;
@@ -114,8 +114,8 @@ function save(){
   }catch(e){
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
       type: 'error',
-      title: 'Error in code!',
-      message: e.message
+      title: 'ERROR',
+      message: `Error in code!\n${e.message}`
     });
     console.log(e);
     return false;

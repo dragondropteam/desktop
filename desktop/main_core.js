@@ -261,8 +261,8 @@ function createProjectMenu(arg) {
                     if (err) {
                         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                           type: 'error',
-                          title: `Could not save ${project.getName()}`,
-                          message: err.message
+                          title: 'ERROR',
+                          message: `Could not save ${project.getName()}\n${err.message}`
                         });
                         return;
                     }
@@ -276,8 +276,8 @@ function createProjectMenu(arg) {
                     if (err) {
                         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                           type: 'error',
-                          title: `Could not save ${project.getName()}`,
-                          message: err.message
+                          title: 'ERROR',
+                          message: `Could not save ${project.getName()}\n${err.message}`
                         });
                     }
                 });
@@ -288,8 +288,8 @@ function createProjectMenu(arg) {
                     if (err) {
                         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                           type: 'error',
-                          title: `Could not save ${project.getName()}`,
-                          message: err.message
+                          title: 'ERROR',
+                          message: `Could not save ${project.getName()}\n${err.message}`
                         });
                     }
                 });
@@ -331,7 +331,7 @@ function createProjectMenu(arg) {
                     if (err) {
                         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                           type: 'error',
-                          title: 'Archive Failed',
+                          title: 'ERROR',
                           message: `Could not archive project\n${err.message()}`
                         });
                     } else {
@@ -358,7 +358,7 @@ function createProjectMenu(arg) {
     }, () => {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Could not create menu',
+          title: 'ERROR',
           message: 'Menu could not be created!'
         });
 
@@ -390,8 +390,8 @@ ipcMain.on('create_new_project', (event, project, type) => {
         const {dialog} = require('electron');
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Could not create loadedProject',
-          message: 'Check the path and try again!'
+          title: 'ERROR',
+          message: 'Could not create loadedProject\nCheck the path and try again!'
         });
     }
 
@@ -558,7 +558,7 @@ function loadProjectFromPath(projectPath) {
          } else {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
               type: 'error',
-              title: 'Could not open project',
+              title: 'ERROR',
               message: `Could not open project at ${projectPath}`
             });
         }
