@@ -147,8 +147,8 @@
                         console.error(err);
                         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                           type: 'error',
-                          title: 'Could not delete directory',
-                          message: 'Make sure no files are still open.'
+                          title: 'ERROR',
+                          message: 'Could not delete directory\nMake sure no files are still open.'
                         });
                         return;
                     }
