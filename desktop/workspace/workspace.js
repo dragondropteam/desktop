@@ -77,8 +77,8 @@ class BlocklyComponent extends exports.BaseComponent {
     resize() {
         // Compute the absolute coordinates and dimensions of blocklyArea.
         let element = blocklyArea;
-        if(!element){
-            setTimeout(() =>{
+        if (!element) {
+            setTimeout(() => {
                 this.resize();
             }, TIMEOUT);
             return;
@@ -101,7 +101,7 @@ class BlocklyComponent extends exports.BaseComponent {
     setupDOM() {
         blocklyArea = document.getElementById(BLOCKLY_AREA_ID);
         if (!blocklyArea) {
-            setTimeout(() =>{
+            setTimeout(() => {
                 this.setupDOM();
             }, TIMEOUT);
             return false;
@@ -231,7 +231,7 @@ class PhaserComponent extends exports.BaseComponent {
     setSource(source) {
         console.log(`setSource to ${source}`);
         webview.src = source;
-        this.source  = source;
+        this.source = source;
     }
 
     reload() {
@@ -239,9 +239,9 @@ class PhaserComponent extends exports.BaseComponent {
         // console.log(!webview.src);
         // console.log(!webview.getWebContents());
 
-        if(!webview.src || !webview.getWebContents()){
+        if (!webview.src || !webview.getWebContents()) {
             this.setSource(this.source);
-        }else{
+        } else {
             webview.reload();
         }
     }
@@ -273,10 +273,10 @@ function loadProject(loadedProject, loadPath) {
     config.load(loadedProject);
 }
 
-ipcRenderer.on('show_embedded', (event, arg) =>{
+ipcRenderer.on('show_embedded', (event, arg) => {
     // console.log('show_embedded');
 
-    if(!phaserContainer || !webview){
+    if (!phaserContainer || !webview) {
         return;
     }
 
@@ -353,6 +353,18 @@ ipcRenderer.on('show_phaser', (event, arg) => {
         componentState: {label: exports.PHASER_COMPONENT},
         title: 'Game',
     });
+});
+
+ipcRenderer.on('pause_execution', () => {
+    console.log('pause execution');
+});
+
+ipcRenderer.on('step_execution', () => {
+    console.log('step execution');
+});
+
+ipcRenderer.on('resume_execution', () => {
+    console.log('resume execution');
 });
 //endregion
 
