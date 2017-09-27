@@ -1618,6 +1618,7 @@
             <!--TODO: Mouse input functions for position, key down, etc... -->
             <category name="Mouse" colour="#1976d2">
                 <block type="get_current_mouse_position"/>
+                <block type="is_mouse_button_clicked"/>
             </category>
             <!--TODO: Gamepad support-->
             <!--<category name="Gamepad" colour="#42a5f5"></category>-->
