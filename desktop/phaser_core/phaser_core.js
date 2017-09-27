@@ -208,6 +208,33 @@ exports.setupPhaserMenu = (menu, project) => {
             break;
     }
 
+
+    menu['Step'] = [];
+
+    menu['Step'].push({
+        label: 'Pause Execution',
+        click(item, displayedWindow){
+            displayedWindow.send('pause_execution');
+        },
+        accelerator: 'F5'
+    });
+
+    menu['Step'].push({
+        label: 'Step Execution',
+        click(item, displayedWindow){
+            displayedWindow.send('step_execution');
+        },
+        accelerator: 'F6'
+    });
+
+    menu['Step'].push({
+        label: 'Resume Execution',
+        click(item, displayedWindow){
+            displayedWindow.send('resume_execution');
+        },
+        accelerator: 'F7'
+    });
+
     menu['Project'].push({
         label: `Open Assets Directory in ${label}`,
         click(item, displayedWindow){
