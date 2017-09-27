@@ -1304,28 +1304,3 @@ Blockly.JavaScript['point_set_element'] = function (block) {
     return `${point}.${element} = ${value};\n`;
 };
 //endregion
-
-//region SOUND
-Blockly.JavaScript['load_sound'] = function(block) {
-  const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
-  const source = Blockly.JavaScript.valueToCode(block, 'SOURCE', Blockly.JavaScript.ORDER_ATOMIC);
-  return `game.load.audio(${tag}, ${source});\n`;
-};
-
-Blockly.JavaScript['play_sound'] = function(block) {
-  const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
-  const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
-  const looping = block.getFieldValue('LOOPING') == 'TRUE';
-  return `game.sound.play(${tag}, ${volume}, ${looping});\n`;
-};
-
-Blockly.JavaScript['remove_sound'] = function(block) {
-  const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
-  return `game.sound.removeByKey(${tag});\n`;
-};
-
-Blockly.JavaScript['stop_pause_resume_sounds'] = function(block) {
-  const option = block.getFieldValue('OPTION');
-  return `game.sound.${option}All();\n`;
-};
-//endregion
