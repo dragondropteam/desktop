@@ -33,6 +33,8 @@ const PHASER_GROUPS_COLOUR = '#00695c';
 const PHASER_ANIMATION_COLOUR = '#00796b';
 const PHASER_PARTICLES_COLOUR = '#83C2D1';
 const PHASER_GEOMETRY_COLOUR = '#26a69a';
+const PHASER_RECTANGLE_COLOUR = '#757575';
+const PHASER_POINT_COLOUR = '#616161';
 const PHASER_TEXT_COLOUR = '#009688';
 const PHASER_GAMEOBJECT_COLOUR = '#00bfa5';
 const PHASER_KEYBOARD_INPUT = '#1565c0';
@@ -3354,7 +3356,7 @@ Blockly.Blocks['rectangle_create'] = {
         this.appendValueInput('HEIGHT')
             .appendField('height');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_RECTANGLE_COLOUR);
         this.setTooltip('Defines a rectangle, can be used for cropping, alignment and other tasks');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Rectangle.html');
         this.setOutput(true);
@@ -3372,7 +3374,7 @@ Blockly.Blocks['point_create'] = {
         this.appendValueInput('Y')
             .appendField('y');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
         this.setOutput(true);
@@ -3390,7 +3392,7 @@ Blockly.Blocks['point_get_element'] = {
             .appendField('of');
         this.appendValueInput('POINT');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
         this.setOutput(true);
@@ -3411,13 +3413,228 @@ Blockly.Blocks['point_set_element'] = {
             .appendField('to')
             .setCheck('Number');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
     }
 };
+
+/**
+ * Static method to add two points Phaser.Point.add
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.add
+ * @type {{init: Blockly.Blocks.points_add.init}}
+ */
+Blockly.Blocks['points_add'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('add points');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.add');
+        this.setTooltip('Adds the two points and returns the result');
+        this.setColour(PHASER_POINT_COLOUR);
+    }
+};
+
+/**
+ * Subtracts two points
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.subtract
+ * @type {{init: Blockly.Blocks.points_subtract.init}}
+ */
+Blockly.Blocks['points_subtract'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('subtract points');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.subtract');
+        this.setTooltip('Adds the two points and returns the result');
+        this.setColour(PHASER_POINT_COLOUR);
+    }
+};
+
+/**
+ * Static method to find the angle in radians between two points
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.angle
+ * @type {{init: Blockly.Blocks.points_angle_between.init}}
+ */
+Blockly.Blocks['points_angle_between'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('angle between');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Number');
+        this.setInputsInline(true);
+        this.setTooltip('Returns the angle in radians between the two point objects');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.angle');
+
+    }
+};
+
+/**
+ * Static method to find the distance between two points
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance
+ * @type {{init: Blockly.Blocks.points_angle_between.init}}
+ */
+Blockly.Blocks['points_distance'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('distance between');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Number');
+        this.setInputsInline(true);
+        this.setTooltip('Returns the distance between the two point objects');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance');
+
+    }
+};
+
+/**
+ * Component wise division of two points
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance
+ * @type {{init: Blockly.Blocks.points_divide}}
+ */
+Blockly.Blocks['points_divide'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('divide');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Number');
+        this.setInputsInline(true);
+        this.setTooltip('Returns a new point p = [a.x / b.x, a.y / b.y]');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.divide');
+
+    }
+};
+
+/**
+ * Static comparision this will use value vs reference
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.equals
+ * @type {{init: Blockly.Blocks.points_equals}}
+ */
+Blockly.Blocks['points_equals'] = {
+    init: function () {
+        this.appendValueInput('LHS');
+        this.appendValueInput('RHS')
+            .appendField('is equal to');
+        this.appendDummyInput()
+            .appendField('?');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Boolean');
+        this.setInputsInline(true);
+        this.setTooltip('Determines if two points are equal');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.equals');
+
+    }
+};
+
+/**
+ * Interpolates between two points
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.interpolate
+ * @type {{init: Blockly.Blocks.points_interpolate.init}}
+ */
+Blockly.Blocks['points_interpolate'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('interpolate between A');
+        this.appendValueInput('RHS')
+            .appendField('and B');
+        this.appendValueInput('F')
+            .appendField('percent to B');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Interpolate between two points, the percent (0.0 - 1.0) determines how far towards the second point (1 - F) * A + F * B');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.interpolate');
+
+    }
+};
+
+/**
+ * Component wise multiplication of two points
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.multiply
+ * @type {{init: Blockly.Blocks.points_multiply.init}}
+ */
+Blockly.Blocks['points_multiply'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('multiply');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Multiply two points');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.multiply');
+
+    }
+};
+
+/**
+ * Negate the point
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.negative
+ * @type {{init: Blockly.Blocks.points_negate.init}}
+ */
+Blockly.Blocks['points_negate'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('negate');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Negate the point');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.negative');
+
+    }
+};
+
+/**
+ * Normalize the point (make unit length)
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.normalize
+ * @type {{init: Blockly.Blocks.points_normalize.init}}
+ */
+Blockly.Blocks['points_normalize'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('normalize');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Normalize the point (make unit length)');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.normalize');
+    }
+};
+
+/**
+ * Finds a vector perpendicular to the given point
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.perp
+ * @type {{init: Blockly.Blocks.points_perpendicular.init}}
+ */
+Blockly.Blocks['points_perpendicular'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('find pependicular vector to');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Find a perpendicular vector to this point');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.perp');
+    }
+};
+
+
 //endregion
 
 //endregion
