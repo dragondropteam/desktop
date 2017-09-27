@@ -1689,8 +1689,30 @@
         </category>
         <category name="Camera" colour="#607d8b">
             <!--TODO: Implement blocks that have been commented out-->
-            <!--<block type="camera_fade"></block>-->
-            <!--<block type="camera_flash"></block>-->
+            <block type="camera_fade">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#000000</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_flash">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">300</field>
+                    </shadow>
+                </value>
+            </block>
             <!--<block type="camera_focus_on"></block>-->
             <!--<block type="camera_focus_on_xy"></block>-->
             <block type="camera_follow_vi">
@@ -1705,7 +1727,18 @@
             <!--<block type="camera_set_bounds_to_world"></block>-->
             <!--<block type="camera_set_position"></block>-->
             <!--<block type="camera_set_size"></block>-->
-            <!--<block type="camera_shake"></block>-->
+            <block type="camera_shake">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0.05</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">300</field>
+                    </shadow>
+                </value>
+            </block>
             <!--<block type="camera_unfollow"></block>-->
         </category>
         <!--<category name="Sound"></category>-->
