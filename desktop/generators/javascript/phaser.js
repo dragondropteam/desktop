@@ -1304,3 +1304,39 @@ Blockly.JavaScript['point_set_element'] = function (block) {
     return `${point}.${element} = ${value};\n`;
 };
 //endregion
+
+//region CAMERA
+Blockly.JavaScript['camera_fade'] = function(block) {
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const toHexColorFunc = Blockly.JavaScript.provideFunction_(
+      'toHexColor',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+      '(color) {',
+          'return color.replace("#", "0x");',
+          '}']);
+
+  return `game.camera.fade(${toHexColorFunc}(${colour}), ${time}, true);\n`;
+};
+
+Blockly.JavaScript['camera_flash'] = function(block) {
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const toHexColorFunc = Blockly.JavaScript.provideFunction_(
+      'toHexColor',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+      '(color) {',
+          'return color.replace("#", "0x");',
+          '}']);
+
+  return `game.camera.flash(${toHexColorFunc}(${colour}), ${time}, true);\n`;
+};
+
+Blockly.JavaScript['camera_shake'] = function(block) {
+  const intensity = Blockly.JavaScript.valueToCode(block, 'INTENSITY', Blockly.JavaScript.ORDER_ATOMIC);
+  const direction = block.getFieldValue('DIRECTION');
+  const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.shake(${intensity}, ${duration}, true, Phaser.Camera.${direction});\n`;
+};
+
+//endregion

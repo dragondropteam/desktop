@@ -3409,5 +3409,62 @@ Blockly.Blocks['camera_follow_vi'] = {
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Camera.html#follow');
     }
 };
+
+Blockly.Blocks['camera_fade'] = {
+  init: function() {
+    this.appendValueInput("COLOUR")
+        .setCheck(null)
+        .appendField("fade screen to");
+    this.appendValueInput("TIME")
+        .setCheck(null)
+        .appendField("over");
+    this.appendDummyInput()
+        .appendField("milliseconds");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Fades the screen to the specified colour over time. Ends with the screen completely obscured.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#fade");
+  }
+};
+
+Blockly.Blocks['camera_flash'] = {
+  init: function() {
+    this.appendValueInput("COLOUR")
+        .setCheck(null)
+        .appendField("flash screen to");
+    this.appendValueInput("TIME")
+        .setCheck(null)
+        .appendField("then fade in over");
+    this.appendDummyInput()
+        .appendField("milliseconds");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Immediately covers the camera with the specified colour. Then fades back in over a given time.\nUseful for fading back in after fading out, or as a big hit effect.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#flash");
+  }
+};
+
+Blockly.Blocks['camera_shake'] = {
+  init: function() {
+    this.appendValueInput("INTENSITY")
+        .setCheck(null)
+        .appendField("shake the camera");
+    this.appendValueInput("DURATION")
+        .setCheck(null)
+        .appendField("% of the screen")
+        .appendField(new Blockly.FieldDropdown([["every direction","SHAKE_BOTH"], ["vertically","SHAKE_VERTICAL"], ["horizontally","SHAKE_HORIZONTAL"]]), "DIRECTION")
+        .appendField("for");
+    this.appendDummyInput()
+        .appendField("milliseconds");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Screen shake. Great for impact effects, or just a little extra umph, but don't go overboard. The screen percentage goes from 0 to 1.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#shake");
+  }
+};
 //endregion
 //endregion
