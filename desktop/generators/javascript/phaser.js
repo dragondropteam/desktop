@@ -849,6 +849,15 @@ Blockly.JavaScript['set_animation_property_vi'] = function (block) {
 //endregion
 
 //region INPUT
+
+//region MOUSE
+Blockly.JavaScript['get_current_mouse_position'] = function(block) {
+    const direction = block.getFieldValue('DIRECTION');
+    return [`game.input.${direction}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+//endregion
+
+//region Keyboard
 Blockly.JavaScript['create_cursor_keys'] = function (block) {
     return ['game.input.keyboard.createCursorKeys()', Blockly.JavaScript.ORDER_NONE];
 };
@@ -857,6 +866,7 @@ Blockly.JavaScript['is_key_down'] = function (block) {
     const dropdown_key = block.getFieldValue('KEY');
     return [`game.input.keyboard.isDown(Phaser.Keyboard.${dropdown_key})`, Blockly.JavaScript.ORDER_NONE];
 };
+//endregion
 //endregion
 
 //region WORLD
