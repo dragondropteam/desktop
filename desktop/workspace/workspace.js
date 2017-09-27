@@ -126,7 +126,6 @@ class BlocklyComponent extends exports.BaseComponent {
     }
 }
 
-
 class CodeComponent extends exports.BaseComponent {
     constructor(container, componentState) {
         super(componentState);
@@ -245,6 +244,24 @@ class PhaserComponent extends exports.BaseComponent {
             webview.reload();
         }
     }
+
+    pauseExecution(){
+        this.paused = true;
+    }
+
+    stepExecution(){
+        if(!this.paused){
+            return;
+        }
+    }
+
+    resumeExecution(){
+        if(!this.paused){
+            return;
+        }
+
+        this.paused = false;
+    }
 }
 
 exports.registerDefaultComponents = function () {
@@ -356,15 +373,30 @@ ipcRenderer.on('show_phaser', (event, arg) => {
 });
 
 ipcRenderer.on('pause_execution', () => {
-    console.log('pause execution');
+    // console.log('pause execution');
+    if (!webview) {
+        return;
+    }
+
+    webview.executeJavaScript('game.enableStep();');
 });
 
 ipcRenderer.on('step_execution', () => {
-    console.log('step execution');
+    // console.log('step execution');
+    if (!webview) {
+        return;
+    }
+
+    webview.executeJavaScript('game.step();');
 });
 
 ipcRenderer.on('resume_execution', () => {
-    console.log('resume execution');
+    // console.log('resume execution');
+    if (!webview) {
+        return;
+    }
+
+    webview.executeJavaScript('game.disableStep();');
 });
 //endregion
 
