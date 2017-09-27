@@ -2144,6 +2144,19 @@ Blockly.Blocks['get_current_mouse_position'] = {
         this.setOutput(true, 'Number');
     }
 };
+
+Blockly.Blocks['is_mouse_button_clicked'] = {
+    init: function(){
+        this.appendDummyInput()
+            .appendField('is mouse button')
+            .appendField(new Blockly.FieldDropdown([['left button', 'leftButton'], ['right button', 'rightButton'], ['middle button', 'middleButton']]) , 'BUTTON')
+            .appendField('clicked?');
+        this.setOutput(true, 'Boolean');
+        this.setHelpUrl();
+        this.setTooltip('Is the specified button clicked');
+        this.setColour(PHASER_MOUSE_INPUT);
+    }
+};
 //endregion
 
 Blockly.Blocks['create_cursor_keys'] = {

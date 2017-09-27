@@ -855,6 +855,10 @@ Blockly.JavaScript['get_current_mouse_position'] = function(block) {
     const direction = block.getFieldValue('DIRECTION');
     return [`game.input.${direction}`, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.JavaScript['is_mouse_button_clicked'] = function(block) {
+    return [`game.input.mousePointer.${block.getFieldValue('BUTTON')}.isDown`, Blockly.JavaScript.ORDER_ATOMIC];
+};
 //endregion
 
 //region Keyboard
