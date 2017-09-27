@@ -2132,6 +2132,20 @@ Blockly.Blocks['move_to_object'] = {
 //region INPUT
 const INPUT_COLOUR = 300;
 
+//region MOUSE
+Blockly.Blocks['get_current_mouse_position'] = {
+    init: function(){
+        this.appendDummyInput()
+            .appendField('get mouse position')
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y','y']]), 'DIRECTION');
+        this.setColour(PHASER_MOUSE_INPUT);
+        this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
+        this.setHelpUrl('https://phaser.io/docs/2.3.0/Phaser.Pointer.html#x');
+        this.setOutput(true, 'Number');
+    }
+};
+//endregion
+
 Blockly.Blocks['create_cursor_keys'] = {
     init: function () {
         this.appendDummyInput()
@@ -3411,3 +3425,4 @@ Blockly.Blocks['camera_follow_vi'] = {
 };
 //endregion
 //endregion
+
