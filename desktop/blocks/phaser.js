@@ -42,7 +42,6 @@ const PHASER_PHYSICS_STARTUP = '#d500f9';
 const PHASER_PHYSICS_DYNAMICS = '#6a1b9a';
 const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHASER_CAMERA_COLOUR = '#607d8b';
-const PHASER_SOUND_COLOUR = 99;
 //endregion
 
 
@@ -3411,71 +3410,4 @@ Blockly.Blocks['camera_follow_vi'] = {
     }
 };
 //endregion
-//endregion
-
-//region SOUND
-Blockly.Blocks['load_sound'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("create sound");
-    this.appendValueInput("TAG")
-        .setCheck("String")
-        .appendField("tag");
-    this.appendValueInput("SOURCE")
-        .setCheck("String")
-        .appendField("source");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.Loader.html#audio");
-  }
-};
-
-Blockly.Blocks['play_sound'] = {
-  init: function() {
-    this.appendValueInput("TAG")
-        .setCheck(null)
-        .appendField("play sound");
-    this.appendValueInput("VOLUME")
-        .setCheck(null)
-        .appendField("at volume");
-    this.appendDummyInput()
-        .appendField("looping")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "LOOPING");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Plays a sound that has been created. The volume goes from 0 to 1.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play");
-  }
-};
-
-Blockly.Blocks['remove_sound'] = {
-  init: function() {
-    this.appendValueInput("TAG")
-        .setCheck(null)
-        .appendField("stop all sounds tagged");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Stops all sounds with the given tag.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#removeByKey");
-  }
-};
-
-Blockly.Blocks['stop_pause_resume_sounds'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["stop","stop"], ["pause","pause"], ["resume","resume"]]), "OPTION")
-        .appendField("all sounds");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Stop - Stop everything dead.\nPause - Stop everything, but remember where you were.\nResume - Start playing paused sounds from where they left off.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll");
-  }
-};
 //endregion
