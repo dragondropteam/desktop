@@ -1360,66 +1360,7 @@
                     </value>
                 </block>
             </category>
-            <!--TODO: Create remaining shape blocks -->
-            <category name="Geometry" colour="#26a69a">
-                <category name="Rectangle" colour="#26a69a">
-                    <block type="rectangle_create">
-                        <value name="WIDTH">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                        <value name="HEIGHT">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                        <value name="X">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                        <value name="Y">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="Point" colour="#26a69a">
-                    <block type="point_create">
-                        <value name="X">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                        <value name="Y">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                    </block>
-                    <block type="point_get_element">
-                        <value name="POINT">
-                            <shadow type="variables_get">
-                                <field name="VAR">defaultPoint</field>
-                            </shadow>
-                        </value>
-                    </block>
-                    <block type="point_set_element">
-                        <value name="POINT">
-                            <shadow type="variables_get">
-                                <field name="VAR">defaultPoint</field>
-                            </shadow>
-                        </value>
-                        <value name="VALUE">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                    </block>
-                </category>
-            </category>
+
         </category>
         <category name="Physics" colour="#aa00ff">
             <category name="Setup" colour="#d500f9">
@@ -1604,6 +1545,189 @@
                     <value name="RHS">
                         <shadow type="variables_get">
                             <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+        </category>
+        <!--TODO: Create remaining shape blocks -->
+        <category name="Geometry" colour="#424242">
+            <category name="Rectangle" colour="#757575">
+                <block type="rectangle_create">
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Point" colour="#616161">
+                <block type="point_create">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="point_get_element">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--TODO: Set to (x, y) in one statement instead of two-->
+                <block type="point_set_element">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_add">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_subtract">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_angle_between">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_distance">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_divide">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_multiply">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_negate">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_normalize">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_perpendicular">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_equals">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_interpolate">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                    <value name="F">
+                        <shadow type="math_number">
+                            <field name="NUM">0.5</field>
                         </shadow>
                     </value>
                 </block>
