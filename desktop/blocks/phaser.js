@@ -830,7 +830,28 @@ Blockly.Blocks['sprite_overlap'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.out_of_bounds_kill.init}}
+ */
 Blockly.Blocks['out_of_bounds_kill'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("make");
+        this.appendValueInput("BOOL")
+            .setCheck("Boolean")
+            .appendField("get deleted if it leaves the world?");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#outOfBoundsKill');
+    }
+};
+
+Blockly.Blocks['out_of_bounds_faint'] = {
     init: function () {
         this.appendValueInput("OBJECT")
             .setCheck(null)
@@ -2487,6 +2508,10 @@ Blockly.Blocks['set_object_anchor'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.kill_object.init}}
+ */
 Blockly.Blocks['kill_object'] = {
     init: function () {
         this.appendValueInput('OBJECT')
@@ -2495,6 +2520,39 @@ Blockly.Blocks['kill_object'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    }
+};
+
+/**
+ * Faints the object, it will still be in memory until it is destroyed can be used to create object pools and the like
+ * revive will make the object alive again
+ * @type {{init: Blockly.Blocks.faint_object.init}}
+ */
+Blockly.Blocks['faint_object'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('faint');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Will faint the object setting making it non-existent. Reverse with revive');
+    }
+};
+
+/**
+ * Destroys the object removing it from memory
+ * @type {{init: Blockly.Blocks.destroy_object.init}}
+ */
+Blockly.Blocks['destroy_object'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('destroy');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Will remove the object from the game and memory, after which it can no longer be accessed.');
     }
 };
 
