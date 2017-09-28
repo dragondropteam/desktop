@@ -3458,7 +3458,7 @@ Blockly.Blocks['point_get_element'] = {
         this.appendDummyInput()
             .appendField('get point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT')
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT');
         this.appendDummyInput()
             .appendField('of');
         this.appendValueInput('POINT');
@@ -3476,7 +3476,7 @@ Blockly.Blocks['point_set_element'] = {
         this.appendDummyInput()
             .appendField('set point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]));
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT');
         this.appendDummyInput()
             .appendField('of');
         this.appendValueInput('POINT');
