@@ -1516,7 +1516,7 @@ Blockly.Blocks['group_count_alive_dead'] = {
     this.appendValueInput("GROUP")
         .setCheck(null)
         .appendField("number of")
-        .appendField(new Blockly.FieldDropdown([["alive","Living"], ["dead","Dead"]]), "STATE")
+        .appendField(new Blockly.FieldDropdown([["alive","Living"], ["fainted","Dead"]]), "STATE")
         .appendField("objects in group");
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
