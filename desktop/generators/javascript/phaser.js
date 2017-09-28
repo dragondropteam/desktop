@@ -551,6 +551,13 @@ Blockly.JavaScript['enable_arcade_physics_for_object_vi'] = function (block) {
 //endregion
 
 //region BODY
+
+Blockly.JavaScript['debug_body'] = function (block) {
+    const body = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC);
+
+    return `game.debug.body(${body});\n`;
+};
+
 Blockly.JavaScript['set_body_field_point'] = function (block) {
     const field = block.getFieldValue('FIELD');
     const element = block.getFieldValue('ELEMENT');
@@ -571,10 +578,9 @@ Blockly.JavaScript['set_body_field_point_vi'] = function (block) {
 
 Blockly.JavaScript['set_body_field_point_class_vi'] = function (block) {
     const field = block.getFieldValue('FIELD');
-    const element = block.getFieldValue('ELEMENT');
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC) || 'new Point()';
-    return `${object}.body.${field}.${element} = ${point};\n`;
+    return `${object}.body.${field} = ${point};\n`;
 };
 
 Blockly.JavaScript['get_body_field_point_class'] = function (block) {
@@ -1317,6 +1323,12 @@ Blockly.JavaScript['point_set_element'] = function (block) {
     const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
     const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     return `${point}.${element} = ${value};\n`;
+};
+
+Blockly.JavaScript['point_set_magnitude'] = function (block) {
+    const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${point}.setMagnitude(${value});\n`;
 };
 
 Blockly.JavaScript['points_add'] = function (block) {

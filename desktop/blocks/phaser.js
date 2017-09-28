@@ -1792,6 +1792,20 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
     }
 };
 
+
+Blockly.Blocks['debug_body'] = {
+    init: function(){
+        this.appendValueInput('BODY')
+            .appendField('debug body');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the value of the body point field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
 Blockly.Blocks['get_body_field_point_class'] = {
     init: function () {
         this.appendDummyInput()
@@ -2150,9 +2164,8 @@ Blockly.Blocks['get_current_mouse_position'] = {
 Blockly.Blocks['is_mouse_button_clicked'] = {
     init: function(){
         this.appendDummyInput()
-            .appendField('is mouse button')
-            .appendField(new Blockly.FieldDropdown([['left button', 'leftButton'], ['right button', 'rightButton'], ['middle button', 'middleButton']]) , 'BUTTON')
-            .appendField('clicked?');
+            .appendField(new Blockly.FieldDropdown([["left","leftButton"], ["right","rightButton"], ["middle","middleButton"]]), "BUTTON")
+            .appendField('mouse button is clicked?');
         this.setOutput(true, 'Boolean');
         this.setHelpUrl();
         this.setTooltip('Is the specified button clicked');
@@ -3416,6 +3429,27 @@ Blockly.Blocks['point_set_element'] = {
         this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+    }
+};
+
+/**
+ * Set the magnitude of the point
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#setMagnitude
+ * @type {{init: Blockly.Blocks.point_set_magnitude.init}}
+ */
+Blockly.Blocks['point_set_magnitude'] = {
+    init: function () {
+        this.appendValueInput('POINT')
+            .appendField('set magnitude for');
+        this.appendValueInput('VALUE')
+            .appendField('to')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setTooltip('Sets the magnitude of the point');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#setMagnitude');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
     }
