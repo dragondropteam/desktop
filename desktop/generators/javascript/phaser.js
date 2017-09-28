@@ -292,6 +292,12 @@ Blockly.JavaScript['out_of_bounds_kill'] = function (block) {
     return `${value_object}.outOfBoundsKill = ${value_bool};\n`;
 };
 
+Blockly.JavaScript['out_of_bounds_faint'] = function (block) {
+    const value_object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const value_bool = Blockly.JavaScript.valueToCode(block, 'BOOL', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${value_object}.outOfBoundsFaint = ${value_bool};\n`;
+};
+
 /**
  * @deprecated
  * @param block
@@ -990,6 +996,16 @@ Blockly.JavaScript['set_object_anchor'] = function (block) {
 Blockly.JavaScript['kill_object'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     return `${object}.kill();\n`;
+};
+
+Blockly.JavaScript['faint_object'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.faint();\n`;
+};
+
+Blockly.JavaScript['kill_object'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.destroy();\n`;
 };
 
 Blockly.JavaScript['object_inCamera'] = function (block) {
