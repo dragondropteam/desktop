@@ -474,7 +474,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="out_of_bounds_kill">
+                <block type="out_of_bounds_faint">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1316,7 +1316,14 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="kill_object">
+                <block type="faint_object">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="destroy_object">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
