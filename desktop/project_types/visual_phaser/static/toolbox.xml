@@ -1469,7 +1469,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Dynamics" colour="#b71c1c">
+            <category name="Dynamics" colour="#6a1b9a">
                 <block type="move_to_pointer_extended">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
