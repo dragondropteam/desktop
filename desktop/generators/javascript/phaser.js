@@ -494,6 +494,12 @@ Blockly.JavaScript['group_get_first_alive_dead'] = function(block) {
   return [`${group}.getFirst${mode}()`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['group_get_first_alive_fainted'] = function(block) {
+  const mode = block.getFieldValue('MODE');
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${group}.getFirst${mode}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['group_get_random'] = function(block) {
   const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
   return [`${group}.getRandom()`, Blockly.JavaScript.ORDER_NONE];
@@ -1015,13 +1021,13 @@ Blockly.JavaScript['object_inCamera'] = function (block) {
 Blockly.JavaScript['camera_follow'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     // TODO: Assemble JavaScript into code variable.
-    return `game.camera.follow(${variable_object});\n`;
+    return `game.camera.follow(${variable_object}, undefined, 0.5, 0.5);\n`;
 
 };
 
 Blockly.JavaScript['camera_follow_vi'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
-    return `game.camera.follow(${object});\n`;
+    return `game.camera.follow(${object}, undefined, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
 
 };
 
