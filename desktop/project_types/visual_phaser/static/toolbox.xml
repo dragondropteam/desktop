@@ -891,7 +891,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="group_get_first_alive_dead">
+                <block type="group_get_first_alive_fainted">
                     <value name="GROUP">
                         <shadow type="variables_get">
                             <field name="VAR">defaultGroup</field>

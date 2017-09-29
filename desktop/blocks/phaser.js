@@ -1600,6 +1600,20 @@ Blockly.Blocks['group_get_first_alive_dead'] = {
   }
 };
 
+Blockly.Blocks['group_get_first_alive_fainted'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get first")
+        .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["fainted","Fainted"]]), "MODE")
+        .appendField("member of group");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+  }
+};
+
 Blockly.Blocks['group_get_random'] = {
   init: function() {
     this.appendValueInput("GROUP")
