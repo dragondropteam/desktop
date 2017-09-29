@@ -751,6 +751,11 @@ Blockly.JavaScript['stop_animation'] = function (block) {
     return `${object}.animations.stop();\n`;
 };
 
+Blockly.JavaScript['stop_animation_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.animations.stop();\n`;
+};
+
 Blockly.JavaScript['set_frame'] = function (block) {
     const frameNumber = Blockly.JavaScript.valueToCode(block, 'FRAME_NUMBER', Blockly.JavaScript.ORDER_ATOMIC);
     const object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
