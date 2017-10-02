@@ -33,6 +33,8 @@ const PHASER_GROUPS_COLOUR = '#00695c';
 const PHASER_ANIMATION_COLOUR = '#00796b';
 const PHASER_PARTICLES_COLOUR = '#83C2D1';
 const PHASER_GEOMETRY_COLOUR = '#26a69a';
+const PHASER_RECTANGLE_COLOUR = '#757575';
+const PHASER_POINT_COLOUR = '#616161';
 const PHASER_TEXT_COLOUR = '#009688';
 const PHASER_GAMEOBJECT_COLOUR = '#00bfa5';
 const PHASER_KEYBOARD_INPUT = '#1565c0';
@@ -42,7 +44,6 @@ const PHASER_PHYSICS_STARTUP = '#d500f9';
 const PHASER_PHYSICS_DYNAMICS = '#6a1b9a';
 const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHASER_CAMERA_COLOUR = '#607d8b';
-const PHASER_SOUND_COLOUR = 99;
 //endregion
 
 
@@ -829,7 +830,28 @@ Blockly.Blocks['sprite_overlap'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.out_of_bounds_kill.init}}
+ */
 Blockly.Blocks['out_of_bounds_kill'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("make");
+        this.appendValueInput("BOOL")
+            .setCheck("Boolean")
+            .appendField("get deleted if it leaves the world?");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip('Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#outOfBoundsKill');
+    }
+};
+
+Blockly.Blocks['out_of_bounds_faint'] = {
     init: function () {
         this.appendValueInput("OBJECT")
             .setCheck(null)
@@ -1494,7 +1516,7 @@ Blockly.Blocks['group_count_alive_dead'] = {
     this.appendValueInput("GROUP")
         .setCheck(null)
         .appendField("number of")
-        .appendField(new Blockly.FieldDropdown([["alive","Living"], ["dead","Dead"]]), "STATE")
+        .appendField(new Blockly.FieldDropdown([["alive","Living"], ["fainted","Fainted"]]), "STATE")
         .appendField("objects in group");
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
@@ -1570,6 +1592,20 @@ Blockly.Blocks['group_get_first_alive_dead'] = {
         .setCheck(null)
         .appendField("get first")
         .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["dead","Dead"]]), "MODE")
+        .appendField("member of group");
+    this.setOutput(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
+ this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+  }
+};
+
+Blockly.Blocks['group_get_first_alive_fainted'] = {
+  init: function() {
+    this.appendValueInput("GROUP")
+        .setCheck(null)
+        .appendField("get first")
+        .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["fainted","Fainted"]]), "MODE")
         .appendField("member of group");
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
@@ -1782,6 +1818,20 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
         this.appendValueInput('OBJECT');
         this.appendValueInput('POINT')
             .appendField('to');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the value of the body point field');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+
+Blockly.Blocks['debug_body'] = {
+    init: function(){
+        this.appendValueInput('BODY')
+            .appendField('debug body');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -2133,6 +2183,32 @@ Blockly.Blocks['move_to_object'] = {
 //region INPUT
 const INPUT_COLOUR = 300;
 
+//region MOUSE
+Blockly.Blocks['get_current_mouse_position'] = {
+    init: function(){
+        this.appendDummyInput()
+            .appendField('get mouse position')
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y','y']]), 'DIRECTION');
+        this.setColour(PHASER_MOUSE_INPUT);
+        this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
+        this.setHelpUrl('https://phaser.io/docs/2.3.0/Phaser.Pointer.html#x');
+        this.setOutput(true, 'Number');
+    }
+};
+
+Blockly.Blocks['is_mouse_button_clicked'] = {
+    init: function(){
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["left","leftButton"], ["right","rightButton"], ["middle","middleButton"]]), "BUTTON")
+            .appendField('mouse button is clicked?');
+        this.setOutput(true, 'Boolean');
+        this.setHelpUrl();
+        this.setTooltip('Is the specified button clicked');
+        this.setColour(PHASER_MOUSE_INPUT);
+    }
+};
+//endregion
+
 Blockly.Blocks['create_cursor_keys'] = {
     init: function () {
         this.appendDummyInput()
@@ -2317,7 +2393,7 @@ const GAME_OBJECT_POINT_WRITABLE = ['position', 'anchor', 'cameraOffset', 'scale
 const GAME_OBJECT_POINT_READABLE = ['previousPoint'];
 const GAME_OBJECT_POINT_FIELDS = createDropDownField(GAME_OBJECT_POINT_WRITABLE, GAME_OBJECT_POINT_READABLE);
 
-const GAME_OBJECT_BOOLEAN_WRITABLE = ['alive', 'checkWorldBounds', 'debug', 'exists', 'fixedToCamera', 'outOfBoundsKill', 'outOfCameraBoundsKill'];
+const GAME_OBJECT_BOOLEAN_WRITABLE = ['alive', 'checkWorldBounds', 'debug', 'exists', 'fixedToCamera', 'outOfBoundsFaint', 'outOfCameraBoundsFaint'];
 const GAME_OBJECT_BOOLEAN_READONLY = ['destroyPhase', 'inCamera', 'inWorld', 'pendingDestroy'];
 const GAME_OBJECT_BOOLEAN_FIELDS = createDropDownField(GAME_OBJECT_BOOLEAN_WRITABLE, GAME_OBJECT_BOOLEAN_READONLY);
 
@@ -2446,6 +2522,10 @@ Blockly.Blocks['set_object_anchor'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.kill_object.init}}
+ */
 Blockly.Blocks['kill_object'] = {
     init: function () {
         this.appendValueInput('OBJECT')
@@ -2454,6 +2534,39 @@ Blockly.Blocks['kill_object'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    }
+};
+
+/**
+ * Faints the object, it will still be in memory until it is destroyed can be used to create object pools and the like
+ * revive will make the object alive again
+ * @type {{init: Blockly.Blocks.faint_object.init}}
+ */
+Blockly.Blocks['faint_object'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('faint');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Will faint the object setting making it non-existent. Reverse with revive');
+    }
+};
+
+/**
+ * Destroys the object removing it from memory
+ * @type {{init: Blockly.Blocks.destroy_object.init}}
+ */
+Blockly.Blocks['destroy_object'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('destroy');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip('Will remove the object from the game and memory, after which it can no longer be accessed.');
     }
 };
 
@@ -3328,7 +3441,7 @@ Blockly.Blocks['rectangle_create'] = {
         this.appendValueInput('HEIGHT')
             .appendField('height');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_RECTANGLE_COLOUR);
         this.setTooltip('Defines a rectangle, can be used for cropping, alignment and other tasks');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Rectangle.html');
         this.setOutput(true);
@@ -3346,7 +3459,7 @@ Blockly.Blocks['point_create'] = {
         this.appendValueInput('Y')
             .appendField('y');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
         this.setOutput(true);
@@ -3359,12 +3472,12 @@ Blockly.Blocks['point_get_element'] = {
         this.appendDummyInput()
             .appendField('get point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT')
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT');
         this.appendDummyInput()
             .appendField('of');
         this.appendValueInput('POINT');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
         this.setOutput(true);
@@ -3377,7 +3490,7 @@ Blockly.Blocks['point_set_element'] = {
         this.appendDummyInput()
             .appendField('set point.');
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]));
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'ELEMENT');
         this.appendDummyInput()
             .appendField('of');
         this.appendValueInput('POINT');
@@ -3385,13 +3498,249 @@ Blockly.Blocks['point_set_element'] = {
             .appendField('to')
             .setCheck('Number');
         this.setInputsInline(true);
-        this.setColour(PHASER_GEOMETRY_COLOUR);
+        this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
     }
 };
+
+/**
+ * Set the magnitude of the point
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#setMagnitude
+ * @type {{init: Blockly.Blocks.point_set_magnitude.init}}
+ */
+Blockly.Blocks['point_set_magnitude'] = {
+    init: function () {
+        this.appendValueInput('POINT')
+            .appendField('set magnitude for');
+        this.appendValueInput('VALUE')
+            .appendField('to')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setTooltip('Sets the magnitude of the point');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#setMagnitude');
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+    }
+};
+
+/**
+ * Static method to add two points Phaser.Point.add
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.add
+ * @type {{init: Blockly.Blocks.points_add.init}}
+ */
+Blockly.Blocks['points_add'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('add points');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.add');
+        this.setTooltip('Adds the two points and returns the result');
+        this.setColour(PHASER_POINT_COLOUR);
+    }
+};
+
+/**
+ * Subtracts two points
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.subtract
+ * @type {{init: Blockly.Blocks.points_subtract.init}}
+ */
+Blockly.Blocks['points_subtract'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('subtract points');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.subtract');
+        this.setTooltip('Adds the two points and returns the result');
+        this.setColour(PHASER_POINT_COLOUR);
+    }
+};
+
+/**
+ * Static method to find the angle in radians between two points
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.angle
+ * @type {{init: Blockly.Blocks.points_angle_between.init}}
+ */
+Blockly.Blocks['points_angle_between'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('angle between');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Number');
+        this.setInputsInline(true);
+        this.setTooltip('Returns the angle in radians between the two point objects');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.angle');
+
+    }
+};
+
+/**
+ * Static method to find the distance between two points
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance
+ * @type {{init: Blockly.Blocks.points_angle_between.init}}
+ */
+Blockly.Blocks['points_distance'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('distance between');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Number');
+        this.setInputsInline(true);
+        this.setTooltip('Returns the distance between the two point objects');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance');
+
+    }
+};
+
+/**
+ * Component wise division of two points
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance
+ * @type {{init: Blockly.Blocks.points_divide}}
+ */
+Blockly.Blocks['points_divide'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('divide');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Number');
+        this.setInputsInline(true);
+        this.setTooltip('Returns a new point p = [a.x / b.x, a.y / b.y]');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.divide');
+
+    }
+};
+
+/**
+ * Static comparision this will use value vs reference
+ * https://phaser.io/docs/2.6.2/Phaser.Point.html#.equals
+ * @type {{init: Blockly.Blocks.points_equals}}
+ */
+Blockly.Blocks['points_equals'] = {
+    init: function () {
+        this.appendValueInput('LHS');
+        this.appendValueInput('RHS')
+            .appendField('is equal to');
+        this.appendDummyInput()
+            .appendField('?');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, 'Boolean');
+        this.setInputsInline(true);
+        this.setTooltip('Determines if two points are equal');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.equals');
+
+    }
+};
+
+/**
+ * Interpolates between two points
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.interpolate
+ * @type {{init: Blockly.Blocks.points_interpolate.init}}
+ */
+Blockly.Blocks['points_interpolate'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('interpolate between A');
+        this.appendValueInput('RHS')
+            .appendField('and B');
+        this.appendValueInput('F')
+            .appendField('percent to B');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Interpolate between two points, the percent (0.0 - 1.0) determines how far towards the second point (1 - F) * A + F * B');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.interpolate');
+
+    }
+};
+
+/**
+ * Component wise multiplication of two points
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.multiply
+ * @type {{init: Blockly.Blocks.points_multiply.init}}
+ */
+Blockly.Blocks['points_multiply'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('multiply');
+        this.appendValueInput('RHS')
+            .appendField('and');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Multiply two points');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.multiply');
+
+    }
+};
+
+/**
+ * Negate the point
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.negative
+ * @type {{init: Blockly.Blocks.points_negate.init}}
+ */
+Blockly.Blocks['points_negate'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('negate');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Negate the point');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.negative');
+
+    }
+};
+
+/**
+ * Normalize the point (make unit length)
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.normalize
+ * @type {{init: Blockly.Blocks.points_normalize.init}}
+ */
+Blockly.Blocks['points_normalize'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('normalize');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Normalize the point (make unit length)');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.normalize');
+    }
+};
+
+/**
+ * Finds a vector perpendicular to the given point
+ * @link https://phaser.io/docs/2.6.2/Phaser.Point.html#.perp
+ * @type {{init: Blockly.Blocks.points_perpendicular.init}}
+ */
+Blockly.Blocks['points_perpendicular'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField('find pependicular vector to');
+        this.setColour(PHASER_POINT_COLOUR);
+        this.setOutput(true, null);
+        this.setInputsInline(true);
+        this.setTooltip('Find a perpendicular vector to this point');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.perp');
+    }
+};
+
+
 //endregion
 
 //endregion
@@ -3413,69 +3762,3 @@ Blockly.Blocks['camera_follow_vi'] = {
 //endregion
 //endregion
 
-//region SOUND
-Blockly.Blocks['load_sound'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("create sound");
-    this.appendValueInput("TAG")
-        .setCheck("String")
-        .appendField("tag");
-    this.appendValueInput("SOURCE")
-        .setCheck("String")
-        .appendField("source");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.Loader.html#audio");
-  }
-};
-
-Blockly.Blocks['play_sound'] = {
-  init: function() {
-    this.appendValueInput("TAG")
-        .setCheck(null)
-        .appendField("play sound");
-    this.appendValueInput("VOLUME")
-        .setCheck(null)
-        .appendField("at volume");
-    this.appendDummyInput()
-        .appendField("looping")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "LOOPING");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Plays a sound that has been created. The volume goes from 0 to 1.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play");
-  }
-};
-
-Blockly.Blocks['remove_sound'] = {
-  init: function() {
-    this.appendValueInput("TAG")
-        .setCheck(null)
-        .appendField("stop all sounds tagged");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Stops all sounds with the given tag.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#removeByKey");
-  }
-};
-
-Blockly.Blocks['stop_pause_resume_sounds'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["stop","stop"], ["pause","pause"], ["resume","resume"]]), "OPTION")
-        .appendField("all sounds");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_SOUND_COLOUR);
- this.setTooltip("Stop - Stop everything dead.\nPause - Stop everything, but remember where you were.\nResume - Start playing paused sounds from where they left off.");
- this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll");
-  }
-};
-//endregion
