@@ -16,6 +16,7 @@ const Config = require('electron-store');
 const electronConfig = new Config();
 const {dialog} = require('electron').remote;
 const GoldenLayout = require('golden-layout');
+const {BrowserWindow, app} = require('electron').remote;
 //endregion
 
 //REGION CONSTANTS
@@ -449,4 +450,16 @@ exports.Workspace = class {
     getComponent(componentName) {
         return this.components[componentName];
     }
+};
+
+exports.logErrorAndQuit = function (e) {
+    console.error('Error loading project changes will not be saved');
+    console.error(e);
+
+    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+        type: 'error',
+        message: 'Problem saving code execution cannot continue'
+    }, () => {
+        app.quit();
+    });
 };

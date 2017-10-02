@@ -51,7 +51,7 @@ function createDropDownField(write, readOnly) {
     const output = {
         writable: [],
         all: []
-    }
+    };
 
     write.forEach(item => {
         output.writable.push([item, item]);
@@ -3762,3 +3762,70 @@ Blockly.Blocks['camera_follow_vi'] = {
 //endregion
 //endregion
 
+//region SOUND
+//region SOUND.PROPERTIES
+const SOUND_FIELDS_BOOLEAN_WRITABLE = ['autoplay', 'loop', 'mute', 'override', 'paused', ];
+const SOUND_FIELDS_BOOLEAN_RO = ['isDecoded', 'isDecoding', 'isPlaying', 'pendingPlayback', 'usingAudioTag', 'usingWebAudio'];
+const SOUND_FIELDS_BOOLEAN = createDropDownField(SOUND_FIELDS_BOOLEAN_WRITABLE, SOUND_FIELDS_BOOLEAN_RO);
+
+Blockly.Blocks['set_sound_boolean_member'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set")
+            .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_BOOLEAN.writable), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.appendValueInput('VALUE')
+            .setCheck('Boolean');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the selected member on the Sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
+        this.setColour(PHASER_SOUND_COLOUR);
+    }
+};
+
+Blockly.Blocks['get_sound_boolean_member'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get")
+            .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_BOOLEAN.all), "ELEMENT")
+            .appendField("for");
+        this.appendValueInput('OBJECT');
+        this.setInputsInline(true);
+        this.setOutput(true, );
+        this.setTooltip('Get the selected member from the Sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
+        this.setColour(PHASER_SOUND_COLOUR);
+    }
+};
+
+const SOUND_FIELDS_NUMERIC_WRITABLE = ['position', 'volume'];
+const SOUND_FIELDS_NUMERIC_RO =['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
+const SOUND_FIELDS_NUMERIC = createDropDownField(SOUND_FIELDS_NUMERIC_WRITABLE, SOUND_FIELDS_NUMERIC_RO);
+
+const SOUND_FIELDS_STRING_RO = ['currentMarker', 'key'];
+const SOUND_FIELDS_STRING = createDropDownField([], SOUND_FIELDS_STRING_RO);
+
+
+
+//endregion
+Blockly.Blocks['load_sound'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("create sound");
+    this.appendValueInput("TAG")
+        .setCheck("String")
+        .appendField("tag");
+    this.appendValueInput("SOURCE")
+        .setCheck("String")
+        .appendField("source");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_SOUND_COLOUR);
+ this.setTooltip("Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.");
+ this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.Loader.html#audio");
+  }
+};
