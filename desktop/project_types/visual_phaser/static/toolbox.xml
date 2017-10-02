@@ -388,16 +388,6 @@
                             <field name="TEXT">assets/exampleSpriteSheet.png</field>
                         </shadow>
                     </value>
-                    <value name="FRAME_WIDTH">
-                        <shadow type="math_number">
-                            <field name="NUM">0</field>
-                        </shadow>
-                    </value>
-                    <value name="FRAME_HEIGHT">
-                        <shadow type="math_number">
-                            <field name="NUM">0</field>
-                        </shadow>
-                    </value>
                 </block>
                 <block type='addspritewithatlas'>
                     <value name="tag">
@@ -1241,14 +1231,14 @@
                 <block type="get_game_object_point_field">
                     <value name="OBJECT">
                         <shadow type="variables_get">
-                            <field name="OBJECT">defaultObject</field>
+                            <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
                 </block>
                 <block type="set_game_object_point_field">
                     <value name="OBJECT">
                         <shadow type="variables_get">
-                            <field name="OBJECT">defaultObject</field>
+                            <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
                     <value name="POINT">
@@ -1861,7 +1851,7 @@
             <!--<block type="camera_shake"></block>-->
             <!--<block type="camera_unfollow"></block>-->
         </category>
-        <category name="Sound">
+        <category name="Sound" colour="#827717">
             <value name="set_sound_boolean_number">
                 <shadow type="logic_boolean"/>
             </value>

@@ -172,6 +172,7 @@ function setPhaserSource(loadedProject) {
         phaserComponent.setSource(`file://${path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`)}`);
     }
 }
+
 function setBlocklyBlocks(data) {
     try {
         let blocklyComponent = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT);
@@ -180,7 +181,7 @@ function setBlocklyBlocks(data) {
             Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
         }
     }catch (e) {
-        workspaceCore.logErrorAndQuit(e);
+        workspaceCore.logErrorAndQuit(e, 'loading');
     }
 }
 
@@ -210,6 +211,6 @@ function myUpdateFunction(event) {
         }
         save();
     } catch (e) {
-        workspaceCore.logErrorAndQuit(e);
+        workspaceCore.logErrorAndQuit(e, 'saving');
     }
 }

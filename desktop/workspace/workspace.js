@@ -452,14 +452,9 @@ exports.Workspace = class {
     }
 };
 
-exports.logErrorAndQuit = function (e) {
-    console.error('Error loading project changes will not be saved');
+exports.logErrorAndQuit = function (e, state) {
+    console.error(`Error ${state} project changes will not be saved`);
+    fs.writeFileSync('log.txt', `${e.message}`);
     console.error(e);
-
-    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-        type: 'error',
-        message: 'Problem saving code execution cannot continue'
-    }, () => {
-        app.quit();
-    });
+    app.exit(-1);
 };
