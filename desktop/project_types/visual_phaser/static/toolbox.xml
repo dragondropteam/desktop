@@ -847,37 +847,37 @@
                     </value>
                 </block>
                 <block type="group_count_alive_dead">
-                  <value name="GROUP">
-                      <shadow type="variables_get">
-                          <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="destroy_group">
-                  <value name="GROUP">
-                      <shadow type="variables_get">
-                          <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="group_get_all">
-                  <value name="GROUP">
-                      <shadow type="variables_get">
-                          <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="group_get_at">
-                  <value name="GROUP">
-                      <shadow type="variables_get">
-                          <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
-                  <value name="INDEX">
-                      <shadow type="math_number">
-                          <field name="NUM">0</field>
-                      </shadow>
-                  </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="group_get_closest_to">
                     <value name="GROUP">
@@ -913,11 +913,11 @@
                     </value>
                 </block>
                 <block type="group_remove_all">
-                  <value name="GROUP">
-                      <shadow type="variables_get">
-                          <field name="VAR">defaultGroup</field>
-                      </shadow>
-                  </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
                 </block>
                 <!--<block type="call_function_on_group"/>-->
             </category>
@@ -1861,7 +1861,46 @@
             <!--<block type="camera_shake"></block>-->
             <!--<block type="camera_unfollow"></block>-->
         </category>
-        <!--<category name="Sound"></category>-->
+        <category name="Sound">
+            <value name="set_sound_boolean_number">
+                <shadow type="logic_boolean"/>
+            </value>
+            <value name="get_sound_boolean_number">
+                <shadow type="logic_boolean"/>
+            </value>
+            <block type="load_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+                <value name="SOURCE">
+                    <shadow type="text">
+                        <field name="TEXT">assets/example.wav</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="play_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">0.67</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="remove_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="stop_pause_resume_sounds"/>
+        </category>
     </category>
     <sep/>
     <category name="Class" colour="230" custom="CLASSES"/>
