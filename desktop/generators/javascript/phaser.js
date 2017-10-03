@@ -4,6 +4,30 @@
  * All content Copyright DigiPen Institute of Technology 2016
  */
 
+//region MEMBER_FUNCTIONS
+/**
+ * Generic method to translate a block for a set_<object>_<type>_member block
+ * @param block A block containing two value inputs OBJECT and VALUE representing the object the member is on and the value to set it to and a field ELEMENT to determine the member
+ * @return {[string,*]}
+ */
+function getMember(block){
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const element = block.getFieldValue('ELEMENT');
+    return [`${object}.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
+}
+
+/**
+ * Generic method to translate a block for a get_<object>_<type>_member block
+ * @param block A block containing a value input OBJECT representing the object the member is on and a field ELEMENT to determine the member
+ * @return {string}
+ */
+function setMember(block){
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const element = block.getFieldValue('ELEMENT');
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.${element} = ${value};\n`;
+}
+//endregion
 //region STARTUP
 Blockly.JavaScript['phaser_simple_init'] = function (block) {
 
@@ -1447,5 +1471,8 @@ Blockly.JavaScript['stop_pause_resume_sounds'] = function(block) {
     const option = block.getFieldValue('OPTION');
     return `game.sound.${option}All();\n`;
 };
+
+Blockly.JavaScript['set_sound_boolean_member'] = Blockly.JavaScript['set_sound_numeric_member'] = setMember;
+Blockly.JavaScript['get_sound_boolean_member'] = Blockly.JavaScript['get_sound_numeric_member'] = Blockly.JavaScript['get_sound_string_member'] = getMember;
 //endregion
 
