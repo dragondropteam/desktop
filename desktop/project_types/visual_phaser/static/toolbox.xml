@@ -1852,12 +1852,49 @@
             <!--<block type="camera_unfollow"></block>-->
         </category>
         <category name="Sound" colour="#827717">
-            <value name="set_sound_boolean_number">
-                <shadow type="logic_boolean"/>
-            </value>
-            <value name="get_sound_boolean_number">
-                <shadow type="logic_boolean"/>
-            </value>
+            <block type="set_sound_boolean_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="logic_boolean"/>
+                </value>
+            </block>
+            <block type="get_sound_boolean_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="set_sound_numeric_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="get_sound_numeric_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="get_sound_string_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="load_sound">
                 <value name="TAG">
                     <shadow type="text">

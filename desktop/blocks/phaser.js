@@ -3774,9 +3774,10 @@ Blockly.Blocks['set_sound_boolean_member'] = {
         this.appendDummyInput()
             .appendField("set")
             .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_BOOLEAN.writable), "ELEMENT")
-            .appendField("for");
+            .appendField("of");
         this.appendValueInput('OBJECT');
         this.appendValueInput('VALUE')
+            .appendField('to')
             .setCheck('Boolean');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -3792,22 +3793,70 @@ Blockly.Blocks['get_sound_boolean_member'] = {
         this.appendDummyInput()
             .appendField("get")
             .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_BOOLEAN.all), "ELEMENT")
-            .appendField("for");
+            .appendField("of");
         this.appendValueInput('OBJECT');
         this.setInputsInline(true);
-        this.setOutput(true, );
+        this.setOutput(true, 'Boolean');
+        this.setTooltip('Get the selected member from the Sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
+        this.setColour(PHASER_SOUND_COLOUR);
+    }
+};
+const SOUND_FIELDS_NUMERIC_WRITABLE = ['position', 'volume'];
+const SOUND_FIELDS_NUMERIC_RO =['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
+const SOUND_FIELDS_NUMERIC = createDropDownField(SOUND_FIELDS_NUMERIC_WRITABLE, SOUND_FIELDS_NUMERIC_RO);
+
+Blockly.Blocks['set_sound_numeric_member'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set")
+            .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_NUMERIC.writable), "ELEMENT")
+            .appendField("of");
+        this.appendValueInput('OBJECT');
+        this.appendValueInput('VALUE')
+            .appendField('to')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Set the selected member on the Sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
+        this.setColour(PHASER_SOUND_COLOUR);
+    }
+};
+
+Blockly.Blocks['get_sound_numeric_member'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get")
+            .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_NUMERIC.all), "ELEMENT")
+            .appendField("of");
+        this.appendValueInput('OBJECT');
+        this.setInputsInline(true);
+        this.setOutput(true, 'Number');
         this.setTooltip('Get the selected member from the Sound');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
         this.setColour(PHASER_SOUND_COLOUR);
     }
 };
 
-const SOUND_FIELDS_NUMERIC_WRITABLE = ['position', 'volume'];
-const SOUND_FIELDS_NUMERIC_RO =['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
-const SOUND_FIELDS_NUMERIC = createDropDownField(SOUND_FIELDS_NUMERIC_WRITABLE, SOUND_FIELDS_NUMERIC_RO);
-
 const SOUND_FIELDS_STRING_RO = ['currentMarker', 'key'];
 const SOUND_FIELDS_STRING = createDropDownField([], SOUND_FIELDS_STRING_RO);
+
+Blockly.Blocks['get_sound_string_member'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get")
+            .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_STRING.all), "ELEMENT")
+            .appendField("of");
+        this.appendValueInput('OBJECT');
+        this.setInputsInline(true);
+        this.setOutput(true, 'String');
+        this.setTooltip('Get the selected member from the Sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
+        this.setColour(PHASER_SOUND_COLOUR);
+    }
+};
 //endregion
 //region SOUND.METHODS
 Blockly.Blocks['load_sound'] = {
