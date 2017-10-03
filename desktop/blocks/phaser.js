@@ -1458,204 +1458,204 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
 };
 
 Blockly.Blocks['add_to_group'] = {
-  init: function() {
-    this.appendValueInput("NEW_ITEM")
-        .setCheck(null)
-        .appendField("add");
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("to group");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Adds an existing object to a group.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#add");
-  }
+    init: function () {
+        this.appendValueInput("NEW_ITEM")
+            .setCheck(null)
+            .appendField("add");
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("to group");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Adds an existing object to a group.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#add");
+    }
 };
 
 Blockly.Blocks['remove_from_group'] = {
-  init: function() {
-    this.appendValueInput("CHILD")
-        .setCheck(null)
-        .appendField("remove");
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("from group");
-    this.appendDummyInput()
-        .appendField("destroy it too")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Removes an object from a group. Optionally, destroy it as well.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#remove");
-  }
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("remove");
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("from group");
+        this.appendDummyInput()
+            .appendField("destroy it too")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Removes an object from a group. Optionally, destroy it as well.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#remove");
+    }
 };
 
 Blockly.Blocks['group_contains'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("group");
-    this.appendValueInput("CHILD")
-        .setCheck(null)
-        .appendField("contains");
-    this.appendDummyInput()
-        .appendField("?");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns true if a group contains a specified sprite.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#contains");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("group");
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("contains");
+        this.appendDummyInput()
+            .appendField("?");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns true if a group contains a specified sprite.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#contains");
+    }
 };
 
 Blockly.Blocks['group_count_alive_dead'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("number of")
-        .appendField(new Blockly.FieldDropdown([["alive","Living"], ["fainted","Fainted"]]), "STATE")
-        .appendField("objects in group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns the number of alive/dead objects in a group.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("number of")
+            .appendField(new Blockly.FieldDropdown([["alive", "Living"], ["fainted", "Fainted"]]), "STATE")
+            .appendField("objects in group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns the number of alive/dead objects in a group.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
+    }
 };
 
 Blockly.Blocks['destroy_group'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("destroy group");
-    this.appendDummyInput()
-        .appendField("destroy members too")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "HANDLE_CHILDREN");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Destroys a group. Can either leave the members where they are, or destroy them too.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#destroy");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("destroy group");
+        this.appendDummyInput()
+            .appendField("destroy members too")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "HANDLE_CHILDREN");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Destroys a group. Can either leave the members where they are, or destroy them too.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#destroy");
+    }
 };
 
 Blockly.Blocks['group_get_all'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get all members of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a list of all members in the specified group.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAll");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get all members of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a list of all members in the specified group.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAll");
+    }
 };
 
 Blockly.Blocks['group_get_at'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get member of group");
-    this.appendValueInput("INDEX")
-        .setCheck("Number")
-        .appendField("at index");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAt");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get member of group");
+        this.appendValueInput("INDEX")
+            .setCheck("Number")
+            .appendField("at index");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAt");
+    }
 };
 
 Blockly.Blocks['group_get_closest_to'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get member of group");
-    this.appendValueInput("OBJECT")
-        .setCheck(null)
-        .appendField("closest to");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns the object in the group whose position is closest to the specified object.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getClosestTo");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get member of group");
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("closest to");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns the object in the group whose position is closest to the specified object.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getClosestTo");
+    }
 };
 
 Blockly.Blocks['group_get_first_alive_dead'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get first")
-        .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["dead","Dead"]]), "MODE")
-        .appendField("member of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get first")
+            .appendField(new Blockly.FieldDropdown([["alive", "Alive"], ["dead", "Dead"]]), "MODE")
+            .appendField("member of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+    }
 };
 
 Blockly.Blocks['group_get_first_alive_fainted'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get first")
-        .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["fainted","Fainted"]]), "MODE")
-        .appendField("member of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get first")
+            .appendField(new Blockly.FieldDropdown([["alive", "Alive"], ["fainted", "Fainted"]]), "MODE")
+            .appendField("member of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+    }
 };
 
 Blockly.Blocks['group_get_random'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get random member of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a member of the group at random with no bias.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandom");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get random member of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a member of the group at random with no bias.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandom");
+    }
 };
 
 Blockly.Blocks['group_get_random_exists'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get a random member of group");
-    this.appendDummyInput()
-        .appendField("that exists");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a random member of the given group, picking from those whose \"exists\" field is set to true.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandomExists");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get a random member of group");
+        this.appendDummyInput()
+            .appendField("that exists");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a random member of the given group, picking from those whose \"exists\" field is set to true.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandomExists");
+    }
 };
 
 Blockly.Blocks['group_remove_all'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("remove all members of group");
-    this.appendDummyInput()
-        .appendField("destroy them too")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY_CHILDREN");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Empties the specified group. Can either do this by releasing its members or deleting them.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#removeAll");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("remove all members of group");
+        this.appendDummyInput()
+            .appendField("destroy them too")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY_CHILDREN");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Empties the specified group. Can either do this by releasing its members or deleting them.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#removeAll");
+    }
 };
 
 //endregion
@@ -1830,7 +1830,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
 
 
 Blockly.Blocks['debug_body'] = {
-    init: function(){
+    init: function () {
         this.appendValueInput('BODY')
             .appendField('debug body');
         this.setInputsInline(true);
@@ -2186,10 +2186,10 @@ const INPUT_COLOUR = 300;
 
 //region MOUSE
 Blockly.Blocks['get_current_mouse_position'] = {
-    init: function(){
+    init: function () {
         this.appendDummyInput()
             .appendField('get mouse position')
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y','y']]), 'DIRECTION');
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'DIRECTION');
         this.setColour(PHASER_MOUSE_INPUT);
         this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
         this.setHelpUrl('https://phaser.io/docs/2.3.0/Phaser.Pointer.html#x');
@@ -2198,9 +2198,9 @@ Blockly.Blocks['get_current_mouse_position'] = {
 };
 
 Blockly.Blocks['is_mouse_button_clicked'] = {
-    init: function(){
+    init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([["left","leftButton"], ["right","rightButton"], ["middle","middleButton"]]), "BUTTON")
+            .appendField(new Blockly.FieldDropdown([["left", "leftButton"], ["right", "rightButton"], ["middle", "middleButton"]]), "BUTTON")
             .appendField('mouse button is clicked?');
         this.setOutput(true, 'Boolean');
         this.setHelpUrl();
@@ -3765,7 +3765,7 @@ Blockly.Blocks['camera_follow_vi'] = {
 
 //region SOUND
 //region SOUND.PROPERTIES
-const SOUND_FIELDS_BOOLEAN_WRITABLE = ['autoplay', 'loop', 'mute', 'override', 'paused', ];
+const SOUND_FIELDS_BOOLEAN_WRITABLE = ['autoplay', 'loop', 'mute', 'override', 'paused',];
 const SOUND_FIELDS_BOOLEAN_RO = ['isDecoded', 'isDecoding', 'isPlaying', 'pendingPlayback', 'usingAudioTag', 'usingWebAudio'];
 const SOUND_FIELDS_BOOLEAN = createDropDownField(SOUND_FIELDS_BOOLEAN_WRITABLE, SOUND_FIELDS_BOOLEAN_RO);
 
@@ -3803,7 +3803,7 @@ Blockly.Blocks['get_sound_boolean_member'] = {
     }
 };
 const SOUND_FIELDS_NUMERIC_WRITABLE = ['position', 'volume'];
-const SOUND_FIELDS_NUMERIC_RO =['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
+const SOUND_FIELDS_NUMERIC_RO = ['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
 const SOUND_FIELDS_NUMERIC = createDropDownField(SOUND_FIELDS_NUMERIC_WRITABLE, SOUND_FIELDS_NUMERIC_RO);
 
 Blockly.Blocks['set_sound_numeric_member'] = {
@@ -3860,7 +3860,7 @@ Blockly.Blocks['get_sound_string_member'] = {
 //endregion
 //region SOUND.METHODS
 Blockly.Blocks['load_sound'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField("create sound");
         this.appendValueInput("TAG")
@@ -3879,7 +3879,7 @@ Blockly.Blocks['load_sound'] = {
 };
 
 Blockly.Blocks['play_sound'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("TAG")
             .setCheck(null)
             .appendField("play sound");
@@ -3899,7 +3899,7 @@ Blockly.Blocks['play_sound'] = {
 };
 
 Blockly.Blocks['remove_sound'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("TAG")
             .setCheck(null)
             .appendField("stop all sounds tagged");
@@ -3912,15 +3912,51 @@ Blockly.Blocks['remove_sound'] = {
 };
 
 Blockly.Blocks['stop_pause_resume_sounds'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([["stop","stop"], ["pause","pause"], ["resume","resume"]]), "OPTION")
+            .appendField(new Blockly.FieldDropdown([["stop", "stop"], ["pause", "pause"], ["resume", "resume"]]), "OPTION")
             .appendField("all sounds");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Stop - Stop everything dead.\nPause - Stop everything, but remember where you were.\nResume - Start playing paused sounds from where they left off.");
         this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll");
+    }
+};
+
+Blockly.Blocks['sound_fade_in'] = {
+    init: function() {
+        this.appendValueInput('OBJECT')
+            .appendField('fade in sound');
+        this.appendValueInput('DURATION')
+            .appendField('over')
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField('milliseconds loop')
+            .appendField(new Blockly.FieldCheckbox(), 'LOOP');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Starts/Restarts the sound sets the volume to zero and increases from 0 to 1 over duration');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeIn');
+    }
+};
+
+Blockly.Blocks['sound_fade_out'] = {
+    init: function() {
+        this.appendValueInput('OBJECT')
+            .appendField('fade out sound');
+        this.appendValueInput('DURATION')
+            .appendField('over');
+        this.appendDummyInput()
+            .appendField('milliseconds');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Fades the sounds volume to 0 over the given duration');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeOut')
     }
 };
 //endregion

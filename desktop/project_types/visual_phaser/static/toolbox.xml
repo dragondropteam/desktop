@@ -1852,6 +1852,30 @@
             <!--<block type="camera_unfollow"></block>-->
         </category>
         <category name="Sound" colour="#827717">
+            <block type="load_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+                <value name="SOURCE">
+                    <shadow type="text">
+                        <field name="TEXT">assets/example.wav</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="play_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">0.67</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="set_sound_boolean_member">
                 <value name="OBJECT">
                     <shadow type="variables_get">
@@ -1895,27 +1919,27 @@
                     </shadow>
                 </value>
             </block>
-            <block type="load_sound">
-                <value name="TAG">
-                    <shadow type="text">
-                        <field name="TEXT">tag</field>
+            <block type="sound_fade_in">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
                     </shadow>
                 </value>
-                <value name="SOURCE">
-                    <shadow type="text">
-                        <field name="TEXT">assets/example.wav</field>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
                     </shadow>
                 </value>
             </block>
-            <block type="play_sound">
-                <value name="TAG">
-                    <shadow type="text">
-                        <field name="TEXT">tag</field>
+            <block type="sound_fade_out">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
                     </shadow>
                 </value>
-                <value name="VOLUME">
+                <value name="DURATION">
                     <shadow type="math_number">
-                        <field name="NUM">0.67</field>
+                        <field name="NUM">1000</field>
                     </shadow>
                 </value>
             </block>
