@@ -1483,6 +1483,10 @@ Blockly.JavaScript['sound_fade_in'] = function(block) {
     return `${object}.fadeIn(${duration}, ${loop});`
 };
 
-
+Blockly.JavaScript['sound_fade_in'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    return `${object}.fadeOut(${duration});`
+};
 //endregion
 
