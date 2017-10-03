@@ -1474,5 +1474,15 @@ Blockly.JavaScript['stop_pause_resume_sounds'] = function(block) {
 
 Blockly.JavaScript['set_sound_boolean_member'] = Blockly.JavaScript['set_sound_numeric_member'] = setMember;
 Blockly.JavaScript['get_sound_boolean_member'] = Blockly.JavaScript['get_sound_numeric_member'] = Blockly.JavaScript['get_sound_string_member'] = getMember;
+
+
+Blockly.JavaScript['sound_fade_in'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const loop = block.getFieldValue('LOOP') == 'TRUE';
+    return `${object}.fadeIn(${duration}, ${loop});`
+};
+
+
 //endregion
 
