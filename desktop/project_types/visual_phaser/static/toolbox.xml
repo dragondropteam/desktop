@@ -1807,6 +1807,8 @@
             </block>
         </category>
         <category name="Utility" colour="#ff6d00">
+            <block type="javascript_eval"/>
+            <block type="javascript_eval_output"/>
             <block type="center_and_stretch"/>
             <!--TODO: enable once there is a UI to hook to-->
             <!--<block type="enable_step"/>-->
