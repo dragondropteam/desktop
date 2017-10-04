@@ -3447,6 +3447,38 @@ Blockly.Blocks['camera_flash'] = {
   }
 };
 
+Blockly.Blocks['camera_focus_on'] = {
+  init: function() {
+    this.appendValueInput("OBJECT")
+        .setCheck(null)
+        .appendField("focus camera on");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Immediately centers the camera on the specified game object.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#focusOn");
+  }
+};
+
+Blockly.Blocks['camera_focus_on_xy'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("focus camera on position at");
+    this.appendValueInput("POSX")
+        .setCheck(null)
+        .appendField("X");
+    this.appendValueInput("POSY")
+        .setCheck(null)
+        .appendField("Y");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Immediately focuses the camera on a given position.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#focusOnXY");
+  }
+};
+
 Blockly.Blocks['camera_shake'] = {
   init: function() {
     this.appendValueInput("INTENSITY")

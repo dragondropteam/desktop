@@ -1332,6 +1332,17 @@ Blockly.JavaScript['camera_flash'] = function(block) {
   return `game.camera.flash(${toHexColorFunc}(${colour}), ${time}, true);\n`;
 };
 
+Blockly.JavaScript['camera_focus_on'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.focusOn(${object});\n`;
+};
+
+Blockly.JavaScript['camera_focus_on_xy'] = function(block) {
+  const posX = Blockly.JavaScript.valueToCode(block, 'POSX', Blockly.JavaScript.ORDER_ATOMIC);
+  const posY = Blockly.JavaScript.valueToCode(block, 'POSY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.focusOnXY(${posX}, ${posY});\n`;
+};
+
 Blockly.JavaScript['camera_shake'] = function(block) {
   const intensity = Blockly.JavaScript.valueToCode(block, 'INTENSITY', Blockly.JavaScript.ORDER_ATOMIC);
   const direction = block.getFieldValue('DIRECTION');
