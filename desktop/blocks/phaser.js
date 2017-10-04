@@ -3466,10 +3466,10 @@ Blockly.Blocks['camera_focus_on_xy'] = {
         .appendField("focus camera on position at");
     this.appendValueInput("POSX")
         .setCheck(null)
-        .appendField("X");
+        .appendField("x");
     this.appendValueInput("POSY")
         .setCheck(null)
-        .appendField("Y");
+        .appendField("y");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3521,16 +3521,35 @@ Blockly.Blocks['camera_set_position'] = {
         .appendField("set camera position to");
     this.appendValueInput("POSX")
         .setCheck(null)
-        .appendField("X");
+        .appendField("x");
     this.appendValueInput("POSY")
         .setCheck(null)
-        .appendField("Y");
+        .appendField("y");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
  this.setTooltip("Jumps the camera immediately to the given position.\nNote that the camera's position is its upper left corner, not its center.");
  this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#setPosition");
+  }
+};
+
+Blockly.Blocks['camera_set_size'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("set camera size");
+    this.appendValueInput("WIDTH")
+        .setCheck(null)
+        .appendField("width");
+    this.appendValueInput("HEIGHT")
+        .setCheck(null)
+        .appendField("height");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Sets the size of the camera's view window.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#setSize");
   }
 };
 

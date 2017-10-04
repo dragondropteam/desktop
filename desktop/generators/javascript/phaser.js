@@ -1361,6 +1361,12 @@ Blockly.JavaScript['camera_set_position'] = function(block) {
   return `game.camera.setPosition(${posX}, ${posY});\n`;
 };
 
+Blockly.JavaScript['camera_set_size'] = function(block) {
+  const width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC);
+  const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.setSize(${width}, ${height});\n`;
+};
+
 Blockly.JavaScript['camera_shake'] = function(block) {
   const intensity = Blockly.JavaScript.valueToCode(block, 'INTENSITY', Blockly.JavaScript.ORDER_ATOMIC);
   const direction = block.getFieldValue('DIRECTION');
