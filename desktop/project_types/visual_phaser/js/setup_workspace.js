@@ -172,11 +172,16 @@ function setPhaserSource(loadedProject) {
         phaserComponent.setSource(`file://${path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`)}`);
     }
 }
+
 function setBlocklyBlocks(data) {
-    let blocklyComponent = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT);
-    if (blocklyComponent) {
-        let xml = Blockly.Xml.textToDom(data);
-        Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
+    try {
+        let blocklyComponent = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT);
+        if (blocklyComponent) {
+            let xml = Blockly.Xml.textToDom(data);
+            Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
+        }
+    }catch (e) {
+        workspaceCore.logErrorAndQuit(e, 'loading');
     }
 }
 
@@ -197,11 +202,15 @@ function loadProjectFile(project) {
 }
 
 function myUpdateFunction(event) {
-    if (event.type === Blockly.Events.CHANGE) {
-        const block = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace().getBlockById(event.blockId);
-        if (block && block.onchange) {
-            block.onchange(event);
+    try {
+        if (event.type === Blockly.Events.CHANGE) {
+            const block = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace().getBlockById(event.blockId);
+            if (block && block.onchange) {
+                block.onchange(event);
+            }
         }
+        save();
+    } catch (e) {
+        workspaceCore.logErrorAndQuit(e, 'saving');
     }
-    save();
 }
