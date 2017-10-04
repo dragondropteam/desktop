@@ -3760,6 +3760,22 @@ Blockly.Blocks['camera_follow_vi'] = {
         this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Camera.html#follow');
     }
 };
+
+Blockly.Blocks['camera_follow_vi_styled'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField("make camera follow");
+        this.appendDummyInput()
+            .appendField('with style')
+            .appendField(new Blockly.FieldDropdown([['lockon','FOLLOW_LOCKON'],['platformer', 'FOLLOW_PLATFORMER'],['topdown', 'FOLLOW_TOPDOWN'],['topdown tight', 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip('Make the camera follow the specified game object');
+        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Camera.html#follow');
+    }
+};
 //endregion
 //endregion
 
