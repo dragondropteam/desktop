@@ -1413,6 +1413,10 @@ Blockly.Blocks['create_group'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.create_object_in_group.init}}
+ */
 Blockly.Blocks['create_object_in_group'] = {
     init: function () {
         this.appendDummyInput()
@@ -1434,6 +1438,10 @@ Blockly.Blocks['create_object_in_group'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.create_object_in_group_with_frame.init}}
+ */
 Blockly.Blocks['create_object_in_group_with_frame'] = {
     init: function () {
         this.appendDummyInput()
@@ -1451,7 +1459,47 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
         this.appendValueInput('FRAME')
             .appendField('displaying frame #');
         this.setOutput(true, null);
-        this.setTooltip('Creates a sprite in the new group using the specifed frame from a sprite sheet or texture atlas');
+        this.setTooltip('Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setColour(PHASER_GROUPS_COLOUR);
+    }
+};
+
+Blockly.Blocks['create_object_in_group_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('create object at');
+        this.appendValueInput('X_POS')
+            .appendField('x');
+        this.appendValueInput('Y_POS')
+            .appendField('y');
+        this.appendValueInput('TAG')
+            .appendField('from tag');
+        this.appendValueInput('GROUP')
+            .appendField('in group');
+        this.setOutput(true, null);
+        this.setTooltip('Create a new sprite in the group');
+        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setColour(PHASER_GROUPS_COLOUR);
+    }
+};
+
+Blockly.Blocks['create_object_in_group_with_frame_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('create object at');
+        this.appendValueInput('X_POS')
+            .appendField('x');
+        this.appendValueInput('Y_POS')
+            .appendField('y');
+        this.appendValueInput('TAG')
+            .appendField('from tag');
+        this.appendValueInput('GROUP')
+            .appendField('in group');
+        this.appendValueInput('FRAME')
+            .appendField('displaying frame');
+        this.setOutput(true, null);
+        this.setTooltip('Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas');
         this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
