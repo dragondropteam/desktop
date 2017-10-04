@@ -1343,6 +1343,14 @@ Blockly.JavaScript['camera_focus_on_xy'] = function(block) {
   return `game.camera.focusOnXY(${posX}, ${posY});\n`;
 };
 
+Blockly.JavaScript['camera_reset'] = function(block) {
+  return `game.camera.reset();\n`
+};
+
+Blockly.JavaScript['camera_reset_fx'] = function(block) {
+  return `game.camera.resetFX();\n`;
+};
+
 Blockly.JavaScript['camera_shake'] = function(block) {
   const intensity = Blockly.JavaScript.valueToCode(block, 'INTENSITY', Blockly.JavaScript.ORDER_ATOMIC);
   const direction = block.getFieldValue('DIRECTION');

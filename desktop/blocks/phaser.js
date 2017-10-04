@@ -3479,6 +3479,30 @@ Blockly.Blocks['camera_focus_on_xy'] = {
   }
 };
 
+Blockly.Blocks['camera_reset'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("reset camera");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Completely resets the camera. It goes back to (0, 0), stops following anything, and removes all effects such as shake or flash.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#reset");
+  }
+};
+
+Blockly.Blocks['camera_reset_fx'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("reset camera effects");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Removes all effects from the camera such as fade or screen shake. Does not affect the position or follow target.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#resetFX");
+  }
+};
+
 Blockly.Blocks['camera_shake'] = {
   init: function() {
     this.appendValueInput("INTENSITY")
