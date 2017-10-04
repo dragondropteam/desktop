@@ -162,8 +162,8 @@ function invalidArduinoPath(err) {
     }
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
       type: 'error',
-      title: 'Error launching Arduino',
-      message: errorMessage
+      title: 'Dragon Drop Error',
+      message: `Error launching Arduino\n${errorMessage}`
     });
 }
 
