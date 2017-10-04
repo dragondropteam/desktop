@@ -1742,7 +1742,18 @@
             <block type="camera_reset"></block>
             <block type="camera_reset_fx"></block>
             <block type="camera_set_bounds_to_world"></block>
-            <!--<block type="camera_set_position"></block>-->
+            <block type="camera_set_position">
+                <value name="POSX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="POSY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
             <!--<block type="camera_set_size"></block>-->
             <block type="camera_shake">
                 <value name="INTENSITY">

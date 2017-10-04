@@ -3474,7 +3474,7 @@ Blockly.Blocks['camera_focus_on_xy'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Immediately focuses the camera on a given position.");
+ this.setTooltip("Immediately centers the camera on a given position.");
  this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#focusOnXY");
   }
 };
@@ -3512,6 +3512,25 @@ Blockly.Blocks['camera_set_bounds_to_world'] = {
     this.setColour(PHASER_CAMERA_COLOUR);
  this.setTooltip("The camera bounds are not the size of what it shows, but the space it can move around in.\nThis sets those bounds so that the camera can view the entire world, but nothing more.");
  this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#setBoundsToWorld");
+  }
+};
+
+Blockly.Blocks['camera_set_position'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("set camera position to");
+    this.appendValueInput("POSX")
+        .setCheck(null)
+        .appendField("X");
+    this.appendValueInput("POSY")
+        .setCheck(null)
+        .appendField("Y");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Jumps the camera immediately to the given position.\nNote that the camera's position is its upper left corner, not its center.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#setPosition");
   }
 };
 
