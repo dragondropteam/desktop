@@ -1462,6 +1462,13 @@ Blockly.JavaScript['play_sound'] = function(block) {
     return `game.sound.play(${tag}, ${volume}, ${looping});\n`;
 };
 
+Blockly.JavaScript['add_sound'] = function(block) {
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const looping = block.getFieldValue('LOOPING') == 'TRUE';
+    return [`game.add.audio(${tag}, ${volume}, ${looping})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
 Blockly.JavaScript['remove_sound'] = function(block) {
     const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
     return `game.sound.removeByKey(${tag});\n`;
@@ -1480,13 +1487,60 @@ Blockly.JavaScript['sound_fade_in'] = function(block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     const loop = block.getFieldValue('LOOP') == 'TRUE';
-    return `${object}.fadeIn(${duration}, ${loop});`
+    return `${object}.fadeIn(${duration}, ${loop});\n`
 };
 
-Blockly.JavaScript['sound_fade_in'] = function(block) {
+Blockly.JavaScript['sound_fade_out'] = function(block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-    return `${object}.fadeOut(${duration});`
+    return `${object}.fadeOut(${duration});\n`
+};
+
+Blockly.JavaScript['sound_fade_to'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.fadeTo(${duration}, ${volume});\n`
+};
+
+Blockly.JavaScript['sound_loop_full'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.loopFull(${volume});\n`
+};
+
+Blockly.JavaScript['sound_stop'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${object}.stop();\n`
+};
+
+Blockly.JavaScript['sound_pause'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${object}.pause();\n`
+};
+
+Blockly.JavaScript['sound_resume'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${object}.resume();\n`
+};
+
+Blockly.JavaScript['sound_play'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const position = Blockly.JavaScript.valueToCode(block, 'POSITION', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const loop = block.getFieldValue('LOOP') == 'TRUE';
+    const restart = block.getFieldValue('RESTART') == 'TRUE';
+
+    return `${object}.play('', ${position}, ${volume}, ${loop}, ${restart});\n`;
+};
+
+Blockly.JavaScript['sound_restart'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const position = Blockly.JavaScript.valueToCode(block, 'POSITION', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const loop = block.getFieldValue('LOOP') == 'TRUE';
+
+    return `${object}.play('', ${position}, ${volume}, ${loop});\n`;
 };
 //endregion
 

@@ -1864,7 +1864,19 @@
                     </shadow>
                 </value>
             </block>
-            <block type="play_sound">
+            <!--<block type="play_sound">-->
+                <!--<value name="TAG">-->
+                    <!--<shadow type="text">-->
+                        <!--<field name="TEXT">tag</field>-->
+                    <!--</shadow>-->
+                <!--</value>-->
+                <!--<value name="VOLUME">-->
+                    <!--<shadow type="math_number">-->
+                        <!--<field name="NUM">0.67</field>-->
+                    <!--</shadow>-->
+                <!--</value>-->
+            <!--</block>-->
+            <block type="add_sound">
                 <value name="TAG">
                     <shadow type="text">
                         <field name="TEXT">tag</field>
@@ -1872,7 +1884,24 @@
                 </value>
                 <value name="VOLUME">
                     <shadow type="math_number">
-                        <field name="NUM">0.67</field>
+                        <field name="NUM">1.0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_play">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="POSITION">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
                     </shadow>
                 </value>
             </block>
@@ -1943,10 +1972,77 @@
                     </shadow>
                 </value>
             </block>
-            <block type="remove_sound">
-                <value name="TAG">
-                    <shadow type="text">
-                        <field name="TEXT">tag</field>
+            <block type="sound_fade_to">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">0.67</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_loop_full">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">0.67</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_pause">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_resume">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_stop">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <!--<block type="remove_sound">-->
+                <!--<value name="TAG">-->
+                    <!--<shadow type="text">-->
+                        <!--<field name="TEXT">tag</field>-->
+                    <!--</shadow>-->
+                <!--</value>-->
+            <!--</block>-->
+            <block type="sound_restart">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="POSITION">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
                     </shadow>
                 </value>
             </block>
