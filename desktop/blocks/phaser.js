@@ -3498,8 +3498,20 @@ Blockly.Blocks['camera_reset_fx'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Removes all effects from the camera such as fade or screen shake. Does not affect the position or follow target.");
+ this.setTooltip("Removes visual effects from the camera such as fading in/out. Does not affect the position, follow target, or screen shake.");
  this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#resetFX");
+  }
+};
+
+Blockly.Blocks['camera_set_bounds_to_world'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("set camera bounds to world");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("The camera bounds are not the size of what it shows, but the space it can move around in.\nThis sets those bounds so that the camera can view the entire world, but nothing more.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#setBoundsToWorld");
   }
 };
 
@@ -3518,7 +3530,7 @@ Blockly.Blocks['camera_shake'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Screen shake. Great for impact effects, or just a little extra umph, but don't go overboard. The screen percentage goes from 0 to 1.");
+ this.setTooltip("Screen shake. Great for impact effects, or just a little extra umph, but don't go overboard.\nThe screen percentage goes from 0 to 1.");
  this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#shake");
   }
 };

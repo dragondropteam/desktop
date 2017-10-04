@@ -1344,11 +1344,15 @@ Blockly.JavaScript['camera_focus_on_xy'] = function(block) {
 };
 
 Blockly.JavaScript['camera_reset'] = function(block) {
-  return `game.camera.reset();\n`
+  return `game.camera.reset();\n`;
 };
 
 Blockly.JavaScript['camera_reset_fx'] = function(block) {
   return `game.camera.resetFX();\n`;
+};
+
+Blockly.JavaScript['camera_set_bounds_to_world'] = function(block) {
+  return `game.camera.setBoundsToWorld();\n`;
 };
 
 Blockly.JavaScript['camera_shake'] = function(block) {

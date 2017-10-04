@@ -1741,7 +1741,7 @@
             </block>
             <block type="camera_reset"></block>
             <block type="camera_reset_fx"></block>
-            <!--<block type="camera_set_bounds_to_world"></block>-->
+            <block type="camera_set_bounds_to_world"></block>
             <!--<block type="camera_set_position"></block>-->
             <!--<block type="camera_set_size"></block>-->
             <block type="camera_shake">
