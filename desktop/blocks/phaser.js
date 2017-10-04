@@ -3572,5 +3572,17 @@ Blockly.Blocks['camera_shake'] = {
  this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#shake");
   }
 };
+
+Blockly.Blocks['camera_unfollow'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("stop camera follow");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+ this.setTooltip("Makes the camera stop following anything. Equivalent to making the camera follow null.");
+ this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Camera.html#unfollow");
+  }
+};
 //endregion
 //endregion
