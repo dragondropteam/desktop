@@ -771,7 +771,7 @@
             <category name="Groups" colour="#00695c">
                 <!--TODO: Add to group, block to allow a user to add existing objects to the group -->
                 <block type="create_group"/>
-                <block type="create_object_in_group">
+                <block type="create_object_in_group_vi">
                     <value name="X_POS">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
@@ -782,8 +782,18 @@
                             <field name="NUM">0</field>
                         </shadow>
                     </value>
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
                 </block>
-                <block type="create_object_in_group_with_frame">
+                <block type="create_object_in_group_with_frame_vi">
                     <value name="X_POS">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
@@ -797,6 +807,16 @@
                     <value name="FRAME">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
                         </shadow>
                     </value>
                 </block>
