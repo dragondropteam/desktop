@@ -70,7 +70,7 @@ exports.createProjectDir = function (name, filePath) {
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'ERROR',
+          title: 'Dragon Drop Error',
           message: e.message
         });
         console.error(e.message);

@@ -128,7 +128,7 @@ function save() {
             if (err) {
                 dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
-                  title: 'ERROR',
+                  title: 'Dragon Drop Error',
                   message: `Error in code!\n${err.message}`
                 });
                 console.log(err);
@@ -140,7 +140,7 @@ function save() {
             if (err) {
                 dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
-                  title: 'ERROR',
+                  title: 'Dragon Drop Error',
                   message: `Error in code!\n${err.message}`
                 });
                 console.log(err);
@@ -154,7 +154,7 @@ function save() {
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'ERROR',
+          title: 'Dragon Drop Error',
           message: `Error in code!\n${e.message}`
         });
         console.log(e);
@@ -284,7 +284,7 @@ function myUpdateFunction(event) {
 //     fs.writeFile(`${loadedProject.loadPath}/${loadedProject.getName()}/${loadedProject.getName()}.js`, code, function(err){
 //       if(err){
 //         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-//           title: 'ERROR',
+//           title: 'Dragon Drop Error',
 //           message: `Error in code!\n${err.message}`
 //         });
 //         console.log(err);
@@ -295,7 +295,7 @@ function myUpdateFunction(event) {
 //     fs.writeFile(loadedProject.getBlocksPath(), xml, (err) =>{
 //       if(err){
 //         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-//           title: 'ERROR',
+//           title: 'Dragon Drop Error',
 //           message: `Error in code!\n${err.message}`
 //         });
 //         console.log(err);
@@ -306,7 +306,7 @@ function myUpdateFunction(event) {
 //     return true;
 //   }catch(e){
 //     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-//       title: 'ERROR',
+//       title: 'Dragon Drop Error',
 //       message: `Error in code!\n${e.message}`
 //     });
 //     console.log(e);
