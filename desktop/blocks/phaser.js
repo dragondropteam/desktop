@@ -3878,6 +3878,27 @@ Blockly.Blocks['load_sound'] = {
     }
 };
 
+Blockly.Blocks['add_sound'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("add sound");
+        this.appendValueInput("TAG")
+            .setCheck('from tag')
+            .setCheck("String");
+        this.appendValueInput("VOLUME")
+            .setCheck('Number')
+            .appendField("at volume");
+        this.appendDummyInput()
+            .appendField("looping")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "LOOPING");
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip("Add a Sound to the game");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#audio");
+    }
+};
+
 Blockly.Blocks['play_sound'] = {
     init: function () {
         this.appendValueInput("TAG")
@@ -3897,6 +3918,12 @@ Blockly.Blocks['play_sound'] = {
         this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play");
     }
 };
+
+Blockly.Blocks['load_audio'] = {
+    init: function () {
+
+    }
+}
 
 Blockly.Blocks['remove_sound'] = {
     init: function () {
@@ -3925,7 +3952,7 @@ Blockly.Blocks['stop_pause_resume_sounds'] = {
 };
 
 Blockly.Blocks['sound_fade_in'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput('OBJECT')
             .appendField('fade in sound');
         this.appendValueInput('DURATION')
@@ -3944,11 +3971,12 @@ Blockly.Blocks['sound_fade_in'] = {
 };
 
 Blockly.Blocks['sound_fade_out'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput('OBJECT')
             .appendField('fade out sound');
         this.appendValueInput('DURATION')
-            .appendField('over');
+            .appendField('over')
+            .setCheck('Number');
         this.appendDummyInput()
             .appendField('milliseconds');
         this.setInputsInline(true);
@@ -3957,6 +3985,129 @@ Blockly.Blocks['sound_fade_out'] = {
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip('Fades the sounds volume to 0 over the given duration');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeOut')
+    }
+};
+
+Blockly.Blocks['sound_fade_to'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('fade sound');
+        this.appendValueInput('DURATION')
+            .appendField('over')
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField('milliseconds');
+        this.appendValueInput('VOLUME')
+            .appendField('to volume')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Fades the sounds volume to a given volume over the given duration');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeTo')
+    }
+};
+
+Blockly.Blocks['sound_loop_full'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('loop sound');
+        this.appendValueInput('VOLUME')
+            .appendField('at volume')
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Loops the entire sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#loopFull')
+    }
+};
+
+Blockly.Blocks['sound_pause'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('pause sound');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Pause the sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#pause')
+    }
+};
+
+Blockly.Blocks['sound_resume'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('resume sound');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Resumes the sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#resume')
+    }
+};
+
+Blockly.Blocks['sound_stop'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('stop sound');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Stops the sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#stop')
+    }
+};
+
+Blockly.Blocks['sound_play'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('play sound');
+        this.appendValueInput('POSITION')
+            .appendField('starting at position')
+            .setCheck('Number');
+        this.appendValueInput('VOLUME')
+            .appendField('at volume')
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField('loop')
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
+        this.appendDummyInput()
+            .appendField('force restart')
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'RESTART');
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Play the sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#play')
+    }
+};
+
+Blockly.Blocks['sound_restart'] = {
+    init: function () {
+        this.appendValueInput('OBJECT')
+            .appendField('restart sound');
+        this.appendValueInput('POSITION')
+            .appendField('starting at position')
+            .setCheck('Number');
+        this.appendValueInput('VOLUME')
+            .appendField('at volume')
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField('loop')
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_SOUND_COLOUR);
+        this.setTooltip('Restart the entire sound');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#restart')
     }
 };
 //endregion
