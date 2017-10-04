@@ -126,8 +126,8 @@ function save() {
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error in code!',
-          message: e.message
+          title: 'Dragon Drop Error',
+          message: `Error in code!\n${e.message}`
         });
         console.log(e.message);
         return false;

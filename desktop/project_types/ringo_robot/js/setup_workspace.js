@@ -113,8 +113,8 @@ function save() {
         } catch (err) {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
               type: 'error',
-              title: 'Error in code!',
-              message: err.message
+              title: 'Dragon Drop Error',
+              message: `Error in code!\n${err.message}`
             });
             console.log(err);
             return false;
@@ -125,8 +125,8 @@ function save() {
         } catch (err) {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
               type: 'error',
-              title: 'Error in code!',
-              message: err.message
+              title: 'Dragon Drop Error',
+              message: `Error in code!\n${err.message}`
             });
             console.log(err);
             return false;
@@ -136,8 +136,8 @@ function save() {
         (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'Error in code!',
-          message: e.message
+          title: 'Dragon Drop Error',
+          message: `Error in code!\n${e.message}`
         });
         console.log(e);
         return false;

@@ -246,6 +246,7 @@ exports.setupPhaserMenu = (menu, project) => {
                 .catch((error) =>{
                     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                         type: 'error',
+                        title: 'Dragon Drop Error',
                         message: error.getMsg()
                     });
                 });
