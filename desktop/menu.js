@@ -41,7 +41,7 @@ exports.createProjectMenu = function(){
               if(err){
                 electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
-                  title: "ERROR",
+                  title: 'Dragon Drop Error',
                   message: `Could not save project\n${err}`
                 });
                 return;
@@ -107,7 +107,7 @@ exports.createProjectMenu = function(){
               }else{
                 electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
-                  title: "ERROR",
+                  title: 'Dragon Drop Error',
                   message: `Error Uploading To Arduino\n${runningOutput}`
                 });
               }

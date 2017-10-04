@@ -25,7 +25,7 @@ const {BrowserWindow} = require('electron');
 function invalidArduinoPath() {
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
       type: 'error',
-      title: 'ERROR',
+      title: 'Dragon Drop Error',
       message: 'Error launching Arduino\nMake sure you have Arduino installed and the path correctly set in preferences.'
     });
 }
@@ -107,7 +107,7 @@ function completedProject(code, output) {
     } else {
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'ERROR',
+          title: 'Dragon Drop Error',
           message: 'Error Uploading To Arduino\nSee console for more details'
         });
     }
@@ -120,7 +120,7 @@ function completedVerify(code, output) {
     } else {
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
-          title: 'ERROR',
+          title: 'Dragon Drop Error',
           message: 'Error Uploading To Arduino\nSee Arduino IDE for details'
         });
     }
