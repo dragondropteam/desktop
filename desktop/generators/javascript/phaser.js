@@ -1374,4 +1374,7 @@ Blockly.JavaScript['camera_shake'] = function(block) {
   return `game.camera.shake(${intensity}, ${duration}, true, Phaser.Camera.${direction});\n`;
 };
 
+Blockly.JavaScript['camera_unfollow'] = function(block) {
+  return `game.camera.unfollow();\n`;
+};
 //endregion

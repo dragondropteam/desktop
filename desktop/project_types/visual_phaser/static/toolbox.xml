@@ -1778,7 +1778,7 @@
                     </shadow>
                 </value>
             </block>
-            <!--<block type="camera_unfollow"></block>-->
+            <block type="camera_unfollow"></block>
         </category>
         <!--<category name="Sound"></category>-->
     </category>
