@@ -1843,6 +1843,13 @@
                     </shadow>
                 </value>
             </block>
+            <block type="camera_follow_vi_styled">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
             <!--<block type="camera_reset"></block>-->
             <!--<block type="camera_reset_fx"></block>-->
             <!--<block type="camera_set_bounds_to_world"></block>-->

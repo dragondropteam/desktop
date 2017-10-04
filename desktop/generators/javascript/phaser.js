@@ -1060,6 +1060,13 @@ Blockly.JavaScript['camera_follow_vi'] = function (block) {
 
 };
 
+Blockly.JavaScript['camera_follow_vi_styled'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const style = block.getFieldValue('STYLE');
+    return `game.camera.follow(${object}, Phaser.Camera.${style}, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
+
+};
+
 Blockly.JavaScript['get_camera'] = function (block) {
     return [`game.camera`, Blockly.JavaScript.ORDER_ATOMIC];
 };
