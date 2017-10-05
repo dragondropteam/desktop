@@ -87,6 +87,7 @@ Blockly.Blocks['phaser_simple_init'] = {
             .appendField("on update do");
         this.setColour(PHASER_STARTUP_COLOUR);
         this.setTooltip('Create a Phaser Game with given width and height');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -104,6 +105,7 @@ Blockly.Blocks['start_phaser_for_states'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_STARTUP_COLOUR);
         this.setTooltip('Create a Phaser game using explicit states');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 //endregion
@@ -118,6 +120,7 @@ Blockly.Blocks['center_and_stretch'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_UTILITY_COLOUR);
         this.setTooltip('Tells Phaser to center and stretch the game view to fit its window');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -127,7 +130,7 @@ Blockly.Blocks['enable_step'] = {
             .appendField('enable stepping');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#enableStep');
         this.setColour(PHASER_UTILITY_COLOUR);
     }
@@ -139,7 +142,7 @@ Blockly.Blocks['disable_step'] = {
             .appendField('Disable Stepping');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#disableStep');
         this.setColour(PHASER_UTILITY_COLOUR);
     }
@@ -151,7 +154,7 @@ Blockly.Blocks['step'] = {
             .appendField('Step');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#step');
         this.setColour(PHASER_UTILITY_COLOUR);
     }
@@ -172,7 +175,7 @@ Blockly.Blocks['create_graphics_object'] = {
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(330);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html');
     }
 };
@@ -194,7 +197,7 @@ Blockly.Blocks['draw_shapes_with_colour'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#beginFill');
     }
 };
@@ -224,7 +227,7 @@ Blockly.Blocks['draw_rectangle'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#drawRect');
     }
 };
@@ -248,6 +251,8 @@ Blockly.Blocks['stop_animation'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -267,6 +272,7 @@ Blockly.Blocks['play_animation'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play');
+        this.setTooltip(''); //TODO: add tooltip
     }
 };
 
@@ -282,6 +288,8 @@ Blockly.Blocks['set_frame'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -394,7 +402,7 @@ Blockly.Blocks['create_image'] = {
         this.appendDummyInput()
             .appendField('create image');
         this.setColour(PHASER_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.appendValueInput('TAG')
             .appendField('tag')
             .setCheck('String');
@@ -431,6 +439,7 @@ Blockly.Blocks['create_sprite_sheet'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#spritesheet');
+        this.setTooltip(''); //TODO: add tooltip
     }
 };
 
@@ -450,6 +459,7 @@ Blockly.Blocks['add_image'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#sprite');
+        this.setTooltip(''); //TODO: add tooltip
     }
 };
 
@@ -470,6 +480,7 @@ Blockly.Blocks['addspritewithatlas'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML');
+        this.setTooltip(''); //TODO: add tooltip
     }
 };
 
@@ -491,7 +502,7 @@ Blockly.Blocks['imagesubtextureatlas'] = {
             .appendField("subtexture id");
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML');
     }
 };
@@ -1011,6 +1022,7 @@ Blockly.Blocks['play_animation_vi'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play');
         this.setInputsInline(true);
+        this.setTooltip(''); //TODO: add tooltip
     }
 };
 
@@ -1028,7 +1040,7 @@ Blockly.Blocks['animation_next'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#next');
     }
 };
@@ -1047,7 +1059,7 @@ Blockly.Blocks['animation_previous'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#previous');
     }
 };
@@ -1092,7 +1104,7 @@ Blockly.Blocks['refresh_frame'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#refreshFrame');
     }
 };
@@ -1127,7 +1139,7 @@ Blockly.Blocks['validate_frames'] = {
             .appendField("array of frames");
         this.setOutput(true, "Boolean");
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames');
     }
 };
@@ -1158,7 +1170,7 @@ Blockly.Blocks['animation_destroy'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames');
     }
 };
@@ -1770,6 +1782,8 @@ Blockly.Blocks['enable_body_group'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_STARTUP);
 
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2016,7 +2030,7 @@ Blockly.Blocks['acceleration_from_rotation'] = {
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(PHYSICS_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#accelerationFromRotation');
     }
 };
@@ -2082,7 +2096,7 @@ Blockly.Blocks['is_body_touching'] = {
 
             .appendField("?");
         this.setOutput(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#touching');
         this.setColour(PHYSICS_COLOUR);
     }
@@ -2115,7 +2129,7 @@ Blockly.Blocks['collide_with_world_bounds'] = {
             .appendField(new Blockly.FieldCheckbox("TRUE"), "COLLIDE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Ninja.Body.html#collideWorldBounds');
         this.setColour(PHYSICS_COLOUR);
     }
@@ -2174,7 +2188,7 @@ Blockly.Blocks['check_overlap'] = {
             .appendField("if overlapping");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap');
         this.setColour(PHYSICS_COLOUR);
     }
@@ -2284,6 +2298,7 @@ Blockly.Blocks['create_cursor_keys'] = {
         this.setOutput(true, null);
         this.setTooltip('Create a cursor allowing access to the UP/DOWN/LEFT/RIGHT keys');
         this.setColour(INPUT_COLOUR);
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2585,8 +2600,9 @@ Blockly.Blocks['set_object_anchor'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2602,6 +2618,8 @@ Blockly.Blocks['kill_object'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2619,6 +2637,7 @@ Blockly.Blocks['faint_object'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Will faint the object setting making it non-existent. Reverse with revive');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2635,6 +2654,7 @@ Blockly.Blocks['destroy_object'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Will remove the object from the game and memory, after which it can no longer be accessed.');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2655,6 +2675,8 @@ Blockly.Blocks['set_scale'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2672,6 +2694,8 @@ Blockly.Blocks['set_scale_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2686,6 +2710,8 @@ Blockly.Blocks['set_pos'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2703,7 +2729,7 @@ Blockly.Blocks['object_set_to'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#setTo');
     }
 };
@@ -2721,6 +2747,8 @@ Blockly.Blocks['set_velocity'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2738,6 +2766,8 @@ Blockly.Blocks['get_param'] = {
             .appendField('from object');
         this.setOutput(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2749,6 +2779,8 @@ Blockly.Blocks['object_inCamera'] = {
             .appendField('in camera');
         this.setOutput(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
+        this.setTooltip(''); //TODO: add tooltip
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 Blockly.Blocks['get_camera'] = {
@@ -2757,7 +2789,7 @@ Blockly.Blocks['get_camera'] = {
             .appendField("get camera");
         this.setOutput(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Camera.html');
     }
 };
@@ -2931,7 +2963,7 @@ Blockly.Blocks['set_text'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Text.html#setText');
         this.setColour(PHASER_TEXT_COLOUR);
     }
@@ -2947,7 +2979,7 @@ Blockly.Blocks['set_text_vi'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Text.html#setText');
         this.setColour(PHASER_TEXT_COLOUR);
     }
@@ -2969,7 +3001,7 @@ Blockly.Blocks['create_bitmapFont'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_TEXT_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#bitmapFont');
     }
 };
@@ -2992,7 +3024,7 @@ Blockly.Blocks['drawcircle'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(180);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#drawCircle');
     }
 };
@@ -3009,7 +3041,7 @@ Blockly.Blocks['get_object_width'] = {
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/PIXI.Sprite.html#width');
     }
 };
@@ -3028,7 +3060,7 @@ Blockly.Blocks['set_object_width'] = {
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
-        this.setTooltip('');
+        this.setTooltip(''); //TODO: add tooltip
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/PIXI.Sprite.html#width');
     }
 };
@@ -3496,7 +3528,7 @@ Blockly.Blocks['statemanager_add_state'] = {
         this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('Adds a state to the game engine, this should be an instance of a state class.');
         //TODO: This will need supporting documentation on or side illustrating how to create this class with blocks
-        // this.setHelpUrl('')
+        // this.setHelpUrl('') //TODO: add help URL
     }
 };
 
