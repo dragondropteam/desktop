@@ -172,7 +172,7 @@ Blockly.Blocks['create_graphics_object'] = {
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip('');
-        this.setHelpUrl(''); //TODO: add help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html');
     }
 };
 
@@ -194,7 +194,7 @@ Blockly.Blocks['draw_shapes_with_colour'] = {
         this.setNextStatement(true, null);
         this.setColour(330);
         this.setTooltip('');
-        this.setHelpUrl(''); //TODO: add help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#beginFill');
     }
 };
 
@@ -224,7 +224,7 @@ Blockly.Blocks['draw_rectangle'] = {
         this.setNextStatement(true, null);
         this.setColour(330);
         this.setTooltip('');
-        this.setHelpUrl(''); //TODO: add help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#drawRect');
     }
 };
 
@@ -1720,7 +1720,7 @@ Blockly.Blocks['start_physics'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Start physics with the specified system');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHASER_PHYSICS_STARTUP);
     }
 };
@@ -1983,7 +1983,7 @@ Blockly.Blocks['call_function_on_group'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -2016,7 +2016,7 @@ Blockly.Blocks['set_immovable'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2035,7 +2035,7 @@ Blockly.Blocks['collide'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Collide the first group/object with the second group/object');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2064,7 +2064,7 @@ Blockly.Blocks['is_body_touching'] = {
             .appendField("?");
         this.setOutput(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2097,7 +2097,7 @@ Blockly.Blocks['collide_with_world_bounds'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2156,7 +2156,7 @@ Blockly.Blocks['check_overlap'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2240,7 +2240,7 @@ Blockly.Blocks['get_current_mouse_position'] = {
             .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'DIRECTION');
         this.setColour(PHASER_MOUSE_INPUT);
         this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
-        this.setHelpUrl('https://phaser.io/docs/2.3.0/Phaser.Pointer.html#x'); //TODO: check help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#x');
         this.setOutput(true, 'Number');
     }
 };
@@ -2251,7 +2251,7 @@ Blockly.Blocks['is_mouse_button_clicked'] = {
             .appendField(new Blockly.FieldDropdown([["left", "leftButton"], ["right", "rightButton"], ["middle", "middleButton"]]), "BUTTON")
             .appendField('mouse button is clicked?');
         this.setOutput(true, 'Boolean');
-        this.setHelpUrl(); //TODO: check help URL
+        this.setHelpUrl(); //TODO: add help URL
         this.setTooltip('Is the specified button clicked');
         this.setColour(PHASER_MOUSE_INPUT);
     }
@@ -2428,7 +2428,7 @@ Blockly.Blocks['create_point'] = {
             .appendField("Y:");
         this.setOutput(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHASER_WORLD_COLOUR);
     }
 };
@@ -2912,7 +2912,7 @@ Blockly.Blocks['set_text'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHASER_TEXT_COLOUR);
     }
 };
@@ -2928,7 +2928,7 @@ Blockly.Blocks['set_text_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
+        this.setHelpUrl('http://www.example.com/'); //TODO: add help URL
         this.setColour(PHASER_TEXT_COLOUR);
     }
 };
@@ -3025,7 +3025,7 @@ Blockly.Blocks['addemitter'] = {
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Create a particle emitter');
-        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html'); //TODO: check help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html');
     }
 };
 
@@ -3122,7 +3122,7 @@ Blockly.Blocks['emitters_set_rotation_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Set the angular velocity constraints of the particles');
-        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html#setRotation'); //TODO: check help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setRotation');
     }
 };
 
@@ -3456,7 +3456,7 @@ Blockly.Blocks['statemanager_add_state'] = {
         this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('Adds a state to the game engine, this should be an instance of a state class.');
         //TODO: This will need supporting documentation on or side illustrating how to create this class with blocks
-        // this.setHelpUrl('') //TODO: check help URL
+        // this.setHelpUrl('')
     }
 };
 
@@ -3469,7 +3469,7 @@ Blockly.Blocks['statemanager_start_state'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('Start the specified state, this should be a state that has been added to the game engine');
-        this.setHelpUrl('https://phaser.io/docs/2.4.4/Phaser.StateManager.html#start'); //TODO: check help URL
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.StateManager.html#start');
     }
 };
 //endregion
@@ -3938,7 +3938,7 @@ Blockly.Blocks['load_sound'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.Loader.html#audio"); //TODO: check help URL
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#audio");
     }
 };
 
@@ -3979,7 +3979,7 @@ Blockly.Blocks['play_sound'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Plays a sound that has been created. The volume goes from 0 to 1.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play"); //TODO: check help URL
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.SoundManager.html#play");
     }
 };
 
@@ -3998,7 +3998,7 @@ Blockly.Blocks['remove_sound'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Stops all sounds with the given tag.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#removeByKey"); //TODO: check help URL
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.SoundManager.html#removeByKey");
     }
 };
 
@@ -4011,7 +4011,7 @@ Blockly.Blocks['stop_pause_resume_sounds'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Stop - Stop everything dead.\nPause - Stop everything, but remember where you were.\nResume - Start playing paused sounds from where they left off.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll"); //TODO: check help URL
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.SoundManager.html#stopAll");
     }
 };
 
