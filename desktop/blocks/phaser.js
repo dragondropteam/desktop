@@ -127,7 +127,7 @@ Blockly.Blocks['enable_step'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Game.html#enableStep');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#enableStep');
         this.setColour(PHASER_UTILITY_COLOUR);
     }
 };
@@ -139,7 +139,7 @@ Blockly.Blocks['disable_step'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Game.html#disableStep');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#disableStep');
         this.setColour(PHASER_UTILITY_COLOUR);
     }
 };
@@ -151,7 +151,7 @@ Blockly.Blocks['step'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Game.html#step');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#step');
         this.setColour(PHASER_UTILITY_COLOUR);
     }
 };
@@ -172,7 +172,7 @@ Blockly.Blocks['create_graphics_object'] = {
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -194,7 +194,7 @@ Blockly.Blocks['draw_shapes_with_colour'] = {
         this.setNextStatement(true, null);
         this.setColour(330);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -224,7 +224,7 @@ Blockly.Blocks['draw_rectangle'] = {
         this.setNextStatement(true, null);
         this.setColour(330);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -265,7 +265,7 @@ Blockly.Blocks['play_animation'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#play');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play');
     }
 };
 
@@ -309,7 +309,7 @@ Blockly.Blocks['add_animation'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Add an animation to an object based on a list of frames');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#add');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#add');
         this.setColour(PHASER_ANIMATION_COLOUR);
     }
 };
@@ -332,7 +332,7 @@ Blockly.Blocks['add_child'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite. This will make them move together.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChild');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChild');
     }
 };
 
@@ -350,7 +350,7 @@ Blockly.Blocks['reset_frame'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Resets the texture frame dimensions that the sprite uses for rendering.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#resetFrame');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#resetFrame');
     }
 };
 
@@ -378,7 +378,7 @@ Blockly.Blocks['resize_frame'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Resizes the Frame dimensions that the Game Object uses for rendering. You shouldn\'t normally need to ever call this, but in the case of special texture types such as Video or BitmapData it can be useful to adjust the dimensions directly in this way.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#resizeFrame');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#resizeFrame');
     }
 };
 //endregion
@@ -394,7 +394,7 @@ Blockly.Blocks['create_image'] = {
             .appendField('create image');
         this.setColour(PHASER_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
         this.appendValueInput('TAG')
             .appendField('tag')
             .setCheck('String');
@@ -405,7 +405,7 @@ Blockly.Blocks['create_image'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setInputsInline(true);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Loader.html#image');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#image');
     }
 };
 
@@ -430,7 +430,7 @@ Blockly.Blocks['create_sprite_sheet'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Loader.html#spritesheet');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#spritesheet');
     }
 };
 
@@ -449,7 +449,7 @@ Blockly.Blocks['add_image'] = {
             .setCheck('String');
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#sprite');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#sprite');
     }
 };
 
@@ -469,7 +469,7 @@ Blockly.Blocks['addspritewithatlas'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Loader.html#atlasXML');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML');
     }
 };
 
@@ -492,7 +492,7 @@ Blockly.Blocks['imagesubtextureatlas'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Loader.html#atlasXML');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML');
     }
 };
 
@@ -507,7 +507,7 @@ Blockly.Blocks['add_child_vi'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite. This will make them move together.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChild');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChild');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -527,7 +527,7 @@ Blockly.Blocks['add_child_at'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite at a specific index so you can find it later. This will make them move together.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChildAt');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChildAt');
     }
 };
 
@@ -546,7 +546,7 @@ Blockly.Blocks['add_child_at_vi'] = {
         this.setPreviousStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Add a child to a sprite at a specific index so you can find it later. This will make them move together.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#addChildAt');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChildAt');
     }
 };
 
@@ -572,7 +572,7 @@ Blockly.Blocks['align_in'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Aligns this Game Object within another Game Object, or Rectangle, to one of 9 possible positions.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#alignIn');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#alignIn');
     }
 };
 
@@ -598,7 +598,7 @@ Blockly.Blocks['align_to'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Aligns this Game Object to the side of another Game Object, or Rectangle, in one of 12 possible positions.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#alignTo');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#alignTo');
     }
 };
 
@@ -614,7 +614,7 @@ Blockly.Blocks['bring_to_top'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Brings this sprite/image to the front of the display order. In case of overlapping sprites, this one will draw on top of everything else.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#bringToTop');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#bringToTop');
     }
 };
 
@@ -631,7 +631,7 @@ Blockly.Blocks['check_world_bounds'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip(`This object will start checking if it's inside the world every frame. This takes time, so it's disabled by default.`);
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#checkWorldBounds');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#checkWorldBounds');
     }
 };
 
@@ -652,7 +652,7 @@ Blockly.Blocks['contains'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Checks to see if one sprite is the child of another.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#contains');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#contains');
     }
 };
 
@@ -668,7 +668,7 @@ Blockly.Blocks['contains_vi'] = {
         this.setOutput(true, 'Boolean');
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Checks to see if one sprite is the child of another.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#contains');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#contains');
     }
 };
 
@@ -685,7 +685,7 @@ Blockly.Blocks['crop'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('crop a sprite to an area defined by a rectangle or other object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#crop');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#crop');
     }
 };
 
@@ -698,7 +698,7 @@ Blockly.Blocks['clear_cropping'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Removes any cropping from a sprite.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#crop');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#crop');
     }
 };
 
@@ -715,7 +715,7 @@ Blockly.Blocks['destroy_sprite'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Deletes a sprite from the game, with an option to delete its children too.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#destroy');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#destroy');
     }
 };
 
@@ -730,7 +730,7 @@ Blockly.Blocks['get_child_at_vi'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Finds a specific child on this sprite/image by its index.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getChildAt');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getChildAt');
     }
 };
 
@@ -746,7 +746,7 @@ Blockly.Blocks['get_child_index'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Finds an index that describes where on the parent this object is. ');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getChildIndex');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getChildIndex');
     }
 };
 
@@ -761,7 +761,7 @@ Blockly.Blocks['get_child_index_vi'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Finds an index that describes where on the parent this object is. ');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getChildIndex');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getChildIndex');
     }
 };
 
@@ -777,7 +777,7 @@ Blockly.Blocks['load_texture'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('This changes the texture of this sprite/image entirely. If it is part of a sprite sheet. Warning: slow.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#loadTexture');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#loadTexture');
         this.setInputsInline(true);
     }
 };
@@ -794,7 +794,7 @@ Blockly.Blocks['move_down'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Moves this sprite/image down one place in the display order. If sprites overlap, it will be more likely to display underneath others.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#moveDown');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#moveDown');
     }
 };
 
@@ -810,7 +810,7 @@ Blockly.Blocks['move_up'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Moves this sprite up one place in the display order. If sprites overlap, it will be more likely to display on top of others.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#moveUp');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#moveUp');
     }
 };
 
@@ -827,7 +827,7 @@ Blockly.Blocks['sprite_overlap'] = {
         this.setOutput(true, "Boolean");
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Checks to see if the rectangular bounds of the two given sprites overlap. Not a good substitute for the physics engine, but fine for something like UI.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#overlap');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#overlap');
     }
 };
 
@@ -848,7 +848,7 @@ Blockly.Blocks['out_of_bounds_kill'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#outOfBoundsKill');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#outOfBoundsKill');
     }
 };
 
@@ -865,7 +865,7 @@ Blockly.Blocks['out_of_bounds_faint'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#outOfBoundsKill');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#outOfBoundsKill');
     }
 };
 
@@ -886,7 +886,7 @@ Blockly.Blocks['remove_child'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Makes this sprite/image stop being a child and moving with its parent.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChild');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChild');
     }
 };
 
@@ -902,7 +902,7 @@ Blockly.Blocks['remove_child_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Makes this sprite/image stop being a child and moving with its parent.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChild');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChild');
     }
 };
 
@@ -918,7 +918,7 @@ Blockly.Blocks['remove_child_at_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Finds the child at the given index and removes it from its parent. It will no longer move with the parent.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildAt');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildAt');
     }
 };
 
@@ -939,7 +939,7 @@ Blockly.Blocks['remove_child_at'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Finds the child at the given index and removes it from its parent. It will no longer move with the parent.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildAt');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildAt');
     }
 };
 
@@ -956,7 +956,7 @@ Blockly.Blocks['remove_children'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Removes all children from the parent. They will all stop moving together.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildren');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildren');
     }
 };
 
@@ -968,7 +968,7 @@ Blockly.Blocks['remove_children_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Removes all children from the parent. They will all stop moving together.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#removeChildren');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildren');
     }
 };
 //endregion
@@ -994,7 +994,7 @@ Blockly.Blocks['add_animation_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Add an animation to an object based on a list of frames');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#add');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#add');
         this.setColour(PHASER_ANIMATION_COLOUR);
     }
 };
@@ -1009,7 +1009,7 @@ Blockly.Blocks['play_animation_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#play');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play');
         this.setInputsInline(true);
     }
 };
@@ -1025,7 +1025,7 @@ Blockly.Blocks['animation_next'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -1040,7 +1040,7 @@ Blockly.Blocks['animation_previous'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -1056,7 +1056,7 @@ Blockly.Blocks['animation_next_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Increment the current animation by a given amount of frames');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#next');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#next');
     }
 };
 
@@ -1072,7 +1072,7 @@ Blockly.Blocks['animation_previous_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('decrement the current animation by a given amount of frames');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#previous');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#previous');
     }
 };
 
@@ -1085,7 +1085,7 @@ Blockly.Blocks['refresh_frame'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -1097,7 +1097,7 @@ Blockly.Blocks['animation_update'] = {
         this.setOutput(true, "Boolean");
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -1116,7 +1116,7 @@ Blockly.Blocks['validate_frames'] = {
         this.setOutput(true, "Boolean");
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -1130,7 +1130,7 @@ Blockly.Blocks['validate_frames_vi'] = {
         this.setOutput(true, "Boolean");
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Validates the frames on the given Sprite');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#validateFrames');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames');
     }
 };
 
@@ -1143,7 +1143,7 @@ Blockly.Blocks['animation_destroy'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -1155,7 +1155,7 @@ Blockly.Blocks['animation_destroy_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Destroy all animations on the object');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy');
     }
 };
 
@@ -1167,7 +1167,7 @@ Blockly.Blocks['stop_animation_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Stops the current animation on the specified Sprite')
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Animation.html#stop');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Animation.html#stop');
     }
 };
 
@@ -1182,7 +1182,7 @@ Blockly.Blocks['set_frame_vi'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Sets the current frame number on the specified object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Animation.html#frame');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Animation.html#frame');
     }
 };
 //endregion
@@ -1200,7 +1200,7 @@ Blockly.Blocks['send_to_back'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Sends this sprite/image to the back of the display order. In case of overlapping sprites, it will draw behind everything else.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#sendToBack');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#sendToBack');
     }
 };
 
@@ -1219,7 +1219,7 @@ Blockly.Blocks['set_child_index'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Moves the child to a specific index on its parent. This will affect how you find it in the future.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setChildIndex');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setChildIndex');
     }
 };
 
@@ -1238,7 +1238,7 @@ Blockly.Blocks['set_child_index_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Moves the child to a specific index on its parent. This will affect how you find it in the future.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setChildIndex');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setChildIndex');
     }
 };
 
@@ -1256,7 +1256,7 @@ Blockly.Blocks['set_sprite_frame'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Sets the Texture frame the Sprite uses for rendering. This is primarily an internal method used by Sprite.loadTexture, although you may call it directly.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setFrame');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setFrame');
     }
 };
 
@@ -1281,7 +1281,7 @@ Blockly.Blocks['set_scale_min_max'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Limits how far this sprite will scale based on its parent.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setScaleMinMax');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setScaleMinMax');
     }
 };
 
@@ -1294,7 +1294,7 @@ Blockly.Blocks['clear_scale_min_max'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('If scaling constraints were set on a sprite, this removes them.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setScaleMinMax');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setScaleMinMax');
     }
 };
 
@@ -1311,7 +1311,7 @@ Blockly.Blocks['set_texture'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Sets the texture of the sprite. Be warned that this doesn\'t remove or destroy the previous texture this Sprite was using. Note that this takes a specific texture, not a tag.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#setTexture');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setTexture');
     }
 };
 
@@ -1330,7 +1330,7 @@ Blockly.Blocks['swap_children'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('Swaps the indices of the given children. They must both be on the same parent.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#swapChildren');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#swapChildren');
         this.setInputsInline(true);
     }
 };
@@ -1346,7 +1346,7 @@ Blockly.Blocks['get_animation_property'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Get a property on from the animaton manager on the object');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy');
     }
 };
 
@@ -1363,7 +1363,7 @@ Blockly.Blocks['set_animation_property'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Set a property from the animation manager on the object');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy');
     }
 };
 
@@ -1381,7 +1381,7 @@ Blockly.Blocks['set_animation_property_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Set a property from the animation manager on the object');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.AnimationManager.html#destroy');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy');
     }
 };
 
@@ -1396,7 +1396,7 @@ Blockly.Blocks['animation_get_animation'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 //endregion
@@ -1408,7 +1408,7 @@ Blockly.Blocks['create_group'] = {
             .appendField('create group');
         this.setOutput(true, null);
         this.setTooltip('Create a new group of display objects');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#group');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#group');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -1433,7 +1433,7 @@ Blockly.Blocks['create_object_in_group'] = {
             .appendField("group");
         this.setOutput(true, null);
         this.setTooltip('Create a new sprite in the group');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -1460,7 +1460,7 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
             .appendField('displaying frame #');
         this.setOutput(true, null);
         this.setTooltip('Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -1479,7 +1479,7 @@ Blockly.Blocks['create_object_in_group_vi'] = {
             .appendField('in group');
         this.setOutput(true, null);
         this.setTooltip('Create a new sprite in the group');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -1500,7 +1500,7 @@ Blockly.Blocks['create_object_in_group_with_frame_vi'] = {
             .appendField('displaying frame');
         this.setOutput(true, null);
         this.setTooltip('Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#create');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create');
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -1518,7 +1518,7 @@ Blockly.Blocks['add_to_group'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Adds an existing object to a group.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#add");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#add");
     }
 };
 
@@ -1538,7 +1538,7 @@ Blockly.Blocks['remove_from_group'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Removes an object from a group. Optionally, destroy it as well.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#remove");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#remove");
     }
 };
 
@@ -1556,7 +1556,7 @@ Blockly.Blocks['group_contains'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns true if a group contains a specified sprite.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#contains");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#contains");
     }
 };
 
@@ -1570,7 +1570,7 @@ Blockly.Blocks['group_count_alive_dead'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns the number of alive/dead objects in a group.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#countLiving");
     }
 };
 
@@ -1587,7 +1587,7 @@ Blockly.Blocks['destroy_group'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Destroys a group. Can either leave the members where they are, or destroy them too.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#destroy");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#destroy");
     }
 };
 
@@ -1599,7 +1599,7 @@ Blockly.Blocks['group_get_all'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns a list of all members in the specified group.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAll");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getAll");
     }
 };
 
@@ -1615,7 +1615,7 @@ Blockly.Blocks['group_get_at'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAt");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getAt");
     }
 };
 
@@ -1631,7 +1631,7 @@ Blockly.Blocks['group_get_closest_to'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns the object in the group whose position is closest to the specified object.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getClosestTo");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getClosestTo");
     }
 };
 
@@ -1645,7 +1645,7 @@ Blockly.Blocks['group_get_first_alive_dead'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getFirstAlive");
     }
 };
 
@@ -1659,7 +1659,7 @@ Blockly.Blocks['group_get_first_alive_fainted'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getFirstAlive");
     }
 };
 
@@ -1671,7 +1671,7 @@ Blockly.Blocks['group_get_random'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns a member of the group at random with no bias.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandom");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getRandom");
     }
 };
 
@@ -1685,7 +1685,7 @@ Blockly.Blocks['group_get_random_exists'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Returns a random member of the given group, picking from those whose \"exists\" field is set to true.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandomExists");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getRandomExists");
     }
 };
 
@@ -1702,7 +1702,7 @@ Blockly.Blocks['group_remove_all'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GROUPS_COLOUR);
         this.setTooltip("Empties the specified group. Can either do this by releasing its members or deleting them.");
-        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#removeAll");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Group.html#removeAll");
     }
 };
 
@@ -1720,7 +1720,7 @@ Blockly.Blocks['start_physics'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Start physics with the specified system');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHASER_PHYSICS_STARTUP);
     }
 };
@@ -1737,9 +1737,9 @@ Blockly.Blocks['start_arcade_physics'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Start the specified arcade physics system');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.html#startSystem');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.html#startSystem');
         this.setColour(PHASER_PHYSICS_STARTUP);
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.html#startSystem');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.html#startSystem');
         this.setTooltip('Starts an arcade physics system');
     }
 };
@@ -1765,7 +1765,7 @@ Blockly.Blocks['enable_body_group_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_STARTUP);
         this.setTooltip('Enable physics body on all sprites in or added to this group');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Group.html#enableBody');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Group.html#enableBody');
     }
 };
 
@@ -1778,7 +1778,7 @@ Blockly.Blocks['enable_arcade_physics_for_object'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_STARTUP);
         this.setTooltip('Enable physics for this object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#enable');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#enable');
     }
 };
 
@@ -1790,7 +1790,7 @@ Blockly.Blocks['enable_arcade_physics_for_object_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_STARTUP);
         this.setTooltip('Enable physics for this sprite');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#enable')
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#enable')
     }
 };
 //endregion
@@ -1810,7 +1810,7 @@ Blockly.Blocks['collide_with_arrow_function'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
         this.setTooltip("Collide two objects, if they are collide do the statements in the block");
-        this.setHelpUrl("https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#collide");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -1833,7 +1833,7 @@ Blockly.Blocks['set_body_field_point'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Set the x or y value of the specified field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1853,7 +1853,7 @@ Blockly.Blocks['set_body_field_point_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Set the x or y value of the specified field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1871,7 +1871,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Set the value of the body point field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1885,7 +1885,7 @@ Blockly.Blocks['debug_body'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Set the value of the body point field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1900,7 +1900,7 @@ Blockly.Blocks['get_body_field_point_class'] = {
         this.setInputsInline(true);
         this.setOutput(true);
         this.setTooltip('Gets the value of the specified point as a point object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1918,7 +1918,7 @@ Blockly.Blocks['set_body_boolean_field'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Set the value of the specified boolean field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1933,7 +1933,7 @@ Blockly.Blocks['get_body_boolean_field'] = {
         this.setInputsInline(true);
         this.setOutput(true, 'Boolean');
         this.setTooltip('Set the value of the specified boolean field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1953,7 +1953,7 @@ Blockly.Blocks['set_body_numeric_field'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Set the value of the specified numeric field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1968,7 +1968,7 @@ Blockly.Blocks['get_body_numeric_field'] = {
         this.setInputsInline(true);
         this.setOutput(true, 'Number');
         this.setTooltip('Get the value of the specified numeric field');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     }
 };
@@ -1983,7 +1983,7 @@ Blockly.Blocks['call_function_on_group'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHASER_GROUPS_COLOUR);
     }
 };
@@ -2002,7 +2002,7 @@ Blockly.Blocks['acceleration_from_rotation'] = {
         this.setOutput(true, null);
         this.setColour(PHYSICS_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2016,7 +2016,7 @@ Blockly.Blocks['set_immovable'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2035,7 +2035,7 @@ Blockly.Blocks['collide'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Collide the first group/object with the second group/object');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2049,7 +2049,7 @@ Blockly.Blocks['collide_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Collide the first group/object with the second group/object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#collide');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide');
         this.setInputsInline(true);
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
     }
@@ -2064,7 +2064,7 @@ Blockly.Blocks['is_body_touching'] = {
             .appendField("?");
         this.setOutput(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2078,7 +2078,7 @@ Blockly.Blocks['is_body_touching_vi'] = {
             .appendField('?');
         this.setOutput(true, null);
         this.setTooltip('Check to see if the object is being touched in the given direction');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.Body.html#touching');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#touching');
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
     }
 };
@@ -2097,7 +2097,7 @@ Blockly.Blocks['collide_with_world_bounds'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2115,7 +2115,7 @@ Blockly.Blocks['collide_with_world_bounds_vi'] = {
         this.setNextStatement(true, null);
         this.setInputsInline(true);
         this.setTooltip('Make this object collide with the world bounds');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Ninja.Body.html#collideWorldBounds');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Ninja.Body.html#collideWorldBounds');
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
     }
 };
@@ -2134,7 +2134,7 @@ Blockly.Blocks['check_overlap_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Check for overlap between objectA and objectB');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#overlap');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap');
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
     }
 };
@@ -2156,7 +2156,7 @@ Blockly.Blocks['check_overlap'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHYSICS_COLOUR);
     }
 };
@@ -2180,7 +2180,7 @@ Blockly.Blocks['move_to_pointer'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
         this.setTooltip('Move the object to the pointer at the given speed');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#moveToPointer');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#moveToPointer');
     }
 };
 
@@ -2201,7 +2201,7 @@ Blockly.Blocks['move_to_pointer_extended'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
         this.setTooltip('Move the object to the pointer at the given speed');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#moveToPointer');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#moveToPointer');
     }
 };
 
@@ -2224,7 +2224,7 @@ Blockly.Blocks['move_to_object'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
         this.setTooltip('Move the object to the given object at the given speed');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Physics.Arcade.html#moveToObject');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#moveToObject');
     }
 };
 //endregion
@@ -2240,7 +2240,7 @@ Blockly.Blocks['get_current_mouse_position'] = {
             .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'DIRECTION');
         this.setColour(PHASER_MOUSE_INPUT);
         this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
-        this.setHelpUrl('https://phaser.io/docs/2.3.0/Phaser.Pointer.html#x');
+        this.setHelpUrl('https://phaser.io/docs/2.3.0/Phaser.Pointer.html#x'); //TODO: check help URL
         this.setOutput(true, 'Number');
     }
 };
@@ -2251,7 +2251,7 @@ Blockly.Blocks['is_mouse_button_clicked'] = {
             .appendField(new Blockly.FieldDropdown([["left", "leftButton"], ["right", "rightButton"], ["middle", "middleButton"]]), "BUTTON")
             .appendField('mouse button is clicked?');
         this.setOutput(true, 'Boolean');
-        this.setHelpUrl();
+        this.setHelpUrl(); //TODO: check help URL
         this.setTooltip('Is the specified button clicked');
         this.setColour(PHASER_MOUSE_INPUT);
     }
@@ -2371,7 +2371,7 @@ Blockly.Blocks['is_key_down'] = {
             .appendField("is down?");
         this.setOutput(true, 'Boolean');
         this.setTooltip('Checks if the given key is down');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Keyboard.html#isDown');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Keyboard.html#isDown');
         this.setColour(PHASER_KEYBOARD_INPUT);
     }
 };
@@ -2386,7 +2386,7 @@ Blockly.Blocks['get_world_property'] = {
             .appendField("of the world");
         this.setOutput(true, null);
         this.setTooltip('Get a property of the world');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.World.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.World.html');
         this.setColour(PHASER_WORLD_COLOUR);
     }
 };
@@ -2410,7 +2410,7 @@ Blockly.Blocks['set_world_bounds'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('Updates the size of the world and sets the leftmost corner');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.World.html#setBounds');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.World.html#setBounds');
         this.setColour(PHASER_WORLD_COLOUR);
         this.setInputsInline(true);
     }
@@ -2428,7 +2428,7 @@ Blockly.Blocks['create_point'] = {
             .appendField("Y:");
         this.setOutput(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHASER_WORLD_COLOUR);
     }
 };
@@ -2463,7 +2463,7 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
         this.setTooltip('Set a point property on the object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
@@ -2478,7 +2478,7 @@ Blockly.Blocks['get_game_object_point_field'] = {
         this.setInputsInline(true);
         this.setOutput(true);
         this.setTooltip('Get a point property on the object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
@@ -2496,7 +2496,7 @@ Blockly.Blocks['set_game_object_numeric_field'] = {
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
         this.setTooltip('Set a numeric property on the object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
@@ -2511,7 +2511,7 @@ Blockly.Blocks['get_game_object_numeric_field'] = {
         this.setInputsInline(true);
         this.setOutput(true);
         this.setTooltip('Get a numeric property on the object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
@@ -2530,7 +2530,7 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
         this.setTooltip('Set a boolean property on the object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
@@ -2545,7 +2545,7 @@ Blockly.Blocks['get_game_object_boolean_field'] = {
         this.setInputsInline(true);
         this.setOutput(true);
         this.setTooltip('Get a boolean property on the object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     }
 };
@@ -2684,7 +2684,7 @@ Blockly.Blocks['object_set_to'] = {
         this.setNextStatement(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2738,7 +2738,7 @@ Blockly.Blocks['get_camera'] = {
         this.setOutput(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2756,7 +2756,7 @@ Blockly.Blocks['camera_follow'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Make the camera follow the specified game object');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2768,7 +2768,7 @@ Blockly.Blocks['get_bounds'] = {
         this.setOutput(true, null);
         this.setColour(GAME_OBJECT_COLOUR);
         this.setTooltip('Gets the rectangular bounds of most objects in the game.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getBounds');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getBounds');
     }
 };
 
@@ -2779,7 +2779,7 @@ Blockly.Blocks['get_rotation'] = {
         this.setOutput(true, "Number");
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Finds the rotation (in degrees) of a Game Object.');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Sprite.html#angle');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle');
     }
 };
 
@@ -2798,7 +2798,7 @@ Blockly.Blocks['rotate'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Rotates a game object by the given angle in degrees. Negative numbers will rotate it the opposite direction.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#angle');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle');
     }
 };
 
@@ -2817,7 +2817,7 @@ Blockly.Blocks['set_rotation'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Directly sets the rotation (in degrees) of this game object to the given value.');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Sprite.html#angle');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle');
     }
 };
 
@@ -2829,7 +2829,7 @@ Blockly.Blocks['get_local_bounds'] = {
         this.setOutput(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Gets the rectangular bounds of an object. Bounds are relative to the object itself instead of the world.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#getLocalBounds');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getLocalBounds');
     }
 };
 
@@ -2849,7 +2849,7 @@ Blockly.Blocks['reset'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Gets most objects ready to play again in various ways and treats it like new. Specifically, moves it to a new position then makes sure it is visible, rendering, alive, and actually exists in the game world.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#reset');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#reset');
     }
 };
 
@@ -2862,7 +2862,7 @@ Blockly.Blocks['revive'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
         this.setTooltip('Brings a "dead" Game Object back to life. Makes sure it counts as alive, existing, and visible. Will send an event named onRevived.');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Sprite.html#revive');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#revive');
     }
 };
 //endregion
@@ -2891,7 +2891,7 @@ Blockly.Blocks['add_text'] = {
         this.setOutput(true, null);
         this.setInputsInline(false);
         this.setTooltip('Add text to the screen at the specified location');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#text');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#text');
         this.setColour(PHASER_TEXT_COLOUR);
     }
 };
@@ -2912,7 +2912,7 @@ Blockly.Blocks['set_text'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHASER_TEXT_COLOUR);
     }
 };
@@ -2928,7 +2928,7 @@ Blockly.Blocks['set_text_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('http://www.example.com/'); //TODO: check help URL
         this.setColour(PHASER_TEXT_COLOUR);
     }
 };
@@ -2950,7 +2950,7 @@ Blockly.Blocks['create_bitmapFont'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_TEXT_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 //endregion
@@ -2973,7 +2973,7 @@ Blockly.Blocks['drawcircle'] = {
         this.setNextStatement(true, null);
         this.setColour(180);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -2986,7 +2986,7 @@ Blockly.Blocks['get_object_width'] = {
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3001,7 +3001,7 @@ Blockly.Blocks['set_object_width'] = {
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3025,7 +3025,7 @@ Blockly.Blocks['addemitter'] = {
         this.setOutput(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Create a particle emitter');
-        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html');
+        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html'); //TODO: check help URL
     }
 };
 
@@ -3055,7 +3055,7 @@ Blockly.Blocks['emitter_make_particles'] = {
         this.setPreviousStatement(true, null);
         this.setInputsInline(false);
         this.setColour(PARTICLE_COLOUR);
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#makeParticles');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#makeParticles');
         this.setTooltip('Generate a new set of particles for this emitter')
     }
 };
@@ -3076,7 +3076,7 @@ Blockly.Blocks['emitters_make_particles'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3101,7 +3101,7 @@ Blockly.Blocks['emitters_set_rotation'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3122,7 +3122,7 @@ Blockly.Blocks['emitters_set_rotation_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Set the angular velocity constraints of the particles');
-        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html#setRotation');
+        this.setHelpUrl('http://phaser.io/docs/2.4.2/Phaser.Particles.Arcade.Emitter.html#setRotation'); //TODO: check help URL
     }
 };
 
@@ -3153,7 +3153,7 @@ Blockly.Blocks['emitters_start'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3178,7 +3178,7 @@ Blockly.Blocks['emitters_start_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Start emitting particles');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#start');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#start');
     }
 };
 
@@ -3206,7 +3206,7 @@ Blockly.Blocks['emitters_set_alpha'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3230,7 +3230,7 @@ Blockly.Blocks['emitters_set_alpha_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Set the min and max alpha values for this emitter');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#setAlpha');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setAlpha');
     }
 };
 
@@ -3260,7 +3260,7 @@ Blockly.Blocks['emitters_set_scale'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3290,7 +3290,7 @@ Blockly.Blocks['emitters_set_scale_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Set the minimum/maximum scale for particles and the rate to go between');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#setScale');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setScale');
     }
 };
 
@@ -3310,7 +3310,7 @@ Blockly.Blocks['set_emit_from'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3337,7 +3337,7 @@ Blockly.Blocks['emitters_set_speed'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3364,7 +3364,7 @@ Blockly.Blocks['emitters_set_speed_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3381,7 +3381,7 @@ Blockly.Blocks['emitters_set_gravity'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 
@@ -3398,7 +3398,7 @@ Blockly.Blocks['emitters_set_gravity_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('Set the gravity of generated particles');
-        this.setHelpUrl('http://phaser.io/docs/2.6.2/Phaser.Particles.Arcade.Emitter.html#gravity');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#gravity');
     }
 };
 
@@ -3415,7 +3415,7 @@ Blockly.Blocks['emitters_set_width'] = {
         this.setNextStatement(true, null);
         this.setColour(PARTICLE_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 //endregion
@@ -3436,7 +3436,7 @@ Blockly.Blocks['debug_sprite'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_UTILITY_COLOUR);
         this.setTooltip('');
-        this.setHelpUrl('');
+        this.setHelpUrl(''); //TODO: add help URL
     }
 };
 //endregion
@@ -3456,7 +3456,7 @@ Blockly.Blocks['statemanager_add_state'] = {
         this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('Adds a state to the game engine, this should be an instance of a state class.');
         //TODO: This will need supporting documentation on or side illustrating how to create this class with blocks
-        // this.setHelpUrl('')
+        // this.setHelpUrl('') //TODO: check help URL
     }
 };
 
@@ -3469,7 +3469,7 @@ Blockly.Blocks['statemanager_start_state'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_STATES_COLOUR);
         this.setTooltip('Start the specified state, this should be a state that has been added to the game engine');
-        this.setHelpUrl('https://phaser.io/docs/2.4.4/Phaser.StateManager.html#start');
+        this.setHelpUrl('https://phaser.io/docs/2.4.4/Phaser.StateManager.html#start'); //TODO: check help URL
     }
 };
 //endregion
@@ -3492,7 +3492,7 @@ Blockly.Blocks['rectangle_create'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_RECTANGLE_COLOUR);
         this.setTooltip('Defines a rectangle, can be used for cropping, alignment and other tasks');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Rectangle.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Rectangle.html');
         this.setOutput(true);
     }
 };
@@ -3510,7 +3510,7 @@ Blockly.Blocks['point_create'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html');
         this.setOutput(true);
     }
 };
@@ -3528,7 +3528,7 @@ Blockly.Blocks['point_get_element'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html');
         this.setOutput(true);
     }
 };
@@ -3549,7 +3549,7 @@ Blockly.Blocks['point_set_element'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Defines a point which represents a location in 2D');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
     }
@@ -3570,7 +3570,7 @@ Blockly.Blocks['point_set_magnitude'] = {
         this.setInputsInline(true);
         this.setColour(PHASER_POINT_COLOUR);
         this.setTooltip('Sets the magnitude of the point');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#setMagnitude');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#setMagnitude');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
     }
@@ -3589,7 +3589,7 @@ Blockly.Blocks['points_add'] = {
             .appendField('and');
         this.setOutput(true, null);
         this.setInputsInline(true);
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.add');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.add');
         this.setTooltip('Adds the two points and returns the result');
         this.setColour(PHASER_POINT_COLOUR);
     }
@@ -3608,7 +3608,7 @@ Blockly.Blocks['points_subtract'] = {
             .appendField('and');
         this.setOutput(true, null);
         this.setInputsInline(true);
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.subtract');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.subtract');
         this.setTooltip('Adds the two points and returns the result');
         this.setColour(PHASER_POINT_COLOUR);
     }
@@ -3629,7 +3629,7 @@ Blockly.Blocks['points_angle_between'] = {
         this.setOutput(true, 'Number');
         this.setInputsInline(true);
         this.setTooltip('Returns the angle in radians between the two point objects');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.angle');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.angle');
 
     }
 };
@@ -3649,7 +3649,7 @@ Blockly.Blocks['points_distance'] = {
         this.setOutput(true, 'Number');
         this.setInputsInline(true);
         this.setTooltip('Returns the distance between the two point objects');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.distance');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.distance');
 
     }
 };
@@ -3669,7 +3669,7 @@ Blockly.Blocks['points_divide'] = {
         this.setOutput(true, 'Number');
         this.setInputsInline(true);
         this.setTooltip('Returns a new point p = [a.x / b.x, a.y / b.y]');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.divide');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.divide');
 
     }
 };
@@ -3690,7 +3690,7 @@ Blockly.Blocks['points_equals'] = {
         this.setOutput(true, 'Boolean');
         this.setInputsInline(true);
         this.setTooltip('Determines if two points are equal');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.equals');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.equals');
 
     }
 };
@@ -3712,7 +3712,7 @@ Blockly.Blocks['points_interpolate'] = {
         this.setOutput(true, null);
         this.setInputsInline(true);
         this.setTooltip('Interpolate between two points, the percent (0.0 - 1.0) determines how far towards the second point (1 - F) * A + F * B');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.interpolate');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.interpolate');
 
     }
 };
@@ -3732,7 +3732,7 @@ Blockly.Blocks['points_multiply'] = {
         this.setOutput(true, null);
         this.setInputsInline(true);
         this.setTooltip('Multiply two points');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.multiply');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.multiply');
 
     }
 };
@@ -3750,7 +3750,7 @@ Blockly.Blocks['points_negate'] = {
         this.setOutput(true, null);
         this.setInputsInline(true);
         this.setTooltip('Negate the point');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.negative');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.negative');
 
     }
 };
@@ -3768,7 +3768,7 @@ Blockly.Blocks['points_normalize'] = {
         this.setOutput(true, null);
         this.setInputsInline(true);
         this.setTooltip('Normalize the point (make unit length)');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.normalize');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.normalize');
     }
 };
 
@@ -3785,7 +3785,7 @@ Blockly.Blocks['points_perpendicular'] = {
         this.setOutput(true, null);
         this.setInputsInline(true);
         this.setTooltip('Find a perpendicular vector to this point');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Point.html#.perp');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.perp');
     }
 };
 
@@ -3805,7 +3805,7 @@ Blockly.Blocks['camera_follow_vi'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_CAMERA_COLOUR);
         this.setTooltip('Make the camera follow the specified game object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Camera.html#follow');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#follow');
     }
 };
 
@@ -3821,7 +3821,7 @@ Blockly.Blocks['camera_follow_vi_styled'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_CAMERA_COLOUR);
         this.setTooltip('Make the camera follow the specified game object');
-        this.setHelpUrl('https://phaser.io/docs/2.6.2/Phaser.Camera.html#follow');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#follow');
     }
 };
 //endregion
@@ -3938,7 +3938,7 @@ Blockly.Blocks['load_sound'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.Loader.html#audio");
+        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.Loader.html#audio"); //TODO: check help URL
     }
 };
 
@@ -3979,7 +3979,7 @@ Blockly.Blocks['play_sound'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Plays a sound that has been created. The volume goes from 0 to 1.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play");
+        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#play"); //TODO: check help URL
     }
 };
 
@@ -3998,7 +3998,7 @@ Blockly.Blocks['remove_sound'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Stops all sounds with the given tag.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#removeByKey");
+        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#removeByKey"); //TODO: check help URL
     }
 };
 
@@ -4011,7 +4011,7 @@ Blockly.Blocks['stop_pause_resume_sounds'] = {
         this.setNextStatement(true, null);
         this.setColour(PHASER_SOUND_COLOUR);
         this.setTooltip("Stop - Stop everything dead.\nPause - Stop everything, but remember where you were.\nResume - Start playing paused sounds from where they left off.");
-        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll");
+        this.setHelpUrl("https://phaser.io/docs/2.3.0/Phaser.SoundManager.html#stopAll"); //TODO: check help URL
     }
 };
 
