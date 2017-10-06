@@ -770,9 +770,9 @@ Blockly.JavaScript['move_to_object'] = function (block) {
 };
 
 Blockly.JavaScript['acceleration_from_rotation'] = function (block) {
-    const value_rotation = Blockly.JavaScript.valueToCode(block, 'rotation', Blockly.JavaScript.ORDER_ATOMIC);
-    const value_speed = Blockly.JavaScript.valueToCode(block, 'speed', Blockly.JavaScript.ORDER_ATOMIC);
-    return [`game.physics.arcade.accelerationFromRotation(${value_rotation}, ${value_speed})`, Blockly.JavaScript.ORDER_NONE];
+    const rotation = Blockly.JavaScript.valueToCode(block, 'ROTATION', Blockly.JavaScript.ORDER_ATOMIC);
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.physics.arcade.accelerationFromRotation(${rotation}, ${speed})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 //endregion
