@@ -1434,190 +1434,190 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
 };
 
 Blockly.Blocks['add_to_group'] = {
-  init: function() {
-    this.appendValueInput("NEW_ITEM")
-        .setCheck(null)
-        .appendField("add");
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("to group");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Adds an existing object to a group.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#add");
-  }
+    init: function () {
+        this.appendValueInput("NEW_ITEM")
+            .setCheck(null)
+            .appendField("add");
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("to group");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Adds an existing object to a group.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#add");
+    }
 };
 
 Blockly.Blocks['remove_from_group'] = {
-  init: function() {
-    this.appendValueInput("CHILD")
-        .setCheck(null)
-        .appendField("remove");
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("from group");
-    this.appendDummyInput()
-        .appendField("destroy it too")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Removes an object from a group. Optionally, destroy it as well.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#remove");
-  }
+    init: function () {
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("remove");
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("from group");
+        this.appendDummyInput()
+            .appendField("destroy it too")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Removes an object from a group. Optionally, destroy it as well.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#remove");
+    }
 };
 
 Blockly.Blocks['group_contains'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("group");
-    this.appendValueInput("CHILD")
-        .setCheck(null)
-        .appendField("contains");
-    this.appendDummyInput()
-        .appendField("?");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns true if a group contains a specified sprite.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#contains");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("group");
+        this.appendValueInput("CHILD")
+            .setCheck(null)
+            .appendField("contains");
+        this.appendDummyInput()
+            .appendField("?");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns true if a group contains a specified sprite.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#contains");
+    }
 };
 
 Blockly.Blocks['group_count_alive_dead'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("number of")
-        .appendField(new Blockly.FieldDropdown([["alive","Living"], ["dead","Dead"]]), "STATE")
-        .appendField("objects in group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns the number of alive/dead objects in a group.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("number of")
+            .appendField(new Blockly.FieldDropdown([["alive", "Living"], ["dead", "Dead"]]), "STATE")
+            .appendField("objects in group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns the number of alive/dead objects in a group.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#countLiving");
+    }
 };
 
 Blockly.Blocks['destroy_group'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("destroy group");
-    this.appendDummyInput()
-        .appendField("destroy members too")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "HANDLE_CHILDREN");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Destroys a group. Can either leave the members where they are, or destroy them too.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#destroy");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("destroy group");
+        this.appendDummyInput()
+            .appendField("destroy members too")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "HANDLE_CHILDREN");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Destroys a group. Can either leave the members where they are, or destroy them too.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#destroy");
+    }
 };
 
 Blockly.Blocks['group_get_all'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get all members of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a list of all members in the specified group.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAll");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get all members of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a list of all members in the specified group.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAll");
+    }
 };
 
 Blockly.Blocks['group_get_at'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get member of group");
-    this.appendValueInput("INDEX")
-        .setCheck("Number")
-        .appendField("at index");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAt");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get member of group");
+        this.appendValueInput("INDEX")
+            .setCheck("Number")
+            .appendField("at index");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getAt");
+    }
 };
 
 Blockly.Blocks['group_get_closest_to'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get member of group");
-    this.appendValueInput("OBJECT")
-        .setCheck(null)
-        .appendField("closest to");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns the object in the group whose position is closest to the specified object.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getClosestTo");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get member of group");
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("closest to");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns the object in the group whose position is closest to the specified object.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getClosestTo");
+    }
 };
 
 Blockly.Blocks['group_get_first_alive_dead'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get first")
-        .appendField(new Blockly.FieldDropdown([["alive","Alive"], ["dead","Dead"]]), "MODE")
-        .appendField("member of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get first")
+            .appendField(new Blockly.FieldDropdown([["alive", "Alive"], ["dead", "Dead"]]), "MODE")
+            .appendField("member of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Gets the first group member that has the given value of its \"alive\" field. Returns null if no matching member is found.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getFirstAlive");
+    }
 };
 
 Blockly.Blocks['group_get_random'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get random member of group");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a member of the group at random with no bias.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandom");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get random member of group");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a member of the group at random with no bias.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandom");
+    }
 };
 
 Blockly.Blocks['group_get_random_exists'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("get a random member of group");
-    this.appendDummyInput()
-        .appendField("that exists");
-    this.setOutput(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Returns a random member of the given group, picking from those whose \"exists\" field is set to true.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandomExists");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("get a random member of group");
+        this.appendDummyInput()
+            .appendField("that exists");
+        this.setOutput(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Returns a random member of the given group, picking from those whose \"exists\" field is set to true.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#getRandomExists");
+    }
 };
 
 Blockly.Blocks['group_remove_all'] = {
-  init: function() {
-    this.appendValueInput("GROUP")
-        .setCheck(null)
-        .appendField("remove all members of group");
-    this.appendDummyInput()
-        .appendField("destroy them too")
-        .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY_CHILDREN");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Empties the specified group. Can either do this by releasing its members or deleting them.");
- this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#removeAll");
-  }
+    init: function () {
+        this.appendValueInput("GROUP")
+            .setCheck(null)
+            .appendField("remove all members of group");
+        this.appendDummyInput()
+            .appendField("destroy them too")
+            .appendField(new Blockly.FieldCheckbox("FALSE"), "DESTROY_CHILDREN");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Empties the specified group. Can either do this by releasing its members or deleting them.");
+        this.setHelpUrl("http://phaser.io/docs/2.6.2/Phaser.Group.html#removeAll");
+    }
 };
 
 //endregion
@@ -3411,178 +3411,178 @@ Blockly.Blocks['camera_follow_vi'] = {
 };
 
 Blockly.Blocks['camera_fade'] = {
-  init: function() {
-    this.appendValueInput("COLOUR")
-        .setCheck(null)
-        .appendField("fade screen to");
-    this.appendValueInput("TIME")
-        .setCheck(null)
-        .appendField("over");
-    this.appendDummyInput()
-        .appendField("milliseconds");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Fades the screen to the specified colour over time. Ends with the screen completely obscured.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#fade");
-  }
+    init: function () {
+        this.appendValueInput("COLOUR")
+            .setCheck('Colour')
+            .appendField("fade screen to");
+        this.appendValueInput("TIME")
+            .setCheck('Number')
+            .appendField("over");
+        this.appendDummyInput()
+            .appendField("milliseconds");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Fades the screen to the specified colour over time. Ends with the screen completely obscured.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#fade");
+    }
 };
 
 Blockly.Blocks['camera_flash'] = {
-  init: function() {
-    this.appendValueInput("COLOUR")
-        .setCheck(null)
-        .appendField("flash screen to");
-    this.appendValueInput("TIME")
-        .setCheck(null)
-        .appendField("then fade in over");
-    this.appendDummyInput()
-        .appendField("milliseconds");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Immediately covers the camera with the specified colour. Then fades back in over a given time.\nUseful for fading back in after fading out, or as a big hit effect.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#flash");
-  }
+    init: function () {
+        this.appendValueInput("COLOUR")
+            .setCheck('Colour')
+            .appendField("flash screen to");
+        this.appendValueInput("TIME")
+            .setCheck('Number')
+            .appendField("then fade in over");
+        this.appendDummyInput()
+            .appendField("milliseconds");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Immediately covers the camera with the specified colour. Then fades back in over a given time.\nUseful for fading back in after fading out, or as a big hit effect.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#flash");
+    }
 };
 
 Blockly.Blocks['camera_focus_on'] = {
-  init: function() {
-    this.appendValueInput("OBJECT")
-        .setCheck(null)
-        .appendField("focus camera on");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Immediately centers the camera on the specified game object.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOn");
-  }
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .appendField("focus camera on");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Immediately centers the camera on the specified game object.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOn");
+    }
 };
 
 Blockly.Blocks['camera_focus_on_xy'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("focus camera on position at");
-    this.appendValueInput("POSX")
-        .setCheck(null)
-        .appendField("x");
-    this.appendValueInput("POSY")
-        .setCheck(null)
-        .appendField("y");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Immediately centers the camera on a given position.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOnXY");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("focus camera on position at");
+        this.appendValueInput("POSX")
+            .setCheck('Number')
+            .appendField("x");
+        this.appendValueInput("POSY")
+            .setCheck('Number')
+            .appendField("y");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Immediately centers the camera on a given position.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOnXY");
+    }
 };
 
 Blockly.Blocks['camera_reset'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("reset camera");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Completely resets the camera. It goes back to (0, 0), stops following anything, and removes all effects such as shake or flash.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#reset");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("reset camera");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Completely resets the camera. It goes back to (0, 0), stops following anything, and removes all effects such as shake or flash.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#reset");
+    }
 };
 
 Blockly.Blocks['camera_reset_fx'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("reset camera effects");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Removes visual effects from the camera such as fading in/out. Does not affect the position, follow target, or screen shake.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#resetFX");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("reset camera effects");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Removes visual effects from the camera such as fading in/out. Does not affect the position, follow target, or screen shake.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#resetFX");
+    }
 };
 
 Blockly.Blocks['camera_set_bounds_to_world'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("set camera bounds to world");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("The camera bounds are not the size of what it shows, but the space it can move around in.\nThis sets those bounds so that the camera can view the entire world, but nothing more.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setBoundsToWorld");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set camera bounds to world bounds");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("The camera bounds are not the size of what it shows, but the space it can move around in.\nThis sets those bounds so that the camera can view the entire world, but nothing more.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setBoundsToWorld");
+    }
 };
 
 Blockly.Blocks['camera_set_position'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("set camera position to");
-    this.appendValueInput("POSX")
-        .setCheck(null)
-        .appendField("x");
-    this.appendValueInput("POSY")
-        .setCheck(null)
-        .appendField("y");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Jumps the camera immediately to the given position.\nNote that the camera's position is its upper left corner, not its center.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setPosition");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set camera position to");
+        this.appendValueInput("POSX")
+            .setCheck('Number')
+            .appendField("x");
+        this.appendValueInput("POSY")
+            .setCheck('Number')
+            .appendField("y");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Jumps the camera immediately to the given position.\nNote that the camera's position is its upper left corner, not its center.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setPosition");
+    }
 };
 
 Blockly.Blocks['camera_set_size'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("set camera size");
-    this.appendValueInput("WIDTH")
-        .setCheck(null)
-        .appendField("width");
-    this.appendValueInput("HEIGHT")
-        .setCheck(null)
-        .appendField("height");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Sets the size of the camera's view window.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setSize");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set camera size");
+        this.appendValueInput("WIDTH")
+            .setCheck('Number')
+            .appendField("width");
+        this.appendValueInput("HEIGHT")
+            .setCheck('Number')
+            .appendField("height");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Sets the size of the camera's view window.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setSize");
+    }
 };
 
 Blockly.Blocks['camera_shake'] = {
-  init: function() {
-    this.appendValueInput("INTENSITY")
-        .setCheck(null)
-        .appendField("shake the camera");
-    this.appendValueInput("DURATION")
-        .setCheck(null)
-        .appendField("% of the screen")
-        .appendField(new Blockly.FieldDropdown([["every direction","SHAKE_BOTH"], ["vertically","SHAKE_VERTICAL"], ["horizontally","SHAKE_HORIZONTAL"]]), "DIRECTION")
-        .appendField("for");
-    this.appendDummyInput()
-        .appendField("milliseconds");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Screen shake. Great for impact effects, or just a little extra umph, but don't go overboard.\nThe screen percentage goes from 0 to 1.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#shake");
-  }
+    init: function () {
+        this.appendValueInput("INTENSITY")
+            .setCheck('Number')
+            .appendField("shake the camera");
+        this.appendDummyInput()
+            .appendField('% intensity');
+        this.appendValueInput("DURATION")
+            .setCheck('Number')
+            .appendField(new Blockly.FieldDropdown([["horizontal and vertical", "SHAKE_BOTH"], ["vertically", "SHAKE_VERTICAL"], ["horizontally", "SHAKE_HORIZONTAL"]]), "DIRECTION")
+            .appendField("for");
+        this.appendDummyInput()
+            .appendField("milliseconds");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Screen shake. Great for impact effects, or just a little extra umph, but don't go overboard.\nThe intensity goes from 0 to 1. % of bounds it can move");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#shake");
+    }
 };
 
 Blockly.Blocks['camera_unfollow'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("stop camera follow");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_CAMERA_COLOUR);
- this.setTooltip("Makes the camera stop following anything. Equivalent to making the camera follow null.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#unfollow");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("stop camera follow");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Makes the camera stop following anything. Equivalent to making the camera follow null.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#unfollow");
+    }
 };
 //endregion
 //endregion
