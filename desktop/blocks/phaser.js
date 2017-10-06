@@ -3911,6 +3911,181 @@ Blockly.Blocks['camera_follow_vi'] = {
     }
 };
 
+Blockly.Blocks['camera_fade'] = {
+    init: function () {
+        this.appendValueInput("COLOUR")
+            .setCheck('Colour')
+            .appendField("fade screen to");
+        this.appendValueInput("TIME")
+            .setCheck('Number')
+            .appendField("over");
+        this.appendDummyInput()
+            .appendField("milliseconds");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Fades the screen to the specified colour over time. Ends with the screen completely obscured.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#fade");
+    }
+};
+
+Blockly.Blocks['camera_flash'] = {
+    init: function () {
+        this.appendValueInput("COLOUR")
+            .setCheck('Colour')
+            .appendField("flash screen to");
+        this.appendValueInput("TIME")
+            .setCheck('Number')
+            .appendField("then fade in over");
+        this.appendDummyInput()
+            .appendField("milliseconds");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Immediately covers the camera with the specified colour. Then fades back in over a given time.\nUseful for fading back in after fading out, or as a big hit effect.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#flash");
+    }
+};
+
+Blockly.Blocks['camera_focus_on'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .appendField("focus camera on");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Immediately centers the camera on the specified game object.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOn");
+    }
+};
+
+Blockly.Blocks['camera_focus_on_xy'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("focus camera on position at");
+        this.appendValueInput("POSX")
+            .setCheck('Number')
+            .appendField("x");
+        this.appendValueInput("POSY")
+            .setCheck('Number')
+            .appendField("y");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Immediately centers the camera on a given position.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOnXY");
+    }
+};
+
+Blockly.Blocks['camera_reset'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("reset camera");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Completely resets the camera. It goes back to (0, 0), stops following anything, and removes all effects such as shake or flash.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#reset");
+    }
+};
+
+Blockly.Blocks['camera_reset_fx'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("reset camera effects");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Removes visual effects from the camera such as fading in/out. Does not affect the position, follow target, or screen shake.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#resetFX");
+    }
+};
+
+Blockly.Blocks['camera_set_bounds_to_world'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set camera bounds to world bounds");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("The camera bounds are not the size of what it shows, but the space it can move around in.\nThis sets those bounds so that the camera can view the entire world, but nothing more.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setBoundsToWorld");
+    }
+};
+
+Blockly.Blocks['camera_set_position'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set camera position to");
+        this.appendValueInput("POSX")
+            .setCheck('Number')
+            .appendField("x");
+        this.appendValueInput("POSY")
+            .setCheck('Number')
+            .appendField("y");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Jumps the camera immediately to the given position.\nNote that the camera's position is its upper left corner, not its center.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setPosition");
+    }
+};
+
+Blockly.Blocks['camera_set_size'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("set camera size");
+        this.appendValueInput("WIDTH")
+            .setCheck('Number')
+            .appendField("width");
+        this.appendValueInput("HEIGHT")
+            .setCheck('Number')
+            .appendField("height");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Sets the size of the camera's view window.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setSize");
+    }
+};
+
+Blockly.Blocks['camera_shake'] = {
+    init: function () {
+        this.appendValueInput("INTENSITY")
+            .setCheck('Number')
+            .appendField("shake the camera");
+        this.appendDummyInput()
+            .appendField('% intensity');
+        this.appendValueInput("DURATION")
+            .setCheck('Number')
+            .appendField(new Blockly.FieldDropdown([["horizontal and vertical", "SHAKE_BOTH"], ["vertically", "SHAKE_VERTICAL"], ["horizontally", "SHAKE_HORIZONTAL"]]), "DIRECTION")
+            .appendField("for");
+        this.appendDummyInput()
+            .appendField("milliseconds");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Screen shake. Great for impact effects, or just a little extra umph, but don't go overboard.\nThe intensity goes from 0 to 1. % of bounds it can move");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#shake");
+    }
+};
+
+Blockly.Blocks['camera_unfollow'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("stop camera follow");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_CAMERA_COLOUR);
+        this.setTooltip("Makes the camera stop following anything. Equivalent to making the camera follow null.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#unfollow");
+    }
+};
+
 Blockly.Blocks['camera_follow_vi_styled'] = {
     init: function () {
         this.appendValueInput('OBJECT')
