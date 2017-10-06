@@ -344,6 +344,15 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="add_to_world">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--Not necessary at the moment 0 functions take this-->
+                <!--<block type="get_world_reference"/>-->
             </category>
         </category>
         <category name="Objects" colour="#004d40">
