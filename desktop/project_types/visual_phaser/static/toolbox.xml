@@ -344,6 +344,7 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="get_world_reference"/>
             </category>
         </category>
         <category name="Objects" colour="#004d40">
@@ -926,6 +927,13 @@
                     <value name="GROUP">
                         <shadow type="variables_get">
                             <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_to_world">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
                 </block>
