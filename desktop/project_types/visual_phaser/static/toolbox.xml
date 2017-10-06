@@ -1863,10 +1863,49 @@
         </category>
         <category name="Camera" colour="#607d8b">
             <!--TODO: Implement blocks that have been commented out-->
-            <!--<block type="camera_fade"></block>-->
-            <!--<block type="camera_flash"></block>-->
-            <!--<block type="camera_focus_on"></block>-->
-            <!--<block type="camera_focus_on_xy"></block>-->
+            <block type="camera_fade">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#000000</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_flash">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">300</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_focus_on">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_focus_on_xy">
+                <value name="POSX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="POSY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
             <block type="camera_follow_vi">
                 <value name="OBJECT">
                     <shadow type="variables_get">
@@ -1881,13 +1920,46 @@
                     </shadow>
                 </value>
             </block>
-            <!--<block type="camera_reset"></block>-->
-            <!--<block type="camera_reset_fx"></block>-->
-            <!--<block type="camera_set_bounds_to_world"></block>-->
-            <!--<block type="camera_set_position"></block>-->
-            <!--<block type="camera_set_size"></block>-->
-            <!--<block type="camera_shake"></block>-->
-            <!--<block type="camera_unfollow"></block>-->
+            <block type="camera_reset"></block>
+            <block type="camera_reset_fx"></block>
+            <block type="camera_set_bounds_to_world"></block>
+            <block type="camera_set_position">
+                <value name="POSX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="POSY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_set_size">
+                <value name="WIDTH">
+                    <shadow type="math_number">
+                        <field name="NUM">800</field>
+                    </shadow>
+                </value>
+                <value name="HEIGHT">
+                    <shadow type="math_number">
+                        <field name="NUM">600</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_shake">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0.05</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">300</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_unfollow"></block>
         </category>
         <category name="Sound" colour="#827717">
             <block type="load_sound">

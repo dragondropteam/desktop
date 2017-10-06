@@ -1575,3 +1575,77 @@ Blockly.JavaScript['sound_restart'] = function(block) {
     return `${object}.play('', ${position}, ${volume}, ${loop});\n`;
 };
 //endregion
+
+//region CAMERA
+Blockly.JavaScript['camera_fade'] = function(block) {
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const toHexColorFunc = Blockly.JavaScript.provideFunction_(
+      'toHexColor',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+      '(color) {',
+          'return color.replace("#", "0x");',
+          '}']);
+
+  return `game.camera.fade(${toHexColorFunc}(${colour}), ${time}, true);\n`;
+};
+
+Blockly.JavaScript['camera_flash'] = function(block) {
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const toHexColorFunc = Blockly.JavaScript.provideFunction_(
+      'toHexColor',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+      '(color) {',
+          'return color.replace("#", "0x");',
+          '}']);
+
+  return `game.camera.flash(${toHexColorFunc}(${colour}), ${time}, true);\n`;
+};
+
+Blockly.JavaScript['camera_focus_on'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.focusOn(${object});\n`;
+};
+
+Blockly.JavaScript['camera_focus_on_xy'] = function(block) {
+  const posX = Blockly.JavaScript.valueToCode(block, 'POSX', Blockly.JavaScript.ORDER_ATOMIC);
+  const posY = Blockly.JavaScript.valueToCode(block, 'POSY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.focusOnXY(${posX}, ${posY});\n`;
+};
+
+Blockly.JavaScript['camera_reset'] = function(block) {
+  return `game.camera.reset();\n`;
+};
+
+Blockly.JavaScript['camera_reset_fx'] = function(block) {
+  return `game.camera.resetFX();\n`;
+};
+
+Blockly.JavaScript['camera_set_bounds_to_world'] = function(block) {
+  return `game.camera.setBoundsToWorld();\n`;
+};
+
+Blockly.JavaScript['camera_set_position'] = function(block) {
+  const posX = Blockly.JavaScript.valueToCode(block, 'POSX', Blockly.JavaScript.ORDER_ATOMIC);
+  const posY = Blockly.JavaScript.valueToCode(block, 'POSY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.setPosition(${posX}, ${posY});\n`;
+};
+
+Blockly.JavaScript['camera_set_size'] = function(block) {
+  const width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC);
+  const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.setSize(${width}, ${height});\n`;
+};
+
+Blockly.JavaScript['camera_shake'] = function(block) {
+  const intensity = Blockly.JavaScript.valueToCode(block, 'INTENSITY', Blockly.JavaScript.ORDER_ATOMIC);
+  const direction = block.getFieldValue('DIRECTION');
+  const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.shake(${intensity}, ${duration}, true, Phaser.Camera.${direction});\n`;
+};
+
+Blockly.JavaScript['camera_unfollow'] = function(block) {
+  return `game.camera.unfollow();\n`;
+};
+//endregion
