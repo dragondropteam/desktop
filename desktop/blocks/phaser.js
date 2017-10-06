@@ -1706,6 +1706,21 @@ Blockly.Blocks['group_remove_all'] = {
     }
 };
 
+Blockly.Blocks['add_to_world'] = {
+  init: function() {
+    this.appendValueInput("OBJECT")
+        .setCheck(null)
+        .appendField("add");
+    this.appendDummyInput()
+        .appendField("to the world");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+ this.setTooltip("Adds an existing object to the world group. Necessary for making an object that has been previously removed from a  group visible again.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.World.html#add");
+  }
+};
 //endregion
 
 //region PHYSICS
@@ -2433,6 +2448,16 @@ Blockly.Blocks['create_point'] = {
     }
 };
 
+Blockly.Blocks['get_world_reference'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("world");
+    this.setOutput(true, null);
+    this.setColour(PHASER_WORLD_COLOUR);
+ this.setTooltip("Returns a reference to the game world. It functions as a group.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.World.html");
+  }
+};
 //endregion
 
 //region GAME OBJECT

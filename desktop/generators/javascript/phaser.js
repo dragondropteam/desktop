@@ -549,6 +549,10 @@ Blockly.JavaScript['group_remove_all'] = function (block) {
     return `${group}.removeAll(${destroyChildren});\n`;
 };
 
+Blockly.JavaScript['add_to_world'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.world.add(${object});\n`;
+};
 //endregion
 
 //region PHYSICS
@@ -992,6 +996,10 @@ Blockly.JavaScript['get_param'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
 
     return [`${object}.${param_name}`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['get_world_reference'] = function(block) {
+  return [`game.world`, Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
 
@@ -1567,4 +1575,3 @@ Blockly.JavaScript['sound_restart'] = function(block) {
     return `${object}.play('', ${position}, ${volume}, ${loop});\n`;
 };
 //endregion
-
