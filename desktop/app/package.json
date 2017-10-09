@@ -24,6 +24,7 @@
     "angular-material": "*",
     "arduino": "file:project_types/arduino",
     "arduino_core": "file:arduino_core",
+    "compare-versions": "^3.1.0",
     "electron-store": "*",
     "filesystem": "file:filesystem",
     "fs-extra": "^4.0.0",
