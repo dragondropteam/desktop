@@ -1989,7 +1989,7 @@ Blockly.Blocks['set_body_numeric_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("set")
-            .appendField(new Blockly.FieldDropdown([['mass', 'mass'], ['rotation (degrees)', 'rotation'], ['maxVelocity', 'maxVelocity'], ['angularAcceleration', 'angularAcceleration'], ['angularVelocity', 'angularVelocity'], ['maxAngularVelocity', 'maxAngularVelocity'], ['angularDrag', 'angularDrag']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown([['mass', 'mass'], ['rotation (degrees)', 'rotation'], ['angularAcceleration', 'angularAcceleration'], ['angularVelocity', 'angularVelocity'], ['maxAngularVelocity', 'maxAngular'], ['angularDrag', 'angularDrag']]), "ELEMENT")
             .appendField("for");
         this.appendValueInput('OBJECT');
         this.appendValueInput('VALUE')
