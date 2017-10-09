@@ -1003,9 +1003,9 @@ Blockly.JavaScript['get_world_reference'] = function(block) {
 };
 //endregion
 
-//region GAME OBJECT
+//region GAMEOBJECT
 
-//region GAME OBJECT PROPERTIES
+//region GAMEOBJECT.PROPERTIES
 Blockly.JavaScript['set_game_object_point_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const field = block.getFieldValue('PROPERTY');
@@ -1063,7 +1063,7 @@ Blockly.JavaScript['faint_object'] = function (block) {
     return `${object}.faint();\n`;
 };
 
-Blockly.JavaScript['kill_object'] = function (block) {
+Blockly.JavaScript['destroy_object'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     return `${object}.destroy();\n`;
 };
