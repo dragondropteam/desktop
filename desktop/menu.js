@@ -1,5 +1,6 @@
 const electron = require('electron');
 const Menu = electron.Menu;
+const {BrowserWindow} = require('electron');
 
 exports.createProjectMenu = function(){
   const template = [
@@ -38,7 +39,11 @@ exports.createProjectMenu = function(){
 
             fs.copy(loadedproject.project.loadPath + '/' + loadedproject.project.project.name + '.xml', project.project.loadPath + '/' + project.project.project.name + '.xml', function(err){
               if(err){
-                dialog.showErrorBox("Could not save project", err);
+                electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                  type: 'error',
+                  title: 'Dragon Drop Error',
+                  message: `Could not save project\n${err}`
+                });
                 return;
               }
 
@@ -100,7 +105,11 @@ exports.createProjectMenu = function(){
                 //success
                 electron.dialog.showMessageBox({type: "info", message: "Program Uploaded To Arduino", buttons: ["OK"]});
               }else{
-                electron.dialog.showErrorBox("Error Uploading To Arduino", runningOutput);
+                electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                  type: 'error',
+                  title: 'Dragon Drop Error',
+                  message: `Error Uploading To Arduino\n${runningOutput}`
+                });
               }
               console.log(`child process exited with code ${code}`);
 

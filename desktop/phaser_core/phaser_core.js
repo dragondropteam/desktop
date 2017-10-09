@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const {exec} = require('child_process');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
+const {BrowserWindow} = require('electron');
 
 const builder = require("electron-builder");
 const Platform = builder.Platform;
@@ -207,6 +208,33 @@ exports.setupPhaserMenu = (menu, project) => {
             break;
     }
 
+
+    menu['Step'] = [];
+
+    menu['Step'].push({
+        label: 'Pause Execution',
+        click(item, displayedWindow){
+            displayedWindow.send('pause_execution');
+        },
+        accelerator: 'F5'
+    });
+
+    menu['Step'].push({
+        label: 'Step Execution',
+        click(item, displayedWindow){
+            displayedWindow.send('step_execution');
+        },
+        accelerator: 'F6'
+    });
+
+    menu['Step'].push({
+        label: 'Resume Execution',
+        click(item, displayedWindow){
+            displayedWindow.send('resume_execution');
+        },
+        accelerator: 'F7'
+    });
+
     menu['Project'].push({
         label: `Open Assets Directory in ${label}`,
         click(item, displayedWindow){
@@ -218,6 +246,7 @@ exports.setupPhaserMenu = (menu, project) => {
                 .catch((error) =>{
                     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                         type: 'error',
+                        title: 'Dragon Drop Error',
                         message: error.getMsg()
                     });
                 });

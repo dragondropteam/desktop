@@ -14,8 +14,7 @@ goog.provide('Blockly.Blocks.dom');
 goog.require('Blockly.Blocks');
 
 //region document methods
-const DOM_COLOUR = '#bcd5d1';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+const DOM_COLOUR = '#bcd5d1';
 
 Blockly.Blocks['getelementbyid'] = {
     init: function () {
@@ -79,7 +78,7 @@ Blockly.Blocks['set_width'] = {
 };
 
 Blockly.Blocks['add_event_listener'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField("add event listener to dom element")
             .appendField(new Blockly.FieldVariable("element"), "ELEMENT")
@@ -99,31 +98,31 @@ Blockly.Blocks['add_event_listener'] = {
 };
 
 Blockly.Blocks['set_attribute'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("for dom element")
-        .appendField(new Blockly.FieldVariable("element"), "ELEMENT")
-        .appendField("set Attribute")
-        .appendField(new Blockly.FieldTextInput("attribute"), "ATTRIBUTE")
-        .appendField(new Blockly.FieldTextInput("value"), "VALUE");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(DOM_COLOUR);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("for dom element")
+            .appendField(new Blockly.FieldVariable("element"), "ELEMENT")
+            .appendField("set Attribute")
+            .appendField(new Blockly.FieldTextInput("attribute"), "ATTRIBUTE")
+            .appendField(new Blockly.FieldTextInput("value"), "VALUE");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(DOM_COLOUR);
+    }
 };
 
 Blockly.Blocks['console_log'] = {
-  init: function() {
-    this.appendValueInput("VALUE")
-        .setCheck(null)
-        .appendField("console log");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(DOM_COLOUR);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  }
+    init: function () {
+        this.appendValueInput("VALUE")
+            .setCheck(null)
+            .appendField("console log");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(DOM_COLOUR);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
 };
 //endregion document methods

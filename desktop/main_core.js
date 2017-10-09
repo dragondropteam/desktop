@@ -23,6 +23,7 @@ const path = require('path');
 
 const {dialog} = require('electron');
 const {app} = require('electron');
+//const {BrowserWindow} = require('electron');
 
 const {ipcMain} = require('electron');
 const projects = require('project');
@@ -258,7 +259,11 @@ function createProjectMenu(arg) {
             if (fs.existsSync(loadedproject.getBlocksPath())) {
                 fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
                     if (err) {
-                        dialog.showErrorBox(`Could not save ${project.getName()}`, err.message);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: 'Dragon Drop Error',
+                          message: `Could not save ${project.getName()}\n${err.message}`
+                        });
                         return;
                     }
 
@@ -269,7 +274,11 @@ function createProjectMenu(arg) {
             if(fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"))){
                 fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"), pathmod.join(project.loadPath, project.getName(), "js"), function (err) {
                     if (err) {
-                        dialog.showErrorBox(`Could not save ${project.getName()}`, err.message);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: 'Dragon Drop Error',
+                          message: `Could not save ${project.getName()}\n${err.message}`
+                        });
                     }
                 });
             }
@@ -277,7 +286,11 @@ function createProjectMenu(arg) {
             if(fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"))){
                 fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"), pathmod.join(project.loadPath, project.getName(), "assets"), function (err) {
                     if (err) {
-                        dialog.showErrorBox(`Could not save ${project.getName()}`, err.message);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: 'Dragon Drop Error',
+                          message: `Could not save ${project.getName()}\n${err.message}`
+                        });
                     }
                 });
             }
@@ -316,7 +329,11 @@ function createProjectMenu(arg) {
             if (zipFile) {
                 zipfolder(arg.loadPath, zipFile, (err) => {
                     if (err) {
-                        dialog.showErrorBox('Archive Failed', `Could not archive project\n${err.message()}`);
+                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                          type: 'error',
+                          title: 'Dragon Drop Error',
+                          message: `Could not archive project\n${err.message()}`
+                        });
                     } else {
                         dialog.showMessageBox({
                             title: 'Project Archived',
@@ -339,7 +356,12 @@ function createProjectMenu(arg) {
         addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
-        dialog.showErrorBox('Could not create menu', 'Menu could not be created!');
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: 'Menu could not be created!'
+        });
+
     }, createProjectMenu);
 }
 
@@ -366,7 +388,11 @@ ipcMain.on('create_new_project', (event, project, type) => {
         displayProject(newProject);
     } else {
         const {dialog} = require('electron');
-        dialog.showErrorBox('Could not create loadedProject', 'Check the path and try again!');
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: 'Could not create loadedProject\nCheck the path and try again!'
+        });
     }
 
     if (createProjectWindow) {
@@ -408,18 +434,17 @@ function loadProjectDialog() {
     loadProjectFromPath(pathToProject[0]);
 }
 
-//region PromptReponse
+//region PromptResponse
 let promptResponse;
 ipcMain.on('prompt', function (eventRet, arg) {
     promptResponse = null;
     let promptWindow = new BrowserWindow({
+        parent: BrowserWindow.getFocusedWindow(),
+        modal: true,
         width: 300,
         height: 200,
         show: false,
-        resizable: false,
-        movable: false,
-        alwaysOnTop: true,
-        frame: false
+        resizable: false
     });
     arg.val = arg.val || '';
     const promptHtml = '<label for="val">' + arg.title + '</label>\
@@ -530,7 +555,11 @@ function loadProjectFromPath(projectPath) {
         if (project !== null) {
             displayProject(project);
          } else {
-            dialog.showErrorBox('Could not open project', `Could not open project at ${projectPath}`);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Dragon Drop Error',
+              message: `Could not open project at ${projectPath}`
+            });
         }
     }catch(ex){
         console.error(ex);
@@ -565,7 +594,7 @@ app.on('ready', function () {
     }
     // Create the browser window.
     mainWindow = new BrowserWindow({width: 600, height: 500, resizable: false});
-    
+
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
     } else {

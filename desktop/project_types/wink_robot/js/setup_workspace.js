@@ -8,6 +8,9 @@ const {Workspace} = require('../../../workspace');
 const {WorkspaceConfig} = require('../../../workspace');
 const path = require('path');
 const fs = require('fs-extra');
+const {app} = require('electron').remote;
+const {Browser} = require('electron').remote;
+
 let loadedProject = null;
 
 let toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
@@ -103,6 +106,7 @@ function setCode(blocklyWorkspace) {
 function save() {
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
     const dialog = require('electron').remote.dialog;
+    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
@@ -111,7 +115,11 @@ function save() {
         try {
             fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`), code);
         }catch(err){
-            dialog.showErrorBox('Error in code!', err.message);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Dragon Drop Error',
+              message: `Error in code!\n${err.message}`
+            });
             console.log(err);
             return false;
         }
@@ -119,14 +127,22 @@ function save() {
         try{
             fs.writeFileSync(loadedProject.getBlocksPath() , xml);
         }catch(err){
-            dialog.showErrorBox('Error in code!', err.message);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Dragon Drop Error',
+              message: `Error in code!\n${err.message}`
+            });
             console.log(err);
             return false;
         }
 
         return true;
     } catch (e) {
-        dialog.showErrorBox('Error in code', e.message);
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: `Error in code!\n${e.message}`
+        });
         console.log(e);
         return false;
     }
@@ -142,35 +158,60 @@ function setBlocklyBlocks(data) {
 
 function loadProjectFile(project) {
 
-    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+    try {
+        let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
 
-    loadedProject = project;
+        loadedProject = project;
 
-    document.title = `DragonDrop - ${loadedProject.loadPath}`;
+        document.title = `DragonDrop - ${loadedProject.loadPath}`;
 
-    fs.readFile(loadedProject.getBlocksPath(), (err, data) => {
-        if (err) {
-            //No XML add the starting blocks
-            let xml = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml">\n' +
-                '<block type="hardwarestartup" id=",(1UN`:wW_-XR^e4%e4z" deletable="false" x="13" y="138"></block>\n' +
-                '<block type="loop" id="3XQ,:+8Ta^:x2dcPMRF="  deletable="false" x="13" y="213"></block>\n' +
-                '</xml>');
+        fs.readFile(loadedProject.getBlocksPath(), (err, data) => {
+            if (err) {
+                //No XML add the starting blocks
+                let xml = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml">\n' +
+                    '<block type="hardwarestartup" id=",(1UN`:wW_-XR^e4%e4z" deletable="false" x="13" y="138"></block>\n' +
+                    '<block type="loop" id="3XQ,:+8Ta^:x2dcPMRF="  deletable="false" x="13" y="213"></block>\n' +
+                    '</xml>');
+                Blockly.Xml.domToWorkspace(xml, blocklyWorkspace);
+                return;
+            }
+
+            let xml = Blockly.Xml.textToDom(data);
             Blockly.Xml.domToWorkspace(xml, blocklyWorkspace);
-            return;
-        }
+        });
+    } catch (e) {
+        console.error('Error loading project changes will not be saved');
+        console.error(e);
 
-        let xml = Blockly.Xml.textToDom(data);
-        Blockly.Xml.domToWorkspace(xml, blocklyWorkspace);
-    });
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            parent: Browser.getFocusedWindow(),
+            type: 'error',
+            message: 'Problem saving code execution cannot continue'
+        }, () => {
+            app.quit();
+        });
+    }
 }
 
 function myUpdateFunction(event) {
-    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-    if (event.type == Blockly.Events.CHANGE) {
-        let block = blocklyWorkspace.getBlockById(event.blockId);
-        if (block && block.onchange) {
-            block.onchange(event);
+    try {
+        let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+        if (event.type == Blockly.Events.CHANGE) {
+            let block = blocklyWorkspace.getBlockById(event.blockId);
+            if (block && block.onchange) {
+                block.onchange(event);
+            }
         }
+        save();
+    }catch(err){
+        console.error('Error saving project changes will not be saved');
+        console.error(err);
+
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            type: 'error',
+            message: 'Problem saving code execution cannot continue'
+        }, () => {
+            app.quit();
+        });
     }
-    save();
 }
