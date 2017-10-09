@@ -548,7 +548,18 @@ app.on('window-all-closed', function () {
  */
 function loadProjectFromPath(projectPath) {
     try{
+        const compareVersions = require('compare-versions');
         let json = fs.readJsonSync(projectPath);
+
+        if(compareVersions(global.version, json.version) < 0){
+            console.error('Project is from a newer version of Dragon Drop');
+            dialog.showMessageBox(mainWindow, {
+                type: "error",
+                title: "Dragon Drop Error",
+                message: "Project is from a newer version of Dragon Drop and cannot be loaded.\nUpdate Dragon Drop to continue!"
+            });
+            return;
+        }
         ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
 
         let project = ProjectInterface.loadProject(projectPath);
