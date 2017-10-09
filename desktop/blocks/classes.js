@@ -369,7 +369,7 @@ Blockly.Blocks['class_definition'] = {
     },
     /**
      * Update the display of parameters for this procedure definition block.
-     * Display a warning if there are duplicately named parameters.
+     * Display a warning if there are duplicate named parameters.
      * @private
      * @this Blockly.Block
      */
