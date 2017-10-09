@@ -123,6 +123,7 @@ function save() {
     }
 
     const dialog = require('electron').remote.dialog;
+    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
@@ -132,7 +133,11 @@ function save() {
         try {
             fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), code);
         } catch (err) {
-            dialog.showErrorBox('Error in code!', err.message);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Dragon Drop Error',
+              message: `Error in code!\n${err.message}`
+            });
             console.log(err);
             return false;
         }
@@ -140,14 +145,22 @@ function save() {
         try {
             fs.writeFileSync(loadedProject.getBlocksPath(), xml);
         } catch (err) {
-            dialog.showErrorBox('Error in code!', err.message);
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+              type: 'error',
+              title: 'Dragon Drop Error',
+              message: `Error in code!\n${err.message}`
+            });
             console.log(err);
             return false;
         }
 
         return true;
     } catch (e) {
-        dialog.showErrorBox('Error in code', e.message);
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: `Error in code!\n${e.message}`
+        });
         console.log(e);
         return false;
     }
@@ -159,11 +172,16 @@ function setPhaserSource(loadedProject) {
         phaserComponent.setSource(`file://${path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`)}`);
     }
 }
+
 function setBlocklyBlocks(data) {
-    let blocklyComponent = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT);
-    if (blocklyComponent) {
-        let xml = Blockly.Xml.textToDom(data);
-        Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
+    try {
+        let blocklyComponent = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT);
+        if (blocklyComponent) {
+            let xml = Blockly.Xml.textToDom(data);
+            Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
+        }
+    }catch (e) {
+        workspaceCore.logErrorAndQuit(e, 'loading');
     }
 }
 
@@ -184,11 +202,15 @@ function loadProjectFile(project) {
 }
 
 function myUpdateFunction(event) {
-    if (event.type === Blockly.Events.CHANGE) {
-        const block = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace().getBlockById(event.blockId);
-        if (block && block.onchange) {
-            block.onchange(event);
+    try {
+        if (event.type === Blockly.Events.CHANGE) {
+            const block = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace().getBlockById(event.blockId);
+            if (block && block.onchange) {
+                block.onchange(event);
+            }
         }
+        save();
+    } catch (e) {
+        workspaceCore.logErrorAndQuit(e, 'saving');
     }
-    save();
 }

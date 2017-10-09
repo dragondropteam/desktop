@@ -4,6 +4,30 @@
  * All content Copyright DigiPen Institute of Technology 2016
  */
 
+//region MEMBER_FUNCTIONS
+/**
+ * Generic method to translate a block for a set_<object>_<type>_member block
+ * @param block A block containing two value inputs OBJECT and VALUE representing the object the member is on and the value to set it to and a field ELEMENT to determine the member
+ * @return {[string,*]}
+ */
+function getMember(block){
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const element = block.getFieldValue('ELEMENT');
+    return [`${object}.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
+}
+
+/**
+ * Generic method to translate a block for a get_<object>_<type>_member block
+ * @param block A block containing a value input OBJECT representing the object the member is on and a field ELEMENT to determine the member
+ * @return {string}
+ */
+function setMember(block){
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const element = block.getFieldValue('ELEMENT');
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.${element} = ${value};\n`;
+}
+//endregion
 //region STARTUP
 Blockly.JavaScript['phaser_simple_init'] = function (block) {
 
@@ -292,6 +316,12 @@ Blockly.JavaScript['out_of_bounds_kill'] = function (block) {
     return `${value_object}.outOfBoundsKill = ${value_bool};\n`;
 };
 
+Blockly.JavaScript['out_of_bounds_faint'] = function (block) {
+    const value_object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const value_bool = Blockly.JavaScript.valueToCode(block, 'BOOL', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${value_object}.outOfBoundsFaint = ${value_bool};\n`;
+};
+
 /**
  * @deprecated
  * @param block
@@ -427,6 +457,15 @@ Blockly.JavaScript['create_object_in_group_with_frame'] = function (block) {
     return [`${group}.create(${xPos}, ${yPos}, '${tag}, ${frame}')`, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['create_object_in_group_with_frame_vi'] = function (block) {
+    const xPos = Blockly.JavaScript.valueToCode(block, 'X_POS', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const yPos = Blockly.JavaScript.valueToCode(block, 'Y_POS', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const frame = Blockly.JavaScript.valueToCode(block, 'FRAME', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.create(${xPos}, ${yPos}, ${tag}, ${frame})`, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['call_function_on_group'] = function (block) {
     const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
     const func_name = Blockly.JavaScript.valueToCode(block, 'FUNCTION', Blockly.JavaScript.ORDER_ATOMIC);
@@ -434,6 +473,86 @@ Blockly.JavaScript['call_function_on_group'] = function (block) {
     return `${group}.forEachAlive(${func_name}, this);\n`;
 };
 
+Blockly.JavaScript['add_to_group'] = function (block) {
+    const newItem = Blockly.JavaScript.valueToCode(block, 'NEW_ITEM', Blockly.JavaScript.ORDER_ATOMIC);
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${group}.add(${newItem});\n`;
+};
+
+Blockly.JavaScript['remove_from_group'] = function (block) {
+    const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    const destroy = block.getFieldValue('DESTROY') == 'TRUE';
+    return `${group}.remove(${child}, ${destroy});\n`;
+};
+
+Blockly.JavaScript['group_contains'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    const child = Blockly.JavaScript.valueToCode(block, 'CHILD', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.contains(${child})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_count_alive_dead'] = function (block) {
+    const state = block.getFieldValue('STATE');
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.count${state}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['destroy_group'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    const handleChildren = block.getFieldValue('HANDLE_CHILDREN') == 'TRUE';
+    return `${group}.destroy(${handleChildren});\n`;
+};
+
+Blockly.JavaScript['group_get_all'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getAll()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_at'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getAt(${index})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_closest_to'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getClosestTo(${object})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_first_alive_dead'] = function (block) {
+    const mode = block.getFieldValue('MODE');
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getFirst${mode}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_first_alive_fainted'] = function (block) {
+    const mode = block.getFieldValue('MODE');
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getFirst${mode}()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_random'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getRandom()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_get_random_exists'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.getRandomExists()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['group_remove_all'] = function (block) {
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    const destroyChildren = block.getFieldValue('DESTROY_CHILDREN') == 'TRUE';
+    return `${group}.removeAll(${destroyChildren});\n`;
+};
+
+Blockly.JavaScript['add_to_world'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.world.add(${object});\n`;
+};
 //endregion
 
 //region PHYSICS
@@ -481,6 +600,13 @@ Blockly.JavaScript['enable_arcade_physics_for_object_vi'] = function (block) {
 //endregion
 
 //region BODY
+
+Blockly.JavaScript['debug_body'] = function (block) {
+    const body = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC);
+
+    return `game.debug.body(${body});\n`;
+};
+
 Blockly.JavaScript['set_body_field_point'] = function (block) {
     const field = block.getFieldValue('FIELD');
     const element = block.getFieldValue('ELEMENT');
@@ -501,10 +627,9 @@ Blockly.JavaScript['set_body_field_point_vi'] = function (block) {
 
 Blockly.JavaScript['set_body_field_point_class_vi'] = function (block) {
     const field = block.getFieldValue('FIELD');
-    const element = block.getFieldValue('ELEMENT');
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC) || 'new Point()';
-    return `${object}.body.${field}.${element} = ${point};\n`;
+    return `${object}.body.${field} = ${point};\n`;
 };
 
 Blockly.JavaScript['get_body_field_point_class'] = function (block) {
@@ -546,6 +671,14 @@ Blockly.JavaScript['create_object_in_group'] = function (block) {
     const tag = block.getFieldValue('TAG');
     const group = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('GROUP'), Blockly.Variables.NAME_TYPE);
     return [`${group}.create(${xPos}, ${yPos}, '${tag}')`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['create_object_in_group_vi'] = function (block) {
+    const xPos = Blockly.JavaScript.valueToCode(block, 'X_POS', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const yPos = Blockly.JavaScript.valueToCode(block, 'Y_POS', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`${group}.create(${xPos}, ${yPos}, ${tag})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['collide'] = function (block) {
@@ -637,9 +770,9 @@ Blockly.JavaScript['move_to_object'] = function (block) {
 };
 
 Blockly.JavaScript['acceleration_from_rotation'] = function (block) {
-    const value_rotation = Blockly.JavaScript.valueToCode(block, 'rotation', Blockly.JavaScript.ORDER_ATOMIC);
-    const value_speed = Blockly.JavaScript.valueToCode(block, 'speed', Blockly.JavaScript.ORDER_ATOMIC);
-    return [`game.physics.arcade.accelerationFromRotation(${value_rotation}, ${value_speed})`, Blockly.JavaScript.ORDER_NONE];
+    const rotation = Blockly.JavaScript.valueToCode(block, 'ROTATION', Blockly.JavaScript.ORDER_ATOMIC);
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.physics.arcade.accelerationFromRotation(${rotation}, ${speed})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 //endregion
@@ -660,6 +793,11 @@ Blockly.JavaScript['play_animation_vi'] = function (block) {
 
 Blockly.JavaScript['stop_animation'] = function (block) {
     const object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
+    return `${object}.animations.stop();\n`;
+};
+
+Blockly.JavaScript['stop_animation_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     return `${object}.animations.stop();\n`;
 };
 
@@ -779,6 +917,19 @@ Blockly.JavaScript['set_animation_property_vi'] = function (block) {
 //endregion
 
 //region INPUT
+
+//region MOUSE
+Blockly.JavaScript['get_current_mouse_position'] = function (block) {
+    const direction = block.getFieldValue('DIRECTION');
+    return [`game.input.${direction}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['is_mouse_button_clicked'] = function (block) {
+    return [`game.input.mousePointer.${block.getFieldValue('BUTTON')}.isDown`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+//endregion
+
+//region Keyboard
 Blockly.JavaScript['create_cursor_keys'] = function (block) {
     return ['game.input.keyboard.createCursorKeys()', Blockly.JavaScript.ORDER_NONE];
 };
@@ -787,6 +938,7 @@ Blockly.JavaScript['is_key_down'] = function (block) {
     const dropdown_key = block.getFieldValue('KEY');
     return [`game.input.keyboard.isDown(Phaser.Keyboard.${dropdown_key})`, Blockly.JavaScript.ORDER_NONE];
 };
+//endregion
 //endregion
 
 //region WORLD
@@ -845,11 +997,15 @@ Blockly.JavaScript['get_param'] = function (block) {
 
     return [`${object}.${param_name}`, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['get_world_reference'] = function(block) {
+  return [`game.world`, Blockly.JavaScript.ORDER_NONE];
+};
 //endregion
 
-//region GAME OBJECT
+//region GAMEOBJECT
 
-//region GAME OBJECT PROPERTIES
+//region GAMEOBJECT.PROPERTIES
 Blockly.JavaScript['set_game_object_point_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const field = block.getFieldValue('PROPERTY');
@@ -902,6 +1058,16 @@ Blockly.JavaScript['kill_object'] = function (block) {
     return `${object}.kill();\n`;
 };
 
+Blockly.JavaScript['faint_object'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.faint();\n`;
+};
+
+Blockly.JavaScript['destroy_object'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.destroy();\n`;
+};
+
 Blockly.JavaScript['object_inCamera'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     return [`${object}.inCamera`, Blockly.JavaScript.ORDER_NONE];
@@ -909,13 +1075,20 @@ Blockly.JavaScript['object_inCamera'] = function (block) {
 Blockly.JavaScript['camera_follow'] = function (block) {
     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
     // TODO: Assemble JavaScript into code variable.
-    return `game.camera.follow(${variable_object});\n`;
+    return `game.camera.follow(${variable_object}, undefined, 0.5, 0.5);\n`;
 
 };
 
 Blockly.JavaScript['camera_follow_vi'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
-    return `game.camera.follow(${object});\n`;
+    return `game.camera.follow(${object}, undefined, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
+
+};
+
+Blockly.JavaScript['camera_follow_vi_styled'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const style = block.getFieldValue('STYLE');
+    return `game.camera.follow(${object}, Phaser.Camera.${style}, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
 
 };
 
@@ -1042,7 +1215,7 @@ Blockly.JavaScript['emitters_make_particles'] = function (block) {
     return `${variable_emitter}.makeParticles('${text_tag}');\n`;
 };
 
-Blockly.JavaScript['emitter_make_particles'] = function(block) {
+Blockly.JavaScript['emitter_make_particles'] = function (block) {
     const emitter = Blockly.JavaScript.valueToCode(block, 'EMITTER', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const keys = Blockly.JavaScript.valueToCode(block, 'KEYS', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const frames = Blockly.JavaScript.valueToCode(block, 'FRAMES', Blockly.JavaScript.ORDER_ATOMIC) || '0';
@@ -1215,6 +1388,7 @@ Blockly.JavaScript['rectangle_create'] = function (block) {
     return [`new Phaser.Rectangle(${x}, ${y}, ${width}, ${height})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+//region POINT
 Blockly.JavaScript['point_create'] = function (block) {
     const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC) || 0;
@@ -1232,5 +1406,246 @@ Blockly.JavaScript['point_set_element'] = function (block) {
     const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
     const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     return `${point}.${element} = ${value};\n`;
+};
+
+Blockly.JavaScript['point_set_magnitude'] = function (block) {
+    const point = Blockly.JavaScript.valueToCode(block, 'POINT', Blockly.JavaScript.ORDER_ATOMIC);
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${point}.setMagnitude(${value});\n`;
+};
+
+Blockly.JavaScript['points_add'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.add(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_subtract'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.subtract(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_angle_between'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.angle(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_distance'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.distance(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_divide'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.divide(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_equals'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.equals(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_interpolate'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.interpolate(${lhs}, ${rhs}, ${f})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_multiply'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.multiply(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_negate'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.negative(${lhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_normalize'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.normalize(${lhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['points_perpendicular'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.Point.perp(${lhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+//endregion
+//endregion
+
+//region SOUND
+Blockly.JavaScript['load_sound'] = function (block) {
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    const source = Blockly.JavaScript.valueToCode(block, 'SOURCE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.load.audio(${tag}, ${source});\n`;
+};
+
+Blockly.JavaScript['play_sound'] = function(block) {
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const looping = block.getFieldValue('LOOPING') == 'TRUE';
+    return `game.sound.play(${tag}, ${volume}, ${looping});\n`;
+};
+
+Blockly.JavaScript['add_sound'] = function(block) {
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const looping = block.getFieldValue('LOOPING') == 'TRUE';
+    return [`game.add.audio(${tag}, ${volume}, ${looping})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['remove_sound'] = function(block) {
+    const tag = Blockly.JavaScript.valueToCode(block, 'TAG', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.sound.removeByKey(${tag});\n`;
+};
+
+Blockly.JavaScript['stop_pause_resume_sounds'] = function(block) {
+    const option = block.getFieldValue('OPTION');
+    return `game.sound.${option}All();\n`;
+};
+
+Blockly.JavaScript['set_sound_boolean_member'] = Blockly.JavaScript['set_sound_numeric_member'] = setMember;
+Blockly.JavaScript['get_sound_boolean_member'] = Blockly.JavaScript['get_sound_numeric_member'] = Blockly.JavaScript['get_sound_string_member'] = getMember;
+
+
+Blockly.JavaScript['sound_fade_in'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const loop = block.getFieldValue('LOOP') == 'TRUE';
+    return `${object}.fadeIn(${duration}, ${loop});\n`
+};
+
+Blockly.JavaScript['sound_fade_out'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    return `${object}.fadeOut(${duration});\n`
+};
+
+Blockly.JavaScript['sound_fade_to'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.fadeTo(${duration}, ${volume});\n`
+};
+
+Blockly.JavaScript['sound_loop_full'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.loopFull(${volume});\n`
+};
+
+Blockly.JavaScript['sound_stop'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${object}.stop();\n`
+};
+
+Blockly.JavaScript['sound_pause'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${object}.pause();\n`
+};
+
+Blockly.JavaScript['sound_resume'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    return `${object}.resume();\n`
+};
+
+Blockly.JavaScript['sound_play'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const position = Blockly.JavaScript.valueToCode(block, 'POSITION', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const loop = block.getFieldValue('LOOP') == 'TRUE';
+    const restart = block.getFieldValue('RESTART') == 'TRUE';
+
+    return `${object}.play('', ${position}, ${volume}, ${loop}, ${restart});\n`;
+};
+
+Blockly.JavaScript['sound_restart'] = function(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const position = Blockly.JavaScript.valueToCode(block, 'POSITION', Blockly.JavaScript.ORDER_ATOMIC);
+    const volume = Blockly.JavaScript.valueToCode(block, 'VOLUME', Blockly.JavaScript.ORDER_ATOMIC);
+    const loop = block.getFieldValue('LOOP') == 'TRUE';
+
+    return `${object}.play('', ${position}, ${volume}, ${loop});\n`;
+};
+//endregion
+
+//region CAMERA
+Blockly.JavaScript['camera_fade'] = function(block) {
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const toHexColorFunc = Blockly.JavaScript.provideFunction_(
+      'toHexColor',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+      '(color) {',
+          'return color.replace("#", "0x");',
+          '}']);
+
+  return `game.camera.fade(${toHexColorFunc}(${colour}), ${time}, true);\n`;
+};
+
+Blockly.JavaScript['camera_flash'] = function(block) {
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const toHexColorFunc = Blockly.JavaScript.provideFunction_(
+      'toHexColor',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+      '(color) {',
+          'return color.replace("#", "0x");',
+          '}']);
+
+  return `game.camera.flash(${toHexColorFunc}(${colour}), ${time}, true);\n`;
+};
+
+Blockly.JavaScript['camera_focus_on'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.focusOn(${object});\n`;
+};
+
+Blockly.JavaScript['camera_focus_on_xy'] = function(block) {
+  const posX = Blockly.JavaScript.valueToCode(block, 'POSX', Blockly.JavaScript.ORDER_ATOMIC);
+  const posY = Blockly.JavaScript.valueToCode(block, 'POSY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.focusOnXY(${posX}, ${posY});\n`;
+};
+
+Blockly.JavaScript['camera_reset'] = function(block) {
+  return `game.camera.reset();\n`;
+};
+
+Blockly.JavaScript['camera_reset_fx'] = function(block) {
+  return `game.camera.resetFX();\n`;
+};
+
+Blockly.JavaScript['camera_set_bounds_to_world'] = function(block) {
+  return `game.camera.setBoundsToWorld();\n`;
+};
+
+Blockly.JavaScript['camera_set_position'] = function(block) {
+  const posX = Blockly.JavaScript.valueToCode(block, 'POSX', Blockly.JavaScript.ORDER_ATOMIC);
+  const posY = Blockly.JavaScript.valueToCode(block, 'POSY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.setPosition(${posX}, ${posY});\n`;
+};
+
+Blockly.JavaScript['camera_set_size'] = function(block) {
+  const width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC);
+  const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.setSize(${width}, ${height});\n`;
+};
+
+Blockly.JavaScript['camera_shake'] = function(block) {
+  const intensity = Blockly.JavaScript.valueToCode(block, 'INTENSITY', Blockly.JavaScript.ORDER_ATOMIC);
+  const direction = block.getFieldValue('DIRECTION');
+  const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.camera.shake(${intensity}, ${duration}, true, Phaser.Camera.${direction});\n`;
+};
+
+Blockly.JavaScript['camera_unfollow'] = function(block) {
+  return `game.camera.unfollow();\n`;
 };
 //endregion

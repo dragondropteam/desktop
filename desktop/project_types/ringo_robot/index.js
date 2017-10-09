@@ -20,6 +20,7 @@ const arduino = require('arduino_core');
 const electron = require('electron');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
+const {BrowserWindow} = require('electron');
 
 exports.createProjectDir = function (name, filePath) {
     if (!path.isAbsolute(filePath)) {
@@ -96,7 +97,11 @@ exports.migrate = function (loadedProject) {
 };
 
 function invalidArduinoPath() {
-    dialog.showErrorBox('Error launching Arduino', 'Make sure you have Arduino installed and the path correctly set in preferences.');
+    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+      type: 'error',
+      title: 'Dragon Drop Error',
+      message: 'Error launching Arduino\nMake sure you have Arduino installed and the path correctly set in preferences.'
+    });
 }
 
 function completedProject(code, output) {
@@ -108,7 +113,11 @@ function completedProject(code, output) {
             buttons: ["OK"]
         });
     } else {
-        electron.dialog.showErrorBox("Error Uploading To Ringo Bot", 'See Arduino for details.');
+        electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: 'Error Uploading To Ringo Bot\nSee Arduino for details.'
+        });
     }
 }
 
@@ -117,7 +126,11 @@ function completedVerify(code, output) {
         //success
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
-        electron.dialog.showErrorBox("Error Uploading To Ringo Bot", 'See Arduino IDE for details');
+        electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: 'Error Uploading To Ringo Bot\nSee Arduino IDE for details.'
+        });
     }
 }
 
@@ -147,5 +160,3 @@ exports.displayProject = function (window, debug, project) {
         window.send('set_project', project);
     });
 };
-
-

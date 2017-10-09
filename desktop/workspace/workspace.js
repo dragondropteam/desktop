@@ -16,6 +16,7 @@ const Config = require('electron-store');
 const electronConfig = new Config();
 const {dialog} = require('electron').remote;
 const GoldenLayout = require('golden-layout');
+const {BrowserWindow, app} = require('electron').remote;
 //endregion
 
 //REGION CONSTANTS
@@ -77,8 +78,8 @@ class BlocklyComponent extends exports.BaseComponent {
     resize() {
         // Compute the absolute coordinates and dimensions of blocklyArea.
         let element = blocklyArea;
-        if(!element){
-            setTimeout(() =>{
+        if (!element) {
+            setTimeout(() => {
                 this.resize();
             }, TIMEOUT);
             return;
@@ -101,7 +102,7 @@ class BlocklyComponent extends exports.BaseComponent {
     setupDOM() {
         blocklyArea = document.getElementById(BLOCKLY_AREA_ID);
         if (!blocklyArea) {
-            setTimeout(() =>{
+            setTimeout(() => {
                 this.setupDOM();
             }, TIMEOUT);
             return false;
@@ -125,7 +126,6 @@ class BlocklyComponent extends exports.BaseComponent {
         return workspace;
     }
 }
-
 
 class CodeComponent extends exports.BaseComponent {
     constructor(container, componentState) {
@@ -231,7 +231,7 @@ class PhaserComponent extends exports.BaseComponent {
     setSource(source) {
         console.log(`setSource to ${source}`);
         webview.src = source;
-        this.source  = source;
+        this.source = source;
     }
 
     reload() {
@@ -239,11 +239,29 @@ class PhaserComponent extends exports.BaseComponent {
         // console.log(!webview.src);
         // console.log(!webview.getWebContents());
 
-        if(!webview.src || !webview.getWebContents()){
+        if (!webview.src || !webview.getWebContents()) {
             this.setSource(this.source);
-        }else{
+        } else {
             webview.reload();
         }
+    }
+
+    pauseExecution(){
+        this.paused = true;
+    }
+
+    stepExecution(){
+        if(!this.paused){
+            return;
+        }
+    }
+
+    resumeExecution(){
+        if(!this.paused){
+            return;
+        }
+
+        this.paused = false;
     }
 }
 
@@ -273,10 +291,10 @@ function loadProject(loadedProject, loadPath) {
     config.load(loadedProject);
 }
 
-ipcRenderer.on('show_embedded', (event, arg) =>{
+ipcRenderer.on('show_embedded', (event, arg) => {
     // console.log('show_embedded');
 
-    if(!phaserContainer || !webview){
+    if (!phaserContainer || !webview) {
         return;
     }
 
@@ -354,6 +372,33 @@ ipcRenderer.on('show_phaser', (event, arg) => {
         title: 'Game',
     });
 });
+
+ipcRenderer.on('pause_execution', () => {
+    // console.log('pause execution');
+    if (!webview) {
+        return;
+    }
+
+    webview.executeJavaScript('game.enableStep();');
+});
+
+ipcRenderer.on('step_execution', () => {
+    // console.log('step execution');
+    if (!webview) {
+        return;
+    }
+
+    webview.executeJavaScript('game.step();');
+});
+
+ipcRenderer.on('resume_execution', () => {
+    // console.log('resume execution');
+    if (!webview) {
+        return;
+    }
+
+    webview.executeJavaScript('game.disableStep();');
+});
 //endregion
 
 exports.WorkspaceConfig = class {
@@ -405,4 +450,11 @@ exports.Workspace = class {
     getComponent(componentName) {
         return this.components[componentName];
     }
+};
+
+exports.logErrorAndQuit = function (e, state) {
+    console.error(`Error ${state} project changes will not be saved`);
+    fs.writeFileSync('log.txt', `${e.message}`);
+    console.error(e);
+    app.exit(-1);
 };

@@ -119,11 +119,16 @@ function setCode(code) {
 
 function save() {
     const dialog = require('electron').remote.dialog;
+    const {BrowserWindow} = require('electron').remote;
     try {
         fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.html`), workspace.getComponent(workspaceCore.CODE_COMPONENT).getCode());
         return true;
     } catch (e) {
-        dialog.showErrorBox('Error in code', e.message);
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+          type: 'error',
+          title: 'Dragon Drop Error',
+          message: `Error in code!\n${e.message}`
+        });
         console.log(e.message);
         return false;
     }
