@@ -12,8 +12,12 @@ Blockly.JavaScript['class_definition'] = function(block) {
 
     let statements_methods = Blockly.JavaScript.statementToCode(block, 'METHODS');
     let statements_members = Blockly.JavaScript.statementToCode(block, 'CONSTRUCTOR');
-
-    return `class ${text_name} ${value_extends}{\nconstructor(){\n${statements_members}}\n${statements_methods}\n};\n`;
+    let args = [];
+    for (let i = 0; i < block.arguments_.length; i++) {
+        args[i] = Blockly.JavaScript.variableDB_.getName(block.arguments_[i],
+            Blockly.Variables.NAME_TYPE);
+    }
+    return `class ${text_name} ${value_extends}{\nconstructor(${args.join(',')}){\n${statements_members}}\n${statements_methods}\n};\n`;
 };
 
 Blockly.JavaScript['method_definition'] = function(block) {
