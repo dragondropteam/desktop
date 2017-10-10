@@ -4480,7 +4480,7 @@ Blockly.Blocks['list_get_random'] = {
     this.setOutput(true, null);
     this.setColour(PHASER_LIST_COLOUR);
  this.setTooltip("Returns a random item from the given list.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#getRandomItem");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_getRandomItem");
   }
 };
 
@@ -4496,7 +4496,26 @@ Blockly.Blocks['number_list'] = {
     this.setOutput(true, "Array");
     this.setColour(PHASER_LIST_COLOUR);
  this.setTooltip("Creates a list of numbers, in order within the specified range, including the start and end.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#numberArray");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArray");
+  }
+};
+
+Blockly.Blocks['number_list_step'] = {
+  init: function() {
+    this.appendValueInput("START")
+        .setCheck("Number")
+        .appendField("create a list from");
+    this.appendValueInput("END")
+        .setCheck("Number")
+        .appendField("to");
+    this.appendValueInput("STEP")
+        .setCheck("Number")
+        .appendField("stepping by");
+    this.setInputsInline(true);
+    this.setOutput(true, "Array");
+    this.setColour(PHASER_LIST_COLOUR);
+ this.setTooltip("Creates a list in the given range, counting up by a specified value.\nDoes NOT include the end of the range.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArrayStep");
   }
 };
 //endregion
