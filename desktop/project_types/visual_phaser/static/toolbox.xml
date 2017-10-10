@@ -2170,6 +2170,12 @@
                     </shadow>
                 </value>
             </block>
+            <block type="list_get_random">
+                <value name="ARRAY">
+                    <shadow type="logic_null">
+                    </shadow>
+                </value>
+            </block>
         </category>
     </category>
     <sep/>
