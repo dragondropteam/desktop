@@ -156,3 +156,34 @@ Blockly.JavaScript['super_constructor'] = function (block) {
     }
     return `super(${args.join(', ')});\n`
 };
+
+Blockly.JavaScript['method_ifreturn'] = function (block) {
+    // Conditionally return value from a procedure.
+    var condition = Blockly.JavaScript.valueToCode(block, 'CONDITION',
+            Blockly.JavaScript.ORDER_NONE) || 'false';
+    var code = 'if (' + condition + ') {\n';
+    if (block.hasReturnValue_) {
+        var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+                Blockly.JavaScript.ORDER_NONE) || 'null';
+        code += '  return ' + value + ';\n';
+    } else {
+        code += '  return;\n';
+    }
+    code += '}\n';
+    return code;
+};
+
+/**
+ *
+ * @param block
+ * @return {string}
+ */
+Blockly.JavaScript['method_return'] = function (block) {
+    if (block.hasReturnValue_) {
+        let value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+                Blockly.JavaScript.ORDER_NONE) || 'null';
+        return 'return ' + value + ';\n';
+    } else {
+        return 'return;\n';
+    }
+};
