@@ -1,9 +1,17 @@
 /**
  * Created by lukepowell on 3/28/17.
+ *
+ * See procedures for were the base of this file game from
+ *
+ * @author luke.powell@digipen.edu (Luke Powell
+ * @fileoverview Block definitions to allow object oriented programming
+ *
  */
 const CLASS_COLOUR = 230;
+const CALL_IN_CLASS_MSG = 'in %1 instance';
+
 //region HELPERS
-function DisableIfNotInClassBlock(root){
+function disableIfNotInClassBlock(root){
     //Assume that the block is illegal
     let legal = false;
     let inClass = false;
@@ -31,6 +39,18 @@ function DisableIfNotInClassBlock(root){
     }
 
     return block;
+}
+
+function getClassForBlock(root){
+    let block = root;
+    do {
+        if (block.type == 'class_definition') {
+            return block;
+        }
+        block = block.getSurroundParent();
+    } while (block);
+
+    return null;
 }
 //endregion
 //region SUPER
@@ -252,7 +272,7 @@ Blockly.Blocks['super_constructor'] = {
             return;
         }
 
-        DisableIfNotInClassBlock(this);
+        disableIfNotInClassBlock(this);
     }
 };
 //endregion
@@ -497,7 +517,7 @@ Blockly.Blocks['method_definition'] = {
             return;
         }
 
-        DisableIfNotInClassBlock(this);
+        disableIfNotInClassBlock(this);
     }
 };
 
@@ -521,7 +541,7 @@ Blockly.Blocks['member_definition'] = {
             return;
         }
 
-        let block = DisableIfNotInClassBlock(this);
+        let block = disableIfNotInClassBlock(this);
 
         if (block) {
             this.name = block.getFieldValue('NAME');
@@ -1165,7 +1185,7 @@ Blockly.Blocks['method_defnoreturn'] = {
      * @this Blockly.Block
      */
     getMethodDef: function() {
-        return [this.getFieldValue('NAME'), this.arguments_, false];
+        return [this.getFieldValue('NAME'), this.arguments_, false, getClassForBlock(this)];
     },
     /**
      * Return all variables referenced by this block.
@@ -1246,7 +1266,7 @@ Blockly.Blocks['method_defnoreturn'] = {
             return;
         }
 
-        DisableIfNotInClassBlock(this);
+        disableIfNotInClassBlock(this);
     },
     callType_: 'method_callnoreturn'
 };
@@ -1298,7 +1318,7 @@ Blockly.Blocks['method_defreturn'] = {
      * @this Blockly.Block
      */
     getMethodDef: function() {
-        return [this.getFieldValue('NAME'), this.arguments_, true];
+        return [this.getFieldValue('NAME'), this.arguments_, true, getClassForBlock(this)];
     },
     getVars: Blockly.Blocks['method_defnoreturn'].getVars,
     renameVar: Blockly.Blocks['method_defnoreturn'].renameVar,
@@ -1387,16 +1407,17 @@ Blockly.Blocks['method_callnoreturn'] = {
             .appendField('call')
             .appendField(this.id, 'NAME');
         this.appendValueInput('INSTANCE')
-            .appendField("in class instance", 'INSTANCE_NAME')
+            .appendField(CALL_IN_CLASS_MSG.replace('%1', this.class_ || 'class'), 'INSTANCE_NAME')
             .setCheck('Class');
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        
+
         // Tooltip is set in renameProcedure.
         this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL);
         this.arguments_ = [];
         this.quarkConnections_ = {};
         this.quarkIds_ = null;
+        this.class_ = null;
         this.setColour(CLASS_COLOUR);
     },
     /**
@@ -1418,6 +1439,7 @@ Blockly.Blocks['method_callnoreturn'] = {
     renameProcedure: function(oldName, newName) {
         if (Blockly.Names.equals(oldName, this.getMethodCall())) {
             this.setFieldValue(newName, 'NAME');
+            this.setFieldValue(CALL_IN_CLASS_MSG.replace('%1', this.class_ || 'class'), 'INSTANCE_NAME');
             this.setTooltip(
                 (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP :
                     Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
@@ -1571,6 +1593,7 @@ Blockly.Blocks['method_callnoreturn'] = {
     mutationToDom: function() {
         let container = document.createElement('mutation');
         container.setAttribute('name', this.getMethodCall());
+        container.setAttribute('class', this.class_);
         for (let i = 0; i < this.arguments_.length; i++) {
             let parameter = document.createElement('arg');
             parameter.setAttribute('name', this.arguments_[i]);
@@ -1585,6 +1608,7 @@ Blockly.Blocks['method_callnoreturn'] = {
      */
     domToMutation: function(xmlElement) {
         let name = xmlElement.getAttribute('name');
+        this.class_ = xmlElement.getAttribute('class');
         this.renameProcedure(this.getMethodCall(), name);
         let args = [];
         let paramIds = [];
@@ -1709,10 +1733,15 @@ Blockly.Blocks['method_callreturn'] = {
      * @this Blockly.Block
      */
     init: function() {
+
         this.appendDummyInput('TOPROW')
-            .appendField('', 'NAME');
+            .appendField('call')
+            .appendField(this.id, 'NAME');
+        this.appendValueInput('INSTANCE')
+            .appendField(CALL_IN_CLASS_MSG.replace('%1', this.class_ || 'class'), 'INSTANCE_NAME')
+            .setCheck('Class');
         this.setOutput(true);
-        
+
         // Tooltip is set in domToMutation.
         this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL);
         this.arguments_ = [];
@@ -1733,4 +1762,152 @@ Blockly.Blocks['method_callreturn'] = {
     customContextMenu:
     Blockly.Blocks['method_callnoreturn'].customContextMenu,
     defType_: 'method_defreturn'
+};
+
+
+Blockly.Blocks['method_ifreturn'] = {
+    /**
+     * Block for conditionally returning a value from a procedure.
+     * @this Blockly.Block
+     */
+    init: function () {
+        this.appendValueInput('CONDITION')
+            .setCheck('Boolean')
+            .appendField(Blockly.Msg.CONTROLS_IF_MSG_IF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(CLASS_COLOUR);
+        this.setTooltip(Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PROCEDURES_IFRETURN_HELPURL);
+        this.hasReturnValue_ = true;
+    },
+    /**
+     * Create XML to represent whether this block has a return value.
+     * @return {!Element} XML storage element.
+     * @this Blockly.Block
+     */
+    mutationToDom: function () {
+        var container = document.createElement('mutation');
+        container.setAttribute('value', Number(this.hasReturnValue_));
+        return container;
+    },
+    /**
+     * Parse XML to restore whether this block has a return value.
+     * @param {!Element} xmlElement XML storage element.
+     * @this Blockly.Block
+     */
+    domToMutation: function (xmlElement) {
+        var value = xmlElement.getAttribute('value');
+        this.hasReturnValue_ = (value == 1);
+        if (!this.hasReturnValue_) {
+            this.removeInput('VALUE');
+            this.appendDummyInput('VALUE')
+                .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+        }
+    },
+    /**
+     * Called whenever anything on the workspace changes.
+     * Add warning if this flow block is not nested inside a loop.
+     * @param {!Blockly.Events.Abstract} e Change event.
+     * @this Blockly.Block
+     */
+    onchange: function (e) {
+        var legal = false;
+        // Is the block nested in a procedure?
+        var block = this;
+        do {
+            if (this.FUNCTION_TYPES.indexOf(block.type) != -1) {
+                legal = true;
+                break;
+            }
+            block = block.getSurroundParent();
+        } while (block);
+        if (legal) {
+            // If needed, toggle whether this block has a return value.
+            if (block.type == 'method_defnoreturn' && this.hasReturnValue_) {
+                this.removeInput('VALUE');
+                this.appendDummyInput('VALUE')
+                    .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+                this.hasReturnValue_ = false;
+            } else if (block.type == 'method_defreturn' && !this.hasReturnValue_) {
+                this.removeInput('VALUE');
+                this.appendValueInput('VALUE')
+                    .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+                this.hasReturnValue_ = true;
+            }
+            this.setWarningText(null);
+        } else {
+            this.setWarningText(Blockly.Msg.PROCEDURES_IFRETURN_WARNING);
+        }
+    },
+    /**
+     * List of block types that are functions and thus do not need warnings.
+     * To add a new function type add this to your code:
+     * Blockly.Blocks['procedures_ifreturn'].FUNCTION_TYPES.push('custom_func');
+     */
+    FUNCTION_TYPES: ['method_defnoreturn', 'method_defreturn']
+};
+
+/**
+ * In most cases the return at the end of a procedure or a conditional if are sufficient. However there are circumstances
+ * where you want to some behavior in the if statements body then return. This block allows that to be accomplished
+ *
+ * @type {{init: Blockly.Blocks.procedures_return.init, mutationToDom: Blockly.Blocks.procedures_return.mutationToDom, domToMutation: Blockly.Blocks.procedures_return.domToMutation, onchange: Blockly.Blocks.procedures_return.onchange, FUNCTION_TYPES: [*]}}
+ */
+Blockly.Blocks['method_return'] = {
+    /**
+     * Block for conditionally returning a value from a procedure.
+     * @this Blockly.Block
+     */
+    init: function () {
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(CLASS_COLOUR);
+        this.setTooltip(Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PROCEDURES_IFRETURN_HELPURL);
+        this.hasReturnValue_ = true;
+    },
+    /**
+     * Create XML to represent whether this block has a return value.
+     * @return {!Element} XML storage element.
+     * @this Blockly.Block
+     */
+    mutationToDom: function () {
+        var container = document.createElement('mutation');
+        container.setAttribute('value', Number(this.hasReturnValue_));
+        return container;
+    },
+    /**
+     * Parse XML to restore whether this block has a return value.
+     * @param {!Element} xmlElement XML storage element.
+     * @this Blockly.Block
+     */
+    domToMutation: function (xmlElement) {
+        var value = xmlElement.getAttribute('value');
+        this.hasReturnValue_ = (value == 1);
+        if (!this.hasReturnValue_) {
+            this.removeInput('VALUE');
+            this.appendDummyInput('VALUE')
+                .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+        }
+    },
+    /**
+     * Called whenever anything on the workspace changes.
+     * Add warning if this flow block is not nested inside a loop.
+     * @param {!Blockly.Events.Abstract} e Change event.
+     * @this Blockly.Block
+     */
+    onchange: Blockly.Blocks['method_ifreturn'].onchange,
+    /**
+     * List of block types that are functions and thus do not need warnings.
+     * To add a new function type add this to your code:
+     * Blockly.Blocks['procedures_ifreturn'].FUNCTION_TYPES.push('custom_func');
+     */
+    FUNCTION_TYPES: ['method_defnoreturn', 'method_defreturn']
 };
