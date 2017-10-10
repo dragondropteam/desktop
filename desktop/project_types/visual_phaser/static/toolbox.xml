@@ -2188,6 +2188,23 @@
                     </shadow>
                 </value>
             </block>
+            <block type="number_list_step">
+                <value name="START">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="END">
+                    <shadow type="math_number">
+                        <field name="NUM">4</field>
+                    </shadow>
+                </value>
+                <value name="STEP">
+                    <shadow type="math_number">
+                        <field name="NUM">2</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
     </category>
     <sep/>
