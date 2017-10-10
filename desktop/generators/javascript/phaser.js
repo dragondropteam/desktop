@@ -1650,7 +1650,7 @@ Blockly.JavaScript['camera_unfollow'] = function(block) {
 };
 //endregion
 
-//region ARRAY.METHODS
+//region LIST.METHODS
 Blockly.JavaScript['list_find_closest'] = function(block) {
   const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
   const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
@@ -1678,5 +1678,10 @@ Blockly.JavaScript['number_list_step'] = function(block) {
 Blockly.JavaScript['list_remove_random_item'] = function(block) {
   const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
   return [`Phaser.ArrayUtils.removeRandomItem(${array})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['list_shuffle'] = function(block) {
+  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `Phaser.ArrayUtils.shuffle(${array});\n`;
 };
 //endregion

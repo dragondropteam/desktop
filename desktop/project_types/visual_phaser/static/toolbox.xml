@@ -2211,6 +2211,12 @@
                     </shadow>
                 </value>
             </block>
+            <block type="list_shuffle">
+                <value name="ARRAY">
+                    <shadow type="logic_null">
+                    </shadow>
+                </value>
+            </block>
         </category>
     </category>
     <sep/>
