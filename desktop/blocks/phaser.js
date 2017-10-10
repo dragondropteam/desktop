@@ -4483,4 +4483,20 @@ Blockly.Blocks['list_get_random'] = {
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#getRandomItem");
   }
 };
+
+Blockly.Blocks['number_list'] = {
+  init: function() {
+    this.appendValueInput("START")
+        .setCheck("Number")
+        .appendField("create a list with every number from");
+    this.appendValueInput("END")
+        .setCheck("Number")
+        .appendField("to");
+    this.setInputsInline(true);
+    this.setOutput(true, "Array");
+    this.setColour(PHASER_LIST_COLOUR);
+ this.setTooltip("Creates a list of numbers, in order within the specified range, including the start and end.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#numberArray");
+  }
+};
 //endregion
