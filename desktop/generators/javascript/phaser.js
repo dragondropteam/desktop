@@ -1649,3 +1649,19 @@ Blockly.JavaScript['camera_unfollow'] = function(block) {
   return `game.camera.unfollow();\n`;
 };
 //endregion
+
+//region RANDOMISATION
+Blockly.JavaScript['create_random_generator'] = function(block) {
+  return [`new Phaser.RandomDataGenerator([new Date().getTime()])`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['create_random_generator_seeded'] = function(block) {
+  const seed = Blockly.JavaScript.valueToCode(block, 'SEED', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`new Phaser.RandomDataGenerator([${seed}])`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_angle'] = function(block) {
+  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${generator}.angle()`, Blockly.JavaScript.ORDER_NONE];
+};
+//endregion
