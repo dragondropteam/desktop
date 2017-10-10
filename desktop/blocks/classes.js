@@ -123,7 +123,7 @@ Blockly.Blocks['super_mutatorarg'] = {
 Blockly.Blocks['super_constructor'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('Call Super Constructor');
+            .appendField('call super constructor');
         this.setPreviousStatement(true, ["CALL_SUPER"], true);
         this.setNextStatement(true);
         this.setMutator(new Blockly.Mutator(['super_mutatorarg']));
@@ -282,15 +282,15 @@ Blockly.Blocks['class_definition'] = {
     init: function () {
         this.appendValueInput("extends")
             .setCheck(null)
-            .appendField("Class")
+            .appendField("class")
             .appendField(new Blockly.FieldTextInput("name", DragonDrop.Classes.rename), "NAME")
             .appendField("extends");
         this.appendStatementInput("METHODS")
             .setCheck("METHOD_DEFINITION", true)
-            .appendField("Methods:");
+            .appendField("methods");
         this.appendStatementInput("CONSTRUCTOR")
             .setCheck(["MEMBER_DEFINITION", "CALL_SUPER"])
-            .appendField("construct with:", "CONSTRUCTOR");
+            .appendField("construct with", "CONSTRUCTOR");
         this.setInputsInline(false);
         this.setColour(CLASS_COLOUR);
         this.setTooltip('');
@@ -701,7 +701,7 @@ Blockly.Blocks['get_member_in_class'] = {
         this.updateMemberName();
     },
     updateClassName: function () {
-        this.getField('INSTANCE_NAME').setText(`In ${this.name} instance`);
+        this.getField('INSTANCE_NAME').setText(`in ${this.name} instance`);
     },
     renameClass: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.name)) {
@@ -746,11 +746,11 @@ Blockly.Blocks['set_member_in_class'] = {
     domToMutation: function (xmlElement) {
         this.name = xmlElement.getAttribute('name');
         this.memberName = xmlElement.getAttribute('member_name');
-        this.getField('INSTANCE_NAME').setText(`In ${this.name} instance`);
+        this.getField('INSTANCE_NAME').setText(`in ${this.name} instance`);
         this.getField('MEMBER_NAME').setText(`set ${this.memberName} to`);
     },
     updateClassName: function () {
-        this.getField('INSTANCE_NAME').setText(`In ${this.name} instance`);
+        this.getField('INSTANCE_NAME').setText(`in ${this.name} instance`);
     },
     renameClass: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.name)) {
@@ -772,10 +772,10 @@ Blockly.Blocks['set_member_in_class'] = {
 Blockly.Blocks['create_instance_of_class'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Create instance of", "NAME");
+            .appendField("create instance of", "NAME");
         this.setOutput(true, "Class");
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('');
+        this.setTooltip('create an instance of a class');
         this.setHelpUrl('');
         this.arguments_ = [];
     },
@@ -947,7 +947,7 @@ Blockly.Blocks['create_instance_of_class'] = {
 
     domToMutation: function (xmlElement) {
         this.name = xmlElement.getAttribute('name');
-        this.getField('NAME').setText(`Create ${this.name} instance`);
+        this.getField('NAME').setText(`create ${this.name} instance`);
         let args = [];
         let paramIds = [];
         for (let i = 0, childNode; childNode = xmlElement.childNodes[i]; i++) {
@@ -961,7 +961,7 @@ Blockly.Blocks['create_instance_of_class'] = {
     renameClass: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.name)) {
             this.name = legalName;
-            this.getField('NAME').setText(`Create ${this.name} instance`);
+            this.getField('NAME').setText(`create ${this.name} instance`);
         }
     },
     getConstructorCall: function () {
