@@ -46,6 +46,7 @@ const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHYSICS_COLOUR = "#5A5C51";
 const PHASER_CAMERA_COLOUR = '#607d8b';
 const PHASER_SOUND_COLOUR = '#827717';
+const PHASER_RANDOM_COLOUR = 0; //TODO: decide colour
 //endregion
 
 
@@ -4452,4 +4453,44 @@ Blockly.Blocks['sound_restart'] = {
     }
 };
 //endregion
+//endregion
+
+//region RANDOMISATION
+Blockly.Blocks['create_random_generator'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("create random number generator");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Creates an object you can use to make random numbers.\nDo NOT make a new one each time you need a random number. Store it in a variable and reuse it.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
+  }
+};
+
+Blockly.Blocks['create_random_generator_seeded'] = {
+  init: function() {
+    this.appendValueInput("SEED")
+        .setCheck("Number")
+        .appendField("create a random number generator")
+        .appendField("with seed");
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Creates a random number generator. Using a seed produces predictable results.\nDo NOT make a new one each time you need a random number. Store it in a variable and reuse it.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
+  }
+};
+
+Blockly.Blocks['random_angle'] = {
+  init: function() {
+    this.appendValueInput("GENERATOR")
+        .setCheck(null)
+        .appendField("get a random angle")
+        .appendField("using generator");
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random angle between -180 and 180.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle");
+  }
+};
 //endregion
