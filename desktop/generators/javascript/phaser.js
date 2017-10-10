@@ -1649,3 +1649,11 @@ Blockly.JavaScript['camera_unfollow'] = function(block) {
   return `game.camera.unfollow();\n`;
 };
 //endregion
+
+//region ARRAY.METHODS
+Blockly.JavaScript['array_find_closest'] = function(block) {
+  const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`Phaser.ArrayUtils.findClosest(${value}, ${array})`, Blockly.JavaScript.ORDER_NONE];
+};
+//endregion

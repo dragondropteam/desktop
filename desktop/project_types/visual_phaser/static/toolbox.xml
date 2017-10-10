@@ -2158,6 +2158,19 @@
             </block>
             <block type="stop_pause_resume_sounds"/>
         </category>
+        <category name="Phaser Array" colour="230"> <!--TODO: decide colour-->
+            <block type="array_find_closest">
+                <value name="VALUE">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="ARRAY">
+                    <shadow type="logic_null">
+                    </shadow>
+                </value>
+            </block>
+        </category>
     </category>
     <sep/>
     <category name="Class" colour="230" custom="CLASSES"/>
