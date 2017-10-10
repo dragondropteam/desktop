@@ -4530,4 +4530,17 @@ Blockly.Blocks['list_remove_random_item'] = {
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_removeRandomItem");
   }
 };
+
+Blockly.Blocks['list_shuffle'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("shuffle");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_LIST_COLOUR);
+ this.setTooltip("Randomly rearranges the order of items in a list. Works for more than just cards.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_shuffle");
+  }
+};
 //endregion
