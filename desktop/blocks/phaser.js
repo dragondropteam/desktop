@@ -46,7 +46,7 @@ const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHYSICS_COLOUR = "#5A5C51";
 const PHASER_CAMERA_COLOUR = '#607d8b';
 const PHASER_SOUND_COLOUR = '#827717';
-const PHASER_ARRAY_COLOUR = 230; //TODO: decide colour
+const PHASER_LIST_COLOUR = 230; //TODO: decide colour
 //endregion
 
 
@@ -4466,9 +4466,21 @@ Blockly.Blocks['list_find_closest'] = {
         .appendField("in the list");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
-    this.setColour(PHASER_ARRAY_COLOUR);
+    this.setColour(PHASER_LIST_COLOUR);
  this.setTooltip("Returns the value closest to the given number in a sorted, numeric list.\nIf two values are equally close, it returns the higher one.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_findClosest");
+  }
+};
+
+Blockly.Blocks['list_get_random'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("get a random item from");
+    this.setOutput(true, null);
+    this.setColour(PHASER_LIST_COLOUR);
+ this.setTooltip("Returns a random item from the given list.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#getRandomItem");
   }
 };
 //endregion
