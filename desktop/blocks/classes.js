@@ -285,6 +285,14 @@ Blockly.Blocks['class_definition'] = {
         return [this.getFieldValue('NAME'), this.arguments_];
     },
     /**
+     * Return all variables referenced by this block.
+     * @return {!Array.<string>} List of variable names.
+     * @this Blockly.Block
+     */
+    getVars: function () {
+        return this.arguments_;
+    },
+    /**
      * Create XML to represent the argument inputs.
      * @param {=boolean} opt_paramIds If true include the IDs of the parameter
      *     quarks.  Used by DragonDrop.Classes.mutateCallers for reconnection.

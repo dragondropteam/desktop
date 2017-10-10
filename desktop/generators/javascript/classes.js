@@ -140,7 +140,7 @@ Blockly.JavaScript['method_callnoreturn'] = function(block) {
         args[i] = Blockly.JavaScript.valueToCode(block, 'ARG' + i,
                 Blockly.JavaScript.ORDER_COMMA) || 'null';
     }
-    return `${instance}.${funcName}(${args.join(', ')});`;
+    return `${instance}.${funcName}(${args.join(', ')});\n`;
 };
 
 Blockly.JavaScript['class_type'] = function (block) {
