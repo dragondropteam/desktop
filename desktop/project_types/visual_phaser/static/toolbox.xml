@@ -2205,6 +2205,12 @@
                     </shadow>
                 </value>
             </block>
+            <block type="list_remove_random_item">
+                <value name="ARRAY">
+                    <shadow type="logic_null">
+                    </shadow>
+                </value>
+            </block>
         </category>
     </category>
     <sep/>

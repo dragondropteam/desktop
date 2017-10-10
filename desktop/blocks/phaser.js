@@ -4518,4 +4518,16 @@ Blockly.Blocks['number_list_step'] = {
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArrayStep");
   }
 };
+
+Blockly.Blocks['list_remove_random_item'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("get and remove a random item from");
+    this.setOutput(true, null);
+    this.setColour(PHASER_LIST_COLOUR);
+ this.setTooltip("Removes a random item from a list and returns it. Note that this modifies the list.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_removeRandomItem");
+  }
+};
 //endregion
