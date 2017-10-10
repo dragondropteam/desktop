@@ -46,6 +46,7 @@ const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHYSICS_COLOUR = "#5A5C51";
 const PHASER_CAMERA_COLOUR = '#607d8b';
 const PHASER_SOUND_COLOUR = '#827717';
+const PHASER_ARRAY_COLOUR = 230; //TODO: decide colour
 //endregion
 
 
@@ -4452,4 +4453,22 @@ Blockly.Blocks['sound_restart'] = {
     }
 };
 //endregion
+//endregion
+
+//region ARRAY.METHODS
+Blockly.Blocks['array_find_closest'] = {
+  init: function() {
+    this.appendValueInput("VALUE")
+        .setCheck("Number")
+        .appendField("find the number closest to");
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("in the array");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_ARRAY_COLOUR);
+ this.setTooltip("Returns the value closest to the given number in a sorted, numeric array.\nIf two values are equally close, it returns the higher one.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_findClosest");
+  }
+};
 //endregion
