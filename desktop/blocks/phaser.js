@@ -4522,4 +4522,24 @@ Blockly.Blocks['random_real'] = {
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#real");
   }
 };
+
+Blockly.Blocks['random_real_in_range'] = {
+  init: function() {
+    this.appendValueInput("MIN")
+        .setCheck("Number")
+        .appendField("get random number")
+        .appendField("between");
+    this.appendValueInput("MAX")
+        .setCheck("Number")
+        .appendField("and");
+    this.appendValueInput("GENERATOR")
+        .setCheck(null)
+        .appendField("using generator");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random real number in the specified range.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#realInRange");
+  }
+};
 //endregion
