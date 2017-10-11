@@ -49,6 +49,7 @@ const PHASER_SOUND_COLOUR = '#827717';
 const PHASER_UTIL_GENERAL_COLOUR = '#ff3d00';
 const PHASER_UTIL_DEBUG_COLOUR = '#ff6e40';
 const PHASER_UTIL_LIST_COLOUR = '#bf360c';
+const PHASER_RANDOM_COLOUR = '#ff7043';
 //endregion
 
 
@@ -4543,6 +4544,105 @@ Blockly.Blocks['list_shuffle'] = {
     this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Randomly rearranges the order of items in a list. Works for more than just cards.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_shuffle");
+  }
+};
+//endregion
+
+//region RANDOMISATION
+/*
+Blockly.Blocks['create_random_generator'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("create random number generator");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Creates an object you can use to make random numbers.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
+  }
+};
+
+Blockly.Blocks['create_random_generator_seeded'] = {
+  init: function() {
+    this.appendValueInput("SEED")
+        .appendField("create random number generator with seed")
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Creates a random number generator. Using a seed produces predictable results.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
+  }
+};*/
+
+Blockly.Blocks['random_angle'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("get random angle");
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random angle between -180 and 180.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle");
+  }
+};
+
+Blockly.Blocks['random_pick'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("get random item from list");
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random member in a given list.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick");
+  }
+};
+
+Blockly.Blocks['random_pick_weighted'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("get random item from list (weighted)");
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random member in a given list. This version chooses items close to the start of the list more frequently.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#weightedPick");
+  }
+};
+
+Blockly.Blocks['random_real'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("get random number");
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#real");
+  }
+};
+
+Blockly.Blocks['random_real_in_range'] = {
+  init: function() {
+    this.appendValueInput("MIN")
+        .setCheck("Number")
+        .appendField("get random number between");
+    this.appendValueInput("MAX")
+        .setCheck("Number")
+        .appendField("and");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random real number in the specified range.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#realInRange");
+  }
+};
+
+Blockly.Blocks['random_sign'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("get random sign");
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns either +1 or -1. For deciding if something needs to be positive or negative.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#sign");
   }
 };
 //endregion
