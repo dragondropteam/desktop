@@ -4542,4 +4542,17 @@ Blockly.Blocks['random_real_in_range'] = {
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#realInRange");
   }
 };
+
+Blockly.Blocks['random_sign'] = {
+  init: function() {
+    this.appendValueInput("GENERATOR")
+        .setCheck(null)
+        .appendField("get random sign")
+        .appendField("using generator");
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns either +1 or -1. For deciding if something needs to be positive or negative.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#sign");
+  }
+};
 //endregion
