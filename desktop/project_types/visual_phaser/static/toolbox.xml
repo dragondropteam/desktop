@@ -1835,34 +1835,97 @@
                 </value>
             </block>
         </category>
-        <category name="Utility" colour="#ff6d00">
-            <block type="javascript_eval"/>
-            <block type="javascript_eval_output"/>
-            <block type="center_and_stretch"/>
-            <!--TODO: enable once there is a UI to hook to-->
-            <!--<block type="enable_step"/>-->
-            <!--<block type="disable_step"/>-->
-            <!--<block type="step"/>-->
-            <block type="debug_sprite">
-                <value name="OBJECT">
-                    <shadow type="variables_get">
-                        <field name="VAR">defaultObject</field>
-                    </shadow>
-                </value>
-                <value name="X_VAL">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="Y_VAL">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-            </block>
+        <category name="Utility" colour="#ff3d00">
+            <category name="General" colour="#ff3d00">
+                <block type="center_and_stretch"/>
+            </category>
+            <category name="Debug" colour="#ff6e40">
+                <block type="enable_step"/>
+                <block type="disable_step"/>
+                <block type="debug_sprite">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X_VAL">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_VAL">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="JavaScript" colour="#ff6d00">
+                <block type="javascript_eval"/>
+                <block type="javascript_eval_output"/>
+            </category>
+            <category name="Phaser Lists" colour="#bf360c">
+                <block type="list_find_closest">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="list_get_random">
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="number_list">
+                    <value name="START">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="END">
+                        <shadow type="math_number">
+                            <field name="NUM">3</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="number_list_step">
+                    <value name="START">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="END">
+                        <shadow type="math_number">
+                            <field name="NUM">4</field>
+                        </shadow>
+                    </value>
+                    <value name="STEP">
+                        <shadow type="math_number">
+                            <field name="NUM">2</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="list_remove_random_item">
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="list_shuffle">
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+            </category>
         </category>
         <category name="Camera" colour="#607d8b">
-            <!--TODO: Implement blocks that have been commented out-->
             <block type="camera_fade">
                 <value name="COLOUR">
                     <shadow type="colour_picker">
@@ -1920,9 +1983,9 @@
                     </shadow>
                 </value>
             </block>
-            <block type="camera_reset"></block>
-            <block type="camera_reset_fx"></block>
-            <block type="camera_set_bounds_to_world"></block>
+            <block type="camera_reset"/>
+            <block type="camera_reset_fx"/>
+            <block type="camera_set_bounds_to_world"/>
             <block type="camera_set_position">
                 <value name="POSX">
                     <shadow type="math_number">
@@ -2157,66 +2220,6 @@
                 </value>
             </block>
             <block type="stop_pause_resume_sounds"/>
-        </category>
-        <category name="Phaser Lists" colour="230"> <!--TODO: decide colour-->
-            <block type="list_find_closest">
-                <value name="VALUE">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="ARRAY">
-                    <shadow type="logic_null">
-                    </shadow>
-                </value>
-            </block>
-            <block type="list_get_random">
-                <value name="ARRAY">
-                    <shadow type="logic_null">
-                    </shadow>
-                </value>
-            </block>
-            <block type="number_list">
-                <value name="START">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="END">
-                    <shadow type="math_number">
-                        <field name="NUM">3</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="number_list_step">
-                <value name="START">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="END">
-                    <shadow type="math_number">
-                        <field name="NUM">4</field>
-                    </shadow>
-                </value>
-                <value name="STEP">
-                    <shadow type="math_number">
-                        <field name="NUM">2</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="list_remove_random_item">
-                <value name="ARRAY">
-                    <shadow type="logic_null">
-                    </shadow>
-                </value>
-            </block>
-            <block type="list_shuffle">
-                <value name="ARRAY">
-                    <shadow type="logic_null">
-                    </shadow>
-                </value>
-            </block>
         </category>
     </category>
     <sep/>
