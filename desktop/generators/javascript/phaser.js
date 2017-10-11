@@ -1685,3 +1685,42 @@ Blockly.JavaScript['list_shuffle'] = function(block) {
   return `Phaser.ArrayUtils.shuffle(${array});\n`;
 };
 //endregion
+
+//region RANDOMISATION
+Blockly.JavaScript['create_random_generator'] = function(block) {
+  return [`new Phaser.RandomDataGenerator([new Date().getTime()])`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['create_random_generator_seeded'] = function(block) {
+  const seed = Blockly.JavaScript.valueToCode(block, 'SEED', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`new Phaser.RandomDataGenerator(${seed})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_angle'] = function(block) {
+  return [`game.rnd.angle()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_pick'] = function(block) {
+  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.rnd.pick(${array})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_pick_weighted'] = function(block) {
+  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.rnd.weightedPick(${array})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_real'] = function(block) {
+  return [`game.rnd.real()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_real_in_range'] = function(block) {
+  const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
+  const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.rnd.realInRange(${min}, ${max})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_sign'] = function(block) {
+  return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
+};
+//endregion

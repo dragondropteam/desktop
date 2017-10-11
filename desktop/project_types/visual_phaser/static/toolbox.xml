@@ -2221,6 +2221,45 @@
             </block>
             <block type="stop_pause_resume_sounds"/>
         </category>
+        <category name="Random" colour="#ff7043">
+            <!--<block type="create_random_generator"></block>-->
+            <!--<block type="create_random_generator_seeded">
+                <value name="SEED">
+                    <shadow type="text">
+                        <field name="TEXT">seed</field>
+                    </shadow>
+                </value>
+            </block>-->
+            <block type="random_angle"></block>
+            <block type="random_pick">
+                <value name="ARRAY">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="random_pick_weighted">
+                <value name="ARRAY">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="random_real"></block>
+            <block type="random_real_in_range">
+                <value name="MIN">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="MAX">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="random_sign"></block>
+        </category>
     </category>
     <sep/>
     <category name="Class" colour="230" custom="CLASSES"/>
