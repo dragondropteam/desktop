@@ -46,7 +46,7 @@ const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHYSICS_COLOUR = "#5A5C51";
 const PHASER_CAMERA_COLOUR = '#607d8b';
 const PHASER_SOUND_COLOUR = '#827717';
-const PHASER_RANDOM_COLOUR = 0; //TODO: decide colour
+const PHASER_RANDOM_COLOUR = '#ff7043';
 //endregion
 
 
@@ -4456,6 +4456,7 @@ Blockly.Blocks['sound_restart'] = {
 //endregion
 
 //region RANDOMISATION
+/*
 Blockly.Blocks['create_random_generator'] = {
   init: function() {
     this.appendDummyInput()
@@ -4463,7 +4464,7 @@ Blockly.Blocks['create_random_generator'] = {
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Creates an object you can use to make random numbers.\nDo NOT make a new one each time you need a random number. Store it in a variable and reuse it.");
+ this.setTooltip("Creates an object you can use to make random numbers.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
   }
 };
@@ -4471,22 +4472,18 @@ Blockly.Blocks['create_random_generator'] = {
 Blockly.Blocks['create_random_generator_seeded'] = {
   init: function() {
     this.appendValueInput("SEED")
-        .setCheck("Number")
-        .appendField("create random number generator")
-        .appendField("with seed");
+        .appendField("create random number generator with seed")
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Creates a random number generator. Using a seed produces predictable results.\nDo NOT make a new one each time you need a random number. Store it in a variable and reuse it.");
+ this.setTooltip("Creates a random number generator. Using a seed produces predictable results.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
   }
-};
+};*/
 
 Blockly.Blocks['random_angle'] = {
   init: function() {
-    this.appendValueInput("GENERATOR")
-        .setCheck(null)
-        .appendField("get random angle")
-        .appendField("using generator");
+    this.appendDummyInput()
+        .appendField("get random angle");
     this.setOutput(true, "Number");
     this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Returns a random angle between -180 and 180.");
@@ -4499,13 +4496,9 @@ Blockly.Blocks['random_pick'] = {
     this.appendValueInput("ARRAY")
         .setCheck("Array")
         .appendField("get random item from list");
-    this.appendValueInput("GENERATOR")
-        .setCheck(null)
-        .appendField("using generator");
-    this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns a random member of a given list.");
+ this.setTooltip("Returns a random member in a given list.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick");
   }
 };
@@ -4515,10 +4508,6 @@ Blockly.Blocks['random_pick_weighted'] = {
     this.appendValueInput("ARRAY")
         .setCheck("Array")
         .appendField("get random item from list (weighted)");
-    this.appendValueInput("GENERATOR")
-        .setCheck(null)
-        .appendField("using generator");
-    this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Returns a random member in a given list. This version chooses items close to the start of the list more frequently.");
@@ -4528,10 +4517,8 @@ Blockly.Blocks['random_pick_weighted'] = {
 
 Blockly.Blocks['random_real'] = {
   init: function() {
-    this.appendValueInput("GENERATOR")
-        .setCheck(null)
-        .appendField("get random number")
-        .appendField("using generator");
+    this.appendDummyInput()
+        .appendField("get random number");
     this.setOutput(true, "Number");
     this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).");
@@ -4543,14 +4530,10 @@ Blockly.Blocks['random_real_in_range'] = {
   init: function() {
     this.appendValueInput("MIN")
         .setCheck("Number")
-        .appendField("get random number")
-        .appendField("between");
+        .appendField("get random number between");
     this.appendValueInput("MAX")
         .setCheck("Number")
         .appendField("and");
-    this.appendValueInput("GENERATOR")
-        .setCheck(null)
-        .appendField("using generator");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
     this.setColour(PHASER_RANDOM_COLOUR);
@@ -4561,10 +4544,8 @@ Blockly.Blocks['random_real_in_range'] = {
 
 Blockly.Blocks['random_sign'] = {
   init: function() {
-    this.appendValueInput("GENERATOR")
-        .setCheck(null)
-        .appendField("get random sign")
-        .appendField("using generator");
+    this.appendDummyInput()
+        .appendField("get random sign");
     this.setOutput(true, "Number");
     this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Returns either +1 or -1. For deciding if something needs to be positive or negative.");
