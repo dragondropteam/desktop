@@ -4472,7 +4472,7 @@ Blockly.Blocks['create_random_generator_seeded'] = {
   init: function() {
     this.appendValueInput("SEED")
         .setCheck("Number")
-        .appendField("create a random number generator")
+        .appendField("create random number generator")
         .appendField("with seed");
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
@@ -4485,12 +4485,28 @@ Blockly.Blocks['random_angle'] = {
   init: function() {
     this.appendValueInput("GENERATOR")
         .setCheck(null)
-        .appendField("get a random angle")
+        .appendField("get random angle")
         .appendField("using generator");
     this.setOutput(true, "Number");
     this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Returns a random angle between -180 and 180.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle");
+  }
+};
+
+Blockly.Blocks['random_pick'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("get random item from list");
+    this.appendValueInput("GENERATOR")
+        .setCheck(null)
+        .appendField("using generator");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random member of a given list.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick");
   }
 };
 //endregion
