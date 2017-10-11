@@ -4509,4 +4509,17 @@ Blockly.Blocks['random_pick'] = {
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick");
   }
 };
+
+Blockly.Blocks['random_real'] = {
+  init: function() {
+    this.appendValueInput("GENERATOR")
+        .setCheck(null)
+        .appendField("get random number")
+        .appendField("using generator");
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#real");
+  }
+};
 //endregion
