@@ -1670,4 +1670,9 @@ Blockly.JavaScript['random_pick'] = function(block) {
   const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
   return [`${generator}.pick(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['random_real'] = function(block) {
+  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${generator}.real()`, Blockly.JavaScript.ORDER_NONE];
+};
 //endregion

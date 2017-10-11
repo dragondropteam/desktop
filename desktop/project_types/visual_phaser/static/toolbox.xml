@@ -2186,6 +2186,13 @@
                     </shadow>
                 </value>
             </block>
+            <block type="random_real">
+                <value name="GENERATOR">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
     </category>
     <sep/>
