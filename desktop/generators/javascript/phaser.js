@@ -1657,40 +1657,34 @@ Blockly.JavaScript['create_random_generator'] = function(block) {
 
 Blockly.JavaScript['create_random_generator_seeded'] = function(block) {
   const seed = Blockly.JavaScript.valueToCode(block, 'SEED', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`new Phaser.RandomDataGenerator([${seed}])`, Blockly.JavaScript.ORDER_NONE];
+  return [`new Phaser.RandomDataGenerator(${seed})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['random_angle'] = function(block) {
-  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`${generator}.angle()`, Blockly.JavaScript.ORDER_NONE];
+  return [`game.rnd.angle()`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['random_pick'] = function(block) {
   const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`${generator}.pick(${array})`, Blockly.JavaScript.ORDER_NONE];
+  return [`game.rnd.pick(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['random_pick_weighted'] = function(block) {
   const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`${generator}.weightedPick(${array})`, Blockly.JavaScript.ORDER_NONE];
+  return [`game.rnd.weightedPick(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['random_real'] = function(block) {
-  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`${generator}.real()`, Blockly.JavaScript.ORDER_NONE];
+  return [`game.rnd.real()`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['random_real_in_range'] = function(block) {
   const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
   const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC);
-  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`${generator}.realInRange(${min}, ${max})`, Blockly.JavaScript.ORDER_NONE];
+  return [`game.rnd.realInRange(${min}, ${max})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['random_sign'] = function(block) {
-  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`${generator}.sign()`, Blockly.JavaScript.ORDER_NONE];
+  return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
