@@ -1675,4 +1675,11 @@ Blockly.JavaScript['random_real'] = function(block) {
   const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
   return [`${generator}.real()`, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['random_real_in_range'] = function(block) {
+  const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
+  const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC);
+  const generator = Blockly.JavaScript.valueToCode(block, 'GENERATOR', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${generator}.realInRange(${min}, ${max})`, Blockly.JavaScript.ORDER_NONE];
+};
 //endregion
