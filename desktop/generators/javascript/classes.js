@@ -12,8 +12,12 @@ Blockly.JavaScript['class_definition'] = function(block) {
 
     let statements_methods = Blockly.JavaScript.statementToCode(block, 'METHODS');
     let statements_members = Blockly.JavaScript.statementToCode(block, 'CONSTRUCTOR');
-
-    return `class ${text_name} ${value_extends}{\nconstructor(){\n${statements_members}}\n${statements_methods}\n};\n`;
+    let args = [];
+    for (let i = 0; i < block.arguments_.length; i++) {
+        args[i] = Blockly.JavaScript.variableDB_.getName(block.arguments_[i],
+            Blockly.Variables.NAME_TYPE);
+    }
+    return `class ${text_name} ${value_extends}{\nconstructor(${args.join(',')}){\n${statements_members}}\n${statements_methods}\n};\n`;
 };
 
 Blockly.JavaScript['method_definition'] = function(block) {
@@ -136,7 +140,7 @@ Blockly.JavaScript['method_callnoreturn'] = function(block) {
         args[i] = Blockly.JavaScript.valueToCode(block, 'ARG' + i,
                 Blockly.JavaScript.ORDER_COMMA) || 'null';
     }
-    return `${instance}.${funcName}(${args.join(', ')});`;
+    return `${instance}.${funcName}(${args.join(', ')});\n`;
 };
 
 Blockly.JavaScript['class_type'] = function (block) {
@@ -151,4 +155,35 @@ Blockly.JavaScript['super_constructor'] = function (block) {
                 Blockly.JavaScript.ORDER_COMMA) || 'null';
     }
     return `super(${args.join(', ')});\n`
+};
+
+Blockly.JavaScript['method_ifreturn'] = function (block) {
+    // Conditionally return value from a procedure.
+    var condition = Blockly.JavaScript.valueToCode(block, 'CONDITION',
+            Blockly.JavaScript.ORDER_NONE) || 'false';
+    var code = 'if (' + condition + ') {\n';
+    if (block.hasReturnValue_) {
+        var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+                Blockly.JavaScript.ORDER_NONE) || 'null';
+        code += '  return ' + value + ';\n';
+    } else {
+        code += '  return;\n';
+    }
+    code += '}\n';
+    return code;
+};
+
+/**
+ *
+ * @param block
+ * @return {string}
+ */
+Blockly.JavaScript['method_return'] = function (block) {
+    if (block.hasReturnValue_) {
+        let value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+                Blockly.JavaScript.ORDER_NONE) || 'null';
+        return 'return ' + value + ';\n';
+    } else {
+        return 'return;\n';
+    }
 };
