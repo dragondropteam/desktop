@@ -28,6 +28,15 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
     methodDefinitionReturn.setAttribute('type', 'method_defreturn');
     xmlList.push(methodDefinitionReturn);
 
+    let ifReturn = goog.dom.createDom('block');
+    ifReturn.setAttribute('type', 'method_ifreturn');
+    xmlList.push(ifReturn);
+
+    let returnBlock = goog.dom.createDom('block');
+    returnBlock.setAttribute('type', 'method_return');
+    xmlList.push(returnBlock);
+
+
     let memberDefinition = goog.dom.createDom('block');
     memberDefinition.setAttribute('type', 'member_definition');
     xmlList.push(memberDefinition);
@@ -116,6 +125,7 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
             block.setAttribute('gap', 16);
             let mutation = goog.dom.createDom('mutation');
             mutation.setAttribute('name', name);
+            mutation.setAttribute('class', procedureList[i][3].getFieldValue('NAME'));
             block.appendChild(mutation);
             for (let j = 0; j < args.length; j++) {
                 let arg = goog.dom.createDom('arg');

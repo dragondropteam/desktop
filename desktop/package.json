@@ -1,6 +1,6 @@
 {
   "name": "DragonDrop",
-  "version": "1.1.0-beta1",
+  "version": "1.2.0-beta1",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
@@ -69,6 +69,7 @@
     "angular-material": "^1.1.5",
     "arduino": "file:project_types/arduino",
     "arduino_core": "file:arduino_core",
+    "compare-versions": "^3.1.0",
     "electron-builder": "^19.28.4",
     "electron-store": "*",
     "filesystem": "file:filesystem",
