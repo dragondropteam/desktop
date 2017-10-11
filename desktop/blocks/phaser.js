@@ -4510,6 +4510,22 @@ Blockly.Blocks['random_pick'] = {
   }
 };
 
+Blockly.Blocks['random_pick_weighted'] = {
+  init: function() {
+    this.appendValueInput("ARRAY")
+        .setCheck("Array")
+        .appendField("get random item from list (weighted)");
+    this.appendValueInput("GENERATOR")
+        .setCheck(null)
+        .appendField("using generator");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(PHASER_RANDOM_COLOUR);
+ this.setTooltip("Returns a random member in a given list. This version chooses items close to the start of the list more frequently.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#weightedPick");
+  }
+};
+
 Blockly.Blocks['random_real'] = {
   init: function() {
     this.appendValueInput("GENERATOR")
