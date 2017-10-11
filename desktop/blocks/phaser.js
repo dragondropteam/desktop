@@ -46,7 +46,9 @@ const PHASER_PHYSICS_COLLISION_COLOUR = '#8e24aa';
 const PHYSICS_COLOUR = "#5A5C51";
 const PHASER_CAMERA_COLOUR = '#607d8b';
 const PHASER_SOUND_COLOUR = '#827717';
-const PHASER_LIST_COLOUR = 230; //TODO: decide colour
+const PHASER_UTIL_GENERAL_COLOUR = '#ff3d00';
+const PHASER_UTIL_DEBUG_COLOUR = '#ff6e40';
+const PHASER_UTIL_LIST_COLOUR = '#bf360c';
 //endregion
 
 
@@ -119,7 +121,7 @@ Blockly.Blocks['center_and_stretch'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHASER_UTILITY_COLOUR);
+        this.setColour(PHASER_UTIL_GENERAL_COLOUR);
         this.setTooltip('Tells Phaser to center and stretch the game view to fit its window.');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.ScaleManager.html#scaleMode');
     }
@@ -133,7 +135,7 @@ Blockly.Blocks['enable_step'] = {
         this.setNextStatement(true, null);
         this.setTooltip('Enables manually stepping through game frames. Usually for debugging purposes.');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#enableStep');
-        this.setColour(PHASER_UTILITY_COLOUR);
+        this.setColour(PHASER_UTIL_DEBUG_COLOUR);
     }
 };
 
@@ -145,7 +147,7 @@ Blockly.Blocks['disable_step'] = {
         this.setNextStatement(true, null);
         this.setTooltip('Disables manually stepping into the next game loop. This is the default behavior.');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#disableStep');
-        this.setColour(PHASER_UTILITY_COLOUR);
+        this.setColour(PHASER_UTIL_DEBUG_COLOUR);
     }
 };
 
@@ -157,7 +159,7 @@ Blockly.Blocks['step'] = {
         this.setNextStatement(true, null);
         this.setTooltip('Manually steps to the next game loop. Stepping should be enabled before using this.');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Game.html#step');
-        this.setColour(PHASER_UTILITY_COLOUR);
+        this.setColour(PHASER_UTIL_DEBUG_COLOUR);
     }
 };
 //endregion
@@ -4466,7 +4468,7 @@ Blockly.Blocks['list_find_closest'] = {
         .appendField("in the list");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
-    this.setColour(PHASER_LIST_COLOUR);
+    this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Returns the value closest to the given number in a sorted, numeric list.\nIf two values are equally close, it returns the higher one.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_findClosest");
   }
@@ -4478,7 +4480,7 @@ Blockly.Blocks['list_get_random'] = {
         .setCheck("Array")
         .appendField("get a random item from");
     this.setOutput(true, null);
-    this.setColour(PHASER_LIST_COLOUR);
+    this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Returns a random item from the given list.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_getRandomItem");
   }
@@ -4494,7 +4496,7 @@ Blockly.Blocks['number_list'] = {
         .appendField("to");
     this.setInputsInline(true);
     this.setOutput(true, "Array");
-    this.setColour(PHASER_LIST_COLOUR);
+    this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Creates a list of numbers, in order within the specified range, including the start and end.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArray");
   }
@@ -4513,7 +4515,7 @@ Blockly.Blocks['number_list_step'] = {
         .appendField("stepping by");
     this.setInputsInline(true);
     this.setOutput(true, "Array");
-    this.setColour(PHASER_LIST_COLOUR);
+    this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Creates a list in the given range, counting up by a specified value.\nDoes NOT include the end of the range.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArrayStep");
   }
@@ -4525,7 +4527,7 @@ Blockly.Blocks['list_remove_random_item'] = {
         .setCheck("Array")
         .appendField("get and remove a random item from");
     this.setOutput(true, null);
-    this.setColour(PHASER_LIST_COLOUR);
+    this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Removes a random item from a list and returns it. Note that this modifies the list.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_removeRandomItem");
   }
@@ -4538,7 +4540,7 @@ Blockly.Blocks['list_shuffle'] = {
         .appendField("shuffle");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(PHASER_LIST_COLOUR);
+    this.setColour(PHASER_UTIL_LIST_COLOUR);
  this.setTooltip("Randomly rearranges the order of items in a list. Works for more than just cards.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_shuffle");
   }
