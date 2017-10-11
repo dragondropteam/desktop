@@ -2529,6 +2529,30 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setTooltip('Set a point property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    },
+    customContextMenu: function (options) {
+        // Add option to create gettor
+        var option = {enabled: true};
+        //copy over the property this settor was modifying
+        var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue('PROPERTY'));
+        xmlProperty.setAttribute('name', 'PROPERTY');
+        //define shadow block
+        var xmlVar = goog.dom.createDom('field', null, this.getInputTargetBlock('OBJECT').getFieldValue('VAR'));
+        xmlVar.setAttribute('name', 'VAR');
+        xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
+        xmlShadow.setAttribute('type', 'variables_get')
+        xmlObject = goog.dom.createDom('value', null, xmlShadow);
+        xmlObject.setAttribute('name', 'OBJECT');
+        //assemble into gettor block
+        var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
+        xmlBlock.setAttribute('type', 'get_game_object_point_field');
+        xmlBlock.append(xmlObject);
+        console.log('object field:');
+        console.log(this.getInputTargetBlock('OBJECT'));
+        //add option to context menu
+        option.text = "Create Getter";
+        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+        options.push(option);
     }
 };
 
