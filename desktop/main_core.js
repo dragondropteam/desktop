@@ -23,6 +23,7 @@ const path = require('path');
 
 const {dialog} = require('electron');
 const {app} = require('electron');
+app.setAppUserModelId("edu.digipen.dragondrop"); //set AUMID
 //const {BrowserWindow} = require('electron');
 
 const {ipcMain} = require('electron');
