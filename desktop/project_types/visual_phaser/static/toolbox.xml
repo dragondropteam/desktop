@@ -1924,7 +1924,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Math" colour="0"> <!--TODO: decide colour-->
+            <category name="Math" colour="#ffab91">
                 <block type="math_deg_to_rad">
                     <value name="DEGREES">
                         <shadow type="math_number">

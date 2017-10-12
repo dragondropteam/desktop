@@ -50,7 +50,7 @@ const PHASER_UTIL_GENERAL_COLOUR = '#ff3d00';
 const PHASER_UTIL_DEBUG_COLOUR = '#ff6e40';
 const PHASER_UTIL_LIST_COLOUR = '#bf360c';
 const PHASER_RANDOM_COLOUR = '#ff7043';
-const PHASER_MATH_COLOUR = 0; //TODO: decide colour
+const PHASER_MATH_COLOUR = '#ffab91';
 //endregion
 
 
