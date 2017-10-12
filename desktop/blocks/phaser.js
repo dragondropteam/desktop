@@ -2290,7 +2290,7 @@ Blockly.Blocks['get_current_mouse_position'] = {
     init: function () {
         this.appendDummyInput()
             .appendField('get mouse position')
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y']]), 'DIRECTION');
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y'],['worldX', 'worldX'], ['worldY', 'worldY']]), 'DIRECTION');
         this.setColour(PHASER_MOUSE_INPUT);
         this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#x');
