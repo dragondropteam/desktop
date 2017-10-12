@@ -1924,6 +1924,22 @@
                     </value>
                 </block>
             </category>
+            <category name="Math" colour="0"> <!--TODO: decide colour-->
+                <block type="math_deg_to_rad">
+                    <value name="DEGREES">
+                        <shadow type="math_number">
+                            <field name="NUM">90</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="math_rad_to_deg">
+                    <value name="RADIANS">
+                        <shadow type="math_number">
+                            <field name="NUM">3.14159</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
         </category>
         <category name="Camera" colour="#607d8b">
             <block type="camera_fade">
