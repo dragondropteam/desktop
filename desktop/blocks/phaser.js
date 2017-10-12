@@ -2514,6 +2514,31 @@ const GAME_OBJECT_NUMERIC_WRITABLE = ['x', 'y', 'angle', 'health', 'height', 'wi
 const GAME_OBJECT_NUMERIC_READONLY = ['bottom', 'top', 'left', 'right', 'centerX', 'centerY', 'deltaX', 'deltaY', 'deltaZ', 'offsetX', 'offsetY', 'previousRotation', 'z'];
 const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITABLE, GAME_OBJECT_NUMERIC_READONLY);
 
+//helpers
+//creates the DOM for a shadow math_number block
+function createNumShadowDom(value) {
+    if(value == null)
+        value = 0;
+    var xmlField = goog.dom.createDom('field', null, String(value));
+    xmlField.setAttribute('name', 'NUM');
+    var xmlShadow = goog.dom.createDom('shadow', null, xmlField);
+    xmlShadow.setAttribute('type', 'math_number');
+    return xmlShadow;
+}
+
+//creates the DOM for a shadow point block
+function createPointShadowDom(x, y) {
+    var xmlCoordX = goog.dom.createDom('value', null, createNumShadowDom(x));
+    xmlCoordX.setAttribute('name', 'X');
+    var xmlCoordY = goog.dom.createDom('value', null, createNumShadowDom(y));
+    xmlCoordY.setAttribute('name', 'Y');
+    var xmlPoint = goog.dom.createDom('shadow');
+    xmlPoint.setAttribute('type', 'point_create');
+    xmlPoint.append(xmlCoordX);
+    xmlPoint.append(xmlCoordY);
+    return xmlPoint;
+}
+
 Blockly.Blocks['set_game_object_point_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -2531,71 +2556,63 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
     customContextMenu: function (options) {
-        // Add option to create getter
+        //create custom context menu option
         var option = {enabled: true};
         //copy over the property this setter was modifying
         var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue('PROPERTY'));
         xmlProperty.setAttribute('name', 'PROPERTY');
         //copy over the variable this setter was acting on
         var varName = this.getInputTargetBlock('OBJECT').getFieldValue('VAR');
-        if(varName == null) {
+        if(varName == null)
             varName = 'defaultObject';
-        }
-        //define shadow block
+        //define shadow variable block
         var xmlVar = goog.dom.createDom('field', null, varName);
         xmlVar.setAttribute('name', 'VAR');
         xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
         xmlShadow.setAttribute('type', 'variables_get')
         xmlObject = goog.dom.createDom('value', null, xmlShadow);
         xmlObject.setAttribute('name', 'OBJECT');
-        //assemble into gettor block
+        //assemble into base getter/setter block
         var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
+        xmlBlock.append(xmlObject);
+        //type specific actions
         var varType = '';
-        var xmlTypeShadow = goog.dom.createDom('shadow');
+        var xmlSetterShadow = null;
         if(this.type.includes('point')) {
             varType = 'point';
-            xmlTypeShadow.setAttribute('type', 'point_create')
-            var xmlCoordX = goog.dom.createDom('value')
-            xmlCoordX.setAttribute('name', 'X')
-            var xmlNumber = goog.dom.createDom('shadow');
-            xmlNumber.setAttribute('type', 'math_number');
-            xmlCoordX.append(xmlNumber);
-            xmlTypeShadow.append(xmlCoordX);
-            var xmlCoordY = xmlCoordX.cloneNode(true);
-            xmlCoordY.setAttribute('name', 'Y')
-            xmlTypeShadow.append(xmlCoordY);
-            var xmlTypeVal = goog.dom.createDom('VALUE');
-            xmlTypeVal.setAttribute('name', 'POINT');
-            xmlTypeVal.append(xmlTypeShadow);
-            xmlBlock.append(xmlTypeVal);
-
+            //define setter shadow for point block
+            var xmlPointShadow = createPointShadowDom();
+            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlPointShadow);
+            xmlSetterShadow.setAttribute('name', 'POINT');
+            //don't add it here, we don't know if the block is a setter yet
         }
         else if (this.type.includes('numeric')) {
             varType = 'numeric';
-            xmlTypeShadow.setAttribute('type', 'math_number')
-            var xmlTypeVal = goog.dom.createDom('VALUE');
-            xmlTypeVal.setAttribute('name', 'VALUE');
-            xmlTypeVal.append(xmlTypeShadow);
-            xmlBlock.append(xmlTypeVal);
+            var xmlNumShadow = createNumShadowDom();
+            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlNumShadow);
+            xmlSetterShadow.setAttribute('name', 'VALUE');
         }
         else if (this.type.includes('boolean')) {
             varType = 'boolean';
-            xmlTypeShadow = null;
+            //no setter shadow, it uses a checkbox on the block itself
         }
+        //getter/setter specific actions
         var getSet = '';
         if(this.type.includes('get_')) {
             getSet = 'set'; //creating the opposite
             option.text = "Create Setter";
+            //extra shadow needed for input on setters
+            xmlBlock.append(xmlSetterShadow);
         }
         else if (this.type.includes('set_')) {
             getSet = 'get';
             option.text = "Create Getter";
         }
+        //finalize block by assembling the type name
         xmlBlock.setAttribute('type', `${getSet}_game_object_${varType}_field`);
-        xmlBlock.append(xmlObject);
-        console.log(xmlBlock);
-        //add option to context menu
+        //add action that creates a block following the xml we've assembled
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+        //add our custom option to the context menu
         options.push(option);
     }
 };
