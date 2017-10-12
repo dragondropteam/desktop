@@ -2531,13 +2531,18 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
     customContextMenu: function (options) {
-        // Add option to create gettor
+        // Add option to create getter
         var option = {enabled: true};
-        //copy over the property this settor was modifying
+        //copy over the property this setter was modifying
         var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue('PROPERTY'));
         xmlProperty.setAttribute('name', 'PROPERTY');
+        //copy over the variable this setter was acting on
+        var varName = this.getInputTargetBlock('OBJECT').getFieldValue('VAR');
+        if(varName == null) {
+            varName = 'defaultObject';
+        }
         //define shadow block
-        var xmlVar = goog.dom.createDom('field', null, this.getInputTargetBlock('OBJECT').getFieldValue('VAR'));
+        var xmlVar = goog.dom.createDom('field', null, varName);
         xmlVar.setAttribute('name', 'VAR');
         xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
         xmlShadow.setAttribute('type', 'variables_get')
@@ -2545,12 +2550,51 @@ Blockly.Blocks['set_game_object_point_field'] = {
         xmlObject.setAttribute('name', 'OBJECT');
         //assemble into gettor block
         var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
-        xmlBlock.setAttribute('type', 'get_game_object_point_field');
+        var varType = '';
+        var xmlTypeShadow = goog.dom.createDom('shadow');
+        if(this.type.includes('point')) {
+            varType = 'point';
+            xmlTypeShadow.setAttribute('type', 'point_create')
+            var xmlCoordX = goog.dom.createDom('value')
+            xmlCoordX.setAttribute('name', 'X')
+            var xmlNumber = goog.dom.createDom('shadow');
+            xmlNumber.setAttribute('type', 'math_number');
+            xmlCoordX.append(xmlNumber);
+            xmlTypeShadow.append(xmlCoordX);
+            var xmlCoordY = xmlCoordX.cloneNode(true);
+            xmlCoordY.setAttribute('name', 'Y')
+            xmlTypeShadow.append(xmlCoordY);
+            var xmlTypeVal = goog.dom.createDom('VALUE');
+            xmlTypeVal.setAttribute('name', 'POINT');
+            xmlTypeVal.append(xmlTypeShadow);
+            xmlBlock.append(xmlTypeVal);
+
+        }
+        else if (this.type.includes('numeric')) {
+            varType = 'numeric';
+            xmlTypeShadow.setAttribute('type', 'math_number')
+            var xmlTypeVal = goog.dom.createDom('VALUE');
+            xmlTypeVal.setAttribute('name', 'VALUE');
+            xmlTypeVal.append(xmlTypeShadow);
+            xmlBlock.append(xmlTypeVal);
+        }
+        else if (this.type.includes('boolean')) {
+            varType = 'boolean';
+            xmlTypeShadow = null;
+        }
+        var getSet = '';
+        if(this.type.includes('get_')) {
+            getSet = 'set'; //creating the opposite
+            option.text = "Create Setter";
+        }
+        else if (this.type.includes('set_')) {
+            getSet = 'get';
+            option.text = "Create Getter";
+        }
+        xmlBlock.setAttribute('type', `${getSet}_game_object_${varType}_field`);
         xmlBlock.append(xmlObject);
-        console.log('object field:');
-        console.log(this.getInputTargetBlock('OBJECT'));
+        console.log(xmlBlock);
         //add option to context menu
-        option.text = "Create Getter";
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
         options.push(option);
     }
@@ -2568,7 +2612,8 @@ Blockly.Blocks['get_game_object_point_field'] = {
         this.setTooltip('Get a point property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
 };
 
 Blockly.Blocks['set_game_object_numeric_field'] = {
@@ -2586,7 +2631,8 @@ Blockly.Blocks['set_game_object_numeric_field'] = {
         this.setTooltip('Set a numeric property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
 };
 
 Blockly.Blocks['get_game_object_numeric_field'] = {
@@ -2601,7 +2647,8 @@ Blockly.Blocks['get_game_object_numeric_field'] = {
         this.setTooltip('Get a numeric property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
 };
 
 Blockly.Blocks['set_game_object_boolean_field'] = {
@@ -2620,7 +2667,8 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
         this.setTooltip('Set a boolean property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
 };
 
 Blockly.Blocks['get_game_object_boolean_field'] = {
@@ -2635,7 +2683,8 @@ Blockly.Blocks['get_game_object_boolean_field'] = {
         this.setTooltip('Get a boolean property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
 };
 
 
