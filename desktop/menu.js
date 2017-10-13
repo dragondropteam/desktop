@@ -1,3 +1,12 @@
+/**
+ * @fileoverview Not used
+ * @deprecated
+ */
+
+/**
+ *
+ * @type {Electron.AllElectron}
+ */
 const electron = require('electron');
 const Menu = electron.Menu;
 const {BrowserWindow} = require('electron');
