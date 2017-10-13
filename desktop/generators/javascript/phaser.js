@@ -1724,3 +1724,15 @@ Blockly.JavaScript['random_sign'] = function(block) {
   return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
+
+//region MATH
+Blockly.JavaScript['math_deg_to_rad'] = function(block) {
+  const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.math.degToRad(${degrees})`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['math_rad_to_deg'] = function(block) {
+  const radians = Blockly.JavaScript.valueToCode(block, 'RADIANS', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.math.radToDeg(${radians})`, Blockly.JavaScript.ORDER_NONE];
+};
+//endregion

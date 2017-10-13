@@ -1924,6 +1924,62 @@
                     </value>
                 </block>
             </category>
+            <category name="Math" colour="#ffab91">
+                <block type="math_deg_to_rad">
+                    <value name="DEGREES">
+                        <shadow type="math_number">
+                            <field name="NUM">90</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="math_rad_to_deg">
+                    <value name="RADIANS">
+                        <shadow type="math_number">
+                            <field name="NUM">3.14159</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Random" colour="#ff7043">
+                <!--<block type="create_random_generator"></block>-->
+                <!--<block type="create_random_generator_seeded">
+                    <value name="SEED">
+                        <shadow type="text">
+                            <field name="TEXT">seed</field>
+                        </shadow>
+                    </value>
+                </block>-->
+                <block type="random_angle"></block>
+                <block type="random_pick">
+                    <value name="ARRAY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="random_pick_weighted">
+                    <value name="ARRAY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="random_real"></block>
+                <block type="random_real_in_range">
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">10</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="random_sign"></block>
+            </category>
+
         </category>
         <category name="Camera" colour="#607d8b">
             <block type="camera_fade">
@@ -2022,7 +2078,7 @@
                     </shadow>
                 </value>
             </block>
-            <block type="camera_unfollow"></block>
+            <block type="camera_unfollow"/>
         </category>
         <category name="Sound" colour="#827717">
             <block type="load_sound">
@@ -2220,45 +2276,6 @@
                 </value>
             </block>
             <block type="stop_pause_resume_sounds"/>
-        </category>
-        <category name="Random" colour="#ff7043">
-            <!--<block type="create_random_generator"></block>-->
-            <!--<block type="create_random_generator_seeded">
-                <value name="SEED">
-                    <shadow type="text">
-                        <field name="TEXT">seed</field>
-                    </shadow>
-                </value>
-            </block>-->
-            <block type="random_angle"></block>
-            <block type="random_pick">
-                <value name="ARRAY">
-                    <shadow type="variables_get">
-                        <field name="VAR">defaultObject</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="random_pick_weighted">
-                <value name="ARRAY">
-                    <shadow type="variables_get">
-                        <field name="VAR">defaultObject</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="random_real"></block>
-            <block type="random_real_in_range">
-                <value name="MIN">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="MAX">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="random_sign"></block>
         </category>
     </category>
     <sep/>

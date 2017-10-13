@@ -50,6 +50,7 @@ const PHASER_UTIL_GENERAL_COLOUR = '#ff3d00';
 const PHASER_UTIL_DEBUG_COLOUR = '#ff6e40';
 const PHASER_UTIL_LIST_COLOUR = '#bf360c';
 const PHASER_RANDOM_COLOUR = '#ff7043';
+const PHASER_MATH_COLOUR = '#ffab91';
 //endregion
 
 
@@ -4646,3 +4647,33 @@ Blockly.Blocks['random_sign'] = {
   }
 };
 //endregion
+
+//region MATH
+Blockly.Blocks['math_deg_to_rad'] = {
+  init: function() {
+    this.appendValueInput("DEGREES")
+        .setCheck("Number")
+        .appendField("convert degrees");
+    this.appendDummyInput()
+        .appendField("to radians");
+    this.setOutput(true, null);
+    this.setColour(PHASER_MATH_COLOUR);
+ this.setTooltip("Converts a value in degrees to an equivalent in radians.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#degToRad");
+  }
+};
+
+Blockly.Blocks['math_rad_to_deg'] = {
+  init: function() {
+    this.appendValueInput("RADIANS")
+        .setCheck("Number")
+        .appendField("convert radians");
+    this.appendDummyInput()
+        .appendField("to degrees");
+    this.setOutput(true, null);
+    this.setColour(PHASER_MATH_COLOUR);
+ this.setTooltip("Converts an angle in degrees to an equivalent in radians.");
+ this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#radToDeg");
+  }
+};
+//endegion
