@@ -70,6 +70,70 @@ function createDropDownField(write, readOnly) {
     return output;
 }
 
+//curried customContextMenu callback to pass more variables
+function getSetContextMenu(newBlock) { //newBlock is the block to create, not the current one
+    return function(options) {
+        //create custom context menu option
+        var option = {enabled: true};
+        //copy over the property this setter was modifying
+        var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue('PROPERTY'));
+        xmlProperty.setAttribute('name', 'PROPERTY');
+        //copy over the variable this setter was acting on
+        var varName = this.getInputTargetBlock('OBJECT').getFieldValue('VAR');
+        if(varName == null)
+            varName = 'defaultObject';
+        //define shadow variable block
+        var xmlVar = goog.dom.createDom('field', null, varName);
+        xmlVar.setAttribute('name', 'VAR');
+        xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
+        xmlShadow.setAttribute('type', 'variables_get')
+        xmlObject = goog.dom.createDom('value', null, xmlShadow);
+        xmlObject.setAttribute('name', 'OBJECT');
+        //assemble into base getter/setter block
+        var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
+        xmlBlock.append(xmlObject);
+        //type specific actions
+        var varType = '';
+        var xmlSetterShadow = null;
+        if(this.type.includes('point')) {
+            varType = 'point';
+            //define setter shadow for point block
+            var xmlPointShadow = createPointShadowDom();
+            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlPointShadow);
+            xmlSetterShadow.setAttribute('name', 'POINT');
+            //don't add it here, we don't know if the block is a setter yet
+        }
+        else if (this.type.includes('numeric')) {
+            varType = 'numeric';
+            var xmlNumShadow = createNumShadowDom();
+            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlNumShadow);
+            xmlSetterShadow.setAttribute('name', 'VALUE');
+        }
+        else if (this.type.includes('boolean')) {
+            varType = 'boolean';
+            //no setter shadow, it uses a checkbox on the block itself
+        }
+        //getter/setter specific actions
+        var getSet = '';
+        if(this.type.includes('get_')) {
+            getSet = 'set'; //creating the opposite
+            option.text = "Create Setter";
+            //extra shadow needed for input on setters
+            xmlBlock.append(xmlSetterShadow);
+        }
+        else if (this.type.includes('set_')) {
+            getSet = 'get';
+            option.text = "Create Getter";
+        }
+        //finalize block by assembling the type name
+        xmlBlock.setAttribute('type', newBlock);
+        //add action that creates a block following the xml we've assembled
+        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+        //add our custom option to the context menu
+        options.push(option);
+    }
+}
+
 //region STARTUP
 Blockly.Blocks['phaser_simple_init'] = {
     init: function () {
@@ -1382,6 +1446,10 @@ Blockly.Blocks['get_animation_property'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_animation_property.init}}
+ */
 Blockly.Blocks['set_animation_property'] = {
     init: function () {
         this.appendValueInput("NEWPROPERTY")
@@ -2555,66 +2623,7 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: function (options) {
-        //create custom context menu option
-        var option = {enabled: true};
-        //copy over the property this setter was modifying
-        var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue('PROPERTY'));
-        xmlProperty.setAttribute('name', 'PROPERTY');
-        //copy over the variable this setter was acting on
-        var varName = this.getInputTargetBlock('OBJECT').getFieldValue('VAR');
-        if(varName == null)
-            varName = 'defaultObject';
-        //define shadow variable block
-        var xmlVar = goog.dom.createDom('field', null, varName);
-        xmlVar.setAttribute('name', 'VAR');
-        xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
-        xmlShadow.setAttribute('type', 'variables_get')
-        xmlObject = goog.dom.createDom('value', null, xmlShadow);
-        xmlObject.setAttribute('name', 'OBJECT');
-        //assemble into base getter/setter block
-        var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
-        xmlBlock.append(xmlObject);
-        //type specific actions
-        var varType = '';
-        var xmlSetterShadow = null;
-        if(this.type.includes('point')) {
-            varType = 'point';
-            //define setter shadow for point block
-            var xmlPointShadow = createPointShadowDom();
-            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlPointShadow);
-            xmlSetterShadow.setAttribute('name', 'POINT');
-            //don't add it here, we don't know if the block is a setter yet
-        }
-        else if (this.type.includes('numeric')) {
-            varType = 'numeric';
-            var xmlNumShadow = createNumShadowDom();
-            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlNumShadow);
-            xmlSetterShadow.setAttribute('name', 'VALUE');
-        }
-        else if (this.type.includes('boolean')) {
-            varType = 'boolean';
-            //no setter shadow, it uses a checkbox on the block itself
-        }
-        //getter/setter specific actions
-        var getSet = '';
-        if(this.type.includes('get_')) {
-            getSet = 'set'; //creating the opposite
-            option.text = "Create Setter";
-            //extra shadow needed for input on setters
-            xmlBlock.append(xmlSetterShadow);
-        }
-        else if (this.type.includes('set_')) {
-            getSet = 'get';
-            option.text = "Create Getter";
-        }
-        //finalize block by assembling the type name
-        xmlBlock.setAttribute('type', `${getSet}_game_object_${varType}_field`);
-        //add action that creates a block following the xml we've assembled
-        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
-        //add our custom option to the context menu
-        options.push(option);
-    }
+    customContextMenu: getSetContextMenu('get_game_object_point_field')
 };
 
 Blockly.Blocks['get_game_object_point_field'] = {
@@ -2630,7 +2639,7 @@ Blockly.Blocks['get_game_object_point_field'] = {
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
+    customContextMenu: getSetContextMenu('set_game_object_point_field')
 };
 
 Blockly.Blocks['set_game_object_numeric_field'] = {
@@ -2649,7 +2658,7 @@ Blockly.Blocks['set_game_object_numeric_field'] = {
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
+    customContextMenu: getSetContextMenu('get_game_object_numeric_field')
 };
 
 Blockly.Blocks['get_game_object_numeric_field'] = {
@@ -2665,7 +2674,7 @@ Blockly.Blocks['get_game_object_numeric_field'] = {
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
+    customContextMenu: getSetContextMenu('set_game_object_numeric_field')
 };
 
 Blockly.Blocks['set_game_object_boolean_field'] = {
@@ -2685,7 +2694,7 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
+    customContextMenu: getSetContextMenu('get_game_object_boolean_field')
 };
 
 Blockly.Blocks['get_game_object_boolean_field'] = {
@@ -2701,7 +2710,7 @@ Blockly.Blocks['get_game_object_boolean_field'] = {
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: Blockly.Blocks['set_game_object_point_field'].customContextMenu
+    customContextMenu: getSetContextMenu('set_game_object_boolean_field')
 };
 
 
