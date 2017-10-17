@@ -12,6 +12,7 @@ const defaultMac = '/Applications/Arduino.app/Contents/MacOS/Arduino';
 const {spawn} = require('child_process');
 const path = require('path');
 const {dialog} = require('electron');
+const {Notification} = require('electron');
 
 /**
  * To actually call the application on Mac this string needs to be appended
@@ -330,3 +331,49 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
         }]
     });
 };
+
+/**
+ * Displays a notification that uploading to a board has suceeded.
+ * @param board The board name to display in the notification
+ */
+exports.showUploadSuccess = function(board) {
+    let successNotify = new Notification({
+        title: 'Upload Complete',
+        body: `Program successfully uploaded to ${board}.`
+    })
+    successNotify.show();
+ }
+
+ /**
+  * Displays a notification that uploading to a board has failed.
+  * @param board The board name to display in the notification
+  */
+exports.showUploadFailure = function(board) {
+    let failureNotify = new Notification({
+        title: 'Upload Failed',
+        body: `There was an error uploading to ${board}.`
+    })
+    failureNotify.show();
+}
+
+/**
+ * Displays a notification that verifying an arduino program has succeeded.
+ */
+exports.showVerifySuccess = function() {
+    let successNotify = new Notification({
+        title: 'Verification Complete',
+        body: 'Program has successfully been verified.'
+    })
+    successNotify.show();
+}
+
+/**
+ * Displays a notification that verifying an arduino program has failed.
+ */
+exports.showVerifyFailure = function() {
+    let failureNotify = new Notification({
+        title: 'Verification Failed',
+        body: 'There was an error verifying the program.'
+    })
+    failureNotify.show();
+}

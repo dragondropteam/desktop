@@ -21,7 +21,6 @@ const electron = require('electron');
 const {ipcMain} = require('electron');
 const {dialog} = require('electron');
 const {BrowserWindow} = require('electron');
-const {Notification} = require('electron');
 
 exports.createProjectDir = function (name, filePath) {
     if (!path.isAbsolute(filePath)) {
@@ -134,11 +133,7 @@ function invalidArduinoPath() {
 function completedProject(code, output) {
     if (code === 0) {
         //success
-        let successNotify = new Notification({
-            title: 'Upload Complete',
-            body: 'Program successfully uploaded to Wink Bot.'
-        })
-        successNotify.show();
+        arduino.showUploadSuccess('Wink Bot');
 
         electron.dialog.showMessageBox({
             type: "info",
@@ -146,11 +141,7 @@ function completedProject(code, output) {
             buttons: ["OK"]
         });
     } else {
-        let failureNotify = new Notification({
-            title: 'Upload Failed',
-            body: 'There was an error uploading to Wink Bot.'
-        })
-        failureNotify.show();
+        arduino.showUploadFailure('Wink Bot');
 
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
@@ -163,19 +154,11 @@ function completedProject(code, output) {
 function completedVerify(code, output) {
     if (code === 0) {
         //success
-        let successNotify = new Notification({
-            title: 'Verification Complete',
-            body: 'Program has successfully been verified.'
-        })
-        successNotify.show();
+        arduino.showVerifySuccess('Wink Bot');
 
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
-        let failureNotify = new Notification({
-            title: 'Verification Failed',
-            body: 'There was an error uploading to Wink Bot.'
-        })
-        failureNotify.show();
+        arduino.showVerifyFailure('Wink Bot');
 
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
