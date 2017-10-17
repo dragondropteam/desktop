@@ -71,6 +71,70 @@ function createDropDownField(write, readOnly) {
     return output;
 }
 
+//curried customContextMenu callback to pass more variables
+function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY', newObject='OBJECT', newProperty='PROPERTY') {
+    return function(options) {
+        //create custom context menu option
+        var option = {enabled: true};
+        //copy over the property this setter was modifying
+        var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue(origProperty));
+        xmlProperty.setAttribute('name', newProperty);
+        //copy over the variable this setter was acting on
+        var varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
+        if(varName == null)
+            varName = 'defaultObject';
+        //define shadow variable block
+        var xmlVar = goog.dom.createDom('field', null, varName);
+        xmlVar.setAttribute('name', 'VAR');
+        xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
+        xmlShadow.setAttribute('type', 'variables_get')
+        xmlObject = goog.dom.createDom('value', null, xmlShadow);
+        xmlObject.setAttribute('name', newObject);
+        //assemble into base getter/setter block
+        var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
+        xmlBlock.append(xmlObject);
+        //type specific actions
+        var varType = '';
+        var xmlSetterShadow = null;
+        if(this.type.includes('point')) {
+            varType = 'point';
+            //define setter shadow for point block
+            var xmlPointShadow = createPointShadowDom();
+            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlPointShadow);
+            xmlSetterShadow.setAttribute('name', 'POINT');
+            //don't add it here, we don't know if the block is a setter yet
+        }
+        else if (this.type.includes('numeric')) {
+            varType = 'numeric';
+            var xmlNumShadow = createNumShadowDom();
+            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlNumShadow);
+            xmlSetterShadow.setAttribute('name', 'VALUE');
+        }
+        else if (this.type.includes('boolean')) {
+            varType = 'boolean';
+            //no setter shadow, it uses a checkbox on the block itself
+        }
+        //getter/setter specific actions
+        var getSet = '';
+        if(this.type.includes('get_')) {
+            getSet = 'set'; //creating the opposite
+            option.text = "Create Setter";
+            //extra shadow needed for input on setters
+            xmlBlock.append(xmlSetterShadow);
+        }
+        else if (this.type.includes('set_')) {
+            getSet = 'get';
+            option.text = "Create Getter";
+        }
+        //finalize block by assembling the type name
+        xmlBlock.setAttribute('type', newBlock);
+        //add action that creates a block following the xml we've assembled
+        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+        //add our custom option to the context menu
+        options.push(option);
+    }
+}
+
 //region STARTUP
 Blockly.Blocks['phaser_simple_init'] = {
     init: function () {
@@ -1380,9 +1444,14 @@ Blockly.Blocks['get_animation_property'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Get a property on from the animaton manager on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy');
-    }
+    },
+    customContextMenu: getSetContextMenu('set_animation_property_vi', 'SPRITE', 'FIELD', 'OBJECT', 'FIELD')
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_animation_property.init}}
+ */
 Blockly.Blocks['set_animation_property'] = {
     init: function () {
         this.appendValueInput("NEWPROPERTY")
@@ -1415,7 +1484,8 @@ Blockly.Blocks['set_animation_property_vi'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip('Set a property from the animation manager on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy');
-    }
+    },
+    customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
 };
 
 Blockly.Blocks['animation_get_animation'] = {
@@ -1924,7 +1994,8 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
         this.setTooltip('Set the value of the body point field');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_body_field_point_class', 'OBJECT', 'FIELD', 'OBJECT', 'FIELD')
 };
 
 
@@ -1953,7 +2024,8 @@ Blockly.Blocks['get_body_field_point_class'] = {
         this.setTooltip('Gets the value of the specified point as a point object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_body_field_point_class_vi', 'OBJECT', 'FIELD', 'OBJECT', 'FIELD')
 };
 
 Blockly.Blocks['set_body_boolean_field'] = {
@@ -1971,7 +2043,8 @@ Blockly.Blocks['set_body_boolean_field'] = {
         this.setTooltip('Set the value of the specified boolean field');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_body_boolean_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 Blockly.Blocks['get_body_boolean_field'] = {
@@ -1986,7 +2059,8 @@ Blockly.Blocks['get_body_boolean_field'] = {
         this.setTooltip('Set the value of the specified boolean field');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_body_boolean_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 
@@ -2006,7 +2080,8 @@ Blockly.Blocks['set_body_numeric_field'] = {
         this.setTooltip('Set the value of the specified numeric field');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_body_numeric_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 Blockly.Blocks['get_body_numeric_field'] = {
@@ -2021,7 +2096,8 @@ Blockly.Blocks['get_body_numeric_field'] = {
         this.setTooltip('Get the value of the specified numeric field');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html');
         this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_body_numeric_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 //endregion
@@ -2515,6 +2591,31 @@ const GAME_OBJECT_NUMERIC_WRITABLE = ['x', 'y', 'angle', 'health', 'height', 'wi
 const GAME_OBJECT_NUMERIC_READONLY = ['bottom', 'top', 'left', 'right', 'centerX', 'centerY', 'deltaX', 'deltaY', 'deltaZ', 'offsetX', 'offsetY', 'previousRotation', 'z'];
 const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITABLE, GAME_OBJECT_NUMERIC_READONLY);
 
+//helpers
+//creates the DOM for a shadow math_number block
+function createNumShadowDom(value) {
+    if(value == null)
+        value = 0;
+    var xmlField = goog.dom.createDom('field', null, String(value));
+    xmlField.setAttribute('name', 'NUM');
+    var xmlShadow = goog.dom.createDom('shadow', null, xmlField);
+    xmlShadow.setAttribute('type', 'math_number');
+    return xmlShadow;
+}
+
+//creates the DOM for a shadow point block
+function createPointShadowDom(x, y) {
+    var xmlCoordX = goog.dom.createDom('value', null, createNumShadowDom(x));
+    xmlCoordX.setAttribute('name', 'X');
+    var xmlCoordY = goog.dom.createDom('value', null, createNumShadowDom(y));
+    xmlCoordY.setAttribute('name', 'Y');
+    var xmlPoint = goog.dom.createDom('shadow');
+    xmlPoint.setAttribute('type', 'point_create');
+    xmlPoint.append(xmlCoordX);
+    xmlPoint.append(xmlCoordY);
+    return xmlPoint;
+}
+
 Blockly.Blocks['set_game_object_point_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -2530,7 +2631,8 @@ Blockly.Blocks['set_game_object_point_field'] = {
         this.setTooltip('Set a point property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_game_object_point_field')
 };
 
 Blockly.Blocks['get_game_object_point_field'] = {
@@ -2545,7 +2647,8 @@ Blockly.Blocks['get_game_object_point_field'] = {
         this.setTooltip('Get a point property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_game_object_point_field')
 };
 
 Blockly.Blocks['set_game_object_numeric_field'] = {
@@ -2563,7 +2666,8 @@ Blockly.Blocks['set_game_object_numeric_field'] = {
         this.setTooltip('Set a numeric property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_game_object_numeric_field')
 };
 
 Blockly.Blocks['get_game_object_numeric_field'] = {
@@ -2578,7 +2682,8 @@ Blockly.Blocks['get_game_object_numeric_field'] = {
         this.setTooltip('Get a numeric property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_game_object_numeric_field')
 };
 
 Blockly.Blocks['set_game_object_boolean_field'] = {
@@ -2597,7 +2702,8 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
         this.setTooltip('Set a boolean property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_game_object_boolean_field')
 };
 
 Blockly.Blocks['get_game_object_boolean_field'] = {
@@ -2612,7 +2718,8 @@ Blockly.Blocks['get_game_object_boolean_field'] = {
         this.setTooltip('Get a boolean property on the object');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html');
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_game_object_boolean_field')
 };
 
 
@@ -4131,7 +4238,8 @@ Blockly.Blocks['set_sound_boolean_member'] = {
         this.setTooltip('Set the selected member on the Sound');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
         this.setColour(PHASER_SOUND_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_sound_boolean_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 Blockly.Blocks['get_sound_boolean_member'] = {
@@ -4146,7 +4254,8 @@ Blockly.Blocks['get_sound_boolean_member'] = {
         this.setTooltip('Get the selected member from the Sound');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
         this.setColour(PHASER_SOUND_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_sound_boolean_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 const SOUND_FIELDS_NUMERIC_WRITABLE = ['position', 'volume'];
 const SOUND_FIELDS_NUMERIC_RO = ['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
@@ -4168,7 +4277,8 @@ Blockly.Blocks['set_sound_numeric_member'] = {
         this.setTooltip('Set the selected member on the Sound');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
         this.setColour(PHASER_SOUND_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('get_sound_numeric_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 Blockly.Blocks['get_sound_numeric_member'] = {
@@ -4183,7 +4293,8 @@ Blockly.Blocks['get_sound_numeric_member'] = {
         this.setTooltip('Get the selected member from the Sound');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Sound.html');
         this.setColour(PHASER_SOUND_COLOUR);
-    }
+    },
+    customContextMenu: getSetContextMenu('set_sound_numeric_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
 };
 
 const SOUND_FIELDS_STRING_RO = ['currentMarker', 'key'];
