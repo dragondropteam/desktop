@@ -107,12 +107,16 @@ function invalidArduinoPath() {
 function completedProject(code, output) {
     if (code == 0) {
         //success
+        arduino.showUploadSuccess('Ringo Bot');
+
         electron.dialog.showMessageBox({
             type: "info",
             message: `Program Uploaded To Your Ringo Bot`,
             buttons: ["OK"]
         });
     } else {
+        arduino.showUploadFailure('Ringo Bot');
+
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
           title: 'Dragon Drop Error',
@@ -124,8 +128,12 @@ function completedProject(code, output) {
 function completedVerify(code, output) {
     if (code == 0) {
         //success
+        arduino.showVerifySuccess('Ringo Bot');
+
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
+        arduino.showVerifyFailure('Ringo Bot');
+
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
           title: 'Dragon Drop Error',

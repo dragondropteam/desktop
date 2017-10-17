@@ -133,12 +133,16 @@ function invalidArduinoPath() {
 function completedProject(code, output) {
     if (code === 0) {
         //success
+        arduino.showUploadSuccess('Wink Bot');
+
         electron.dialog.showMessageBox({
             type: "info",
             message: `Program Uploaded To Your Wink Bot`,
             buttons: ["OK"]
         });
     } else {
+        arduino.showUploadFailure('Wink Bot');
+
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
           title: 'Dragon Drop Error',
@@ -150,8 +154,12 @@ function completedProject(code, output) {
 function completedVerify(code, output) {
     if (code === 0) {
         //success
+        arduino.showVerifySuccess('Wink Bot');
+
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
+        arduino.showVerifyFailure('Wink Bot');
+
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
           title: 'Dragon Drop Error',
