@@ -21,7 +21,6 @@ const electron = require('electron');
 const {Boards} = require('../../arduino_core/arduino_core');
 const {dialog} = require('electron');
 const {BrowserWindow} = require('electron');
-const {Notification} = require('electron');
 
 function invalidArduinoPath() {
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
@@ -100,11 +99,7 @@ exports.migrate = function (loadedProject) {
 function completedProject(code, output) {
     if (code === 0) {
         //success
-        let successNotify = new Notification({
-            title: 'Upload Complete',
-            body: 'Program successfully uploaded to Arduino.'
-        })
-        successNotify.show();
+        arduino.showUploadSuccess('Arduino');
 
         electron.dialog.showMessageBox({
             type: "info",
@@ -114,11 +109,7 @@ function completedProject(code, output) {
 
 
     } else {
-        let failureNotify = new Notification({
-            title: 'Upload Failed',
-            body: 'There was an error uploading to Arduino.'
-        })
-        failureNotify.show();
+        arduino.showUploadFailure('Arduino');
 
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
@@ -131,19 +122,11 @@ function completedProject(code, output) {
 function completedVerify(code, output) {
     if (code === 0) {
         //success
-        let successNotify = new Notification({
-            title: 'Verification Complete',
-            body: 'Program has successfully been verified.'
-        })
-        successNotify.show();
+        arduino.showVerifySuccess();
 
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
-        let failureNotify = new Notification({
-            title: 'Verification Failed',
-            body: 'There was an error uploading to Arduino.'
-        })
-        failureNotify.show();
+        arduino.showVerifyFailure();
 
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',

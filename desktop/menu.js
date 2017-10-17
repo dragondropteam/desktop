@@ -1,7 +1,7 @@
 const electron = require('electron');
 const Menu = electron.Menu;
 const {BrowserWindow} = require('electron');
-const {Notification} = require('electron');
+const arduino_core = require('arduino_core/arduino_core');
 
 exports.createProjectMenu = function(){
   const template = [
@@ -104,19 +104,11 @@ exports.createProjectMenu = function(){
             arduino.on('close', (code) => {
               if(code == 0){
                 //success
-                let successNotify = new Notification({
-                    title: 'Upload Complete',
-                    body: 'Program successfully uploaded to Arduino.'
-                })
-                successNotify.show();
+                arduino_core.showUploadSuccess('Arduino');
 
                 electron.dialog.showMessageBox({type: "info", message: "Program Uploaded To Arduino", buttons: ["OK"]});
               }else{
-                let failureNotify = new Notification({
-                    title: 'Upload Failed',
-                    body: `There was an error uploading to Arduino.`
-                })
-                failureNotify.show();
+                arduino_core.showUploadFailure('Arduino');
 
                 electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                   type: 'error',
