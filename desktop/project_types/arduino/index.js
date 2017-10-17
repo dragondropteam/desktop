@@ -99,12 +99,18 @@ exports.migrate = function (loadedProject) {
 function completedProject(code, output) {
     if (code === 0) {
         //success
+        arduino.showUploadSuccess('Arduino');
+
         electron.dialog.showMessageBox({
             type: "info",
             message: `Program Uploaded To Your Board`,
             buttons: ["OK"]
         });
+
+
     } else {
+        arduino.showUploadFailure('Arduino');
+
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
           title: 'Dragon Drop Error',
@@ -116,8 +122,12 @@ function completedProject(code, output) {
 function completedVerify(code, output) {
     if (code === 0) {
         //success
+        arduino.showVerifySuccess();
+
         electron.dialog.showMessageBox({type: "info", message: `Program Verified`, buttons: ["OK"]});
     } else {
+        arduino.showVerifyFailure();
+
         electron.dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
           type: 'error',
           title: 'Dragon Drop Error',
