@@ -36,7 +36,7 @@ Blockly.Blocks['get_gyro_calibration_multiplier'] = {
         this.setOutput(true, "Number");
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 
@@ -48,7 +48,7 @@ Blockly.Blocks['begin_navigation'] = {
         this.setNextStatement(true, null);
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 
@@ -60,7 +60,7 @@ Blockly.Blocks['simple_gyro_navigation'] = {
         this.setNextStatement(true, null);
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 
@@ -72,7 +72,7 @@ Blockly.Blocks['simple_navigation'] = {
         this.setNextStatement(true, null);
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 
@@ -92,7 +92,7 @@ Blockly.Blocks['navigation_xy'] = {
         this.setNextStatement(true, null);
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 
@@ -667,7 +667,7 @@ Blockly.Blocks['maintain_heading'] = {
         this.setNextStatement(true, null);
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 
@@ -695,7 +695,7 @@ Blockly.Blocks['drive_arc'] = {
         this.setNextStatement(true, null);
         this.setColour(290);
         this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl(HELP_URL);
     }
 };
 // This is function only exists in the header not in the actual implementation
@@ -871,4 +871,3 @@ Blockly.Blocks['random_eyes'] = {
     }
 };
 //endregion
-
