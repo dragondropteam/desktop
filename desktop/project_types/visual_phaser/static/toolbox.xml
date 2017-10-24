@@ -1557,7 +1557,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="collide_with_arrow_function">
+                <block type="collide_function_field">
                     <value name="OBJECTA">
                         <shadow type="variables_get">
                             <field name="VAR">objectA</field>
@@ -1569,7 +1569,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="check_overlap_vi">
+                <block type="check_overlap_vi_procedure_field">
                     <value name="LHS">
                         <shadow type="variables_get">
                             <field name="VAR">objectA</field>

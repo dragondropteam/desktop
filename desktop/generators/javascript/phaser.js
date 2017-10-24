@@ -747,6 +747,20 @@ Blockly.JavaScript['check_overlap_vi'] = function (block) {
     return `game.physics.arcade.overlap(${lhs}, ${rhs}, ${functionName}, null, this);\n`;
 };
 
+Blockly.JavaScript['check_overlap_vi_procedure_field'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+    const functionName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+    return `game.physics.arcade.overlap(${lhs}, ${rhs}, ${functionName}, null, this);\n`;
+};
+
+Blockly.JavaScript['collide_function_field'] = function (block) {
+    const lhs = Blockly.JavaScript.valueToCode(block, 'OBJECTA', Blockly.JavaScript.ORDER_ATOMIC);
+    const rhs = Blockly.JavaScript.valueToCode(block, 'OBJECTB', Blockly.JavaScript.ORDER_ATOMIC);
+    const functionName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+    return `game.physics.arcade.collide(${lhs}, ${rhs}, ${functionName});\n`;
+};
+
 Blockly.JavaScript['move_to_pointer'] = function (block) {
     const value_gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const value_speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
