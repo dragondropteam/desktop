@@ -454,7 +454,7 @@ exports.Workspace = class {
 
 exports.logErrorAndQuit = function (e, state) {
     console.error(`Error ${state} project changes will not be saved`);
-    fs.writeFileSync('log.txt', `${e.message}`);
+    fs.writeFileSync('log.txt', `${e.toString()}\nMessage: ${e.message}\nLineNumber: ${e.lineNumber}\nFileName: ${e.fileName}\n`);
     console.error(e);
     app.exit(-1);
 };

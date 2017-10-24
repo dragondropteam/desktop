@@ -72,8 +72,8 @@ function createDropDownField(write, readOnly) {
 }
 
 //curried customContextMenu callback to pass more variables
-function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY', newObject='OBJECT', newProperty='PROPERTY') {
-    return function(options) {
+function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROPERTY', newObject = 'OBJECT', newProperty = 'PROPERTY') {
+    return function (options) {
         //create custom context menu option
         var option = {enabled: true};
         //copy over the property this setter was modifying
@@ -81,7 +81,7 @@ function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY
         xmlProperty.setAttribute('name', newProperty);
         //copy over the variable this setter was acting on
         var varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
-        if(varName == null)
+        if (varName == null)
             varName = 'defaultObject';
         //define shadow variable block
         var xmlVar = goog.dom.createDom('field', null, varName);
@@ -96,7 +96,7 @@ function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY
         //type specific actions
         var varType = '';
         var xmlSetterShadow = null;
-        if(this.type.includes('point')) {
+        if (this.type.includes('point')) {
             varType = 'point';
             //define setter shadow for point block
             var xmlPointShadow = createPointShadowDom();
@@ -116,7 +116,7 @@ function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY
         }
         //getter/setter specific actions
         var getSet = '';
-        if(this.type.includes('get_')) {
+        if (this.type.includes('get_')) {
             getSet = 'set'; //creating the opposite
             option.text = "Create Setter";
             //extra shadow needed for input on setters
@@ -1810,19 +1810,19 @@ Blockly.Blocks['group_remove_all'] = {
 };
 
 Blockly.Blocks['add_to_world'] = {
-  init: function() {
-    this.appendValueInput("OBJECT")
-        .setCheck(null)
-        .appendField("add");
-    this.appendDummyInput()
-        .appendField("to the world");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip("Adds an existing object to the world group. Necessary for making an object that has been previously removed from a  group visible again.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.World.html#add");
-  }
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("add");
+        this.appendDummyInput()
+            .appendField("to the world");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip("Adds an existing object to the world group. Necessary for making an object that has been previously removed from a  group visible again.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.World.html#add");
+    }
 };
 //endregion
 
@@ -1934,6 +1934,32 @@ Blockly.Blocks['collide_with_arrow_function'] = {
         this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
+    }
+};
+
+Blockly.Blocks['collide_function_field'] = {
+    init: function () {
+        this.appendValueInput("OBJECTA")
+            .setCheck(null)
+            .appendField("collide");
+        this.appendValueInput("OBJECTB")
+            .setCheck(null)
+            .appendField("with");
+        this.appendDummyInput()
+            .appendField("calling")
+            .appendField(new Blockly.FieldProcedure("onCollide"), "NAME")
+            .appendField("if overlapping");
+        this.setInputsInline(true);
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+        this.setTooltip("Collide two objects, if they are collide do the statements in the block");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    },
+    renameProcedure: function (oldName, legalName) {
+        if (this.getFieldValue('NAME') == oldName) {
+            this.setFieldValue(legalName, 'NAME');
+        }
     }
 };
 //endregion
@@ -2117,20 +2143,20 @@ Blockly.Blocks['call_function_on_group'] = {
 };
 
 Blockly.Blocks['acceleration_from_rotation'] = { //TODO: add to toolbox(?)
-  init: function() {
-    this.appendValueInput("ROTATION")
-        .setCheck(null)
-        .appendField("get forward acceleration from rotation");
-    this.appendValueInput("SPEED")
-        .setCheck(null)
-        .appendField("at");
-    this.appendDummyInput()
-        .appendField("pixels/second^2");
-    this.setOutput(true, null);
-    this.setColour(PHYSICS_COLOUR);
- this.setTooltip("Creates an (x, y) acceleration that goes forward from the given rotation. Returns it as a point.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#accelerationFromRotation");
-  }
+    init: function () {
+        this.appendValueInput("ROTATION")
+            .setCheck(null)
+            .appendField("get forward acceleration from rotation");
+        this.appendValueInput("SPEED")
+            .setCheck(null)
+            .appendField("at");
+        this.appendDummyInput()
+            .appendField("pixels/second^2");
+        this.setOutput(true, null);
+        this.setColour(PHYSICS_COLOUR);
+        this.setTooltip("Creates an (x, y) acceleration that goes forward from the given rotation. Returns it as a point.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#accelerationFromRotation");
+    }
 };
 
 Blockly.Blocks['set_immovable'] = {
@@ -2180,6 +2206,21 @@ Blockly.Blocks['collide_vi'] = {
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
     }
 };
+
+// Blockly.Blocks['collide_vi_functionfield'] = {
+//     init: function () {
+//         this.appendValueInput('LHS')
+//             .appendField("collide");
+//         this.appendValueInput('RHS')
+//             .appendField("with");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setTooltip('Collide the first group/object with the second group/object');
+//         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide');
+//         this.setInputsInline(true);
+//         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+//     }
+// };
 
 /**
  * @deprecated
@@ -2266,6 +2307,29 @@ Blockly.Blocks['check_overlap_vi'] = {
         this.setTooltip('Checks for an overlap between objectA and objectB.');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap');
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    }
+};
+
+Blockly.Blocks['check_overlap_vi_procedure_field'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField("check overlap between");
+        this.appendValueInput('RHS')
+            .appendField("and");
+        this.appendDummyInput()
+            .appendField("calling")
+            .appendField(new Blockly.FieldProcedure("onCollide"), "NAME")
+            .appendField("if overlapping");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Checks for an overlap between objectA and objectB.');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap');
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    },
+    renameProcedure: function (oldName, legalName) {
+        if (this.getFieldValue('NAME') == oldName) {
+            this.setFieldValue(legalName, 'NAME');
+        }
     }
 };
 
@@ -2367,7 +2431,7 @@ Blockly.Blocks['get_current_mouse_position'] = {
     init: function () {
         this.appendDummyInput()
             .appendField('get mouse position')
-            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y'],['worldX', 'worldX'], ['worldY', 'worldY']]), 'DIRECTION');
+            .appendField(new Blockly.FieldDropdown([['x', 'x'], ['y', 'y'], ['worldX', 'worldX'], ['worldY', 'worldY']]), 'DIRECTION');
         this.setColour(PHASER_MOUSE_INPUT);
         this.setTooltip('Get the position of the mouse, or last active pointer for touch screen interfaces');
         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#x');
@@ -2565,14 +2629,14 @@ Blockly.Blocks['create_point'] = {
 };
 
 Blockly.Blocks['get_world_reference'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("world");
-    this.setOutput(true, null);
-    this.setColour(PHASER_WORLD_COLOUR);
- this.setTooltip("Returns a reference to the game world. It functions as a group.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.World.html");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("world");
+        this.setOutput(true, null);
+        this.setColour(PHASER_WORLD_COLOUR);
+        this.setTooltip("Returns a reference to the game world. It functions as a group.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.World.html");
+    }
 };
 //endregion
 
@@ -2594,7 +2658,7 @@ const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITA
 //helpers
 //creates the DOM for a shadow math_number block
 function createNumShadowDom(value) {
-    if(value == null)
+    if (value == null)
         value = 0;
     var xmlField = goog.dom.createDom('field', null, String(value));
     xmlField.setAttribute('name', 'NUM');
@@ -4204,7 +4268,7 @@ Blockly.Blocks['camera_follow_vi_styled'] = {
             .appendField("make camera follow");
         this.appendDummyInput()
             .appendField('with style')
-            .appendField(new Blockly.FieldDropdown([['lockon','FOLLOW_LOCKON'],['platformer', 'FOLLOW_PLATFORMER'],['topdown', 'FOLLOW_TOPDOWN'],['topdown tight', 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
+            .appendField(new Blockly.FieldDropdown([['lockon', 'FOLLOW_LOCKON'], ['platformer', 'FOLLOW_PLATFORMER'], ['topdown', 'FOLLOW_TOPDOWN'], ['topdown tight', 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -4572,219 +4636,219 @@ Blockly.Blocks['sound_restart'] = {
 
 //region LIST.METHODS
 Blockly.Blocks['list_find_closest'] = {
-  init: function() {
-    this.appendValueInput("VALUE")
-        .setCheck("Number")
-        .appendField("find the number closest to");
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField("in the list");
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip("Returns the value closest to the given number in a sorted, numeric list.\nIf two values are equally close, it returns the higher one.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_findClosest");
-  }
+    init: function () {
+        this.appendValueInput("VALUE")
+            .setCheck("Number")
+            .appendField("find the number closest to");
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("in the list");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip("Returns the value closest to the given number in a sorted, numeric list.\nIf two values are equally close, it returns the higher one.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_findClosest");
+    }
 };
 
 Blockly.Blocks['list_get_random'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField("get a random item from");
-    this.setOutput(true, null);
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip("Returns a random item from the given list.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_getRandomItem");
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("get a random item from");
+        this.setOutput(true, null);
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip("Returns a random item from the given list.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_getRandomItem");
+    }
 };
 
 Blockly.Blocks['number_list'] = {
-  init: function() {
-    this.appendValueInput("START")
-        .setCheck("Number")
-        .appendField("create a list with every number from");
-    this.appendValueInput("END")
-        .setCheck("Number")
-        .appendField("to");
-    this.setInputsInline(true);
-    this.setOutput(true, "Array");
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip("Creates a list of numbers, in order within the specified range, including the start and end.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArray");
-  }
+    init: function () {
+        this.appendValueInput("START")
+            .setCheck("Number")
+            .appendField("create a list with every number from");
+        this.appendValueInput("END")
+            .setCheck("Number")
+            .appendField("to");
+        this.setInputsInline(true);
+        this.setOutput(true, "Array");
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip("Creates a list of numbers, in order within the specified range, including the start and end.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArray");
+    }
 };
 
 Blockly.Blocks['number_list_step'] = {
-  init: function() {
-    this.appendValueInput("START")
-        .setCheck("Number")
-        .appendField("create a list from");
-    this.appendValueInput("END")
-        .setCheck("Number")
-        .appendField("to");
-    this.appendValueInput("STEP")
-        .setCheck("Number")
-        .appendField("stepping by");
-    this.setInputsInline(true);
-    this.setOutput(true, "Array");
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip("Creates a list in the given range, counting up by a specified value.\nDoes NOT include the end of the range.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArrayStep");
-  }
+    init: function () {
+        this.appendValueInput("START")
+            .setCheck("Number")
+            .appendField("create a list from");
+        this.appendValueInput("END")
+            .setCheck("Number")
+            .appendField("to");
+        this.appendValueInput("STEP")
+            .setCheck("Number")
+            .appendField("stepping by");
+        this.setInputsInline(true);
+        this.setOutput(true, "Array");
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip("Creates a list in the given range, counting up by a specified value.\nDoes NOT include the end of the range.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArrayStep");
+    }
 };
 
 Blockly.Blocks['list_remove_random_item'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField("get and remove a random item from");
-    this.setOutput(true, null);
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip("Removes a random item from a list and returns it. Note that this modifies the list.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_removeRandomItem");
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("get and remove a random item from");
+        this.setOutput(true, null);
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip("Removes a random item from a list and returns it. Note that this modifies the list.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_removeRandomItem");
+    }
 };
 
 Blockly.Blocks['list_shuffle'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField("shuffle");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip("Randomly rearranges the order of items in a list. Works for more than just cards.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_shuffle");
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("shuffle");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip("Randomly rearranges the order of items in a list. Works for more than just cards.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_shuffle");
+    }
 };
 //endregion
 
 //region RANDOMISATION
 /*
-Blockly.Blocks['create_random_generator'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("create random number generator");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
+ Blockly.Blocks['create_random_generator'] = {
+ init: function() {
+ this.appendDummyInput()
+ .appendField("create random number generator");
+ this.setInputsInline(true);
+ this.setOutput(true, null);
+ this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Creates an object you can use to make random numbers.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
-  }
-};
+ }
+ };
 
-Blockly.Blocks['create_random_generator_seeded'] = {
-  init: function() {
-    this.appendValueInput("SEED")
-        .appendField("create random number generator with seed")
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
+ Blockly.Blocks['create_random_generator_seeded'] = {
+ init: function() {
+ this.appendValueInput("SEED")
+ .appendField("create random number generator with seed")
+ this.setOutput(true, null);
+ this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Creates a random number generator. Using a seed produces predictable results.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
-  }
-};*/
+ }
+ };*/
 
 Blockly.Blocks['random_angle'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("get random angle");
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns a random angle between -180 and 180.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get random angle");
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip("Returns a random angle between -180 and 180.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle");
+    }
 };
 
 Blockly.Blocks['random_pick'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField("get random item from list");
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns a random member in a given list.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick");
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("get random item from list");
+        this.setOutput(true, null);
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip("Returns a random member in a given list.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick");
+    }
 };
 
 Blockly.Blocks['random_pick_weighted'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField("get random item from list (weighted)");
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns a random member in a given list. This version chooses items close to the start of the list more frequently.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#weightedPick");
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("get random item from list (weighted)");
+        this.setOutput(true, null);
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip("Returns a random member in a given list. This version chooses items close to the start of the list more frequently.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#weightedPick");
+    }
 };
 
 Blockly.Blocks['random_real'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("get random number");
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#real");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get random number");
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip("Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#real");
+    }
 };
 
 Blockly.Blocks['random_real_in_range'] = {
-  init: function() {
-    this.appendValueInput("MIN")
-        .setCheck("Number")
-        .appendField("get random number between");
-    this.appendValueInput("MAX")
-        .setCheck("Number")
-        .appendField("and");
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns a random real number in the specified range.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#realInRange");
-  }
+    init: function () {
+        this.appendValueInput("MIN")
+            .setCheck("Number")
+            .appendField("get random number between");
+        this.appendValueInput("MAX")
+            .setCheck("Number")
+            .appendField("and");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip("Returns a random real number in the specified range.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#realInRange");
+    }
 };
 
 Blockly.Blocks['random_sign'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("get random sign");
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip("Returns either +1 or -1. For deciding if something needs to be positive or negative.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#sign");
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField("get random sign");
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip("Returns either +1 or -1. For deciding if something needs to be positive or negative.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#sign");
+    }
 };
 //endregion
 
 //region MATH
 Blockly.Blocks['math_deg_to_rad'] = {
-  init: function() {
-    this.appendValueInput("DEGREES")
-        .setCheck("Number")
-        .appendField("convert degrees");
-    this.appendDummyInput()
-        .appendField("to radians");
-    this.setOutput(true, null);
-    this.setColour(PHASER_MATH_COLOUR);
- this.setTooltip("Converts a value in degrees to an equivalent in radians.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#degToRad");
-  }
+    init: function () {
+        this.appendValueInput("DEGREES")
+            .setCheck("Number")
+            .appendField("convert degrees");
+        this.appendDummyInput()
+            .appendField("to radians");
+        this.setOutput(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip("Converts a value in degrees to an equivalent in radians.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#degToRad");
+    }
 };
 
 Blockly.Blocks['math_rad_to_deg'] = {
-  init: function() {
-    this.appendValueInput("RADIANS")
-        .setCheck("Number")
-        .appendField("convert radians");
-    this.appendDummyInput()
-        .appendField("to degrees");
-    this.setOutput(true, null);
-    this.setColour(PHASER_MATH_COLOUR);
- this.setTooltip("Converts an angle in degrees to an equivalent in radians.");
- this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#radToDeg");
-  }
+    init: function () {
+        this.appendValueInput("RADIANS")
+            .setCheck("Number")
+            .appendField("convert radians");
+        this.appendDummyInput()
+            .appendField("to degrees");
+        this.setOutput(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip("Converts an angle in degrees to an equivalent in radians.");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#radToDeg");
+    }
 };
 //endegion
