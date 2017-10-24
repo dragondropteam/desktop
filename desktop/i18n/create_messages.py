@@ -74,7 +74,7 @@ def main():
   # Read in synonyms file, which must be output in every language.
   synonym_defs = read_json_file(os.path.join(
       os.curdir, args.source_synonym_file))
-  synonym_text = '\n'.join([u'/** @export */ Blockly.Msg.{0} = Blockly.Msg.{1};'
+  synonym_text = '\n'.join([u'Blockly.Msg.{0} = Blockly.Msg.{1};'
       .format(key, synonym_defs[key]) for key in synonym_defs])
 
   # Create each output file.
@@ -119,7 +119,7 @@ goog.require('Blockly.Msg');
             value = source_defs[key]
             comment = '  // untranslated'
           value = value.replace('"', '\\"')
-          outfile.write(u'/** @export */ Blockly.Msg.{0} = "{1}";{2}\n'
+          outfile.write(u'Blockly.Msg.{0} = "{1}";{2}\n'
               .format(key, value, comment))
 
         # Announce any keys defined only for target language.
