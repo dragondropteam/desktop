@@ -8,12 +8,12 @@ Blockly.Blocks['eeprom_read'] = {
     init: function () {
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField("EEPROM Read address");
+            .appendField(Blockly.Msg.EEPROM_READ_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/EEPROMRead');
+        this.setTooltip(Blockly.Msg.EEPROM_READ_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.EEPROM_READ_HELP_URL);
     }
 };
 
@@ -21,16 +21,16 @@ Blockly.Blocks['eeprom_write'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField("EEPROM write value");
+            .appendField(Blockly.Msg.EEPROM_WRITE_FIELD_1);
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField("to address");
+            .appendField(Blockly.Msg.EEPROM_WRITE_FIELD_2);
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/EEPROMWrite');
+        this.setTooltip(Blockly.Msg.EEPROM_WRITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.EEPROM_WRITE_HELP_URL);
     }
 };
 
@@ -38,18 +38,18 @@ Blockly.Blocks['eeprom_update'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField("EEPROM update value at");
+            .appendField(Blockly.Msg.EEPROM_UPDATE_FIELD_1);
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-                .appendField("(if different than current) to address");
+                .appendField(Blockly.Msg.EEPROM_UPDATE_FIELD_2);
         this.setInputsInline(true);
 
         this.setPreviousStatement(true);
         this.setNextStatement(true);
 
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/EEPROMUpdate');
+        this.setTooltip(Blockly.Msg.EEPROM_UPDATE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.EEPROM_UPDATE_HELP_URL);
     }
 };
 
@@ -57,9 +57,9 @@ Blockly.Blocks['eeprom_get'] = {
     init: function () {
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField("EEPROM get data from address");
+            .appendField(Blockly.Msg.EEPROM_GET_FIELD_1);
         this.appendDummyInput()
-            .appendField('and store in')
+            .appendField(Blockly.Msg.EEPROM_GET_FIELD_2)
             .appendField(new Blockly.FieldVariable("item"), "VAR");
         this.setInputsInline(true);
 
@@ -67,8 +67,8 @@ Blockly.Blocks['eeprom_get'] = {
         this.setNextStatement(true);
 
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/EEPROMGet');
+        this.setTooltip(Blockly.Msg.EEPROM_GET_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.EEPROM_GET_HELP_URL);
     }
 };
 
@@ -76,15 +76,15 @@ Blockly.Blocks['eeprom_put'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField("EEPROM set");
+            .appendField(Blockly.Msg.EEPROM_PUT_FIELD_1);
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField("to address");
+            .appendField(Blockly.Msg.EEPROM_PUT_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/EEPROMPut');
+        this.setTooltip(Blockly.Msg.EEPROM_PUT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.EEPROM_PUT_HELP_URL);
     }
 };
 

@@ -12,13 +12,13 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['javascript_eval'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('eval')
-            .appendField(new Blockly.FieldTextInput(), 'EVAL');
+            .appendField(Blockly.Msg.JAVASCRIPT_EVAL_FIELD_1)
+            .appendField(new Blockly.FieldTextInput(), Blockly.Msg.JAVASCRIPT_EVAL__TEXT_DEFAULT);
         this.setColour('#ff6d00');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
-        this.setTooltip('Execute the JavaScript expression');
-        this.setHelpUrl('developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval');
+        this.setTooltip(Blockly.Msg.JAVASCRIPT_EVAL_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL);
         this.setInputsInline(true);
     }
 };
@@ -26,12 +26,12 @@ Blockly.Blocks['javascript_eval'] = {
 Blockly.Blocks['javascript_eval_output'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('eval with output')
-            .appendField(new Blockly.FieldTextInput(), 'EVAL');
+            .appendField(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_FIELD_1)
+            .appendField(new Blockly.FieldTextInput(), Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT__TEXT_DEFAULT);
         this.setColour('#ff6d00');
         this.setOutput(true);
-        this.setTooltip('Execute the JavaScript expression returning the value');
-        this.setHelpUrl('developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval');
+        this.setTooltip(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL);
         this.setInputsInline(true);
     }
 };

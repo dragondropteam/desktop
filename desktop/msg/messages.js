@@ -1121,6 +1121,8 @@ Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only 
 
 // once upon a time, tooltips, etc. were written directly into the block definitions
 // this was bad for localization, so they got pulled out into these variables with a script
+
+//phaser
 /// auto generated
 Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_1 = 'run phaser';
 /// auto generated
@@ -3643,3 +3645,1225 @@ Blockly.Msg.MATH_RAD_TO_DEG_FIELD_2 = 'to degrees';
 Blockly.Msg.MATH_RAD_TO_DEG_TOOLTIP = 'Converts an angle in degrees to an equivalent in radians.';
 /// auto generated
 Blockly.Msg.MATH_RAD_TO_DEG_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Math.html#radToDeg';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1 = 'setup';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.DELAYMS_FIELD_1 = 'Delay';
+/// auto generated
+Blockly.Msg.DELAYMS_FIELD_2 = 'Milliseconds';
+/// auto generated
+Blockly.Msg.DELAYMS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAYMS_HELP_URL = 'https://www.arduino.cc/en/Reference/Delay';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_FIELD_1 = 'Delay';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_FIELD_2 = 'Microseconds';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/DelayMicroseconds';
+/// auto generated
+Blockly.Msg.MILLISECONDS_FIELD_1 = 'Milliseconds Since Start ';
+/// auto generated
+Blockly.Msg.MILLISECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MILLISECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Millis';
+/// auto generated
+Blockly.Msg.MICROSECONDS_FIELD_1 = 'Microseconds Since Start ';
+/// auto generated
+Blockly.Msg.MICROSECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
+/// auto generated
+Blockly.Msg.PININPUT_FIELD_1 = 'Set Pin # ';
+/// auto generated
+Blockly.Msg.PININPUT_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.PININPUT_MODE_DROPDOWN_1 = 'input';
+/// auto generated
+Blockly.Msg.PININPUT_MODE_DROPDOWN_2 = 'output';
+/// auto generated
+Blockly.Msg.PININPUT_MODE_DROPDOWN_3 = 'input_pullup';
+/// auto generated
+Blockly.Msg.PININPUT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PININPUT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_FIELD_1 = 'Digital Write';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_1 = 'HIGH';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_2 = 'LOW';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_FIELD_2 = 'to pin #';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_TOOLTIP = 'Writes either HIGH or LOW to the given pin';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalWrite';
+/// auto generated
+Blockly.Msg.DIGITAL_READ_FIELD_1 = 'Digital Read Pin #';
+/// auto generated
+Blockly.Msg.DIGITAL_READ_TOOLTIP = 'Reads either HIGH or LOW from a digital pin';
+/// auto generated
+Blockly.Msg.DIGITAL_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalRead';
+/// auto generated
+Blockly.Msg.HIGH_FIELD_1 = 'HIGH';
+/// auto generated
+Blockly.Msg.HIGH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HIGH_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
+/// auto generated
+Blockly.Msg.LOW_FIELD_1 = 'LOW';
+/// auto generated
+Blockly.Msg.LOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LOW_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
+/// auto generated
+Blockly.Msg.LED_BUILTIN_FIELD_1 = 'LED_BUILTIN';
+/// auto generated
+Blockly.Msg.LED_BUILTIN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LED_BUILTIN_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
+
+//arduino
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_FIELD_1 = 'Set Analog Reference To';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1 = 'DEFAULT';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_2 = 'EXTERNAL';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_3 = 'INTERNAL (Not Available on Mega)';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_4 = 'INTERNAL1V1 (Mega Only)';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_5 = 'INTERNAL2V56 (Mega Only)';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TOOLTIP = 'Set the reference voltage for analog input';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogReference';
+/// auto generated
+Blockly.Msg.ANALOG_READ_FIELD_1 = 'Analog Read Pin #';
+/// auto generated
+Blockly.Msg.ANALOG_READ_TOOLTIP = 'Read the value from the given analog pin';
+/// auto generated
+Blockly.Msg.ANALOG_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogRead';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_FIELD_1 = 'Analog Write ';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_FIELD_2 = 'to Pin #';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogWrite';
+/// auto generated
+Blockly.Msg.RANDOM_SEED_FIELD_1 = 'Randomize seed with value';
+/// auto generated
+Blockly.Msg.RANDOM_SEED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RANDOM_SEED_HELP_URL = 'https://www.arduino.cc/en/Reference/RandomSeed';
+/// auto generated
+Blockly.Msg.RANDOM_FIELD_1 = 'Random value between';
+/// auto generated
+Blockly.Msg.RANDOM_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.RANDOM_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RANDOM_HELP_URL = 'https://www.arduino.cc/en/Reference/Random';
+/// auto generated
+Blockly.Msg.BIT_FIELD_1 = 'Value of bit';
+/// auto generated
+Blockly.Msg.BIT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_HELP_URL = 'https://www.arduino.cc/en/Reference/Bit';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_FIELD_1 = 'Clear bit';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_FIELD_2 = 'from Number';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_HELP_URL = 'https://www.arduino.cc/en/Reference/BitClear';
+/// auto generated
+Blockly.Msg.BIT_SET_FIELD_1 = 'Set bit';
+/// auto generated
+Blockly.Msg.BIT_SET_FIELD_2 = 'in Number';
+/// auto generated
+Blockly.Msg.BIT_SET_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_SET_HELP_URL = 'https://www.arduino.cc/en/Reference/BitSet';
+/// auto generated
+Blockly.Msg.BIT_WRITE_FIELD_1 = 'Set Number';
+/// auto generated
+Blockly.Msg.BIT_WRITE_FIELD_2 = 'at Position';
+/// auto generated
+Blockly.Msg.BIT_WRITE_FIELD_3 = 'with Value';
+/// auto generated
+Blockly.Msg.BIT_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/BitWrite';
+/// auto generated
+Blockly.Msg.BIT_READ_FIELD_1 = 'Read Number';
+/// auto generated
+Blockly.Msg.BIT_READ_FIELD_2 = 'at Position';
+/// auto generated
+Blockly.Msg.BIT_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/BitRead';
+/// auto generated
+Blockly.Msg.HIGH_BYTE_FIELD_1 = 'Get high-byte from Number';
+/// auto generated
+Blockly.Msg.HIGH_BYTE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HIGH_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/HighByte';
+/// auto generated
+Blockly.Msg.LOW_BYTE_FIELD_1 = 'Get low-byte from Number';
+/// auto generated
+Blockly.Msg.LOW_BYTE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LOW_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/LowByte';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_FIELD_1 = 'Play Frequency';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_FIELD_2 = 'on Pin #';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_HELP_URL = 'https://www.arduino.cc/en/Reference/Tone';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1 = 'Play Frequency';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2 = 'on Pin #';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_3 = 'for ';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4 = 'Milliseconds';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_HELP_URL = 'https://www.arduino.cc/en/Reference/Tone';
+
+// arduino_eeprom
+/// auto generated
+Blockly.Msg.EEPROM_READ_FIELD_1 = 'EEPROM Read address';
+/// auto generated
+Blockly.Msg.EEPROM_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMRead';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_FIELD_1 = 'EEPROM write value';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_FIELD_2 = 'to address';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMWrite';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_FIELD_1 = 'EEPROM update value at';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_FIELD_2 = '(if different than current) to address';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMUpdate';
+/// auto generated
+Blockly.Msg.EEPROM_GET_FIELD_1 = 'EEPROM get data from address';
+/// auto generated
+Blockly.Msg.EEPROM_GET_FIELD_2 = 'and store in';
+/// auto generated
+Blockly.Msg.EEPROM_GET_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_GET_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMGet';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_FIELD_1 = 'EEPROM set';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_FIELD_2 = 'to address';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMPut';
+
+//arduino_serial
+/// auto generated
+Blockly.Msg.SERIAL_READ_FIELD_1 = 'Serial Read First Byte';
+/// auto generated
+Blockly.Msg.SERIAL_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_READ_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1 = 'Serial Print Line';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_LINE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_LINE_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_FIELD_1 = 'Serial Print';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_END_FIELD_1 = 'Serial end';
+/// auto generated
+Blockly.Msg.SERIAL_END_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_END_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_FIELD_1 = 'Serial Begin at ';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_FIELD_2 = 'bits per second (baud)';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_HELP_URL = '';
+
+//arduino_servo
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'Attach pin';
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_FIELD_2 = 'to servo';
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttach';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_FIELD_1 = 'Set angle to';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_FIELD_2 = 'on servo';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWrite';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'Set microseconds to';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_2 = 'on servo';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWriteMicroseconds';
+/// auto generated
+Blockly.Msg.SERVO_READ_FIELD_1 = 'Read from servo';
+/// auto generated
+Blockly.Msg.SERVO_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoRead';
+/// auto generated
+Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'Check servo';
+/// auto generated
+Blockly.Msg.SERVO_ATTACHED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_ATTACHED_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttached';
+/// auto generated
+Blockly.Msg.SERVO_DETACH_FIELD_1 = 'Detach servo';
+/// auto generated
+Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
+
+//dom
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_FIELD_1 = 'getElementById with ID';
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_ID_TEXT_DEFAULT = 'ID';
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_HELP_URL = '';
+/// auto generated
+Blockly.Msg.DOM_GETCONTEXT_FIELD_1 = 'for dom';
+/// auto generated
+Blockly.Msg.DOM_GETCONTEXT_FIELD_2 = 'get context';
+/// auto generated
+Blockly.Msg.DOM_GETCONTEXT_CONTEXT_TEXT_DEFAULT = '2d';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_FIELD_1 = 'DOM variable';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_FIELD_2 = 'set height';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SET_WIDTH_FIELD_1 = 'DOM variable';
+/// auto generated
+Blockly.Msg.SET_WIDTH_FIELD_2 = 'set width';
+/// auto generated
+Blockly.Msg.SET_WIDTH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_WIDTH_HELP_URL = '';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_FIELD_1 = 'add event listener to dom element';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_FIELD_2 = 'for event of type';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE_TEXT_DEFAULT = 'eventType';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_FIELD_3 = 'on';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_FIELD_4 = 'do';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SET_ATTRIBUTE_FIELD_1 = 'for dom element';
+/// auto generated
+Blockly.Msg.SET_ATTRIBUTE_FIELD_2 = 'set Attribute';
+/// auto generated
+Blockly.Msg.SET_ATTRIBUTE_ATTRIBUTE_TEXT_DEFAULT = 'attribute';
+/// auto generated
+Blockly.Msg.SET_ATTRIBUTE_VALUE_TEXT_DEFAULT = 'value';
+/// auto generated
+Blockly.Msg.CONSOLE_LOG_FIELD_1 = 'console log';
+/// auto generated
+Blockly.Msg.CONSOLE_LOG_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.CONSOLE_LOG_HELP_URL = '';
+
+//eval
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_FIELD_1 = 'eval';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL__TEXT_DEFAULT = 'EVAL';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_TOOLTIP = 'Execute the JavaScript expression';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = 'developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_FIELD_1 = 'eval with output';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT__TEXT_DEFAULT = 'EVAL';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP = 'Execute the JavaScript expression returning the value';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL = 'developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval';
+
+//ringo
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_RINGO_FIELD_1 = 'setup';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_RINGO_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_RINGO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_FIELD_1 = 'Get Gyro Calibration Multiplier';
+/// auto generated
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEGIN_NAVIGATION_FIELD_1 = 'Begin Navigation';
+/// auto generated
+Blockly.Msg.BEGIN_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION_FIELD_1 = 'Simple Gyro Navigation';
+/// auto generated
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SIMPLE_NAVIGATION_FIELD_1 = 'Simple Navigation';
+/// auto generated
+Blockly.Msg.SIMPLE_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_FIELD_1 = 'Navigation XY with';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_FIELD_2 = 'Gyro Sensitivity';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_FIELD_3 = 'Acceleration Sensitivity';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_FIELD_1 = 'Calibrate Navigation Sensors';
+/// auto generated
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ZERO_NAVIGATION_FIELD_1 = 'Reset Navigation';
+/// auto generated
+Blockly.Msg.ZERO_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PAUSE_NAVIGATION_FIELD_1 = 'Pause Navigation';
+/// auto generated
+Blockly.Msg.PAUSE_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RESUME_NAVIGATION_FIELD_1 = 'Resume Navigation';
+/// auto generated
+Blockly.Msg.RESUME_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NAVIGATION_PAUSED_FIELD_1 = 'Is Navigation Paused';
+/// auto generated
+Blockly.Msg.NAVIGATION_PAUSED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = 'Delay With Navigation for ';
+/// auto generated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_2 = 'milliseconds';
+/// auto generated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = 'Delay With Simple Navigation for';
+/// auto generated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_2 = 'milliseconds';
+/// auto generated
+Blockly.Msg.PRESENT_HEADING_FIELD_1 = 'Get Present Heading';
+/// auto generated
+Blockly.Msg.PRESENT_HEADING_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_X_FIELD_1 = 'Get Degrees X';
+/// auto generated
+Blockly.Msg.GET_DEGREES_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z_FIELD_1 = 'Get Degrees Per Second Z';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'Get Degrees Per Second X';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'Get Degrees Per Second Y';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_TO_STOP_FIELD_1 = 'Get Degrees To Stop';
+/// auto generated
+Blockly.Msg.GET_DEGREES_TO_STOP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_X_FIELD_1 = 'Get X Acceleration';
+/// auto generated
+Blockly.Msg.GET_ACCEL_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_FIELD_1 = 'Get Y Acceleration';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Z_FIELD_1 = 'Get Z Acceleration';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Z_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_UNZEROED_FIELD_1 = 'Get Y Acceleration Unzeroed';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_UNZEROED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_VEL_X_FIELD_1 = 'Get X Velocity';
+/// auto generated
+Blockly.Msg.GET_VEL_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_VEL_Y_FIELD_1 = 'Get Y Velocity';
+/// auto generated
+Blockly.Msg.GET_VEL_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_POS_X_FIELD_1 = 'Get X Position';
+/// auto generated
+Blockly.Msg.GET_POS_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_POS_Y_FIELD_1 = 'Get Y Position';
+/// auto generated
+Blockly.Msg.GET_POS_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IS_STATIONARY_FIELD_1 = 'Is Ringo Stationary';
+/// auto generated
+Blockly.Msg.IS_STATIONARY_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_VALUE_FIELD_1 = 'Get Non-Stationary Value';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_VALUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_AXIS_FIELD_1 = 'Get Non-Stationary Axis';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_AXIS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MIN_TURN_FIELD_1 = 'Minimum Turn';
+/// auto generated
+Blockly.Msg.MIN_TURN_FIELD_2 = 'Degrees';
+/// auto generated
+Blockly.Msg.MIN_TURN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MIN_TURN_TO_HEADING_FIELD_1 = 'Minimum Turn to Heading';
+/// auto generated
+Blockly.Msg.MIN_TURN_TO_HEADING_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_1 = 'Vector To Degrees';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_2 = 'X Component';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_3 = 'Y Component';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_SET_RANGE_FIELD_1 = 'Set Gyro Range';
+/// auto generated
+Blockly.Msg.GYRO_SET_RANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_BUFFER_SIZE_FIELD_1 = 'Get Gyro Buffer Size';
+/// auto generated
+Blockly.Msg.GYRO_BUFFER_SIZE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_GET_AXIS_FIELD_1 = 'Get Gyro Axis';
+/// auto generated
+Blockly.Msg.GYRO_GET_AXIS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_SET_FREQUENCY_FIELD_1 = 'Set Gyro Frequency';
+/// auto generated
+Blockly.Msg.GYRO_SET_FREQUENCY_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_FIELD_1 = 'Get Gyro Range From Chip';
+/// auto generated
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_1 = 'Set';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_1 = 'Left Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_2 = 'Right Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_3 = 'Body Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_4 = 'Body Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_5 = 'Tail Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_2 = 'Pixel';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_3 = 'Red';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_4 = 'Green';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_5 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_1 = 'Set';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_1 = 'Left Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_2 = 'Right Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_3 = 'Body Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_4 = 'Body Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_5 = 'Tail Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_1 = 'Set All Pixels to';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.REFRESH_PIXELS_FIELD_1 = 'Refresh Pixels';
+/// auto generated
+Blockly.Msg.REFRESH_PIXELS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_FIELD_1 = 'Set All Pixels to';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_MOTOR_MAX_FIELD_1 = 'Get Motor Max';
+/// auto generated
+Blockly.Msg.GET_MOTOR_MAX_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_LEFT_MOTOR_FIELD_1 = 'Get Current Left Motor Speed';
+/// auto generated
+Blockly.Msg.GET_LEFT_MOTOR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_RIGHT_MOTOR_FIELD_1 = 'Get Current Right Motor Speed';
+/// auto generated
+Blockly.Msg.GET_RIGHT_MOTOR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MOTORS_BEGIN_FIELD_1 = 'Begin Motors';
+/// auto generated
+Blockly.Msg.MOTORS_BEGIN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1 = 'Reset Maintain Heading';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_1 = 'Maintain Heading with ';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_2 = 'Direction';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_3 = 'and Speed';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_4 = 'and Wiggle';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_1 = 'Drive in An Arc';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_2 = 'Turning (degrees)';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_3 = 'With Left Motor At';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_4 = 'With Right Motor At';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_5 = 'With Max Expected Turn Time (milliseconds)';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_6 = 'With Max Expected Skid Time (milliseconds)';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_START_CHIRP_FIELD_1 = 'Play Start Chirp';
+/// auto generated
+Blockly.Msg.PLAY_START_CHIRP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_ACK_FIELD_1 = 'Play Acknowledgment Chirp';
+/// auto generated
+Blockly.Msg.PLAY_ACK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_NON_ACK_FIELD_1 = 'Play Non-Acknowledgment Chirp';
+/// auto generated
+Blockly.Msg.PLAY_NON_ACK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_ANGER_FIELD_1 = 'Player Anger';
+/// auto generated
+Blockly.Msg.PLAY_ANGER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_BOREDOM_FIELD_1 = 'Play Boredom';
+/// auto generated
+Blockly.Msg.PLAY_BOREDOM_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_EXCITED_FIELD_1 = 'Play Excited';
+/// auto generated
+Blockly.Msg.PLAY_EXCITED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_FIELD_1 = 'Play Chirp';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_FIELD_2 = 'With Frequency';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_FIELD_3 = 'With Amplitude';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.OFF_CHIRP_FIELD_1 = 'Turn Chirp Off';
+/// auto generated
+Blockly.Msg.OFF_CHIRP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.OFF_PIXELS_FIELD_1 = 'Turn All Pixels Off';
+/// auto generated
+Blockly.Msg.OFF_PIXELS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_FIELD_1 = 'Turn';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_1 = 'Left Eye';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_2 = 'Right Eye';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_3 = 'Body Top';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_4 = 'Body Bottom';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_5 = 'Tail Top';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_FIELD_2 = 'off';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RANDOM_EYES_FIELD_1 = 'Set Eyes To A Random Colour';
+/// auto generated
+Blockly.Msg.RANDOM_EYES_TOOLTIP = '';
+
+//wink
+/// auto generated
+Blockly.Msg.SETEYESRED_FIELD_1 = 'setEyesRed';
+/// auto generated
+Blockly.Msg.SETEYESRED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESGREEN_FIELD_1 = 'setEyesGreen';
+/// auto generated
+Blockly.Msg.SETEYESGREEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESBLUE_FIELD_1 = 'setEyesBlue';
+/// auto generated
+Blockly.Msg.SETEYESBLUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESPURPLE_FIELD_1 = 'setEyesPurple';
+/// auto generated
+Blockly.Msg.SETEYESPURPLE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESPINK_FIELD_1 = 'setEyesPink';
+/// auto generated
+Blockly.Msg.SETEYESPINK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESYELLOW_FIELD_1 = 'setEyesYellow';
+/// auto generated
+Blockly.Msg.SETEYESYELLOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESCYAN_FIELD_1 = 'setEyesCyan';
+/// auto generated
+Blockly.Msg.SETEYESCYAN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESORANGE_FIELD_1 = 'setEyesOrange';
+/// auto generated
+Blockly.Msg.SETEYESORANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESWHITE_FIELD_1 = 'setEyesWhite';
+/// auto generated
+Blockly.Msg.SETEYESWHITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTRED_FIELD_1 = 'setLeftRed';
+/// auto generated
+Blockly.Msg.SETLEFTRED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTGREEN_FIELD_1 = 'setLeftGreen';
+/// auto generated
+Blockly.Msg.SETLEFTGREEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTBLUE_FIELD_1 = 'setLeftBlue';
+/// auto generated
+Blockly.Msg.SETLEFTBLUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTPURPLE_FIELD_1 = 'setLeftPurple';
+/// auto generated
+Blockly.Msg.SETLEFTPURPLE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTPINK_FIELD_1 = 'setLeftPink';
+/// auto generated
+Blockly.Msg.SETLEFTPINK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTYELLOW_FIELD_1 = 'setLeftYellow';
+/// auto generated
+Blockly.Msg.SETLEFTYELLOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTCYAN_FIELD_1 = 'setLeftCyan';
+/// auto generated
+Blockly.Msg.SETLEFTCYAN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTORANGE_FIELD_1 = 'setLeftOrange';
+/// auto generated
+Blockly.Msg.SETLEFTORANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTWHITE_FIELD_1 = 'setLeftWhite';
+/// auto generated
+Blockly.Msg.SETLEFTWHITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTRED_FIELD_1 = 'setRightRed';
+/// auto generated
+Blockly.Msg.SETRIGHTRED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTGREEN_FIELD_1 = 'setRightGreen';
+/// auto generated
+Blockly.Msg.SETRIGHTGREEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTBLUE_FIELD_1 = 'setRightBlue';
+/// auto generated
+Blockly.Msg.SETRIGHTBLUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTPURPLE_FIELD_1 = 'setRightPurple';
+/// auto generated
+Blockly.Msg.SETRIGHTPURPLE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTPINK_FIELD_1 = 'setRightPink';
+/// auto generated
+Blockly.Msg.SETRIGHTPINK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTYELLOW_FIELD_1 = 'setRightYellow';
+/// auto generated
+Blockly.Msg.SETRIGHTYELLOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTCYAN_FIELD_1 = 'setRightCyan';
+/// auto generated
+Blockly.Msg.SETRIGHTCYAN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTORANGE_FIELD_1 = 'setRightOrange';
+/// auto generated
+Blockly.Msg.SETRIGHTORANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTWHITE_FIELD_1 = 'setRightWhite';
+/// auto generated
+Blockly.Msg.SETRIGHTWHITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESRGB_FIELD_1 = 'setEyesColor';
+/// auto generated
+Blockly.Msg.SETEYESRGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTRGB_FIELD_1 = 'setLeftColor';
+/// auto generated
+Blockly.Msg.SETLEFTRGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTRGB_FIELD_1 = 'setRightColor';
+/// auto generated
+Blockly.Msg.SETRIGHTRGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURNEYESOFF_FIELD_1 = 'turnEyesOff';
+/// auto generated
+Blockly.Msg.TURNEYESOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURNEYESOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURNLEFTEYEOFF_FIELD_1 = 'turnLeftEyeOff';
+/// auto generated
+Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURNLEFTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1 = 'turnRightEyeOff';
+/// auto generated
+Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.EYESPREVCOLOUR_FIELD_1 = 'eyesPreviousColor';
+/// auto generated
+Blockly.Msg.EYESPREVCOLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EYESPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.LEFTPREVCOLOUR_FIELD_1 = 'leftPreviousColor';
+/// auto generated
+Blockly.Msg.LEFTPREVCOLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LEFTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1 = 'rightPreviousColor';
+/// auto generated
+Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_FIELD_1 = 'setup';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.LOOP_FIELD_1 = 'loop';
+/// auto generated
+Blockly.Msg.LOOP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LOOP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_1 = 'Accelerate Motors';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_2 = 'Start Speed';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_3 = 'End Speed';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_4 = 'Duration';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.MOTORS_FIELD_1 = 'Set Motor Speed';
+/// auto generated
+Blockly.Msg.MOTORS_FIELD_2 = 'Left Speed';
+/// auto generated
+Blockly.Msg.MOTORS_FIELD_3 = 'Right Speed';
+/// auto generated
+Blockly.Msg.MOTORS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SPINLEFT_FIELD_1 = 'Spin Left';
+/// auto generated
+Blockly.Msg.SPINLEFT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SPINLEFT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SPINRIGHT_FIELD_1 = 'Spin Right';
+/// auto generated
+Blockly.Msg.SPINRIGHT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SPINRIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BESTILL_FIELD_1 = 'Be Still';
+/// auto generated
+Blockly.Msg.BESTILL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BESTILL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BUTTONWAIT_FIELD_1 = 'Wait For Button Press';
+/// auto generated
+Blockly.Msg.BUTTONWAIT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BUTTONWAIT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BEEPMS_FIELD_1 = 'Beep';
+/// auto generated
+Blockly.Msg.BEEPMS_FIELD_2 = 'Milliseconds';
+/// auto generated
+Blockly.Msg.BEEPMS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEEPMS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BEEPON_FIELD_1 = 'Turn Beep On';
+/// auto generated
+Blockly.Msg.BEEPON_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEEPON_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BEEPOFF_FIELD_1 = 'Turn Beep Off';
+/// auto generated
+Blockly.Msg.BEEPOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEEPOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_FIELD_1 = 'Turn';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_1 = 'Head Light';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_2 = 'Line Left Outer';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_3 = 'Line Left Inner';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_4 = 'Line Right Outer';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_5 = 'Line Right Inner';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_1 = 'On';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_2 = 'Off';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.READSENSOR_FIELD_1 = 'Read';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1 = 'Line Sensor Left';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2 = 'Line Sensor Right';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3 = 'Ambient Sensor Left';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4 = 'Ambient Sensor Center';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5 = 'Ambient Sensor Right';
+/// auto generated
+Blockly.Msg.READSENSOR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.READSENSOR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_1 = 'Set Left Eye';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_1 = 'Set Right Eye';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_1 = 'Set Eyes';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_EYES_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_EYES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BUTTON_PRESSED_FIELD_1 = 'Button Pressed';
+/// auto generated
+Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BUTTON_PRESSED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_1 = 'turn';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_1 = 'left';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_2 = 'right';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_2 = 'speed';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_3 = 'delay';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_4 = 'milliseconds';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.RESTART_IR_FIELD_1 = 'Restart IR';
+/// auto generated
+Blockly.Msg.RESTART_IR_TOOLTIP = 'Start listening for IR should be setup and in loop after processing an input';
+/// auto generated
+Blockly.Msg.RESTART_IR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IS_IR_DONE_FIELD_1 = 'Is IR Done?';
+/// auto generated
+Blockly.Msg.IS_IR_DONE_TOOLTIP = 'Checks to see if we received an IR input to process';
+/// auto generated
+Blockly.Msg.IS_IR_DONE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_CONTROL_FIELD_1 = 'When ';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_1 = '1';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_2 = '2';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_3 = '3';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_4 = '4';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_5 = '5';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_6 = '6';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_7 = '7';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_8 = '8';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_9 = '9';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_10 = '10';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_11 = 'Forward';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_12 = 'Left';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_13 = 'Right';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_14 = 'Backward';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_15 = 'Power';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_16 = 'Plum Logo';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_17 = 'Menu';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_18 = 'A';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_19 = 'B';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_20 = 'X';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_21 = 'Play';
+/// auto generated
+Blockly.Msg.IR_CONTROL_FIELD_2 = 'is pressed';
+/// auto generated
+Blockly.Msg.IR_CONTROL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTAINER_FIELD_1 = 'When IR is done';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTAINER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTAINER_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTROL_FIELD_1 = 'check key for press';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTROL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_1 = 'When IR is done';
+/// auto generated
+Blockly.Msg.IR_WHEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_WHEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_2 = 'If ';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_3 = 'BUTTON';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_4 = 'is pressed';
+/// auto generated
+Blockly.Msg.IR_BUTTON_FIELD_1 = 'Wink IR Button:';
+/// auto generated
+Blockly.Msg.IR_BUTTON_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_BUTTON_HELP_URL = '';
+/// auto generated
+Blockly.Msg.GET_PRESSED_IR_BUTTON_FIELD_1 = 'Get Pressed IR Button';
+/// auto generated
+Blockly.Msg.GET_PRESSED_IR_BUTTON_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_PRESSED_IR_BUTTON_HELP_URL = '';

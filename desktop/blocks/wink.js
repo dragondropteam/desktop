@@ -11,504 +11,504 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['seteyesred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesRed")
+            .appendField(Blockly.Msg.SETEYESRED_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESRED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESRED_HELP_URL);
     }
 };
 
 Blockly.Blocks['seteyesgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesGreen")
+            .appendField(Blockly.Msg.SETEYESGREEN_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESGREEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESGREEN_HELP_URL);
     }
 };
 Blockly.Blocks['seteyesblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesBlue")
+            .appendField(Blockly.Msg.SETEYESBLUE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESBLUE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESBLUE_HELP_URL);
     }
 };
 Blockly.Blocks['seteyespurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesPurple")
+            .appendField(Blockly.Msg.SETEYESPURPLE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESPURPLE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESPURPLE_HELP_URL);
     }
 };
 Blockly.Blocks['seteyespink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesPink")
+            .appendField(Blockly.Msg.SETEYESPINK_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESPINK_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESPINK_HELP_URL);
     }
 };
 Blockly.Blocks['seteyesyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesYellow")
+            .appendField(Blockly.Msg.SETEYESYELLOW_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESYELLOW_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESYELLOW_HELP_URL);
     }
 };
 Blockly.Blocks['seteyescyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesCyan")
+            .appendField(Blockly.Msg.SETEYESCYAN_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESCYAN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESCYAN_HELP_URL);
     }
 };
 Blockly.Blocks['seteyesorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesOrange")
+            .appendField(Blockly.Msg.SETEYESORANGE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESORANGE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESORANGE_HELP_URL);
     }
 };
 
 Blockly.Blocks['seteyeswhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setEyesWhite")
+            .appendField(Blockly.Msg.SETEYESWHITE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESWHITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESWHITE_HELP_URL);
     }
 };
 
 Blockly.Blocks['setleftred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftRed")
+            .appendField(Blockly.Msg.SETLEFTRED_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTRED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTRED_HELP_URL);
     }
 };
 Blockly.Blocks['setleftgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftGreen")
+            .appendField(Blockly.Msg.SETLEFTGREEN_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTGREEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTGREEN_HELP_URL);
     }
 };
 
 Blockly.Blocks['setleftblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftBlue")
+            .appendField(Blockly.Msg.SETLEFTBLUE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTBLUE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTBLUE_HELP_URL);
     }
 };
 Blockly.Blocks['setleftpurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftPurple")
+            .appendField(Blockly.Msg.SETLEFTPURPLE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTPURPLE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTPURPLE_HELP_URL);
     }
 };
 Blockly.Blocks['setleftpink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftPink")
+            .appendField(Blockly.Msg.SETLEFTPINK_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTPINK_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTPINK_HELP_URL);
     }
 };
 Blockly.Blocks['setleftyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftYellow")
+            .appendField(Blockly.Msg.SETLEFTYELLOW_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTYELLOW_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTYELLOW_HELP_URL);
     }
 };
 Blockly.Blocks['setleftcyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftCyan")
+            .appendField(Blockly.Msg.SETLEFTCYAN_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTCYAN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTCYAN_HELP_URL);
     }
 };
 Blockly.Blocks['setleftorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftOrange")
+            .appendField(Blockly.Msg.SETLEFTORANGE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTORANGE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTORANGE_HELP_URL);
     }
 };
 
 Blockly.Blocks['setleftwhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setLeftWhite")
+            .appendField(Blockly.Msg.SETLEFTWHITE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTWHITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTWHITE_HELP_URL);
     }
 };
 
 Blockly.Blocks['setrightred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightRed")
+            .appendField(Blockly.Msg.SETRIGHTRED_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTRED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTRED_HELP_URL);
     }
 };
 Blockly.Blocks['setrightgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightGreen")
+            .appendField(Blockly.Msg.SETRIGHTGREEN_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTGREEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTGREEN_HELP_URL);
     }
 };
 Blockly.Blocks['setrightblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightBlue")
+            .appendField(Blockly.Msg.SETRIGHTBLUE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTBLUE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTBLUE_HELP_URL);
     }
 };
 Blockly.Blocks['setrightpurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightPurple")
+            .appendField(Blockly.Msg.SETRIGHTPURPLE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTPURPLE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTPURPLE_HELP_URL);
     }
 };
 Blockly.Blocks['setrightpink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightPink")
+            .appendField(Blockly.Msg.SETRIGHTPINK_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTPINK_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTPINK_HELP_URL);
     }
 };
 Blockly.Blocks['setrightyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightYellow")
+            .appendField(Blockly.Msg.SETRIGHTYELLOW_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTYELLOW_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTYELLOW_HELP_URL);
     }
 };
 Blockly.Blocks['setrightcyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightCyan")
+            .appendField(Blockly.Msg.SETRIGHTCYAN_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTCYAN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTCYAN_HELP_URL);
     }
 };
 Blockly.Blocks['setrightorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightOrange")
+            .appendField(Blockly.Msg.SETRIGHTORANGE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTORANGE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTORANGE_HELP_URL);
     }
 };
 
 Blockly.Blocks['setrightwhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField("setRightWhite")
+            .appendField(Blockly.Msg.SETRIGHTWHITE_FIELD_1)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTWHITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTWHITE_HELP_URL);
     }
 };
 
 Blockly.Blocks['seteyesrgb'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("setEyesColor")
+            .appendField(Blockly.Msg.SETEYESRGB_FIELD_1)
             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETEYESRGB_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESRGB_HELP_URL);
     }
 };
 
 Blockly.Blocks['setleftrgb'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("setLeftColor")
+            .appendField(Blockly.Msg.SETLEFTRGB_FIELD_1)
             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETLEFTRGB_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTRGB_HELP_URL);
     }
 };
 
 Blockly.Blocks['setrightrgb'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("setRightColor")
+            .appendField(Blockly.Msg.SETRIGHTRGB_FIELD_1)
             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETRIGHTRGB_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTRGB_HELP_URL);
     }
 };
 Blockly.Blocks['turneyesoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("turnEyesOff");
+            .appendField(Blockly.Msg.TURNEYESOFF_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.TURNEYESOFF_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TURNEYESOFF_HELP_URL);
     }
 };
 Blockly.Blocks['turnlefteyeoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("turnLeftEyeOff");
+            .appendField(Blockly.Msg.TURNLEFTEYEOFF_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TURNLEFTEYEOFF_HELP_URL);
     }
 };
 Blockly.Blocks['turnrighteyeoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("turnRightEyeOff");
+            .appendField(Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL);
     }
 };
 Blockly.Blocks['eyesprevcolour'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("eyesPreviousColor");
+            .appendField(Blockly.Msg.EYESPREVCOLOUR_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.EYESPREVCOLOUR_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.EYESPREVCOLOUR_HELP_URL);
     }
 };
 Blockly.Blocks['leftprevcolour'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("leftPreviousColor");
+            .appendField(Blockly.Msg.LEFTPREVCOLOUR_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.LEFTPREVCOLOUR_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LEFTPREVCOLOUR_HELP_URL);
     }
 };
 Blockly.Blocks['rightprevcolour'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("rightPreviousColor");
+            .appendField(Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL);
     }
 };
 
 Blockly.Blocks['hardwarestartup'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("setup");
+            .appendField(Blockly.Msg.HARDWARESTARTUP_FIELD_1);
         this.appendStatementInput("do")
             .setCheck(null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.HARDWARESTARTUP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_HELP_URL);
     }
 };
 
 Blockly.Blocks['loop'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("loop");
+            .appendField(Blockly.Msg.LOOP_FIELD_1);
         this.appendStatementInput("do")
             .setCheck(null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
     }
 };
 Blockly.Blocks['acceleratemotors'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Accelerate Motors");
+            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_1);
         this.appendValueInput("startspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Start Speed");
+            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_2);
         this.appendValueInput("endspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("End Speed");
+            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_3);
         this.appendValueInput("duration")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Duration");
+            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_4);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.ACCELERATEMOTORS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ACCELERATEMOTORS_HELP_URL);
     }
 };
 
 Blockly.Blocks['motors'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Set Motor Speed");
+            .appendField(Blockly.Msg.MOTORS_FIELD_1);
         this.appendValueInput("leftspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Left Speed");
+            .appendField(Blockly.Msg.MOTORS_FIELD_2);
         this.appendValueInput("rightspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Right Speed");
+            .appendField(Blockly.Msg.MOTORS_FIELD_3);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.MOTORS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MOTORS_HELP_URL);
     }
 };
 
@@ -517,12 +517,12 @@ Blockly.Blocks['spinleft'] = {
         this.appendValueInput("speed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Spin Left");
+            .appendField(Blockly.Msg.SPINLEFT_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SPINLEFT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SPINLEFT_HELP_URL);
     }
 };
 
@@ -531,102 +531,102 @@ Blockly.Blocks['spinright'] = {
         this.appendValueInput("speed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Spin Right");
+            .appendField(Blockly.Msg.SPINRIGHT_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SPINRIGHT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SPINRIGHT_HELP_URL);
     }
 };
 
 Blockly.Blocks['bestill'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Be Still");
+            .appendField(Blockly.Msg.BESTILL_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.BESTILL_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BESTILL_HELP_URL);
     }
 };
 
 Blockly.Blocks['buttonwait'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Wait For Button Press");
+            .appendField(Blockly.Msg.BUTTONWAIT_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.BUTTONWAIT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BUTTONWAIT_HELP_URL);
     }
 };
 
 Blockly.Blocks['beepms'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Beep");
+            .appendField(Blockly.Msg.BEEPMS_FIELD_1);
         this.appendValueInput("beepms")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT);
         this.appendDummyInput()
-            .appendField("Milliseconds");
+            .appendField(Blockly.Msg.BEEPMS_FIELD_2);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.BEEPMS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BEEPMS_HELP_URL);
     }
 };
 
 Blockly.Blocks['beepon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Turn Beep On");
+            .appendField(Blockly.Msg.BEEPON_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.BEEPON_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BEEPON_HELP_URL);
     }
 };
 Blockly.Blocks['beepoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Turn Beep Off");
+            .appendField(Blockly.Msg.BEEPOFF_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.BEEPOFF_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BEEPOFF_HELP_URL);
     }
 };
 
 Blockly.Blocks['setirlight'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Turn")
-            .appendField(new Blockly.FieldDropdown([["Head Light", "HEADLIGHT"], ["Line Left Outer", "LINELEFTOUTER"], ["Line Left Inner", "LINELEFTINNER"], ["Line Right Outer", "LINERIGHTOUTER"], ["Line Right Inner", "LINERIGHTINNER"]]), "LIGHT")
-            .appendField(new Blockly.FieldDropdown([["On", "ON"], ["Off", "OFF"]]), "STATE");
+            .appendField(Blockly.Msg.SETIRLIGHT_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_1, "HEADLIGHT"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_2, "LINELEFTOUTER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_3, "LINELEFTINNER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_4, "LINERIGHTOUTER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_5, "LINERIGHTINNER"]]), "LIGHT")
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_1, "ON"], [Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_2, "OFF"]]), "STATE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SETIRLIGHT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETIRLIGHT_HELP_URL);
     }
 };
 
 Blockly.Blocks['readsensor'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Read")
-            .appendField(new Blockly.FieldDropdown([["Line Sensor Left", "LINESENSELEFT"], ["Line Sensor Right", "LINESENSERIGHT"], ["Ambient Sensor Left", "AMBIENTSENSORLEFT"], ["Ambient Sensor Center", "AMBIENTSENSORCENTER"], ["Ambient Sensor Right", "AMBIENTSENSORRIGHT"]]), "LIGHT");
+            .appendField(Blockly.Msg.READSENSOR_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1, "LINESENSELEFT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2, "LINESENSERIGHT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3, "AMBIENTSENSORLEFT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4, "AMBIENTSENSORCENTER"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5, "AMBIENTSENSORRIGHT"]]), "LIGHT");
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.READSENSOR_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.READSENSOR_HELP_URL);
     }
 };
 
@@ -634,20 +634,20 @@ Blockly.Blocks['readsensor'] = {
 Blockly.Blocks['set_left_eye'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Set Left Eye");
+            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_1);
         this.appendValueInput("RED")
             .setCheck("Number")
-            .appendField("Red");
+            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_2);
         this.appendValueInput("GREEN")
             .setCheck("Number")
-            .appendField("Green");
+            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_3);
         this.appendValueInput("BLUE")
             .setCheck("Number")
-            .appendField("Blue");
+            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_4);
         this.setInputsInline(true);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SET_LEFT_EYE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_LEFT_EYE_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -656,20 +656,20 @@ Blockly.Blocks['set_left_eye'] = {
 Blockly.Blocks['set_right_eye'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Set Right Eye");
+            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_1);
         this.appendValueInput("RED")
             .setCheck("Number")
-            .appendField("Red");
+            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_2);
         this.appendValueInput("GREEN")
             .setCheck("Number")
-            .appendField("Green");
+            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_3);
         this.appendValueInput("BLUE")
             .setCheck("Number")
-            .appendField("Blue");
+            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_4);
         this.setInputsInline(true);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SET_RIGHT_EYE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_RIGHT_EYE_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -679,20 +679,20 @@ Blockly.Blocks['set_right_eye'] = {
 Blockly.Blocks['set_eyes'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Set Eyes");
+            .appendField(Blockly.Msg.SET_EYES_FIELD_1);
         this.appendValueInput("RED")
             .setCheck("Number")
-            .appendField("Red");
+            .appendField(Blockly.Msg.SET_EYES_FIELD_2);
         this.appendValueInput("GREEN")
             .setCheck("Number")
-            .appendField("Green");
+            .appendField(Blockly.Msg.SET_EYES_FIELD_3);
         this.appendValueInput("BLUE")
             .setCheck("Number")
-            .appendField("Blue");
+            .appendField(Blockly.Msg.SET_EYES_FIELD_4);
         this.setInputsInline(true);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -701,34 +701,34 @@ Blockly.Blocks['set_eyes'] = {
 Blockly.Blocks['button_pressed'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Button Pressed");
+            .appendField(Blockly.Msg.BUTTON_PRESSED_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.BUTTON_PRESSED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BUTTON_PRESSED_HELP_URL);
     }
 };
 
 Blockly.Blocks['turn_by_values'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("turn")
-            .appendField(new Blockly.FieldDropdown([["left", "left"], ["right", "right"]]), "direction");
+            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_1, "left"], [Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_2, "right"]]), "direction");
         this.appendDummyInput()
-            .appendField("speed")
+            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_2)
             .appendField(new Blockly.FieldNumber(50, 0, 255), "speed");
         this.appendDummyInput()
-            .appendField("delay")
+            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_3)
             .appendField(new Blockly.FieldNumber(370, 0), "duration");
         this.appendDummyInput()
-            .appendField("milliseconds");
+            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_4);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.TURN_BY_VALUES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TURN_BY_VALUES_HELP_URL);
     }
 };
 
@@ -736,23 +736,23 @@ Blockly.Blocks['turn_by_values'] = {
 Blockly.Blocks['restart_ir'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Restart IR");
+            .appendField(Blockly.Msg.RESTART_IR_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('Start listening for IR should be setup and in loop after processing an input');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.RESTART_IR_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RESTART_IR_HELP_URL);
     }
 };
 
 Blockly.Blocks['is_ir_done'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Is IR Done?");
+            .appendField(Blockly.Msg.IS_IR_DONE_FIELD_1);
         this.setOutput(true, null);
         this.setColour(330);
-        this.setTooltip('Checks to see if we received an IR input to process');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.IS_IR_DONE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.IS_IR_DONE_HELP_URL);
     }
 };
 
@@ -865,29 +865,29 @@ Blockly.Blocks['is_ir_done'] = {
 Blockly.Blocks['ir_control'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("When ")
-            .appendField(new Blockly.FieldDropdown([["1", "IR_1"], ["2", "IR_2"], ["3", "IR_3"], ["4", "IR_4"], ["5", "IR_5"], ["6", "IR_6"], ["7", "IR_7"], ["8", "IR_8"], ["9", "IR_9"], ["10", "IR_10"], ["Forward", "IR_Forward"], ["Left", "IR_Left"], ["Right", "IR_Right"], ["Backward", "IR_Backward"], ["Power", "IR_Power"], ["Plum Logo", "IR_PlumLogo"], ["Menu", "IR_Menu"], ["A", "IR_A"], ["B", "IR_B"], ["X", "IR_X"], ["Play", "IR_Play"]]), "BUTTON")
-            .appendField("is pressed");
+            .appendField(Blockly.Msg.IR_CONTROL_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_1, "IR_1"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_2, "IR_2"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_3, "IR_3"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_4, "IR_4"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_5, "IR_5"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_6, "IR_6"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_7, "IR_7"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_8, "IR_8"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_9, "IR_9"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_10, "IR_10"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_11, "IR_Forward"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_12, "IR_Left"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_13, "IR_Right"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_14, "IR_Backward"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_15, "IR_Power"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_16, "IR_PlumLogo"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_17, "IR_Menu"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_18, "IR_A"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_19, "IR_B"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_20, "IR_X"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_21, "IR_Play"]]), "BUTTON")
+            .appendField(Blockly.Msg.IR_CONTROL_FIELD_2);
         this.appendStatementInput("NAME")
             .setCheck(null);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setTooltip(Blockly.Msg.IR_CONTROL_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.IR_CONTROL_HELP_URL);
     },
 };
 
 Blockly.Blocks['ir_control_container'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("When IR is done");
+            .appendField(Blockly.Msg.IR_CONTROL_CONTAINER_FIELD_1);
         this.setInputsInline(true);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setTooltip(Blockly.Msg.IR_CONTROL_CONTAINER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.IR_CONTROL_CONTAINER_HELP_URL);
     }
 };
 
@@ -895,12 +895,12 @@ Blockly.Blocks['ir_control_container'] = {
 Blockly.Blocks['ir_control_control'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("check key for press");
+            .appendField(Blockly.Msg.IR_CONTROL_CONTROL_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setTooltip(Blockly.Msg.IR_CONTROL_CONTROL_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.IR_CONTROL_CONTROL_HELP_URL);
     }
 };
 
@@ -909,13 +909,13 @@ const WINK_IR_BUTTONS = [["1", "IR_1"], ["2", "IR_2"], ["3", "IR_3"], ["4", "IR_
 Blockly.Blocks['ir_when'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("When IR is done");
+            .appendField(Blockly.Msg.IR_WHEN_FIELD_1);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setTooltip(Blockly.Msg.IR_WHEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.IR_WHEN_HELP_URL);
         this.setMutator(new Blockly.Mutator(['ir_control_control']));
 
         this.keyPressChecks = 0;
@@ -998,9 +998,9 @@ Blockly.Blocks['ir_when'] = {
                 field.setValue(values[i]);
             }
             this.appendStatementInput('CHECK' + i)
-                .appendField("If ")
-                .appendField(field, "BUTTON" + i)
-                .appendField("is pressed");
+                .appendField(Blockly.Msg.IR_WHEN_FIELD_2)
+                .appendField(field, Blockly.Msg.IR_WHEN_FIELD_3 + i)
+                .appendField(Blockly.Msg.IR_WHEN_FIELD_4);
         }
     },
 
@@ -1020,22 +1020,22 @@ Blockly.Blocks['ir_when'] = {
 Blockly.Blocks['ir_button'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Wink IR Button:")
+            .appendField(Blockly.Msg.IR_BUTTON_FIELD_1)
             .appendField(new Blockly.FieldDropdown(WINK_IR_BUTTONS), "BUTTONS");
         this.setOutput(true, "Number");
         this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.IR_BUTTON_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.IR_BUTTON_HELP_URL);
     }
 };
 
 Blockly.Blocks['get_pressed_ir_button'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Get Pressed IR Button");
+            .appendField(Blockly.Msg.GET_PRESSED_IR_BUTTON_FIELD_1);
         this.setOutput(true, "Number");
         this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.GET_PRESSED_IR_BUTTON_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_PRESSED_IR_BUTTON_HELP_URL);
     }
 };
