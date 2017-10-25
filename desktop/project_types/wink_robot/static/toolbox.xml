@@ -223,7 +223,7 @@
     </category>
     <category name="Serial" colour="120">
         <block type="text"/>
-        <!--<block type="serial_begin"/>-->
+        <block type="serial_begin"/>
         <block type="serial_end"/>
         <block type="serial_print_line"/>
         <block type="serial_print"/>
