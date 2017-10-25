@@ -1128,6 +1128,8 @@ Blockly.Msg.TYPE_BOOL = 'Boolean';
 Blockly.Msg.TYPE_FLOAT = 'Float';
 /// Display name for string type.
 Blockly.Msg.TYPE_STRING = 'String';
+/// Display name for character type
+Blockly.Msg.TYPE_CHAR = 'Character';
 /// Display name for integer array type.
 Blockly.Msg.TYPE_INT_ARR = 'Array of Integers';
 /// Display name for boolean array type.
@@ -1220,7 +1222,7 @@ Blockly.Msg.CREATE_INSTANCE_OF_CLASS_DEFAULT = 'create instance of';
 Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TOOLTIP = 'Create an instance of a class.';
 /// url
 Blockly.Msg.CREATE_INSTANCE_OF_CLASS_HELP_URL = '';
-/// tooltip
+/// block text
 Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TITLE = 'create %1 instance';
 
 /// context menu text
@@ -1229,6 +1231,36 @@ Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_SETTER = 'create in %1 instance set %2';
 Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_GETTER = 'create in %1 instance get %2';
 /// context menu text
 Blockly.Msg.CLASS_CONTEXT_CREATE_THIS = 'create \'this\'';
+
+//typed arrays
+/// block text
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1 = 'in array';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_DEFAULT_ARRAY_VAR = 'array';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2 = 'set index #';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_3 = 'to';
+/// tooltip
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_TOOLTIP = '';
+/// url
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_HELP_URL = '';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_1 = 'in array';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2 = 'get index #';
+/// tooltip
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_TOOLTIP = '';
+/// url
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_HELP_URL = '';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_DELETE_TITLE = 'delete array';
+/// warning text
+Blockly.Msg.TYPED_ARRAYS_NOT_ARRAY_WARNING = '%1 is not an array!';
+/// tooltip
+Blockly.Msg.TYPED_ARRAYS_DELETE_TOOLTIP = '';
+/// url
+Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL = '';
 
 
 // once upon a time, tooltips, etc. were written directly into the block definitions
