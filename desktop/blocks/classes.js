@@ -120,11 +120,10 @@ Blockly.Blocks['super_mutatorarg'] = {
     }
 };
 
-//Blockly.Msg.CLASSES_SUPER_CONSTRUCTOR_TITLE
 Blockly.Blocks['super_constructor'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('call super constructor');
+            .appendField(Blockly.Msg.CLASSES_SUPER_CONSTRUCTOR_TITLE);
         this.setPreviousStatement(true, ["CALL_SUPER"], true);
         this.setNextStatement(true);
         this.setMutator(new Blockly.Mutator(['super_mutatorarg']));
