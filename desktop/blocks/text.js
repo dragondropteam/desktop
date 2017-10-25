@@ -688,11 +688,11 @@ Blockly.Blocks['log_console'] = {
   init: function() {
     this.appendValueInput("OUTPUT")
         .setCheck(null)
-        .appendField("log to console");
+        .appendField(Blockly.Msg.LOG_CONSOLE_TITLE);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
-    this.setTooltip('');
-    this.setHelpUrl('');
+    this.setTooltip(Blockly.Msg.LOG_CONSOLE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.LOG_CONSOLE_HELP_URL);
   }
 };

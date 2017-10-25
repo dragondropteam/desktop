@@ -13,7 +13,7 @@ Blockly.Blocks['javascript_eval'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.JAVASCRIPT_EVAL_FIELD_1)
-            .appendField(new Blockly.FieldTextInput(), Blockly.Msg.JAVASCRIPT_EVAL__TEXT_DEFAULT);
+            .appendField(new Blockly.FieldTextInput(Blockly.Msg.JAVASCRIPT_EVAL_DEFAULT_TEXT), 'EVAL');
         this.setColour('#ff6d00');
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
@@ -27,7 +27,7 @@ Blockly.Blocks['javascript_eval_output'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_FIELD_1)
-            .appendField(new Blockly.FieldTextInput(), Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT__TEXT_DEFAULT);
+            .appendField(new Blockly.FieldTextInput(Blockly.Msg.JAVASCRIPT_EVAL_DEFAULT_TEXT), 'EVAL');
         this.setColour('#ff6d00');
         this.setOutput(true);
         this.setTooltip(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP);

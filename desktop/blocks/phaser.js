@@ -259,7 +259,7 @@ Blockly.Blocks['draw_shapes_with_colour'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_3);
         this.appendDummyInput()
-            .appendField(new Blockly.FieldVariable("graphics"), "graphics_object_name");
+            .appendField(new Blockly.FieldVariable(Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME), "graphics_object_name");
         this.appendStatementInput("shape draw functions")
             .setCheck(null);
         this.setInputsInline(true);
@@ -291,7 +291,7 @@ Blockly.Blocks['draw_rectangle'] = {
             .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_6);
         this.appendDummyInput()
             .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_7)
-            .appendField(new Blockly.FieldVariable("graphics"), "graphics_object_name");
+            .appendField(new Blockly.FieldVariable(Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME), "graphics_object_name");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

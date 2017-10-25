@@ -1280,6 +1280,13 @@ Blockly.Msg.TYPED_ARRAYS_DELETE_TOOLTIP = '';
 /// url
 Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL = '';
 
+/// block text
+Blockly.Msg.LOG_CONSOLE_TITLE = 'log to console';
+/// tooltip
+Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.'
+/// url
+Blockly.Msg.LOG_CONSOLE_HELP_URL = 'https://en.wikipedia.org/wiki/System_console';
+
 
 // once upon a time, tooltips, etc. were written directly into the block definitions
 // this was bad for localization, so they got pulled out into these variables with a script
@@ -1335,6 +1342,8 @@ Blockly.Msg.STEP_FIELD_1 = 'Step';
 Blockly.Msg.STEP_TOOLTIP = 'Manually steps to the next game loop. Stepping should be enabled before using this.';
 /// auto generated
 Blockly.Msg.STEP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Game.html#step';
+/// default variale name
+Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME = 'graphics';
 /// auto generated
 Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_1 = 'create graphics object with offsets';
 /// auto generated
@@ -4197,18 +4206,16 @@ Blockly.Msg.CONSOLE_LOG_TOOLTIP = '';
 Blockly.Msg.CONSOLE_LOG_HELP_URL = '';
 
 //eval
+/// default JavaScript statement
+Blockly.Msg.JAVASCRIPT_EVAL_DEFAULT_TEXT = '';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_FIELD_1 = 'eval';
-/// auto generated
-Blockly.Msg.JAVASCRIPT_EVAL__TEXT_DEFAULT = 'EVAL';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_TOOLTIP = 'Execute the JavaScript expression';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = 'developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_FIELD_1 = 'eval with output';
-/// auto generated
-Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT__TEXT_DEFAULT = 'EVAL';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP = 'Execute the JavaScript expression returning the value';
 /// auto generated
