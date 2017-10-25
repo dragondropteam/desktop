@@ -69,7 +69,7 @@ Blockly.Blocks['math_number_binary'] = {
         this.setHelpUrl(Blockly.Msg.MATH_NUMBER_HELPURL);
         this.setColour(Blockly.Blocks.math.HUE);
         this.appendDummyInput()
-            .appendField('binary')
+            .appendField(Blockly.Msg.MATH_NUMBER_BINARY)
             .appendField(new Blockly.FieldNumberBinary('0'), 'NUM');
         this.setOutput(true, 'Number');
         // Assign 'this' to a variable for use in the tooltip closure below.

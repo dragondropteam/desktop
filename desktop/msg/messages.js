@@ -312,6 +312,8 @@ Blockly.Msg.LOGIC_TERNARY_TOOLTIP = 'Check the condition in "test". If the condi
 Blockly.Msg.MATH_NUMBER_HELPURL = 'https://en.wikipedia.org/wiki/Number';
 /// tooltip - Any positive or negative number, not necessarily an integer.
 Blockly.Msg.MATH_NUMBER_TOOLTIP = 'A number.';
+/// block text
+Blockly.Msg.MATH_NUMBER_BINARY = 'binary';
 
 /// {{optional}}\nmath - The symbol for the binary operation addition.
 Blockly.Msg.MATH_ADDITION_SYMBOL = '+';
@@ -1142,6 +1144,8 @@ Blockly.Msg.TYPE_STRING_ARR = 'Array of Strings';
 Blockly.Msg.TYPE_SERVO = 'Servo';
 
 //classes
+/// block text
+Blockly.Msg.CLASSES_SUPER_CONSTRUCTOR_TITLE = 'call super constructor';
 /// warning text
 Blockly.Msg.INSIDE_CLASS_ONLY_WARNING = 'This block can only be used inside of a class!';
 /// block text
