@@ -60,7 +60,7 @@ Blockly.Blocks['eeprom_get'] = {
             .appendField(Blockly.Msg.EEPROM_GET_FIELD_1);
         this.appendDummyInput()
             .appendField(Blockly.Msg.EEPROM_GET_FIELD_2)
-            .appendField(new Blockly.FieldVariable("item"), "VAR");
+            .appendField(new Blockly.FieldVariable(Blockly.Msg.EEPROM_GET_DEFAULT_VAR), "VAR");
         this.setInputsInline(true);
 
         this.setPreviousStatement(true);

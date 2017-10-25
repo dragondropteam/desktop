@@ -1031,6 +1031,16 @@ Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input
 /// context menu - Selecting this creates a block to get (change) the value of
 /// this variable.\n\nParameters:\n* %1 - the name of the variable.
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
+/// block text
+Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1 = 'set';
+/// block text
+Blockly.Msg.VARIABLE_SET_TYPED_FIELD_2 = 'to';
+/// default variable name
+Blockly.Msg.VARIABLE_SET_TYPED_DEFAULT_VAR = 'item';
+/// tooltip
+Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP = '';
+/// url
+Blockly.Msg.VARIABLE_SET_TYPED_HELP_URL = '';
 
 // Procedures Blocks.
 /// url - Information about defining [https://en.wikipedia.org/wiki/Procedure_(computer_science) functions] that do not have return values.
@@ -4027,6 +4037,8 @@ Blockly.Msg.EEPROM_UPDATE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROM
 Blockly.Msg.EEPROM_GET_FIELD_1 = 'EEPROM get data from address';
 /// auto generated
 Blockly.Msg.EEPROM_GET_FIELD_2 = 'and store in';
+/// default on variable dropdown
+Blockly.Msg.EEPROM_GET_DEFAULT_VAR = 'item';
 /// auto generated
 Blockly.Msg.EEPROM_GET_TOOLTIP = '';
 /// auto generated
