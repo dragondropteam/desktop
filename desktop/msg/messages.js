@@ -1119,6 +1119,27 @@ Blockly.Msg.PROCEDURES_IFRETURN_HELPURL = 'http://c2.com/cgi/wiki?GuardClause';
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
 
+//type display names
+/// Display name for integer type.
+Blockly.Msg.TYPE_INT = 'Integer';
+/// Display name for boolean type.
+Blockly.Msg.TYPE_BOOL = 'Boolean';
+/// Display name for floating-point type.
+Blockly.Msg.TYPE_FLOAT = 'Float'
+/// Display name for string type.
+Blockly.Msg.TYPE_STRING = 'String'
+/// Display name for integer array type.
+Blockly.Msg.TYPE_INT_ARR = 'Array of Integers'
+/// Display name for boolean array type.
+Blockly.Msg.TYPE_BOOL_ARR = 'Array of Booleans'
+/// Display name for floating-point array type.
+Blockly.Msg.TYPE_FLOAT_ARR = 'Array of Floats'
+/// Display name for string array type.
+Blockly.Msg.TYPE_STRING_ARR = 'Array of Strings'
+/// Display name for servo type.
+Blockly.Msg.TYPE_SERVO = 'Servo'
+
+
 // once upon a time, tooltips, etc. were written directly into the block definitions
 // this was bad for localization, so they got pulled out into these variables with a script
 
@@ -4867,3 +4888,13 @@ Blockly.Msg.GET_PRESSED_IR_BUTTON_FIELD_1 = 'Get Pressed IR Button';
 Blockly.Msg.GET_PRESSED_IR_BUTTON_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.GET_PRESSED_IR_BUTTON_HELP_URL = '';
+
+//procedures_typed
+/// auto generated
+Blockly.Msg.CAST_BLOCK_FIELD_1 = 'make';
+/// auto generated
+Blockly.Msg.CAST_BLOCK_FIELD_2 = 'a';
+/// auto generated
+Blockly.Msg.CAST_BLOCK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.CAST_BLOCK_HELP_URL = 'https://en.wikipedia.org/wiki/Type_conversion';
