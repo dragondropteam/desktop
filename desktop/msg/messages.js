@@ -1234,6 +1234,10 @@ Blockly.Msg.CLASS_CONTEXT_CREATE_THIS = 'create \'this\'';
 
 //typed arrays
 /// block text
+Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1 = 'create array of';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2 = 'with';
+/// block text
 Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1 = 'in array';
 /// block text
 Blockly.Msg.TYPED_ARRAYS_DEFAULT_ARRAY_VAR = 'array';
