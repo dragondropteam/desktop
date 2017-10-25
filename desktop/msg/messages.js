@@ -1125,19 +1125,110 @@ Blockly.Msg.TYPE_INT = 'Integer';
 /// Display name for boolean type.
 Blockly.Msg.TYPE_BOOL = 'Boolean';
 /// Display name for floating-point type.
-Blockly.Msg.TYPE_FLOAT = 'Float'
+Blockly.Msg.TYPE_FLOAT = 'Float';
 /// Display name for string type.
-Blockly.Msg.TYPE_STRING = 'String'
+Blockly.Msg.TYPE_STRING = 'String';
 /// Display name for integer array type.
-Blockly.Msg.TYPE_INT_ARR = 'Array of Integers'
+Blockly.Msg.TYPE_INT_ARR = 'Array of Integers';
 /// Display name for boolean array type.
-Blockly.Msg.TYPE_BOOL_ARR = 'Array of Booleans'
+Blockly.Msg.TYPE_BOOL_ARR = 'Array of Booleans';
 /// Display name for floating-point array type.
-Blockly.Msg.TYPE_FLOAT_ARR = 'Array of Floats'
+Blockly.Msg.TYPE_FLOAT_ARR = 'Array of Floats';
 /// Display name for string array type.
-Blockly.Msg.TYPE_STRING_ARR = 'Array of Strings'
+Blockly.Msg.TYPE_STRING_ARR = 'Array of Strings';
 /// Display name for servo type.
-Blockly.Msg.TYPE_SERVO = 'Servo'
+Blockly.Msg.TYPE_SERVO = 'Servo';
+
+//classes
+/// warning text
+Blockly.Msg.INSIDE_CLASS_ONLY_WARNING = 'This block can only be used inside of a class!';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_CLASS = 'class';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_DEFAULT_NAME = 'name';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_EXTENDS = 'extends';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_METHODS = 'methods';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_CONSTRUCT = 'construct with ';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_CONSTRUCT_PARAM = 'construct %1';
+/// warning text
+Blockly.Msg.CLASS_DEFINITION_DUPLICATE_WARNING = 'Warning: The class constructor has duplicate parameters.';
+/// tooltip
+Blockly.Msg.CLASS_DEFINITION_TOOLTIP = '';
+/// url
+Blockly.Msg.CLASS_DEFINITION_HELP_URL = '';
+/// block text
+Blockly.Msg.METHOD_DEFINITION_TITLE = 'to';
+/// block text
+Blockly.Msg.METHOD_DEFINITION_DEFAULT_TEXT = 'to do something';
+/// tooltip
+Blockly.Msg.METHOD_DEFINITION_TOOLTIP = '';
+/// url
+Blockly.Msg.METHOD_DEFINITION_HELP_URL = '';
+/// block text
+Blockly.Msg.MEMBER_DEFINITION_CREATE = 'create';
+/// block text
+Blockly.Msg.MEMBER_DEFINITION_DEFAULT_TEXT = 'name';
+/// block text
+Blockly.Msg.MEMBER_DEFINITION_WITH_VALUE = 'with value';
+/// tooltip
+Blockly.Msg.MEMBER_DEFINITION_TOOLTIP = '';
+/// url
+Blockly.Msg.MEMBER_DEFINITION_HELP_URL = '';
+/// block text
+Blockly.Msg.THIS_REFERENCE_THIS = 'this';
+/// tooltip
+Blockly.Msg.THIS_REFERENCE_TOOLTIP = 'Access the calling instance.';
+/// url
+Blockly.Msg.THIS_REFERENCE_HELP_URL = 'https://en.wikipedia.org/wiki/This_(computer_programming)';
+/// tooltip
+Blockly.Msg.CLASS_TYPE_TOOLTIP = '';
+/// url
+Blockly.Msg.CLASS_TYPE_HELP_URL = '';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME = 'in %1 instance';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME_DEFAULT = 'class';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_GET_VALUE = 'get value of';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_GET_MEMBER_NAME = 'get %1';
+/// tooltip
+Blockly.Msg.GET_MEMBER_IN_CLASS_TOOLTIP = 'Access the calling instance';
+/// url
+Blockly.Msg.GET_MEMBER_IN_CLASS_HELP_URL = '';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_IN_INSTANCE = 'in %1 instance';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_INSTANCE_DEFAULT = 'class';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_MEMBER_NAME_DEFUALT = 'set value of';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_SET_MEMBER_NAME = 'set %1 to';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_GET_MEMBER_NAME = 'get %1';
+/// tooltip
+Blockly.Msg.SET_MEMBER_IN_CLASS_TOOLTIP = 'Access the calling instance.';
+/// url
+Blockly.Msg.SET_MEMBER_IN_CLASS_HELP_URL = '';
+/// block text
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_DEFAULT = 'create instance of';
+/// block text
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TOOLTIP = 'Create an instance of a class.';
+/// url
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_HELP_URL = '';
+/// tooltip
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TITLE = 'create %1 instance';
+
+/// context menu text
+Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_SETTER = 'create in %1 instance set %2';
+/// context menu text
+Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_GETTER = 'create in %1 instance get %2';
+/// context menu text
+Blockly.Msg.CLASS_CONTEXT_CREATE_THIS = 'create \'this\'';
 
 
 // once upon a time, tooltips, etc. were written directly into the block definitions
