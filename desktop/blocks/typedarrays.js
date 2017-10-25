@@ -210,9 +210,9 @@ Blockly.Blocks['typed_arrays_create_with'] = {
                     input.setCheck('String');
                 }
                 if (i == 0) {
-                    input.appendField('Create Array of');
+                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1);
                     input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.TYPE_INT, "INTEGER"], [Blockly.Msg.TYPE_FLOAT, "FLOAT"], [Blockly.Msg.TYPE_BOOL, "BOOLEAN"], [Blockly.Msg.TYPE_CHAR, "CHARACTER"], [Blockly.Msg.TYPE_STRING, "STRING"]]), "TYPE");
-                    input.appendField('with');
+                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2);
                 }
             } else {
                 const input = this.getInput(`ADD${i}`);
