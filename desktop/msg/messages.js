@@ -4079,6 +4079,12 @@ Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
 
 //dom
+/// default vairable name
+Blockly.Msg.DOM_VAR_DEFAULT = 'dom';
+/// default vairable name
+Blockly.Msg.DOM_EVENT_VAR_DEFAULT = 'event_';
+/// default vairable name
+Blockly.Msg.DOM_ELEMENT_VAR_DEFAULT = 'element';
 /// auto generated
 Blockly.Msg.GETELEMENTBYID_FIELD_1 = 'getElementById with ID';
 /// auto generated
