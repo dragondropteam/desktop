@@ -1194,8 +1194,6 @@ Blockly.Msg.MEMBER_DEFINITION_WITH_VALUE = 'with value';
 Blockly.Msg.MEMBER_DEFINITION_TOOLTIP = '';
 /// url
 Blockly.Msg.MEMBER_DEFINITION_HELP_URL = '';
-/// block text
-Blockly.Msg.THIS_REFERENCE_THIS = 'this';
 /// tooltip
 Blockly.Msg.THIS_REFERENCE_TOOLTIP = 'Access the calling instance.';
 /// url
@@ -1253,8 +1251,6 @@ Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1 = 'create array of';
 Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2 = 'with';
 /// block text
 Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1 = 'in array';
-/// block text
-Blockly.Msg.TYPED_ARRAYS_DEFAULT_ARRAY_VAR = 'array';
 /// block text
 Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2 = 'set index #';
 /// block text
@@ -4021,41 +4017,39 @@ Blockly.Msg.TONE_PIN_FREQ_DURATION_HELP_URL = 'https://www.arduino.cc/en/Referen
 
 // arduino_eeprom
 /// auto generated
-Blockly.Msg.EEPROM_READ_FIELD_1 = 'EEPROM Read address';
+Blockly.Msg.EEPROM_READ_ADDRESS = 'EEPROM Read address';
 /// auto generated
 Blockly.Msg.EEPROM_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.EEPROM_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMRead';
 /// auto generated
-Blockly.Msg.EEPROM_WRITE_FIELD_1 = 'EEPROM write value';
+Blockly.Msg.EEPROM_WRITE_VALUE = 'EEPROM write value';
 /// auto generated
-Blockly.Msg.EEPROM_WRITE_FIELD_2 = 'to address';
+Blockly.Msg.EEPROM_WRITE_ADDRESS = 'to address';
 /// auto generated
 Blockly.Msg.EEPROM_WRITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.EEPROM_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMWrite';
 /// auto generated
-Blockly.Msg.EEPROM_UPDATE_FIELD_1 = 'EEPROM update value at';
+Blockly.Msg.EEPROM_UPDATE_VALUE = 'EEPROM update value at';
 /// auto generated
-Blockly.Msg.EEPROM_UPDATE_FIELD_2 = '(if different than current) to address';
+Blockly.Msg.EEPROM_UPDATE_ADDRESS = '(if different than current) to address';
 /// auto generated
 Blockly.Msg.EEPROM_UPDATE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.EEPROM_UPDATE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMUpdate';
 /// auto generated
-Blockly.Msg.EEPROM_GET_FIELD_1 = 'EEPROM get data from address';
+Blockly.Msg.EEPROM_GET_ADDRESS = 'EEPROM get data from address';
 /// auto generated
-Blockly.Msg.EEPROM_GET_FIELD_2 = 'and store in';
-/// default on variable dropdown
-Blockly.Msg.EEPROM_GET_DEFAULT_VAR = 'item';
+Blockly.Msg.EEPROM_GET_VARIABLE = 'and store in';
 /// auto generated
 Blockly.Msg.EEPROM_GET_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.EEPROM_GET_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMGet';
 /// auto generated
-Blockly.Msg.EEPROM_PUT_FIELD_1 = 'EEPROM set';
+Blockly.Msg.EEPROM_PUT_VALUE = 'EEPROM set';
 /// auto generated
-Blockly.Msg.EEPROM_PUT_FIELD_2 = 'to address';
+Blockly.Msg.EEPROM_PUT_ADDRESS = 'to address';
 /// auto generated
 Blockly.Msg.EEPROM_PUT_TOOLTIP = '';
 /// auto generated
@@ -4140,82 +4134,64 @@ Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
 
 //dom
-/// default vairable name
-Blockly.Msg.DOM_VAR_DEFAULT = 'dom';
-/// default vairable name
-Blockly.Msg.DOM_EVENT_VAR_DEFAULT = 'event_';
-/// default vairable name
-Blockly.Msg.DOM_ELEMENT_VAR_DEFAULT = 'element';
 /// auto generated
-Blockly.Msg.GETELEMENTBYID_FIELD_1 = 'getElementById with ID';
-/// auto generated
-Blockly.Msg.GETELEMENTBYID_ID_TEXT_DEFAULT = 'ID';
+Blockly.Msg.GETELEMENTBYID_TITLE = 'getElementById with ID';
 /// auto generated
 Blockly.Msg.GETELEMENTBYID_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.GETELEMENTBYID_HELP_URL = '';
 /// auto generated
-Blockly.Msg.DOM_GETCONTEXT_FIELD_1 = 'for dom';
+Blockly.Msg.DOM_GETCONTEXT_DOM = 'for dom';
 /// auto generated
-Blockly.Msg.DOM_GETCONTEXT_FIELD_2 = 'get context';
+Blockly.Msg.DOM_GETCONTEXT_CONTEXT = 'get context';
 /// auto generated
-Blockly.Msg.DOM_GETCONTEXT_CONTEXT_TEXT_DEFAULT = '2d';
+Blockly.Msg.SET_HEIGHT_DOM = 'DOM variable';
 /// auto generated
-Blockly.Msg.SET_HEIGHT_FIELD_1 = 'DOM variable';
-/// auto generated
-Blockly.Msg.SET_HEIGHT_FIELD_2 = 'set height';
+Blockly.Msg.SET_HEIGHT_TITLE = 'set height';
 /// auto generated
 Blockly.Msg.SET_HEIGHT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SET_HEIGHT_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SET_WIDTH_FIELD_1 = 'DOM variable';
+Blockly.Msg.SET_WIDTH_DOM = 'DOM variable';
 /// auto generated
-Blockly.Msg.SET_WIDTH_FIELD_2 = 'set width';
+Blockly.Msg.SET_WIDTH_TITLE = 'set width';
 /// auto generated
 Blockly.Msg.SET_WIDTH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SET_WIDTH_HELP_URL = '';
 /// auto generated
-Blockly.Msg.ADD_EVENT_LISTENER_FIELD_1 = 'add event listener to dom element';
+Blockly.Msg.ADD_EVENT_LISTENER_TITLE = 'add event listener to dom element';
 /// auto generated
-Blockly.Msg.ADD_EVENT_LISTENER_FIELD_2 = 'for event of type';
+Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE = 'for event of type';
 /// auto generated
-Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE_TEXT_DEFAULT = 'eventType';
+Blockly.Msg.ADD_EVENT_LISTENER_ON = 'on';
 /// auto generated
-Blockly.Msg.ADD_EVENT_LISTENER_FIELD_3 = 'on';
-/// auto generated
-Blockly.Msg.ADD_EVENT_LISTENER_FIELD_4 = 'do';
+Blockly.Msg.ADD_EVENT_LISTENER_DO = 'do';
 /// auto generated
 Blockly.Msg.ADD_EVENT_LISTENER_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.ADD_EVENT_LISTENER_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SET_ATTRIBUTE_FIELD_1 = 'for dom element';
+Blockly.Msg.SET_ATTRIBUTE_DOM = 'for dom element';
 /// auto generated
-Blockly.Msg.SET_ATTRIBUTE_FIELD_2 = 'set Attribute';
+Blockly.Msg.SET_ATTRIBUTE_TITLE = 'set Attribute';
 /// auto generated
-Blockly.Msg.SET_ATTRIBUTE_ATTRIBUTE_TEXT_DEFAULT = 'attribute';
-/// auto generated
-Blockly.Msg.SET_ATTRIBUTE_VALUE_TEXT_DEFAULT = 'value';
-/// auto generated
-Blockly.Msg.CONSOLE_LOG_FIELD_1 = 'console log';
+Blockly.Msg.CONSOLE_LOG_TITLE = 'console log';
 /// auto generated
 Blockly.Msg.CONSOLE_LOG_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.CONSOLE_LOG_HELP_URL = '';
 
 //eval
-/// default JavaScript statement
-Blockly.Msg.JAVASCRIPT_EVAL_DEFAULT_TEXT = '';
 /// auto generated
-Blockly.Msg.JAVASCRIPT_EVAL_FIELD_1 = 'eval';
+Blockly.Msg.JAVASCRIPT_EVAL_TITLE = 'eval';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_TOOLTIP = 'Execute the JavaScript expression';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = 'developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval';
 /// auto generated
-Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_FIELD_1 = 'eval with output';
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TITLE = 'eval with output';
 /// auto generated
 Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP = 'Execute the JavaScript expression returning the value';
 /// auto generated

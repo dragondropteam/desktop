@@ -270,7 +270,7 @@ Blockly.Blocks['typed_arrays_setIndex'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.TYPED_ARRAYS_DEFAULT_ARRAY_VAR), "ARRAY");
+            .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.appendValueInput("INDEX")
             .setCheck("Number")
             .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2);
@@ -310,7 +310,7 @@ Blockly.Blocks['typed_arrays_getIndex'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.TYPED_ARRAYS_DEFAULT_ARRAY_VAR), "ARRAY");
+            .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.appendValueInput("INDEX")
             .setCheck("Number")
             .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2);
@@ -346,7 +346,7 @@ Blockly.Blocks['typed_arrays_delete'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.TYPED_ARRAYS_DELETE_TITLE)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.TYPED_ARRAYS_DEFAULT_ARRAY_VAR), "ARRAY");
+            .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
