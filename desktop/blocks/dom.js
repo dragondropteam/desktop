@@ -19,8 +19,8 @@ const DOM_COLOUR = '#bcd5d1';
 Blockly.Blocks['getelementbyid'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GETELEMENTBYID_FIELD_1)
-            .appendField(new Blockly.FieldTextInput(Blockly.Msg.GETELEMENTBYID_ID_TEXT_DEFAULT), "ID");
+            .appendField(Blockly.Msg.GETELEMENTBYID_TITLE)
+            .appendField(new Blockly.FieldTextInput('ID'), "ID");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(DOM_COLOUR);
@@ -32,11 +32,11 @@ Blockly.Blocks['getelementbyid'] = {
 Blockly.Blocks['dom_getcontext'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DOM_GETCONTEXT_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.DOM_VAR_DEFAULT), "DOM");
+            .appendField(Blockly.Msg.DOM_GETCONTEXT_DOM)
+            .appendField(new Blockly.FieldVariable('dom'), "DOM");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DOM_GETCONTEXT_FIELD_2)
-            .appendField(new Blockly.FieldTextInput(Blockly.Msg.DOM_GETCONTEXT_CONTEXT_TEXT_DEFAULT), "CONTEXT");
+            .appendField(Blockly.Msg.DOM_GETCONTEXT_CONTEXT)
+            .appendField(new Blockly.FieldTextInput('2d'), "CONTEXT");
         this.setInputsInline(true);
         this.setColour(DOM_COLOUR);
         this.setOutput(true, null);
@@ -46,11 +46,11 @@ Blockly.Blocks['dom_getcontext'] = {
 Blockly.Blocks['set_height'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_HEIGHT_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.DOM_VAR_DEFAULT), "DOMVAR");
+            .appendField(Blockly.Msg.SET_HEIGHT_DOM)
+            .appendField(new Blockly.FieldVariable('dom'), "DOMVAR");
         this.appendValueInput("HEIGHT")
             .setCheck(null)
-            .appendField(Blockly.Msg.SET_HEIGHT_FIELD_2);
+            .appendField(Blockly.Msg.SET_HEIGHT_TITLE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -63,11 +63,11 @@ Blockly.Blocks['set_height'] = {
 Blockly.Blocks['set_width'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_WIDTH_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.DOM_VAR_DEFAULT), "DOMVAR");
+            .appendField(Blockly.Msg.SET_WIDTH_DOM)
+            .appendField(new Blockly.FieldVariable('dom'), "DOMVAR");
         this.appendValueInput("WIDTH")
             .setCheck(null)
-            .appendField(Blockly.Msg.SET_WIDTH_FIELD_2);
+            .appendField(Blockly.Msg.SET_WIDTH_TITLE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -80,15 +80,15 @@ Blockly.Blocks['set_width'] = {
 Blockly.Blocks['add_event_listener'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.DOM_ELEMENT_VAR_DEFAULT), "ELEMENT")
-            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_FIELD_2)
-            .appendField(new Blockly.FieldTextInput(Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE_TEXT_DEFAULT), "EVENT_TYPE");
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_TITLE)
+            .appendField(new Blockly.FieldVariable('element'), "ELEMENT")
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE)
+            .appendField(new Blockly.FieldTextInput('eventType'), "EVENT_TYPE");
         this.appendStatementInput("DO")
             .setCheck(null)
-            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_FIELD_3)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.DOM_EVENT_VAR_DEFAULT), "EVENT")
-            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_FIELD_4);
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_ON)
+            .appendField(new Blockly.FieldVariable('event_'), "EVENT")
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_DO);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -100,11 +100,11 @@ Blockly.Blocks['add_event_listener'] = {
 Blockly.Blocks['set_attribute'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_ATTRIBUTE_FIELD_1)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.DOM_ELEMENT_VAR_DEFAULT), "ELEMENT")
-            .appendField(Blockly.Msg.SET_ATTRIBUTE_FIELD_2)
-            .appendField(new Blockly.FieldTextInput(Blockly.Msg.SET_ATTRIBUTE_ATTRIBUTE_TEXT_DEFAULT), "ATTRIBUTE")
-            .appendField(new Blockly.FieldTextInput(Blockly.Msg.SET_ATTRIBUTE_VALUE_TEXT_DEFAULT), "VALUE");
+            .appendField(Blockly.Msg.SET_ATTRIBUTE_DOM)
+            .appendField(new Blockly.FieldVariable('element'), "ELEMENT")
+            .appendField(Blockly.Msg.SET_ATTRIBUTE_TITLE)
+            .appendField(new Blockly.FieldTextInput('attribute'), "ATTRIBUTE")
+            .appendField(new Blockly.FieldTextInput('value'), "VALUE");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -116,7 +116,7 @@ Blockly.Blocks['console_log'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck(null)
-            .appendField(Blockly.Msg.CONSOLE_LOG_FIELD_1);
+            .appendField(Blockly.Msg.CONSOLE_LOG_TITLE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

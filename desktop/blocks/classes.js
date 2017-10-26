@@ -561,7 +561,7 @@ Blockly.Blocks['member_definition'] = {
 Blockly.Blocks['this_reference'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.THIS_REFERENCE_THIS);
+            .appendField('this');
         this.setOutput(true, null);
         this.setColour(CLASS_COLOUR);
         this.setTooltip(Blockly.Msg.THIS_REFERENCE_TOOLTIP);

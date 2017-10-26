@@ -8,7 +8,7 @@ Blockly.Blocks['eeprom_read'] = {
     init: function () {
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_READ_FIELD_1);
+            .appendField(Blockly.Msg.EEPROM_READ_ADDRESS);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
@@ -21,10 +21,10 @@ Blockly.Blocks['eeprom_write'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_WRITE_FIELD_1);
+            .appendField(Blockly.Msg.EEPROM_WRITE_VALUE);
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_WRITE_FIELD_2);
+            .appendField(Blockly.Msg.EEPROM_WRITE_ADDRESS);
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
@@ -38,15 +38,13 @@ Blockly.Blocks['eeprom_update'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_UPDATE_FIELD_1);
+            .appendField(Blockly.Msg.EEPROM_UPDATE_VALUE);
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-                .appendField(Blockly.Msg.EEPROM_UPDATE_FIELD_2);
+            .appendField(Blockly.Msg.EEPROM_UPDATE_ADDRESS);
         this.setInputsInline(true);
-
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-
         this.setColour(120);
         this.setTooltip(Blockly.Msg.EEPROM_UPDATE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_UPDATE_HELP_URL);
@@ -57,15 +55,13 @@ Blockly.Blocks['eeprom_get'] = {
     init: function () {
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_GET_FIELD_1);
+            .appendField(Blockly.Msg.EEPROM_GET_ADDRESS);
         this.appendDummyInput()
-            .appendField(Blockly.Msg.EEPROM_GET_FIELD_2)
-            .appendField(new Blockly.FieldVariable(Blockly.Msg.EEPROM_GET_DEFAULT_VAR), "VAR");
+            .appendField(Blockly.Msg.EEPROM_GET_VARIABLE)
+            .appendField(new Blockly.FieldVariable('item'), "VAR");
         this.setInputsInline(true);
-
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-
         this.setColour(120);
         this.setTooltip(Blockly.Msg.EEPROM_GET_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_GET_HELP_URL);
@@ -76,10 +72,10 @@ Blockly.Blocks['eeprom_put'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_PUT_FIELD_1);
+            .appendField(Blockly.Msg.EEPROM_PUT_VALUE);
         this.appendValueInput("ADDRESS")
             .setCheck("Number")
-            .appendField(Blockly.Msg.EEPROM_PUT_FIELD_2);
+            .appendField(Blockly.Msg.EEPROM_PUT_ADDRESS);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
