@@ -1118,3 +1118,30 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 Blockly.Msg.PROCEDURES_IFRETURN_HELPURL = 'http://c2.com/cgi/wiki?GuardClause';
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
+
+/// block text - Label that this block returns the time since the last frame in seconds.
+Blockly.Msg.DELTA_TIME_SECONDS_TITLE = 'delta time in seconds';
+/// tooltip - Explains the concept of delta time and notes that this version is in seconds.
+Blockly.Msg.DELTA_TIME_SECONDS_TOOLTIP = 'Get the time elapsed since the last frame in seconds.';
+/// url - Phaser documentation for game.time.physicsElapsed.
+Blockly.Msg.DELTA_TIME_SECONDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Time.html#physicsElapsed';
+/// block text - Label that this block returns the time since the last frame in milliseconds.
+Blockly.Msg.DELTA_TIME_MILLISECONDS_TITLE = 'delta time in milliseconds';
+/// tooltip - Explains the concept of delta time and notes that this version is in milliseconds.
+Blockly.Msg.DELTA_TIME_MILLISECONDS_TOOLTIP = 'Get the time elapsed since the last frame in milliseconds.';
+/// url - Phaser documentation for game.time.physicsElapsed.
+Blockly.Msg.DELTA_TIME_MILLISECONDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Time.html#physicsElapsedMS';
+/// block text - Label that this block lets users get the value of members of game.time.
+Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TITLE = 'get time field';
+/// tooltip - Specify that you are reading variables from game time and that they are numeric types.
+Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TOOLTIP = 'Read numeric fields of game time.';
+/// url - Phaser documentation for game.time.
+Blockly.Msg.GET_TIME_NUMERIC_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Time.html';
+/// block text - Label that this block lets users get the value of members of game.time.
+Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TITLE = 'set time field';
+/// block text - Grammatical connection between the member variable and what it will be set to.
+Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TO = 'to';
+/// tooltip - Specify that you are writing values to game.time and that they are numeric types.
+Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP = 'Write to one of the game time\'s numeric fields.';
+/// url - Phaser documentation for game.time.
+Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Time.html';
