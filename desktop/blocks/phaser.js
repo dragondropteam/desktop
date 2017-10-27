@@ -51,6 +51,7 @@ const PHASER_UTIL_DEBUG_COLOUR = '#ff6e40';
 const PHASER_UTIL_LIST_COLOUR = '#bf360c';
 const PHASER_RANDOM_COLOUR = '#ff7043';
 const PHASER_MATH_COLOUR = '#ffab91';
+const PHASER_TIME_COLOUR = '#a5d6a7'
 //endregion
 
 
@@ -79,20 +80,22 @@ function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY
         //copy over the property this setter was modifying
         var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue(origProperty));
         xmlProperty.setAttribute('name', newProperty);
-        //copy over the variable this setter was acting on
-        var varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
-        if(varName == null)
-            varName = 'defaultObject';
-        //define shadow variable block
-        var xmlVar = goog.dom.createDom('field', null, varName);
-        xmlVar.setAttribute('name', 'VAR');
-        xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
-        xmlShadow.setAttribute('type', 'variables_get')
-        xmlObject = goog.dom.createDom('value', null, xmlShadow);
-        xmlObject.setAttribute('name', newObject);
-        //assemble into base getter/setter block
         var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
-        xmlBlock.append(xmlObject);
+        //copy over the variable this setter was acting on
+        if(origObject && newObject) {
+            var varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
+            if(varName == null)
+                varName = 'defaultObject';
+            //define shadow variable block
+            var xmlVar = goog.dom.createDom('field', null, varName);
+            xmlVar.setAttribute('name', 'VAR');
+            xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
+            xmlShadow.setAttribute('type', 'variables_get')
+            xmlObject = goog.dom.createDom('value', null, xmlShadow);
+            xmlObject.setAttribute('name', newObject);
+            //assemble into base getter/setter block
+            xmlBlock.append(xmlObject);
+        }
         //type specific actions
         var varType = '';
         var xmlSetterShadow = null;
@@ -4785,6 +4788,67 @@ Blockly.Blocks['math_rad_to_deg'] = {
     this.setColour(PHASER_MATH_COLOUR);
  this.setTooltip("Converts an angle in degrees to an equivalent in radians.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Math.html#radToDeg");
+  }
+};
+//endegion
+
+//region TIME
+//region TIME.PROPERTIES
+const TIME_FIELDS_NUMERIC_WRITABLE = ['desiredFps', 'slowMotion',];
+const TIME_FIELDS_NUMERIC_RO = ['pauseDuration', 'physicsElapsed', 'physicsElapsedMS'];
+const TIME_FIELDS_NUMERIC = createDropDownField(TIME_FIELDS_NUMERIC_WRITABLE, TIME_FIELDS_NUMERIC_RO);
+
+Blockly.Blocks['get_time_numeric_member'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TITLE)
+        .appendField(new Blockly.FieldDropdown(TIME_FIELDS_NUMERIC.all), "PROPERTY");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_TIME_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_HELP_URL);
+  },
+  customContextMenu: getSetContextMenu('set_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
+};
+
+Blockly.Blocks['set_time_numeric_member'] = {
+  init: function() {
+    this.appendValueInput("VALUE")
+        .setCheck("Number")
+        .appendField(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TITLE)
+        .appendField(new Blockly.FieldDropdown(TIME_FIELDS_NUMERIC.writable), "PROPERTY")
+        .appendField(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TO);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_TIME_COLOUR);
+    this.setTooltip(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL);
+  },
+  customContextMenu: getSetContextMenu('get_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
+};
+//endegion
+
+Blockly.Blocks['delta_time_seconds'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.DELTA_TIME_SECONDS_TITLE);
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_TIME_COLOUR);
+ this.setTooltip(Blockly.Msg.DELTA_TIME_SECONDS_TOOLTIP);
+ this.setHelpUrl(Blockly.Msg.DELTA_TIME_SECONDS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['delta_time_milliseconds'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.DELTA_TIME_MILLISECONDS_TITLE);
+    this.setOutput(true, "Number");
+    this.setColour(PHASER_TIME_COLOUR);
+ this.setTooltip(Blockly.Msg.DELTA_TIME_MILLISECONDS_TOOLTIP);
+ this.setHelpUrl(Blockly.Msg.DELTA_TIME_MILLISECONDS_HELP_URL);
   }
 };
 //endegion
