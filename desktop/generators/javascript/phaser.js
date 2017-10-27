@@ -1736,3 +1736,24 @@ Blockly.JavaScript['math_rad_to_deg'] = function(block) {
   return [`game.math.radToDeg(${radians})`, Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
+
+//region TIME
+Blockly.JavaScript['get_time_numeric_member'] = function(block) {
+  const property = block.getFieldValue('PROPERTY');
+  return [`game.time.${property}`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['set_time_numeric_member'] = function(block) {
+  const property = block.getFieldValue('PROPERTY');
+  const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.time.${property} = ${value};\n`;
+};
+
+Blockly.JavaScript['delta_time_seconds'] = function(block) {
+  return [`game.time.physicsElapsed`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['delta_time_milliseconds'] = function(block) {
+  return [`game.time.physicsElapsedMS`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+//endregion
