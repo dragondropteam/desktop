@@ -354,7 +354,7 @@
                 <!--Not necessary at the moment 0 functions take this-->
                 <!--<block type="get_world_reference"/>-->
             </category>
-            <category name="Time" colour="0"> <!--TODO: decide colour-->
+            <category name="Time" colour="#a5d6a7">
                 <block type="delta_time_seconds"/>
                 <block type="delta_time_milliseconds"/>
                 <block type="set_time_numeric_member">
