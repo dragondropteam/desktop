@@ -354,6 +354,18 @@
                 <!--Not necessary at the moment 0 functions take this-->
                 <!--<block type="get_world_reference"/>-->
             </category>
+            <category name="Time" colour="#a5d6a7">
+                <block type="delta_time_seconds"/>
+                <block type="delta_time_milliseconds"/>
+                <block type="set_time_numeric_member">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_time_numeric_member"/>
+            </category>
         </category>
         <category name="Objects" colour="#004d40">
             <category name="Sprites and Images" colour="#004d40">
