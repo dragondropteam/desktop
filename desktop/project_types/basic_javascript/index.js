@@ -27,12 +27,7 @@ class BasicJavaScriptManager extends BaseProjectManager {
     }
 
     migrate(loadedProject) {
-        if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
-            loadedProject.loadedProject.meta = {
-                'version': BUILD_NUMBER
-            };
-            loadedProject.loadedProject.type = PROJECT_TYPE;
-        }
+        this.migrateMetaAndProjectType(loadedProject);
         this.saveProject(loadedProject);
     }
 

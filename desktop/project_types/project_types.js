@@ -162,6 +162,13 @@ exports.BaseProjectManager = class BaseProjectManager {
         fs.outputJsonSync(project.getProjectPath(), project.loadedProject);
     }
 
+    migrateMetaAndProjectType(loadedProject) {
+        if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
+            loadedProject.loadedProject.meta = this.createMeta();
+            loadedProject.loadedProject.type = this.type;
+        }
+    }
+
     /**
      * Display the loadedProject in the given window
      * @param window The window that was created in main_core.js
