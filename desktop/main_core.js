@@ -383,7 +383,14 @@ ipcMain.on('create_new_project', (event, project, type) => {
     ProjectInterface = require(projectTypes.getRequirePath(type));
     //TODO: Most likely want to make this into a try catch block to give back more
     //information about the cause of the issue.
-    let newProject = ProjectInterface.createProjectDir(project.name, project.path);
+    // let newProject = ProjectInterface.createProjectDir(project.name, project.path);
+    let version;
+    if (!electron.remote) {
+        version = global.version;
+    } else {
+        version = electron.remote.getGlobal('version');
+    }
+    let newProject = ProjectInterface.createNewProject(project.name, project.path, version);
 
     if (newProject) {
         displayProject(newProject);
