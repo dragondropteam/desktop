@@ -27,7 +27,7 @@ const {BaseProjectManager} = require('../project_types');
 class VisualPhaserProjectManager extends BaseProjectManager {
 
      constructor(){
-         super(BUILD_NUMBER, PROJECT_TYPE, `${__dirname}\static`)
+         super(BUILD_NUMBER, PROJECT_TYPE, `${__dirname}/static`)
      }
     /**
      * @override
