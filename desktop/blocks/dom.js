@@ -19,24 +19,24 @@ const DOM_COLOUR = '#bcd5d1';
 Blockly.Blocks['getelementbyid'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("getElementById with ID")
-            .appendField(new Blockly.FieldTextInput("ID"), "ID");
+            .appendField(Blockly.Msg.GETELEMENTBYID_TITLE)
+            .appendField(new Blockly.FieldTextInput('ID'), "ID");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(DOM_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.GETELEMENTBYID_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GETELEMENTBYID_HELP_URL);
     }
 };
 
 Blockly.Blocks['dom_getcontext'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("for dom")
-            .appendField(new Blockly.FieldVariable("dom"), "DOM");
+            .appendField(Blockly.Msg.DOM_GETCONTEXT_DOM)
+            .appendField(new Blockly.FieldVariable('dom'), "DOM");
         this.appendDummyInput()
-            .appendField("get context")
-            .appendField(new Blockly.FieldTextInput("2d"), "CONTEXT");
+            .appendField(Blockly.Msg.DOM_GETCONTEXT_CONTEXT)
+            .appendField(new Blockly.FieldTextInput('2d'), "CONTEXT");
         this.setInputsInline(true);
         this.setColour(DOM_COLOUR);
         this.setOutput(true, null);
@@ -46,65 +46,65 @@ Blockly.Blocks['dom_getcontext'] = {
 Blockly.Blocks['set_height'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("DOM variable")
-            .appendField(new Blockly.FieldVariable("domvar"), "DOMVAR");
+            .appendField(Blockly.Msg.SET_HEIGHT_DOM)
+            .appendField(new Blockly.FieldVariable('dom'), "DOMVAR");
         this.appendValueInput("HEIGHT")
             .setCheck(null)
-            .appendField("set height");
+            .appendField(Blockly.Msg.SET_HEIGHT_TITLE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(DOM_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SET_HEIGHT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_HEIGHT_HELP_URL);
     }
 };
 
 Blockly.Blocks['set_width'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("DOM variable")
-            .appendField(new Blockly.FieldVariable("domvar"), "DOMVAR");
+            .appendField(Blockly.Msg.SET_WIDTH_DOM)
+            .appendField(new Blockly.FieldVariable('dom'), "DOMVAR");
         this.appendValueInput("WIDTH")
             .setCheck(null)
-            .appendField("set width");
+            .appendField(Blockly.Msg.SET_WIDTH_TITLE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(DOM_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SET_WIDTH_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_WIDTH_HELP_URL);
     }
 };
 
 Blockly.Blocks['add_event_listener'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("add event listener to dom element")
-            .appendField(new Blockly.FieldVariable("element"), "ELEMENT")
-            .appendField("for event of type")
-            .appendField(new Blockly.FieldTextInput("eventType"), "EVENT_TYPE");
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_TITLE)
+            .appendField(new Blockly.FieldVariable('element'), "ELEMENT")
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE)
+            .appendField(new Blockly.FieldTextInput('eventType'), "EVENT_TYPE");
         this.appendStatementInput("DO")
             .setCheck(null)
-            .appendField("on")
-            .appendField(new Blockly.FieldVariable("event_"), "EVENT")
-            .appendField("do");
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_ON)
+            .appendField(new Blockly.FieldVariable('event_'), "EVENT")
+            .appendField(Blockly.Msg.ADD_EVENT_LISTENER_DO);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.ADD_EVENT_LISTENER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADD_EVENT_LISTENER_HELP_URL);
     }
 };
 
 Blockly.Blocks['set_attribute'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("for dom element")
-            .appendField(new Blockly.FieldVariable("element"), "ELEMENT")
-            .appendField("set Attribute")
-            .appendField(new Blockly.FieldTextInput("attribute"), "ATTRIBUTE")
-            .appendField(new Blockly.FieldTextInput("value"), "VALUE");
+            .appendField(Blockly.Msg.SET_ATTRIBUTE_DOM)
+            .appendField(new Blockly.FieldVariable('element'), "ELEMENT")
+            .appendField(Blockly.Msg.SET_ATTRIBUTE_TITLE)
+            .appendField(new Blockly.FieldTextInput('attribute'), "ATTRIBUTE")
+            .appendField(new Blockly.FieldTextInput('value'), "VALUE");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -116,13 +116,13 @@ Blockly.Blocks['console_log'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck(null)
-            .appendField("console log");
+            .appendField(Blockly.Msg.CONSOLE_LOG_TITLE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(DOM_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.CONSOLE_LOG_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.CONSOLE_LOG_HELP_URL);
     }
 };
 //endregion document methods

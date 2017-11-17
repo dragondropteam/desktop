@@ -312,6 +312,8 @@ Blockly.Msg.LOGIC_TERNARY_TOOLTIP = 'Check the condition in "test". If the condi
 Blockly.Msg.MATH_NUMBER_HELPURL = 'https://en.wikipedia.org/wiki/Number';
 /// tooltip - Any positive or negative number, not necessarily an integer.
 Blockly.Msg.MATH_NUMBER_TOOLTIP = 'A number.';
+/// block text
+Blockly.Msg.MATH_NUMBER_BINARY = 'binary';
 
 /// {{optional}}\nmath - The symbol for the binary operation addition.
 Blockly.Msg.MATH_ADDITION_SYMBOL = '+';
@@ -1029,6 +1031,16 @@ Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input
 /// context menu - Selecting this creates a block to get (change) the value of
 /// this variable.\n\nParameters:\n* %1 - the name of the variable.
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
+/// block text
+Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1 = 'set';
+/// block text
+Blockly.Msg.VARIABLE_SET_TYPED_FIELD_2 = 'to';
+/// default variable name
+Blockly.Msg.VARIABLE_SET_TYPED_DEFAULT_VAR = 'item';
+/// tooltip
+Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP = '';
+/// url
+Blockly.Msg.VARIABLE_SET_TYPED_HELP_URL = '';
 
 // Procedures Blocks.
 /// url - Information about defining [https://en.wikipedia.org/wiki/Procedure_(computer_science) functions] that do not have return values.
@@ -1118,6 +1130,3906 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 Blockly.Msg.PROCEDURES_IFRETURN_HELPURL = 'http://c2.com/cgi/wiki?GuardClause';
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
+
+//type display names
+/// Display name for integer type.
+Blockly.Msg.TYPE_INT = 'Integer';
+/// Display name for boolean type.
+Blockly.Msg.TYPE_BOOL = 'Boolean';
+/// Display name for floating-point type.
+Blockly.Msg.TYPE_FLOAT = 'Float';
+/// Display name for string type.
+Blockly.Msg.TYPE_STRING = 'String';
+/// Display name for character type
+Blockly.Msg.TYPE_CHAR = 'Character';
+/// Display name for integer array type.
+Blockly.Msg.TYPE_INT_ARR = 'Array of Integers';
+/// Display name for boolean array type.
+Blockly.Msg.TYPE_BOOL_ARR = 'Array of Booleans';
+/// Display name for floating-point array type.
+Blockly.Msg.TYPE_FLOAT_ARR = 'Array of Floats';
+/// Display name for string array type.
+Blockly.Msg.TYPE_STRING_ARR = 'Array of Strings';
+/// Display name for servo type.
+Blockly.Msg.TYPE_SERVO = 'Servo';
+
+//classes
+/// block text
+Blockly.Msg.CLASSES_SUPER_CONSTRUCTOR_TITLE = 'call super constructor';
+/// warning text
+Blockly.Msg.INSIDE_CLASS_ONLY_WARNING = 'This block can only be used inside of a class!';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_CLASS = 'class';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_DEFAULT_NAME = 'name';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_EXTENDS = 'extends';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_METHODS = 'methods';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_CONSTRUCT = 'construct with ';
+/// block text
+Blockly.Msg.CLASS_DEFINITION_CONSTRUCT_PARAM = 'construct %1';
+/// warning text
+Blockly.Msg.CLASS_DEFINITION_DUPLICATE_WARNING = 'Warning: The class constructor has duplicate parameters.';
+/// tooltip
+Blockly.Msg.CLASS_DEFINITION_TOOLTIP = '';
+/// url
+Blockly.Msg.CLASS_DEFINITION_HELP_URL = '';
+/// block text
+Blockly.Msg.METHOD_DEFINITION_TITLE = 'to';
+/// block text
+Blockly.Msg.METHOD_DEFINITION_DEFAULT_TEXT = 'to do something';
+/// tooltip
+Blockly.Msg.METHOD_DEFINITION_TOOLTIP = '';
+/// url
+Blockly.Msg.METHOD_DEFINITION_HELP_URL = '';
+/// block text
+Blockly.Msg.MEMBER_DEFINITION_CREATE = 'create';
+/// block text
+Blockly.Msg.MEMBER_DEFINITION_DEFAULT_TEXT = 'name';
+/// block text
+Blockly.Msg.MEMBER_DEFINITION_WITH_VALUE = 'with value';
+/// tooltip
+Blockly.Msg.MEMBER_DEFINITION_TOOLTIP = '';
+/// url
+Blockly.Msg.MEMBER_DEFINITION_HELP_URL = '';
+/// tooltip
+Blockly.Msg.THIS_REFERENCE_TOOLTIP = 'Access the calling instance.';
+/// url
+Blockly.Msg.THIS_REFERENCE_HELP_URL = 'https://en.wikipedia.org/wiki/This_(computer_programming)';
+/// tooltip
+Blockly.Msg.CLASS_TYPE_TOOLTIP = '';
+/// url
+Blockly.Msg.CLASS_TYPE_HELP_URL = '';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME = 'in %1 instance';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME_DEFAULT = 'class';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_GET_VALUE = 'get value of';
+/// block text
+Blockly.Msg.GET_MEMBER_IN_CLASS_GET_MEMBER_NAME = 'get %1';
+/// tooltip
+Blockly.Msg.GET_MEMBER_IN_CLASS_TOOLTIP = 'Access the calling instance';
+/// url
+Blockly.Msg.GET_MEMBER_IN_CLASS_HELP_URL = '';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_IN_INSTANCE = 'in %1 instance';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_INSTANCE_DEFAULT = 'class';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_MEMBER_NAME_DEFUALT = 'set value of';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_SET_MEMBER_NAME = 'set %1 to';
+/// block text
+Blockly.Msg.SET_MEMBER_IN_CLASS_GET_MEMBER_NAME = 'get %1';
+/// tooltip
+Blockly.Msg.SET_MEMBER_IN_CLASS_TOOLTIP = 'Access the calling instance.';
+/// url
+Blockly.Msg.SET_MEMBER_IN_CLASS_HELP_URL = '';
+/// block text
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_DEFAULT = 'create instance of';
+/// block text
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TOOLTIP = 'Create an instance of a class.';
+/// url
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_HELP_URL = '';
+/// block text
+Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TITLE = 'create %1 instance';
+
+/// context menu text
+Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_SETTER = 'create in %1 instance set %2';
+/// context menu text
+Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_GETTER = 'create in %1 instance get %2';
+/// context menu text
+Blockly.Msg.CLASS_CONTEXT_CREATE_THIS = 'create \'this\'';
+
+//typed arrays
+/// block text
+Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1 = 'create array of';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2 = 'with';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1 = 'in array';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2 = 'set index #';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_3 = 'to';
+/// tooltip
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_TOOLTIP = '';
+/// url
+Blockly.Msg.TYPED_ARRAYS_SETINDEX_HELP_URL = '';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_1 = 'in array';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2 = 'get index #';
+/// tooltip
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_TOOLTIP = '';
+/// url
+Blockly.Msg.TYPED_ARRAYS_GETINDEX_HELP_URL = '';
+/// block text
+Blockly.Msg.TYPED_ARRAYS_DELETE_TITLE = 'delete array';
+/// warning text
+Blockly.Msg.TYPED_ARRAYS_NOT_ARRAY_WARNING = '%1 is not an array!';
+/// tooltip
+Blockly.Msg.TYPED_ARRAYS_DELETE_TOOLTIP = '';
+/// url
+Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL = '';
+
+/// block text
+Blockly.Msg.LOG_CONSOLE_TITLE = 'log to console';
+/// tooltip
+Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.'
+/// url
+Blockly.Msg.LOG_CONSOLE_HELP_URL = 'https://en.wikipedia.org/wiki/System_console';
+
+
+// once upon a time, tooltips, etc. were written directly into the block definitions
+// this was bad for localization, so they got pulled out into these variables with a script
+
+//phaser
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_1 = 'run phaser';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_2 = 'width';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_3 = 'height';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_4 = 'on preload do';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_5 = 'on create do';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_6 = 'on update do';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_TOOLTIP = 'Create a Phaser Game with given width and height.';
+/// auto generated
+Blockly.Msg.PHASER_SIMPLE_INIT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Game.html';
+/// auto generated
+Blockly.Msg.START_PHASER_FOR_STATES_FIELD_1 = 'start phaser for states with';
+/// auto generated
+Blockly.Msg.START_PHASER_FOR_STATES_FIELD_2 = 'width';
+/// auto generated
+Blockly.Msg.START_PHASER_FOR_STATES_FIELD_3 = 'height';
+/// auto generated
+Blockly.Msg.START_PHASER_FOR_STATES_TOOLTIP = 'Create a Phaser game using explicit states.';
+/// auto generated
+Blockly.Msg.START_PHASER_FOR_STATES_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Game.html';
+/// auto generated
+Blockly.Msg.CENTER_AND_STRETCH_FIELD_1 = 'center and stretch phaser';
+/// auto generated
+Blockly.Msg.CENTER_AND_STRETCH_TOOLTIP = 'Tells Phaser to center and stretch the game view to fit its window.';
+/// auto generated
+Blockly.Msg.CENTER_AND_STRETCH_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ScaleManager.html#scaleMode';
+/// auto generated
+Blockly.Msg.ENABLE_STEP_FIELD_1 = 'enable stepping';
+/// auto generated
+Blockly.Msg.ENABLE_STEP_TOOLTIP = 'Enables manually stepping through game frames. Usually for debugging purposes.';
+/// auto generated
+Blockly.Msg.ENABLE_STEP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Game.html#enableStep';
+/// auto generated
+Blockly.Msg.DISABLE_STEP_FIELD_1 = 'disable stepping';
+/// auto generated
+Blockly.Msg.DISABLE_STEP_TOOLTIP = 'Disables manually stepping into the next game loop. This is the default behavior.';
+/// auto generated
+Blockly.Msg.DISABLE_STEP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Game.html#disableStep';
+/// auto generated
+Blockly.Msg.STEP_FIELD_1 = 'Step';
+/// auto generated
+Blockly.Msg.STEP_TOOLTIP = 'Manually steps to the next game loop. Stepping should be enabled before using this.';
+/// auto generated
+Blockly.Msg.STEP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Game.html#step';
+/// default variale name
+Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME = 'graphics';
+/// auto generated
+Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_1 = 'create graphics object with offsets';
+/// auto generated
+Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_2 = 'x:';
+/// auto generated
+Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_3 = 'y:';
+/// auto generated
+Blockly.Msg.CREATE_GRAPHICS_OBJECT_TOOLTIP = 'Returns an object that can draw shapes in the world.';
+/// auto generated
+Blockly.Msg.CREATE_GRAPHICS_OBJECT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html';
+/// auto generated
+Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_1 = 'fill shapes with ';
+/// auto generated
+Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_2 = 'colour';
+/// auto generated
+Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_3 = 'using';
+/// auto generated
+Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_TOOLTIP = 'Start drawing shapes in the world using a given graphics object. Use the shape drawing blocks inside this one.';
+/// auto generated
+Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#beginFill';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_1 = 'draw rectangle at position';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_2 = 'x:';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_3 = 'y:';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_4 = 'with';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_5 = 'width:';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_6 = 'height:';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_FIELD_7 = 'using';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_TOOLTIP = 'Draws a rectangle at a given position in the world. Doesn\'t work on its own. Put it inside the \'fill shapes with\' block.';
+/// auto generated
+Blockly.Msg.DRAW_RECTANGLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#drawRect';
+/// auto generated
+Blockly.Msg.STOP_ANIMATION_FIELD_1 = 'stop animation on';
+/// auto generated
+Blockly.Msg.STOP_ANIMATION_TOOLTIP = 'Stops any animation from playing on the given sprite.';
+/// auto generated
+Blockly.Msg.STOP_ANIMATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#stop';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_FIELD_1 = 'play animation';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_FIELD_2 = 'on';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_TOOLTIP = 'Starts playing an animation on the given sprite.';
+/// auto generated
+Blockly.Msg.SET_FRAME_FIELD_1 = 'Set Current Frame # For';
+/// auto generated
+Blockly.Msg.SET_FRAME_TOOLTIP = 'Jumps to a given animation frame.';
+/// auto generated
+Blockly.Msg.SET_FRAME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#frame';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_FIELD_1 = 'add animation to';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_FIELD_2 = 'tagged';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_NAME_TEXT_DEFAULT = 'name';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_FIELD_3 = 'with frames';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_FIELD_4 = 'displayed at';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_FIELD_5 = 'FPS';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_FIELD_6 = 'loop';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_TOOLTIP = 'Add an animation to an object based on a list of frames';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#add';
+/// auto generated
+Blockly.Msg.ADD_CHILD_FIELD_1 = 'add child object';
+/// auto generated
+Blockly.Msg.ADD_CHILD_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.ADD_CHILD_TOOLTIP = 'Add a child to a sprite. This will make them move together.';
+/// auto generated
+Blockly.Msg.ADD_CHILD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChild';
+/// auto generated
+Blockly.Msg.RESET_FRAME_FIELD_1 = 'reset the frame dimensions of';
+/// auto generated
+Blockly.Msg.RESET_FRAME_TOOLTIP = 'Resets the texture frame dimensions that the sprite uses for rendering.';
+/// auto generated
+Blockly.Msg.RESET_FRAME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#resetFrame';
+/// auto generated
+Blockly.Msg.RESIZE_FRAME_FIELD_1 = 'resize the frame of';
+/// auto generated
+Blockly.Msg.RESIZE_FRAME_FIELD_2 = 'to accomodate';
+/// auto generated
+Blockly.Msg.RESIZE_FRAME_FIELD_3 = 'Width';
+/// auto generated
+Blockly.Msg.RESIZE_FRAME_FIELD_4 = 'Height';
+/// auto generated
+Blockly.Msg.RESIZE_FRAME_TOOLTIP = 'Resizes the Frame dimensions that the Game Object uses for rendering. You shouldn\'t normally need to ever call this, but in the case of special texture types such as Video or BitmapData it can be useful to adjust the dimensions directly in this way.';
+/// auto generated
+Blockly.Msg.RESIZE_FRAME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#resizeFrame';
+/// auto generated
+Blockly.Msg.CREATE_IMAGE_FIELD_1 = 'create image';
+/// auto generated
+Blockly.Msg.CREATE_IMAGE_FIELD_2 = 'tag';
+/// auto generated
+Blockly.Msg.CREATE_IMAGE_FIELD_3 = 'source';
+/// auto generated
+Blockly.Msg.CREATE_IMAGE_TOOLTIP = 'Loads an image into the game so it can be used.';
+/// auto generated
+Blockly.Msg.CREATE_IMAGE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#image';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_1 = 'create sprite sheet';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_2 = 'tag';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_3 = 'source';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_4 = 'frame width';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_5 = 'pixels';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_6 = 'frame height';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_7 = 'pixels';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_TOOLTIP = 'Loads a sprite sheet, which is a collection of animation frames in a single image. See the help for more info.';
+/// auto generated
+Blockly.Msg.CREATE_SPRITE_SHEET_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#spritesheet';
+/// auto generated
+Blockly.Msg.ADD_IMAGE_FIELD_1 = 'add image to game at';
+/// auto generated
+Blockly.Msg.ADD_IMAGE_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.ADD_IMAGE_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.ADD_IMAGE_FIELD_4 = 'tagged';
+/// auto generated
+Blockly.Msg.ADD_IMAGE_TOOLTIP = 'Creates a sprite with the image specified in the tag. The tag needs to be set up with the \'create image\' or \'create sprite sheet\' blocks.';
+/// auto generated
+Blockly.Msg.ADD_IMAGE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#sprite';
+/// auto generated
+Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_1 = 'load atlas image';
+/// auto generated
+Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_2 = 'tag';
+/// auto generated
+Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_3 = 'spritesheet source';
+/// auto generated
+Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_4 = 'texture atlas xml';
+/// auto generated
+Blockly.Msg.ADDSPRITEWITHATLAS_TOOLTIP = 'Loads a texture atlas into the game. These take more effort to set up, but can contain every animation you want for a single character. See the help for more info.';
+/// auto generated
+Blockly.Msg.ADDSPRITEWITHATLAS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_1 = 'add sprite to game from atlas at';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_4 = 'tagged ';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_5 = 'subtexture id';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_TOOLTIP = 'Adds a sprite to the game using data from a texture atlas.';
+/// auto generated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML';
+/// auto generated
+Blockly.Msg.ADD_CHILD_VI_FIELD_1 = 'add child object';
+/// auto generated
+Blockly.Msg.ADD_CHILD_VI_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.ADD_CHILD_VI_TOOLTIP = 'Add a child to a sprite. This will make them move together.';
+/// auto generated
+Blockly.Msg.ADD_CHILD_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChild';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_FIELD_1 = 'add child';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_FIELD_3 = 'at index';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_TOOLTIP = 'Add a child to a sprite at a specific index so you can find it later. This will make them move together.';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChildAt';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_VI_FIELD_1 = 'add child';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_VI_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_VI_FIELD_3 = 'at index';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_VI_TOOLTIP = 'Add a child to a sprite at a specific index so you can find it later. This will make them move together.';
+/// auto generated
+Blockly.Msg.ADD_CHILD_AT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChildAt';
+/// auto generated
+Blockly.Msg.ALIGN_IN_FIELD_1 = 'align';
+/// auto generated
+Blockly.Msg.ALIGN_IN_FIELD_2 = 'inside';
+/// auto generated
+Blockly.Msg.ALIGN_IN_FIELD_3 = 'at the';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_1 = 'top left';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_2 = 'top center';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_3 = 'top right';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_4 = 'left center';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_5 = 'center';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_6 = 'right center';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_7 = 'bottom left';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_8 = 'bottom center';
+/// auto generated
+Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_9 = 'bottom right';
+/// auto generated
+Blockly.Msg.ALIGN_IN_FIELD_4 = 'offset x pixels';
+/// auto generated
+Blockly.Msg.ALIGN_IN_FIELD_5 = 'offset y pixels';
+/// auto generated
+Blockly.Msg.ALIGN_IN_TOOLTIP = 'Aligns this Game Object within another Game Object, or Rectangle, to one of 9 possible positions.';
+/// auto generated
+Blockly.Msg.ALIGN_IN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#alignIn';
+/// auto generated
+Blockly.Msg.ALIGN_TO_FIELD_1 = 'align';
+/// auto generated
+Blockly.Msg.ALIGN_TO_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.ALIGN_TO_FIELD_3 = 'at the';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_1 = 'top left';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_2 = 'top center';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_3 = 'top right';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_4 = 'left top';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_5 = 'left center';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_6 = 'left bottom';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_7 = 'right top';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_8 = 'right center';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_9 = 'right bottom';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_10 = 'bottom left';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_11 = 'bottom center';
+/// auto generated
+Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_12 = 'bottom right';
+/// auto generated
+Blockly.Msg.ALIGN_TO_FIELD_4 = 'offset x pixels';
+/// auto generated
+Blockly.Msg.ALIGN_TO_FIELD_5 = 'offset y pixels';
+/// auto generated
+Blockly.Msg.ALIGN_TO_TOOLTIP = 'Aligns this Game Object to the side of another Game Object, or Rectangle, in one of 12 possible positions.';
+/// auto generated
+Blockly.Msg.ALIGN_TO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#alignTo';
+/// auto generated
+Blockly.Msg.BRING_TO_TOP_FIELD_1 = 'bring';
+/// auto generated
+Blockly.Msg.BRING_TO_TOP_FIELD_2 = 'to the front';
+/// auto generated
+Blockly.Msg.BRING_TO_TOP_TOOLTIP = 'Brings this sprite/image to the front of the display order. In case of overlapping sprites, this one will draw on top of everything else.';
+/// auto generated
+Blockly.Msg.BRING_TO_TOP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#bringToTop';
+/// auto generated
+Blockly.Msg.CHECK_WORLD_BOUNDS_FIELD_1 = 'make';
+/// auto generated
+Blockly.Msg.CHECK_WORLD_BOUNDS_FIELD_2 = 'check to see if it\'s inside the world?';
+/// auto generated
+Blockly.Msg.CHECK_WORLD_BOUNDS_TOOLTIP = 'This object will start checking if it\'s inside the world every frame. This takes time, so it\'s disabled by default.';
+/// auto generated
+Blockly.Msg.CHECK_WORLD_BOUNDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#checkWorldBounds';
+/// auto generated
+Blockly.Msg.CONTAINS_FIELD_1 = 'is';
+/// auto generated
+Blockly.Msg.CONTAINS_FIELD_2 = 'a child of';
+/// auto generated
+Blockly.Msg.CONTAINS_FIELD_3 = '?';
+/// auto generated
+Blockly.Msg.CONTAINS_TOOLTIP = 'Checks to see if one sprite is the child of another.';
+/// auto generated
+Blockly.Msg.CONTAINS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#contains';
+/// auto generated
+Blockly.Msg.CONTAINS_VI_FIELD_1 = 'is';
+/// auto generated
+Blockly.Msg.CONTAINS_VI_FIELD_2 = 'a child of';
+/// auto generated
+Blockly.Msg.CONTAINS_VI_FIELD_3 = '?';
+/// auto generated
+Blockly.Msg.CONTAINS_VI_TOOLTIP = 'Checks to see if one sprite is the child of another.';
+/// auto generated
+Blockly.Msg.CONTAINS_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#contains';
+/// auto generated
+Blockly.Msg.CROP_FIELD_1 = 'crop';
+/// auto generated
+Blockly.Msg.CROP_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.CROP_TOOLTIP = 'crop a sprite to an area defined by a rectangle or other object';
+/// auto generated
+Blockly.Msg.CROP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#crop';
+/// auto generated
+Blockly.Msg.CLEAR_CROPPING_FIELD_1 = 'stop cropping';
+/// auto generated
+Blockly.Msg.CLEAR_CROPPING_TOOLTIP = 'Removes any cropping from a sprite.';
+/// auto generated
+Blockly.Msg.CLEAR_CROPPING_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#crop';
+/// auto generated
+Blockly.Msg.DESTROY_SPRITE_FIELD_1 = 'destroy';
+/// auto generated
+Blockly.Msg.DESTROY_SPRITE_FIELD_2 = 'children too?';
+/// auto generated
+Blockly.Msg.DESTROY_SPRITE_TOOLTIP = 'Deletes a sprite from the game, with an option to delete its children too.';
+/// auto generated
+Blockly.Msg.DESTROY_SPRITE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#destroy';
+/// auto generated
+Blockly.Msg.GET_CHILD_AT_VI_FIELD_1 = 'get child of';
+/// auto generated
+Blockly.Msg.GET_CHILD_AT_VI_FIELD_2 = 'at index';
+/// auto generated
+Blockly.Msg.GET_CHILD_AT_VI_TOOLTIP = 'Finds a specific child on this sprite/image by its index.';
+/// auto generated
+Blockly.Msg.GET_CHILD_AT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getChildAt';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_FIELD_1 = 'Get index of Child';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_FIELD_2 = 'on ';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_TOOLTIP = 'Finds an index that describes where on the parent this object is. ';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getChildIndex';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_VI_FIELD_1 = 'get index of child';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_VI_FIELD_2 = 'on ';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_VI_TOOLTIP = 'Finds an index that describes where on the parent this object is. ';
+/// auto generated
+Blockly.Msg.GET_CHILD_INDEX_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getChildIndex';
+/// auto generated
+Blockly.Msg.LOAD_TEXTURE_FIELD_1 = 'change texture of';
+/// auto generated
+Blockly.Msg.LOAD_TEXTURE_FIELD_2 = 'to tag';
+/// auto generated
+Blockly.Msg.LOAD_TEXTURE_TOOLTIP = 'This changes the texture of this sprite/image entirely. If it is part of a sprite sheet. Warning: slow.';
+/// auto generated
+Blockly.Msg.LOAD_TEXTURE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#loadTexture';
+/// auto generated
+Blockly.Msg.MOVE_DOWN_FIELD_1 = 'move';
+/// auto generated
+Blockly.Msg.MOVE_DOWN_FIELD_2 = 'down';
+/// auto generated
+Blockly.Msg.MOVE_DOWN_TOOLTIP = 'Moves this sprite/image down one place in the display order. If sprites overlap, it will be more likely to display underneath others.';
+/// auto generated
+Blockly.Msg.MOVE_DOWN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#moveDown';
+/// auto generated
+Blockly.Msg.MOVE_UP_FIELD_1 = 'move';
+/// auto generated
+Blockly.Msg.MOVE_UP_FIELD_2 = 'up';
+/// auto generated
+Blockly.Msg.MOVE_UP_TOOLTIP = 'Moves this sprite up one place in the display order. If sprites overlap, it will be more likely to display on top of others.';
+/// auto generated
+Blockly.Msg.MOVE_UP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#moveUp';
+/// auto generated
+Blockly.Msg.SPRITE_OVERLAP_FIELD_1 = 'does';
+/// auto generated
+Blockly.Msg.SPRITE_OVERLAP_FIELD_2 = 'overlap with';
+/// auto generated
+Blockly.Msg.SPRITE_OVERLAP_FIELD_3 = '?';
+/// auto generated
+Blockly.Msg.SPRITE_OVERLAP_TOOLTIP = 'Checks to see if the rectangular bounds of the two given sprites overlap. Not a good substitute for the physics engine, but fine for something like UI.';
+/// auto generated
+Blockly.Msg.SPRITE_OVERLAP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#overlap';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_KILL_FIELD_1 = 'make';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_KILL_FIELD_2 = 'get deleted if it leaves the world?';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_KILL_TOOLTIP = 'Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_KILL_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#outOfBoundsKill';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_FAINT_FIELD_1 = 'make';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_FAINT_FIELD_2 = 'get deleted if it leaves the world?';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_FAINT_TOOLTIP = 'Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.';
+/// auto generated
+Blockly.Msg.OUT_OF_BOUNDS_FAINT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#outOfBoundsKill';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_FIELD_1 = 'remove child';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_FIELD_2 = 'from';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_TOOLTIP = 'Makes this sprite/image stop being a child and moving with its parent.';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChild';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_VI_FIELD_1 = 'remove child';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_VI_FIELD_2 = 'from';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_VI_TOOLTIP = 'Makes this sprite/image stop being a child and moving with its parent.';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChild';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_VI_FIELD_1 = 'remove the child at index';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_VI_FIELD_2 = 'from';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_VI_TOOLTIP = 'Finds the child at the given index and removes it from its parent. It will no longer move with the parent.';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildAt';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_FIELD_1 = 'remove the child at index';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_FIELD_2 = 'from';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_TOOLTIP = 'Finds the child at the given index and removes it from its parent. It will no longer move with the parent.';
+/// auto generated
+Blockly.Msg.REMOVE_CHILD_AT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildAt';
+/// auto generated
+Blockly.Msg.REMOVE_CHILDREN_FIELD_1 = 'remove all children from';
+/// auto generated
+Blockly.Msg.REMOVE_CHILDREN_TOOLTIP = 'Removes all children from the parent. They will all stop moving together.';
+/// auto generated
+Blockly.Msg.REMOVE_CHILDREN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildren';
+/// auto generated
+Blockly.Msg.REMOVE_CHILDREN_VI_FIELD_1 = 'remove all children from';
+/// auto generated
+Blockly.Msg.REMOVE_CHILDREN_VI_TOOLTIP = 'Removes all children from the parent. They will all stop moving together.';
+/// auto generated
+Blockly.Msg.REMOVE_CHILDREN_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#removeChildren';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_FIELD_1 = 'add animation to';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_FIELD_2 = 'tagged';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_NAME_TEXT_DEFAULT = 'name';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_FIELD_3 = 'with frames';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_FIELD_4 = 'displayed at';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_FIELD_5 = 'FPS';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_FIELD_6 = 'loop';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_TOOLTIP = 'Add an animation to an object based on a list of frames';
+/// auto generated
+Blockly.Msg.ADD_ANIMATION_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#add';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_VI_FIELD_1 = 'play animation';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_VI_FIELD_2 = 'on';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_VI_TOOLTIP = 'Plays an animation on the given sprite.';
+/// auto generated
+Blockly.Msg.PLAY_ANIMATION_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_FIELD_1 = 'increment current animation by';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_FIELD_2 = 'on ';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_TOOLTIP = 'Increment the current animation by a given amount of frames.';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#next';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_FIELD_1 = 'decrement current animation by';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_FIELD_2 = 'on ';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_TOOLTIP = 'Decrement the current animation by a given amount of frames.';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#previous';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_VI_FIELD_1 = 'increment current animation by';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_VI_FIELD_2 = 'frames';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_VI_FIELD_3 = 'for';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_VI_TOOLTIP = 'Increment the current animation by a given amount of frames.';
+/// auto generated
+Blockly.Msg.ANIMATION_NEXT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#next';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_1 = 'decrement current animation by';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_2 = 'frames';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_3 = 'for';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_VI_TOOLTIP = 'Decrement the current animation by a given amount of frames.';
+/// auto generated
+Blockly.Msg.ANIMATION_PREVIOUS_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#previous';
+/// auto generated
+Blockly.Msg.REFRESH_FRAME_FIELD_1 = 'refresh frame of ';
+/// auto generated
+Blockly.Msg.REFRESH_FRAME_TOOLTIP = 'Refreshes the current frame data back to the parent Sprite and also resets the texture data.';
+/// auto generated
+Blockly.Msg.REFRESH_FRAME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#refreshFrame';
+/// auto generated
+Blockly.Msg.ANIMATION_UPDATE_FIELD_1 = 'frame update of ';
+/// auto generated
+Blockly.Msg.ANIMATION_UPDATE_TOOLTIP = 'Internal method do not call';
+/// auto generated
+Blockly.Msg.ANIMATION_UPDATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#update';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_FIELD_1 = 'validate animation frames of ';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_FIELD_2 = 'array of frames';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_TOOLTIP = 'Validates the frames on the given Sprite.';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_VI_FIELD_1 = 'validate animation frames of ';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_VI_FIELD_2 = 'array of frames';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_VI_TOOLTIP = 'Validates the frames on the given Sprite.';
+/// auto generated
+Blockly.Msg.VALIDATE_FRAMES_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames';
+/// auto generated
+Blockly.Msg.ANIMATION_DESTROY_FIELD_1 = 'destroy all animations in animation manager of ';
+/// auto generated
+Blockly.Msg.ANIMATION_DESTROY_TOOLTIP = 'Destroy all animations on the object.';
+/// auto generated
+Blockly.Msg.ANIMATION_DESTROY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames';
+/// auto generated
+Blockly.Msg.ANIMATION_DESTROY_VI_FIELD_1 = 'destroy all animations in animation manager of ';
+/// auto generated
+Blockly.Msg.ANIMATION_DESTROY_VI_TOOLTIP = 'Destroy all animations on the object.';
+/// auto generated
+Blockly.Msg.ANIMATION_DESTROY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// auto generated
+Blockly.Msg.STOP_ANIMATION_VI_FIELD_1 = 'stop animation on';
+/// auto generated
+Blockly.Msg.STOP_ANIMATION_VI_TOOLTIP = 'Stops the current animation on the specified Sprite';
+/// auto generated
+Blockly.Msg.STOP_ANIMATION_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html#stop';
+/// auto generated
+Blockly.Msg.SET_FRAME_VI_FIELD_1 = 'set current frame # to';
+/// auto generated
+Blockly.Msg.SET_FRAME_VI_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_FRAME_VI_TOOLTIP = 'Sets the current frame number on the specified object';
+/// auto generated
+Blockly.Msg.SET_FRAME_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html#frame';
+/// auto generated
+Blockly.Msg.SEND_TO_BACK_FIELD_1 = 'send';
+/// auto generated
+Blockly.Msg.SEND_TO_BACK_FIELD_2 = 'to the back';
+/// auto generated
+Blockly.Msg.SEND_TO_BACK_TOOLTIP = 'Sends this sprite/image to the back of the display order. In case of overlapping sprites, it will draw behind everything else.';
+/// auto generated
+Blockly.Msg.SEND_TO_BACK_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#sendToBack';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_FIELD_1 = 'move the child';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_FIELD_3 = 'to index';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_TOOLTIP = 'Moves the child to a specific index on its parent. This will affect how you find it in the future.';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setChildIndex';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_1 = 'move the child';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_3 = 'to index';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_VI_TOOLTIP = 'Moves the child to a specific index on its parent. This will affect how you find it in the future.';
+/// auto generated
+Blockly.Msg.SET_CHILD_INDEX_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setChildIndex';
+/// auto generated
+Blockly.Msg.SET_SPRITE_FRAME_FIELD_1 = 'Set texture frame of';
+/// auto generated
+Blockly.Msg.SET_SPRITE_FRAME_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_SPRITE_FRAME_TOOLTIP = 'Sets the Texture frame the Sprite uses for rendering. This is primarily an internal method used by Sprite.loadTexture, although you may call it directly.';
+/// auto generated
+Blockly.Msg.SET_SPRITE_FRAME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setFrame';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_1 = 'set scale constraints on';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_2 = 'min X';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_3 = 'min Y';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_4 = 'max X';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_5 = 'max Y';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_TOOLTIP = 'Limits how far this sprite will scale based on its parent.';
+/// auto generated
+Blockly.Msg.SET_SCALE_MIN_MAX_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setScaleMinMax';
+/// auto generated
+Blockly.Msg.CLEAR_SCALE_MIN_MAX_FIELD_1 = 'clear scale constraints on';
+/// auto generated
+Blockly.Msg.CLEAR_SCALE_MIN_MAX_TOOLTIP = 'If scaling constraints were set on a sprite, this removes them.';
+/// auto generated
+Blockly.Msg.CLEAR_SCALE_MIN_MAX_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setScaleMinMax';
+/// auto generated
+Blockly.Msg.SET_TEXTURE_FIELD_1 = 'Set texture of';
+/// auto generated
+Blockly.Msg.SET_TEXTURE_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_TEXTURE_TOOLTIP = 'Sets the texture of the sprite. Be warned that this doesn\'t remove or destroy the previous texture this Sprite was using. Note that this takes a specific texture, not a tag.';
+/// auto generated
+Blockly.Msg.SET_TEXTURE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#setTexture';
+/// auto generated
+Blockly.Msg.SWAP_CHILDREN_FIELD_1 = 'swap children of';
+/// auto generated
+Blockly.Msg.SWAP_CHILDREN_FIELD_2 = 'child 1';
+/// auto generated
+Blockly.Msg.SWAP_CHILDREN_FIELD_3 = 'child 2';
+/// auto generated
+Blockly.Msg.SWAP_CHILDREN_TOOLTIP = 'Swaps the indices of the given children. They must both be on the same parent.';
+/// auto generated
+Blockly.Msg.SWAP_CHILDREN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#swapChildren';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_1 = 'on gameobject';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_2 = 'get animation.';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_1 = 'currentAnim';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_2 = 'currentFrame';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_3 = 'frame';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_4 = 'frameData';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_5 = 'frameName';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_6 = 'frameTotal';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_7 = 'game';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_8 = 'isLoaded';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_9 = 'name';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_10 = 'paused';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_11 = 'sprite';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_12 = 'updateIfVisible';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP = 'Get a property on from the animaton manager on the object';
+/// auto generated
+Blockly.Msg.GET_ANIMATION_PROPERTY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_1 = 'set animation.';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_1 = 'frame';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_2 = 'frameName';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_3 = 'paused';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_4 = 'updateIfVisible';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_2 = 'on ';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_TOOLTIP = 'Set a property from the animation manager on the object';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_1 = 'set animation.';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_1 = 'paused';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_2 = 'updateIfVisible';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_2 = 'on ';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animation manager on the object';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// auto generated
+Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_1 = 'on gameobject';
+/// auto generated
+Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_2 = 'get animation by name';
+/// auto generated
+Blockly.Msg.ANIMATION_GET_ANIMATION_NAME_TEXT_DEFAULT = 'default';
+/// auto generated
+Blockly.Msg.ANIMATION_GET_ANIMATION_TOOLTIP = 'Returns an animation that was previously added by name.';
+/// auto generated
+Blockly.Msg.ANIMATION_GET_ANIMATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#getAnimation';
+/// auto generated
+Blockly.Msg.CREATE_GROUP_FIELD_1 = 'create group';
+/// auto generated
+Blockly.Msg.CREATE_GROUP_TOOLTIP = 'Create a new group of display objects';
+/// auto generated
+Blockly.Msg.CREATE_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_1 = 'create object at';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_4 = 'from tag';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_TAG_TEXT_DEFAULT = 'default';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_5 = 'in the';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_6 = 'group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_TOOLTIP = 'Create a new sprite in the group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_1 = 'create object at';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_4 = 'from tag';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_TAG_TEXT_DEFAULT = 'default';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_5 = 'in the';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_6 = 'group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_7 = 'displaying frame #';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_TOOLTIP = 'Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_1 = 'create object at';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_4 = 'from tag';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_5 = 'in group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_TOOLTIP = 'Create a new sprite in the group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_1 = 'create object at';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_4 = 'from tag';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_5 = 'in group';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_6 = 'displaying frame';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_TOOLTIP = 'Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas';
+/// auto generated
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#create';
+/// auto generated
+Blockly.Msg.ADD_TO_GROUP_FIELD_1 = 'add';
+/// auto generated
+Blockly.Msg.ADD_TO_GROUP_FIELD_2 = 'to group';
+/// auto generated
+Blockly.Msg.ADD_TO_GROUP_TOOLTIP = 'Adds an existing object to a group.';
+/// auto generated
+Blockly.Msg.ADD_TO_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#add';
+/// auto generated
+Blockly.Msg.REMOVE_FROM_GROUP_FIELD_1 = 'remove';
+/// auto generated
+Blockly.Msg.REMOVE_FROM_GROUP_FIELD_2 = 'from group';
+/// auto generated
+Blockly.Msg.REMOVE_FROM_GROUP_FIELD_3 = 'destroy it too';
+/// auto generated
+Blockly.Msg.REMOVE_FROM_GROUP_TOOLTIP = 'Removes an object from a group. Optionally, destroy it as well.';
+/// auto generated
+Blockly.Msg.REMOVE_FROM_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#remove';
+/// auto generated
+Blockly.Msg.GROUP_CONTAINS_FIELD_1 = 'group';
+/// auto generated
+Blockly.Msg.GROUP_CONTAINS_FIELD_2 = 'contains';
+/// auto generated
+Blockly.Msg.GROUP_CONTAINS_FIELD_3 = '?';
+/// auto generated
+Blockly.Msg.GROUP_CONTAINS_TOOLTIP = 'Returns true if a group contains a specified sprite.';
+/// auto generated
+Blockly.Msg.GROUP_CONTAINS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#contains';
+/// auto generated
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_FIELD_1 = 'number of';
+/// auto generated
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_STATE_DROPDOWN_1 = 'alive';
+/// auto generated
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_STATE_DROPDOWN_2 = 'fainted';
+/// auto generated
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_FIELD_2 = 'objects in group';
+/// auto generated
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_TOOLTIP = 'Returns the number of alive/dead objects in a group.';
+/// auto generated
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#countLiving';
+/// auto generated
+Blockly.Msg.DESTROY_GROUP_FIELD_1 = 'destroy group';
+/// auto generated
+Blockly.Msg.DESTROY_GROUP_FIELD_2 = 'destroy members too';
+/// auto generated
+Blockly.Msg.DESTROY_GROUP_TOOLTIP = 'Destroys a group. Can either leave the members where they are, or destroy them too.';
+/// auto generated
+Blockly.Msg.DESTROY_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#destroy';
+/// auto generated
+Blockly.Msg.GROUP_GET_ALL_FIELD_1 = 'get all members of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_ALL_TOOLTIP = 'Returns a list of all members in the specified group.';
+/// auto generated
+Blockly.Msg.GROUP_GET_ALL_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getAll';
+/// auto generated
+Blockly.Msg.GROUP_GET_AT_FIELD_1 = 'get member of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_AT_FIELD_2 = 'at index';
+/// auto generated
+Blockly.Msg.GROUP_GET_AT_TOOLTIP = 'Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.';
+/// auto generated
+Blockly.Msg.GROUP_GET_AT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getAt';
+/// auto generated
+Blockly.Msg.GROUP_GET_CLOSEST_TO_FIELD_1 = 'get member of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_CLOSEST_TO_FIELD_2 = 'closest to';
+/// auto generated
+Blockly.Msg.GROUP_GET_CLOSEST_TO_TOOLTIP = 'Returns the object in the group whose position is closest to the specified object.';
+/// auto generated
+Blockly.Msg.GROUP_GET_CLOSEST_TO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getClosestTo';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_FIELD_1 = 'get first';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_MODE_DROPDOWN_1 = 'alive';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_MODE_DROPDOWN_2 = 'dead';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_FIELD_2 = 'member of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_TOOLTIP = 'Gets the first group member that has the given value of its \'alive\' field. Returns null if no matching member is found.';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getFirstAlive';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_FIELD_1 = 'get first';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_MODE_DROPDOWN_1 = 'alive';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_MODE_DROPDOWN_2 = 'fainted';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_FIELD_2 = 'member of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_TOOLTIP = 'Gets the first group member that has the given value of its \'alive\' field. Returns null if no matching member is found.';
+/// auto generated
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getFirstAlive';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_FIELD_1 = 'get random member of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_TOOLTIP = 'Returns a member of the group at random with no bias.';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getRandom';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_EXISTS_FIELD_1 = 'get a random member of group';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_EXISTS_FIELD_2 = 'that exists';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_EXISTS_TOOLTIP = 'Returns a random member of the given group, picking from those whose \'exists\' field is set to true.';
+/// auto generated
+Blockly.Msg.GROUP_GET_RANDOM_EXISTS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#getRandomExists';
+/// auto generated
+Blockly.Msg.GROUP_REMOVE_ALL_FIELD_1 = 'remove all members of group';
+/// auto generated
+Blockly.Msg.GROUP_REMOVE_ALL_FIELD_2 = 'destroy them too';
+/// auto generated
+Blockly.Msg.GROUP_REMOVE_ALL_TOOLTIP = 'Empties the specified group. Can either do this by releasing its members or deleting them.';
+/// auto generated
+Blockly.Msg.GROUP_REMOVE_ALL_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#removeAll';
+/// auto generated
+Blockly.Msg.ADD_TO_WORLD_FIELD_1 = 'add';
+/// auto generated
+Blockly.Msg.ADD_TO_WORLD_FIELD_2 = 'to the world';
+/// auto generated
+Blockly.Msg.ADD_TO_WORLD_TOOLTIP = 'Adds an existing object to the world group. Necessary for making an object that has been previously removed from a  group visible again.';
+/// auto generated
+Blockly.Msg.ADD_TO_WORLD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.World.html#add';
+/// auto generated
+Blockly.Msg.START_PHYSICS_FIELD_1 = 'start';
+/// auto generated
+Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_1 = 'Arcade';
+/// auto generated
+Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_2 = 'P2JS';
+/// auto generated
+Blockly.Msg.START_PHYSICS_FIELD_2 = 'physics system';
+/// auto generated
+Blockly.Msg.START_PHYSICS_TOOLTIP = 'Start physics with the specified system';
+/// auto generated
+Blockly.Msg.START_PHYSICS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.html#startSystem';
+/// auto generated
+Blockly.Msg.START_ARCADE_PHYSICS_FIELD_1 = 'start arcade physics system';
+/// auto generated
+Blockly.Msg.START_ARCADE_PHYSICS_TOOLTIP = 'Start the specified arcade physics system';
+/// auto generated
+Blockly.Msg.START_ARCADE_PHYSICS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.html#startSystem';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_FIELD_1 = 'Enable Body for';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_FIELD_2 = 'Group';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_TOOLTIP = 'Enable physics body on all sprites in or added to this group.';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#enableBody';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_VI_FIELD_1 = 'enable body for group';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_VI_TOOLTIP = 'Enable physics body on all sprites in or added to this group.';
+/// auto generated
+Blockly.Msg.ENABLE_BODY_GROUP_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#enableBody';
+/// auto generated
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_FIELD_1 = 'enable arcade physics for';
+/// auto generated
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_TOOLTIP = 'Enable physics for this object';
+/// auto generated
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#enable';
+/// auto generated
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_FIELD_1 = 'enable arcade physics for sprite';
+/// auto generated
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_TOOLTIP = 'Enable physics for this sprite';
+/// auto generated
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#enable';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_1 = 'collide';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_2 = 'with';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_3 = 'if collided do';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_TOOLTIP = 'Collide two objects, if they are collide do the statements in the block';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_1 = 'Set';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_1 = 'bounce';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_2 = 'gravity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_3 = 'velocity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_4 = 'acceleration';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_5 = 'drag';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_6 = 'friction';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_7 = 'maxVelocity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_8 = 'worldBounce';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_ELEMENT_DROPDOWN_1 = 'x';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_ELEMENT_DROPDOWN_2 = 'y';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_TOOLTIP = 'Set the x or y value of the specified field';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1 = 'set';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_1 = 'bounce';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_2 = 'gravity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_3 = 'velocity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_4 = 'acceleration';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_5 = 'drag';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_6 = 'friction';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_8 = 'worldBounce';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_1 = 'x';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_2 = 'y';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_TOOLTIP = 'Set the x or y value of the specified field';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_1 = 'set';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_1 = 'bounce';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_2 = 'gravity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_3 = 'velocity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_4 = 'acceleration';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_5 = 'drag';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_6 = 'friction';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_8 = 'worldBounce';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_TOOLTIP = 'Set the value of the body point field';
+/// auto generated
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.DEBUG_BODY_FIELD_1 = 'debug body';
+/// auto generated
+Blockly.Msg.DEBUG_BODY_TOOLTIP = 'Set the value of the body point field';
+/// auto generated
+Blockly.Msg.DEBUG_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_1 = 'bounce';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_2 = 'gravity';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_3 = 'velocity';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_4 = 'acceleration';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_5 = 'drag';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_6 = 'friction';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_7 = 'maxVelocity';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_8 = 'worldBounce';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_TOOLTIP = 'Gets the value of the specified point as a point object';
+/// auto generated
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1 = 'set';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1 = 'allowRotation';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2 = 'allowGravity';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3 = 'immovable';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_TOOLTIP = 'Set the value of the specified boolean field';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1 = 'allowRotation';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2 = 'allowGravity';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3 = 'immovable';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_4 = 'isMoving';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_TOOLTIP = 'Set the value of the specified boolean field';
+/// auto generated
+Blockly.Msg.GET_BODY_BOOLEAN_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_1 = 'set';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_1 = 'mass';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_2 = 'rotation (degrees)';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_3 = 'angularAcceleration';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_4 = 'angularVelocity';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_5 = 'maxAngularVelocity';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_6 = 'angularDrag';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_TOOLTIP = 'Set the value of the specified numeric field';
+/// auto generated
+Blockly.Msg.SET_BODY_NUMERIC_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_1 = 'speed';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_2 = 'mass';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_3 = 'rotation (degrees)';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_4 = 'maxVelocity';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_5 = 'angularAcceleration';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_6 = 'angularVelocity';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_7 = 'maxAngularVelocity';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_8 = 'angularDrag';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_TOOLTIP = 'Get the value of the specified numeric field';
+/// auto generated
+Blockly.Msg.GET_BODY_NUMERIC_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+/// auto generated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_1 = 'Call function';
+/// auto generated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_FUNCTION_TEXT_DEFAULT = 'functionName';
+/// auto generated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_2 = 'on all children in group';
+/// auto generated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_TOOLTIP = 'Calls the specified function once for each group member, giving that child as the input.';
+/// auto generated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Group.html#forEachAlive';
+/// auto generated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_1 = 'get forward acceleration from rotation';
+/// auto generated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_2 = 'at';
+/// auto generated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_3 = 'pixels/second^2';
+/// auto generated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP = 'Creates an (x, y) acceleration that goes forward from the given rotation. Returns it as a point.';
+/// auto generated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#accelerationFromRotation';
+/// auto generated
+Blockly.Msg.SET_IMMOVABLE_FIELD_1 = 'Set Immovable for Object';
+/// auto generated
+Blockly.Msg.SET_IMMOVABLE_TOOLTIP = 'Immovable bodies don\'t recoil from impacts at all. If two immovable bodies overlap or collide, it is ignored. Yes, we\'re sidestepping the question of unstoppable force versus immovable object.';
+/// auto generated
+Blockly.Msg.SET_IMMOVABLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#immovable';
+/// auto generated
+Blockly.Msg.COLLIDE_FIELD_1 = 'Collide';
+/// auto generated
+Blockly.Msg.COLLIDE_FIELD_2 = 'with';
+/// auto generated
+Blockly.Msg.COLLIDE_TOOLTIP = 'Collide the first group/object with the second group/object';
+/// auto generated
+Blockly.Msg.COLLIDE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide';
+/// auto generated
+Blockly.Msg.COLLIDE_VI_FIELD_1 = 'collide';
+/// auto generated
+Blockly.Msg.COLLIDE_VI_FIELD_2 = 'with';
+/// auto generated
+Blockly.Msg.COLLIDE_VI_TOOLTIP = 'Collide the first group/object with the second group/object';
+/// auto generated
+Blockly.Msg.COLLIDE_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_FIELD_1 = 'touching';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_FIELD_2 = '?';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_TOOLTIP = 'Check to see if the object is being touched in the given direction.';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#touching';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_FIELD_1 = 'is touching';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_1 = 'Up';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_2 = 'Down';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_3 = 'Left';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_4 = 'Right';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_5 = 'None';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_FIELD_2 = '?';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_TOOLTIP = 'Check to see if the object is being touched in the given direction.';
+/// auto generated
+Blockly.Msg.IS_BODY_TOUCHING_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#touching';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_FIELD_1 = 'Collide';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_FIELD_2 = 'with world bounds';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_TOOLTIP = 'Make this object collide with the world bounds.';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Ninja.Body.html#collideWorldBounds';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_FIELD_1 = 'make';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_FIELD_2 = 'collide with world bounds';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_TOOLTIP = 'Make this object collide with the world bounds.';
+/// auto generated
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Ninja.Body.html#collideWorldBounds';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_FIELD_1 = 'check overlap between';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_FIELD_3 = 'calling';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_NAME_TEXT_DEFAULT = 'functionName';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_FIELD_4 = 'if overlapping';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_TOOLTIP = 'Checks for an overlap between objectA and objectB.';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_FIELD_1 = 'Check Overlap Between';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_FIELD_3 = 'calling';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_NAME_TEXT_DEFAULT = 'functionName';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_FIELD_4 = 'if overlapping';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_TOOLTIP = 'Checks for an overlap between objectA and objectB.';
+/// auto generated
+Blockly.Msg.CHECK_OVERLAP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_FIELD_1 = 'move game object';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_FIELD_2 = 'to mouse pointer at';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_FIELD_3 = 'pixels per second';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_TOOLTIP = 'Move the object to the pointer at the given speed';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#moveToPointer';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_1 = 'move game object';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_2 = 'to mouse pointer at';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_3 = 'pixels per second';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_4 = 'max time (ms)';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_TOOLTIP = 'Move the object to the pointer at the given speed';
+/// auto generated
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#moveToPointer';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_FIELD_1 = 'move game object';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_FIELD_2 = 'to object';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_FIELD_3 = 'at';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_FIELD_4 = 'pixels per second';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_FIELD_5 = 'max time (ms)';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_TOOLTIP = 'Move the object to the given object at the given speed';
+/// auto generated
+Blockly.Msg.MOVE_TO_OBJECT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#moveToObject';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_FIELD_1 = 'get mouse position';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_1 = 'x';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_2 = 'y';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_3 = 'worldX';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_4 = 'worldY';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_TOOLTIP = 'Get the position of the mouse, or last active pointer for touch screen interfaces';
+/// auto generated
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#x';
+/// auto generated
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_1 = 'left';
+/// auto generated
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_2 = 'right';
+/// auto generated
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_3 = 'middle';
+/// auto generated
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_FIELD_1 = 'mouse button is clicked?';
+/// auto generated
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#isDown';
+/// auto generated
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP = 'Is the specified button clicked';
+/// auto generated
+Blockly.Msg.CREATE_CURSOR_KEYS_FIELD_1 = 'Create Cursor Keys';
+/// auto generated
+Blockly.Msg.CREATE_CURSOR_KEYS_TOOLTIP = 'Create a cursor allowing access to the UP/DOWN/LEFT/RIGHT keys';
+/// auto generated
+Blockly.Msg.CREATE_CURSOR_KEYS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Keyboard.html#createCursorKeys';
+/// auto generated
+Blockly.Msg.IS_KEY_DOWN_FIELD_1 = 'key';
+/// auto generated
+Blockly.Msg.IS_KEY_DOWN_FIELD_2 = 'is down?';
+/// auto generated
+Blockly.Msg.IS_KEY_DOWN_TOOLTIP = 'Checks if the given key is down';
+/// auto generated
+Blockly.Msg.IS_KEY_DOWN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Keyboard.html#isDown';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_1 = 'height';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_2 = 'width';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_3 = 'center x';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_4 = 'center y';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_5 = 'random x';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_6 = 'random y';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_FIELD_2 = 'of the world';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_TOOLTIP = 'Get a property of the world';
+/// auto generated
+Blockly.Msg.GET_WORLD_PROPERTY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.World.html';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_FIELD_1 = 'set world bounds';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_FIELD_2 = 'x:';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_FIELD_3 = 'y:';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_FIELD_4 = 'width:';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_FIELD_5 = 'height:';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_TOOLTIP = 'Updates the size of the world and sets the leftmost corner';
+/// auto generated
+Blockly.Msg.SET_WORLD_BOUNDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.World.html#setBounds';
+/// auto generated
+Blockly.Msg.CREATE_POINT_FIELD_1 = 'Create Point';
+/// auto generated
+Blockly.Msg.CREATE_POINT_FIELD_2 = 'X';
+/// auto generated
+Blockly.Msg.CREATE_POINT_FIELD_3 = 'Y';
+/// auto generated
+Blockly.Msg.CREATE_POINT_TOOLTIP = 'Makes a point type. This is a combination of an x and y value which is used to represent either a position, or a combination of width and height.';
+/// auto generated
+Blockly.Msg.CREATE_POINT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html';
+/// auto generated
+Blockly.Msg.GET_WORLD_REFERENCE_FIELD_1 = 'world';
+/// auto generated
+Blockly.Msg.GET_WORLD_REFERENCE_TOOLTIP = 'Returns a reference to the game world. It functions as a group.';
+/// auto generated
+Blockly.Msg.GET_WORLD_REFERENCE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.World.html';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_1 = 'set point field';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_TOOLTIP = 'Set a point property on the object';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_FIELD_1 = 'get point field';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_TOOLTIP = 'Get a point property on the object';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_1 = 'set numeric field';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_TOOLTIP = 'Set a numeric property on the object';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_FIELD_1 = 'get numeric field';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_TOOLTIP = 'Get a numeric property on the object';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1 = 'set boolean field';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_TOOLTIP = 'Set a boolean property on the object';
+/// auto generated
+Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1 = 'get boolean field';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_TOOLTIP = 'Get a boolean property on the object';
+/// auto generated
+Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html';
+/// auto generated
+Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_1 = 'set anchor for';
+/// auto generated
+Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_3 = 'x';
+/// auto generated
+Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_4 = 'y';
+/// auto generated
+Blockly.Msg.SET_OBJECT_ANCHOR_TOOLTIP = 'Sets an object\'s anchor.';
+/// auto generated
+Blockly.Msg.SET_OBJECT_ANCHOR_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#anchor';
+/// auto generated
+Blockly.Msg.KILL_OBJECT_FIELD_1 = 'kill';
+/// auto generated
+Blockly.Msg.KILL_OBJECT_TOOLTIP = 'Will kill the object setting making it non-existent. Reverse with revive.';
+/// auto generated
+Blockly.Msg.KILL_OBJECT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#kill';
+/// auto generated
+Blockly.Msg.FAINT_OBJECT_FIELD_1 = 'faint';
+/// auto generated
+Blockly.Msg.FAINT_OBJECT_TOOLTIP = 'Will faint the object setting making it non-existent. Reverse with revive.';
+/// auto generated
+Blockly.Msg.FAINT_OBJECT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#kill';
+/// auto generated
+Blockly.Msg.DESTROY_OBJECT_FIELD_1 = 'destroy';
+/// auto generated
+Blockly.Msg.DESTROY_OBJECT_TOOLTIP = 'Will remove the object from the game and memory, after which it can no longer be accessed.';
+/// auto generated
+Blockly.Msg.DESTROY_OBJECT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Component.Destroy.html';
+/// auto generated
+Blockly.Msg.SET_SCALE_FIELD_1 = 'Scale';
+/// auto generated
+Blockly.Msg.SET_SCALE_FIELD_2 = 'by';
+/// auto generated
+Blockly.Msg.SET_SCALE_FIELD_3 = 'X';
+/// auto generated
+Blockly.Msg.SET_SCALE_FIELD_4 = 'Y';
+/// auto generated
+Blockly.Msg.SET_SCALE_TOOLTIP = 'Sets the given object\'s width and height.';
+/// auto generated
+Blockly.Msg.SET_SCALE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#scale';
+/// auto generated
+Blockly.Msg.SET_SCALE_VI_FIELD_1 = 'scale';
+/// auto generated
+Blockly.Msg.SET_SCALE_VI_FIELD_2 = 'by';
+/// auto generated
+Blockly.Msg.SET_SCALE_VI_FIELD_3 = 'x';
+/// auto generated
+Blockly.Msg.SET_SCALE_VI_FIELD_4 = 'y';
+/// auto generated
+Blockly.Msg.SET_SCALE_VI_TOOLTIP = 'Sets the given object\'s width and height.';
+/// auto generated
+Blockly.Msg.SET_SCALE_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#scale';
+/// auto generated
+Blockly.Msg.SET_POS_FIELD_1 = 'Set';
+/// auto generated
+Blockly.Msg.SET_POS_PARAM_DROPDOWN_1 = 'x';
+/// auto generated
+Blockly.Msg.SET_POS_PARAM_DROPDOWN_2 = 'y';
+/// auto generated
+Blockly.Msg.SET_POS_FIELD_2 = 'on';
+/// auto generated
+Blockly.Msg.SET_POS_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_POS_TOOLTIP = 'Sets the individual x or y coordinate of an object.';
+/// auto generated
+Blockly.Msg.SET_POS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#position';
+/// auto generated
+Blockly.Msg.OBJECT_SET_TO_FIELD_1 = 'for';
+/// auto generated
+Blockly.Msg.OBJECT_SET_TO_FIELD_2 = 'set x to';
+/// auto generated
+Blockly.Msg.OBJECT_SET_TO_FIELD_3 = 'set y to';
+/// auto generated
+Blockly.Msg.OBJECT_SET_TO_TOOLTIP = 'Sets the x and y fields of an object.';
+/// auto generated
+Blockly.Msg.OBJECT_SET_TO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#setTo';
+/// auto generated
+Blockly.Msg.SET_VELOCITY_FIELD_1 = 'Set Velocity';
+/// auto generated
+Blockly.Msg.SET_VELOCITY_FIELD_2 = 'on';
+/// auto generated
+Blockly.Msg.SET_VELOCITY_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_VELOCITY_TOOLTIP = 'Sets an objects velocity. This is a combination of speed and direction.';
+/// auto generated
+Blockly.Msg.SET_VELOCITY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#velocity';
+/// auto generated
+Blockly.Msg.GET_PARAM_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_PARAM_FIELD_2 = 'from object';
+/// auto generated
+Blockly.Msg.GET_PARAM_TOOLTIP = 'Gets a given numeric field from an object.';
+/// auto generated
+Blockly.Msg.GET_PARAM_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#toc-4';
+/// auto generated
+Blockly.Msg.OBJECT_INCAMERA_FIELD_1 = 'is';
+/// auto generated
+Blockly.Msg.OBJECT_INCAMERA_FIELD_2 = 'in camera?';
+/// auto generated
+Blockly.Msg.OBJECT_INCAMERA_TOOLTIP = 'Checks if an object is inside the boundaries of the camera.';
+/// auto generated
+Blockly.Msg.OBJECT_INCAMERA_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Component.InCamera.html';
+/// auto generated
+Blockly.Msg.GET_CAMERA_FIELD_1 = 'get camera';
+/// auto generated
+Blockly.Msg.GET_CAMERA_TOOLTIP = 'Returns a reference to the camera.';
+/// auto generated
+Blockly.Msg.GET_CAMERA_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_FIELD_1 = 'make camera follow';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_TOOLTIP = 'Make the camera follow the specified game object';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#follow';
+/// auto generated
+Blockly.Msg.GET_BOUNDS_FIELD_1 = 'Get bounds of';
+/// auto generated
+Blockly.Msg.GET_BOUNDS_TOOLTIP = 'Gets the rectangular bounds of most objects in the game.';
+/// auto generated
+Blockly.Msg.GET_BOUNDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getBounds';
+/// auto generated
+Blockly.Msg.GET_ROTATION_FIELD_1 = 'get rotation';
+/// auto generated
+Blockly.Msg.GET_ROTATION_TOOLTIP = 'Finds the rotation (in degrees) of a Game Object.';
+/// auto generated
+Blockly.Msg.GET_ROTATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle';
+/// auto generated
+Blockly.Msg.ROTATE_FIELD_1 = 'rotate';
+/// auto generated
+Blockly.Msg.ROTATE_FIELD_2 = 'by';
+/// auto generated
+Blockly.Msg.ROTATE_FIELD_3 = 'degrees';
+/// auto generated
+Blockly.Msg.ROTATE_TOOLTIP = 'Rotates a game object by the given angle in degrees. Negative numbers will rotate it the opposite direction.';
+/// auto generated
+Blockly.Msg.ROTATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle';
+/// auto generated
+Blockly.Msg.SET_ROTATION_FIELD_1 = 'set the rotation of';
+/// auto generated
+Blockly.Msg.SET_ROTATION_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_ROTATION_FIELD_3 = 'degrees';
+/// auto generated
+Blockly.Msg.SET_ROTATION_TOOLTIP = 'Directly sets the rotation (in degrees) of this game object to the given value.';
+/// auto generated
+Blockly.Msg.SET_ROTATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle';
+/// auto generated
+Blockly.Msg.GET_LOCAL_BOUNDS_FIELD_1 = 'get local bounds of';
+/// auto generated
+Blockly.Msg.GET_LOCAL_BOUNDS_TOOLTIP = 'Gets the rectangular bounds of an object. Bounds are relative to the object itself instead of the world.';
+/// auto generated
+Blockly.Msg.GET_LOCAL_BOUNDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#getLocalBounds';
+/// auto generated
+Blockly.Msg.RESET_FIELD_1 = 'reset object';
+/// auto generated
+Blockly.Msg.RESET_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.RESET_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.RESET_TOOLTIP = 'Gets most objects ready to play again in various ways and treats it like new. Specifically, moves it to a new position then makes sure it is visible, rendering, alive, and actually exists in the game world.';
+/// auto generated
+Blockly.Msg.RESET_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#reset';
+/// auto generated
+Blockly.Msg.REVIVE_FIELD_1 = 'revive';
+/// auto generated
+Blockly.Msg.REVIVE_TOOLTIP = 'Brings a \'dead\' Game Object back to life. Makes sure it counts as alive, existing, and visible. Will send an event named onRevived.';
+/// auto generated
+Blockly.Msg.REVIVE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#revive';
+/// auto generated
+Blockly.Msg.ADD_TEXT_FIELD_1 = 'add text at';
+/// auto generated
+Blockly.Msg.ADD_TEXT_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.ADD_TEXT_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.ADD_TEXT_FIELD_4 = 'initial text';
+/// auto generated
+Blockly.Msg.ADD_TEXT_FIELD_5 = 'font size';
+/// auto generated
+Blockly.Msg.ADD_TEXT_FIELD_6 = 'font colour';
+/// auto generated
+Blockly.Msg.ADD_TEXT_TOOLTIP = 'Add text to the screen at the specified location';
+/// auto generated
+Blockly.Msg.ADD_TEXT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#text';
+/// auto generated
+Blockly.Msg.SET_TEXT_FIELD_1 = 'set text for';
+/// auto generated
+Blockly.Msg.SET_TEXT_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_TEXT_TOOLTIP = 'Sets what phaser text will display on the screen.';
+/// auto generated
+Blockly.Msg.SET_TEXT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Text.html#setText';
+/// auto generated
+Blockly.Msg.SET_TEXT_VI_FIELD_1 = 'set text for';
+/// auto generated
+Blockly.Msg.SET_TEXT_VI_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_TEXT_VI_TOOLTIP = 'Sets what phaser text will display on the screen.';
+/// auto generated
+Blockly.Msg.SET_TEXT_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Text.html#setText';
+/// auto generated
+Blockly.Msg.CREATE_BITMAPFONT_FIELD_1 = 'Create Font';
+/// auto generated
+Blockly.Msg.CREATE_BITMAPFONT_FIELD_2 = 'Tag';
+/// auto generated
+Blockly.Msg.CREATE_BITMAPFONT_FIELD_3 = 'Source';
+/// auto generated
+Blockly.Msg.CREATE_BITMAPFONT_FIELD_4 = 'XML';
+/// auto generated
+Blockly.Msg.CREATE_BITMAPFONT_TOOLTIP = 'Loads a font into the game. These don\'t work like normal fonts. See the help for more info.';
+/// auto generated
+Blockly.Msg.CREATE_BITMAPFONT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#bitmapFont';
+/// auto generated
+Blockly.Msg.DRAWCIRCLE_FIELD_1 = 'draw circle';
+/// auto generated
+Blockly.Msg.DRAWCIRCLE_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.DRAWCIRCLE_FIELD_3 = 'x';
+/// auto generated
+Blockly.Msg.DRAWCIRCLE_FIELD_4 = 'with diameter';
+/// auto generated
+Blockly.Msg.DRAWCIRCLE_TOOLTIP = 'Draws a circle at a given position in the world. Doesn\'t work on its own. Put it inside the \'fill shapes with\' block.';
+/// auto generated
+Blockly.Msg.DRAWCIRCLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#drawCircle';
+/// auto generated
+Blockly.Msg.GET_OBJECT_WIDTH_FIELD_1 = 'get width of ';
+/// auto generated
+Blockly.Msg.GET_OBJECT_WIDTH_TOOLTIP = 'Gets the width of an object.';
+/// auto generated
+Blockly.Msg.GET_OBJECT_WIDTH_HELP_URL = 'https://photonstorm.github.io/phaser-ce/PIXI.Sprite.html#width';
+/// auto generated
+Blockly.Msg.SET_OBJECT_WIDTH_FIELD_1 = 'set width of ';
+/// auto generated
+Blockly.Msg.SET_OBJECT_WIDTH_TOOLTIP = 'Sets the width of an object.';
+/// auto generated
+Blockly.Msg.SET_OBJECT_WIDTH_HELP_URL = 'https://photonstorm.github.io/phaser-ce/PIXI.Sprite.html#width';
+/// auto generated
+Blockly.Msg.ADDEMITTER_FIELD_1 = 'add emitter';
+/// auto generated
+Blockly.Msg.ADDEMITTER_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.ADDEMITTER_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.ADDEMITTER_FIELD_4 = 'maxParticles';
+/// auto generated
+Blockly.Msg.ADDEMITTER_TOOLTIP = 'Create a particle emitter';
+/// auto generated
+Blockly.Msg.ADDEMITTER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_1 = 'on emitter';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_2 = 'make particles';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_3 = 'keys';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_4 = 'frames';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_5 = 'quantity';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_6 = 'collide';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_7 = 'collide world';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#makeParticles';
+/// auto generated
+Blockly.Msg.EMITTER_MAKE_PARTICLES_TOOLTIP = 'Generate a new set of particles for this emitter';
+/// auto generated
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_FIELD_1 = 'on emitter';
+/// auto generated
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_FIELD_2 = 'make particles from';
+/// auto generated
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_TAG_TEXT_DEFAULT = 'image tag';
+/// auto generated
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_TOOLTIP = 'Generate a new set of particles for this emitter';
+/// auto generated
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#makeParticles';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_2 = 'set rotation:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_3 = 'min';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_4 = 'max';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_TOOLTIP = 'Set the angular velocity constraints of the particles';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setRotation';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_1 = 'on emitter';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_2 = 'set min/max angular velocity';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_3 = 'min';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_4 = 'max';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_TOOLTIP = 'Set the angular velocity constraints of the particles.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setRotation';
+/// auto generated
+Blockly.Msg.EMITTERS_START_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_START_FIELD_2 = 'start:';
+/// auto generated
+Blockly.Msg.EMITTERS_START_FIELD_3 = 'Should Burst?';
+/// auto generated
+Blockly.Msg.EMITTERS_START_FIELD_4 = 'Lifespan';
+/// auto generated
+Blockly.Msg.EMITTERS_START_FIELD_5 = 'Frequency';
+/// auto generated
+Blockly.Msg.EMITTERS_START_FIELD_6 = 'Quantity';
+/// auto generated
+Blockly.Msg.EMITTERS_START_TOOLTIP = 'Start emitting particles.';
+/// auto generated
+Blockly.Msg.EMITTERS_START_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#start';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_FIELD_1 = 'start emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_FIELD_2 = 'explode';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_FIELD_3 = 'lifespan (ms)';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_FIELD_4 = 'frequency (ms)';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_FIELD_5 = 'quantity';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_TOOLTIP = 'Start emitting particles.';
+/// auto generated
+Blockly.Msg.EMITTERS_START_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#start';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_2 = 'set Alpha:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_3 = 'min';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_4 = 'max';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_5 = 'rate';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_TOOLTIP = 'Set the min and max alpha values for this emitter.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setAlpha';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_2 = 'set alpha';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_3 = 'min';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_4 = 'max';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_5 = 'rate';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_TOOLTIP = 'Set the min and max alpha values for this emitter.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_ALPHA_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setAlpha';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_2 = 'set Scale:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_3 = 'min X';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_4 = 'max X';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_5 = 'min Y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_6 = 'max Y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_FIELD_7 = 'rate';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_TOOLTIP = 'Set the minimum/maximum scale for particles and the rate to go between.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setScale';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_2 = 'set scale';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_3 = 'min x';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_4 = 'max x';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_5 = 'min y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_6 = 'max y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_7 = 'rate';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_TOOLTIP = 'Set the minimum/maximum scale for particles and the rate to go between.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SCALE_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#setScale';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_FIELD_1 = 'on';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_FIELD_2 = 'set emit from';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_CORD_DROPDOWN_1 = 'X';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_CORD_DROPDOWN_2 = 'Y';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_TOOLTIP = 'Set where the particles emit from, by individual coordinate.';
+/// auto generated
+Blockly.Msg.SET_EMIT_FROM_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#emitX';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_FIELD_2 = 'set Speed:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_FIELD_3 = 'min X';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_FIELD_4 = 'max X';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_FIELD_5 = 'min Y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_FIELD_6 = 'max Y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_TOOLTIP = 'Sets the minimum and maximum speeds that an emitted particle will go.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#minParticleSpeed';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_1 = 'on emitter';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_2 = 'set speed';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_3 = 'min x';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_4 = 'max x';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_5 = 'min y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_6 = 'max y';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_TOOLTIP = 'Sets the minimum and maximum speeds that an emitted particle will go.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_SPEED_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#minParticleSpeed';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_FIELD_2 = 'set Gravity:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_TOOLTIP = 'Set the gravity of generated particles.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#gravity';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_VI_FIELD_1 = 'on emitter';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_VI_FIELD_2 = 'set gravity:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_VI_TOOLTIP = 'Set the gravity of generated particles';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_GRAVITY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#gravity';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_WIDTH_FIELD_1 = 'on emitter,';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_WIDTH_FIELD_2 = 'set width:';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_WIDTH_TOOLTIP = 'Sets the width of the area in which particles will be emitted.';
+/// auto generated
+Blockly.Msg.EMITTERS_SET_WIDTH_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#width';
+/// auto generated
+Blockly.Msg.DEBUG_SPRITE_FIELD_1 = 'write debug for sprite';
+/// auto generated
+Blockly.Msg.DEBUG_SPRITE_FIELD_2 = 'at x';
+/// auto generated
+Blockly.Msg.DEBUG_SPRITE_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.DEBUG_SPRITE_TOOLTIP = 'Draws various information useful for debugging about the specified sprite at the given world coordinates.';
+/// auto generated
+Blockly.Msg.DEBUG_SPRITE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#spriteInfo';
+/// auto generated
+Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_1 = 'add state';
+/// auto generated
+Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_2 = 'tagged';
+/// auto generated
+Blockly.Msg.STATEMANAGER_ADD_STATE_KEY_TEXT_DEFAULT = 'tag';
+/// auto generated
+Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_3 = 'to state manager';
+/// auto generated
+Blockly.Msg.STATEMANAGER_ADD_STATE_TOOLTIP = 'Adds a state to the game engine, this should be an instance of a state class.';
+/// auto generated
+Blockly.Msg.STATEMANAGER_START_STATE_FIELD_1 = 'start state with tag';
+/// auto generated
+Blockly.Msg.STATEMANAGER_START_STATE_TAG_TEXT_DEFAULT = 'tag';
+/// auto generated
+Blockly.Msg.STATEMANAGER_START_STATE_TOOLTIP = 'Start the specified state, this should be a state that has been added to the game engine';
+/// auto generated
+Blockly.Msg.STATEMANAGER_START_STATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.StateManager.html#start';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_1 = 'make rectangle';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_4 = 'width';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_5 = 'height';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_TOOLTIP = 'Defines a rectangle, can be used for cropping, alignment and other tasks';
+/// auto generated
+Blockly.Msg.RECTANGLE_CREATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Rectangle.html';
+/// auto generated
+Blockly.Msg.POINT_CREATE_FIELD_1 = 'make point';
+/// auto generated
+Blockly.Msg.POINT_CREATE_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.POINT_CREATE_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.POINT_CREATE_TOOLTIP = 'Defines a point which represents a location in 2D';
+/// auto generated
+Blockly.Msg.POINT_CREATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html';
+/// auto generated
+Blockly.Msg.POINT_GET_ELEMENT_FIELD_1 = 'get point.';
+/// auto generated
+Blockly.Msg.POINT_GET_ELEMENT_ELEMENT_DROPDOWN_1 = 'x';
+/// auto generated
+Blockly.Msg.POINT_GET_ELEMENT_ELEMENT_DROPDOWN_2 = 'y';
+/// auto generated
+Blockly.Msg.POINT_GET_ELEMENT_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.POINT_GET_ELEMENT_TOOLTIP = 'Defines a point which represents a location in 2D';
+/// auto generated
+Blockly.Msg.POINT_GET_ELEMENT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_FIELD_1 = 'set point.';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_ELEMENT_DROPDOWN_1 = 'x';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_ELEMENT_DROPDOWN_2 = 'y';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_TOOLTIP = 'Defines a point which represents a location in 2D';
+/// auto generated
+Blockly.Msg.POINT_SET_ELEMENT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html';
+/// auto generated
+Blockly.Msg.POINT_SET_MAGNITUDE_FIELD_1 = 'set magnitude for';
+/// auto generated
+Blockly.Msg.POINT_SET_MAGNITUDE_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.POINT_SET_MAGNITUDE_TOOLTIP = 'Sets the magnitude of the point';
+/// auto generated
+Blockly.Msg.POINT_SET_MAGNITUDE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#setMagnitude';
+/// auto generated
+Blockly.Msg.POINTS_ADD_FIELD_1 = 'add points';
+/// auto generated
+Blockly.Msg.POINTS_ADD_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.POINTS_ADD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.add';
+/// auto generated
+Blockly.Msg.POINTS_ADD_TOOLTIP = 'Adds the two points and returns the result';
+/// auto generated
+Blockly.Msg.POINTS_SUBTRACT_FIELD_1 = 'subtract points';
+/// auto generated
+Blockly.Msg.POINTS_SUBTRACT_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.POINTS_SUBTRACT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.subtract';
+/// auto generated
+Blockly.Msg.POINTS_SUBTRACT_TOOLTIP = 'Adds the two points and returns the result';
+/// auto generated
+Blockly.Msg.POINTS_ANGLE_BETWEEN_FIELD_1 = 'angle between';
+/// auto generated
+Blockly.Msg.POINTS_ANGLE_BETWEEN_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.POINTS_ANGLE_BETWEEN_TOOLTIP = 'Returns the angle in radians between the two point objects';
+/// auto generated
+Blockly.Msg.POINTS_ANGLE_BETWEEN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.angle';
+/// auto generated
+Blockly.Msg.POINTS_DISTANCE_FIELD_1 = 'distance between';
+/// auto generated
+Blockly.Msg.POINTS_DISTANCE_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.POINTS_DISTANCE_TOOLTIP = 'Returns the distance between the two point objects';
+/// auto generated
+Blockly.Msg.POINTS_DISTANCE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.distance';
+/// auto generated
+Blockly.Msg.POINTS_DIVIDE_FIELD_1 = 'divide';
+/// auto generated
+Blockly.Msg.POINTS_DIVIDE_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.POINTS_DIVIDE_TOOLTIP = 'Returns a new point p = [a.x / b.x, a.y / b.y]';
+/// auto generated
+Blockly.Msg.POINTS_DIVIDE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.divide';
+/// auto generated
+Blockly.Msg.POINTS_EQUALS_FIELD_1 = 'is equal to';
+/// auto generated
+Blockly.Msg.POINTS_EQUALS_FIELD_2 = '?';
+/// auto generated
+Blockly.Msg.POINTS_EQUALS_TOOLTIP = 'Determines if two points are equal';
+/// auto generated
+Blockly.Msg.POINTS_EQUALS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.equals';
+/// auto generated
+Blockly.Msg.POINTS_INTERPOLATE_FIELD_1 = 'interpolate between A';
+/// auto generated
+Blockly.Msg.POINTS_INTERPOLATE_FIELD_2 = 'and B';
+/// auto generated
+Blockly.Msg.POINTS_INTERPOLATE_FIELD_3 = 'percent to B';
+/// auto generated
+Blockly.Msg.POINTS_INTERPOLATE_TOOLTIP = 'Interpolate between two points, the percent (0.0 - 1.0) determines how far towards the second point (1 - F) * A + F * B';
+/// auto generated
+Blockly.Msg.POINTS_INTERPOLATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.interpolate';
+/// auto generated
+Blockly.Msg.POINTS_MULTIPLY_FIELD_1 = 'multiply';
+/// auto generated
+Blockly.Msg.POINTS_MULTIPLY_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.POINTS_MULTIPLY_TOOLTIP = 'Multiply two points';
+/// auto generated
+Blockly.Msg.POINTS_MULTIPLY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.multiply';
+/// auto generated
+Blockly.Msg.POINTS_NEGATE_FIELD_1 = 'negate';
+/// auto generated
+Blockly.Msg.POINTS_NEGATE_TOOLTIP = 'Negate the point';
+/// auto generated
+Blockly.Msg.POINTS_NEGATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.negative';
+/// auto generated
+Blockly.Msg.POINTS_NORMALIZE_FIELD_1 = 'normalize';
+/// auto generated
+Blockly.Msg.POINTS_NORMALIZE_TOOLTIP = 'Normalize the point (make unit length)';
+/// auto generated
+Blockly.Msg.POINTS_NORMALIZE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.normalize';
+/// auto generated
+Blockly.Msg.POINTS_PERPENDICULAR_FIELD_1 = 'find pependicular vector to';
+/// auto generated
+Blockly.Msg.POINTS_PERPENDICULAR_TOOLTIP = 'Find a perpendicular vector to this point';
+/// auto generated
+Blockly.Msg.POINTS_PERPENDICULAR_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.perp';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1 = 'make camera follow';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_TOOLTIP = 'Make the camera follow the specified game object';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#follow';
+/// auto generated
+Blockly.Msg.CAMERA_FADE_FIELD_1 = 'fade screen to';
+/// auto generated
+Blockly.Msg.CAMERA_FADE_FIELD_2 = 'over';
+/// auto generated
+Blockly.Msg.CAMERA_FADE_FIELD_3 = 'milliseconds';
+/// auto generated
+Blockly.Msg.CAMERA_FADE_TOOLTIP = 'Fades the screen to the specified colour over time. Ends with the screen completely obscured.';
+/// auto generated
+Blockly.Msg.CAMERA_FADE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#fade';
+/// auto generated
+Blockly.Msg.CAMERA_FLASH_FIELD_1 = 'flash screen to';
+/// auto generated
+Blockly.Msg.CAMERA_FLASH_FIELD_2 = 'then fade in over';
+/// auto generated
+Blockly.Msg.CAMERA_FLASH_FIELD_3 = 'milliseconds';
+/// auto generated
+Blockly.Msg.CAMERA_FLASH_TOOLTIP = 'Immediately covers the camera with the specified colour. Then fades back in over a given time. Useful for fading back in after fading out, or as a big hit effect.';
+/// auto generated
+Blockly.Msg.CAMERA_FLASH_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#flash';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_FIELD_1 = 'focus camera on';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_TOOLTIP = 'Immediately centers the camera on the specified game object.';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOn';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_1 = 'focus camera on position at';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_XY_TOOLTIP = 'Immediately centers the camera on a given position.';
+/// auto generated
+Blockly.Msg.CAMERA_FOCUS_ON_XY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#focusOnXY';
+/// auto generated
+Blockly.Msg.CAMERA_RESET_FIELD_1 = 'reset camera';
+/// auto generated
+Blockly.Msg.CAMERA_RESET_TOOLTIP = 'Completely resets the camera. It goes back to (0, 0), stops following anything, and removes all effects such as shake or flash.';
+/// auto generated
+Blockly.Msg.CAMERA_RESET_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#reset';
+/// auto generated
+Blockly.Msg.CAMERA_RESET_FX_FIELD_1 = 'reset camera effects';
+/// auto generated
+Blockly.Msg.CAMERA_RESET_FX_TOOLTIP = 'Removes visual effects from the camera such as fading in/out. Does not affect the position, follow target, or screen shake.';
+/// auto generated
+Blockly.Msg.CAMERA_RESET_FX_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#resetFX';
+/// auto generated
+Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_FIELD_1 = 'set camera bounds to world bounds';
+/// auto generated
+Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_TOOLTIP = 'The camera bounds are not the size of what it shows, but the space it can move around in. This sets those bounds so that the camera can view the entire world, but nothing more.';
+/// auto generated
+Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setBoundsToWorld';
+/// auto generated
+Blockly.Msg.CAMERA_SET_POSITION_FIELD_1 = 'set camera position to';
+/// auto generated
+Blockly.Msg.CAMERA_SET_POSITION_FIELD_2 = 'x';
+/// auto generated
+Blockly.Msg.CAMERA_SET_POSITION_FIELD_3 = 'y';
+/// auto generated
+Blockly.Msg.CAMERA_SET_POSITION_TOOLTIP = 'Jumps the camera immediately to the given position. Note that the camera\'s position is its upper left corner, not its center.';
+/// auto generated
+Blockly.Msg.CAMERA_SET_POSITION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setPosition';
+/// auto generated
+Blockly.Msg.CAMERA_SET_SIZE_FIELD_1 = 'set camera size';
+/// auto generated
+Blockly.Msg.CAMERA_SET_SIZE_FIELD_2 = 'width';
+/// auto generated
+Blockly.Msg.CAMERA_SET_SIZE_FIELD_3 = 'height';
+/// auto generated
+Blockly.Msg.CAMERA_SET_SIZE_TOOLTIP = 'Sets the size of the camera\'s view window.';
+/// auto generated
+Blockly.Msg.CAMERA_SET_SIZE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#setSize';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_FIELD_1 = 'shake the camera';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_FIELD_2 = '% intensity';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_1 = 'horizontal and vertical';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_2 = 'vertically';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_3 = 'horizontally';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_FIELD_3 = 'for';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_FIELD_4 = 'milliseconds';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_TOOLTIP = 'Screen shake. Great for impact effects, or just a little extra umph, but don\'t go overboard. The intensity goes from 0 to 1. % of bounds it can move';
+/// auto generated
+Blockly.Msg.CAMERA_SHAKE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#shake';
+/// auto generated
+Blockly.Msg.CAMERA_UNFOLLOW_FIELD_1 = 'stop camera follow';
+/// auto generated
+Blockly.Msg.CAMERA_UNFOLLOW_TOOLTIP = 'Makes the camera stop following anything. Equivalent to making the camera follow null.';
+/// auto generated
+Blockly.Msg.CAMERA_UNFOLLOW_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#unfollow';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_1 = 'make camera follow';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_2 = 'with style';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_1 = 'lockon';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_2 = 'platformer';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_3 = 'topdown';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_4 = 'topdown tight';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_TOOLTIP = 'Make the camera follow the specified game object';
+/// auto generated
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html#follow';
+/// auto generated
+Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_1 = 'set';
+/// auto generated
+Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_TOOLTIP = 'Set the selected member on the Sound';
+/// auto generated
+Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html';
+/// auto generated
+Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_TOOLTIP = 'Get the selected member from the Sound';
+/// auto generated
+Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html';
+/// auto generated
+Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_1 = 'set';
+/// auto generated
+Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_3 = 'to';
+/// auto generated
+Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_TOOLTIP = 'Set the selected member on the Sound';
+/// auto generated
+Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html';
+/// auto generated
+Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_TOOLTIP = 'Get the selected member from the Sound';
+/// auto generated
+Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html';
+/// auto generated
+Blockly.Msg.GET_SOUND_STRING_MEMBER_FIELD_1 = 'get';
+/// auto generated
+Blockly.Msg.GET_SOUND_STRING_MEMBER_FIELD_2 = 'of';
+/// auto generated
+Blockly.Msg.GET_SOUND_STRING_MEMBER_TOOLTIP = 'Get the selected member from the Sound';
+/// auto generated
+Blockly.Msg.GET_SOUND_STRING_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html';
+/// auto generated
+Blockly.Msg.LOAD_SOUND_FIELD_1 = 'create sound';
+/// auto generated
+Blockly.Msg.LOAD_SOUND_FIELD_2 = 'tag';
+/// auto generated
+Blockly.Msg.LOAD_SOUND_FIELD_3 = 'source';
+/// auto generated
+Blockly.Msg.LOAD_SOUND_TOOLTIP = 'Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.';
+/// auto generated
+Blockly.Msg.LOAD_SOUND_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#audio';
+/// auto generated
+Blockly.Msg.ADD_SOUND_FIELD_1 = 'add sound';
+/// auto generated
+Blockly.Msg.ADD_SOUND_FIELD_2 = 'at volume';
+/// auto generated
+Blockly.Msg.ADD_SOUND_FIELD_3 = 'looping';
+/// auto generated
+Blockly.Msg.ADD_SOUND_TOOLTIP = 'Add a Sound to the game';
+/// auto generated
+Blockly.Msg.ADD_SOUND_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html#audio';
+/// auto generated
+Blockly.Msg.PLAY_SOUND_FIELD_1 = 'play sound';
+/// auto generated
+Blockly.Msg.PLAY_SOUND_FIELD_2 = 'at volume';
+/// auto generated
+Blockly.Msg.PLAY_SOUND_FIELD_3 = 'looping';
+/// auto generated
+Blockly.Msg.PLAY_SOUND_TOOLTIP = 'Plays a sound that has been created. The volume goes from 0 to 1.';
+/// auto generated
+Blockly.Msg.PLAY_SOUND_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.SoundManager.html#play';
+/// auto generated
+Blockly.Msg.REMOVE_SOUND_FIELD_1 = 'stop all sounds tagged';
+/// auto generated
+Blockly.Msg.REMOVE_SOUND_TOOLTIP = 'Stops all sounds with the given tag.';
+/// auto generated
+Blockly.Msg.REMOVE_SOUND_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.SoundManager.html#removeByKey';
+/// auto generated
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_1 = 'stop';
+/// auto generated
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_2 = 'pause';
+/// auto generated
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_3 = 'resume';
+/// auto generated
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_FIELD_1 = 'all sounds';
+/// auto generated
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_TOOLTIP = 'Stop - Stop everything dead. Pause - Stop everything, but remember where you were. Resume - Start playing paused sounds from where they left off.';
+/// auto generated
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.SoundManager.html#stopAll';
+/// auto generated
+Blockly.Msg.SOUND_FADE_IN_FIELD_1 = 'fade in sound';
+/// auto generated
+Blockly.Msg.SOUND_FADE_IN_FIELD_2 = 'over';
+/// auto generated
+Blockly.Msg.SOUND_FADE_IN_FIELD_3 = 'milliseconds loop';
+/// auto generated
+Blockly.Msg.SOUND_FADE_IN_TOOLTIP = 'Starts/Restarts the sound sets the volume to zero and increases from 0 to 1 over duration';
+/// auto generated
+Blockly.Msg.SOUND_FADE_IN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeIn';
+/// auto generated
+Blockly.Msg.SOUND_FADE_OUT_FIELD_1 = 'fade out sound';
+/// auto generated
+Blockly.Msg.SOUND_FADE_OUT_FIELD_2 = 'over';
+/// auto generated
+Blockly.Msg.SOUND_FADE_OUT_FIELD_3 = 'milliseconds';
+/// auto generated
+Blockly.Msg.SOUND_FADE_OUT_TOOLTIP = 'Fades the sounds volume to 0 over the given duration';
+/// auto generated
+Blockly.Msg.SOUND_FADE_OUT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeOut';
+/// auto generated
+Blockly.Msg.SOUND_FADE_TO_FIELD_1 = 'fade sound';
+/// auto generated
+Blockly.Msg.SOUND_FADE_TO_FIELD_2 = 'over';
+/// auto generated
+Blockly.Msg.SOUND_FADE_TO_FIELD_3 = 'milliseconds';
+/// auto generated
+Blockly.Msg.SOUND_FADE_TO_FIELD_4 = 'to volume';
+/// auto generated
+Blockly.Msg.SOUND_FADE_TO_TOOLTIP = 'Fades the sounds volume to a given volume over the given duration';
+/// auto generated
+Blockly.Msg.SOUND_FADE_TO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#fadeTo';
+/// auto generated
+Blockly.Msg.SOUND_LOOP_FULL_FIELD_1 = 'loop sound';
+/// auto generated
+Blockly.Msg.SOUND_LOOP_FULL_FIELD_2 = 'at volume';
+/// auto generated
+Blockly.Msg.SOUND_LOOP_FULL_TOOLTIP = 'Loops the entire sound';
+/// auto generated
+Blockly.Msg.SOUND_LOOP_FULL_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#loopFull';
+/// auto generated
+Blockly.Msg.SOUND_PAUSE_FIELD_1 = 'pause sound';
+/// auto generated
+Blockly.Msg.SOUND_PAUSE_TOOLTIP = 'Pause the sound';
+/// auto generated
+Blockly.Msg.SOUND_PAUSE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#pause';
+/// auto generated
+Blockly.Msg.SOUND_RESUME_FIELD_1 = 'resume sound';
+/// auto generated
+Blockly.Msg.SOUND_RESUME_TOOLTIP = 'Resumes the sound';
+/// auto generated
+Blockly.Msg.SOUND_RESUME_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#resume';
+/// auto generated
+Blockly.Msg.SOUND_STOP_FIELD_1 = 'stop sound';
+/// auto generated
+Blockly.Msg.SOUND_STOP_TOOLTIP = 'Stops the sound';
+/// auto generated
+Blockly.Msg.SOUND_STOP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#stop';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_FIELD_1 = 'play sound';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_FIELD_2 = 'starting at position';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_FIELD_3 = 'at volume';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_FIELD_4 = 'loop';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_FIELD_5 = 'force restart';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_TOOLTIP = 'Play the sound';
+/// auto generated
+Blockly.Msg.SOUND_PLAY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#play';
+/// auto generated
+Blockly.Msg.SOUND_RESTART_FIELD_1 = 'restart sound';
+/// auto generated
+Blockly.Msg.SOUND_RESTART_FIELD_2 = 'starting at position';
+/// auto generated
+Blockly.Msg.SOUND_RESTART_FIELD_3 = 'at volume';
+/// auto generated
+Blockly.Msg.SOUND_RESTART_FIELD_4 = 'loop';
+/// auto generated
+Blockly.Msg.SOUND_RESTART_TOOLTIP = 'Restart the entire sound';
+/// auto generated
+Blockly.Msg.SOUND_RESTART_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sound.html#restart';
+/// auto generated
+Blockly.Msg.LIST_FIND_CLOSEST_FIELD_1 = 'find the number closest to';
+/// auto generated
+Blockly.Msg.LIST_FIND_CLOSEST_FIELD_2 = 'in the list';
+/// auto generated
+Blockly.Msg.LIST_FIND_CLOSEST_TOOLTIP = 'Returns the value closest to the given number in a sorted, numeric list. If two values are equally close, it returns the higher one.';
+/// auto generated
+Blockly.Msg.LIST_FIND_CLOSEST_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_findClosest';
+/// auto generated
+Blockly.Msg.LIST_GET_RANDOM_FIELD_1 = 'get a random item from';
+/// auto generated
+Blockly.Msg.LIST_GET_RANDOM_TOOLTIP = 'Returns a random item from the given list.';
+/// auto generated
+Blockly.Msg.LIST_GET_RANDOM_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_getRandomItem';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_FIELD_1 = 'create a list with every number from';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_TOOLTIP = 'Creates a list of numbers, in order within the specified range, including the start and end.';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArray';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_STEP_FIELD_1 = 'create a list from';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_STEP_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_STEP_FIELD_3 = 'stepping by';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_STEP_TOOLTIP = 'Creates a list in the given range, counting up by a specified value. Does NOT include the end of the range.';
+/// auto generated
+Blockly.Msg.NUMBER_LIST_STEP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_numberArrayStep';
+/// auto generated
+Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_FIELD_1 = 'get and remove a random item from';
+/// auto generated
+Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_TOOLTIP = 'Removes a random item from a list and returns it. Note that this modifies the list.';
+/// auto generated
+Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_removeRandomItem';
+/// auto generated
+Blockly.Msg.LIST_SHUFFLE_FIELD_1 = 'shuffle';
+/// auto generated
+Blockly.Msg.LIST_SHUFFLE_TOOLTIP = 'Randomly rearranges the order of items in a list. Works for more than just cards.';
+/// auto generated
+Blockly.Msg.LIST_SHUFFLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.ArrayUtils.html#_shuffle';
+/// auto generated
+Blockly.Msg.RANDOM_ANGLE_FIELD_1 = 'get random angle';
+/// auto generated
+Blockly.Msg.RANDOM_ANGLE_TOOLTIP = 'Returns a random angle between -180 and 180.';
+/// auto generated
+Blockly.Msg.RANDOM_ANGLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle';
+/// auto generated
+Blockly.Msg.RANDOM_PICK_FIELD_1 = 'get random item from list';
+/// auto generated
+Blockly.Msg.RANDOM_PICK_TOOLTIP = 'Returns a random member in a given list.';
+/// auto generated
+Blockly.Msg.RANDOM_PICK_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#pick';
+/// auto generated
+Blockly.Msg.RANDOM_PICK_WEIGHTED_FIELD_1 = 'get random item from list (weighted)';
+/// auto generated
+Blockly.Msg.RANDOM_PICK_WEIGHTED_TOOLTIP = 'Returns a random member in a given list. This version chooses items close to the start of the list more frequently.';
+/// auto generated
+Blockly.Msg.RANDOM_PICK_WEIGHTED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#weightedPick';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_FIELD_1 = 'get random number';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_TOOLTIP = 'Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#real';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_1 = 'get random number between';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_IN_RANGE_TOOLTIP = 'Returns a random real number in the specified range.';
+/// auto generated
+Blockly.Msg.RANDOM_REAL_IN_RANGE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#realInRange';
+/// auto generated
+Blockly.Msg.RANDOM_SIGN_FIELD_1 = 'get random sign';
+/// auto generated
+Blockly.Msg.RANDOM_SIGN_TOOLTIP = 'Returns either +1 or -1. For deciding if something needs to be positive or negative.';
+/// auto generated
+Blockly.Msg.RANDOM_SIGN_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#sign';
+/// auto generated
+Blockly.Msg.MATH_DEG_TO_RAD_FIELD_1 = 'convert degrees';
+/// auto generated
+Blockly.Msg.MATH_DEG_TO_RAD_FIELD_2 = 'to radians';
+/// auto generated
+Blockly.Msg.MATH_DEG_TO_RAD_TOOLTIP = 'Converts a value in degrees to an equivalent in radians.';
+/// auto generated
+Blockly.Msg.MATH_DEG_TO_RAD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Math.html#degToRad';
+/// auto generated
+Blockly.Msg.MATH_RAD_TO_DEG_FIELD_1 = 'convert radians';
+/// auto generated
+Blockly.Msg.MATH_RAD_TO_DEG_FIELD_2 = 'to degrees';
+/// auto generated
+Blockly.Msg.MATH_RAD_TO_DEG_TOOLTIP = 'Converts an angle in degrees to an equivalent in radians.';
+/// auto generated
+Blockly.Msg.MATH_RAD_TO_DEG_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Math.html#radToDeg';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1 = 'setup';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.DELAYMS_FIELD_1 = 'Delay';
+/// auto generated
+Blockly.Msg.DELAYMS_FIELD_2 = 'Milliseconds';
+/// auto generated
+Blockly.Msg.DELAYMS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAYMS_HELP_URL = 'https://www.arduino.cc/en/Reference/Delay';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_FIELD_1 = 'Delay';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_FIELD_2 = 'Microseconds';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAYMICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/DelayMicroseconds';
+/// auto generated
+Blockly.Msg.MILLISECONDS_FIELD_1 = 'Milliseconds Since Start ';
+/// auto generated
+Blockly.Msg.MILLISECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MILLISECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Millis';
+/// auto generated
+Blockly.Msg.MICROSECONDS_FIELD_1 = 'Microseconds Since Start ';
+/// auto generated
+Blockly.Msg.MICROSECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
+/// auto generated
+Blockly.Msg.PININPUT_FIELD_1 = 'Set Pin # ';
+/// auto generated
+Blockly.Msg.PININPUT_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.PININPUT_MODE_DROPDOWN_1 = 'input';
+/// auto generated
+Blockly.Msg.PININPUT_MODE_DROPDOWN_2 = 'output';
+/// auto generated
+Blockly.Msg.PININPUT_MODE_DROPDOWN_3 = 'input_pullup';
+/// auto generated
+Blockly.Msg.PININPUT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PININPUT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_FIELD_1 = 'Digital Write';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_1 = 'HIGH';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_2 = 'LOW';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_FIELD_2 = 'to pin #';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_TOOLTIP = 'Writes either HIGH or LOW to the given pin';
+/// auto generated
+Blockly.Msg.DIGITALWRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalWrite';
+/// auto generated
+Blockly.Msg.DIGITAL_READ_FIELD_1 = 'Digital Read Pin #';
+/// auto generated
+Blockly.Msg.DIGITAL_READ_TOOLTIP = 'Reads either HIGH or LOW from a digital pin';
+/// auto generated
+Blockly.Msg.DIGITAL_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalRead';
+/// auto generated
+Blockly.Msg.HIGH_FIELD_1 = 'HIGH';
+/// auto generated
+Blockly.Msg.HIGH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HIGH_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
+/// auto generated
+Blockly.Msg.LOW_FIELD_1 = 'LOW';
+/// auto generated
+Blockly.Msg.LOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LOW_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
+/// auto generated
+Blockly.Msg.LED_BUILTIN_FIELD_1 = 'LED_BUILTIN';
+/// auto generated
+Blockly.Msg.LED_BUILTIN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LED_BUILTIN_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
+
+//arduino
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_FIELD_1 = 'Set Analog Reference To';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1 = 'DEFAULT';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_2 = 'EXTERNAL';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_3 = 'INTERNAL (Not Available on Mega)';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_4 = 'INTERNAL1V1 (Mega Only)';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_5 = 'INTERNAL2V56 (Mega Only)';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TOOLTIP = 'Set the reference voltage for analog input';
+/// auto generated
+Blockly.Msg.ANALOG_REFERENCE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogReference';
+/// auto generated
+Blockly.Msg.ANALOG_READ_FIELD_1 = 'Analog Read Pin #';
+/// auto generated
+Blockly.Msg.ANALOG_READ_TOOLTIP = 'Read the value from the given analog pin';
+/// auto generated
+Blockly.Msg.ANALOG_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogRead';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_FIELD_1 = 'Analog Write ';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_FIELD_2 = 'to Pin #';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ANALOG_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogWrite';
+/// auto generated
+Blockly.Msg.RANDOM_SEED_FIELD_1 = 'Randomize seed with value';
+/// auto generated
+Blockly.Msg.RANDOM_SEED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RANDOM_SEED_HELP_URL = 'https://www.arduino.cc/en/Reference/RandomSeed';
+/// auto generated
+Blockly.Msg.RANDOM_FIELD_1 = 'Random value between';
+/// auto generated
+Blockly.Msg.RANDOM_FIELD_2 = 'and';
+/// auto generated
+Blockly.Msg.RANDOM_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RANDOM_HELP_URL = 'https://www.arduino.cc/en/Reference/Random';
+/// auto generated
+Blockly.Msg.BIT_FIELD_1 = 'Value of bit';
+/// auto generated
+Blockly.Msg.BIT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_HELP_URL = 'https://www.arduino.cc/en/Reference/Bit';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_FIELD_1 = 'Clear bit';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_FIELD_2 = 'from Number';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_CLEAR_HELP_URL = 'https://www.arduino.cc/en/Reference/BitClear';
+/// auto generated
+Blockly.Msg.BIT_SET_FIELD_1 = 'Set bit';
+/// auto generated
+Blockly.Msg.BIT_SET_FIELD_2 = 'in Number';
+/// auto generated
+Blockly.Msg.BIT_SET_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_SET_HELP_URL = 'https://www.arduino.cc/en/Reference/BitSet';
+/// auto generated
+Blockly.Msg.BIT_WRITE_FIELD_1 = 'Set Number';
+/// auto generated
+Blockly.Msg.BIT_WRITE_FIELD_2 = 'at Position';
+/// auto generated
+Blockly.Msg.BIT_WRITE_FIELD_3 = 'with Value';
+/// auto generated
+Blockly.Msg.BIT_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/BitWrite';
+/// auto generated
+Blockly.Msg.BIT_READ_FIELD_1 = 'Read Number';
+/// auto generated
+Blockly.Msg.BIT_READ_FIELD_2 = 'at Position';
+/// auto generated
+Blockly.Msg.BIT_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BIT_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/BitRead';
+/// auto generated
+Blockly.Msg.HIGH_BYTE_FIELD_1 = 'Get high-byte from Number';
+/// auto generated
+Blockly.Msg.HIGH_BYTE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HIGH_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/HighByte';
+/// auto generated
+Blockly.Msg.LOW_BYTE_FIELD_1 = 'Get low-byte from Number';
+/// auto generated
+Blockly.Msg.LOW_BYTE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LOW_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/LowByte';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_FIELD_1 = 'Play Frequency';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_FIELD_2 = 'on Pin #';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_HELP_URL = 'https://www.arduino.cc/en/Reference/Tone';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1 = 'Play Frequency';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2 = 'on Pin #';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_3 = 'for ';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4 = 'Milliseconds';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TONE_PIN_FREQ_DURATION_HELP_URL = 'https://www.arduino.cc/en/Reference/Tone';
+
+// arduino_eeprom
+/// auto generated
+Blockly.Msg.EEPROM_READ_ADDRESS = 'EEPROM Read address';
+/// auto generated
+Blockly.Msg.EEPROM_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMRead';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_VALUE = 'EEPROM write value';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_ADDRESS = 'to address';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMWrite';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_VALUE = 'EEPROM update value at';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_ADDRESS = '(if different than current) to address';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_UPDATE_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMUpdate';
+/// auto generated
+Blockly.Msg.EEPROM_GET_ADDRESS = 'EEPROM get data from address';
+/// auto generated
+Blockly.Msg.EEPROM_GET_VARIABLE = 'and store in';
+/// auto generated
+Blockly.Msg.EEPROM_GET_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_GET_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMGet';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_VALUE = 'EEPROM set';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_ADDRESS = 'to address';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EEPROM_PUT_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMPut';
+
+//arduino_serial
+/// auto generated
+Blockly.Msg.SERIAL_READ_FIELD_1 = 'Serial Read First Byte';
+/// auto generated
+Blockly.Msg.SERIAL_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_READ_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1 = 'Serial Print Line';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_LINE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_LINE_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_FIELD_1 = 'Serial Print';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_PRINT_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_END_FIELD_1 = 'Serial end';
+/// auto generated
+Blockly.Msg.SERIAL_END_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_END_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_FIELD_1 = 'Serial Begin at ';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_FIELD_2 = 'bits per second (baud)';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERIAL_BEGIN_HELP_URL = '';
+
+//arduino_servo
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'Attach pin';
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_FIELD_2 = 'to servo';
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_ATTACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttach';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_FIELD_1 = 'Set angle to';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_FIELD_2 = 'on servo';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWrite';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'Set microseconds to';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_2 = 'on servo';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWriteMicroseconds';
+/// auto generated
+Blockly.Msg.SERVO_READ_FIELD_1 = 'Read from servo';
+/// auto generated
+Blockly.Msg.SERVO_READ_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoRead';
+/// auto generated
+Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'Check servo';
+/// auto generated
+Blockly.Msg.SERVO_ATTACHED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_ATTACHED_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttached';
+/// auto generated
+Blockly.Msg.SERVO_DETACH_FIELD_1 = 'Detach servo';
+/// auto generated
+Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
+
+//dom
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_TITLE = 'getElementById with ID';
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GETELEMENTBYID_HELP_URL = '';
+/// auto generated
+Blockly.Msg.DOM_GETCONTEXT_DOM = 'for dom';
+/// auto generated
+Blockly.Msg.DOM_GETCONTEXT_CONTEXT = 'get context';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_DOM = 'DOM variable';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_TITLE = 'set height';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_HEIGHT_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SET_WIDTH_DOM = 'DOM variable';
+/// auto generated
+Blockly.Msg.SET_WIDTH_TITLE = 'set width';
+/// auto generated
+Blockly.Msg.SET_WIDTH_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_WIDTH_HELP_URL = '';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_TITLE = 'add event listener to dom element';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE = 'for event of type';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_ON = 'on';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_DO = 'do';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ADD_EVENT_LISTENER_HELP_URL = '';
+/// auto generated
+Blockly.Msg.SET_ATTRIBUTE_DOM = 'for dom element';
+/// auto generated
+Blockly.Msg.SET_ATTRIBUTE_TITLE = 'set Attribute';
+/// auto generated
+Blockly.Msg.CONSOLE_LOG_TITLE = 'console log';
+/// auto generated
+Blockly.Msg.CONSOLE_LOG_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.CONSOLE_LOG_HELP_URL = '';
+
+//eval
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_TITLE = 'eval';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_TOOLTIP = 'Execute the JavaScript expression';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = 'developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TITLE = 'eval with output';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP = 'Execute the JavaScript expression returning the value';
+/// auto generated
+Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL = 'developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval';
+
+//ringo
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_RINGO_FIELD_1 = 'setup';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_RINGO_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_RINGO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_FIELD_1 = 'Get Gyro Calibration Multiplier';
+/// auto generated
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEGIN_NAVIGATION_FIELD_1 = 'Begin Navigation';
+/// auto generated
+Blockly.Msg.BEGIN_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION_FIELD_1 = 'Simple Gyro Navigation';
+/// auto generated
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SIMPLE_NAVIGATION_FIELD_1 = 'Simple Navigation';
+/// auto generated
+Blockly.Msg.SIMPLE_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_FIELD_1 = 'Navigation XY with';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_FIELD_2 = 'Gyro Sensitivity';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_FIELD_3 = 'Acceleration Sensitivity';
+/// auto generated
+Blockly.Msg.NAVIGATION_XY_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_FIELD_1 = 'Calibrate Navigation Sensors';
+/// auto generated
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ZERO_NAVIGATION_FIELD_1 = 'Reset Navigation';
+/// auto generated
+Blockly.Msg.ZERO_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PAUSE_NAVIGATION_FIELD_1 = 'Pause Navigation';
+/// auto generated
+Blockly.Msg.PAUSE_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RESUME_NAVIGATION_FIELD_1 = 'Resume Navigation';
+/// auto generated
+Blockly.Msg.RESUME_NAVIGATION_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NAVIGATION_PAUSED_FIELD_1 = 'Is Navigation Paused';
+/// auto generated
+Blockly.Msg.NAVIGATION_PAUSED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = 'Delay With Navigation for ';
+/// auto generated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_2 = 'milliseconds';
+/// auto generated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = 'Delay With Simple Navigation for';
+/// auto generated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_2 = 'milliseconds';
+/// auto generated
+Blockly.Msg.PRESENT_HEADING_FIELD_1 = 'Get Present Heading';
+/// auto generated
+Blockly.Msg.PRESENT_HEADING_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_X_FIELD_1 = 'Get Degrees X';
+/// auto generated
+Blockly.Msg.GET_DEGREES_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z_FIELD_1 = 'Get Degrees Per Second Z';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'Get Degrees Per Second X';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'Get Degrees Per Second Y';
+/// auto generated
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_DEGREES_TO_STOP_FIELD_1 = 'Get Degrees To Stop';
+/// auto generated
+Blockly.Msg.GET_DEGREES_TO_STOP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_X_FIELD_1 = 'Get X Acceleration';
+/// auto generated
+Blockly.Msg.GET_ACCEL_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_FIELD_1 = 'Get Y Acceleration';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Z_FIELD_1 = 'Get Z Acceleration';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Z_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_UNZEROED_FIELD_1 = 'Get Y Acceleration Unzeroed';
+/// auto generated
+Blockly.Msg.GET_ACCEL_Y_UNZEROED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_VEL_X_FIELD_1 = 'Get X Velocity';
+/// auto generated
+Blockly.Msg.GET_VEL_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_VEL_Y_FIELD_1 = 'Get Y Velocity';
+/// auto generated
+Blockly.Msg.GET_VEL_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_POS_X_FIELD_1 = 'Get X Position';
+/// auto generated
+Blockly.Msg.GET_POS_X_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_POS_Y_FIELD_1 = 'Get Y Position';
+/// auto generated
+Blockly.Msg.GET_POS_Y_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IS_STATIONARY_FIELD_1 = 'Is Ringo Stationary';
+/// auto generated
+Blockly.Msg.IS_STATIONARY_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_VALUE_FIELD_1 = 'Get Non-Stationary Value';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_VALUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_AXIS_FIELD_1 = 'Get Non-Stationary Axis';
+/// auto generated
+Blockly.Msg.NON_STATIONARY_AXIS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MIN_TURN_FIELD_1 = 'Minimum Turn';
+/// auto generated
+Blockly.Msg.MIN_TURN_FIELD_2 = 'Degrees';
+/// auto generated
+Blockly.Msg.MIN_TURN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MIN_TURN_TO_HEADING_FIELD_1 = 'Minimum Turn to Heading';
+/// auto generated
+Blockly.Msg.MIN_TURN_TO_HEADING_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_1 = 'Vector To Degrees';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_2 = 'X Component';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_3 = 'Y Component';
+/// auto generated
+Blockly.Msg.VECTOR_TO_DEGREES_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_SET_RANGE_FIELD_1 = 'Set Gyro Range';
+/// auto generated
+Blockly.Msg.GYRO_SET_RANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_BUFFER_SIZE_FIELD_1 = 'Get Gyro Buffer Size';
+/// auto generated
+Blockly.Msg.GYRO_BUFFER_SIZE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_GET_AXIS_FIELD_1 = 'Get Gyro Axis';
+/// auto generated
+Blockly.Msg.GYRO_GET_AXIS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_SET_FREQUENCY_FIELD_1 = 'Set Gyro Frequency';
+/// auto generated
+Blockly.Msg.GYRO_SET_FREQUENCY_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_FIELD_1 = 'Get Gyro Range From Chip';
+/// auto generated
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_1 = 'Set';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_1 = 'Left Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_2 = 'Right Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_3 = 'Body Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_4 = 'Body Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_5 = 'Tail Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_2 = 'Pixel';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_3 = 'Red';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_4 = 'Green';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_FIELD_5 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_1 = 'Set';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_1 = 'Left Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_2 = 'Right Eye';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_3 = 'Body Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_4 = 'Body Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_5 = 'Tail Top';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_2 = 'to';
+/// auto generated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_1 = 'Set All Pixels to';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.REFRESH_PIXELS_FIELD_1 = 'Refresh Pixels';
+/// auto generated
+Blockly.Msg.REFRESH_PIXELS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_FIELD_1 = 'Set All Pixels to';
+/// auto generated
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_MOTOR_MAX_FIELD_1 = 'Get Motor Max';
+/// auto generated
+Blockly.Msg.GET_MOTOR_MAX_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_LEFT_MOTOR_FIELD_1 = 'Get Current Left Motor Speed';
+/// auto generated
+Blockly.Msg.GET_LEFT_MOTOR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_RIGHT_MOTOR_FIELD_1 = 'Get Current Right Motor Speed';
+/// auto generated
+Blockly.Msg.GET_RIGHT_MOTOR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MOTORS_BEGIN_FIELD_1 = 'Begin Motors';
+/// auto generated
+Blockly.Msg.MOTORS_BEGIN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1 = 'Reset Maintain Heading';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_1 = 'Maintain Heading with ';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_2 = 'Direction';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_3 = 'and Speed';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_FIELD_4 = 'and Wiggle';
+/// auto generated
+Blockly.Msg.MAINTAIN_HEADING_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_1 = 'Drive in An Arc';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_2 = 'Turning (degrees)';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_3 = 'With Left Motor At';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_4 = 'With Right Motor At';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_5 = 'With Max Expected Turn Time (milliseconds)';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_FIELD_6 = 'With Max Expected Skid Time (milliseconds)';
+/// auto generated
+Blockly.Msg.DRIVE_ARC_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_START_CHIRP_FIELD_1 = 'Play Start Chirp';
+/// auto generated
+Blockly.Msg.PLAY_START_CHIRP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_ACK_FIELD_1 = 'Play Acknowledgment Chirp';
+/// auto generated
+Blockly.Msg.PLAY_ACK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_NON_ACK_FIELD_1 = 'Play Non-Acknowledgment Chirp';
+/// auto generated
+Blockly.Msg.PLAY_NON_ACK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_ANGER_FIELD_1 = 'Player Anger';
+/// auto generated
+Blockly.Msg.PLAY_ANGER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_BOREDOM_FIELD_1 = 'Play Boredom';
+/// auto generated
+Blockly.Msg.PLAY_BOREDOM_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_EXCITED_FIELD_1 = 'Play Excited';
+/// auto generated
+Blockly.Msg.PLAY_EXCITED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_FIELD_1 = 'Play Chirp';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_FIELD_2 = 'With Frequency';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_FIELD_3 = 'With Amplitude';
+/// auto generated
+Blockly.Msg.PLAY_CHIRP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.OFF_CHIRP_FIELD_1 = 'Turn Chirp Off';
+/// auto generated
+Blockly.Msg.OFF_CHIRP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.OFF_PIXELS_FIELD_1 = 'Turn All Pixels Off';
+/// auto generated
+Blockly.Msg.OFF_PIXELS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_FIELD_1 = 'Turn';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_1 = 'Left Eye';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_2 = 'Right Eye';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_3 = 'Body Top';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_4 = 'Body Bottom';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_5 = 'Tail Top';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_FIELD_2 = 'off';
+/// auto generated
+Blockly.Msg.OFF_PIXEL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RANDOM_EYES_FIELD_1 = 'Set Eyes To A Random Colour';
+/// auto generated
+Blockly.Msg.RANDOM_EYES_TOOLTIP = '';
+
+//wink
+/// auto generated
+Blockly.Msg.SETEYESRED_FIELD_1 = 'setEyesRed';
+/// auto generated
+Blockly.Msg.SETEYESRED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESGREEN_FIELD_1 = 'setEyesGreen';
+/// auto generated
+Blockly.Msg.SETEYESGREEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESBLUE_FIELD_1 = 'setEyesBlue';
+/// auto generated
+Blockly.Msg.SETEYESBLUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESPURPLE_FIELD_1 = 'setEyesPurple';
+/// auto generated
+Blockly.Msg.SETEYESPURPLE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESPINK_FIELD_1 = 'setEyesPink';
+/// auto generated
+Blockly.Msg.SETEYESPINK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESYELLOW_FIELD_1 = 'setEyesYellow';
+/// auto generated
+Blockly.Msg.SETEYESYELLOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESCYAN_FIELD_1 = 'setEyesCyan';
+/// auto generated
+Blockly.Msg.SETEYESCYAN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESORANGE_FIELD_1 = 'setEyesOrange';
+/// auto generated
+Blockly.Msg.SETEYESORANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESWHITE_FIELD_1 = 'setEyesWhite';
+/// auto generated
+Blockly.Msg.SETEYESWHITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTRED_FIELD_1 = 'setLeftRed';
+/// auto generated
+Blockly.Msg.SETLEFTRED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTGREEN_FIELD_1 = 'setLeftGreen';
+/// auto generated
+Blockly.Msg.SETLEFTGREEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTBLUE_FIELD_1 = 'setLeftBlue';
+/// auto generated
+Blockly.Msg.SETLEFTBLUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTPURPLE_FIELD_1 = 'setLeftPurple';
+/// auto generated
+Blockly.Msg.SETLEFTPURPLE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTPINK_FIELD_1 = 'setLeftPink';
+/// auto generated
+Blockly.Msg.SETLEFTPINK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTYELLOW_FIELD_1 = 'setLeftYellow';
+/// auto generated
+Blockly.Msg.SETLEFTYELLOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTCYAN_FIELD_1 = 'setLeftCyan';
+/// auto generated
+Blockly.Msg.SETLEFTCYAN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTORANGE_FIELD_1 = 'setLeftOrange';
+/// auto generated
+Blockly.Msg.SETLEFTORANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTWHITE_FIELD_1 = 'setLeftWhite';
+/// auto generated
+Blockly.Msg.SETLEFTWHITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTRED_FIELD_1 = 'setRightRed';
+/// auto generated
+Blockly.Msg.SETRIGHTRED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTGREEN_FIELD_1 = 'setRightGreen';
+/// auto generated
+Blockly.Msg.SETRIGHTGREEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTBLUE_FIELD_1 = 'setRightBlue';
+/// auto generated
+Blockly.Msg.SETRIGHTBLUE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTPURPLE_FIELD_1 = 'setRightPurple';
+/// auto generated
+Blockly.Msg.SETRIGHTPURPLE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTPINK_FIELD_1 = 'setRightPink';
+/// auto generated
+Blockly.Msg.SETRIGHTPINK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTYELLOW_FIELD_1 = 'setRightYellow';
+/// auto generated
+Blockly.Msg.SETRIGHTYELLOW_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTCYAN_FIELD_1 = 'setRightCyan';
+/// auto generated
+Blockly.Msg.SETRIGHTCYAN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTORANGE_FIELD_1 = 'setRightOrange';
+/// auto generated
+Blockly.Msg.SETRIGHTORANGE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTWHITE_FIELD_1 = 'setRightWhite';
+/// auto generated
+Blockly.Msg.SETRIGHTWHITE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETEYESRGB_FIELD_1 = 'setEyesColor';
+/// auto generated
+Blockly.Msg.SETEYESRGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETEYESRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETLEFTRGB_FIELD_1 = 'setLeftColor';
+/// auto generated
+Blockly.Msg.SETLEFTRGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETLEFTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETRIGHTRGB_FIELD_1 = 'setRightColor';
+/// auto generated
+Blockly.Msg.SETRIGHTRGB_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETRIGHTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURNEYESOFF_FIELD_1 = 'turnEyesOff';
+/// auto generated
+Blockly.Msg.TURNEYESOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURNEYESOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURNLEFTEYEOFF_FIELD_1 = 'turnLeftEyeOff';
+/// auto generated
+Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURNLEFTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1 = 'turnRightEyeOff';
+/// auto generated
+Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.EYESPREVCOLOUR_FIELD_1 = 'eyesPreviousColor';
+/// auto generated
+Blockly.Msg.EYESPREVCOLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.EYESPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.LEFTPREVCOLOUR_FIELD_1 = 'leftPreviousColor';
+/// auto generated
+Blockly.Msg.LEFTPREVCOLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LEFTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1 = 'rightPreviousColor';
+/// auto generated
+Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_FIELD_1 = 'setup';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.HARDWARESTARTUP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.LOOP_FIELD_1 = 'loop';
+/// auto generated
+Blockly.Msg.LOOP_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.LOOP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_1 = 'Accelerate Motors';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_2 = 'Start Speed';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_3 = 'End Speed';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_4 = 'Duration';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.ACCELERATEMOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.MOTORS_FIELD_1 = 'Set Motor Speed';
+/// auto generated
+Blockly.Msg.MOTORS_FIELD_2 = 'Left Speed';
+/// auto generated
+Blockly.Msg.MOTORS_FIELD_3 = 'Right Speed';
+/// auto generated
+Blockly.Msg.MOTORS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.MOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SPINLEFT_FIELD_1 = 'Spin Left';
+/// auto generated
+Blockly.Msg.SPINLEFT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SPINLEFT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SPINRIGHT_FIELD_1 = 'Spin Right';
+/// auto generated
+Blockly.Msg.SPINRIGHT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SPINRIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BESTILL_FIELD_1 = 'Be Still';
+/// auto generated
+Blockly.Msg.BESTILL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BESTILL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BUTTONWAIT_FIELD_1 = 'Wait For Button Press';
+/// auto generated
+Blockly.Msg.BUTTONWAIT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BUTTONWAIT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BEEPMS_FIELD_1 = 'Beep';
+/// auto generated
+Blockly.Msg.BEEPMS_FIELD_2 = 'Milliseconds';
+/// auto generated
+Blockly.Msg.BEEPMS_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEEPMS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BEEPON_FIELD_1 = 'Turn Beep On';
+/// auto generated
+Blockly.Msg.BEEPON_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEEPON_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BEEPOFF_FIELD_1 = 'Turn Beep Off';
+/// auto generated
+Blockly.Msg.BEEPOFF_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BEEPOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_FIELD_1 = 'Turn';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_1 = 'Head Light';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_2 = 'Line Left Outer';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_3 = 'Line Left Inner';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_4 = 'Line Right Outer';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_5 = 'Line Right Inner';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_1 = 'On';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_2 = 'Off';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SETIRLIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.READSENSOR_FIELD_1 = 'Read';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1 = 'Line Sensor Left';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2 = 'Line Sensor Right';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3 = 'Ambient Sensor Left';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4 = 'Ambient Sensor Center';
+/// auto generated
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5 = 'Ambient Sensor Right';
+/// auto generated
+Blockly.Msg.READSENSOR_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.READSENSOR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_1 = 'Set Left Eye';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_LEFT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_1 = 'Set Right Eye';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_RIGHT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_1 = 'Set Eyes';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_2 = 'Red';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_3 = 'Green';
+/// auto generated
+Blockly.Msg.SET_EYES_FIELD_4 = 'Blue';
+/// auto generated
+Blockly.Msg.SET_EYES_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.SET_EYES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.BUTTON_PRESSED_FIELD_1 = 'Button Pressed';
+/// auto generated
+Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.BUTTON_PRESSED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_1 = 'turn';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_1 = 'left';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_2 = 'right';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_2 = 'speed';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_3 = 'delay';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_FIELD_4 = 'milliseconds';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.TURN_BY_VALUES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.RESTART_IR_FIELD_1 = 'Restart IR';
+/// auto generated
+Blockly.Msg.RESTART_IR_TOOLTIP = 'Start listening for IR should be setup and in loop after processing an input';
+/// auto generated
+Blockly.Msg.RESTART_IR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IS_IR_DONE_FIELD_1 = 'Is IR Done?';
+/// auto generated
+Blockly.Msg.IS_IR_DONE_TOOLTIP = 'Checks to see if we received an IR input to process';
+/// auto generated
+Blockly.Msg.IS_IR_DONE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_CONTROL_FIELD_1 = 'When ';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_1 = '1';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_2 = '2';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_3 = '3';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_4 = '4';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_5 = '5';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_6 = '6';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_7 = '7';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_8 = '8';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_9 = '9';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_10 = '10';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_11 = 'Forward';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_12 = 'Left';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_13 = 'Right';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_14 = 'Backward';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_15 = 'Power';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_16 = 'Plum Logo';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_17 = 'Menu';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_18 = 'A';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_19 = 'B';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_20 = 'X';
+/// auto generated
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_21 = 'Play';
+/// auto generated
+Blockly.Msg.IR_CONTROL_FIELD_2 = 'is pressed';
+/// auto generated
+Blockly.Msg.IR_CONTROL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTAINER_FIELD_1 = 'When IR is done';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTAINER_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTAINER_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTROL_FIELD_1 = 'check key for press';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTROL_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_CONTROL_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_1 = 'When IR is done';
+/// auto generated
+Blockly.Msg.IR_WHEN_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_WHEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_2 = 'If ';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_3 = 'BUTTON';
+/// auto generated
+Blockly.Msg.IR_WHEN_FIELD_4 = 'is pressed';
+/// auto generated
+Blockly.Msg.IR_BUTTON_FIELD_1 = 'Wink IR Button:';
+/// auto generated
+Blockly.Msg.IR_BUTTON_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.IR_BUTTON_HELP_URL = '';
+/// auto generated
+Blockly.Msg.GET_PRESSED_IR_BUTTON_FIELD_1 = 'Get Pressed IR Button';
+/// auto generated
+Blockly.Msg.GET_PRESSED_IR_BUTTON_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.GET_PRESSED_IR_BUTTON_HELP_URL = '';
+
+//procedures_typed
+/// auto generated
+Blockly.Msg.CAST_BLOCK_FIELD_1 = 'make';
+/// auto generated
+Blockly.Msg.CAST_BLOCK_FIELD_2 = 'a';
+/// auto generated
+Blockly.Msg.CAST_BLOCK_TOOLTIP = '';
+/// auto generated
+Blockly.Msg.CAST_BLOCK_HELP_URL = 'https://en.wikipedia.org/wiki/Type_conversion';
 
 /// block text - Label that this block returns the time since the last frame in seconds.
 Blockly.Msg.DELTA_TIME_SECONDS_TITLE = 'delta time in seconds';

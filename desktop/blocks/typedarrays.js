@@ -183,7 +183,7 @@ Blockly.Blocks['typed_arrays_create_with'] = {
         } else if (!this.itemCount_ && !this.getInput('EMPTY')) {
             this.appendDummyInput('EMPTY')
                 .appendField('Create Empty Array')
-                .appendField(new Blockly.FieldDropdown([["integer", "INTEGER"], ["float", "FLOAT"], ["boolean", "BOOLEAN"], ["char", "CHARACTER"], ["string", "STRING"]]), "TYPE");
+                .appendField(new Blockly.FieldDropdown([[Blockly.Msg.TYPE_INT, "INTEGER"], [Blockly.Msg.TYPE_FLOAT, "FLOAT"], [Blockly.Msg.TYPE_BOOL, "BOOLEAN"], [Blockly.Msg.TYPE_CHAR, "CHARACTER"], [Blockly.Msg.TYPE_STRING, "STRING"]]), "TYPE");
         }
 
         // Add new inputs.
@@ -210,9 +210,9 @@ Blockly.Blocks['typed_arrays_create_with'] = {
                     input.setCheck('String');
                 }
                 if (i == 0) {
-                    input.appendField('Create Array of');
-                    input.appendField(new Blockly.FieldDropdown([["integer", "INTEGER"], ["float", "FLOAT"], ["boolean", "BOOLEAN"], ["char", "CHARACTER"], ["string", "STRING"]]), "TYPE");
-                    input.appendField('with');
+                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1);
+                    input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.TYPE_INT, "INTEGER"], [Blockly.Msg.TYPE_FLOAT, "FLOAT"], [Blockly.Msg.TYPE_BOOL, "BOOLEAN"], [Blockly.Msg.TYPE_CHAR, "CHARACTER"], [Blockly.Msg.TYPE_STRING, "STRING"]]), "TYPE");
+                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2);
                 }
             } else {
                 const input = this.getInput(`ADD${i}`);
@@ -269,20 +269,20 @@ Blockly.Blocks['arrays_create_with_item'] = {
 Blockly.Blocks['typed_arrays_setIndex'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("In Array")
-            .appendField(new Blockly.FieldVariable("array"), "ARRAY");
+            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1)
+            .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.appendValueInput("INDEX")
             .setCheck("Number")
-            .appendField("Set Index #");
+            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2);
         this.appendValueInput("VALUE")
             .setCheck(null)
-            .appendField("to");
+            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_3);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.TYPED_ARRAYS_SETINDEX_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TYPED_ARRAYS_SETINDEX_HELP_URL);
     },
 
     onchange: function (changeEvent) {
@@ -298,7 +298,7 @@ Blockly.Blocks['typed_arrays_setIndex'] = {
         if (changeEvent.element == 'field' && changeEvent.name == 'ARRAY') {
             const varType = this.workspace.getVariableTypeExcludeId(changeEvent.newValue, changeEvent.blockId);
             if (!varType.startsWith('Array')) {
-                this.setWarningText(`${changeEvent.newValue} is not an array!`);
+                this.setWarningText(Blockly.Msg.TYPED_ARRAYS_NOT_ARRAY_WARNING.replace('%1', changeEvent.newValue));
             } else {
                 this.setWarningText(null);
             }
@@ -309,16 +309,16 @@ Blockly.Blocks['typed_arrays_setIndex'] = {
 Blockly.Blocks['typed_arrays_getIndex'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("In Array")
-            .appendField(new Blockly.FieldVariable("array"), "ARRAY");
+            .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_1)
+            .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.appendValueInput("INDEX")
             .setCheck("Number")
-            .appendField("Get Index #");
+            .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.TYPED_ARRAYS_GETINDEX_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TYPED_ARRAYS_GETINDEX_HELP_URL);
     },
 
     onchange: function (changeEvent) {
@@ -334,7 +334,7 @@ Blockly.Blocks['typed_arrays_getIndex'] = {
         if (changeEvent.element == 'field' && changeEvent.name == 'ARRAY') {
             const varType = this.workspace.getVariableTypeExcludeId(changeEvent.newValue, changeEvent.blockId);
             if (!varType.startsWith('Array')) {
-                this.setWarningText(`${changeEvent.newValue} is not an array!`);
+                this.setWarningText(Blockly.Msg.TYPED_ARRAYS_NOT_ARRAY_WARNING.replace('%1', changeEvent.newValue));
             } else {
                 this.setWarningText(null);
             }
@@ -345,14 +345,14 @@ Blockly.Blocks['typed_arrays_getIndex'] = {
 Blockly.Blocks['typed_arrays_delete'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Delete Array")
-            .appendField(new Blockly.FieldVariable("array"), "ARRAY");
+            .appendField(Blockly.Msg.TYPED_ARRAYS_DELETE_TITLE)
+            .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.TYPED_ARRAYS_DELETE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL);
     },
     onchange: function (changeEvent) {
         if (changeEvent.type != Blockly.Events.CHANGE) {
@@ -367,7 +367,7 @@ Blockly.Blocks['typed_arrays_delete'] = {
         if (changeEvent.element == 'field' && changeEvent.name == 'ARRAY') {
             const varType = this.workspace.getVariableTypeExcludeId(changeEvent.newValue, changeEvent.blockId);
             if (!varType.startsWith('Array')) {
-                this.setWarningText(`${changeEvent.newValue} is not an array!`);
+                this.setWarningText(Blockly.Msg.TYPED_ARRAYS_NOT_ARRAY_WARNING.replace('%1', changeEvent.newValue));
             } else {
                 this.setWarningText(null);
             }

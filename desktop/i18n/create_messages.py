@@ -34,7 +34,6 @@ def string_is_ascii(s):
     return True
   except UnicodeEncodeError:
     return False
-  
 
 def main():
   """Generate .js files defining Blockly core and language messages."""
@@ -75,8 +74,8 @@ def main():
   # Read in synonyms file, which must be output in every language.
   synonym_defs = read_json_file(os.path.join(
       os.curdir, args.source_synonym_file))
-  synonym_text = '\n'.join(['Blockly.Msg.{0} = Blockly.Msg.{1};'.format(
-      key, synonym_defs[key]) for key in synonym_defs])
+  synonym_text = '\n'.join([u'Blockly.Msg.{0} = Blockly.Msg.{1};'
+      .format(key, synonym_defs[key]) for key in synonym_defs])
 
   # Create each output file.
   for arg_file in args.files:
@@ -104,13 +103,9 @@ def main():
       with codecs.open(outname, 'w', 'utf-8') as outfile:
         outfile.write(
             """// This file was automatically generated.  Do not modify.
-
 'use strict';
-
 goog.provide('Blockly.Msg.{0}');
-
 goog.require('Blockly.Msg');
-
 """.format(target_lang.replace('-', '.')))
         # For each key in the source language file, output the target value
         # if present; otherwise, output the source language value with a
@@ -124,8 +119,8 @@ goog.require('Blockly.Msg');
             value = source_defs[key]
             comment = '  // untranslated'
           value = value.replace('"', '\\"')
-          outfile.write(u'Blockly.Msg.{0} = "{1}";{2}\n'.format(
-              key, value, comment))
+          outfile.write(u'Blockly.Msg.{0} = "{1}";{2}\n'
+              .format(key, value, comment))
 
         # Announce any keys defined only for target language.
         if target_defs:

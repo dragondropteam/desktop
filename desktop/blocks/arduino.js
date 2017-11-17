@@ -10,12 +10,12 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['hardwarestartup_arduino'] = {
     init: function() {
         this.appendDummyInput()
-          .appendField("setup");
+          .appendField(Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1);
         this.appendStatementInput("do")
           .setCheck(null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL);
     }
 };
 
@@ -24,54 +24,54 @@ Blockly.Blocks['hardwarestartup_arduino'] = {
 Blockly.Blocks['delayms'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Delay");
+            .appendField(Blockly.Msg.DELAYMS_FIELD_1);
         this.appendValueInput("MILLISECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField("Milliseconds");
+            .appendField(Blockly.Msg.DELAYMS_FIELD_2);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Delay');
+        this.setTooltip(Blockly.Msg.DELAYMS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAYMS_HELP_URL);
     }
 };
 
 Blockly.Blocks['delaymicroseconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Delay");
+            .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_1);
         this.appendValueInput("MICROSECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField("Microseconds");
+            .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_2);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/DelayMicroseconds');
+        this.setTooltip(Blockly.Msg.DELAYMICROSECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAYMICROSECONDS_HELP_URL);
     }
 };
 
 Blockly.Blocks['milliseconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Milliseconds Since Start ");
+            .appendField(Blockly.Msg.MILLISECONDS_FIELD_1);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Millis');
+        this.setTooltip(Blockly.Msg.MILLISECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MILLISECONDS_HELP_URL);
     }
 };
 
 Blockly.Blocks['microseconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Microseconds Since Start ");
+            .appendField(Blockly.Msg.MICROSECONDS_FIELD_1);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Micros');
+        this.setTooltip(Blockly.Msg.MICROSECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MICROSECONDS_HELP_URL);
     }
 };
 //endregion
@@ -80,17 +80,17 @@ Blockly.Blocks['microseconds'] = {
 Blockly.Blocks['pininput'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Set Pin # ");
+            .appendField(Blockly.Msg.PININPUT_FIELD_1);
         this.appendValueInput("PIN")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField("to")
-            .appendField(new Blockly.FieldDropdown([["input", "INPUT"], ["output", "OUTPUT"], ["input_pullup", "INPUT_PULLUP"]]), "MODE");
+            .appendField(Blockly.Msg.PININPUT_FIELD_2)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PININPUT_MODE_DROPDOWN_1, "INPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_2, "OUTPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_3, "INPUT_PULLUP"]]), "MODE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.plumgeek.com/learn-to-code.html/');
+        this.setTooltip(Blockly.Msg.PININPUT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PININPUT_HELP_URL);
     }
 };
 
@@ -98,32 +98,32 @@ Blockly.Blocks['pininput'] = {
 Blockly.Blocks['digitalwrite'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Digital Write")
-            .appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "VALUE");
+            .appendField(Blockly.Msg.DIGITALWRITE_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_1, "HIGH"], [Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_2, "LOW"]]), "VALUE");
         this.appendValueInput("PIN")
             .setCheck(null)
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("to pin #");
+            .appendField(Blockly.Msg.DIGITALWRITE_FIELD_2);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('Writes either HIGH or LOW to the given pin');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/DigitalWrite');
+        this.setTooltip(Blockly.Msg.DIGITALWRITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DIGITALWRITE_HELP_URL);
     }
 };
 
 Blockly.Blocks['digital_read'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Digital Read Pin #");
+            .appendField(Blockly.Msg.DIGITAL_READ_FIELD_1);
         this.appendValueInput("PIN")
             .setCheck("Number");
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('Reads either HIGH or LOW from a digital pin');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/DigitalRead');
+        this.setTooltip(Blockly.Msg.DIGITAL_READ_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DIGITAL_READ_HELP_URL);
     }
 };
 //endregion
@@ -132,11 +132,11 @@ Blockly.Blocks['digital_read'] = {
 Blockly.Blocks['high'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("HIGH");
+            .appendField(Blockly.Msg.HIGH_FIELD_1);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Constants');
+        this.setTooltip(Blockly.Msg.HIGH_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.HIGH_HELP_URL);
     }
 };
 
@@ -144,22 +144,22 @@ Blockly.Blocks['high'] = {
 Blockly.Blocks['low'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("LOW");
+            .appendField(Blockly.Msg.LOW_FIELD_1);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Constants');
+        this.setTooltip(Blockly.Msg.LOW_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOW_HELP_URL);
     }
 };
 
 Blockly.Blocks['led_builtin'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("LED_BUILTIN");
+            .appendField(Blockly.Msg.LED_BUILTIN_FIELD_1);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Constants');
+        this.setTooltip(Blockly.Msg.LED_BUILTIN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LED_BUILTIN_HELP_URL);
     }
 };
 
@@ -169,14 +169,14 @@ Blockly.Blocks['led_builtin'] = {
 Blockly.Blocks['analog_reference'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Set Analog Reference To")
-            .appendField(new Blockly.FieldDropdown([["DEFAULT", "DEFAULT"], ["EXTERNAL", "EXTERNAL"], ["INTERNAL (Not Available on Mega)", "INTERNAL"], ["INTERNAL1V1 (Mega Only)", "INTERNAL1V1"], ["INTERNAL2V56 (Mega Only)", "INTERNAL2V56"]]), "TYPE");
+            .appendField(Blockly.Msg.ANALOG_REFERENCE_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1, "DEFAULT"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_2, "EXTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_3, "INTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_4, "INTERNAL1V1"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_5, "INTERNAL2V56"]]), "TYPE");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('Set the reference voltage for analog input');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/AnalogReference');
+        this.setTooltip(Blockly.Msg.ANALOG_REFERENCE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ANALOG_REFERENCE_HELP_URL);
     }
 };
 
@@ -184,12 +184,12 @@ Blockly.Blocks['analog_read'] = {
     init: function() {
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField("Analog Read Pin #");
+            .appendField(Blockly.Msg.ANALOG_READ_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('Read the value from the given analog pin');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/AnalogRead');
+        this.setTooltip(Blockly.Msg.ANALOG_READ_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ANALOG_READ_HELP_URL);
     }
 };
 
@@ -197,16 +197,16 @@ Blockly.Blocks['analog_write'] = {
     init: function() {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField("Analog Write ");
+            .appendField(Blockly.Msg.ANALOG_WRITE_FIELD_1);
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField("to Pin #");
+            .appendField(Blockly.Msg.ANALOG_WRITE_FIELD_2);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/AnalogWrite');
+        this.setTooltip(Blockly.Msg.ANALOG_WRITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ANALOG_WRITE_HELP_URL);
     }
 };
 //endregion
@@ -216,13 +216,13 @@ Blockly.Blocks['random_seed'] = {
     init: function () {
         this.appendValueInput("SEED")
             .setCheck("Number")
-            .appendField("Randomize seed with value");
+            .appendField(Blockly.Msg.RANDOM_SEED_FIELD_1);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/RandomSeed');
+        this.setTooltip(Blockly.Msg.RANDOM_SEED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_SEED_HELP_URL);
     }
 };
 
@@ -230,15 +230,15 @@ Blockly.Blocks['random'] = {
     init: function () {
         this.appendValueInput("MIN")
             .setCheck("Number")
-            .appendField("Random value between");
+            .appendField(Blockly.Msg.RANDOM_FIELD_1);
         this.appendValueInput("MAX")
             .setCheck("Number")
-            .appendField("and");
+            .appendField(Blockly.Msg.RANDOM_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Random');
+        this.setTooltip(Blockly.Msg.RANDOM_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_HELP_URL);
     }
 };
 //endregion
@@ -249,12 +249,12 @@ Blockly.Blocks['bit'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField("Value of bit");
+            .appendField(Blockly.Msg.BIT_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Bit');
+        this.setTooltip(Blockly.Msg.BIT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BIT_HELP_URL);
     }
 };
 
@@ -262,16 +262,16 @@ Blockly.Blocks['bit_clear'] = {
     init: function () {
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField("Clear bit");
+            .appendField(Blockly.Msg.BIT_CLEAR_FIELD_1);
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField("from Number");
+            .appendField(Blockly.Msg.BIT_CLEAR_FIELD_2);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/BitClear');
+        this.setTooltip(Blockly.Msg.BIT_CLEAR_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BIT_CLEAR_HELP_URL);
     }
 };
 
@@ -279,16 +279,16 @@ Blockly.Blocks['bit_set'] = {
     init: function () {
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField("Set bit");
+            .appendField(Blockly.Msg.BIT_SET_FIELD_1);
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField("in Number");
+            .appendField(Blockly.Msg.BIT_SET_FIELD_2);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/BitSet');
+        this.setTooltip(Blockly.Msg.BIT_SET_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BIT_SET_HELP_URL);
     }
 };
 
@@ -296,19 +296,19 @@ Blockly.Blocks['bit_write'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField("Set Number");
+            .appendField(Blockly.Msg.BIT_WRITE_FIELD_1);
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField("at Position");
+            .appendField(Blockly.Msg.BIT_WRITE_FIELD_2);
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField("with Value");
+            .appendField(Blockly.Msg.BIT_WRITE_FIELD_3);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/BitWrite');
+        this.setTooltip(Blockly.Msg.BIT_WRITE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BIT_WRITE_HELP_URL);
     }
 };
 
@@ -316,15 +316,15 @@ Blockly.Blocks['bit_read'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField("Read Number");
+            .appendField(Blockly.Msg.BIT_READ_FIELD_1);
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField("at Position");
+            .appendField(Blockly.Msg.BIT_READ_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/BitRead');
+        this.setTooltip(Blockly.Msg.BIT_READ_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BIT_READ_HELP_URL);
     }
 };
 
@@ -332,12 +332,12 @@ Blockly.Blocks['high_byte'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField("Get high-byte from Number");
+            .appendField(Blockly.Msg.HIGH_BYTE_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/HighByte');
+        this.setTooltip(Blockly.Msg.HIGH_BYTE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.HIGH_BYTE_HELP_URL);
     }
 };
 
@@ -345,12 +345,12 @@ Blockly.Blocks['low_byte'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField("Get low-byte from Number");
+            .appendField(Blockly.Msg.LOW_BYTE_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/LowByte');
+        this.setTooltip(Blockly.Msg.LOW_BYTE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOW_BYTE_HELP_URL);
     }
 };
 
@@ -365,16 +365,16 @@ Blockly.Blocks['tone_pin_freq'] = {
     init: function() {
         this.appendValueInput("FREQUENCY")
             .setCheck("Number")
-            .appendField("Play Frequency");
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_FIELD_1);
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField("on Pin #");
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_FIELD_2);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Tone');
+        this.setTooltip(Blockly.Msg.TONE_PIN_FREQ_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TONE_PIN_FREQ_HELP_URL);
     }
 };
 
@@ -382,21 +382,21 @@ Blockly.Blocks['tone_pin_freq_duration'] = {
     init: function() {
         this.appendValueInput("FREQUENCY")
             .setCheck("Number")
-            .appendField("Play Frequency");
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1);
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField("on Pin #");
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2);
         this.appendValueInput("DURATION")
             .setCheck("Number")
-            .appendField("for ");
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_3);
         this.appendDummyInput()
-            .appendField("Milliseconds");
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip('');
-        this.setHelpUrl('https://www.arduino.cc/en/Reference/Tone');
+        this.setTooltip(Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TONE_PIN_FREQ_DURATION_HELP_URL);
     }
 };
 //endregion

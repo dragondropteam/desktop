@@ -34,7 +34,7 @@ function disableIfNotInClassBlock(root) {
     } else {
         root.setDisabled(true);
         if (!inClass) {
-            root.setWarningText('This block can only be used inside of a class!');
+            root.setWarningText(Blockly.Msg.INSIDE_CLASS_ONLY_WARNING);
         }
     }
 
@@ -123,7 +123,7 @@ Blockly.Blocks['super_mutatorarg'] = {
 Blockly.Blocks['super_constructor'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('call super constructor');
+            .appendField(Blockly.Msg.CLASSES_SUPER_CONSTRUCTOR_TITLE);
         this.setPreviousStatement(true, ["CALL_SUPER"], true);
         this.setNextStatement(true);
         this.setMutator(new Blockly.Mutator(['super_mutatorarg']));
@@ -282,19 +282,19 @@ Blockly.Blocks['class_definition'] = {
     init: function () {
         this.appendValueInput("extends")
             .setCheck(null)
-            .appendField("class")
-            .appendField(new Blockly.FieldTextInput("name", DragonDrop.Classes.rename), "NAME")
-            .appendField("extends");
+            .appendField(Blockly.Msg.CLASS_DEFINITION_CLASS)
+            .appendField(new Blockly.FieldTextInput(Blockly.Msg.CLASS_DEFINITION_DEFAULT_NAME, DragonDrop.Classes.rename), "NAME")
+            .appendField(Blockly.Msg.CLASS_DEFINITION_EXTENDS);
         this.appendStatementInput("METHODS")
             .setCheck("METHOD_DEFINITION", true)
-            .appendField("methods");
+            .appendField(Blockly.Msg.CLASS_DEFINITION_METHODS);
         this.appendStatementInput("CONSTRUCTOR")
             .setCheck(["MEMBER_DEFINITION", "CALL_SUPER"])
-            .appendField("construct with", "CONSTRUCTOR");
+            .appendField(Blockly.Msg.CLASS_DEFINITION_CONSTRUCT, "CONSTRUCTOR");
         this.setInputsInline(false);
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.CLASS_DEFINITION_HELP_URL);
         this.setMutator(new Blockly.Mutator(['class_mutatorarg']));
         this.arguments_ = [];
     },
@@ -413,7 +413,7 @@ Blockly.Blocks['class_definition'] = {
             hash['arg_' + this.arguments_[i].toLowerCase()] = true;
         }
         if (badArg) {
-            this.setWarningText('Warning: The class constructor has duplicate parameters.');
+            this.setWarningText(Blockly.Msg.CLASS_DEFINITION_DUPLICATE_WARNING);
         } else {
             this.setWarningText(null);
         }
@@ -427,7 +427,7 @@ Blockly.Blocks['class_definition'] = {
         // no need to fire a change event.
         Blockly.Events.disable();
         try {
-            this.setFieldValue(paramString == '' ? 'construct with ' : `construct ${paramString}`, 'CONSTRUCTOR');
+            this.setFieldValue(paramString == '' ? Blockly.Msg.CLASS_DEFINITION_CONSTRUCT : Blockly.Msg.CLASS_DEFINITION_CONSTRUCT_PARAM.replace('%1', paramString), 'CONSTRUCTOR');
         } finally {
             Blockly.Events.enable();
         }
@@ -504,13 +504,13 @@ Blockly.Blocks['method_definition'] = {
     init: function () {
         this.appendStatementInput("METHOD_STATEMENTS")
             .setCheck(null)
-            .appendField("to")
-            .appendField(new Blockly.FieldTextInput("to do something"), "NAME");
+            .appendField(Blockly.Msg.METHOD_DEFINITION_TITLE)
+            .appendField(new Blockly.FieldTextInput(Blockly.Msg.METHOD_DEFINITION_DEFAULT_TEXT), "NAME");
         this.setPreviousStatement(true, ["METHOD_DEFINITION", "CLASS_DEFINITION"]);
         this.setNextStatement(true, "METHOD_DEFINITION");
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.METHOD_DEFINITION_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.METHOD_DEFINITION_HELP_URL);
     },
     onchange: function (event) {
         if (!workspace || this.isInFlyout) {
@@ -524,17 +524,17 @@ Blockly.Blocks['method_definition'] = {
 Blockly.Blocks['member_definition'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("create")
-            .appendField(new Blockly.FieldTextInput("name", DragonDrop.Classes.rename), "NAME");
+            .appendField(Blockly.Msg.MEMBER_DEFINITION_CREATE)
+            .appendField(new Blockly.FieldTextInput(Blockly.Msg.MEMBER_DEFINITION_DEFAULT_TEXT, DragonDrop.Classes.rename), "NAME");
         this.appendValueInput("DEFAULT")
             .setCheck(null)
-            .appendField("with value");
+            .appendField(Blockly.Msg.MEMBER_DEFINITION_WITH_VALUE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.MEMBER_DEFINITION_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MEMBER_DEFINITION_HELP_URL);
     },
     onchange(){
         if (this.isInFlyout) {
@@ -561,11 +561,11 @@ Blockly.Blocks['member_definition'] = {
 Blockly.Blocks['this_reference'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("this");
+            .appendField('this');
         this.setOutput(true, null);
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('Access the calling instance');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.THIS_REFERENCE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.THIS_REFERENCE_HELP_URL);
     }
 };
 
@@ -639,7 +639,7 @@ Blockly.Blocks['get_member_this'] = {
             if (!inClass) {
                 this.setWarningText('This block can only be used inside of a class!');
             } else if (!hasMembers) {
-                this.setWarningText('This block can only be used inside of a class  with members!');
+                this.setWarningText('This block can only be used inside of a class with members!');
             }
         }
     }
@@ -651,8 +651,8 @@ Blockly.Blocks['class_type'] = {
             .appendField("", "NAME");
         this.setOutput(true, "Class");
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.CLASS_TYPE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.CLASS_TYPE_HELP_URL);
     },
     mutationToDom: function () {
         let container = document.createElement('mutation');
@@ -677,16 +677,16 @@ Blockly.Blocks['class_type'] = {
 Blockly.Blocks['get_member_in_class'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("in class instance", 'INSTANCE_NAME');
+            .appendField(Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME.replace('%1', Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME_DEFAULT), 'INSTANCE_NAME');
         this.appendValueInput('INSTANCE')
             .setCheck('Class');
         this.appendDummyInput()
-            .appendField("get value of", 'MEMBER_NAME');
+            .appendField(Blockly.Msg.GET_MEMBER_IN_CLASS_GET_VALUE, 'MEMBER_NAME');
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('Access the calling instance');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.GET_MEMBER_IN_CLASS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_MEMBER_IN_CLASS_HELP_URL);
     },
     mutationToDom: function () {
         let container = document.createElement('mutation');
@@ -701,7 +701,7 @@ Blockly.Blocks['get_member_in_class'] = {
         this.updateMemberName();
     },
     updateClassName: function () {
-        this.getField('INSTANCE_NAME').setText(`in ${this.name} instance`);
+        this.getField('INSTANCE_NAME').setText(Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME.replace('%1', this.name));
     },
     renameClass: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.name)) {
@@ -710,7 +710,7 @@ Blockly.Blocks['get_member_in_class'] = {
         }
     },
     updateMemberName: function () {
-        this.getField('MEMBER_NAME').setText(`get ${this.memberName}`);
+        this.getField('MEMBER_NAME').setText(Blockly.Msg.GET_MEMBER_IN_CLASS_GET_MEMBER_NAME.replace('%1', this.memberName));
     },
     renameMember: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.memberName)) {
@@ -727,14 +727,14 @@ Blockly.Blocks['get_member_in_class'] = {
         let xmlBlock = goog.dom.createDom('block', null, xmlMutation);
         xmlBlock.setAttribute('type', 'set_member_in_class');
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
-        option.text = `create in ${this.name} instance set ${this.memberName}`;
+        option.text = Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_SETTER.replace('%1', this.name).replace('%2', this.memberName);
         options.push(option);
 
         //Add in a quick means to get a this reference
         option = {enabled: true}
         xmlBlock = goog.dom.createDom('block');
         xmlBlock.setAttribute('type', 'this_reference');
-        option.text = 'create "this"';
+        option.text = Blockly.Msg.CLASS_CONTEXT_CREATE_THIS;
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
         options.push(option);
     }
@@ -743,19 +743,19 @@ Blockly.Blocks['get_member_in_class'] = {
 Blockly.Blocks['set_member_in_class'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("in class instance", 'INSTANCE_NAME');
+            .appendField(Blockly.Msg.SET_MEMBER_IN_CLASS_IN_INSTANCE.replace('%1', Blockly.Msg.SET_MEMBER_IN_CLASS_INSTANCE_DEFAULT), 'INSTANCE_NAME');
         this.appendValueInput("INSTANCE")
             .setCheck(null);
         this.appendDummyInput()
-            .appendField("set value of", 'MEMBER_NAME');
+            .appendField(Blockly.Msg.SET_MEMBER_IN_CLASS_MEMBER_NAME_DEFUALT, 'MEMBER_NAME');
         this.appendValueInput("VALUE")
             .setCheck(null);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('Access the calling instance');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SET_MEMBER_IN_CLASS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_MEMBER_IN_CLASS_HELP_URL);
     },
     mutationToDom: function () {
         let container = document.createElement('mutation');
@@ -766,11 +766,11 @@ Blockly.Blocks['set_member_in_class'] = {
     domToMutation: function (xmlElement) {
         this.name = xmlElement.getAttribute('name');
         this.memberName = xmlElement.getAttribute('member_name');
-        this.getField('INSTANCE_NAME').setText(`in ${this.name} instance`);
-        this.getField('MEMBER_NAME').setText(`set ${this.memberName} to`);
+        this.getField('INSTANCE_NAME').setText(Blockly.Msg.SET_MEMBER_IN_CLASS_IN_INSTANCE.replace('%1', this.name));
+        this.getField('MEMBER_NAME').setText(Blockly.Msg.SET_MEMBER_IN_CLASS_SET_MEMBER_NAME.replace('%1', this.memberName));
     },
     updateClassName: function () {
-        this.getField('INSTANCE_NAME').setText(`in ${this.name} instance`);
+        this.getField('INSTANCE_NAME').setText(Blockly.Msg.SET_MEMBER_IN_CLASS_IN_INSTANCE.replace('%1', this.name));
     },
     renameClass: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.name)) {
@@ -779,7 +779,7 @@ Blockly.Blocks['set_member_in_class'] = {
         }
     },
     updateMemberName: function () {
-        this.getField('MEMBER_NAME').setText(`get ${this.memberName}`);
+        this.getField('MEMBER_NAME').setText(Blockly.Msg.SET_MEMBER_IN_CLASS_GET_MEMBER_NAME.replace('%1', this.memberName));
     },
     renameMember: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.memberName)) {
@@ -795,14 +795,14 @@ Blockly.Blocks['set_member_in_class'] = {
         let xmlBlock = goog.dom.createDom('block', null, xmlMutation);
         xmlBlock.setAttribute('type', 'get_member_in_class');
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
-        option.text = `create in ${this.name} instance get ${this.memberName}`;
+        option.text = Blockly.Msg.CLASS_CONTEXT_CREATE_MEMBER_GETTER.replace('%1', this.name).replace('%2', this.memberName);
         options.push(option);
 
         //Add in a quick means to get a this reference
         option = {enabled: true}
         xmlBlock = goog.dom.createDom('block');
         xmlBlock.setAttribute('type', 'this_reference');
-        option.text = 'create "this"';
+        option.text = Blockly.Msg.CLASS_CONTEXT_CREATE_THIS;
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
         options.push(option);
     }
@@ -811,11 +811,11 @@ Blockly.Blocks['set_member_in_class'] = {
 Blockly.Blocks['create_instance_of_class'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("create instance of", "NAME");
+            .appendField(Blockly.Msg.CREATE_INSTANCE_OF_CLASS_DEFAULT, "NAME");
         this.setOutput(true, "Class");
         this.setColour(CLASS_COLOUR);
-        this.setTooltip('create an instance of a class');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.CREATE_INSTANCE_OF_CLASS_HELP_URL);
         this.arguments_ = [];
     },
     /**
@@ -986,7 +986,7 @@ Blockly.Blocks['create_instance_of_class'] = {
 
     domToMutation: function (xmlElement) {
         this.name = xmlElement.getAttribute('name');
-        this.getField('NAME').setText(`create ${this.name} instance`);
+        this.getField('NAME').setText(Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TITLE.replace('%1', this.name));
         let args = [];
         let paramIds = [];
         for (let i = 0, childNode; childNode = xmlElement.childNodes[i]; i++) {
@@ -1000,7 +1000,7 @@ Blockly.Blocks['create_instance_of_class'] = {
     renameClass: function (oldName, legalName) {
         if (Blockly.Names.equals(oldName, this.name)) {
             this.name = legalName;
-            this.getField('NAME').setText(`create ${this.name} instance`);
+            this.getField('NAME').setText(Blockly.Msg.CREATE_INSTANCE_OF_CLASS_TITLE.replace('%1', this.name));
         }
     },
     getConstructorCall: function () {

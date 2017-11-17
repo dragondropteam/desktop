@@ -212,15 +212,15 @@ Blockly.Blocks['variable_set_typed'] = {
     init: function () {
         this.appendValueInput("VALUE")
         //.setCheck("Number")
-            .appendField("set")
+            .appendField(Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1)
             .appendField(new Blockly.FieldDropdown(types), "TYPE")
-            .appendField(new Blockly.FieldVariable("item"), "VAR")
-            .appendField("to");
+            .appendField(new Blockly.FieldVariable(Blockly.Msg.VARIABLE_SET_TYPED_DEFAULT_VAR), "VAR")
+            .appendField(Blockly.Msg.VARIABLE_SET_TYPED_FIELD_2);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip('');
-        this.setHelpUrl('http://www.example.com/');
+        this.setTooltip(Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.VARIABLE_SET_TYPED_HELP_URL);
         this.type_ = 'Number';
         this.cType = 'INTEGER';
         this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;

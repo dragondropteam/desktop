@@ -1035,17 +1035,17 @@ Blockly.Blocks['procedures_return_typed'] = {
 
 Blockly.Blocks['cast_block'] = {
   init: function() {
-    this.appendValueInput("VALUE")
-      .setCheck(null)
-      .appendField("make");
-    this.appendDummyInput()
-      .appendField("a")
-      .appendField(new Blockly.FieldDropdown(functionTypes), "TYPE");
-    this.setInputsInline(true);
-    this.setOutput(true, 'Number');
-    this.setColour(Blockly.Blocks.procedures_typed.HUE);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+      this.appendValueInput("VALUE")
+        .setCheck(null)
+        .appendField(Blockly.Msg.CAST_BLOCK_FIELD_1);
+      this.appendDummyInput()
+        .appendField(Blockly.Msg.CAST_BLOCK_FIELD_2)
+        .appendField(new Blockly.FieldDropdown(functionTypes), "TYPE");
+      this.setInputsInline(true);
+      this.setOutput(true, 'Number');
+      this.setColour(Blockly.Blocks.procedures_typed.HUE);
+      this.setTooltip(Blockly.Msg.CAST_BLOCK_TOOLTIP);
+      this.setHelpUrl(Blockly.Msg.CAST_BLOCK_HELP_URL);
   },
 
   setOutputType: function(varType){

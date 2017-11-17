@@ -2,11 +2,11 @@
 Blockly.Blocks['serial_read'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Serial Read First Byte");
+            .appendField(Blockly.Msg.SERIAL_READ_FIELD_1);
         this.setOutput(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SERIAL_READ_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SERIAL_READ_HELP_URL);
     }
 };
 
@@ -14,12 +14,12 @@ Blockly.Blocks['serial_print_line'] = {
     init: function() {
         this.appendValueInput("OUTPUT")
             .setCheck(null)
-            .appendField("Serial Print Line");
+            .appendField(Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SERIAL_PRINT_LINE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SERIAL_PRINT_LINE_HELP_URL);
     }
 };
 
@@ -27,24 +27,24 @@ Blockly.Blocks['serial_print'] = {
     init: function() {
         this.appendValueInput("OUTPUT")
             .setCheck(null)
-            .appendField("Serial Print");
+            .appendField(Blockly.Msg.SERIAL_PRINT_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SERIAL_PRINT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SERIAL_PRINT_HELP_URL);
     }
 };
 
 Blockly.Blocks['serial_end'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Serial end");
+            .appendField(Blockly.Msg.SERIAL_END_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SERIAL_END_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SERIAL_END_HELP_URL);
     }
 };
 
@@ -52,15 +52,13 @@ Blockly.Blocks['serial_begin'] = {
     init: function() {
         this.appendValueInput("SPEED")
             .setCheck(null)
-            .appendField("Serial Begin at ");
+            .appendField(Blockly.Msg.SERIAL_BEGIN_FIELD_1);
         this.appendDummyInput()
-            .appendField("bits per second (baud)");
+            .appendField(Blockly.Msg.SERIAL_BEGIN_FIELD_2);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SERIAL_BEGIN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SERIAL_BEGIN_HELP_URL);
     }
 };
-
-
