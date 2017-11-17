@@ -18,25 +18,16 @@
 # limitations under the License.
 
 """Extracts messages from .js files into .json files for translation.
-
 Specifically, lines with the following formats are extracted:
-
     /// Here is a description of the following message.
     Blockly.SOME_KEY = 'Some value';
-
 Adjacent "///" lines are concatenated.
-
 There are two output files, each of which is proper JSON.  For each key, the
 file en.json would get an entry of the form:
-
     "Blockly.SOME_KEY", "Some value",
-
 The file qqq.json would get:
-
     "Blockly.SOME_KEY", "Here is a description of the following message.",
-
 Commas would of course be omitted for the final entry of each value.
-
 @author Ellen Spertus (ellen.spertus@gmail.com)
 """
 
@@ -48,7 +39,7 @@ import re
 from common import write_files
 
 
-_INPUT_DEF_PATTERN = re.compile("""Blockly.Msg.(\w*)\s*=\s*'([^']*)';?$""")
+_INPUT_DEF_PATTERN = re.compile("""Blockly.Msg.(\w*)\s*=\s*'(.*)';?\r?$""")
 
 _INPUT_SYN_PATTERN = re.compile(
     """Blockly.Msg.(\w*)\s*=\s*Blockly.Msg.(\w*);""")
@@ -88,7 +79,7 @@ def main():
       if match:
         result = {}
         result['meaning'] = match.group(1)
-        result['source'] = match.group(2)
+        result['source'] = match.group(2).replace("\\'", "'")
         if not description:
           print('Warning: No description for ' + result['meaning'])
         result['description'] = description
@@ -114,7 +105,6 @@ def main():
   if not args.quiet:
     print("Wrote {0} synonym pairs to {1}.".format(
         len(synonyms), synonym_file_name))
-
 
 if __name__ == '__main__':
   main()
