@@ -396,6 +396,7 @@ ipcMain.on('create_new_project', (event, project, type) => {
     } else {
         version = electron.remote.getGlobal('version');
     }
+    // console.log(ProjectInterface);
     let newProject = ProjectInterface.createNewProject(project.name, project.path, version);
 
     if (newProject) {

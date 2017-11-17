@@ -21,9 +21,9 @@ const {BaseProjectManager} = require('../project_types');
 
 class WinkRobotProjectManager extends BaseProjectManager {
     constructor() {
-        super(BUILD_NUMBER, PROJECT_TYPE, `${__dirname}\static`);
+        super(BUILD_NUMBER, PROJECT_TYPE, `${__dirname}/static`);
     }
-    
+
     copyBaseFiles(name, filePath) {
         fs.createFileSync(path.join(filePath, name, `${name}.ino`));
         fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), path.join(filePath, name));
@@ -73,11 +73,11 @@ class WinkRobotProjectManager extends BaseProjectManager {
 
     mutateMenu(menu, project, success, failure, refresh) {
         arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Wink Bot', 'Uploading Program to Wink Bot');
-        arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
+        arduino.addPort(menu, project, success, failure, refresh, this.saveProject);
     }
 }
 
-exports.module = new WinkRobotProjectManager();
+module.exports = new WinkRobotProjectManager();
 
 function completedProject(code, output) {
     if (code === 0) {
