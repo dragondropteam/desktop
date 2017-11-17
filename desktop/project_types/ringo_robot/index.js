@@ -50,7 +50,7 @@ class RingoRobotProjectManager extends BaseProjectManager {
 
     mutateMenu(menu, project, success, failure, refresh) {
         arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Ringo Bot', 'Uploading Program to Ringo Bot');
-        arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
+        arduino.addPort(menu, project, success, failure, refresh, this.saveProject);
     }
 }
 
