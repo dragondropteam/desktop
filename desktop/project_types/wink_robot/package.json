@@ -1,6 +1,6 @@
 {
   "name": "wink_robot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Project Settings for Wink Bots from PlumGeek",
   "main": "index.js",
   "scripts": {

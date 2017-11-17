@@ -109,10 +109,11 @@ exports.removeFromRecentProjects = function(projectPath){
 };
 
 exports.Project = class Project {
-    constructor(name, version) {
+    constructor(name, version, type, meta) {
         this.name = name;
         this.version = version;
-        this.type = 'wink';
+        this.type = type || 'wink';
+        this.meta = meta;
     }
 };
 
