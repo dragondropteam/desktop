@@ -39,7 +39,7 @@ class ArduinoProjectManager extends BaseProjectManager {
 
     mutateMenu(menu, project, success, failure, refresh) {
         arduino.addCoreArduinoMenuOptions(menu, project, completedProject, completedVerify, 'Upload Program to Arduino Board', 'Uploading Program to Arduino Board');
-        arduino.addPort(menu, project, success, failure, refresh, exports.saveProject);
+        arduino.addPort(menu, project, success, failure, refresh, this.saveProject);
 
         let start = true;
         let boards = [];
@@ -53,7 +53,7 @@ class ArduinoProjectManager extends BaseProjectManager {
                 label: board, type: 'radio', checked: checked, click(){
                     global.selectedBoard = Boards[board];
                     project.loadedProject.meta.board = board;
-                    exports.saveProject(project);
+                    this.saveProject(project);
                 }
             });
         }
