@@ -36,13 +36,8 @@ class TextPhaserProjectManager extends BaseProjectManager {
     }
 
     migrate(loadedProject){
-        if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
-            loadedProject.loadedProject.meta = {
-                'version': BUILD_NUMBER
-            };
-            loadedProject.loadedProject.type =  PROJECT_TYPE;
-        }
-        exports.saveProject(loadedProject);
+        this.migrateMetaAndProjectType(loadedProject);
+        this.saveProject(loadedProject);
     }
 
     mutateMenu(menu, project, success, failure, refresh){

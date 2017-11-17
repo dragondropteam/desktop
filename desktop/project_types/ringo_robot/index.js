@@ -38,20 +38,14 @@ class RingoRobotProjectManager extends BaseProjectManager {
     }
 
     migrate(loadedProject) {
-        if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
-            loadedProject.loadedProject.meta = {
-                'version': BUILD_NUMBER,
-                'board': 'Arduino Pro or Pro Mini'
-            };
-            loadedProject.loadedProject.type = 'wink';
-        }
+        this.migrateMetaAndProjectType(loadedProject);
 
         if(loadedProject.getMetaData().version === 1){
             loadedProject.getMetaData().board = 'Arduino Pro or Pro Mini';
             loadedProject.getMetaData().version = 2;
         }
 
-        exports.saveProject(loadedProject);
+        this.saveProject(loadedProject);
     }
 
     mutateMenu(menu, project, success, failure, refresh) {

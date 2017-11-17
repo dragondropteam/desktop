@@ -33,14 +33,7 @@ class ArduinoProjectManager extends BaseProjectManager {
     }
 
     migrate(loadedProject) {
-        if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
-            loadedProject.loadedProject.meta = {
-                'version': BUILD_NUMBER
-            };
-            loadedProject.loadedProject.type = 'arduino';
-            console.log(`Added meta and/or type to ${loadedProject.getName()}`)
-        }
-
+        this.migrateMetaAndProjectType(loadedProject);
         this.saveProject(loadedProject);
     }
 
