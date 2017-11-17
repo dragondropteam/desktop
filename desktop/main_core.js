@@ -16,7 +16,6 @@ const packageJSON = require('./package.json');
 global.version = packageJSON.version;
 
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-const menu = require('./menu');
 const Menu = electron.Menu;
 
 const path = require('path');
