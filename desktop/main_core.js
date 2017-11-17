@@ -16,7 +16,6 @@ const packageJSON = require('./package.json');
 global.version = packageJSON.version;
 
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-const menu = require('./menu');
 const Menu = electron.Menu;
 
 const path = require('path');
@@ -239,23 +238,28 @@ function createProjectMenu(arg) {
                 return;
             }
 
+            const pathmod = require('path');
             const path = dialog.showSaveDialog({
                 options: {
                     title: "Create Project",
-                    defaultPath: app.getPath("home")
+                    defaultPath: pathmod.join(app.getPath("documents"), 'DragonDropProjects')
                 }
             });
 
             if (!path) {
                 return;
             }
-            const pathmod = require('path');
-            let project = ProjectInterface.createProjectDir(pathmod.basename(path), path);
+            let version;
+            if (!electron.remote) {
+                version = global.version;
+            } else {
+                version = electron.remote.getGlobal('version');
+            }
 
+            let project =  ProjectInterface.createNewProject(pathmod.basename(path), path, version);
             if (project === null) {
                 return;
             }
-
 
             if (fs.existsSync(loadedproject.getBlocksPath())) {
                 fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
@@ -295,6 +299,8 @@ function createProjectMenu(arg) {
                     }
                 });
             }
+
+            loadProjectFromPath(project.getProjectPath());
         }
     });
 
@@ -383,7 +389,15 @@ ipcMain.on('create_new_project', (event, project, type) => {
     ProjectInterface = require(projectTypes.getRequirePath(type));
     //TODO: Most likely want to make this into a try catch block to give back more
     //information about the cause of the issue.
-    let newProject = ProjectInterface.createProjectDir(project.name, project.path);
+    // let newProject = ProjectInterface.createProjectDir(project.name, project.path);
+    let version;
+    if (!electron.remote) {
+        version = global.version;
+    } else {
+        version = electron.remote.getGlobal('version');
+    }
+    // console.log(ProjectInterface);
+    let newProject = ProjectInterface.createNewProject(project.name, project.path, version);
 
     if (newProject) {
         displayProject(newProject);
