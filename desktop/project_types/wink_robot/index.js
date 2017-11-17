@@ -13,14 +13,9 @@ const BUILD_NUMBER = 3;
 const PROJECT_TYPE = 'wink';
 const fs = require('fs-extra');
 const path = require('path');
-const {Project} = require('project');
-const {LoadedProject} = require('project');
-
 const filesystem = require(`filesystem`);
 const arduino = require('../../arduino_core/arduino_core');
 const electron = require('electron');
-const {ipcMain} = require('electron');
-const {dialog} = require('electron');
 const {BrowserWindow} = require('electron');
 const {BaseProjectManager} = require('../project_types');
 
@@ -28,8 +23,7 @@ class WinkRobotProjectManager extends BaseProjectManager {
     constructor() {
         super(BUILD_NUMBER, PROJECT_TYPE, `${__dirname}\static`);
     }
-
-
+    
     copyBaseFiles(name, filePath) {
         fs.createFileSync(path.join(filePath, name, `${name}.ino`));
         fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), path.join(filePath, name));

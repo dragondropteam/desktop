@@ -239,23 +239,28 @@ function createProjectMenu(arg) {
                 return;
             }
 
+            const pathmod = require('path');
             const path = dialog.showSaveDialog({
                 options: {
                     title: "Create Project",
-                    defaultPath: app.getPath("home")
+                    defaultPath: pathmod.join(app.getPath("documents"), 'DragonDropProjects')
                 }
             });
 
             if (!path) {
                 return;
             }
-            const pathmod = require('path');
-            let project = ProjectInterface.createProjectDir(pathmod.basename(path), path);
+            let version;
+            if (!electron.remote) {
+                version = global.version;
+            } else {
+                version = electron.remote.getGlobal('version');
+            }
 
+            let project =  ProjectInterface.createNewProject(pathmod.basename(path), path, version);
             if (project === null) {
                 return;
             }
-
 
             if (fs.existsSync(loadedproject.getBlocksPath())) {
                 fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
@@ -295,6 +300,8 @@ function createProjectMenu(arg) {
                     }
                 });
             }
+
+            loadProjectFromPath(project.getProjectPath());
         }
     });
 
