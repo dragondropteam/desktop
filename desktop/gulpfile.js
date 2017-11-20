@@ -25,10 +25,10 @@ gulp.task('clean', () => {
  * Install dependencies, in most cases we will really need to update
  * or something else as npm install is a prereq to running this project
  */
-gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace'], () => {
-    return gulp.src('package.json')
-        .pipe(install());
-});
+// gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace'], () => {
+//     return gulp.src('package.json')
+//         .pipe(install());
+// });
 
 gulp.task('mainProcess', ['blocklyBuild'], () => {
     return gulp.src('*.js')
@@ -41,7 +41,7 @@ gulp.task('mainProcess', ['blocklyBuild'], () => {
  * Automatically uses package.json in cwd and the current platform
  */
 
-gulp.task('buildCurrentPlatform', ['install'], () => {
+gulp.task('buildCurrentPlatform', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace'], () => {
     return builder.build();
 });
 
