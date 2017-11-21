@@ -73,8 +73,8 @@ function createDropDownField(write, readOnly) {
 }
 
 //curried customContextMenu callback to pass more variables
-function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY', newObject='OBJECT', newProperty='PROPERTY') {
-    return function(options) {
+function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROPERTY', newObject = 'OBJECT', newProperty = 'PROPERTY') {
+    return function (options) {
         //create custom context menu option
         var option = {enabled: true};
         //copy over the property this setter was modifying
@@ -99,7 +99,7 @@ function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY
         //type specific actions
         var varType = '';
         var xmlSetterShadow = null;
-        if(this.type.includes('point')) {
+        if (this.type.includes('point')) {
             varType = 'point';
             //define setter shadow for point block
             var xmlPointShadow = createPointShadowDom();
@@ -119,7 +119,7 @@ function getSetContextMenu(newBlock, origObject='OBJECT', origProperty='PROPERTY
         }
         //getter/setter specific actions
         var getSet = '';
-        if(this.type.includes('get_')) {
+        if (this.type.includes('get_')) {
             getSet = 'set'; //creating the opposite
             option.text = "Create Setter";
             //extra shadow needed for input on setters
@@ -1939,6 +1939,32 @@ Blockly.Blocks['collide_with_arrow_function'] = {
         this.setNextStatement(true, null);
     }
 };
+
+Blockly.Blocks['collide_function_field'] = {
+    init: function () {
+        this.appendValueInput("OBJECTA")
+            .setCheck(null)
+            .appendField("collide");
+        this.appendValueInput("OBJECTB")
+            .setCheck(null)
+            .appendField("with");
+        this.appendDummyInput()
+            .appendField("calling")
+            .appendField(new Blockly.FieldProcedure("onCollide"), "NAME")
+            .appendField("if overlapping");
+        this.setInputsInline(true);
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+        this.setTooltip("Collide two objects, if they are collide do the statements in the block");
+        this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    },
+    renameProcedure: function (oldName, legalName) {
+        if (this.getFieldValue('NAME') == oldName) {
+            this.setFieldValue(legalName, 'NAME');
+        }
+    }
+};
 //endregion
 
 //region BODY
@@ -2184,6 +2210,21 @@ Blockly.Blocks['collide_vi'] = {
     }
 };
 
+// Blockly.Blocks['collide_vi_functionfield'] = {
+//     init: function () {
+//         this.appendValueInput('LHS')
+//             .appendField("collide");
+//         this.appendValueInput('RHS')
+//             .appendField("with");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setTooltip('Collide the first group/object with the second group/object');
+//         this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#collide');
+//         this.setInputsInline(true);
+//         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+//     }
+// };
+
 /**
  * @deprecated
  * @type {{init: Blockly.Blocks.is_body_touching.init}}
@@ -2269,6 +2310,29 @@ Blockly.Blocks['check_overlap_vi'] = {
         this.setTooltip(Blockly.Msg.CHECK_OVERLAP_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.CHECK_OVERLAP_VI_HELP_URL);
         this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    }
+};
+
+Blockly.Blocks['check_overlap_vi_procedure_field'] = {
+    init: function () {
+        this.appendValueInput('LHS')
+            .appendField("check overlap between");
+        this.appendValueInput('RHS')
+            .appendField("and");
+        this.appendDummyInput()
+            .appendField("calling")
+            .appendField(new Blockly.FieldProcedure("onCollide"), "NAME")
+            .appendField("if overlapping");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip('Checks for an overlap between objectA and objectB.');
+        this.setHelpUrl('https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap');
+        this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    },
+    renameProcedure: function (oldName, legalName) {
+        if (this.getFieldValue('NAME') == oldName) {
+            this.setFieldValue(legalName, 'NAME');
+        }
     }
 };
 
@@ -2597,7 +2661,7 @@ const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITA
 //helpers
 //creates the DOM for a shadow math_number block
 function createNumShadowDom(value) {
-    if(value == null)
+    if (value == null)
         value = 0;
     var xmlField = goog.dom.createDom('field', null, String(value));
     xmlField.setAttribute('name', 'NUM');
@@ -4665,28 +4729,28 @@ Blockly.Blocks['list_shuffle'] = {
 
 //region RANDOMISATION
 /*
-Blockly.Blocks['create_random_generator'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("create random number generator");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
+ Blockly.Blocks['create_random_generator'] = {
+ init: function() {
+ this.appendDummyInput()
+ .appendField("create random number generator");
+ this.setInputsInline(true);
+ this.setOutput(true, null);
+ this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Creates an object you can use to make random numbers.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
-  }
-};
+ }
+ };
 
-Blockly.Blocks['create_random_generator_seeded'] = {
-  init: function() {
-    this.appendValueInput("SEED")
-        .appendField("create random number generator with seed")
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
+ Blockly.Blocks['create_random_generator_seeded'] = {
+ init: function() {
+ this.appendValueInput("SEED")
+ .appendField("create random number generator with seed")
+ this.setOutput(true, null);
+ this.setColour(PHASER_RANDOM_COLOUR);
  this.setTooltip("Creates a random number generator. Using a seed produces predictable results.");
  this.setHelpUrl("https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#RandomDataGenerator");
-  }
-};*/
+ }
+ };*/
 
 Blockly.Blocks['random_angle'] = {
   init: function() {

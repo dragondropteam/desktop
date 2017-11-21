@@ -545,6 +545,18 @@ Blockly.Workspace.prototype.getVariableTypeExcludeId = function(name, id) {
 
   return 'INTEGER';
 };
+
+Blockly.Workspace.prototype.getAllProcedures = function(){
+    let blocks = this.getAllBlocks();
+    let procedureNames = [];
+    for(let block of blocks){
+        if(block.type == 'procedures_defnoreturn' || block.type == 'procedures_defreturn'
+            || block.type == 'procedures_defreturn_typed' || block.type == 'procedures_defnoreturn_typed'){
+            procedureNames.push(block.getFieldValue('NAME'));
+        }
+    }
+    return procedureNames;
+};
 /**
  * End Changes
  */
