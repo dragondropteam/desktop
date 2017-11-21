@@ -311,7 +311,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
         }
         var xmlBlock = goog.dom.createDom('block', null, xmlMutation);
         xmlBlock.setAttribute('type', this.callType_);
-        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+        option.callback =  Blockly.ContextMenu.callbackFactory(this, xmlBlock);
         options.push(option);
 
         // Add options to create getters for each parameter.
