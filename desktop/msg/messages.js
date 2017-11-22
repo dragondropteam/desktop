@@ -5057,3 +5057,93 @@ Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TO = 'to';
 Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP = 'Write to one of the game time\'s numeric fields.';
 /// url - Phaser documentation for game.time.
 Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Time.html';
+/// block text - Creates a new timer object
+Blockly.Msg.CREATE_TIMER_TITLE = 'create new timer';
+/// block text - True if the object should destroy itself after all events have been dispatched barring looping events
+Blockly.Msg.AUTO_DESTROY = 'auto destroy';
+/// url - Phaser documentation for Timer
+Blockly.Msg.CREATE_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#Timer';
+/// tooltip - create a new timer
+Blockly.Msg.CREATE_TIMER_TOOLTIP = 'Create a new timer, if auto destroy is true this timer will be destoryed after all events are dispatched';
+/// block text - Half a second
+Blockly.Msg.HALF = 'half a second';
+/// block text - One minute
+Blockly.Msg.MINUTE = 'one minute';
+/// block text - Quarter of a second
+Blockly.Msg.QUARTER = 'quarter of a second';
+/// block text - one second
+Blockly.Msg.SECOND = 'one second';
+/// block text - Modifier to show constants are in milliseconds
+Blockly.Msg.IN_MILLISECONDS = 'in milliseconds';
+/// block text - prefix for start_timer block
+Blockly.Msg.START_TIMER = 'start timer';
+/// block text - in
+Blockly.Msg.IN = 'in';
+/// block text - every
+Blockly.Msg.EVERY = 'every';
+/// block text - suffix for start_timer block
+Blockly.Msg.MILLISECONDS = 'milliseconds';
+/// block text - timer
+Blockly.Msg.TIMER = 'timer';
+/// block text - adding an event to a timer
+Blockly.Msg.TIMER_ADD_EVENT = 'add event to timer';
+/// block text - calling a procedure or method
+Blockly.Msg.CALL = 'call';
+/// tooltip - Specify that the constants are in milliseconds and are for common values
+Blockly.Msg.TIMER_CONSTANTS_TOOLTIP = 'Constants for some common values in milliseconds';
+/// tooltip - Start the timer
+Blockly.Msg.START_TIMER_TOOLTIP = 'Start timer after a given delay in milliseconds';
+/// url - Phaser documentation for Timer.start
+Blockly.Msg.START_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#start';
+/// tooltip - Clarify this delay
+Blockly.Msg.TIMER_ADD_EVENT_TOOLTIP = 'Fire the event after the specified delay after the start of the timer';
+/// url - Phaser documentation for Timer.add
+Blockly.Msg.TIMER_ADD_EVENT_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#add';
+/// block text - Destroy the timer taking all events with it
+Blockly.Msg.DESTROY_TIMER = 'destroy timer';
+/// tooltip - destroys the timer
+Blockly.Msg.DESTROY_TIMER_TOOLTIP = 'destroys the timer andy pending events are not dispatched';
+/// url - Phaser documentation for Timer.Destroy
+Blockly.Msg.DESTROY_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#destroy';
+/// block text - Loop an event a given number of times
+Blockly.Msg.TIMER_LOOP_EVENT = 'loop event on timer';
+/// tooltip - loop an event repeat times
+Blockly.Msg.TIMER_LOOP_EVENT_TOOLTIP = 'Loops the given event forever or until the timer is stopped or destroyed';
+/// url - Phaser documentation for
+Blockly.Msg.TIMER_LOOP_EVENT_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#loop';
+/// block text - Loop an event a given number of times
+Blockly.Msg.TIMER_REPEAT_EVENT = 'repeat event on timer';
+/// block text - repeat count
+Blockly.Msg.TIMER_REPEAT_EVENT_COUNT = 'times';
+/// tooltip - loop an event repeat times
+Blockly.Msg.TIMER_REPEAT_EVENT_TOOLTIP = 'Loops the given event forever or until the timer is stopped or destroyed';
+/// url - Phaser documentation for
+Blockly.Msg.TIMER_REPEAT_EVENT_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#loop';
+/// block text - Pause a running timer
+Blockly.Msg.PAUSE_TIMER = 'pause timer';
+/// tooltip - Pauses all events in the queue
+Blockly.Msg.PAUSE_TIMER_TOOLTIP = 'Pauses the timer and all events in the queue';
+/// url - Documentation for Phaser.
+Blockly.Msg.PAUSE_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#pause';
+/// block text - Resume a paused timer
+Blockly.Msg.RESUME_TIMER = 'resume timer';
+/// tooltip - Resumes all events in the queue
+Blockly.Msg.RESUME_TIMER_TOOLTIP = 'Resumes the timer and all events in the queue';
+/// url - Documentation for Timer.resume
+Blockly.Msg.RESUME_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#resume';
+/// block text - Stop a paused timer
+Blockly.Msg.STOP_TIMER = 'stop timer';
+/// tooltip - Resumes all events in the queue
+Blockly.Msg.STOP_TIMER_TOOLTIP = 'Stops the timer and all events in the queue, if auto destroy is true this will not cause it to be destroyed';
+/// url - Documentation for Timer.Stop
+Blockly.Msg.STOP_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#stop';
+/// block text - Stops a timer, does not destroy
+Blockly.Msg.STOP_TIMER_CLEAR_EVENTS = 'clear events';
+/// block text - Called when a timer completes all events in its queue
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK = 'when timer';
+/// block text - follows the user specified timer to read a bit more like english then code
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_COMPLETED = 'completes call';
+/// tooltip - This method is not always called explain a few of those conditions
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_TOOLTIP = 'Called when the timer completes all of the actions in its queue. This will not be called if the timer is stopped or destroyed before it completes its queue.'
+/// url - Timer.onComplete
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#onComplete';
