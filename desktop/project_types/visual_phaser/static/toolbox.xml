@@ -365,6 +365,96 @@
                     </value>
                 </block>
                 <block type="get_time_numeric_member"/>
+                <block type="create_timer"/>
+                <block type="time_constants"/>
+                <block type="start_timer">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_add_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_loop_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_repeat_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT_COUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_destroy">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_pause">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_resume">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_stop">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_set_on_complete_callback">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
         </category>
         <category name="Objects" colour="#004d40">

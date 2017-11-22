@@ -27,6 +27,7 @@ function setMember(block) {
     const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     return `${object}.${element} = ${value};\n`;
 }
+
 //endregion
 //region STARTUP
 Blockly.JavaScript['phaser_simple_init'] = function (block) {
@@ -1665,109 +1666,176 @@ Blockly.JavaScript['camera_unfollow'] = function (block) {
 //endregion
 
 //region LIST.METHODS
-Blockly.JavaScript['list_find_closest'] = function(block) {
-  const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
-  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`Phaser.ArrayUtils.findClosest(${value}, ${array})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['list_find_closest'] = function (block) {
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.ArrayUtils.findClosest(${value}, ${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['list_get_random'] = function(block) {
-  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`Phaser.ArrayUtils.getRandomItem(${array})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['list_get_random'] = function (block) {
+    const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.ArrayUtils.getRandomItem(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['number_list'] = function(block) {
-  const start = Blockly.JavaScript.valueToCode(block, 'START', Blockly.JavaScript.ORDER_ATOMIC);
-  const end = Blockly.JavaScript.valueToCode(block, 'END', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`Phaser.ArrayUtils.numberArray(${start}, ${end})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['number_list'] = function (block) {
+    const start = Blockly.JavaScript.valueToCode(block, 'START', Blockly.JavaScript.ORDER_ATOMIC);
+    const end = Blockly.JavaScript.valueToCode(block, 'END', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.ArrayUtils.numberArray(${start}, ${end})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['number_list_step'] = function(block) {
-  const start = Blockly.JavaScript.valueToCode(block, 'START', Blockly.JavaScript.ORDER_ATOMIC);
-  const end = Blockly.JavaScript.valueToCode(block, 'END', Blockly.JavaScript.ORDER_ATOMIC);
-  const step = Blockly.JavaScript.valueToCode(block, 'STEP', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`Phaser.ArrayUtils.numberArrayStep(${start}, ${end}, ${step})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['number_list_step'] = function (block) {
+    const start = Blockly.JavaScript.valueToCode(block, 'START', Blockly.JavaScript.ORDER_ATOMIC);
+    const end = Blockly.JavaScript.valueToCode(block, 'END', Blockly.JavaScript.ORDER_ATOMIC);
+    const step = Blockly.JavaScript.valueToCode(block, 'STEP', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.ArrayUtils.numberArrayStep(${start}, ${end}, ${step})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['list_remove_random_item'] = function(block) {
-  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`Phaser.ArrayUtils.removeRandomItem(${array})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['list_remove_random_item'] = function (block) {
+    const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`Phaser.ArrayUtils.removeRandomItem(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['list_shuffle'] = function(block) {
-  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  return `Phaser.ArrayUtils.shuffle(${array});\n`;
+Blockly.JavaScript['list_shuffle'] = function (block) {
+    const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+    return `Phaser.ArrayUtils.shuffle(${array});\n`;
 };
 //endregion
 
 //region RANDOMISATION
-Blockly.JavaScript['create_random_generator'] = function(block) {
-  return [`new Phaser.RandomDataGenerator([new Date().getTime()])`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['create_random_generator'] = function (block) {
+    return [`new Phaser.RandomDataGenerator([new Date().getTime()])`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['create_random_generator_seeded'] = function(block) {
-  const seed = Blockly.JavaScript.valueToCode(block, 'SEED', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`new Phaser.RandomDataGenerator(${seed})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['create_random_generator_seeded'] = function (block) {
+    const seed = Blockly.JavaScript.valueToCode(block, 'SEED', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`new Phaser.RandomDataGenerator(${seed})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['random_angle'] = function(block) {
-  return [`game.rnd.angle()`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['random_angle'] = function (block) {
+    return [`game.rnd.angle()`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['random_pick'] = function(block) {
-  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`game.rnd.pick(${array})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['random_pick'] = function (block) {
+    const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.rnd.pick(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['random_pick_weighted'] = function(block) {
-  const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`game.rnd.weightedPick(${array})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['random_pick_weighted'] = function (block) {
+    const array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.rnd.weightedPick(${array})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['random_real'] = function(block) {
-  return [`game.rnd.real()`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['random_real'] = function (block) {
+    return [`game.rnd.real()`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['random_real_in_range'] = function(block) {
-  const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
-  const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`game.rnd.realInRange(${min}, ${max})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['random_real_in_range'] = function (block) {
+    const min = Blockly.JavaScript.valueToCode(block, 'MIN', Blockly.JavaScript.ORDER_ATOMIC);
+    const max = Blockly.JavaScript.valueToCode(block, 'MAX', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.rnd.realInRange(${min}, ${max})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['random_sign'] = function(block) {
-  return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['random_sign'] = function (block) {
+    return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
 
 //region MATH
-Blockly.JavaScript['math_deg_to_rad'] = function(block) {
-  const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`game.math.degToRad(${degrees})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['math_deg_to_rad'] = function (block) {
+    const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.math.degToRad(${degrees})`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['math_rad_to_deg'] = function(block) {
-  const radians = Blockly.JavaScript.valueToCode(block, 'RADIANS', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`game.math.radToDeg(${radians})`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['math_rad_to_deg'] = function (block) {
+    const radians = Blockly.JavaScript.valueToCode(block, 'RADIANS', Blockly.JavaScript.ORDER_ATOMIC);
+    return [`game.math.radToDeg(${radians})`, Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
 
 //region TIME
-Blockly.JavaScript['get_time_numeric_member'] = function(block) {
-  const property = block.getFieldValue('PROPERTY');
-  return [`game.time.${property}`, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['get_time_numeric_member'] = function (block) {
+    const property = block.getFieldValue('PROPERTY');
+    return [`game.time.${property}`, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['set_time_numeric_member'] = function(block) {
-  const property = block.getFieldValue('PROPERTY');
-  const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
-  return `game.time.${property} = ${value};\n`;
+Blockly.JavaScript['set_time_numeric_member'] = function (block) {
+    const property = block.getFieldValue('PROPERTY');
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.time.${property} = ${value};\n`;
 };
 
-Blockly.JavaScript['delta_time_seconds'] = function(block) {
-  return [`game.time.physicsElapsed`, Blockly.JavaScript.ORDER_ATOMIC];
+Blockly.JavaScript['delta_time_seconds'] = function (block) {
+    return [`game.time.physicsElapsed`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.JavaScript['delta_time_milliseconds'] = function(block) {
-  return [`game.time.physicsElapsedMS`, Blockly.JavaScript.ORDER_ATOMIC];
+Blockly.JavaScript['delta_time_milliseconds'] = function (block) {
+    return [`game.time.physicsElapsedMS`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+//endregion
+
+//region TIMER
+Blockly.JavaScript['create_timer'] = function (block) {
+    const autoDestroy = block.getFieldValue('AUTO_DESTROY') === 'TRUE';
+    return [`game.time.create(${autoDestroy})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['time_constants'] = function (block) {
+    const constant = block.getFieldValue('VALUE');
+    return [`${constant}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['start_timer'] = function (block) {
+    const delay = Blockly.JavaScript.valueToCode(block, 'DELAY', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${timer}.start(${delay});\n`;
+};
+
+Blockly.JavaScript['timer_add_event'] = function (block) {
+    const delay = Blockly.JavaScript.valueToCode(block, 'DELAY', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    const callback = block.getFieldValue('CALLBACK');
+    return `${timer}.add(${delay}, ${callback});\n`;
+};
+
+Blockly.JavaScript['timer_loop_event'] = function (block) {
+    const delay = Blockly.JavaScript.valueToCode(block, 'DELAY', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    const callback = block.getFieldValue('CALLBACK');
+    return `${timer}.loop(${delay}, ${callback});\n`;
+};
+
+Blockly.JavaScript['timer_repeat_event'] = function (block) {
+    const delay = Blockly.JavaScript.valueToCode(block, 'DELAY', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const repeatCount = Blockly.JavaScript.valueToCode(block, 'REPEAT_COUNT', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    const callback = block.getFieldValue('CALLBACK');
+    return `${timer}.repeat(${delay}, ${repeatCount}, ${callback});\n`;
+};
+
+Blockly.JavaScript['timer_destroy'] = function (block) {
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${timer}.destroy();\n`;
+};
+
+Blockly.JavaScript['timer_pause'] = function (block) {
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${timer}.pause();\n`;
+};
+
+Blockly.JavaScript['timer_resume'] = function (block) {
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${timer}.resume();\n`;
+};
+
+Blockly.JavaScript['timer_stop'] = function (block) {
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    const clearEvents = block.getFieldValue('CLEAR_EVENTS');
+    return `${timer}.stop(${clearEvents});\n`;
+};
+
+Blockly.JavaScript['timer_set_on_complete_callback'] = function (block) {
+    const timer = Blockly.JavaScript.valueToCode(block, 'TIMER', Blockly.JavaScript.ORDER_ATOMIC);
+    const callback = block.getFieldValue('CALLBACK');
+    return `${timer}.onComplete.add(${callback});\n`;
 };
 //endregion

@@ -4892,7 +4892,7 @@ Blockly.Blocks['set_time_numeric_member'] = {
   },
   customContextMenu: getSetContextMenu('get_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
 };
-//endegion
+//endregion
 
 Blockly.Blocks['delta_time_seconds'] = {
   init: function() {
@@ -4915,4 +4915,197 @@ Blockly.Blocks['delta_time_milliseconds'] = {
  this.setHelpUrl(Blockly.Msg.DELTA_TIME_MILLISECONDS_HELP_URL);
   }
 };
-//endegion
+//endregion
+
+
+//region TIMER
+
+Blockly.Blocks['create_timer'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(`${Blockly.Msg.CREATE_TIMER_TITLE} ${Blockly.Msg.AUTO_DESTROY}`)
+            .appendField(new Blockly.FieldCheckbox('FALSE'), 'AUTO_DESTROY');
+        this.setOutput(true, 'Timer');
+        this.setInputsInline(true);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.CREATE_TIMER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.CREATE_TIMER_URL);
+    }
+};
+
+Blockly.Blocks['time_constants'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([
+                [Blockly.Msg.QUARTER, 'Phaser.Timer.QUARTER'],
+                [Blockly.Msg.HALF, 'Phaser.Timer.HALF'],
+                [Blockly.Msg.SECOND, 'Phaser.Timer.SECOND'],
+                [Blockly.Msg.MINUTE, 'Phaser.Timer.MINUTE']]), 'VALUE');
+        this.setOutput(true, 'Number');
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.TIMER_CONSTANTS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.CREATE_TIMER_URL);
+
+    }
+};
+
+Blockly.Blocks['start_timer'] = {
+    init: function() {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.START_TIMER)
+            .setCheck('Timer');
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.IN)
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MILLISECONDS);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.START_TIMER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.START_TIMER_URL);
+    }
+};
+
+Blockly.Blocks['timer_add_event'] = {
+  init: function() {
+      this.appendValueInput('TIMER')
+          .appendField(Blockly.Msg.TIMER_ADD_EVENT)
+          .setCheck('Timer');
+      this.appendValueInput('DELAY')
+          .appendField(Blockly.Msg.IN)
+          .setCheck('Number');
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.MILLISECONDS);
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.CALL)
+          .appendField(new Blockly.FieldProcedure('timerCallback'), 'CALLBACK');
+      this.setNextStatement(true);
+      this.setPreviousStatement(true);
+      this.setInputsInline(true);
+      this.setColour(PHASER_TIME_COLOUR);
+      this.setColour(PHASER_TIME_COLOUR);
+      this.setTooltip(Blockly.Msg.TIMER_ADD_EVENT_TOOLTIP);
+      this.setHelpUrl(Blockly.Msg.TIMER_ADD_EVENT_URL);
+  }
+};
+
+Blockly.Blocks['timer_destroy'] = {
+  init: function() {
+      this.appendValueInput('TIMER')
+          .appendField(Blockly.Msg.DESTROY_TIMER)
+          .setCheck('Timer');
+      this.setColour(PHASER_TIME_COLOUR);
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(Blockly.Msg.DESTROY_TIMER_TOOLTIP);
+      this.setHelpUrl(Blockly.Msg.DESTROY_TIMER_URL);
+  }
+};
+
+Blockly.Blocks['timer_pause'] = {
+  init: function() {
+      this.appendValueInput('TIMER')
+          .appendField(Blockly.Msg.PAUSE_TIMER)
+          .setCheck('Timer');
+      this.setColour(PHASER_TIME_COLOUR);
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(Blockly.Msg.PAUSE_TIMER_TOOLTIP);
+      this.setHelpUrl(Blockly.Msg.PAUSE_TIMER_URL);
+  }
+};
+
+Blockly.Blocks['timer_resume'] = {
+  init: function() {
+      this.appendValueInput('TIMER')
+          .appendField(Blockly.Msg.RESUME_TIMER)
+          .setCheck('Timer');
+      this.setColour(PHASER_TIME_COLOUR);
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(Blockly.Msg.RESUME_TIMER_TOOLTIP);
+      this.setHelpUrl(Blockly.Msg.RESUME_TIMER_URL);
+  }
+};
+
+Blockly.Blocks['timer_stop'] = {
+  init: function() {
+      this.appendValueInput('TIMER')
+          .appendField(Blockly.Msg.STOP_TIMER)
+          .setCheck('Timer');
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.STOP_TIMER_CLEAR_EVENTS)
+          .appendField(new Blockly.FieldCheckbox('TRUE'), 'CLEAR_EVENTS');
+      this.setColour(PHASER_TIME_COLOUR);
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(Blockly.Msg.STOP_TIMER_TOOLTIP);
+      this.setHelpUrl(Blockly.Msg.STOP_TIMER_URL);
+  }
+};
+
+Blockly.Blocks['timer_loop_event'] = {
+    init: function() {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.TIMER_LOOP_EVENT)
+            .setCheck('Timer');
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.EVERY)
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MILLISECONDS);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.CALL)
+            .appendField(new Blockly.FieldProcedure('timerCallback'), 'CALLBACK');
+        this.setNextStatement(true);
+        this.setPreviousStatement(true);
+        this.setInputsInline(true);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.TIMER_LOOP_EVENT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TIMER_LOOP_EVENT_URL);
+    }
+};
+
+Blockly.Blocks['timer_repeat_event'] = {
+    init: function() {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.TIMER_REPEAT_EVENT)
+            .setCheck('Timer');
+        this.appendValueInput('REPEAT_COUNT')
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.TIMER_REPEAT_EVENT_COUNT);
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.EVERY)
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MILLISECONDS);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.CALL)
+            .appendField(new Blockly.FieldProcedure('timerCallback'), 'CALLBACK');
+        this.setNextStatement(true);
+        this.setPreviousStatement(true);
+        this.setInputsInline(true);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.TIMER_REPEAT_EVENT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TIMER_REPEAT_EVENT_URL);
+    }
+};
+
+Blockly.Blocks['timer_set_on_complete_callback'] = {
+    init: function() {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK)
+            .setCheck('Timer');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_COMPLETED)
+            .appendField(new Blockly.FieldProcedure('onTimerComplete'), 'CALLBACK');
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_URL);
+    }
+};
+//endregion

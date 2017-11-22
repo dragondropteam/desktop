@@ -25,7 +25,7 @@ Blockly.Blocks['delayms'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(Blockly.Msg.DELAYMS_FIELD_1);
-        this.appendValueInput("MILLISECONDS")
+        this.appendValueInput("IN_MILLISECONDS")
             .setCheck("Number");
         this.appendDummyInput()
             .appendField(Blockly.Msg.DELAYMS_FIELD_2);
