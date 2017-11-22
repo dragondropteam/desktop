@@ -5147,3 +5147,7 @@ Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_COMPLETED = 'completes call';
 Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_TOOLTIP = 'Called when the timer completes all of the actions in its queue. This will not be called if the timer is stopped or destroyed before it completes its queue.'
 /// url - Timer.onComplete
 Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#onComplete';
+/// url - Phaser.Easing prebuilt easing functions
+Blockly.Msg.PHASER_EASING_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Easing.html';
+/// tooltip - Predefined easing functions
+Blockly.Msg.PHASER_EASING_TOOLTIP = 'Prebuilt easing functions you can utilize through out your code';
