@@ -2041,6 +2041,8 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="phaser_easing"/>
+                <block type="phaser_easing_linear"/>
             </category>
             <category name="Random" colour="#ff7043">
                 <!--<block type="create_random_generator"></block>-->
@@ -2051,7 +2053,7 @@
                         </shadow>
                     </value>
                 </block>-->
-                <block type="random_angle"></block>
+                <block type="random_angle"/>
                 <block type="random_pick">
                     <value name="ARRAY">
                         <shadow type="variables_get">
@@ -2081,7 +2083,6 @@
                 </block>
                 <block type="random_sign"></block>
             </category>
-
         </category>
         <category name="Camera" colour="#607d8b">
             <block type="camera_fade">
@@ -2196,16 +2197,16 @@
                 </value>
             </block>
             <!--<block type="play_sound">-->
-                <!--<value name="TAG">-->
-                    <!--<shadow type="text">-->
-                        <!--<field name="TEXT">tag</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
-                <!--<value name="VOLUME">-->
-                    <!--<shadow type="math_number">-->
-                        <!--<field name="NUM">0.67</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
+            <!--<value name="TAG">-->
+            <!--<shadow type="text">-->
+            <!--<field name="TEXT">tag</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
+            <!--<value name="VOLUME">-->
+            <!--<shadow type="math_number">-->
+            <!--<field name="NUM">0.67</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
             <!--</block>-->
             <block type="add_sound">
                 <value name="TAG">
@@ -2354,11 +2355,11 @@
                 </value>
             </block>
             <!--<block type="remove_sound">-->
-                <!--<value name="TAG">-->
-                    <!--<shadow type="text">-->
-                        <!--<field name="TEXT">tag</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
+            <!--<value name="TAG">-->
+            <!--<shadow type="text">-->
+            <!--<field name="TEXT">tag</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
             <!--</block>-->
             <block type="sound_restart">
                 <value name="OBJECT">

@@ -1839,3 +1839,16 @@ Blockly.JavaScript['timer_set_on_complete_callback'] = function (block) {
     return `${timer}.onComplete.add(${callback});\n`;
 };
 //endregion
+
+//region EASING
+Blockly.JavaScript['phaser_easing'] = function (block) {
+    const ease = block.getFieldValue('EASING');
+    const direction = block.getFieldValue('DIRECTION');
+    return [`Phaser.${ease}.${direction}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['phaser_easing_linear'] = function (block) {
+    const ease = block.getFieldValue('EASING');
+    return [`Phaser.Linear.None`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+//endregion

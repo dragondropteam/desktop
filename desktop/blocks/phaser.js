@@ -5109,3 +5109,45 @@ Blockly.Blocks['timer_set_on_complete_callback'] = {
     }
 };
 //endregion
+
+//region EASING
+//Note this block does not translate
+Blockly.Blocks['phaser_easing'] = {
+    init: function(){
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([
+                ['Easing.Back', 'Easing.Back'],
+                ['Easing.Bounce', 'Easing.Bounce'],
+                ['Easing.Circular', 'Easing.Circular'],
+                ['Easing.Cubic', 'Easing.Cubic'],
+                ['Easing.Elastic', 'Easing.Elastic'],
+                ['Easing.Exponential', 'Easing.Exponential'],
+                ['Easing.Quadratic', 'Easing.Quadratic'],
+                ['Easing.Quartic', 'Easing.Quintic'],
+                ['Easing.Sinusoidal', 'Easing.Sinusoidal']
+            ]), 'EASING')
+            .appendField(new Blockly.FieldDropdown([
+                ['In', 'In'],
+                ['Out', 'Out'],
+                ['InOut', 'InOut']
+            ]), 'DIRECTION');
+
+        this.setOutput(true, 'Ease');
+        this.setTooltip(Blockly.Msg.PHASER_EASING_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_EASING_URL);
+        this.setColour(PHASER_MATH_COLOUR);
+    }
+};
+
+Blockly.Blocks['phaser_easing_linear'] = {
+    init: function(){
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage('./static/img/ic_add_circle_outline_black_24px.svg', 24, 24, 'outline'))
+            .appendField('Easing.Linear');
+        this.setOutput(true, 'Ease');
+        this.setTooltip(Blockly.Msg.PHASER_EASING_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_EASING_URL);
+        this.setColour(PHASER_MATH_COLOUR);
+    }
+};
+//endregion
