@@ -51,7 +51,7 @@ const PHASER_UTIL_DEBUG_COLOUR = '#ff6e40';
 const PHASER_UTIL_LIST_COLOUR = '#bf360c';
 const PHASER_RANDOM_COLOUR = '#ff7043';
 const PHASER_MATH_COLOUR = '#ffab91';
-const PHASER_TIME_COLOUR = '#a5d6a7'
+const PHASER_TIME_COLOUR = '#a5d6a7';
 
 //endregion
 
@@ -91,7 +91,7 @@ function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROP
             var xmlVar = goog.dom.createDom('field', null, varName);
             xmlVar.setAttribute('name', 'VAR');
             xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
-            xmlShadow.setAttribute('type', 'variables_get')
+            xmlShadow.setAttribute('type', 'variables_get');
             xmlObject = goog.dom.createDom('value', null, xmlShadow);
             xmlObject.setAttribute('name', newObject);
             //assemble into base getter/setter block
@@ -1267,7 +1267,7 @@ Blockly.Blocks['stop_animation_vi'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_ANIMATION_COLOUR);
-        this.setTooltip(Blockly.Msg.STOP_ANIMATION_VI_TOOLTIP)
+        this.setTooltip(Blockly.Msg.STOP_ANIMATION_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.STOP_ANIMATION_VI_HELP_URL);
     }
 };
@@ -3430,7 +3430,7 @@ Blockly.Blocks['emitters_start'] = {
 Blockly.Blocks['emitters_start_vi'] = {
     init: function () {
         this.appendValueInput('EMITTER')
-            .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_1)
+            .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_1);
         this.appendDummyInput()
             .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_2)
             .appendField(new Blockly.FieldCheckbox('TRUE'), 'EXPLODE');
@@ -4081,7 +4081,7 @@ Blockly.Blocks['points_perpendicular'] = {
 Blockly.Blocks['camera_follow_vi'] = {
     init: function () {
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1)
+            .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -5229,6 +5229,8 @@ Blockly.Blocks['phaser_game_add_tween_to'] = {
         this.setInputsInline(false);
         this.setMutator(new Blockly.Mutator(['tween_mutatorarg']));
         this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_URL);
         this.properties_ = [];
     },
 
@@ -5306,6 +5308,193 @@ Blockly.Blocks['phaser_game_add_tween_to'] = {
             }
         }
         this.updateProperties_();
+    }
+};
+
+Blockly.Blocks['phaser_game_add_tween_from'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_TITLE);
+        this.appendValueInput('TARGET')
+            .appendField(Blockly.Msg.PHASER_TWEEN_TARGET);
+        this.appendValueInput('DURATION')
+            .appendField(Blockly.Msg.PHASER_TWEEN_DURATION)
+            .setCheck('Number');
+        this.appendValueInput('EASE')
+            .appendField(Blockly.Msg.PHASER_TWEEN_EASE)
+            .setCheck('Ease');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_AUTO_START)
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'AUTOSTART');
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.PHASER_TWEEN_DELAY)
+            .setCheck('Number');
+        this.appendValueInput('REPEAT')
+            .appendField(Blockly.Msg.PHASER_TWEEN_REPEAT)
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_YOYO)
+            .appendField(new Blockly.FieldCheckbox('FALSE'), 'YOYO');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_PROPERTIES_HEADER);
+        this.setOutput(true, 'Tween');
+        this.setInputsInline(false);
+        this.setMutator(new Blockly.Mutator(['tween_mutatorarg']));
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_URL);
+        this.properties_ = [];
+    },
+
+    decompose: function (workspace) {
+        const containerBlock = workspace.newBlock('tween_mutatorcontainer');
+        containerBlock.initSvg();
+
+        let connection = containerBlock.getInput('STACK').connection;
+        for (let i = 0; i < this.properties_.length; ++i) {
+            let paramBlock = workspace.newBlock('tween_mutatorarg');
+            paramBlock.initSvg();
+
+            paramBlock.setFieldValue(this.properties_[i], 'NAME');
+            paramBlock.oldLocation = i;
+            connection.connect(paramBlock.previousConnection);
+            connection = paramBlock.nextConnection;
+        }
+
+        return containerBlock;
+    },
+
+    compose: function (containerBlock) {
+        this.properties_ = [];
+        let propertyBlock = containerBlock.getInputTargetBlock('STACK');
+        while (propertyBlock) {
+            this.properties_.push(propertyBlock.getFieldValue('NAME'));
+            propertyBlock = propertyBlock.nextConnection && propertyBlock.nextConnection.targetBlock();
+        }
+
+        this.updateProperties_();
+    },
+
+    updateProperties_: function () {
+        let i;
+        for (i = 0; i < this.properties_.length; ++i) {
+            let field = this.getField('PROPNAME' + i);
+            if (field) {
+                Blockly.Events.disable();
+                try {
+                    field.setValue(this.properties_[i]);
+                } finally {
+                    Blockly.Events.enable();
+                }
+            } else {
+                // Add new input.
+                field = new Blockly.FieldLabel(this.properties_[i]);
+                let input = this.appendValueInput('PROP' + i)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(field, 'PROPNAME' + i);
+                input.init();
+            }
+        }
+
+        while (this.getInput('PROP' + i)) {
+            this.removeInput('PROP' + i);
+            ++i;
+        }
+    },
+
+    mutationToDom: function () {
+        const container = document.createElement('mutation');
+        for (let i = 0; i < this.properties_.length; ++i) {
+            const property = document.createElement('prop');
+            property.setAttribute('name', this.properties_[i]);
+            container.appendChild(property);
+        }
+        return container;
+    },
+
+    domToMutation: function (xmlElement) {
+        this.properties_ = [];
+        for (let i = 0, childNode; childNode = xmlElement.childNodes[i]; ++i) {
+            if (childNode.nodeName.toLowerCase() === 'prop') {
+                this.properties_.push(childNode.getAttribute('name'));
+            }
+        }
+        this.updateProperties_();
+    }
+};
+
+Blockly.Blocks['phaser_stop_tween'] = {
+    init: function () {
+        this.appendValueInput('TWEEN')
+            .appendField(Blockly.Msg.PHASER_STOP_TWEEN)
+            .appendField(Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE)
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'COMPLETE')
+            .setCheck('Tween');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_STOP_TWEEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_STOP_TWEEN_URL);
+    }
+};
+
+Blockly.Blocks['phaser_pause_tween'] = {
+    init: function () {
+        this.appendValueInput('TWEEN')
+            .appendField(Blockly.Msg.PHASER_PAUSE_TWEEN)
+            .setCheck('Tween');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_PAUSE_TWEEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_PAUSE_TWEEN_URL);
+    }
+};
+
+Blockly.Blocks['phaser_start_tween'] = {
+    init: function () {
+        this.appendValueInput('TWEEN')
+            .appendField(Blockly.Msg.PHASER_START_TWEEN)
+            .setCheck('Tween');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_START_TWEEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_START_TWEEN_URL);
+    }
+};
+
+Blockly.Blocks['phaser_resume_tween'] = {
+    init: function () {
+        this.appendValueInput('TWEEN')
+            .appendField(Blockly.Msg.PHASER_RESUME_TWEEN)
+            .setCheck('Tween');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_RESUME_TWEEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_RESUME_TWEEN_URL);
+    }
+};
+
+Blockly.Blocks['phaser_yoyo_tween'] = {
+    init: function () {
+        this.appendValueInput('TWEEN')
+            .appendField(Blockly.Msg.PHASER_YOYO_TWEEN)
+            .appendField(Blockly.Msg.PHASER_TWEEN_YOYO)
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'ENABLE')
+            .setCheck('Tween');
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.PHASER_YOYO_TWEEN_DELAY)
+            .setCheck('Number');
+        this.appendValueInput('INDEX')
+            .appendField(Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX)
+            .setCheck('Number');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_YOYO_TWEEN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PHASER_YOYO_TWEEN_URL);
     }
 };
 //endregion
