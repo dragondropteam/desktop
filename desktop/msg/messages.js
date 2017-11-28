@@ -5151,3 +5151,29 @@ Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_URL = 'https://photonstorm.github.io/
 Blockly.Msg.PHASER_EASING_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Easing.html';
 /// tooltip - Predefined easing functions
 Blockly.Msg.PHASER_EASING_TOOLTIP = 'Prebuilt easing functions you can utilize through out your code';
+/// block text - tween from the current value to a new value
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TITLE = 'add tween to';
+/// block text - target of a tween
+Blockly.Msg.PHASER_TWEEN_TARGET = 'target';
+/// block text - duration of the tween
+Blockly.Msg.PHASER_TWEEN_DURATION = 'duration';
+/// block text - ease to use during tween
+Blockly.Msg.PHASER_TWEEN_EASE = 'ease';
+/// block text - auto start the tween
+Blockly.Msg.PHASER_TWEEN_AUTO_START = 'auto start';
+/// block text - delay to the start of the tween
+Blockly.Msg.PHASER_TWEEN_DELAY = 'delay';
+/// block text - repeat the tween x times
+Blockly.Msg.PHASER_TWEEN_REPEAT = 'repeat';
+/// block text - yoyo the tween
+Blockly.Msg.PHASER_TWEEN_YOYO = 'yoyo';
+/// block text - Container for tween mutator container simply holds on to properties
+Blockly.Msg.PHASER_TWEEN_MUTATORCONTAINER_TITLE = 'properties';
+/// tooltip - A property of the target object you want to tween
+Blockly.Msg.PHASER_TWEEN_MUTATORCONTAINER_TOOLTIP = 'List of properties to tween on the target object';
+/// block text - Arg for a tween mutator, simply the name of the property to use
+Blockly.Msg.PHASER_TWEEN_MUTATORARG_TITLE = 'property';
+/// tooltip - A property of the target object you want to tween
+Blockly.Msg.PHASER_TWEEN_MUTATORARG_TOOLTIP = 'Property to tween on the target object';
+/// block text - Header for properties
+Blockly.Msg.PHASER_TWEEN_PROPERTIES_HEADER = 'properties:';
