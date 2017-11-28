@@ -2043,6 +2043,7 @@
                 </block>
                 <block type="phaser_easing"/>
                 <block type="phaser_easing_linear"/>
+                <block type="phaser_game_add_tween_to"/>
             </category>
             <category name="Random" colour="#ff7043">
                 <!--<block type="create_random_generator"></block>-->

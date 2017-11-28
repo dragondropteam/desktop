@@ -52,6 +52,7 @@ const PHASER_UTIL_LIST_COLOUR = '#bf360c';
 const PHASER_RANDOM_COLOUR = '#ff7043';
 const PHASER_MATH_COLOUR = '#ffab91';
 const PHASER_TIME_COLOUR = '#a5d6a7'
+
 //endregion
 
 
@@ -82,9 +83,9 @@ function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROP
         xmlProperty.setAttribute('name', newProperty);
         var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
         //copy over the variable this setter was acting on
-        if(origObject && newObject) {
+        if (origObject && newObject) {
             var varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
-            if(varName == null)
+            if (varName == null)
                 varName = 'defaultObject';
             //define shadow variable block
             var xmlVar = goog.dom.createDom('field', null, varName);
@@ -1813,19 +1814,19 @@ Blockly.Blocks['group_remove_all'] = {
 };
 
 Blockly.Blocks['add_to_world'] = {
-  init: function() {
-    this.appendValueInput("OBJECT")
-        .setCheck(null)
-        .appendField(Blockly.Msg.ADD_TO_WORLD_FIELD_1);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.ADD_TO_WORLD_FIELD_2);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_GROUPS_COLOUR);
- this.setTooltip(Blockly.Msg.ADD_TO_WORLD_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.ADD_TO_WORLD_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField(Blockly.Msg.ADD_TO_WORLD_FIELD_1);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.ADD_TO_WORLD_FIELD_2);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setTooltip(Blockly.Msg.ADD_TO_WORLD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADD_TO_WORLD_HELP_URL);
+    }
 };
 //endregion
 
@@ -2146,20 +2147,20 @@ Blockly.Blocks['call_function_on_group'] = {
 };
 
 Blockly.Blocks['acceleration_from_rotation'] = { //TODO: add to toolbox(?)
-  init: function() {
-    this.appendValueInput("ROTATION")
-        .setCheck(null)
-        .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_1);
-    this.appendValueInput("SPEED")
-        .setCheck(null)
-        .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_2);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_3);
-    this.setOutput(true, null);
-    this.setColour(PHYSICS_COLOUR);
- this.setTooltip(Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("ROTATION")
+            .setCheck(null)
+            .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_1);
+        this.appendValueInput("SPEED")
+            .setCheck(null)
+            .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_2);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_3);
+        this.setOutput(true, null);
+        this.setColour(PHYSICS_COLOUR);
+        this.setTooltip(Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL);
+    }
 };
 
 Blockly.Blocks['set_immovable'] = {
@@ -2434,7 +2435,7 @@ Blockly.Blocks['get_current_mouse_position'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.GET_CURRENT_MOUSE_POSITION_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_1, 'x'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_2, 'y'],[Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_3, 'worldX'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_4, 'worldY']]), 'DIRECTION');
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_1, 'x'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_2, 'y'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_3, 'worldX'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_4, 'worldY']]), 'DIRECTION');
         this.setColour(PHASER_MOUSE_INPUT);
         this.setTooltip(Blockly.Msg.GET_CURRENT_MOUSE_POSITION_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_CURRENT_MOUSE_POSITION_HELP_URL);
@@ -2632,14 +2633,14 @@ Blockly.Blocks['create_point'] = {
 };
 
 Blockly.Blocks['get_world_reference'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.GET_WORLD_REFERENCE_FIELD_1);
-    this.setOutput(true, null);
-    this.setColour(PHASER_WORLD_COLOUR);
- this.setTooltip(Blockly.Msg.GET_WORLD_REFERENCE_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.GET_WORLD_REFERENCE_HELP_URL);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_WORLD_REFERENCE_FIELD_1);
+        this.setOutput(true, null);
+        this.setColour(PHASER_WORLD_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_WORLD_REFERENCE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_WORLD_REFERENCE_HELP_URL);
+    }
 };
 //endregion
 
@@ -4271,7 +4272,7 @@ Blockly.Blocks['camera_follow_vi_styled'] = {
             .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_1);
         this.appendDummyInput()
             .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_2)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_1,'FOLLOW_LOCKON'],[Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_2, 'FOLLOW_PLATFORMER'],[Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_3, 'FOLLOW_TOPDOWN'],[Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_4, 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_1, 'FOLLOW_LOCKON'], [Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_2, 'FOLLOW_PLATFORMER'], [Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_3, 'FOLLOW_TOPDOWN'], [Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_4, 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -4639,91 +4640,91 @@ Blockly.Blocks['sound_restart'] = {
 
 //region LIST.METHODS
 Blockly.Blocks['list_find_closest'] = {
-  init: function() {
-    this.appendValueInput("VALUE")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.LIST_FIND_CLOSEST_FIELD_1);
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField(Blockly.Msg.LIST_FIND_CLOSEST_FIELD_2);
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip(Blockly.Msg.LIST_FIND_CLOSEST_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.LIST_FIND_CLOSEST_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("VALUE")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.LIST_FIND_CLOSEST_FIELD_1);
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField(Blockly.Msg.LIST_FIND_CLOSEST_FIELD_2);
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip(Blockly.Msg.LIST_FIND_CLOSEST_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LIST_FIND_CLOSEST_HELP_URL);
+    }
 };
 
 Blockly.Blocks['list_get_random'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField(Blockly.Msg.LIST_GET_RANDOM_FIELD_1);
-    this.setOutput(true, null);
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip(Blockly.Msg.LIST_GET_RANDOM_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.LIST_GET_RANDOM_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField(Blockly.Msg.LIST_GET_RANDOM_FIELD_1);
+        this.setOutput(true, null);
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip(Blockly.Msg.LIST_GET_RANDOM_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LIST_GET_RANDOM_HELP_URL);
+    }
 };
 
 Blockly.Blocks['number_list'] = {
-  init: function() {
-    this.appendValueInput("START")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.NUMBER_LIST_FIELD_1);
-    this.appendValueInput("END")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.NUMBER_LIST_FIELD_2);
-    this.setInputsInline(true);
-    this.setOutput(true, "Array");
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip(Blockly.Msg.NUMBER_LIST_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.NUMBER_LIST_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("START")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.NUMBER_LIST_FIELD_1);
+        this.appendValueInput("END")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.NUMBER_LIST_FIELD_2);
+        this.setInputsInline(true);
+        this.setOutput(true, "Array");
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip(Blockly.Msg.NUMBER_LIST_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.NUMBER_LIST_HELP_URL);
+    }
 };
 
 Blockly.Blocks['number_list_step'] = {
-  init: function() {
-    this.appendValueInput("START")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_1);
-    this.appendValueInput("END")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_2);
-    this.appendValueInput("STEP")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_3);
-    this.setInputsInline(true);
-    this.setOutput(true, "Array");
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip(Blockly.Msg.NUMBER_LIST_STEP_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.NUMBER_LIST_STEP_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("START")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_1);
+        this.appendValueInput("END")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_2);
+        this.appendValueInput("STEP")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_3);
+        this.setInputsInline(true);
+        this.setOutput(true, "Array");
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip(Blockly.Msg.NUMBER_LIST_STEP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.NUMBER_LIST_STEP_HELP_URL);
+    }
 };
 
 Blockly.Blocks['list_remove_random_item'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_FIELD_1);
-    this.setOutput(true, null);
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_FIELD_1);
+        this.setOutput(true, null);
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_HELP_URL);
+    }
 };
 
 Blockly.Blocks['list_shuffle'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField(Blockly.Msg.LIST_SHUFFLE_FIELD_1);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_UTIL_LIST_COLOUR);
- this.setTooltip(Blockly.Msg.LIST_SHUFFLE_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.LIST_SHUFFLE_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField(Blockly.Msg.LIST_SHUFFLE_FIELD_1);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_UTIL_LIST_COLOUR);
+        this.setTooltip(Blockly.Msg.LIST_SHUFFLE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LIST_SHUFFLE_HELP_URL);
+    }
 };
 //endregion
 
@@ -4753,106 +4754,106 @@ Blockly.Blocks['list_shuffle'] = {
  };*/
 
 Blockly.Blocks['random_angle'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.RANDOM_ANGLE_FIELD_1);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip(Blockly.Msg.RANDOM_ANGLE_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.RANDOM_ANGLE_HELP_URL);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.RANDOM_ANGLE_FIELD_1);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip(Blockly.Msg.RANDOM_ANGLE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_ANGLE_HELP_URL);
+    }
 };
 
 Blockly.Blocks['random_pick'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField(Blockly.Msg.RANDOM_PICK_FIELD_1);
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip(Blockly.Msg.RANDOM_PICK_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.RANDOM_PICK_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField(Blockly.Msg.RANDOM_PICK_FIELD_1);
+        this.setOutput(true, null);
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip(Blockly.Msg.RANDOM_PICK_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_PICK_HELP_URL);
+    }
 };
 
 Blockly.Blocks['random_pick_weighted'] = {
-  init: function() {
-    this.appendValueInput("ARRAY")
-        .setCheck("Array")
-        .appendField(Blockly.Msg.RANDOM_PICK_WEIGHTED_FIELD_1);
-    this.setOutput(true, null);
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip(Blockly.Msg.RANDOM_PICK_WEIGHTED_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.RANDOM_PICK_WEIGHTED_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField(Blockly.Msg.RANDOM_PICK_WEIGHTED_FIELD_1);
+        this.setOutput(true, null);
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip(Blockly.Msg.RANDOM_PICK_WEIGHTED_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_PICK_WEIGHTED_HELP_URL);
+    }
 };
 
 Blockly.Blocks['random_real'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.RANDOM_REAL_FIELD_1);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip(Blockly.Msg.RANDOM_REAL_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.RANDOM_REAL_HELP_URL);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.RANDOM_REAL_FIELD_1);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip(Blockly.Msg.RANDOM_REAL_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_REAL_HELP_URL);
+    }
 };
 
 Blockly.Blocks['random_real_in_range'] = {
-  init: function() {
-    this.appendValueInput("MIN")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_1);
-    this.appendValueInput("MAX")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_2);
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip(Blockly.Msg.RANDOM_REAL_IN_RANGE_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.RANDOM_REAL_IN_RANGE_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("MIN")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_1);
+        this.appendValueInput("MAX")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_2);
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip(Blockly.Msg.RANDOM_REAL_IN_RANGE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_REAL_IN_RANGE_HELP_URL);
+    }
 };
 
 Blockly.Blocks['random_sign'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.RANDOM_SIGN_FIELD_1);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_RANDOM_COLOUR);
- this.setTooltip(Blockly.Msg.RANDOM_SIGN_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.RANDOM_SIGN_HELP_URL);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.RANDOM_SIGN_FIELD_1);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_RANDOM_COLOUR);
+        this.setTooltip(Blockly.Msg.RANDOM_SIGN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RANDOM_SIGN_HELP_URL);
+    }
 };
 //endregion
 
 //region MATH
 Blockly.Blocks['math_deg_to_rad'] = {
-  init: function() {
-    this.appendValueInput("DEGREES")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.MATH_DEG_TO_RAD_FIELD_1);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.MATH_DEG_TO_RAD_FIELD_2);
-    this.setOutput(true, null);
-    this.setColour(PHASER_MATH_COLOUR);
- this.setTooltip(Blockly.Msg.MATH_DEG_TO_RAD_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.MATH_DEG_TO_RAD_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("DEGREES")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.MATH_DEG_TO_RAD_FIELD_1);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MATH_DEG_TO_RAD_FIELD_2);
+        this.setOutput(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.MATH_DEG_TO_RAD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MATH_DEG_TO_RAD_HELP_URL);
+    }
 };
 
 Blockly.Blocks['math_rad_to_deg'] = {
-  init: function() {
-    this.appendValueInput("RADIANS")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.MATH_RAD_TO_DEG_FIELD_1);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.MATH_RAD_TO_DEG_FIELD_2);
-    this.setOutput(true, null);
-    this.setColour(PHASER_MATH_COLOUR);
- this.setTooltip(Blockly.Msg.MATH_RAD_TO_DEG_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.MATH_RAD_TO_DEG_HELP_URL);
-  }
+    init: function () {
+        this.appendValueInput("RADIANS")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.MATH_RAD_TO_DEG_FIELD_1);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MATH_RAD_TO_DEG_FIELD_2);
+        this.setOutput(true, null);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.MATH_RAD_TO_DEG_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MATH_RAD_TO_DEG_HELP_URL);
+    }
 };
 //endegion
 
@@ -4863,57 +4864,57 @@ const TIME_FIELDS_NUMERIC_RO = ['pauseDuration', 'physicsElapsed', 'physicsElaps
 const TIME_FIELDS_NUMERIC = createDropDownField(TIME_FIELDS_NUMERIC_WRITABLE, TIME_FIELDS_NUMERIC_RO);
 
 Blockly.Blocks['get_time_numeric_member'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TITLE)
-        .appendField(new Blockly.FieldDropdown(TIME_FIELDS_NUMERIC.all), "PROPERTY");
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_TIME_COLOUR);
-    this.setTooltip(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TOOLTIP);
-    this.setHelpUrl(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_HELP_URL);
-  },
-  customContextMenu: getSetContextMenu('set_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TITLE)
+            .appendField(new Blockly.FieldDropdown(TIME_FIELDS_NUMERIC.all), "PROPERTY");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_HELP_URL);
+    },
+    customContextMenu: getSetContextMenu('set_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
 };
 
 Blockly.Blocks['set_time_numeric_member'] = {
-  init: function() {
-    this.appendValueInput("VALUE")
-        .setCheck("Number")
-        .appendField(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TITLE)
-        .appendField(new Blockly.FieldDropdown(TIME_FIELDS_NUMERIC.writable), "PROPERTY")
-        .appendField(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TO);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(PHASER_TIME_COLOUR);
-    this.setTooltip(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP);
-    this.setHelpUrl(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL);
-  },
-  customContextMenu: getSetContextMenu('get_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
+    init: function () {
+        this.appendValueInput("VALUE")
+            .setCheck("Number")
+            .appendField(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TITLE)
+            .appendField(new Blockly.FieldDropdown(TIME_FIELDS_NUMERIC.writable), "PROPERTY")
+            .appendField(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TO);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL);
+    },
+    customContextMenu: getSetContextMenu('get_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
 };
 //endregion
 
 Blockly.Blocks['delta_time_seconds'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.DELTA_TIME_SECONDS_TITLE);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_TIME_COLOUR);
- this.setTooltip(Blockly.Msg.DELTA_TIME_SECONDS_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.DELTA_TIME_SECONDS_HELP_URL);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.DELTA_TIME_SECONDS_TITLE);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.DELTA_TIME_SECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELTA_TIME_SECONDS_HELP_URL);
+    }
 };
 
 Blockly.Blocks['delta_time_milliseconds'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.DELTA_TIME_MILLISECONDS_TITLE);
-    this.setOutput(true, "Number");
-    this.setColour(PHASER_TIME_COLOUR);
- this.setTooltip(Blockly.Msg.DELTA_TIME_MILLISECONDS_TOOLTIP);
- this.setHelpUrl(Blockly.Msg.DELTA_TIME_MILLISECONDS_HELP_URL);
-  }
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.DELTA_TIME_MILLISECONDS_TITLE);
+        this.setOutput(true, "Number");
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.DELTA_TIME_MILLISECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELTA_TIME_MILLISECONDS_HELP_URL);
+    }
 };
 //endregion
 
@@ -4921,7 +4922,7 @@ Blockly.Blocks['delta_time_milliseconds'] = {
 //region TIMER
 
 Blockly.Blocks['create_timer'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(`${Blockly.Msg.CREATE_TIMER_TITLE} ${Blockly.Msg.AUTO_DESTROY}`)
             .appendField(new Blockly.FieldCheckbox('FALSE'), 'AUTO_DESTROY');
@@ -4934,7 +4935,7 @@ Blockly.Blocks['create_timer'] = {
 };
 
 Blockly.Blocks['time_constants'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
                 [Blockly.Msg.QUARTER, 'Phaser.Timer.QUARTER'],
@@ -4950,7 +4951,7 @@ Blockly.Blocks['time_constants'] = {
 };
 
 Blockly.Blocks['start_timer'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput('TIMER')
             .appendField(Blockly.Msg.START_TIMER)
             .setCheck('Timer');
@@ -4968,85 +4969,85 @@ Blockly.Blocks['start_timer'] = {
 };
 
 Blockly.Blocks['timer_add_event'] = {
-  init: function() {
-      this.appendValueInput('TIMER')
-          .appendField(Blockly.Msg.TIMER_ADD_EVENT)
-          .setCheck('Timer');
-      this.appendValueInput('DELAY')
-          .appendField(Blockly.Msg.IN)
-          .setCheck('Number');
-      this.appendDummyInput()
-          .appendField(Blockly.Msg.MILLISECONDS);
-      this.appendDummyInput()
-          .appendField(Blockly.Msg.CALL)
-          .appendField(new Blockly.FieldProcedure('timerCallback'), 'CALLBACK');
-      this.setNextStatement(true);
-      this.setPreviousStatement(true);
-      this.setInputsInline(true);
-      this.setColour(PHASER_TIME_COLOUR);
-      this.setColour(PHASER_TIME_COLOUR);
-      this.setTooltip(Blockly.Msg.TIMER_ADD_EVENT_TOOLTIP);
-      this.setHelpUrl(Blockly.Msg.TIMER_ADD_EVENT_URL);
-  }
+    init: function () {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.TIMER_ADD_EVENT)
+            .setCheck('Timer');
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.IN)
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MILLISECONDS);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.CALL)
+            .appendField(new Blockly.FieldProcedure('timerCallback'), 'CALLBACK');
+        this.setNextStatement(true);
+        this.setPreviousStatement(true);
+        this.setInputsInline(true);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.TIMER_ADD_EVENT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.TIMER_ADD_EVENT_URL);
+    }
 };
 
 Blockly.Blocks['timer_destroy'] = {
-  init: function() {
-      this.appendValueInput('TIMER')
-          .appendField(Blockly.Msg.DESTROY_TIMER)
-          .setCheck('Timer');
-      this.setColour(PHASER_TIME_COLOUR);
-      this.setPreviousStatement(true);
-      this.setNextStatement(true);
-      this.setTooltip(Blockly.Msg.DESTROY_TIMER_TOOLTIP);
-      this.setHelpUrl(Blockly.Msg.DESTROY_TIMER_URL);
-  }
+    init: function () {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.DESTROY_TIMER)
+            .setCheck('Timer');
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.DESTROY_TIMER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DESTROY_TIMER_URL);
+    }
 };
 
 Blockly.Blocks['timer_pause'] = {
-  init: function() {
-      this.appendValueInput('TIMER')
-          .appendField(Blockly.Msg.PAUSE_TIMER)
-          .setCheck('Timer');
-      this.setColour(PHASER_TIME_COLOUR);
-      this.setPreviousStatement(true);
-      this.setNextStatement(true);
-      this.setTooltip(Blockly.Msg.PAUSE_TIMER_TOOLTIP);
-      this.setHelpUrl(Blockly.Msg.PAUSE_TIMER_URL);
-  }
+    init: function () {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.PAUSE_TIMER)
+            .setCheck('Timer');
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.PAUSE_TIMER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.PAUSE_TIMER_URL);
+    }
 };
 
 Blockly.Blocks['timer_resume'] = {
-  init: function() {
-      this.appendValueInput('TIMER')
-          .appendField(Blockly.Msg.RESUME_TIMER)
-          .setCheck('Timer');
-      this.setColour(PHASER_TIME_COLOUR);
-      this.setPreviousStatement(true);
-      this.setNextStatement(true);
-      this.setTooltip(Blockly.Msg.RESUME_TIMER_TOOLTIP);
-      this.setHelpUrl(Blockly.Msg.RESUME_TIMER_URL);
-  }
+    init: function () {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.RESUME_TIMER)
+            .setCheck('Timer');
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.RESUME_TIMER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.RESUME_TIMER_URL);
+    }
 };
 
 Blockly.Blocks['timer_stop'] = {
-  init: function() {
-      this.appendValueInput('TIMER')
-          .appendField(Blockly.Msg.STOP_TIMER)
-          .setCheck('Timer');
-      this.appendDummyInput()
-          .appendField(Blockly.Msg.STOP_TIMER_CLEAR_EVENTS)
-          .appendField(new Blockly.FieldCheckbox('TRUE'), 'CLEAR_EVENTS');
-      this.setColour(PHASER_TIME_COLOUR);
-      this.setPreviousStatement(true);
-      this.setNextStatement(true);
-      this.setTooltip(Blockly.Msg.STOP_TIMER_TOOLTIP);
-      this.setHelpUrl(Blockly.Msg.STOP_TIMER_URL);
-  }
+    init: function () {
+        this.appendValueInput('TIMER')
+            .appendField(Blockly.Msg.STOP_TIMER)
+            .setCheck('Timer');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.STOP_TIMER_CLEAR_EVENTS)
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'CLEAR_EVENTS');
+        this.setColour(PHASER_TIME_COLOUR);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.STOP_TIMER_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.STOP_TIMER_URL);
+    }
 };
 
 Blockly.Blocks['timer_loop_event'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput('TIMER')
             .appendField(Blockly.Msg.TIMER_LOOP_EVENT)
             .setCheck('Timer');
@@ -5068,7 +5069,7 @@ Blockly.Blocks['timer_loop_event'] = {
 };
 
 Blockly.Blocks['timer_repeat_event'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput('TIMER')
             .appendField(Blockly.Msg.TIMER_REPEAT_EVENT)
             .setCheck('Timer');
@@ -5094,7 +5095,7 @@ Blockly.Blocks['timer_repeat_event'] = {
 };
 
 Blockly.Blocks['timer_set_on_complete_callback'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput('TIMER')
             .appendField(Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK)
             .setCheck('Timer');
@@ -5113,7 +5114,7 @@ Blockly.Blocks['timer_set_on_complete_callback'] = {
 //region EASING
 //Note this block does not translate
 Blockly.Blocks['phaser_easing'] = {
-    init: function(){
+    init: function () {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
                 ['Easing.Back', 'Easing.Back'],
@@ -5140,14 +5141,171 @@ Blockly.Blocks['phaser_easing'] = {
 };
 
 Blockly.Blocks['phaser_easing_linear'] = {
-    init: function(){
+    init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage('./static/img/ic_add_circle_outline_black_24px.svg', 24, 24, 'outline'))
             .appendField('Easing.Linear');
         this.setOutput(true, 'Ease');
         this.setTooltip(Blockly.Msg.PHASER_EASING_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.PHASER_EASING_URL);
         this.setColour(PHASER_MATH_COLOUR);
+    }
+};
+//endregion
+
+//region TWEEN
+Blockly.Blocks['tween_mutatorcontainer'] = {
+    /**
+     * Mutator block for procedure container.
+     * @this Blockly.Block
+     */
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_MUTATORCONTAINER_TITLE);
+        this.appendStatementInput('STACK');
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PHASER_TWEEN_MUTATORCONTAINER_TOOLTIP);
+        this.contextMenu = false;
+    }
+};
+
+Blockly.Blocks['tween_mutatorarg'] = {
+    /**
+     * Mutator block for procedure argument.
+     * @this Blockly.Block
+     */
+    init: function () {
+        var field = new Blockly.FieldTextInput('x', this.validator_);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PROCEDURES_MUTATORARG_TITLE)
+            .appendField(field, 'NAME');
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(PHASER_MATH_COLOUR);
+        this.setTooltip(Blockly.Msg.PROCEDURES_MUTATORARG_TOOLTIP);
+        this.contextMenu = false;
+    },
+    /**
+     * Obtain a valid name for the procedure.
+     * Merge runs of whitespace.  Strip leading and trailing whitespace.
+     * Beyond this, all names are legal.
+     * @param {string} newVar User-supplied name.
+     * @return {?string} Valid name, or null if a name was not specified.
+     * @private
+     * @this Blockly.Block
+     */
+    validator_: function (newVar) {
+        newVar = newVar.replace(/[\s\xa0]+/g, ' ').replace(/^ | $/g, '');
+        return newVar || null;
+    },
+};
+
+Blockly.Blocks['phaser_game_add_tween_to'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TITLE);
+        this.appendValueInput('TARGET')
+            .appendField(Blockly.Msg.PHASER_TWEEN_TARGET);
+        this.appendValueInput('DURATION')
+            .appendField(Blockly.Msg.PHASER_TWEEN_DURATION)
+            .setCheck('Number');
+        this.appendValueInput('EASE')
+            .appendField(Blockly.Msg.PHASER_TWEEN_EASE)
+            .setCheck('Ease');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_AUTO_START)
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'AUTOSTART');
+        this.appendValueInput('DELAY')
+            .appendField(Blockly.Msg.PHASER_TWEEN_DELAY)
+            .setCheck('Number');
+        this.appendValueInput('REPEAT')
+            .appendField(Blockly.Msg.PHASER_TWEEN_REPEAT)
+            .setCheck('Number');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_YOYO)
+            .appendField(new Blockly.FieldCheckbox('FALSE'), 'YOYO');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_TWEEN_PROPERTIES_HEADER);
+        this.setOutput(true, 'Tween');
+        this.setInputsInline(false);
+        this.setMutator(new Blockly.Mutator(['tween_mutatorarg']));
+        this.setColour(PHASER_MATH_COLOUR);
+        this.properties_ = [];
+    },
+
+    decompose: function (workspace) {
+        const containerBlock = workspace.newBlock('tween_mutatorcontainer');
+        containerBlock.initSvg();
+
+        let connection = containerBlock.getInput('STACK').connection;
+        for (let i = 0; i < this.properties_.length; ++i) {
+            let paramBlock = workspace.newBlock('tween_mutatorarg');
+            paramBlock.initSvg();
+
+            paramBlock.setFieldValue(this.properties_[i], 'NAME');
+            paramBlock.oldLocation = i;
+            connection.connect(paramBlock.previousConnection);
+            connection = paramBlock.nextConnection;
+        }
+
+        return containerBlock;
+    },
+
+    compose: function (containerBlock) {
+        this.properties_ = [];
+        let propertyBlock = containerBlock.getInputTargetBlock('STACK');
+        while (propertyBlock) {
+            this.properties_.push(propertyBlock.getFieldValue('NAME'));
+            propertyBlock = propertyBlock.nextConnection && propertyBlock.nextConnection.targetBlock();
+        }
+
+        this.updateProperties_();
+    },
+
+    updateProperties_: function () {
+        let i;
+        for (i = 0; i < this.properties_.length; ++i) {
+            let field = this.getField('PROPNAME' + i);
+            if (field) {
+                Blockly.Events.disable();
+                try {
+                    field.setValue(this.properties_[i]);
+                } finally {
+                    Blockly.Events.enable();
+                }
+            } else {
+                // Add new input.
+                field = new Blockly.FieldLabel(this.properties_[i]);
+                let input = this.appendValueInput('PROP' + i)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(field, 'PROPNAME' + i);
+                input.init();
+            }
+        }
+
+        while(this.getInput('PROP' + i)){
+            this.removeInput('PROP' + i);
+            ++i;
+        }
+    },
+
+    mutationToDom: function () {
+        const container = document.createElement('mutation');
+        for (let i = 0; i < this.properties_.length; ++i) {
+            const property = document.createElement('prop');
+            property.setAttribute('name', this.properties_[i]);
+            container.appendChild(property);
+        }
+        return container;
+    },
+
+    domToMutation: function (xmlElement) {
+        this.properties_ = [];
+        for(let i = 0, childNode; childNode = xmlElement.childNodes[i]; ++i){
+            if(childNode.nodeName.toLowerCase() === 'prop'){
+                this.properties_.push(childNode.getAttribute('name'));
+            }
+        }
+        this.updateProperties_();
     }
 };
 //endregion
