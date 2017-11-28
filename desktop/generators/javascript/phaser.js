@@ -1854,7 +1854,7 @@ Blockly.JavaScript['phaser_easing_linear'] = function (block) {
 //endregion
 
 //region TWEEN
-Blockly.JavaScript['phaser_game_add_tween_to'] = function (block) {
+Blockly.JavaScript['phaser_game_add_tween_to'] = Blockly.JavaScript['phaser_game_add_tween_from'] = function (block) {
     const target = Blockly.JavaScript.valueToCode(block, 'TARGET', Blockly.JavaScript.ORDER_ATOMIC);
     const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
     const ease = Blockly.JavaScript.valueToCode(block, 'EASE', Blockly.JavaScript.ORDER_ATOMIC);
@@ -1863,9 +1863,38 @@ Blockly.JavaScript['phaser_game_add_tween_to'] = function (block) {
     const repeat = Blockly.JavaScript.valueToCode(block, 'REPEAT', Blockly.JavaScript.ORDER_ATOMIC);
     const yoyo = block.getFieldValue('YOYO') === 'TRUE';
     let objectProperties = '';
-    for(let i = 0; i < block.properties_.length; ++i){
+    for (let i = 0; i < block.properties_.length; ++i) {
         objectProperties += `${block.properties_[i]}: ${Blockly.JavaScript.valueToCode(block, 'PROP' + i, Blockly.JavaScript.ORDER_COMMA)},`
     }
     return [`game.add.tween(${target}).to({${objectProperties}}, ${duration}, ${ease}, ${autostart}, ${delay}, ${repeat}, ${yoyo})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['phaser_stop_tween'] = function (block) {
+    const tween = Blockly.JavaScript.valueToCode(block, 'TWEEN', Blockly.JavaScript.ORDER_ATOMIC);
+    const complete = block.getFieldValue('COMPLETE') === 'TRUE';
+    return `${tween}.stop(${complete});\n`;
+};
+
+Blockly.JavaScript['phaser_pause_tween'] = function (block) {
+    const tween = Blockly.JavaScript.valueToCode(block, 'TWEEN', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${tween}.pause();\n`;
+};
+
+Blockly.JavaScript['phaser_resume_tween'] = function (block) {
+    const tween = Blockly.JavaScript.valueToCode(block, 'TWEEN', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${tween}.pause();\n`;
+};
+
+Blockly.JavaScript['phaser_start_tween'] = function (block) {
+    const tween = Blockly.JavaScript.valueToCode(block, 'TWEEN', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${tween}.pause();\n`;
+};
+
+Blockly.JavaScript['phaser_yoyo_tween'] = function (block) {
+    const tween = Blockly.JavaScript.valueToCode(block, 'TWEEN', Blockly.JavaScript.ORDER_ATOMIC);
+    const enable = block.getFieldValue('ENABLE') === 'TRUE';
+    const delay = Blockly.JavaScript.valueToCode(block, 'DELAY', Blockly.JavaScript.ORDER_ATOMIC);
+    const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${tween}.yoyo(${enable}, ${delay}, ${index});\n`;
 };
 //endregion

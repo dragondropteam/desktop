@@ -107,7 +107,7 @@ Blockly.Msg.NEW_VARIABLE = 'Create variable...';
 /// prompt - Prompts the user to enter the name for a new variable.  See [https://github.com/google/blockly/wiki/Variables#dropdown-menu https://github.com/google/blockly/wiki/Variables#dropdown-menu].
 Blockly.Msg.NEW_VARIABLE_TITLE = 'New variable name:';
 /// alert - Tells the user that the name they entered is already in use.
-Blockly.Msg.VARIABLE_ALREADY_EXISTS = 'A variable named "%1" already exists.'
+Blockly.Msg.VARIABLE_ALREADY_EXISTS = 'A variable named "%1" already exists.';
 
 // Variable deletion.
 /// confirm -  Ask the user to confirm their deletion of multiple uses of a variable.
@@ -1279,7 +1279,7 @@ Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL = '';
 /// block text
 Blockly.Msg.LOG_CONSOLE_TITLE = 'log to console';
 /// tooltip
-Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.'
+Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.';
 /// url
 Blockly.Msg.LOG_CONSOLE_HELP_URL = 'https://en.wikipedia.org/wiki/System_console';
 
@@ -5144,7 +5144,7 @@ Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK = 'when timer';
 /// block text - follows the user specified timer to read a bit more like english then code
 Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_COMPLETED = 'completes call';
 /// tooltip - This method is not always called explain a few of those conditions
-Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_TOOLTIP = 'Called when the timer completes all of the actions in its queue. This will not be called if the timer is stopped or destroyed before it completes its queue.'
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_TOOLTIP = 'Called when the timer completes all of the actions in its queue. This will not be called if the timer is stopped or destroyed before it completes its queue.';
 /// url - Timer.onComplete
 Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#onComplete';
 /// url - Phaser.Easing prebuilt easing functions
@@ -5152,7 +5152,17 @@ Blockly.Msg.PHASER_EASING_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.
 /// tooltip - Predefined easing functions
 Blockly.Msg.PHASER_EASING_TOOLTIP = 'Prebuilt easing functions you can utilize through out your code';
 /// block text - tween from the current value to a new value
-Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TITLE = 'add tween to';
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TITLE = 'create tween to';
+/// tooltip - PHASER_GAME_ADD_TWEEN_TO_TOOLTIP
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TOOLTIP = 'Create a tween from the current value to the end values';
+/// url - Phaser.Tween.To
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#to';
+/// block text - tween from the given value to the current value
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_TITLE = 'create tween from';
+/// tooltip - PHASER_GAME_ADD_TWEEN_FROM_TOOLTIP
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_TOOLTIP = 'Create a tween from the end value to the current values, setting the values to end first';
+/// url - Phaser.Tween.To
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#from';
 /// block text - target of a tween
 Blockly.Msg.PHASER_TWEEN_TARGET = 'target';
 /// block text - duration of the tween
@@ -5177,3 +5187,41 @@ Blockly.Msg.PHASER_TWEEN_MUTATORARG_TITLE = 'property';
 Blockly.Msg.PHASER_TWEEN_MUTATORARG_TOOLTIP = 'Property to tween on the target object';
 /// block text - Header for properties
 Blockly.Msg.PHASER_TWEEN_PROPERTIES_HEADER = 'properties:';
+///block text - Stop the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_STOP_TWEEN = 'stop tween';
+///tooltip -
+Blockly.Msg.PHASER_STOP_TWEEN_TOOLTIP = 'Stop the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.stop
+Blockly.Msg.PHASER_STOP_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#stop';
+///block text - pause the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_PAUSE_TWEEN = 'pause tween';
+///tooltip -
+Blockly.Msg.PHASER_PAUSE_TWEEN_TOOLTIP = 'pause the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.PAUSE
+Blockly.Msg.PHASER_PAUSE_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#pause';
+///block text - start the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_START_TWEEN = 'start tween';
+///tooltip -
+Blockly.Msg.PHASER_START_TWEEN_TOOLTIP = 'start the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.START
+Blockly.Msg.PHASER_START_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#start';
+///block text - start the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_RESUME_TWEEN = 'resume tween';
+///tooltip -
+Blockly.Msg.PHASER_RESUME_TWEEN_TOOLTIP = 'resume the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.RESUME
+Blockly.Msg.PHASER_RESUME_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#resume';
+///block text - start the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_YOYO_TWEEN = 'yoyo tween';
+///tooltip -
+Blockly.Msg.PHASER_YOYO_TWEEN_TOOLTIP = 'enable or disable yoyoing for this tween';
+///url - Phaser.Tween.YOYO
+Blockly.Msg.PHASER_YOYO_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#yoyo';
+///block text - delay to the start of the yoyo if enabling
+Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = 'delay';
+///block text - delay to the start of the yoyo if enabling
+Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = 'child index';
+///block text - index of the child tween
+Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = 'child index';
+///block text - complete the tween when done
+Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'complete';
