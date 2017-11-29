@@ -24,6 +24,7 @@ const defaultValue = [
     new ProjectType('ringo', 'PlumGeek Robotics Ringo', './project_types/ringo_robot', false),
     new ProjectType('block_javascript', 'JavaScript Blocks', './project_types/basic_javascript', true),
     new ProjectType('visual_phaser', 'Visual Phaser Game Engine', './project_types/visual_phaser', true),
+    new ProjectType('exploring_phaser', 'Exploring Phaser Game Engine', './project_types/exploring_phaser', true),
     new ProjectType('text_phaser', 'Phaser Game Engine', './project_types/text_phaser', true)];
 
 const projectTypesKey = 'PROJECT_TYPES';
@@ -36,7 +37,7 @@ exports.ProjectType = ProjectType;
  * @returns {*[]} An array of ProjectType
  */
 function getProjectTypes() {
-    var projectTypes = config.get(projectTypesKey);
+    let projectTypes = config.get(projectTypesKey);
     return projectTypes || defaultValue;
 }
 

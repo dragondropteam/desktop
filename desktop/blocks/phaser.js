@@ -5284,7 +5284,7 @@ Blockly.Blocks['phaser_game_add_tween_to'] = {
             }
         }
 
-        while(this.getInput('PROP' + i)){
+        while (this.getInput('PROP' + i)) {
             this.removeInput('PROP' + i);
             ++i;
         }
@@ -5302,8 +5302,8 @@ Blockly.Blocks['phaser_game_add_tween_to'] = {
 
     domToMutation: function (xmlElement) {
         this.properties_ = [];
-        for(let i = 0, childNode; childNode = xmlElement.childNodes[i]; ++i){
-            if(childNode.nodeName.toLowerCase() === 'prop'){
+        for (let i = 0, childNode; childNode = xmlElement.childNodes[i]; ++i) {
+            if (childNode.nodeName.toLowerCase() === 'prop') {
                 this.properties_.push(childNode.getAttribute('name'));
             }
         }
@@ -5427,9 +5427,10 @@ Blockly.Blocks['phaser_stop_tween'] = {
     init: function () {
         this.appendValueInput('TWEEN')
             .appendField(Blockly.Msg.PHASER_STOP_TWEEN)
-            .appendField(Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE)
-            .appendField(new Blockly.FieldCheckbox('TRUE'), 'COMPLETE')
             .setCheck('Tween');
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE)
+            .appendField(new Blockly.FieldCheckbox('TRUE'), 'COMPLETE');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(PHASER_MATH_COLOUR);
@@ -5479,8 +5480,9 @@ Blockly.Blocks['phaser_resume_tween'] = {
 
 Blockly.Blocks['phaser_yoyo_tween'] = {
     init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.PHASER_YOYO_TWEEN);
         this.appendValueInput('TWEEN')
-            .appendField(Blockly.Msg.PHASER_YOYO_TWEEN)
             .appendField(Blockly.Msg.PHASER_TWEEN_YOYO)
             .appendField(new Blockly.FieldCheckbox('TRUE'), 'ENABLE')
             .setCheck('Tween');
