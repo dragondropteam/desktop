@@ -1118,10 +1118,11 @@ Blockly.JavaScript['object_set_to'] = function (block) {
     return `${variable_object}.setTo(${value_setx}, ${value_sety});\n`;
 };
 
-Blockly.JavaScript['send_to_back'] = function (block) {
-    const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
-    return `game.world.sendToBack(${variable_object});\n`;
-};
+// Blockly.JavaScript['send_to_back'] = function (block) {
+//     const variable_object = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('OBJECT'), Blockly.Variables.NAME_TYPE);
+//     return `game.world.sendToBack(${variable_object});\n`;
+// };
+
 Blockly.JavaScript['add_text'] = function (block) {
     const value_x_pos = Blockly.JavaScript.valueToCode(block, 'X_POS', Blockly.JavaScript.ORDER_ATOMIC);
     const value_y_pos = Blockly.JavaScript.valueToCode(block, 'Y_POS', Blockly.JavaScript.ORDER_ATOMIC);
