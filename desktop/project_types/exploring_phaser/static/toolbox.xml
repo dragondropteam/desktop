@@ -1,0 +1,2483 @@
+<xml id="toolbox-categories" style="display: none">
+    <category name="Logic" colour="210">
+        <block type="controls_if"/>
+        <block type="logic_compare"/>
+        <block type="logic_operation"/>
+        <block type="logic_negate"/>
+        <block type="logic_boolean"/>
+        <block type="logic_null"/>
+        <block type="logic_ternary"/>
+    </category>
+    <category name="Loops" colour="120">
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_whileUntil"/>
+        <block type="controls_doWhile"/>
+        <block type="controls_for">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="BY">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_forEach"/>
+        <block type="controls_flow_statements"/>
+    </category>
+    <category name="Math" colour="230">
+        <block type="math_number" gap="32"/>
+        <block type="math_number_binary" gap="32"/>
+        <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_single">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">9</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_trig">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">45</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constant"/>
+        <block type="math_number_property">
+            <value name="NUMBER_TO_CHECK">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_change">
+            <value name="DELTA">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">3.1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_on_list"/>
+        <block type="math_modulo">
+            <value name="DIVIDEND">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="DIVISOR">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constrain">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="LOW">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="HIGH">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_random_int">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_random_float"/>
+    </category>
+    <category name="Text" colour="160">
+        <block type="text"/>
+        <block type="text_join"/>
+        <block type="text_append">
+            <value name="TEXT">
+                <shadow type="text"/>
+            </value>
+        </block>
+        <block type="text_length">
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="text_isEmpty">
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT"/>
+                </shadow>
+            </value>
+        </block>
+        <block type="text_indexOf">
+            <value name="VALUE">
+                <block type="variables_get">
+                    <field name="VAR">text</field>
+                </block>
+            </value>
+            <value name="FIND">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="text_charAt">
+            <value name="VALUE">
+                <block type="variables_get">
+                    <field name="VAR">text</field>
+                </block>
+            </value>
+        </block>
+        <block type="text_getSubstring">
+            <value name="STRING">
+                <block type="variables_get">
+                    <field name="VAR">text</field>
+                </block>
+            </value>
+        </block>
+        <block type="text_changeCase">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="text_trim">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="text_print">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="text_prompt_ext">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="log_console"/>
+    </category>
+    <category name="Lists" colour="260">
+        <block type="lists_create_with">
+            <mutation items="0"/>
+        </block>
+        <block type="lists_create_with"/>
+        <block type="lists_repeat">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">5</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="lists_length"/>
+        <block type="lists_isEmpty"/>
+        <block type="lists_indexOf">
+            <value name="VALUE">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_getIndex">
+            <value name="VALUE">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_setIndex">
+            <value name="LIST">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_getSublist">
+            <value name="LIST">
+                <block type="variables_get">
+                    <field name="VAR">list</field>
+                </block>
+            </value>
+        </block>
+        <block type="lists_split">
+            <value name="DELIM">
+                <shadow type="text">
+                    <field name="TEXT">,</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="lists_sort"/>
+    </category>
+    <category name="Colour" colour="20">
+        <block type="colour_picker"/>
+        <block type="colour_random"/>
+        <block type="colour_rgb">
+            <value name="RED">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+            <value name="GREEN">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="BLUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="colour_blend">
+            <value name="COLOUR1">
+                <shadow type="colour_picker">
+                    <field name="COLOUR">#ff0000</field>
+                </shadow>
+            </value>
+            <value name="COLOUR2">
+                <shadow type="colour_picker">
+                    <field name="COLOUR">#3333ff</field>
+                </shadow>
+            </value>
+            <value name="RATIO">
+                <shadow type="math_number">
+                    <field name="NUM">0.5</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <sep/>
+    <category name="Phaser" colour="#BCD5D1">
+        <category name="Game" colour="#558b2f">
+            <category name="Startup" colour="#689f38">
+                <block type="phaser_simple_init"/>
+                <block type="start_phaser_for_states"/>
+            </category>
+            <category name="States" colour="#7cb342">
+                <block type="class_type">
+                    <mutation name="Phaser.State">
+                    </mutation>
+                </block>
+                <block type="statemanager_add_state">
+                    <value name="NAME">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="statemanager_start_state"/>
+            </category>
+            <category name="World" colour="#8bc34a">
+                <block type="get_world_property"/>
+                <block type="set_world_bounds">
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">800</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">600</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_to_world">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--Not necessary at the moment 0 functions take this-->
+                <!--<block type="get_world_reference"/>-->
+            </category>
+            <category name="Time" colour="#a5d6a7">
+                <block type="delta_time_seconds"/>
+                <block type="delta_time_milliseconds"/>
+                <block type="set_time_numeric_member">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_time_numeric_member"/>
+                <block type="create_timer"/>
+                <block type="time_constants"/>
+                <block type="start_timer">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_add_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_loop_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_repeat_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT_COUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_destroy">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_pause">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_resume">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_stop">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_set_on_complete_callback">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+        </category>
+        <category name="Objects" colour="#004d40">
+            <category name="Sprites and Images" colour="#004d40">
+                <block type="create_image">
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="SRC">
+                        <shadow type="text">
+                            <field name="TEXT">assets/example.png</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_image">
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="create_sprite_sheet">
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="SRC">
+                        <shadow type="text">
+                            <field name="TEXT">assets/exampleSpriteSheet.png</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type='addspritewithatlas'>
+                    <value name="tag">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="text_source">
+                        <shadow type="text">
+                            <field name="TEXT">assets/spriteSheet.png</field>
+                        </shadow>
+                    </value>
+                    <value name="text_xmlsource">
+                        <shadow type="text">
+                            <field name="TEXT">assets/atlasXML.xml</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type='imagesubtextureatlas'>
+                    <value name="x">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="spritesource">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="xmlsubtexture">
+                        <shadow type="text">
+                            <field name="TEXT">subtexture</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="load_texture">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="TEXTURE">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="destroy_sprite">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="BOOL">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="check_world_bounds">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="BOOL">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="out_of_bounds_faint">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="BOOL">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="align_in">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="CONTAINER">
+                        <shadow type="variables_get">
+                            <field name="VAR">containerObject</field>
+                        </shadow>
+                    </value>
+                    <value name="OFFSETX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OFFSETY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="align_to">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="CONTAINER">
+                        <shadow type="variables_get">
+                            <field name="VAR">containerObject</field>
+                        </shadow>
+                    </value>
+                    <value name="OFFSETX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OFFSETY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="crop">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="RECTANGLE">
+                        <shadow type="rectangle_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="WIDTH">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="HEIGHT">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="clear_cropping">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="bring_to_top">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="send_to_back">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="move_up">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="move_down">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="sprite_overlap">-->
+                <!--<value name="SPRITEA">-->
+                <!--<shadow type="variables_get">-->
+                <!--<field name="VAR">objectA</field>-->
+                <!--</shadow>-->
+                <!--</value>-->
+                <!--<value name="SPRITEB">-->
+                <!--<shadow type="variables_get">-->
+                <!--<field name="VAR">objectB</field>-->
+                <!--</shadow>-->
+                <!--</value>-->
+                <!--</block>-->
+                <block type="add_child_vi">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_child_at_vi">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_child_at_vi">
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_child_index_vi">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_child_index_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="swap_children">
+                    <value name="PARENT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child1</field>
+                        </shadow>
+                    </value>
+                    <value name="CHILD2">
+                        <shadow type="variables_get">
+                            <field name="VAR">child2</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="contains_vi">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="remove_child_vi">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">child</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="remove_child_at_vi">
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="remove_children_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_scale_min_max">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="MINX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MINY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="clear_scale_min_max">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Groups" colour="#00695c">
+                <!--TODO: Add to group, block to allow a user to add existing objects to the group -->
+                <block type="create_group"/>
+                <block type="create_object_in_group_vi">
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="create_object_in_group_with_frame_vi">
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="FRAME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_to_group">
+                    <value name="NEW_ITEM">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="remove_from_group">
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_contains">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="CHILD">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_count_alive_dead">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="destroy_group">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_get_all">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_get_at">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_get_closest_to">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_get_first_alive_fainted">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_get_random">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_get_random_exists">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="group_remove_all">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="call_function_on_group"/>-->
+            </category>
+            <category name="Animation" colour="#00796b">
+                <block type="add_animation_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="FRAMES">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="play_animation_vi">
+                    <value name="ANIMATION">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="stop_animation_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_frame_vi">
+                    <value name="FRAME_NUMBER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="animation_get_animation"></block>-->
+                <block type="animation_next_vi">
+                    <value name="FRAMECOUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="animation_previous_vi">
+                    <value name="FRAMECOUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="refresh_frame"></block>-->
+                <!--<block type="animation_update"></block>-->
+                <block type="validate_frames_vi">
+                    <value name="FRAMES">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="animation_destroy_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_animation_property">
+                    <value name="SPRITE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_animation_property_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Phaser Text" colour="#009688">
+                <block type="add_text">
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="INITIAL_TEXT">
+                        <shadow type="text">
+                            <field name="TEXT">hello world!</field>
+                        </shadow>
+                    </value>
+                    <value name="FONT_SIZE">
+                        <shadow type="math_number">
+                            <field name="NUM">24</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_text_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT">hello world!</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <!--TODO: -> Value Input -->
+            <category name="Particles" colour="#83C2D1">
+                <block type="addemitter">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="maxParticles">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitter_make_particles">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="KEYS">
+                        <shadow type="text">
+                            <field name="TEXT">tag</field>
+                        </shadow>
+                    </value>
+                    <value name="FRAMES">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="QUANTITY">
+                        <shadow type="math_number">
+                            <field name="NUM">100</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_start_vi">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="LIFESPAN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="FREQUENCY">
+                        <shadow type="math_number">
+                            <field name="NUM">250</field>
+                        </shadow>
+                    </value>
+                    <value name="QUANTITY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_set_alpha_vi">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="RATE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_set_rotation_vi">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_set_gravity_vi">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="GRAVITY">
+                        <shadow type="math_number">
+                            <field name="NUM">100</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_set_scale_vi">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="MINX">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXX">
+                        <shadow type="math_number">
+                            <field name="NUM">2</field>
+                        </shadow>
+                    </value>
+                    <value name="MINY">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXY">
+                        <shadow type="math_number">
+                            <field name="NUM">2</field>
+                        </shadow>
+                    </value>
+                    <value name="RATE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="emitters_set_speed_vi">
+                    <value name="EMITTER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultEmitter</field>
+                        </shadow>
+                    </value>
+                    <value name="MINX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MINY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type='set_emit_from'></block>-->
+            </category>
+            <!--TODO: -> Value Input and clean up of inline -->
+            <category name="Game Object" colour="#00bfa5">
+                <!--<block type="set_object_anchor"/>-->
+                <block type="get_game_object_point_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_game_object_point_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="POINT">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_game_object_boolean_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_game_object_boolean_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_game_object_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_game_object_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_scale_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SCALE_X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="SCALE_Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="faint_object">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="destroy_object">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rotate">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="ANGLE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="reset">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_POS">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="revive">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+
+        </category>
+        <category name="Physics" colour="#aa00ff">
+            <category name="Setup" colour="#d500f9">
+                <block type="start_arcade_physics"/>
+                <block type="enable_body_group_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="enable_arcade_physics_for_object_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Body" colour="#6a1b9a">
+                <block type="debug_body">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_body_field_point_vi">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_body_field_point_class_vi">
+                    <value name="POINT">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_body_field_point_class">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_body_boolean_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_body_boolean_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_body_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_body_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Dynamics" colour="#6a1b9a">
+                <block type="move_to_pointer_extended">
+                    <value name="GAMEOBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXIMUM_TIME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="move_to_object">
+                    <value name="GAMEOBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">destinationObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAXIMUM_TIME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+
+            </category>
+            <category name="Collision" colour="#8e24aa">
+                <block type="collide_vi">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="collide_with_world_bounds_vi">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="is_body_touching_vi">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="collide_function_field">
+                    <value name="OBJECTA">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECTB">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="check_overlap_vi_procedure_field">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+        </category>
+        <!--TODO: Create remaining shape blocks -->
+        <category name="Geometry" colour="#424242">
+            <category name="Rectangle" colour="#757575">
+                <block type="rectangle_create">
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Point" colour="#616161">
+                <block type="point_create">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="point_get_element">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--TODO: Set to (x, y) in one statement instead of two-->
+                <block type="point_set_element">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="point_set_magnitude">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_add">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_subtract">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_angle_between">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_distance">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_divide">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_multiply">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_negate">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_normalize">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_perpendicular">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_equals">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_interpolate">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                    <value name="F">
+                        <shadow type="math_number">
+                            <field name="NUM">0.5</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+        </category>
+        <category name="Input" colour="#0d47a1">
+            <category name="Keyboard" colour="#1565c0">
+                <block type="is_key_down"/>
+                <!--TODO: Cursors, Key objects, and other input methods to allow students more control -->
+                <!--<block type="create_cursor_keys"/>-->
+            </category>
+            <!--TODO: Mouse input functions for position, key down, etc... -->
+            <category name="Mouse" colour="#1976d2">
+                <block type="get_current_mouse_position"/>
+                <block type="is_mouse_button_clicked"/>
+            </category>
+            <!--TODO: Gamepad support-->
+            <!--<category name="Gamepad" colour="#42a5f5"></category>-->
+        </category>
+        <category name="Graphics" colour="">
+            <block type="create_graphics_object">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="draw_shapes_with_colour">
+                <value name="colour">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="draw_rectangle">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="w">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="h">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Utility" colour="#ff3d00">
+            <category name="General" colour="#ff3d00">
+                <block type="center_and_stretch"/>
+            </category>
+            <category name="Debug" colour="#ff6e40">
+                <block type="enable_step"/>
+                <block type="disable_step"/>
+                <block type="debug_sprite">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X_VAL">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_VAL">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="JavaScript" colour="#ff6d00">
+                <block type="javascript_eval"/>
+                <block type="javascript_eval_output"/>
+            </category>
+            <category name="Phaser Lists" colour="#bf360c">
+                <block type="list_find_closest">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="list_get_random">
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="number_list">
+                    <value name="START">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="END">
+                        <shadow type="math_number">
+                            <field name="NUM">3</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="number_list_step">
+                    <value name="START">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="END">
+                        <shadow type="math_number">
+                            <field name="NUM">4</field>
+                        </shadow>
+                    </value>
+                    <value name="STEP">
+                        <shadow type="math_number">
+                            <field name="NUM">2</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="list_remove_random_item">
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="list_shuffle">
+                    <value name="ARRAY">
+                        <shadow type="logic_null">
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Math" colour="#ffab91">
+                <block type="math_deg_to_rad">
+                    <value name="DEGREES">
+                        <shadow type="math_number">
+                            <field name="NUM">90</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="math_rad_to_deg">
+                    <value name="RADIANS">
+                        <shadow type="math_number">
+                            <field name="NUM">3.14159</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_easing"/>
+                <block type="phaser_easing_linear"/>
+                <block type="phaser_game_add_tween_to">
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultSprite</field>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">1000</field>
+                        </shadow>
+                    </value>
+                    <value name="EASE">
+                        <shadow type="phaser_easing_linear"/>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_game_add_tween_from">
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultSprite</field>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">1000</field>
+                        </shadow>
+                    </value>
+                    <value name="EASE">
+                        <shadow type="phaser_easing_linear"/>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_start_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_stop_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_pause_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_resume_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_yoyo_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Random" colour="#ff7043">
+                <!--<block type="create_random_generator"></block>-->
+                <!--<block type="create_random_generator_seeded">
+                    <value name="SEED">
+                        <shadow type="text">
+                            <field name="TEXT">seed</field>
+                        </shadow>
+                    </value>
+                </block>-->
+                <block type="random_angle"/>
+                <block type="random_pick">
+                    <value name="ARRAY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="random_pick_weighted">
+                    <value name="ARRAY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="random_real"></block>
+                <block type="random_real_in_range">
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">10</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="random_sign"></block>
+            </category>
+        </category>
+        <category name="Camera" colour="#607d8b">
+            <block type="camera_fade">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#000000</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_flash">
+                <value name="COLOUR">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </shadow>
+                </value>
+                <value name="TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">300</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_focus_on">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_focus_on_xy">
+                <value name="POSX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="POSY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_follow_vi">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_follow_vi_styled">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultObject</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_reset"/>
+            <block type="camera_reset_fx"/>
+            <block type="camera_set_bounds_to_world"/>
+            <block type="camera_set_position">
+                <value name="POSX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="POSY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_set_size">
+                <value name="WIDTH">
+                    <shadow type="math_number">
+                        <field name="NUM">800</field>
+                    </shadow>
+                </value>
+                <value name="HEIGHT">
+                    <shadow type="math_number">
+                        <field name="NUM">600</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_shake">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0.05</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">300</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="camera_unfollow"/>
+        </category>
+        <category name="Sound" colour="#827717">
+            <block type="load_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+                <value name="SOURCE">
+                    <shadow type="text">
+                        <field name="TEXT">assets/example.wav</field>
+                    </shadow>
+                </value>
+            </block>
+            <!--<block type="play_sound">-->
+            <!--<value name="TAG">-->
+            <!--<shadow type="text">-->
+            <!--<field name="TEXT">tag</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
+            <!--<value name="VOLUME">-->
+            <!--<shadow type="math_number">-->
+            <!--<field name="NUM">0.67</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
+            <!--</block>-->
+            <block type="add_sound">
+                <value name="TAG">
+                    <shadow type="text">
+                        <field name="TEXT">tag</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">1.0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_play">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="POSITION">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="set_sound_boolean_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="logic_boolean"/>
+                </value>
+            </block>
+            <block type="get_sound_boolean_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="set_sound_numeric_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="get_sound_numeric_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="get_sound_string_member">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_fade_in">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_fade_out">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_fade_to">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">0.67</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_loop_full">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">0.67</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_pause">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_resume">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="sound_stop">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+            </block>
+            <!--<block type="remove_sound">-->
+            <!--<value name="TAG">-->
+            <!--<shadow type="text">-->
+            <!--<field name="TEXT">tag</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
+            <!--</block>-->
+            <block type="sound_restart">
+                <value name="OBJECT">
+                    <shadow type="variables_get">
+                        <field name="VAR">defaultSound</field>
+                    </shadow>
+                </value>
+                <value name="POSITION">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VOLUME">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="stop_pause_resume_sounds"/>
+        </category>
+    </category>
+    <sep/>
+    <category name="Class" colour="230" custom="CLASSES"/>
+    <category name="Variables" colour="#381ECC" custom="VARIABLE"/>
+    <category name="Functions" colour="#AA3A69" custom="PROCEDURE"/>
+</xml>

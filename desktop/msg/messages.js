@@ -5219,9 +5219,7 @@ Blockly.Msg.PHASER_YOYO_TWEEN_TOOLTIP = 'enable or disable yoyoing for this twee
 Blockly.Msg.PHASER_YOYO_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#yoyo';
 ///block text - delay to the start of the yoyo if enabling
 Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = 'delay';
-///block text - delay to the start of the yoyo if enabling
-Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = 'child index';
 ///block text - index of the child tween
 Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = 'child index';
 ///block text - complete the tween when done
-Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'complete';
+Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'fire onComplete';
