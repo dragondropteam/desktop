@@ -64,10 +64,10 @@
                     </shadow>
                 </value>
             </block>
-            <block type="setleftrgb"/>
-            <block type="turnlefteyeoff"/>
-            <block type="leftprevcolour"/>
-            <block type="set_left_eye">
+            <block type="setleftrgb_icon"/>
+            <block type="turnlefteyeoff_icon"/>
+            <!--<block type="leftprevcolour"/>-->
+            <block type="set_left_eye_icon">
                 <value name="RED">
                     <shadow type="math_number">
                         <field name="NUM">0</field>
@@ -149,10 +149,10 @@
                     </shadow>
                 </value>
             </block>
-            <block type="setrightrgb"/>
-            <block type="turnrighteyeoff"/>
-            <block type="rightprevcolour"/>
-            <block type="set_right_eye">
+            <block type="setrightrgb_icon"/>
+            <block type="turnrighteyeoff_icon"/>
+            <!--<block type="rightprevcolour"/>-->
+            <block type="set_right_eye_icon">
                 <value name="RED">
                     <shadow type="math_number">
                         <field name="NUM">0</field>
@@ -240,26 +240,26 @@
                     </shadow>
                 </value>
             </block>
-            <!--<block type="seteyesrgb"/>-->
-            <block type="turneyesoff"/>
-            <block type="eyesprevcolour"/>
-            <!--<block type="set_eyes">-->
-                <!--<value name="RED">-->
-                    <!--<shadow type="math_number">-->
-                        <!--<field name="NUM">0</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
-                <!--<value name="GREEN">-->
-                    <!--<shadow type="math_number">-->
-                        <!--<field name="NUM">0</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
-                <!--<value name="BLUE">-->
-                    <!--<shadow type="math_number">-->
-                        <!--<field name="NUM">0</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
-            <!--</block>-->
+            <block type="seteyesrgb_icon"/>
+            <block type="turneyesoff_icon"/>
+            <!--<block type="eyesprevcolour"/>-->
+            <block type="set_eyes_icon">
+                <value name="RED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="GREEN">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="BLUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
         <category name="Light Effects" colour="330">
             <!-- TODO: Create police_lights, disco, rainbow, and fireworks blocks -->

@@ -24,3 +24,15 @@ Blockly.C['setrightyellow_icon'] = Blockly.C['setrightyellow'];
 Blockly.C['setrightcyan_icon'] = Blockly.C['setrightcyan'];
 Blockly.C['setrightorange_icon'] = Blockly.C['setrightorange'];
 Blockly.C['setrightwhite_icon'] = Blockly.C['setrightwhite'];
+
+Blockly.C['turnlefteyeoff_icon'] = Blockly.C['turnlefteyeoff'];
+Blockly.C['turnrighteyeoff_icon'] = Blockly.C['turnrighteyeoff'];
+Blockly.C['turneyesoff_icon'] = Blockly.C['turneyesoff'];
+
+Blockly.C['seteyesrgb_icon'] = Blockly.C['seteyesrgb'];
+Blockly.C['setleftrgb_icon'] = Blockly.C['setleftrgb'];
+Blockly.C['setrightrgb_icon'] = Blockly.C['setrightrgb'];
+
+Blockly.C['set_left_eye_icon'] = Blockly.C['set_left_eye'];
+Blockly.C['set_right_eye_icon'] = Blockly.C['set_right_eye'];
+Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
