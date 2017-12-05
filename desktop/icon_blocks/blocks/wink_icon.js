@@ -169,9 +169,9 @@ Blockly.Blocks['seteyeswhite_icon'] = {
 Blockly.Blocks['setleftred_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRedSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTRED_FIELD_1)
@@ -186,9 +186,9 @@ Blockly.Blocks['setleftred_icon'] = {
 Blockly.Blocks['setleftgreen_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGreen.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGreenSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTGREEN_FIELD_1)
@@ -204,9 +204,9 @@ Blockly.Blocks['setleftgreen_icon'] = {
 Blockly.Blocks['setleftblue_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlue.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlueSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTBLUE_FIE/LD_1)
@@ -221,9 +221,9 @@ Blockly.Blocks['setleftblue_icon'] = {
 Blockly.Blocks['setleftpurple_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePurple.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePurpleSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTPURPLE_FIELD_1)
@@ -238,9 +238,9 @@ Blockly.Blocks['setleftpurple_icon'] = {
 Blockly.Blocks['setleftpink_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePink.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePinkSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTPINK_FIELD_1)
@@ -255,9 +255,9 @@ Blockly.Blocks['setleftpink_icon'] = {
 Blockly.Blocks['setleftyellow_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeYellow.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeYellowSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTYELLOW_FIELD_1)
@@ -272,9 +272,9 @@ Blockly.Blocks['setleftyellow_icon'] = {
 Blockly.Blocks['setleftcyan_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeCyan.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeCyanSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTCYAN_FIELD_1)
@@ -289,9 +289,9 @@ Blockly.Blocks['setleftcyan_icon'] = {
 Blockly.Blocks['setleftorange_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOrange.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOrangeSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTORANGE_FIELD_1)
@@ -308,9 +308,9 @@ Blockly.Blocks['setleftwhite_icon'] = {
 
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeWhite.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeWhiteSelected.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETLEFTWHITE_FIELD_1)
@@ -326,9 +326,9 @@ Blockly.Blocks['setleftwhite_icon'] = {
 Blockly.Blocks['setrightred_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRedSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTRED_FIELD_1)
@@ -344,9 +344,9 @@ Blockly.Blocks['setrightred_icon'] = {
 Blockly.Blocks['setrightgreen_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGreen.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGreenSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTGREEN_FIELD_1)
@@ -362,9 +362,9 @@ Blockly.Blocks['setrightgreen_icon'] = {
 Blockly.Blocks['setrightblue_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlue.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlueSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTBLUE_FIELD_1)
@@ -380,9 +380,9 @@ Blockly.Blocks['setrightblue_icon'] = {
 Blockly.Blocks['setrightpurple_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePurple.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePurpleSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTPURPLE_FIELD_1)
@@ -398,9 +398,9 @@ Blockly.Blocks['setrightpurple_icon'] = {
 Blockly.Blocks['setrightpink_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePink.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyePinkSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTPINK_FIELD_1)
@@ -416,9 +416,9 @@ Blockly.Blocks['setrightpink_icon'] = {
 Blockly.Blocks['setrightyellow_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeYellow.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeYellowSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTYELLOW_FIELD_1)
@@ -434,9 +434,9 @@ Blockly.Blocks['setrightyellow_icon'] = {
 Blockly.Blocks['setrightcyan_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeCyan.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeCyanSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTCYAN_FIELD_1)
@@ -452,9 +452,9 @@ Blockly.Blocks['setrightcyan_icon'] = {
 Blockly.Blocks['setrightorange_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOrange.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOrangeSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTORANGE_FIELD_1)
@@ -470,9 +470,9 @@ Blockly.Blocks['setrightorange_icon'] = {
 Blockly.Blocks['setrightwhite_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeWhite.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeWhiteSelected.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.appendValueInput("INTENSITY")
             // .appendField(Blockly.Msg.SETRIGHTWHITE_FIELD_1)
@@ -485,48 +485,63 @@ Blockly.Blocks['setrightwhite_icon'] = {
     }
 };
 
-// Blockly.Blocks['seteyesrgb'] = {
-//     init: function () {
-//         this.appendDummyInput()
-//             .appendField(Blockly.Msg.SETEYESRGB_FIELD_1)
-//             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//         this.setColour(330);
-//         this.setTooltip(Blockly.Msg.SETEYESRGB_TOOLTIP);
-//         this.setHelpUrl(Blockly.Msg.SETEYESRGB_HELP_URL);
-//     }
-// };
-
-// Blockly.Blocks['setleftrgb'] = {
-//     init: function () {
-//         this.appendDummyInput()
-//             .appendField(Blockly.Msg.SETLEFTRGB_FIELD_1)
-//             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//         this.setColour(330);
-//         this.setTooltip(Blockly.Msg.SETLEFTRGB_TOOLTIP);
-//         this.setHelpUrl(Blockly.Msg.SETLEFTRGB_HELP_URL);
-//     }
-// };
-//
-// Blockly.Blocks['setrightrgb'] = {
-//     init: function () {
-//         this.appendDummyInput()
-//             .appendField(Blockly.Msg.SETRIGHTRGB_FIELD_1)
-//             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//         this.setColour(330);
-//         this.setTooltip(Blockly.Msg.SETRIGHTRGB_TOOLTIP);
-//         this.setHelpUrl(Blockly.Msg.SETRIGHTRGB_HELP_URL);
-//     }
-// };
-Blockly.Blocks['turneyesoff'] = {
+Blockly.Blocks['seteyesrgb_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURNEYESOFF_FIELD_1);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SETEYESRGB_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETEYESRGB_HELP_URL);
+    }
+};
+
+Blockly.Blocks['setleftrgb_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradientSelected.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SETLEFTRGB_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETLEFTRGB_HELP_URL);
+    }
+};
+
+Blockly.Blocks['setrightrgb_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradientSelected.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SETRIGHTRGB_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SETRIGHTRGB_HELP_URL);
+    }
+};
+Blockly.Blocks['turneyesoff_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
@@ -535,10 +550,13 @@ Blockly.Blocks['turneyesoff'] = {
     }
 };
 
-Blockly.Blocks['turnlefteyeoff'] = {
+Blockly.Blocks['turnlefteyeoff_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURNLEFTEYEOFF_FIELD_1);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
@@ -547,10 +565,13 @@ Blockly.Blocks['turnlefteyeoff'] = {
     }
 };
 
-Blockly.Blocks['turnrighteyeoff'] = {
+Blockly.Blocks['turnrighteyeoff_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeOff.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
@@ -583,73 +604,76 @@ Blockly.Blocks['loop_icon'] = {
     }
 };
 
-//
-//
-// Blockly.Blocks['set_left_eye'] = {
-//     init: function () {
-//         this.appendDummyInput()
-//             .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_1);
-//         this.appendValueInput("RED")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_2);
-//         this.appendValueInput("GREEN")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_3);
-//         this.appendValueInput("BLUE")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_4);
-//         this.setInputsInline(true);
-//         this.setColour(330);
-//         this.setTooltip(Blockly.Msg.SET_LEFT_EYE_TOOLTIP);
-//         this.setHelpUrl(Blockly.Msg.SET_LEFT_EYE_HELP_URL);
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//     }
-// };
-//
-// Blockly.Blocks['set_right_eye'] = {
-//     init: function () {
-//         this.appendDummyInput()
-//             .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_1);
-//         this.appendValueInput("RED")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_2);
-//         this.appendValueInput("GREEN")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_3);
-//         this.appendValueInput("BLUE")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_4);
-//         this.setInputsInline(true);
-//         this.setColour(330);
-//         this.setTooltip(Blockly.Msg.SET_RIGHT_EYE_TOOLTIP);
-//         this.setHelpUrl(Blockly.Msg.SET_RIGHT_EYE_HELP_URL);
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//     }
-// };
-//
-//
-// Blockly.Blocks['set_eyes'] = {
-//     init: function () {
-//         this.appendDummyInput()
-//             .appendField(Blockly.Msg.SET_EYES_FIELD_1);
-//         this.appendValueInput("RED")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_EYES_FIELD_2);
-//         this.appendValueInput("GREEN")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_EYES_FIELD_3);
-//         this.appendValueInput("BLUE")
-//             .setCheck("Number")
-//             .appendField(Blockly.Msg.SET_EYES_FIELD_4);
-//         this.setInputsInline(true);
-//         this.setColour(330);
-//         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-//         this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//     }
-// };
-//
-//
+Blockly.Blocks['set_left_eye_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradientSelected.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("RED")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'red.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("GREEN")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'green.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("BLUE")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SET_LEFT_EYE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_LEFT_EYE_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+Blockly.Blocks['set_right_eye_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeBlack.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradientSelected.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("RED")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'red.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("GREEN")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'green.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("BLUE")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SET_RIGHT_EYE_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_RIGHT_EYE_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+
+Blockly.Blocks['set_eyes_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("RED")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'red.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("GREEN")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'green.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("BLUE")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
