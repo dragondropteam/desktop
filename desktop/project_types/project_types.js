@@ -135,7 +135,7 @@ exports.BaseProjectManager = class BaseProjectManager {
     /**
      * Make any changes to the projects metadata to account for version changes
      * @abstract
-     * @param loadedProject The project to migrate to a new versionn
+     * @param loadedProject The project to migrate to a new version
      * to version
      */
     migrate(loadedProject) {

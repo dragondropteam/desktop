@@ -1,24 +1,24 @@
 <xml id="toolbox-categories" style="display: none">
     <category name="Logic" colour="210">
-        <block type="controls_if"/>
+        <block type="controls_if_icon"/>
         <block type="logic_compare"/>
         <block type="logic_operation"/>
         <block type="logic_negate"/>
         <block type="logic_boolean"/>
         <block type="logic_null"/>
-        <block type="logic_ternary"/>
+        <block type="logic_ternary_icon"/>
     </category>
     <category name="Loops" colour="120">
-        <block type="controls_repeat_ext">
+        <block type="controls_repeat_ext_icon">
             <value name="TIMES">
                 <shadow type="math_number">
                     <field name="NUM">10</field>
                 </shadow>
             </value>
         </block>
-        <block type="controls_whileUntil"/>
-        <block type="controls_doWhile"/>
-        <block type="controls_for">
+        <block type="controls_whileUntil_icon"/>
+        <block type="controls_doWhile_icon"/>
+        <block type="controls_for_icon">
             <value name="FROM">
                 <shadow type="math_number">
                     <field name="NUM">1</field>
@@ -35,7 +35,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_forEach"/>
+        <block type="controls_forEach_icon"/>
         <block type="controls_flow_statements"/>
     </category>
     <category name="Math" colour="230">
@@ -304,7 +304,7 @@
     <category name="Phaser" colour="#BCD5D1">
         <category name="Game" colour="#558b2f">
             <category name="Startup" colour="#689f38">
-                <block type="phaser_simple_init"/>
+                <block type="phaser_simple_init_icon"/>
                 <block type="start_phaser_for_states"/>
             </category>
             <category name="States" colour="#7cb342">
@@ -459,7 +459,7 @@
         </category>
         <category name="Objects" colour="#004d40">
             <category name="Sprites and Images" colour="#004d40">
-                <block type="create_image">
+                <block type="create_image_icon">
                     <value name="TAG">
                         <shadow type="text">
                             <field name="TEXT">tag</field>
@@ -1146,7 +1146,7 @@
                 </block>
             </category>
             <category name="Phaser Text" colour="#009688">
-                <block type="add_text">
+                <block type="add_text_icon">
                     <value name="X_POS">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
@@ -1168,7 +1168,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="set_text_vi">
+                <block type="set_text_vi_icon">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1437,7 +1437,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="faint_object">
+                <block type="faint_object_icon">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -2478,6 +2478,6 @@
     </category>
     <sep/>
     <category name="Class" colour="230" custom="CLASSES"/>
-    <category name="Variables" colour="#381ECC" custom="VARIABLE"/>
-    <category name="Functions" colour="#AA3A69" custom="PROCEDURE"/>
+    <category name="Variables" colour="#381ECC" custom="VARIABLE_ICON"/>
+    <category name="Functions" colour="#AA3A69" custom="PROCEDURE_ICON"/>
 </xml>
