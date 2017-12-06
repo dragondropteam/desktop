@@ -162,7 +162,7 @@ Blockly.C['procedures_defreturn_typed'] = function (block) {
     var returnType = returnValue ? getCType(block.getFieldValue('TYPE')) : 'int';
     var args = [];
     for (var x = 0; x < block.arguments_.length; x++) {
-        let varType = getCType(workspace.getVariableType(block.arguments_[x]));
+        let varType = getCType(block.workspace.getVariableType(block.arguments_[x]));
         args[x] = `${varType} ${Blockly.C.variableDB_.getName(block.arguments_[x],
             Blockly.Variables.NAME_TYPE)}`;
     }
