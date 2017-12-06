@@ -112,7 +112,7 @@ Blockly.JavaScript['procedures_ifreturn'] = function (block) {
  * Begin modifications copyright DigiPen Institute of Technology
  */
 /**
- *
+ * Simple return block with no condition
  * @param block
  * @return {string}
  */

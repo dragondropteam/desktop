@@ -19,7 +19,7 @@ Blockly.C['microseconds'] = function(block) {
 };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 Blockly.C['delayms'] = function(block) {
-  var value_milliseconds = Blockly.C.valueToCode(block, 'MILLISECONDS', Blockly.C.ORDER_ATOMIC) || '0';
+  var value_milliseconds = Blockly.C.valueToCode(block, 'IN_MILLISECONDS', Blockly.C.ORDER_ATOMIC) || '0';
   return 'delay( ' + value_milliseconds + ' );\n';
 };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

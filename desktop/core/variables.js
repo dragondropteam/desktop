@@ -45,7 +45,7 @@ goog.require('goog.string');
  * @returns {*}
  */
 window.prompt = function(title, val){
-  const {ipcRenderer} = require('electron')
+    const {ipcRenderer} = require('electron');
   return ipcRenderer.sendSync('prompt', {title, val})
 };
 
@@ -53,6 +53,7 @@ window.prompt = function(title, val){
  * Category to separate variable names from procedures and generated functions.
  */
 Blockly.Variables.TYPED_VARIABLES_NAME_TYPE = 'VARIABLES_TYPED';
+Blockly.Variables.TYPED_VARIABLES_NAME_TYPE_ICON = 'VARIABLES_TYPED_ICON';
 
 /**
  * Construct the blocks required by the flyout for the variable category.
@@ -153,6 +154,7 @@ Blockly.Variables.flyoutCategoryTyped = function(workspace) {
  * Category to separate variable names from procedures and generated functions.
  */
 Blockly.Variables.NAME_TYPE = 'VARIABLE';
+Blockly.Variables.NAME_TYPE_ICON = 'VARIABLE_ICON';
 
 /**
  * Find all user-created variables that are in use in the workspace.
@@ -290,6 +292,88 @@ Blockly.Variables.flyoutCategory = function(workspace) {
     }
   }
   return xmlList;
+};
+/**
+ * Construct the blocks required by the flyout for the variable category.
+ * @param {!Blockly.Workspace} workspace The workspace contianing variables.
+ * @return {!Array.<!Element>} Array of XML block elements.
+ */
+Blockly.Variables.flyoutCategoryIcon = function (workspace) {
+    var variableList = workspace.variableList;
+    variableList.sort(goog.string.caseInsensitiveCompare);
+
+    var xmlList = [];
+    var button = goog.dom.createDom('button');
+    button.setAttribute('text', Blockly.Msg.NEW_VARIABLE);
+    xmlList.push(button);
+
+    if (variableList.length > 0) {
+        if (Blockly.Blocks['variables_set_icon']) {
+            // <block type="variables_set" gap="20">
+            //   <field name="VAR">item</field>
+            // </block>
+            var block = goog.dom.createDom('block');
+            block.setAttribute('type', 'variables_set_icon');
+            if (Blockly.Blocks['math_change']) {
+                block.setAttribute('gap', 8);
+            } else {
+                block.setAttribute('gap', 24);
+            }
+            var field = goog.dom.createDom('field', null, variableList[0]);
+            field.setAttribute('name', 'VAR');
+            block.appendChild(field);
+            xmlList.push(block);
+        }
+        if (Blockly.Blocks['math_change']) {
+            // <block type="math_change">
+            //   <value name="DELTA">
+            //     <shadow type="math_number">
+            //       <field name="NUM">1</field>
+            //     </shadow>
+            //   </value>
+            // </block>
+            var block = goog.dom.createDom('block');
+            block.setAttribute('type', 'math_change');
+            if (Blockly.Blocks['variables_get']) {
+                block.setAttribute('gap', 20);
+            }
+            var value = goog.dom.createDom('value');
+            value.setAttribute('name', 'DELTA');
+            block.appendChild(value);
+
+            var field = goog.dom.createDom('field', null, variableList[0]);
+            field.setAttribute('name', 'VAR');
+            block.appendChild(field);
+
+            var shadowBlock = goog.dom.createDom('shadow');
+            shadowBlock.setAttribute('type', 'math_number');
+            value.appendChild(shadowBlock);
+
+            var numberField = goog.dom.createDom('field', null, '1');
+            numberField.setAttribute('name', 'NUM');
+            shadowBlock.appendChild(numberField);
+
+            xmlList.push(block);
+        }
+
+        for (var i = 0; i < variableList.length; i++) {
+            if (Blockly.Blocks['variables_get_icon']) {
+                // <block type="variables_get" gap="8">
+                //   <field name="VAR">item</field>
+                // </block>
+                var block = goog.dom.createDom('block');
+                block.setAttribute('type', 'variables_get_icon');
+                if (Blockly.Blocks['variables_set']) {
+                    block.setAttribute('gap', 8);
+                }
+                var field = goog.dom.createDom('field', null, variableList[i]);
+                field.setAttribute('name', 'VAR');
+                block.appendChild(field);
+                xmlList.push(block);
+            }
+        }
+    }
+    return xmlList;
 };
 
 /**

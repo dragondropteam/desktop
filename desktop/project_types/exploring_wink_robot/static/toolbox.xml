@@ -1,0 +1,462 @@
+<xml id="toolbox" style="display: none">
+    <category name="Eyes" colour="330">
+        <category name="Left Eye" colour="330">
+            <block type="setleftred_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftgreen_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftblue_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftpurple_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftpink_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftyellow_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftcyan_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftorange_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftwhite_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setleftrgb_icon"/>
+            <block type="turnlefteyeoff_icon"/>
+            <!--<block type="leftprevcolour"/>-->
+            <block type="set_left_eye_icon">
+                <value name="RED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="GREEN">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="BLUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Right Eye" colour="330">
+            <block type="setrightred_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightgreen_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightblue_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightpurple_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightpink_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightyellow_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightcyan_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightorange_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightwhite_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="setrightrgb_icon"/>
+            <block type="turnrighteyeoff_icon"/>
+            <!--<block type="rightprevcolour"/>-->
+            <block type="set_right_eye_icon">
+                <value name="RED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="GREEN">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="BLUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Both Eyes" colour="330">
+            <block type="seteyesred_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyesgreen_icon">
+
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyesblue_icon">
+
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyespurple_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyespink_icon">
+
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyesyellow_icon">
+
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyescyan_icon">
+
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyesorange_icon">
+
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyeswhite_icon">
+                <value name="INTENSITY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seteyesrgb_icon"/>
+            <block type="turneyesoff_icon"/>
+            <!--<block type="eyesprevcolour"/>-->
+            <block type="set_eyes_icon">
+                <value name="RED">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="GREEN">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="BLUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="Light Effects" colour="330">
+            <!-- TODO: Create police_lights, disco, rainbow, and fireworks blocks -->
+            <!--<block type="police_lights"/>-->
+            <!--<block type="disco"/>-->
+            <!--<block type="rainbow"/>-->
+            <!--<block type="fireworks"/>-->
+        </category>
+    </category>
+    <category name="Motors" colour="330">
+        <category name="Beginner" colour="330">
+            <!-- TODO: Beginner blocks -->
+        </category>
+        <category name="Advanced">
+            <block type="turn_by_values"/>
+            <block type="acceleratemotors">
+                <value name="startspeed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="endspeed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="duration">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="motors">
+                <value name="leftspeed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="rightspeed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="spinleft">
+                <value name="speed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="spinright">
+                <value name="speed">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="bestill"/>
+        </category>
+    </category>
+    <category name="Sensors" colour="330">
+        <!--block type="line_follow" -->
+        <!--block type="line_avoidance" -->
+        <!--block type="obstacle_avoidance"-->
+        <!--block type="obstacle_approach"-->
+        <category name="Sensor Inputs">
+            <block type="buttonwait"/>
+            <block type="button_pressed"/>
+            <block type="ir_when"/>
+        </category>
+        <category name="Sensor Output">
+            <!--<block type="ir_output"/>-->
+        </category>
+    </category>
+    <sep/>
+    <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
+    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
+    <category name="Logic" colour="210">
+        <block type="controls_if_icon"/>
+        <block type="logic_compare"/>
+        <block type="logic_operation"/>
+        <block type="logic_negate"/>
+        <block type="logic_boolean"/>
+        <block type="logic_ternary_icon"/>
+    </category>
+    <category name="Loops" colour="120">
+        <block type="controls_repeat_ext_icon">
+            <value name="TIMES">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_whileUntil_icon"/>
+        <block type="controls_for_icon">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="BY">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_flow_statements"/>
+    </category>
+    <category name="Math" colour="230">
+        <block type="math_number" gap="32"/>
+        <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_single">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">9</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_trig">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">45</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constant"/>
+        <block type="math_change">
+            <value name="DELTA">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">3.1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_modulo">
+            <value name="DIVIDEND">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="DIVISOR">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constrain">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="LOW">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="HIGH">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_random_int">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>

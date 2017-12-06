@@ -365,6 +365,96 @@
                     </value>
                 </block>
                 <block type="get_time_numeric_member"/>
+                <block type="create_timer"/>
+                <block type="time_constants"/>
+                <block type="start_timer">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_add_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_loop_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_repeat_event">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT_COUNT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_destroy">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_pause">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_resume">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_stop">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="timer_set_on_complete_callback">
+                    <value name="TIMER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTimer</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
         </category>
         <category name="Objects" colour="#004d40">
@@ -1951,6 +2041,103 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="phaser_easing"/>
+                <block type="phaser_easing_linear"/>
+                <block type="phaser_game_add_tween_to">
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultSprite</field>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">1000</field>
+                        </shadow>
+                    </value>
+                    <value name="EASE">
+                        <shadow type="phaser_easing_linear"/>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_game_add_tween_from">
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultSprite</field>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">1000</field>
+                        </shadow>
+                    </value>
+                    <value name="EASE">
+                        <shadow type="phaser_easing_linear"/>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPEAT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_start_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_stop_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_pause_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_resume_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="phaser_yoyo_tween">
+                    <value name="TWEEN">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultTween</field>
+                        </shadow>
+                    </value>
+                    <value name="DELAY">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
             <category name="Random" colour="#ff7043">
                 <!--<block type="create_random_generator"></block>-->
@@ -1961,7 +2148,7 @@
                         </shadow>
                     </value>
                 </block>-->
-                <block type="random_angle"></block>
+                <block type="random_angle"/>
                 <block type="random_pick">
                     <value name="ARRAY">
                         <shadow type="variables_get">
@@ -1991,7 +2178,6 @@
                 </block>
                 <block type="random_sign"></block>
             </category>
-
         </category>
         <category name="Camera" colour="#607d8b">
             <block type="camera_fade">
@@ -2106,16 +2292,16 @@
                 </value>
             </block>
             <!--<block type="play_sound">-->
-                <!--<value name="TAG">-->
-                    <!--<shadow type="text">-->
-                        <!--<field name="TEXT">tag</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
-                <!--<value name="VOLUME">-->
-                    <!--<shadow type="math_number">-->
-                        <!--<field name="NUM">0.67</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
+            <!--<value name="TAG">-->
+            <!--<shadow type="text">-->
+            <!--<field name="TEXT">tag</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
+            <!--<value name="VOLUME">-->
+            <!--<shadow type="math_number">-->
+            <!--<field name="NUM">0.67</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
             <!--</block>-->
             <block type="add_sound">
                 <value name="TAG">
@@ -2264,11 +2450,11 @@
                 </value>
             </block>
             <!--<block type="remove_sound">-->
-                <!--<value name="TAG">-->
-                    <!--<shadow type="text">-->
-                        <!--<field name="TEXT">tag</field>-->
-                    <!--</shadow>-->
-                <!--</value>-->
+            <!--<value name="TAG">-->
+            <!--<shadow type="text">-->
+            <!--<field name="TEXT">tag</field>-->
+            <!--</shadow>-->
+            <!--</value>-->
             <!--</block>-->
             <block type="sound_restart">
                 <value name="OBJECT">
