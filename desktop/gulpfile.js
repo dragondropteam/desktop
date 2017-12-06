@@ -25,10 +25,10 @@ gulp.task('clean', () => {
  * Install dependencies, in most cases we will really need to update
  * or something else as npm install is a prereq to running this project
  */
-// gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace'], () => {
-//     return gulp.src('package.json')
-//         .pipe(install());
-// });
+gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks'], () => {
+    return gulp.src('package.json')
+        .pipe(install());
+});
 
 gulp.task('mainProcess', ['blocklyBuild'], () => {
     return gulp.src('*.js')
@@ -41,7 +41,7 @@ gulp.task('mainProcess', ['blocklyBuild'], () => {
  * Automatically uses package.json in cwd and the current platform
  */
 
-gulp.task('buildCurrentPlatform', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace'], () => {
+gulp.task('buildCurrentPlatform', ['install'], () => {
     return builder.build();
 });
 
@@ -89,8 +89,22 @@ gulp.task('wink_robot', () => {
         .pipe(gulp.dest('app/project_types/wink_robot'));
 });
 
+gulp.task('exploring_phaser', () => {
+    return gulp.src('project_types/exploring_phaser/**/*.js')
+        .pipe(minify(options))
+        .pipe(addsrc(['project_types/exploring_phaser/**/*', '!project_types/exploring_phaser/**/*.js']))
+        .pipe(gulp.dest('app/project_types/exploring_phaser'));
+});
 
-gulp.task('projectTypes', ['arduino', 'basic_javascript', 'ringo_robot', 'text_phaser', 'visual_phaser', 'wink_robot'], () => {
+gulp.task('exploring_wink_robot', () => {
+    return gulp.src('project_types/exploring_wink_robot/**/*.js')
+        .pipe(minify(options))
+        .pipe(addsrc(['project_types/exploring_wink_robot/**/*', '!project_types/exploring_wink_robot/**/*.js']))
+        .pipe(gulp.dest('app/project_types/exploring_wink_robot'));
+});
+
+
+gulp.task('projectTypes', ['arduino', 'basic_javascript', 'ringo_robot', 'text_phaser', 'visual_phaser', 'wink_robot', 'exploring_phaser', 'exploring_wink_robot'], () => {
     return gulp.src('project_types/project_types.js')
         .pipe(minify(options))
         .pipe(addsrc(['project_types/dragon_drop_style.css', 'project_types/package.json']))
@@ -170,6 +184,13 @@ gulp.task('workspace', () => {
         .pipe(minify(options))
         .pipe(addsrc(['workspace/**/*', '!workspace/**/*.js']))
         .pipe(gulp.dest('app/workspace'));
+});
+
+gulp.task('icon_blocks', () => {
+   gulp.src('icon_blocks/**/*.js')
+       .pipe(minify(options))
+       .pipe(addsrc(['icon_blocks/**/*', '!icon_blocks/**/*.js']))
+       .pipe(gulp.dest('app/icon_blocks'));
 });
 
 

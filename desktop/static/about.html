@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preferences</title>
+    <link rel="stylesheet" href="angular-material.min.css">
+</head>
+<body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="projects-controller">
+
+<md-toolbar layout="column" class="md-primary">
+    <h1 layout-padding>About DragonDrop</h1>
+    <h2 layout-padding id="version" layout-padding>Preferences</h2>
+</md-toolbar>
+
+<md-content layout="column" layout-padding>
+    <p>Developed by DigiPen Institute of Technology</p>
+</md-content>
+
+<!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+<script>if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}</script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="angular.min.js"></script>
+<script src="angular-animate.min.js"></script>
+<script src="angular-aria.min.js"></script>
+<script src="angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="angular-material.min.js"></script>
+
+<!-- JQuery -->
+<script src="jquery-3.2.1.min.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+
+<script>
+    const npm = require('../package.json');
+    var element = document.getElementById("version");
+    element.innerHTML = `version: ${npm.version}`;
+
+    var app = angular.module('DragonDrop', ['ngMaterial']);
+    app.controller('projects-controller', function ($scope) {
+        $scope.cancel = () => {
+            ipcRenderer.send('cancel_settings');
+        }
+    });
+
+</script>
+</body>
+</html>

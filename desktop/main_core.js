@@ -144,6 +144,21 @@ function addHelpMenu(menuHash) {
             const {shell} = require('electron');
             shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
         }
+    });
+
+    menuHash['Help'].push({
+        label: 'About',
+        click: function () {
+            let aboutWindow = new BrowserWindow({
+                width: 800,
+                height: 600,
+                show: false,
+            });
+            aboutWindow.loadURL(`file://${__dirname}/static/about.html`);
+            aboutWindow.on('ready-to-show', () => {
+                aboutWindow.show();
+            })
+        }
     })
 }
 

@@ -125,6 +125,9 @@ Blockly.C['procedures_ifreturn'] = function (block) {
     return code;
 };
 
+/**
+ * Begin modifications copyright DigiPen Institute of Technology
+ */
 Blockly.C['procedures_ifreturn_typed'] = Blockly.C['procedures_ifreturn'];
 
 Blockly.C['procedures_return_typed'] = function (block) {
@@ -156,10 +159,10 @@ Blockly.C['procedures_defreturn_typed'] = function (block) {
     if (returnValue) {
         returnValue = '  return ' + returnValue + ';\n';
     }
-    var returnType = returnValue ? getCType(block.getFieldValue('TYPE')) : 'void';
+    var returnType = returnValue ? getCType(block.getFieldValue('TYPE')) : 'int';
     var args = [];
     for (var x = 0; x < block.arguments_.length; x++) {
-        let varType = getCType(workspace.getVariableType(block.arguments_[x]));
+        let varType = getCType(block.workspace.getVariableType(block.arguments_[x]));
         args[x] = `${varType} ${Blockly.C.variableDB_.getName(block.arguments_[x],
             Blockly.Variables.NAME_TYPE)}`;
     }
@@ -193,10 +196,29 @@ Blockly.C['procedures_callnoreturn_typed'] = Blockly.C['procedures_callnoreturn'
 Blockly.C['cast_block'] = function (block) {
     var value_value = Blockly.C.valueToCode(block, 'VALUE', Blockly.C.ORDER_ATOMIC);
     var dropdown_type = block.getFieldValue('TYPE');
-    if (dropdown_type == 'STRING') {
+    if (dropdown_type === 'STRING') {
         return [`new String(${value_value})`, Blockly.C.ORDER_NONE];
     } else {
         var cType = getCType(dropdown_type);
         return [`(${cType})(${value_value})`, Blockly.C.ORDER_NONE];
     }
 };
+
+
+/**
+ * Simple return block with no condition
+ * @param block
+ * @return {string}
+ */
+Blockly.C['procedures_return'] = function (block) {
+    if (block.hasReturnValue_) {
+        let value = Blockly.C.valueToCode(block, 'VALUE',
+            Blockly.C.ORDER_NONE) || '0';
+        return 'return ' + value + ';\n';
+    } else {
+        return 'return;\n';
+    }
+};
+/**
+ * End modifications
+ */

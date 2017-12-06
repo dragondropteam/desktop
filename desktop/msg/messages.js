@@ -107,7 +107,7 @@ Blockly.Msg.NEW_VARIABLE = 'Create variable...';
 /// prompt - Prompts the user to enter the name for a new variable.  See [https://github.com/google/blockly/wiki/Variables#dropdown-menu https://github.com/google/blockly/wiki/Variables#dropdown-menu].
 Blockly.Msg.NEW_VARIABLE_TITLE = 'New variable name:';
 /// alert - Tells the user that the name they entered is already in use.
-Blockly.Msg.VARIABLE_ALREADY_EXISTS = 'A variable named "%1" already exists.'
+Blockly.Msg.VARIABLE_ALREADY_EXISTS = 'A variable named "%1" already exists.';
 
 // Variable deletion.
 /// confirm -  Ask the user to confirm their deletion of multiple uses of a variable.
@@ -1279,7 +1279,7 @@ Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL = '';
 /// block text
 Blockly.Msg.LOG_CONSOLE_TITLE = 'log to console';
 /// tooltip
-Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.'
+Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.';
 /// url
 Blockly.Msg.LOG_CONSOLE_HELP_URL = 'https://en.wikipedia.org/wiki/System_console';
 
@@ -5057,3 +5057,169 @@ Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TO = 'to';
 Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP = 'Write to one of the game time\'s numeric fields.';
 /// url - Phaser documentation for game.time.
 Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Time.html';
+/// block text - Creates a new timer object
+Blockly.Msg.CREATE_TIMER_TITLE = 'create new timer';
+/// block text - True if the object should destroy itself after all events have been dispatched barring looping events
+Blockly.Msg.AUTO_DESTROY = 'auto destroy';
+/// url - Phaser documentation for Timer
+Blockly.Msg.CREATE_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#Timer';
+/// tooltip - create a new timer
+Blockly.Msg.CREATE_TIMER_TOOLTIP = 'Create a new timer, if auto destroy is true this timer will be destoryed after all events are dispatched';
+/// block text - Half a second
+Blockly.Msg.HALF = 'half a second';
+/// block text - One minute
+Blockly.Msg.MINUTE = 'one minute';
+/// block text - Quarter of a second
+Blockly.Msg.QUARTER = 'quarter of a second';
+/// block text - one second
+Blockly.Msg.SECOND = 'one second';
+/// block text - Modifier to show constants are in milliseconds
+Blockly.Msg.IN_MILLISECONDS = 'in milliseconds';
+/// block text - prefix for start_timer block
+Blockly.Msg.START_TIMER = 'start timer';
+/// block text - in
+Blockly.Msg.IN = 'in';
+/// block text - every
+Blockly.Msg.EVERY = 'every';
+/// block text - suffix for start_timer block
+Blockly.Msg.MILLISECONDS = 'milliseconds';
+/// block text - timer
+Blockly.Msg.TIMER = 'timer';
+/// block text - adding an event to a timer
+Blockly.Msg.TIMER_ADD_EVENT = 'add event to timer';
+/// block text - calling a procedure or method
+Blockly.Msg.CALL = 'call';
+/// tooltip - Specify that the constants are in milliseconds and are for common values
+Blockly.Msg.TIMER_CONSTANTS_TOOLTIP = 'Constants for some common values in milliseconds';
+/// tooltip - Start the timer
+Blockly.Msg.START_TIMER_TOOLTIP = 'Start timer after a given delay in milliseconds';
+/// url - Phaser documentation for Timer.start
+Blockly.Msg.START_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#start';
+/// tooltip - Clarify this delay
+Blockly.Msg.TIMER_ADD_EVENT_TOOLTIP = 'Fire the event after the specified delay after the start of the timer';
+/// url - Phaser documentation for Timer.add
+Blockly.Msg.TIMER_ADD_EVENT_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#add';
+/// block text - Destroy the timer taking all events with it
+Blockly.Msg.DESTROY_TIMER = 'destroy timer';
+/// tooltip - destroys the timer
+Blockly.Msg.DESTROY_TIMER_TOOLTIP = 'destroys the timer andy pending events are not dispatched';
+/// url - Phaser documentation for Timer.Destroy
+Blockly.Msg.DESTROY_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#destroy';
+/// block text - Loop an event a given number of times
+Blockly.Msg.TIMER_LOOP_EVENT = 'loop event on timer';
+/// tooltip - loop an event repeat times
+Blockly.Msg.TIMER_LOOP_EVENT_TOOLTIP = 'Loops the given event forever or until the timer is stopped or destroyed';
+/// url - Phaser documentation for
+Blockly.Msg.TIMER_LOOP_EVENT_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#loop';
+/// block text - Loop an event a given number of times
+Blockly.Msg.TIMER_REPEAT_EVENT = 'repeat event on timer';
+/// block text - repeat count
+Blockly.Msg.TIMER_REPEAT_EVENT_COUNT = 'times';
+/// tooltip - loop an event repeat times
+Blockly.Msg.TIMER_REPEAT_EVENT_TOOLTIP = 'Loops the given event forever or until the timer is stopped or destroyed';
+/// url - Phaser documentation for
+Blockly.Msg.TIMER_REPEAT_EVENT_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#loop';
+/// block text - Pause a running timer
+Blockly.Msg.PAUSE_TIMER = 'pause timer';
+/// tooltip - Pauses all events in the queue
+Blockly.Msg.PAUSE_TIMER_TOOLTIP = 'Pauses the timer and all events in the queue';
+/// url - Documentation for Phaser.
+Blockly.Msg.PAUSE_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#pause';
+/// block text - Resume a paused timer
+Blockly.Msg.RESUME_TIMER = 'resume timer';
+/// tooltip - Resumes all events in the queue
+Blockly.Msg.RESUME_TIMER_TOOLTIP = 'Resumes the timer and all events in the queue';
+/// url - Documentation for Timer.resume
+Blockly.Msg.RESUME_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#resume';
+/// block text - Stop a paused timer
+Blockly.Msg.STOP_TIMER = 'stop timer';
+/// tooltip - Resumes all events in the queue
+Blockly.Msg.STOP_TIMER_TOOLTIP = 'Stops the timer and all events in the queue, if auto destroy is true this will not cause it to be destroyed';
+/// url - Documentation for Timer.Stop
+Blockly.Msg.STOP_TIMER_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#stop';
+/// block text - Stops a timer, does not destroy
+Blockly.Msg.STOP_TIMER_CLEAR_EVENTS = 'clear events';
+/// block text - Called when a timer completes all events in its queue
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK = 'when timer';
+/// block text - follows the user specified timer to read a bit more like english then code
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_COMPLETED = 'completes call';
+/// tooltip - This method is not always called explain a few of those conditions
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_TOOLTIP = 'Called when the timer completes all of the actions in its queue. This will not be called if the timer is stopped or destroyed before it completes its queue.';
+/// url - Timer.onComplete
+Blockly.Msg.TIMER_SET_ON_COMPLETE_CALLBACK_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Timer.html#onComplete';
+/// url - Phaser.Easing prebuilt easing functions
+Blockly.Msg.PHASER_EASING_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Easing.html';
+/// tooltip - Predefined easing functions
+Blockly.Msg.PHASER_EASING_TOOLTIP = 'Prebuilt easing functions you can utilize through out your code';
+/// block text - tween from the current value to a new value
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TITLE = 'create tween to';
+/// tooltip - PHASER_GAME_ADD_TWEEN_TO_TOOLTIP
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_TOOLTIP = 'Create a tween from the current value to the end values';
+/// url - Phaser.Tween.To
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_TO_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#to';
+/// block text - tween from the given value to the current value
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_TITLE = 'create tween from';
+/// tooltip - PHASER_GAME_ADD_TWEEN_FROM_TOOLTIP
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_TOOLTIP = 'Create a tween from the end value to the current values, setting the values to end first';
+/// url - Phaser.Tween.To
+Blockly.Msg.PHASER_GAME_ADD_TWEEN_FROM_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#from';
+/// block text - target of a tween
+Blockly.Msg.PHASER_TWEEN_TARGET = 'target';
+/// block text - duration of the tween
+Blockly.Msg.PHASER_TWEEN_DURATION = 'duration';
+/// block text - ease to use during tween
+Blockly.Msg.PHASER_TWEEN_EASE = 'ease';
+/// block text - auto start the tween
+Blockly.Msg.PHASER_TWEEN_AUTO_START = 'auto start';
+/// block text - delay to the start of the tween
+Blockly.Msg.PHASER_TWEEN_DELAY = 'delay';
+/// block text - repeat the tween x times
+Blockly.Msg.PHASER_TWEEN_REPEAT = 'repeat';
+/// block text - yoyo the tween
+Blockly.Msg.PHASER_TWEEN_YOYO = 'yoyo';
+/// block text - Container for tween mutator container simply holds on to properties
+Blockly.Msg.PHASER_TWEEN_MUTATORCONTAINER_TITLE = 'properties';
+/// tooltip - A property of the target object you want to tween
+Blockly.Msg.PHASER_TWEEN_MUTATORCONTAINER_TOOLTIP = 'List of properties to tween on the target object';
+/// block text - Arg for a tween mutator, simply the name of the property to use
+Blockly.Msg.PHASER_TWEEN_MUTATORARG_TITLE = 'property';
+/// tooltip - A property of the target object you want to tween
+Blockly.Msg.PHASER_TWEEN_MUTATORARG_TOOLTIP = 'Property to tween on the target object';
+/// block text - Header for properties
+Blockly.Msg.PHASER_TWEEN_PROPERTIES_HEADER = 'properties:';
+///block text - Stop the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_STOP_TWEEN = 'stop tween';
+///tooltip -
+Blockly.Msg.PHASER_STOP_TWEEN_TOOLTIP = 'Stop the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.stop
+Blockly.Msg.PHASER_STOP_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#stop';
+///block text - pause the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_PAUSE_TWEEN = 'pause tween';
+///tooltip -
+Blockly.Msg.PHASER_PAUSE_TWEEN_TOOLTIP = 'pause the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.PAUSE
+Blockly.Msg.PHASER_PAUSE_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#pause';
+///block text - start the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_START_TWEEN = 'start tween';
+///tooltip -
+Blockly.Msg.PHASER_START_TWEEN_TOOLTIP = 'start the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.START
+Blockly.Msg.PHASER_START_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#start';
+///block text - start the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_RESUME_TWEEN = 'resume tween';
+///tooltip -
+Blockly.Msg.PHASER_RESUME_TWEEN_TOOLTIP = 'resume the tween dispatching onComplete if complete is checked';
+///url - Phaser.Tween.RESUME
+Blockly.Msg.PHASER_RESUME_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#resume';
+///block text - start the tween dispatching complete if it is checked
+Blockly.Msg.PHASER_YOYO_TWEEN = 'yoyo tween';
+///tooltip -
+Blockly.Msg.PHASER_YOYO_TWEEN_TOOLTIP = 'enable or disable yoyoing for this tween';
+///url - Phaser.Tween.YOYO
+Blockly.Msg.PHASER_YOYO_TWEEN_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#yoyo';
+///block text - delay to the start of the yoyo if enabling
+Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = 'delay';
+///block text - index of the child tween
+Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = 'child index';
+///block text - complete the tween when done
+Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'fire onComplete';
