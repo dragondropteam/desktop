@@ -26,7 +26,7 @@ app.setAppUserModelId("edu.digipen.dragondrop"); //set AUMID
 //const {BrowserWindow} = require('electron');
 
 const {ipcMain} = require('electron');
-const projects = require('project');
+const projects = require('./project/projects');
 const fs = require('fs-extra');
 const projectTypes = require('project_types');
 const arduinoCore = require('arduino_core');
@@ -448,13 +448,11 @@ function createProject() {
 
 function loadProjectDialog() {
     const dialog = require('electron').dialog;
-    const app = require('electron').app;
     const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects");
-    console.log(defaultPath);
     const pathToProject = dialog.showOpenDialog(mainWindow, {
         title: 'Load Project',
         defaultPath: defaultPath,
-        filters: [{name: 'Dragon Drop Project', extensions: ['digiblocks']}]
+        filters: [{name: 'Dragon Drop Project', extensions: ['digiblocks', 'drop']}]
     });
 
     if (!pathToProject) {
@@ -571,17 +569,18 @@ app.on('window-all-closed', function () {
     }
 });
 
+
 /**
  * Loads a project from the path to a given .digiblocks file if the file is able to be loaded it will then be displayed
  * else it will display an error and remove from the list of recent projects as needed
  * @param {string} projectPath Path to a .digiblocks file to load
  */
-function loadProjectFromPath(projectPath) {
-    try{
+function loadDigiblocksFromPath(projectPath) {
+    try {
         const compareVersions = require('compare-versions');
         let json = fs.readJsonSync(projectPath);
 
-        if(compareVersions(global.version, json.version) < 0){
+        if (compareVersions(global.version, json.version) < 0) {
             console.error('Project is from a newer version of Dragon Drop');
             dialog.showMessageBox(mainWindow, {
                 type: "error",
@@ -595,14 +594,14 @@ function loadProjectFromPath(projectPath) {
         let project = ProjectInterface.loadProject(projectPath);
         if (project !== null) {
             displayProject(project);
-         } else {
+        } else {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-              type: 'error',
-              title: 'Dragon Drop Error',
-              message: `Could not open project at ${projectPath}`
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Could not open project at ${projectPath}`
             });
         }
-    }catch(ex){
+    } catch (ex) {
         console.error(ex);
         const message = !fs.existsSync(projectPath) ? 'The selected project does not exist.\nIt will be removed from recent projects if present' : 'Could not open the selected project';
         //There was an error trying to load the project, this most likely will occur when the user deleted a file from
@@ -617,6 +616,23 @@ function loadProjectFromPath(projectPath) {
 
         //Update the mainWindow if it cares
         mainWindow.send('recent_projects_updated');
+    }
+}
+
+function loadDropFromPath(projectPath) {
+
+}
+
+function loadProjectFromPath(projectPath) {
+    const extension = path.extname(projectPath);
+    // console.log('Extension' + extension);
+    switch (extension) {
+        case '.digiblocks':
+            loadDigiblocksFromPath(projectPath);
+            break;
+        case '.drop':
+            loadDropFromPath(projectPath);
+            break;
     }
 }
 
