@@ -13,7 +13,7 @@ const {spawn} = require('child_process');
 const path = require('path');
 const {dialog} = require('electron');
 const {Notification} = require('electron');
-
+const log = require('electron-log');
 /**
  * To actually call the application on Mac this string needs to be appended
  * after Arduino.app.
@@ -115,7 +115,7 @@ exports.loadInArduino = function (path) {
  */
 exports.uploadToArduino = function (path, board, port) {
     let args = ['--upload'];
-    console.log(`Uploading to Arudino platform with board ${board} and port ${port}`)
+    console.log(`Uploading to Arudino platform with board ${board} and port ${port}`);
 
     if (board != null) {
         args.push(`--board`);
@@ -189,7 +189,7 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
                 }
             });
         });
-        console.log(ports);
+        log.verbose(ports);
         menu['Project'].push({
             label: 'Ports',
             submenu: portMenus
@@ -340,9 +340,9 @@ exports.showUploadSuccess = function(board) {
     let successNotify = new Notification({
         title: 'Upload Complete',
         body: `Program successfully uploaded to ${board}.`
-    })
+    });
     successNotify.show();
- }
+};
 
  /**
   * Displays a notification that uploading to a board has failed.
@@ -352,9 +352,9 @@ exports.showUploadFailure = function(board) {
     let failureNotify = new Notification({
         title: 'Upload Failed',
         body: `There was an error uploading to ${board}.`
-    })
+    });
     failureNotify.show();
-}
+};
 
 /**
  * Displays a notification that verifying an arduino program has succeeded.
@@ -363,9 +363,9 @@ exports.showVerifySuccess = function() {
     let successNotify = new Notification({
         title: 'Verification Complete',
         body: 'Program has successfully been verified.'
-    })
+    });
     successNotify.show();
-}
+};
 
 /**
  * Displays a notification that verifying an arduino program has failed.
@@ -374,6 +374,6 @@ exports.showVerifyFailure = function() {
     let failureNotify = new Notification({
         title: 'Verification Failed',
         body: 'There was an error verifying the program.'
-    })
+    });
     failureNotify.show();
-}
+};

@@ -99,7 +99,7 @@
         const {BrowserWindow} = require('electron').remote;
 
         var pathChangedManually = false;
-        var project = {path: null, name: null};
+        var project = {path: defaultPath, name: null};
         var type = 'wink';
         var app = angular.module('DragonDrop', ['ngMaterial', 'ngMessages']);
         app.controller('projects-controller', function($scope){
@@ -127,20 +127,26 @@
                     return;
                 }
 
-                var isInvalid = require('is-invalid-path');
+                const isInvalid = require('is-invalid-path');
                 if(isInvalid(project.path)){
                     alert('The selected path is invalid');
                     return;
                 }
 
-                if(fs.existsSync(project.path)){
-                    const selection = dialog.showMessageBox({type: 'question', buttons: ['Cancel', 'Overwrite'], defaultId: 0, title: 'Directory Already Exists', message: 'Directory Already Exists:\nOverwrite directory?\nThis cannot be undone!'});
-                    if(selection == 0){
+                if (fs.existsSync(path.join(project.path, `${project.name}.drop`))) {
+                    const selection = dialog.showMessageBox({
+                        type: 'question',
+                        buttons: ['Cancel', 'Overwrite'],
+                        defaultId: 0,
+                        title: 'File Already Exists',
+                        message: 'File Already Exists:\nOverwrite file?\nThis cannot be undone!'
+                    });
+                    if (selection === 0) {
                         return;
                     }
                     else{
                       try{
-                        fs.emptyDirSync(project.path);
+                          fs.removeSync(path.join(project.path, `${project.name}.drop`));
                       }catch(err){
                         //If we could not overwrite the folder it is not safe to use it for the new project show the
                         //user an error and abort
@@ -148,7 +154,7 @@
                         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                           type: 'error',
                           title: 'Dragon Drop Error',
-                          message: 'Could not delete directory\nMake sure no files are still open.'
+                            message: 'Could not overwrite project.\nMake sure it is not still open.'
                         });
                         return;
                     }
@@ -168,17 +174,6 @@
                     $('#projectPath').val(newPath);
                 }
             };
-        });
-
-        $('document').ready(function() {
-            $('#projectName').on('input', function () {
-                if (!pathChangedManually) {
-                    const clean = $(this).val().replace(/\s/g, '_');
-                    const newPath = path.join(defaultPath, clean);
-                    project.path = newPath;
-                    $('#projectPath').val(newPath);
-                }
-            });
         });
 
     </script>

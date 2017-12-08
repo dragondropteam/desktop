@@ -8,6 +8,7 @@ const config = new Config();
 const fs = require('fs-extra');
 const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
+const {app} = require('electron');
 
 class ProjectType {
     constructor(tag, display, requirePath, enabled) {
@@ -62,6 +63,7 @@ exports.BaseProjectManager = class BaseProjectManager {
         this.staticRoot = staticRoot;
     }
 
+
     /**
      * Create a new project
      * @param name The name of the project
@@ -71,16 +73,37 @@ exports.BaseProjectManager = class BaseProjectManager {
      */
     createNewProject(name, filePath, version) {
         console.log(`Creating project ${name} at ${filePath} with version ${version}`);
+        console.log(path.join(app.getPath('temp'), 'dragondrop'));
         try {
-            this.createProjectDir(name, filePath);
-            this.copyBaseFiles(name, filePath);
+            fs.ensureDirSync(filePath);
+            const zipfolder = require('zip-folder');
+            const cachePath = fs.mkdtempSync(path.join(app.getPath('temp'), 'dragondrop'));
+            this.createProjectDir(name, cachePath);
+            this.copyBaseFiles(name, cachePath);
             let project = new Project(name, version, this.type, this.createMeta());
-            fs.writeJsonSync(path.join(filePath, `${name}.digiblocks`), project);
-            return new LoadedProject(project, filePath);
+            fs.writeJsonSync(path.join(cachePath, `${name}.digiblocks`), project);
+            zipfolder(cachePath, path.join(filePath, `${name}.drop`), err => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log(`Created project at ${path.join(filePath, `${name}.drop`)}`)
+            });
+            return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this);
         } catch (e) {
             console.error(e);
             return null;
         }
+        // try {
+        //     this.createProjectDir(name, filePath);
+        //     this.copyBaseFiles(name, filePath);
+        //     let project = new Project(name, version, this.type, this.createMeta());
+        //     fs.writeJsonSync(path.join(filePath, `${name}.digiblocks`), project);
+        //     return new LoadedProject(project, filePath);
+        // } catch (e) {
+        //     console.error(e);
+        //     return null;
+        // }
     }
 
     /**
