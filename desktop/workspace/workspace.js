@@ -252,7 +252,7 @@ class PhaserComponent extends exports.BaseComponent {
 
     stepExecution(){
         if(!this.paused){
-            return;
+
         }
     }
 
@@ -273,21 +273,20 @@ exports.registerDefaultComponents = function () {
 //endregion
 
 //region IPC_RENDERER LISTENERS
-function loadProject(loadedProject, loadPath) {
+function loadProject(loadedProject) {
     if (!layout || !config || !config.load) {
         return;
     }
 
+    //Layout may not be initialized yet, so wait and see if it comes up
     if (!layout.isInitialised) {
         setTimeout(() => {
-            loadProject(loadedProject, loadPath);
+            loadProject(loadedProject);
         }, TIMEOUT);
         return;
     }
 
-
-    loadedProject = new LoadedProject(loadedProject, loadPath);
-    document.title = `DragonDrop - ${loadedProject.loadPath}`;
+    document.title = `DragonDrop - ${loadedProject.projectPath}`;
     config.load(loadedProject);
 }
 
@@ -302,7 +301,7 @@ ipcRenderer.on('show_embedded', (event, arg) => {
 });
 
 ipcRenderer.on('set_project', (event, arg) => {
-    loadProject(arg.loadedProject, arg.loadPath);
+    loadProject(Object.assign(new LoadedProject(), arg));
 });
 
 ipcRenderer.on('settings_updated', () => {

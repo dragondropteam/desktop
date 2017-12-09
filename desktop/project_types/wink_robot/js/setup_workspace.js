@@ -10,6 +10,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const {app} = require('electron').remote;
 const {Browser} = require('electron').remote;
+const log = require('electron-log');
 
 let loadedProject = null;
 
@@ -157,13 +158,13 @@ function setBlocklyBlocks(data) {
 }
 
 function loadProjectFile(project) {
-
+    log.debug(`WinkRobot:LoadProjectFile:`, project);
     try {
         let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
 
         loadedProject = project;
 
-        document.title = `DragonDrop - ${loadedProject.loadPath}`;
+        document.title = `DragonDrop - ${loadedProject.projectPath}`;
 
         fs.readFile(loadedProject.getBlocksPath(), (err, data) => {
             if (err) {
