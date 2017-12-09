@@ -142,12 +142,13 @@ exports.BaseProjectManager = class BaseProjectManager {
     /**
      * Loads the .digiblocks (JSON) file and generates a LoadedProject to add helper methods and the load location for
      * the project
-     * @param filePath The file path to a .digiblocks file to load
+     * @param project The JSON file representing this project (.digiblocks)
+     * @param cachePath The path to the folder containing the .digiblocks file in cache folder
+     * @param projectPath The path to the project archive .drop file
      *
      */
-    loadProject(filePath) {
-        let project = fs.readJsonSync(filePath);
-        let loadedProject = new LoadedProject(project, path.dirname(filePath));
+    loadProject(project, cachePath, projectPath) {
+        const loadedProject = new LoadedProject(project, cachePath, projectPath);
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
