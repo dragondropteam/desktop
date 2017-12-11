@@ -524,7 +524,7 @@ function displayProject(loadedProject) {
     log.debug(loadedProject);
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
-    app.addRecentDocument(loadedProject.getProjectPath() || loadedProject.get);
+    app.addRecentDocument(loadedProject.projectPath || loadedProject.getProjectPath());
 
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     let window = new BrowserWindow({width: width, height: height, show: false});
@@ -533,9 +533,10 @@ function displayProject(loadedProject) {
         window.show();
     });
 
-    //TODO: Allow for more then a single loadedProject to be open!
+    // //TODO: Allow for more then a single loadedProject to be open!
     if (mainWindow) {
-        mainWindow.close();
+        console.log('Closing the main window');
+        mainWindow.destroy();
     }
 
     mainWindow = window;
@@ -548,7 +549,7 @@ function displayProject(loadedProject) {
         mainWindow = null;
     });
 
-    ProjectInterface.displayProject(window, global.development, loadedProject);
+    ProjectInterface.displayProject(mainWindow, global.development, loadedProject);
 
     // //The menu cannot be dynamic we have to recreate the entire thing whenever focus is changed.
     // mainWindow.on('focus', ()  =>{
@@ -582,47 +583,20 @@ app.on('window-all-closed', function () {
  * @param {string} projectPath Path to a .digiblocks file to load
  */
 function loadDigiblocksFromPath(projectPath) {
-    try {
+    return new Promise((resolve, reject) => {
+        fs.readJson(projectPath)
+            .then(projectFile => {
+                if (compareVersions(global.version, projectFile.version) < 0) {
+                    reject(VERSION_MISMATCH)
+                }
 
-        let json = fs.readJsonSync(projectPath);
-
-        if (compareVersions(global.version, json.version) < 0) {
-            log.debug(`Project requires ${json.version} currently running ${global.version}`);
-            dialog.showMessageBox(mainWindow, {
-                type: "error",
-                title: "Dragon Drop Error",
-                message: "Project is from a newer version of Dragon Drop and cannot be loaded.\nUpdate Dragon Drop to continue!"
+                ProjectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+                resolve(ProjectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath));
+            })
+            .catch(err => {
+                reject(err);
             });
-            return;
-        }
-        ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
-
-        let project = ProjectInterface.loadProject(json, path.dirname(projectPath), projectPath);
-        if (project !== null) {
-            displayProject(project);
-        } else {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: `Could not open project at ${projectPath}`
-            });
-        }
-    } catch (ex) {
-        console.error(ex);
-        const message = !fs.existsSync(projectPath) ? 'The selected project does not exist.\nIt will be removed from recent projects if present' : 'Could not open the selected project';
-        //There was an error trying to load the project, this most likely will occur when the user deleted a file from
-        //disk. So prompt the user with an error that the project cannot be loaded then remove it from the list of
-        //recent projects.
-        dialog.showMessageBox(mainWindow, {
-            type: "error",
-            message: message
-        });
-
-        projects.removeFromRecentProjects(path.dirname(projectPath));
-
-        //Update the mainWindow if it cares
-        mainWindow.send('recent_projects_updated');
-    }
+    });
 }
 
 const FILE_TOO_LARGE = 1;
@@ -701,24 +675,18 @@ function projectLoadErrorHandler(err) {
 }
 
 function loadProjectFromPath(projectPath) {
+    let progressWindow = new ProgressWindow('Loading Project');
     const extension = path.extname(projectPath);
-    switch (extension) {
-        case '.digiblocks':
-            loadDigiblocksFromPath(projectPath);
-            break;
-        case '.drop':
-            let progressWindow = new ProgressWindow('Loading Project');
-            loadDropFromPath(projectPath)
-                .then(project => {
-                    log.debug(project);
-                    displayProject(project);
-                })
-                .catch(projectLoadErrorHandler)
-                .then(() => {
-                    progressWindow.destroy();
-                });
-            break;
-    }
+    const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
+    loadProject
+        .then(project => {
+            //This has to occur before we display the project (closing the main window)
+            progressWindow.destroy();
+            //Just pass this down
+            return Promise.resolve(project);
+        })
+        .then(displayProject)
+        .catch(projectLoadErrorHandler);
 }
 
 let projectToLoad = null;
