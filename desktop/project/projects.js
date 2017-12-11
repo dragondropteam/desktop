@@ -18,9 +18,11 @@ function getRecentProjects() {
     }
 
     let projects = config.get(recentFilesKey);
-    // console.log(projects);
     for(let i = 0; i < projects.length; ){
-        if(!fs.existsSync(path.join(projects[i].loadPath, `${projects[i].loadedProject.name}.digiblocks`))){
+        if (!projects[i].loadPath || !fs.existsSync(projects[i].projectPath)) {
+            log.debug('Removing', projects[i]);
+            log.debug(`${!projects[i].loadPath}`);
+            log.debug(`${!fs.existsSync(projects[i].projectPath)}`);
             projects.splice(i, 1);//[i].loadedProject.name += ' - Deleted';
         }else{
             ++i;
@@ -143,12 +145,14 @@ exports.LoadedProject = class LoadedProject {
      * @param {String} loadPath Path to the cache directory where the .drop file has been extracted
      * @param {String} projectPath Path to the .drop archive file
      * @param {BaseProjectManager} projectManager Project manager that is currently being used
+     * @param {String} [fileType=digiblocks] digiblocks or drop
      */
-    constructor(project, loadPath, projectPath, projectManager) {
+    constructor(project, loadPath, projectPath, projectManager, fileType = 'digiblocks') {
         this.loadedProject = project;
         this.loadPath = loadPath;
         this.projectPath = projectPath;
         this.projectManager = projectManager;
+        this.fileType = fileType;
     }
 
     /**

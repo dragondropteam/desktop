@@ -9,6 +9,7 @@ const fs = require('fs-extra');
 const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
 const {app} = require('electron');
+const log = require('electron-log');
 
 class ProjectType {
     constructor(tag, display, requirePath, enabled) {
@@ -40,8 +41,18 @@ exports.ProjectType = ProjectType;
  */
 function getProjectTypes() {
     let projectTypes = config.get(projectTypesKey);
-    return projectTypes || defaultValue;
+    return defaultValue;
 }
+
+exports.getDisplayName = function (type) {
+    let displayName = null;
+    getProjectTypes().forEach(project => {
+        if (project.tag === type) {
+            displayName = project.display;
+        }
+    });
+    return displayName;
+};
 
 exports.getProjectTypes = getProjectTypes;
 
@@ -56,6 +67,7 @@ exports.getRequirePath = function (tag) {
 };
 
 
+//TODO: This needs to be moved to its own module
 exports.BaseProjectManager = class BaseProjectManager {
     constructor(buildNumber, type, staticRoot) {
         this.buildNumber = buildNumber;

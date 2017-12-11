@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,8 +30,13 @@
       <md-content flex>
         <md-list>
           <md-subheader>Recent Projects</md-subheader>
-          <md-list-item ng-click="loadProject(path.loadPath,path.loadedProject.name)" ng-model="recentPaths" ng-repeat="path in recentPaths">
-            {{path.loadedProject.name}} - {{path.loadedProject.type}}
+            <md-list-item class="md-2-line"
+                          ng-click="loadProject(path.projectPath || path.loadPath, path.loadedProject.name)"
+                          ng-model="recentPaths" ng-repeat="path in recentPaths">
+                <div class="md-list-item-text" layout="column">
+                    <p>{{path.loadedProject.name}} - {{displayName(path.loadedProject.type)}}</p>
+                    <p>{{path.projectPath || path.loadPath}}</p>
+                </div>
           </md-list-item>
         </md-list>
       </md-content>
@@ -55,18 +60,25 @@
 
   <script>
     const projects = require('project');
+    const projectTypes = require('project_types');
     const path = require('path');
     var app = angular.module('DragonDrop', ['ngMaterial']);
     app.controller('recentFilesController', function($scope){
         $scope.recentPaths = projects.getRecentProjects();
         $scope.loadProject = function(loadPath, name){
-          ipcRenderer.send('load_project', path.join(loadPath,`${name}.digiblocks`));
+            ipcRenderer.send('load_project', loadPath);
         };
 
         ipcRenderer.on('recent_projects_updated', () =>{
             $scope.recentPaths = projects.getRecentProjects();
             $scope.$apply();
         });
+
+        $scope.displayName = function (type) {
+            {
+                return projectTypes.getDisplayName(type);
+            }
+        }
     });
 
     const {ipcRenderer} = require('electron');
@@ -85,7 +97,6 @@
     function loadProjectDialog(){
       ipcRenderer.send('load_project_dialog');
     }
-
   </script>
 
 </body>
