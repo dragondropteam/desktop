@@ -457,7 +457,7 @@ function loadProjectDialog() {
     const pathToProject = dialog.showOpenDialog(mainWindow, {
         title: 'Load Project',
         defaultPath: defaultPath,
-        filters: [{name: 'Dragon Drop Project', extensions: ['drop', 'digiblock']}]
+        filters: [{name: 'Dragon Drop Project', extensions: ['drop', 'digiblocks']}]
     });
 
     if (!pathToProject) {
@@ -524,7 +524,7 @@ function displayProject(loadedProject) {
     log.debug(loadedProject);
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
-    app.addRecentDocument(loadedProject.getProjectPath());
+    app.addRecentDocument(loadedProject.getProjectPath() || loadedProject.get);
 
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     let window = new BrowserWindow({width: width, height: height, show: false});
@@ -587,7 +587,7 @@ function loadDigiblocksFromPath(projectPath) {
         let json = fs.readJsonSync(projectPath);
 
         if (compareVersions(global.version, json.version) < 0) {
-            console.error('Project is from a newer version of Dragon Drop');
+            log.debug(`Project requires ${json.version} currently running ${global.version}`);
             dialog.showMessageBox(mainWindow, {
                 type: "error",
                 title: "Dragon Drop Error",
@@ -597,7 +597,7 @@ function loadDigiblocksFromPath(projectPath) {
         }
         ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
 
-        let project = ProjectInterface.loadProject(projectPath);
+        let project = ProjectInterface.loadProject(json, path.dirname(projectPath), projectPath);
         if (project !== null) {
             displayProject(project);
         } else {
@@ -702,7 +702,6 @@ function projectLoadErrorHandler(err) {
 
 function loadProjectFromPath(projectPath) {
     const extension = path.extname(projectPath);
-    // console.log('Extension' + extension);
     switch (extension) {
         case '.digiblocks':
             loadDigiblocksFromPath(projectPath);
@@ -736,7 +735,7 @@ app.on('ready', function () {
         return;
     }
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 600, height: 500, resizable: false});
+    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false});
 
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
