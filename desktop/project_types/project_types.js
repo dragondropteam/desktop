@@ -10,6 +10,7 @@ const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
 const {app} = require('electron');
 const log = require('electron-log');
+const zipfolder = require('zip-folder');
 
 class ProjectType {
     constructor(tag, display, requirePath, enabled) {
@@ -88,7 +89,7 @@ exports.BaseProjectManager = class BaseProjectManager {
         console.log(path.join(app.getPath('temp'), 'dragondrop'));
         try {
             fs.ensureDirSync(filePath);
-            const zipfolder = require('zip-folder');
+
             const cachePath = fs.mkdtempSync(path.join(app.getPath('temp'), 'dragondrop'));
             this.createProjectDir(name, cachePath);
             this.copyBaseFiles(name, cachePath);
@@ -160,7 +161,7 @@ exports.BaseProjectManager = class BaseProjectManager {
      *
      */
     loadProject(project, cachePath, projectPath) {
-        const loadedProject = new LoadedProject(project, cachePath, projectPath);
+        const loadedProject = new LoadedProject(project, cachePath, projectPath, this);
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
@@ -195,9 +196,29 @@ exports.BaseProjectManager = class BaseProjectManager {
     /**
      * Saves the project out to disk
      * @param project The project to save to disk
+     * @param files
+     * @param files.path
+     * @param files.data
      */
-    saveProject(project) {
+    saveProject(project, files) {
         fs.outputJsonSync(project.getProjectPath(), project.loadedProject);
+
+        //If we are only updating the project file there will be no files
+        if (files) {
+            for (let i = 0; i < files.length; ++i) {
+                fs.writeFileSync(files[i].path, files[i].data);
+            }
+        }
+
+        //Update the .drop file if present this can be async as we are not directly using the file
+        if (path.extname(project.projectPath) === '.drop') {
+
+            zipfolder(project.loadPath, project.projectPath, err => {
+                if (err) {
+                    console.error(err);
+                }
+            });
+        }
     }
 
     migrateMetaAndProjectType(loadedProject) {

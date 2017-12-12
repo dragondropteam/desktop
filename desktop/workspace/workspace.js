@@ -17,6 +17,9 @@ const electronConfig = new Config();
 const {dialog} = require('electron').remote;
 const GoldenLayout = require('golden-layout');
 const {BrowserWindow, app} = require('electron').remote;
+const {BaseProjectManager} = require('project_types');
+const log = require('electron-log');
+const TAG = 'workspace/workspace.js: ';
 //endregion
 
 //REGION CONSTANTS
@@ -274,6 +277,7 @@ exports.registerDefaultComponents = function () {
 
 //region IPC_RENDERER LISTENERS
 function loadProject(loadedProject) {
+    loadedProject.projectManager = Object.assign(new BaseProjectManager(), loadedProject.projectManager);
     if (!layout || !config || !config.load) {
         return;
     }

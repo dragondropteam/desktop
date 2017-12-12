@@ -213,4 +213,12 @@ exports.LoadedProject = class LoadedProject {
     getFileInProjectDir(file) {
         return path.join(this.getProjectDir(), file);
     }
+
+    getProjectManager() {
+        return this.projectManager;
+    }
+
+    save(files) {
+        this.getProjectManager().saveProject(this, files);
+    }
 };

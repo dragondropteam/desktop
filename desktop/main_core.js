@@ -274,7 +274,7 @@ function createProjectMenu(arg) {
                 version = electron.remote.getGlobal('version');
             }
 
-            let project = ProjectInterface.createNewProject(pathmod.basename(path), path, version);
+            let project = projectInterface.createNewProject(pathmod.basename(path), path, version);
             if (project === null) {
                 return;
             }
@@ -379,7 +379,7 @@ function createProjectMenu(arg) {
     // console.log(menuHash);
 
 
-    ProjectInterface.mutateMenu(menuHash, arg, () => {
+    projectInterface.mutateMenu(menuHash, arg, () => {
         addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
@@ -399,14 +399,14 @@ ipcMain.on('refresh_menu', (event, project) => {
 let createProjectWindow;
 ipcMain.on('create_project', createProject);
 
-let ProjectInterface = require('./project_types/wink_robot');
+let projectInterface = require('./project_types/wink_robot');
 
 /**
  * Called to create a new loadedProject, loadedProject should be an object with a path, and a
  * name field
  */
 ipcMain.on('create_new_project', (event, project, type) => {
-    ProjectInterface = require(projectTypes.getRequirePath(type));
+    projectInterface = require(projectTypes.getRequirePath(type));
     //TODO: Most likely want to make this into a try catch block to give back more
     //information about the cause of the issue.
     // let newProject = ProjectInterface.createProjectDir(project.name, project.path);
@@ -417,7 +417,7 @@ ipcMain.on('create_new_project', (event, project, type) => {
         version = electron.remote.getGlobal('version');
     }
     // console.log(ProjectInterface);
-    let newProject = ProjectInterface.createNewProject(project.name, project.path, version);
+    let newProject = projectInterface.createNewProject(project.name, project.path, version);
 
     if (newProject) {
         displayProject(newProject);
@@ -549,7 +549,7 @@ function displayProject(loadedProject) {
         mainWindow = null;
     });
 
-    ProjectInterface.displayProject(mainWindow, global.development, loadedProject);
+    projectInterface.displayProject(mainWindow, global.development, loadedProject);
 
     // //The menu cannot be dynamic we have to recreate the entire thing whenever focus is changed.
     // mainWindow.on('focus', ()  =>{
@@ -590,8 +590,8 @@ function loadDigiblocksFromPath(projectPath) {
                     reject(VERSION_MISMATCH)
                 }
 
-                ProjectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
-                resolve(ProjectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath));
+                projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+                resolve(projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath));
             })
             .catch(err => {
                 reject(err);
@@ -639,8 +639,8 @@ function loadDropFromPath(projectPath) {
                         id: VERSION_MISMATCH
                     });
                 }
-                ProjectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
-                resolve(ProjectInterface.loadProject(projectFile, cachePath, projectPath));
+                projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+                resolve(projectInterface.loadProject(projectFile, cachePath, projectPath));
             })
             .catch(err => {
                 reject(err);
@@ -680,13 +680,13 @@ function loadProjectFromPath(projectPath) {
     const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
     loadProject
         .then(project => {
-            //This has to occur before we display the project (closing the main window)
             progressWindow.destroy();
-            //Just pass this down
-            return Promise.resolve(project);
+            displayProject(project);
         })
-        .then(displayProject)
-        .catch(projectLoadErrorHandler);
+        .catch(err => {
+            progressWindow.destroy();
+            projectLoadErrorHandler(err)
+        });
 }
 
 let projectToLoad = null;
