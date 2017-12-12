@@ -4,10 +4,13 @@
  * All content copyright DigiPen Institute of Technology 2016
  */
 const workspaceCore = require('../../../workspace');
-const {Workspace} = require('../../../workspace');
-const {WorkspaceConfig} = require('../../../workspace');
+const {Workspace, WorkspaceConfig} = require('../../../workspace');
 const path = require('path');
 const fs = require('fs-extra');
+const log = require('electron-log');
+const dialog = require('electron').remote.dialog;
+const {BrowserWindow} = require('electron').remote;
+
 let loadedProject = null;
 
 let toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
@@ -101,8 +104,6 @@ function setCode(blocklyWorkspace) {
 
 function save() {
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-    const dialog = require('electron').remote.dialog;
-    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
@@ -110,35 +111,35 @@ function save() {
         xml = Blockly.Xml.domToPrettyText(xml);
 
         try {
-            fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`), code);
+            fs.writeFileSync(loadedProject.getFileInProjectDir(`${loadedProject.getName()}.ino`), code);
         } catch (err) {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-              type: 'error',
-              title: 'Dragon Drop Error',
-              message: `Error in code!\n${err.message}`
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Error in code!\n${err.message}`
             });
-            console.log(err);
+            log.error(err);
             return false;
         }
 
-        try{
+        try {
             fs.writeFileSync(loadedProject.getBlocksPath(), xml);
-        }catch(err){
+        } catch (err) {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-              type: 'error',
-              title: 'Dragon Drop Error',
-              message: `Error in code!\n${err.message}`
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Error in code!\n${err.message}`
             });
-            console.log(err);
+            log.error(err);
             return false;
         }
 
         return true;
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-          type: 'error',
-          title: 'Dragon Drop Error',
-          message: `Error in code!\n${e.message}`
+            type: 'error',
+            title: 'Dragon Drop Error',
+            message: `Error in code!\n${e.message}`
         });
         console.log(e);
         return false;
@@ -146,22 +147,23 @@ function save() {
 }
 
 function loadProjectFile(project) {
-
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-
     loadedProject = project;
-
-    document.title = `DragonDrop - ${loadedProject.loadPath}`;
 
     fs.readFile(loadedProject.getBlocksPath(), (err, data) => {
         if (err) {
-            //No XML add the starting blocks
-            let xml = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml">\n' +
-                '<block type="hardwarestartup_arduino" id=",(1UN`:wW_-XR^e4%e4z" deletable="false" x="13" y="138"></block>\n' +
-                '<block type="loop" id="3XQ,:+8Ta^:x2dcPMRF="  deletable="false" x="13" y="213"></block>\n' +
-                '</xml>');
-            Blockly.Xml.domToWorkspace(xml, blocklyWorkspace);
-            return;
+            if (err.code === 'ENOENT') {
+                log.debug('Creating starting xml');
+                //No XML add the starting blocks
+                let xml = Blockly.Xml.textToDom('<xml xmlns="http://www.w3.org/1999/xhtml">\n' +
+                    '<block type="hardwarestartup_arduino" id=",(1UN`:wW_-XR^e4%e4z" deletable="false" x="13" y="138"></block>\n' +
+                    '<block type="loop" id="3XQ,:+8Ta^:x2dcPMRF="  deletable="false" x="13" y="213"></block>\n' +
+                    '</xml>');
+                Blockly.Xml.domToWorkspace(xml, blocklyWorkspace);
+                return;
+            } else {
+                debug.error(err);
+            }
         }
 
         let xml = Blockly.Xml.textToDom(data);
@@ -171,7 +173,7 @@ function loadProjectFile(project) {
 
 function myUpdateFunction(event) {
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-    if (event.type == Blockly.Events.CHANGE) {
+    if (event.type === Blockly.Events.CHANGE) {
         let block = blocklyWorkspace.getBlockById(event.blockId);
         if (block && block.onchange) {
             block.onchange(event);
