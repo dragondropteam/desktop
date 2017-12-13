@@ -325,6 +325,12 @@ ipcRenderer.on('save_project', () => {
     }
 });
 
+ipcRenderer.on('save_project_as', () => {
+    if (config.saveAs()) {
+        // ipcRenderer.send('save_as_success');
+    }
+});
+
 ipcRenderer.on('eval', () => {
     config.reload();
 });

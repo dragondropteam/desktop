@@ -157,11 +157,10 @@ exports.BaseProjectManager = class BaseProjectManager {
      * the project
      * @param project The JSON file representing this project (.digiblocks)
      * @param cachePath The path to the folder containing the .digiblocks file in cache folder
-     * @param projectPath The path to the project archive .drop file
-     *
+     * @param projectPath The path to the project archive .drop file or .digiblocks file for legacy projects
      */
     loadProject(project, cachePath, projectPath) {
-        const loadedProject = new LoadedProject(project, cachePath, projectPath, this);
+        const loadedProject = new LoadedProject(project, cachePath, projectPath, this, path.extname(projectPath).substr(1));
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)

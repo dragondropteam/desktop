@@ -252,21 +252,21 @@ function createProjectMenu(arg) {
         label: "Save Project As",
         accelerator: 'CmdOrCtrl+S+Shift',
         click() {
-            if (loadedproject == null) {
+            if (!loadedproject) {
                 return;
             }
 
-            const pathmod = require('path');
-            const path = dialog.showSaveDialog({
+            const saveAsPath = dialog.showSaveDialog({
                 options: {
                     title: "Create Project",
-                    defaultPath: pathmod.join(app.getPath("documents"), 'DragonDropProjects')
+                    defaultPath: path.join(app.getPath("documents"), 'DragonDropProjects')
                 }
             });
 
-            if (!path) {
+            if (!saveAsPath) {
                 return;
             }
+
             let version;
             if (!electron.remote) {
                 version = global.version;
@@ -274,7 +274,7 @@ function createProjectMenu(arg) {
                 version = electron.remote.getGlobal('version');
             }
 
-            let project = projectInterface.createNewProject(pathmod.basename(path), path, version);
+            let project = projectInterface.createNewProject(pathmod.basename(saveAsPath), saveAsPath, version);
             if (project === null) {
                 return;
             }
@@ -341,37 +341,38 @@ function createProjectMenu(arg) {
     });
 
     //TODO: Add a menu option to convert a .digiblocks to a .drop file for some utility to do so
-    //TODO: Deprecate this functionality if we are not loading a .digiblocks file
-    menuHash['File'].push({
-        label: 'Archive Project',
-        click() {
-            const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.zip`);
-            const zipfolder = require('zip-folder');
-            const zipFile = dialog.showSaveDialog(mainWindow, {
-                title: 'Archive Project', defaultPath: defaultPath, filters: [
-                    {name: 'ZIP Files', extensions: ['zip']}
-                ]
-            });
-
-            if (zipFile) {
-                zipfolder(arg.loadPath, zipFile, (err) => {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                            type: 'error',
-                            title: 'Dragon Drop Error',
-                            message: `Could not archive project\n${err.message()}`
-                        });
-                    } else {
-                        dialog.showMessageBox({
-                            title: 'Project Archived',
-                            message: `Successfully archived project to\n${zipFile}`,
-                            buttons: []
-                        });
-                    }
+    if (loadedproject && loadedproject.isLegacy()) {
+        menuHash['File'].push({
+            label: 'Archive Project',
+            click() {
+                const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.zip`);
+                const zipfolder = require('zip-folder');
+                const zipFile = dialog.showSaveDialog(mainWindow, {
+                    title: 'Archive Project', defaultPath: defaultPath, filters: [
+                        {name: 'ZIP Files', extensions: ['zip']}
+                    ]
                 });
+
+                if (zipFile) {
+                    zipfolder(arg.loadPath, zipFile, (err) => {
+                        if (err) {
+                            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                                type: 'error',
+                                title: 'Dragon Drop Error',
+                                message: `Could not archive project\n${err.message()}`
+                            });
+                        } else {
+                            dialog.showMessageBox({
+                                title: 'Project Archived',
+                                message: `Successfully archived project to\n${zipFile}`,
+                                buttons: []
+                            });
+                        }
+                    });
+                }
             }
-        }
-    });
+        });
+    }
 
     //Add Edit
     fillEditMenu(menuHash);
@@ -681,6 +682,7 @@ function loadProjectFromPath(projectPath) {
     loadProject
         .then(project => {
             progressWindow.destroy();
+            log.debug('Loading ', project);
             displayProject(project);
         })
         .catch(err => {

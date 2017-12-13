@@ -8,6 +8,8 @@ const recentFilesKey = 'RECENT_FILES';
 const fs = require('fs-extra');
 const RECENT_FILES_LIMIT = '10';
 const log = require('electron-log');
+const DIGIBLOCKS_PROJECT = 'digiblocks';
+const DROP_PROJECT = 'drop';
 
 function getRecentProjects() {
     /**
@@ -220,5 +222,13 @@ exports.LoadedProject = class LoadedProject {
 
     save(files) {
         this.getProjectManager().saveProject(this, files);
+    }
+
+    /**
+     * .digiblocks was deprecated in 2.0.0 all projects are now archived .drop
+     * @return {boolean} true if a legacy flat project
+     */
+    isLegacy() {
+        return this.fileType === DIGIBLOCKS_PROJECT;
     }
 };
