@@ -13,6 +13,7 @@ const {Browser} = require('electron').remote;
 const log = require('electron-log');
 const dialog = require('electron').remote.dialog;
 const {BrowserWindow} = require('electron').remote;
+const {ipcRenderer} = require('electron');
 
 let loadedProject = null;
 
@@ -70,6 +71,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     editorLanguage: 'ace/mode/c_cpp',
     load: loadProjectFile,
     save: save,
+    saveAs: saveAs,
     reload: () => {
         // workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
     },
@@ -105,6 +107,11 @@ function setCode(blocklyWorkspace) {
     return code;
 }
 
+
+function saveAs() {
+
+}
+
 function save() {
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
     try {
@@ -120,36 +127,12 @@ function save() {
                 data: xml
             }
         ]);
-        // try {
-        //     fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`), code);
-        // }catch(err){
-        //     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-        //       type: 'error',
-        //       title: 'Dragon Drop Error',
-        //       message: `Error in code!\n${err.message}`
-        //     });
-        //     console.log(err);
-        //     return false;
-        // }
-        //
-        // try{
-        //     fs.writeFileSync(loadedProject.getBlocksPath() , xml);
-        // }catch(err){
-        //     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-        //       type: 'error',
-        //       title: 'Dragon Drop Error',
-        //       message: `Error in code!\n${err.message}`
-        //     });
-        //     console.log(err);
-        //     return false;
-        // }
-
         return true;
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-          type: 'error',
-          title: 'Dragon Drop Error',
-          message: `Error in code!\n${e.message}`
+            type: 'error',
+            title: 'Dragon Drop Error',
+            message: `Error in code!\n${e.message}`
         });
         console.log(e);
         return false;
@@ -210,8 +193,10 @@ function myUpdateFunction(event) {
                 block.onchange(event);
             }
         }
-        save();
-    }catch(err){
+        if (event.type !== Blockly.Events.UI) {
+            save();
+        }
+    } catch (err) {
         log.error('Error saving project changes will not be saved', err);
 
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
@@ -222,3 +207,7 @@ function myUpdateFunction(event) {
         });
     }
 }
+
+ipcRenderer.on('save_as', () => {
+
+});
