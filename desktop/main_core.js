@@ -35,6 +35,8 @@ let preferencesWindow;
 const JSZip = require('jszip');
 const compareVersions = require('compare-versions');
 const {ProgressWindow} = require('./progress_dialog');
+const {LoadedProject} = require('./project/projects');
+
 //region AUTO_UPDATE
 // Blocked until this can be signed!
 // const {autoUpdater} = require('electron');
@@ -251,7 +253,7 @@ function createProjectMenu(arg) {
     menuHash['File'].push({
         label: "Save Project As",
         accelerator: 'CmdOrCtrl+S+Shift',
-        click() {
+        click(item, focusedWindow) {
             if (!loadedproject) {
                 return;
             }
@@ -274,51 +276,53 @@ function createProjectMenu(arg) {
                 version = electron.remote.getGlobal('version');
             }
 
-            let project = projectInterface.createNewProject(pathmod.basename(saveAsPath), saveAsPath, version);
+            let project = projectInterface.createNewProject(path.basename(saveAsPath), saveAsPath, version);
             if (project === null) {
                 return;
             }
 
-            if (fs.existsSync(loadedproject.getBlocksPath())) {
-                fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                            type: 'error',
-                            title: 'Dragon Drop Error',
-                            message: `Could not save ${project.getName()}\n${err.message}`
-                        });
-                        return;
-                    }
+            focusedWindow.send('save_project_as', project);
 
-                    displayProject(project);
-                });
-            }
+            // if (fs.existsSync(loadedproject.getBlocksPath())) {
+            //     fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
+            //         if (err) {
+            //             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            //                 type: 'error',
+            //                 title: 'Dragon Drop Error',
+            //                 message: `Could not save ${project.getName()}\n${err.message}`
+            //             });
+            //             return;
+            //         }
+            //
+            //         displayProject(project);
+            //     });
+            // }
+            //
+            // if (fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"))) {
+            //     fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"), pathmod.join(project.loadPath, project.getName(), "js"), function (err) {
+            //         if (err) {
+            //             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            //                 type: 'error',
+            //                 title: 'Dragon Drop Error',
+            //                 message: `Could not save ${project.getName()}\n${err.message}`
+            //             });
+            //         }
+            //     });
+            // }
+            //
+            // if (fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"))) {
+            //     fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"), pathmod.join(project.loadPath, project.getName(), "assets"), function (err) {
+            //         if (err) {
+            //             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            //                 type: 'error',
+            //                 title: 'Dragon Drop Error',
+            //                 message: `Could not save ${project.getName()}\n${err.message}`
+            //             });
+            //         }
+            //     });
+            // }
 
-            if (fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"))) {
-                fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"), pathmod.join(project.loadPath, project.getName(), "js"), function (err) {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                            type: 'error',
-                            title: 'Dragon Drop Error',
-                            message: `Could not save ${project.getName()}\n${err.message}`
-                        });
-                    }
-                });
-            }
-
-            if (fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"))) {
-                fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"), pathmod.join(project.loadPath, project.getName(), "assets"), function (err) {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                            type: 'error',
-                            title: 'Dragon Drop Error',
-                            message: `Could not save ${project.getName()}\n${err.message}`
-                        });
-                    }
-                });
-            }
-
-            loadProjectFromPath(project.getProjectPath());
+            // loadProjectFromPath(project.getProjectPath());
         }
     });
 
@@ -340,7 +344,6 @@ function createProjectMenu(arg) {
         }
     });
 
-    //TODO: Add a menu option to convert a .digiblocks to a .drop file for some utility to do so
     if (loadedproject && loadedproject.isLegacy()) {
         menuHash['File'].push({
             label: 'Archive Project',
@@ -372,6 +375,12 @@ function createProjectMenu(arg) {
                 }
             }
         });
+        menuHash['File'].push({
+            label: 'Convert to .drop',
+            click() {
+                //TODO: Add a menu option to convert a .digiblocks to a .drop file for some utility to do so
+            }
+        })
     }
 
     //Add Edit
@@ -769,4 +778,9 @@ ipcMain.on('show_help', (event, url) => {
     window.on('ready-to-show', () => {
         window.show();
     });
+});
+
+ipcMain.on('save_as_success', (event, project) => {
+    project = Object.assign(new LoadedProject(), project);
+    displayProject(project);
 });

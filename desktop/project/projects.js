@@ -17,6 +17,7 @@ function getRecentProjects() {
      */
     if (!config.has(recentFilesKey)) {
         config.set(recentFilesKey, []);
+        return [];
     }
 
     let projects = config.get(recentFilesKey);
@@ -231,4 +232,5 @@ exports.LoadedProject = class LoadedProject {
     isLegacy() {
         return this.fileType === DIGIBLOCKS_PROJECT;
     }
+
 };
