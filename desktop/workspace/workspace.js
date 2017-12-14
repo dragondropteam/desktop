@@ -325,9 +325,17 @@ ipcRenderer.on('save_project', () => {
     }
 });
 
-ipcRenderer.on('save_project_as', () => {
-    if (config.saveAs()) {
-        // ipcRenderer.send('save_as_success');
+ipcRenderer.on('save_project_as', (event, project) => {
+    project = Object.assign(new LoadedProject(), project);
+    project.projectManager = Object.assign(new BaseProjectManager(), project.getProjectManager());
+
+    try {
+        console.log('config', config);
+        config.saveAs(project);
+        ipcRenderer.send('save_as_success', project);
+    } catch (err) {
+        log.error('save as failed', err);
+        ipcRenderer.send('save_as_failure', err)
     }
 });
 
@@ -427,9 +435,17 @@ exports.WorkspaceConfig = class {
         this.layoutConfig = config.layoutConfig;
         this.blocklyConfig = config.blocklyConfig;
 
-        this.load = config.load || null;
-        this.save = config.save || null;
-        this.reload = config.reload || null;
+        this.load = config.load || (() => {
+            throw new Error('load not implemented')
+        });
+        this.save = config.save || (() => {
+            throw new Error('save not implemented')
+        });
+        this.saveAs = config.saveAs || (() => {
+            throw new Error('saveAs not implemented')
+        });
+        this.reload = config.reload || (() => {
+        });
 
         this.registerComponents = config.registerComponents || exports.registerDefaultComponents;
         this.editorLanguage = config.editorLanguage || 'ace/mode/html';

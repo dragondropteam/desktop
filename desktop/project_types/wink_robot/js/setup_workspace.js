@@ -107,9 +107,18 @@ function setCode(blocklyWorkspace) {
     return code;
 }
 
-
-function saveAs() {
-
+function saveAs(project) {
+    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+    const code = setCode(blocklyWorkspace);
+    let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
+    xml = Blockly.Xml.domToPrettyText(xml);
+    project.save([{
+        path: project.getFileInProjectDir(`${project.getName()}.ino`),
+        data: code
+    }, {
+        path: project.getBlocksPath(),
+        data: xml
+    }]);
 }
 
 function save() {
