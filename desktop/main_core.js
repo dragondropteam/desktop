@@ -26,11 +26,16 @@ app.setAppUserModelId("edu.digipen.dragondrop"); //set AUMID
 //const {BrowserWindow} = require('electron');
 
 const {ipcMain} = require('electron');
-const projects = require('project');
+const projects = require('./project/projects');
 const fs = require('fs-extra');
 const projectTypes = require('project_types');
 const arduinoCore = require('arduino_core');
+const log = require('electron-log');
 let preferencesWindow;
+const JSZip = require('jszip');
+const compareVersions = require('compare-versions');
+const {ProgressWindow} = require('./progress_dialog');
+const {LoadedProject} = require('./project/projects');
 
 //region AUTO_UPDATE
 // Blocked until this can be signed!
@@ -88,7 +93,7 @@ function fillRecentProjects(menuHash) {
         project = new projects.LoadedProject(project.loadedProject, project.loadPath);
         loadedProjects.push({
             label: `${project.getName()} - ${project.loadedProject.type}`,
-            click(){
+            click() {
                 loadProjectFromPath(project.getProjectPath());
             }
         });
@@ -132,7 +137,7 @@ let wikiWindow = null;
 function addHelpMenu(menuHash) {
     menuHash['Help'] = [{
         label: 'View Wiki',
-        click(){
+        click() {
             const {shell} = require('electron');
             shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
         }
@@ -140,7 +145,7 @@ function addHelpMenu(menuHash) {
 
     menuHash['Help'].push({
         label: 'Report Bug',
-        click(){
+        click() {
             const {shell} = require('electron');
             shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
         }
@@ -174,14 +179,14 @@ function createDefaultMenu() {
     menuHash['File'].push({
         label: "New Project",
         accelerator: 'CmdOrCtrl+N',
-        click(){
+        click() {
             createProject();
         }
     });
     menuHash['File'].push({
             label: "Load Project",
             accelerator: 'CmdOrCtrl+O',
-            click(){
+        click() {
                 loadProjectDialog();
             }
         }
@@ -190,7 +195,7 @@ function createDefaultMenu() {
     menuHash['File'].push({
         label: 'Preferences',
         accelerator: 'CmdOrCtrl+,',
-        click(){
+        click() {
             createPreferenceWindow();
         }
     });
@@ -232,7 +237,7 @@ function createProjectMenu(arg) {
     menuHash['File'].push({
         label: "New Project",
         accelerator: 'CmdOrCtrl+N',
-        click(){
+        click() {
             createProject();
         }
     });
@@ -240,30 +245,31 @@ function createProjectMenu(arg) {
     menuHash['File'].push({
         label: "Save Project",
         accelerator: 'CmdOrCtrl+S',
-        click(item, displayedWindow){
-            displayedWindow.webContents.send('save_project');
+        click(item, displayedWindow) {
+            if (displayedWindow)
+                displayedWindow.webContents.send('save_project');
         }
     });
 
     menuHash['File'].push({
         label: "Save Project As",
         accelerator: 'CmdOrCtrl+S+Shift',
-        click(){
-            if (loadedproject == null) {
+        click(item, focusedWindow) {
+            if (!loadedproject) {
                 return;
             }
 
-            const pathmod = require('path');
-            const path = dialog.showSaveDialog({
+            const saveAsPath = dialog.showSaveDialog({
                 options: {
                     title: "Create Project",
-                    defaultPath: pathmod.join(app.getPath("documents"), 'DragonDropProjects')
+                    defaultPath: path.join(app.getPath("documents"), 'DragonDropProjects')
                 }
             });
 
-            if (!path) {
+            if (!saveAsPath) {
                 return;
             }
+
             let version;
             if (!electron.remote) {
                 version = global.version;
@@ -271,58 +277,19 @@ function createProjectMenu(arg) {
                 version = electron.remote.getGlobal('version');
             }
 
-            let project =  ProjectInterface.createNewProject(pathmod.basename(path), path, version);
+            let project = projectInterface.createNewProject(path.basename(saveAsPath), saveAsPath, version);
             if (project === null) {
                 return;
             }
 
-            if (fs.existsSync(loadedproject.getBlocksPath())) {
-                fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                          type: 'error',
-                          title: 'Dragon Drop Error',
-                          message: `Could not save ${project.getName()}\n${err.message}`
-                        });
-                        return;
-                    }
-
-                    displayProject(project);
-                });
-            }
-
-            if(fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"))){
-                fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"), pathmod.join(project.loadPath, project.getName(), "js"), function (err) {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                          type: 'error',
-                          title: 'Dragon Drop Error',
-                          message: `Could not save ${project.getName()}\n${err.message}`
-                        });
-                    }
-                });
-            }
-
-            if(fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"))){
-                fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"), pathmod.join(project.loadPath, project.getName(), "assets"), function (err) {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                          type: 'error',
-                          title: 'Dragon Drop Error',
-                          message: `Could not save ${project.getName()}\n${err.message}`
-                        });
-                    }
-                });
-            }
-
-            loadProjectFromPath(project.getProjectPath());
+            focusedWindow.send('save_project_as', project);
         }
     });
 
     menuHash['File'].push({
             label: "Load Project",
             accelerator: 'CmdOrCtrl+O',
-            click(){
+        click() {
                 loadProjectDialog();
             }
         }
@@ -332,41 +299,49 @@ function createProjectMenu(arg) {
     menuHash['File'].push({
         label: 'Preferences',
         accelerator: 'CmdOrCtrl+,',
-        click(){
+        click() {
             createPreferenceWindow();
         }
     });
 
-    menuHash['File'].push({
-        label: 'Archive Project',
-        click(){
-            const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.zip`);
-            const zipfolder = require('zip-folder');
-            const zipFile = dialog.showSaveDialog(mainWindow, {
-                title: 'Archive Project', defaultPath: defaultPath, filters: [
-                    {name: 'ZIP Files', extensions: ['zip']}
-                ]
-            });
-
-            if (zipFile) {
-                zipfolder(arg.loadPath, zipFile, (err) => {
-                    if (err) {
-                        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                          type: 'error',
-                          title: 'Dragon Drop Error',
-                          message: `Could not archive project\n${err.message()}`
-                        });
-                    } else {
-                        dialog.showMessageBox({
-                            title: 'Project Archived',
-                            message: `Successfully archived project to\n${zipFile}`,
-                            buttons: []
-                        });
-                    }
+    if (loadedproject && loadedproject.isLegacy()) {
+        menuHash['File'].push({
+            label: 'Archive Project',
+            click() {
+                const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.zip`);
+                const zipfolder = require('zip-folder');
+                const zipFile = dialog.showSaveDialog(mainWindow, {
+                    title: 'Archive Project', defaultPath: defaultPath, filters: [
+                        {name: 'ZIP Files', extensions: ['zip']}
+                    ]
                 });
+
+                if (zipFile) {
+                    zipfolder(arg.loadPath, zipFile, (err) => {
+                        if (err) {
+                            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                                type: 'error',
+                                title: 'Dragon Drop Error',
+                                message: `Could not archive project\n${err.message()}`
+                            });
+                        } else {
+                            dialog.showMessageBox({
+                                title: 'Project Archived',
+                                message: `Successfully archived project to\n${zipFile}`,
+                                buttons: []
+                            });
+                        }
+                    });
+                }
             }
-        }
-    });
+        });
+        menuHash['File'].push({
+            label: 'Convert to .drop',
+            click() {
+                //TODO: Add a menu option to convert a .digiblocks to a .drop file for some utility to do so
+            }
+        })
+    }
 
     //Add Edit
     fillEditMenu(menuHash);
@@ -374,14 +349,14 @@ function createProjectMenu(arg) {
     // console.log(menuHash);
 
 
-    ProjectInterface.mutateMenu(menuHash, arg, () => {
+    projectInterface.mutateMenu(menuHash, arg, () => {
         addHelpMenu(menuHash);
         Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
     }, () => {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-          type: 'error',
-          title: 'Dragon Drop Error',
-          message: 'Menu could not be created!'
+            type: 'error',
+            title: 'Dragon Drop Error',
+            message: 'Menu could not be created!'
         });
 
     }, createProjectMenu);
@@ -394,14 +369,14 @@ ipcMain.on('refresh_menu', (event, project) => {
 let createProjectWindow;
 ipcMain.on('create_project', createProject);
 
-let ProjectInterface = require('./project_types/wink_robot');
+let projectInterface = require('./project_types/wink_robot');
 
 /**
  * Called to create a new loadedProject, loadedProject should be an object with a path, and a
  * name field
  */
 ipcMain.on('create_new_project', (event, project, type) => {
-    ProjectInterface = require(projectTypes.getRequirePath(type));
+    projectInterface = require(projectTypes.getRequirePath(type));
     //TODO: Most likely want to make this into a try catch block to give back more
     //information about the cause of the issue.
     // let newProject = ProjectInterface.createProjectDir(project.name, project.path);
@@ -412,16 +387,16 @@ ipcMain.on('create_new_project', (event, project, type) => {
         version = electron.remote.getGlobal('version');
     }
     // console.log(ProjectInterface);
-    let newProject = ProjectInterface.createNewProject(project.name, project.path, version);
+    let newProject = projectInterface.createNewProject(project.name, project.path, version);
 
     if (newProject) {
         displayProject(newProject);
     } else {
         const {dialog} = require('electron');
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-          type: 'error',
-          title: 'Dragon Drop Error',
-          message: 'Could not create loadedProject\nCheck the path and try again!'
+            type: 'error',
+            title: 'Dragon Drop Error',
+            message: 'Could not create loadedProject\nCheck the path and try again!'
         });
     }
 
@@ -448,13 +423,11 @@ function createProject() {
 
 function loadProjectDialog() {
     const dialog = require('electron').dialog;
-    const app = require('electron').app;
     const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects");
-    console.log(defaultPath);
     const pathToProject = dialog.showOpenDialog(mainWindow, {
         title: 'Load Project',
         defaultPath: defaultPath,
-        filters: [{name: 'Dragon Drop Project', extensions: ['digiblocks']}]
+        filters: [{name: 'Dragon Drop Project', extensions: ['drop', 'digiblocks']}]
     });
 
     if (!pathToProject) {
@@ -518,9 +491,10 @@ ipcMain.on('show_code', function (event, arg) {
 let loadedproject;
 
 function displayProject(loadedProject) {
+    log.debug(loadedProject);
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
-    app.addRecentDocument(loadedProject.getProjectPath());
+    app.addRecentDocument(loadedProject.projectPath || loadedProject.getProjectPath());
 
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     let window = new BrowserWindow({width: width, height: height, show: false});
@@ -529,9 +503,10 @@ function displayProject(loadedProject) {
         window.show();
     });
 
-    //TODO: Allow for more then a single loadedProject to be open!
+    // //TODO: Allow for more then a single loadedProject to be open!
     if (mainWindow) {
-        mainWindow.close();
+        console.log('Closing the main window');
+        mainWindow.destroy();
     }
 
     mainWindow = window;
@@ -544,7 +519,7 @@ function displayProject(loadedProject) {
         mainWindow = null;
     });
 
-    ProjectInterface.displayProject(window, global.development, loadedProject);
+    projectInterface.displayProject(mainWindow, global.development, loadedProject);
 
     // //The menu cannot be dynamic we have to recreate the entire thing whenever focus is changed.
     // mainWindow.on('focus', ()  =>{
@@ -571,53 +546,118 @@ app.on('window-all-closed', function () {
     }
 });
 
+
 /**
  * Loads a project from the path to a given .digiblocks file if the file is able to be loaded it will then be displayed
  * else it will display an error and remove from the list of recent projects as needed
  * @param {string} projectPath Path to a .digiblocks file to load
  */
-function loadProjectFromPath(projectPath) {
-    try{
-        const compareVersions = require('compare-versions');
-        let json = fs.readJsonSync(projectPath);
+function loadDigiblocksFromPath(projectPath) {
+    return new Promise((resolve, reject) => {
+        fs.readJson(projectPath)
+            .then(projectFile => {
+                if (compareVersions(global.version, projectFile.version) < 0) {
+                    reject(VERSION_MISMATCH)
+                }
 
-        if(compareVersions(global.version, json.version) < 0){
-            console.error('Project is from a newer version of Dragon Drop');
+                projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+                resolve(projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath));
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+}
+
+const FILE_TOO_LARGE = 1;
+const VERSION_MISMATCH = 2;
+
+function loadDropFromPath(projectPath) {
+    return new Promise((resolve, reject) => {
+        const zip = new JSZip();
+        const cachePath = fs.mkdtempSync(path.join(app.getPath('temp'), 'dragondrop'));
+        const digiblocksFile = path.join(cachePath, `${path.basename(projectPath, '.drop')}.digiblocks`);
+        fs.stat(projectPath)
+            .then(stats => {
+                if (stats.size >= 0x7fffffff) {
+                    reject({msg: 'File too large to load', id: FILE_TOO_LARGE});
+                } else {
+                    return fs.readFile(projectPath);
+                }
+            })
+            .then(compressedData => {
+                return zip.loadAsync(compressedData);
+            })
+            .then(fileData => {
+                let files = [];
+                fileData.forEach((relativePath, file) => {
+                    if (!file.dir) {
+                        files.push(file.async('nodebuffer').then(buffer => {
+                            return fs.outputFile(path.join(cachePath, relativePath), buffer);
+                        }))
+                    }
+                });
+                return Promise.all(files);
+            })
+            .then(() => {
+                return fs.readJson(digiblocksFile);
+            })
+            .then(projectFile => {
+                if (compareVersions(global.version, projectFile.version) < 0) {
+                    reject({
+                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        id: VERSION_MISMATCH
+                    });
+                }
+                projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+                resolve(projectInterface.loadProject(projectFile, cachePath, projectPath));
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+}
+
+function projectLoadErrorHandler(err) {
+    log.error(err);
+    switch (err.id) {
+        case FILE_TOO_LARGE:
+            dialog.showMessageBox(mainWindow, {
+                type: "error",
+                title: "Dragon Drop Error",
+                message: "Project file is too large to load"
+            });
+            break;
+        case VERSION_MISMATCH:
             dialog.showMessageBox(mainWindow, {
                 type: "error",
                 title: "Dragon Drop Error",
                 message: "Project is from a newer version of Dragon Drop and cannot be loaded.\nUpdate Dragon Drop to continue!"
             });
-            return;
-        }
-        ProjectInterface = require(projectTypes.getRequirePath(json.type || 'wink'));
-
-        let project = ProjectInterface.loadProject(projectPath);
-        if (project !== null) {
-            displayProject(project);
-         } else {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-              type: 'error',
-              title: 'Dragon Drop Error',
-              message: `Could not open project at ${projectPath}`
-            });
-        }
-    }catch(ex){
-        console.error(ex);
-        const message = !fs.existsSync(projectPath) ? 'The selected project does not exist.\nIt will be removed from recent projects if present' : 'Could not open the selected project';
-        //There was an error trying to load the project, this most likely will occur when the user deleted a file from
-        //disk. So prompt the user with an error that the project cannot be loaded then remove it from the list of
-        //recent projects.
-        dialog.showMessageBox(mainWindow, {
-            type: "error",
-            message: message
-        });
-
-        projects.removeFromRecentProjects(path.dirname(projectPath));
-
-        //Update the mainWindow if it cares
-        mainWindow.send('recent_projects_updated');
+            break;
+        default:
+            dialog.showMessageBox(mainWindow, {
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: 'Could not load project'
+            })
     }
+}
+
+function loadProjectFromPath(projectPath) {
+    let progressWindow = new ProgressWindow('Loading Project');
+    const extension = path.extname(projectPath);
+    const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
+    loadProject
+        .then(project => {
+            progressWindow.destroy();
+            log.debug('Loading ', project);
+            displayProject(project);
+        })
+        .catch(err => {
+            progressWindow.destroy();
+            projectLoadErrorHandler(err)
+        });
 }
 
 let projectToLoad = null;
@@ -634,7 +674,7 @@ app.on('ready', function () {
         return;
     }
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 600, height: 500, resizable: false});
+    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false});
 
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
@@ -695,7 +735,12 @@ ipcMain.on('show_help', (event, url) => {
     // console.log(url);
     const window = new BrowserWindow({width: 800, height: 600, show: false});
     window.loadURL(url);
-    window.on('ready-to-show', () =>{
+    window.on('ready-to-show', () => {
         window.show();
     });
+});
+
+ipcMain.on('save_as_success', (event, project) => {
+    project = Object.assign(new LoadedProject(), project);
+    displayProject(project);
 });

@@ -7,6 +7,9 @@ const config = new Config();
 const recentFilesKey = 'RECENT_FILES';
 const fs = require('fs-extra');
 const RECENT_FILES_LIMIT = '10';
+const log = require('electron-log');
+const DIGIBLOCKS_PROJECT = 'digiblocks';
+const DROP_PROJECT = 'drop';
 
 function getRecentProjects() {
     /**
@@ -14,14 +17,14 @@ function getRecentProjects() {
      */
     if (!config.has(recentFilesKey)) {
         config.set(recentFilesKey, []);
+        return [];
     }
 
     let projects = config.get(recentFilesKey);
-    console.log(projects);
-    for(let i = 0; i < projects.length; ){
-        if(!fs.existsSync(path.join(projects[i].loadPath, `${projects[i].loadedProject.name}.digiblocks`))){
+    for (let i = 0; i < projects.length;) {
+        if (!projects[i].loadPath || !fs.existsSync(projects[i].projectPath)) {
             projects.splice(i, 1);//[i].loadedProject.name += ' - Deleted';
-        }else{
+        } else {
             ++i;
         }
     }
@@ -42,13 +45,16 @@ exports.clearRecentProjects = function () {
  * Finds a loaded project from the most recent files.
  *
  * @param {Array.<LoadedProject>} recentFiles The array of LoadedProjects from our store
- * @param {string} projectPath The path to the loaded project
+ * @param {string} loadPath The path to the loaded project (cache directory)
+ * @param {string} projectPath The path to the loaded project (.drop file)
  * @return {number} -1 if not found else the index of the project
  */
-function indexOfProject(recentFiles, projectPath){
+function indexOfProject(recentFiles, loadPath, projectPath) {
     let index = -1;
+    log.debug(`Looking for ${loadPath} or ${projectPath}`);
     for (let i = 0; i < recentFiles.length; ++i) {
-        if (recentFiles[i].loadPath == projectPath) {
+        // For backwards compatibility we need to check both for a .digiblocks and a .drop
+        if (recentFiles[i].loadPath === loadPath || recentFiles[i].projectPath === projectPath) {
             index = i;
             break;
         }
@@ -64,23 +70,25 @@ function indexOfProject(recentFiles, projectPath){
  * @param {LoadedProject} loadedProject
  */
 exports.addToRecentProjects = function (loadedProject) {
-    let recentFiles = getRecentProjects();
+
+    const recentFiles = getRecentProjects();
 
     /**
      * We want our recent files list to be ordered by time removed
      * if a path already exists remove it, it will be added back to
      * the beginning.
      */
-    let index = indexOfProject(recentFiles, loadedProject.loadPath);
+    const index = indexOfProject(recentFiles, loadedProject.loadPath, loadedProject.projectPath);
 
-    if (index != -1) {
+    log.debug(`Index: ${index}`);
+    if (index !== -1) {
         recentFiles.splice(index, 1);
     }
 
     /**
      * If we are at our limit remove the last element the oldest
      */
-    if (recentFiles.length == RECENT_FILES_LIMIT) {
+    if (recentFiles.length === RECENT_FILES_LIMIT) {
         recentFiles.pop();
     }
 
@@ -94,12 +102,12 @@ exports.addToRecentProjects = function (loadedProject) {
  * when loading fails
  * @param {string} projectPath Path to the project to be removed
  */
-exports.removeFromRecentProjects = function(projectPath){
+exports.removeFromRecentProjects = function (projectPath) {
     let recentFiles = getRecentProjects();
 
     let index = indexOfProject(recentFiles, projectPath);
 
-    if(index === -1){
+    if (index === -1) {
         return;
     }
 
@@ -108,6 +116,12 @@ exports.removeFromRecentProjects = function(projectPath){
     config.set(recentFilesKey, recentFiles);
 };
 
+/**
+ * Simple class structure stores information on the version of DragonDrop, the type of project and any metadata for
+ * that project type. Is generally not used directly. {@see LoadedProject} is passed instead, it adds utility functions
+ * and information about the location of the project.
+ * @type {exports.Project}
+ */
 exports.Project = class Project {
     constructor(name, version, type, meta) {
         this.name = name;
@@ -128,11 +142,17 @@ exports.LoadedProject = class LoadedProject {
      * where it should be saved/loaded form on disk.
      *
      * @param {Project} project Project loaded from disk
-     * @param {String} loadPath Path to the .digiblocks file defining the project on disk
+     * @param {String} loadPath Path to the cache directory where the .drop file has been extracted
+     * @param {String} projectPath Path to the .drop archive file
+     * @param {BaseProjectManager} projectManager Project manager that is currently being used
+     * @param {String} [fileType=digiblocks] digiblocks or drop
      */
-    constructor(project, loadPath) {
+    constructor(project, loadPath, projectPath, projectManager, fileType = 'digiblocks') {
         this.loadedProject = project;
         this.loadPath = loadPath;
+        this.projectPath = projectPath;
+        this.projectManager = projectManager;
+        this.fileType = fileType;
     }
 
     /**
@@ -192,5 +212,29 @@ exports.LoadedProject = class LoadedProject {
      */
     getFileInProjectDir(file) {
         return path.join(this.getProjectDir(), file);
+    }
+
+    getProjectManager() {
+        return this.projectManager;
+    }
+
+    save(files) {
+        this.getProjectManager().saveProject(this, files);
+    }
+
+    /**
+     * .digiblocks was deprecated in 2.0.0 all projects are now archived .drop
+     * @return {boolean} true if a legacy flat project
+     */
+    isLegacy() {
+        return this.fileType === DIGIBLOCKS_PROJECT;
+    }
+
+    /**
+     * Get the path to the source output file for this loaded project
+     * @param extension
+     */
+    getSourceFile(extension) {
+        return this.getFileInProjectDir(`${this.getName()}.${extension}`);
     }
 };
