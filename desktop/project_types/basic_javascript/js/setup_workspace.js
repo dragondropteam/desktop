@@ -14,6 +14,9 @@ const {Workspace} = require('../../../workspace');
 const {WorkspaceConfig} = require('../../../workspace');
 const path = require('path');
 const fs = require('fs-extra');
+const dialog = require('electron').remote.dialog;
+const {BrowserWindow} = require('electron').remote;
+const log = require('electron-log');
 let loadedProject = null;
 
 let toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
@@ -68,6 +71,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     editorLanguage: 'ace/mode/javascript',
     load: loadProjectFile,
     save: save,
+    saveAs: saveAs,
     reload: () => {
         let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
         if (blocklyWorkspace === null) {
@@ -111,45 +115,41 @@ function setCode(blocklyWorkspace) {
     return code;
 }
 
+function saveAs(project) {
+    const blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+    const code = setCode(blocklyWorkspace);
+    let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
+    xml = Blockly.Xml.domToPrettyText(xml);
+
+    project.save([{
+        path: project.getFileInProjectDir(`${project.getName()}.js`),
+        data: code
+    }, {
+        path: project.getBlocksPath(),
+        data: xml
+    }])
+}
 function save() {
-    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+    const blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+
     if (blocklyWorkspace === null) {
         return;
     }
 
-    const dialog = require('electron').remote.dialog;
-    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
-
         xml = Blockly.Xml.domToPrettyText(xml);
-        fs.writeFile(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.js`), code, err =>{
-            if (err) {
-                dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                  type: 'error',
-                  title: 'Dragon Drop Error',
-                  message: `Error in code!\n${err.message}`
-                });
-                console.log(err);
-                return false;
-            }
-        });
 
-        fs.writeFile(loadedProject.getBlocksPath(), xml, (err) => {
-            if (err) {
-                dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                  type: 'error',
-                  title: 'Dragon Drop Error',
-                  message: `Error in code!\n${err.message}`
-                });
-                console.log(err);
-                return false;
-            }
-        });
+        loadedProject.save([{
+            path: loadedProject.getFileInProjectDir(`${loadedProject.getName()}.js`),
+            data: code
+        }, {
+            path: loadedProject.getBlocksPath(),
+            data: xml
+        }]);
 
         setCode(blocklyWorkspace);
-
         return true;
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
@@ -172,8 +172,6 @@ function setBlocklyBlocks(data) {
 
 function loadProjectFile(project) {
     loadedProject = project;
-
-    document.title = `DragonDrop - ${loadedProject.loadPath}`;
 
     fs.readFile(loadedProject.getBlocksPath(), (err, data) => {
         if (err) {

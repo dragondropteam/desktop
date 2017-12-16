@@ -8,6 +8,7 @@
  */
 
 //region REQUIRE
+const assert = require('assert');
 const {ipcRenderer} = require('electron');
 const {LoadedProject} = require('project');
 const path = require('path');
@@ -42,7 +43,7 @@ let workspace = null;
 let webview = null;
 let editor = null;
 let layout = null;
-let config = null;
+let currentWorkspace = null;
 
 exports.BaseComponent = class {
     constructor(componentState) {
@@ -114,10 +115,10 @@ class BlocklyComponent extends exports.BaseComponent {
         blocklyArea = document.getElementById(BLOCKLY_AREA_ID);
         blocklyDiv = document.getElementById(BLOCKLY_DIV_ID);
 
-        workspace = Blockly.inject(BLOCKLY_DIV_ID, config.blocklyConfig);
+        workspace = Blockly.inject(BLOCKLY_DIV_ID, currentWorkspace.blocklyConfig);
 
-        if (config.onComponentOpen) {
-            config.onComponentOpen(this);
+        if (currentWorkspace.onComponentOpen) {
+            currentWorkspace.onComponentOpen(this);
         }
 
         this.resize();
@@ -166,16 +167,17 @@ class CodeComponent extends exports.BaseComponent {
         this.editor = ace.edit(EDITOR_ID);
         editor = this.editor;
         this.editor.$blockScrolling = Infinity;
-        this.editor.getSession().setMode(config.editorLanguage);
-        this.editor.setReadOnly(config.editorReadOnly);
+        log.debug(currentWorkspace.editorLanguage);
+        this.editor.getSession().setMode(currentWorkspace.editorLanguage);
+        this.editor.setReadOnly(currentWorkspace.editorReadOnly);
         let theme = electronConfig.get('theme');
         if (theme) {
             theme = theme.toLowerCase().replace(' ', '_');
             this.editor.setTheme(`ace/theme/${theme}`);
         }
 
-        if (config.onComponentOpen) {
-            config.onComponentOpen(this);
+        if (currentWorkspace.onComponentOpen) {
+            currentWorkspace.onComponentOpen(this);
         }
 
         return true;
@@ -220,8 +222,8 @@ class PhaserComponent extends exports.BaseComponent {
 
         webview = document.getElementById('phaser');
 
-        if (config.onComponentOpen) {
-            config.onComponentOpen(this);
+        if (currentWorkspace.onComponentOpen) {
+            currentWorkspace.onComponentOpen(this);
         }
 
         return true;
@@ -232,16 +234,12 @@ class PhaserComponent extends exports.BaseComponent {
     }
 
     setSource(source) {
-        console.log(`setSource to ${source}`);
+        log.debug(`setSource to ${source}`);
         webview.src = source;
         this.source = source;
     }
 
     reload() {
-        // console.log(webview);
-        // console.log(!webview.src);
-        // console.log(!webview.getWebContents());
-
         if (!webview.src || !webview.getWebContents()) {
             this.setSource(this.source);
         } else {
@@ -249,18 +247,18 @@ class PhaserComponent extends exports.BaseComponent {
         }
     }
 
-    pauseExecution(){
+    pauseExecution() {
         this.paused = true;
     }
 
-    stepExecution(){
-        if(!this.paused){
+    stepExecution() {
+        if (!this.paused) {
 
         }
     }
 
-    resumeExecution(){
-        if(!this.paused){
+    resumeExecution() {
+        if (!this.paused) {
             return;
         }
 
@@ -278,12 +276,9 @@ exports.registerDefaultComponents = function () {
 //region IPC_RENDERER LISTENERS
 function loadProject(loadedProject) {
     loadedProject.projectManager = Object.assign(new BaseProjectManager(), loadedProject.projectManager);
-    if (!layout || !config || !config.load) {
-        return;
-    }
 
     //Layout may not be initialized yet, so wait and see if it comes up
-    if (!layout.isInitialised) {
+    if (!currentWorkspace || !currentWorkspace.layout.isInitialised) {
         setTimeout(() => {
             loadProject(loadedProject);
         }, TIMEOUT);
@@ -291,7 +286,9 @@ function loadProject(loadedProject) {
     }
 
     document.title = `DragonDrop - ${loadedProject.projectPath}`;
-    config.load(loadedProject);
+
+    log.debug('Document Title', document.title);
+    currentWorkspace.loadProjectFile(loadedProject);
 }
 
 ipcRenderer.on('show_embedded', (event, arg) => {
@@ -305,6 +302,7 @@ ipcRenderer.on('show_embedded', (event, arg) => {
 });
 
 ipcRenderer.on('set_project', (event, arg) => {
+    log.debug('set_project');
     loadProject(Object.assign(new LoadedProject(), arg));
 });
 
@@ -318,10 +316,9 @@ ipcRenderer.on('settings_updated', () => {
     document.getElementById('editor').style.fontSize = `${electronConfig.get('fontsize') || '12'}px`
 });
 
-
 ipcRenderer.on('save_project', () => {
-    if (config.save()) {
-        config.reload();
+    if (currentWorkspace.save()) {
+        currentWorkspace.reload();
     }
 });
 
@@ -330,8 +327,8 @@ ipcRenderer.on('save_project_as', (event, project) => {
     project.projectManager = Object.assign(new BaseProjectManager(), project.getProjectManager());
 
     try {
-        console.log('config', config);
-        config.saveAs(project);
+        console.log('config', currentWorkspace);
+        currentWorkspace.saveAs(project);
         ipcRenderer.send('save_as_success', project);
     } catch (err) {
         log.error('save as failed', err);
@@ -340,7 +337,7 @@ ipcRenderer.on('save_project_as', (event, project) => {
 });
 
 ipcRenderer.on('eval', () => {
-    config.reload();
+    currentWorkspace.reload();
 });
 
 ipcRenderer.on('show_code', (event, arg) => {
@@ -418,68 +415,248 @@ ipcRenderer.on('resume_execution', () => {
 });
 //endregion
 
-exports.WorkspaceConfig = class {
-    constructor(config) {
-        if (!config) {
-            throw 'A config must be specified';
-        }
-
-        if (!config.layoutConfig) {
-            throw 'layoutConfig must be specified';
-        }
-
-        if (!config.blocklyConfig) {
-            throw 'blocklyConfig must be specified';
-        }
-
-        this.layoutConfig = config.layoutConfig;
-        this.blocklyConfig = config.blocklyConfig;
-
-        this.load = config.load || (() => {
-            throw new Error('load not implemented')
-        });
-        this.save = config.save || (() => {
-            throw new Error('save not implemented')
-        });
-        this.saveAs = config.saveAs || (() => {
-            throw new Error('saveAs not implemented')
-        });
-        this.reload = config.reload || (() => {
-        });
-
-        this.registerComponents = config.registerComponents || exports.registerDefaultComponents;
-        this.editorLanguage = config.editorLanguage || 'ace/mode/html';
-        this.editorReadOnly = "editorReadOnly" in config ? config.editorReadOnly : true;
-
-        this.onComponentOpen = config.onComponentOpen;
-    }
-};
-
 exports.Workspace = class {
-    constructor(workspaceConfig) {
-        config = workspaceConfig;
-        console.log(config.onComponentOpen);
+    constructor({blocklyConfig, layoutConfig, extension, defaultBlocks, editorLanguage}) {
+        this.blocklyConfig = blocklyConfig;
+        this.layoutConfig = layoutConfig;
+        this.extension = extension;
+        this.defaultBlocks = defaultBlocks;
+        this.editorLanguage = editorLanguage;
+
         this.components = {};
+
+        this.saveTimeout = false;
+
+        assert(this.blocklyConfig !== null);
+        assert(this.layoutConfig !== null);
+        assert(this.extension !== null);
     }
 
-    init() {
-        layout = new GoldenLayout(config.layoutConfig);
-        config.registerComponents();
-        layout.on('componentCreated', (component) => {
-            this.components[component.componentName] = component.instance;
-        });
+    static getDefaultBlocklyConfig(toolboxSource) {
+        return {
+            comments: true,
+            disable: true,
+            collapse: true,
+            grid: {
+                spacing: 25,
+                length: 3,
+                colour: '#ccc',
+                snap: true
+            },
+            maxBlocks: Infinity,
+            media: '../../../media/',
+            readOnly: false,
+            rtl: false,
+            scrollbars: true,
+            toolbox: toolboxSource,
+            zoom: {
+                controls: true,
+                wheel: true,
+                startScale: 1.0,
+                maxScale: 4,
+                minScale: .25,
+                scaleSpeed: 1.1
+            }
+        };
+    }
 
-        layout.init();
+    registerComponents() {
+        this.layout.registerComponent(exports.BLOCKLY_COMPONENT, BlocklyComponent);
+        this.layout.registerComponent(exports.CODE_COMPONENT, CodeComponent);
+        this.layout.registerComponent(exports.PHASER_COMPONENT, PhaserComponent);
     }
 
     getComponent(componentName) {
         return this.components[componentName];
     }
+
+    init() {
+        currentWorkspace = this;
+
+        this.layout = new GoldenLayout(this.layoutConfig);
+
+        this.registerComponents();
+        this.layout.on('componentCreated', (component) => {
+            this.components[component.componentName] = component.instance;
+        });
+
+        this.layout.init();
+    }
+
+    save() {
+        try {
+            if (!this.getBlockly()) {
+                return;
+            }
+
+            const code = this.updateCode();
+            let xml = Blockly.Xml.workspaceToDom(this.getBlockly());
+            xml = Blockly.Xml.domToPrettyText(xml);
+
+            this.loadedProject.save([{
+                path: this.loadedProject.getSourceFile(this.extension),
+                data: code
+            }, {
+                path: this.loadedProject.getBlocksPath(),
+                data: xml
+            }]);
+        } catch (err) {
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Error in code!\n${err.message}`
+            });
+            log.error(err);
+        }
+    }
+
+    saveAs(project) {
+        try {
+            if (!this.getBlockly()) {
+                return;
+            }
+
+            const code = this.getCode();
+            let xml = Blockly.Xml.workspaceToDom(this.getBlockly());
+            xml = Blockly.Xml.domToPrettyText(xml);
+
+            project.save([{
+                path: project.getFileInProjectDir(`${project.getName()}.js`),
+                data: code
+            }, {
+                path: project.getBlocksPath(),
+                data: xml
+            }]);
+        } catch (err) {
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Error in code!\n${err.message}`
+            });
+            log.error(err);
+        }
+    }
+
+    getCode() {
+        throw new Error('getCode not implemented');
+    }
+
+    getBlockly() {
+        const component = this.getComponent(exports.BLOCKLY_COMPONENT);
+        if (component) {
+            return component.getWorkspace();
+        }
+        return null;
+    }
+
+    updateCode() {
+        if (!this.getBlockly()) {
+            return;
+        }
+
+        const code = this.getCode();
+        const codeComponent = this.getComponent(exports.CODE_COMPONENT);
+        if (codeComponent) {
+            codeComponent.setCode(code);
+        }
+        return code;
+    }
+
+    reload() {
+    }
+
+    setBlocklyBlocks(blocks) {
+        const blocklyComponent = this.getComponent(exports.BLOCKLY_COMPONENT);
+        if (blocklyComponent) {
+            const xml = Blockly.Xml.textToDom(blocks);
+            Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
+        }
+    }
+
+    loadProjectFile(project) {
+        this.loadedProject = project;
+
+        let data = null;
+
+        try {
+            data = fs.readFileSync(this.loadedProject.getBlocksPath());
+            this.setBlocklyBlocks(data);
+            this.setCode(data);
+        } catch (err) {
+            // if(err === Error.ENOENT && this.defaultBlocks)
+        }
+    }
+
+    setPhaserSource() {
+        console.log('setPhaserSource()');
+        let phaserComponent = this.getComponent(exports.PHASER_COMPONENT);
+        if (phaserComponent) {
+            phaserComponent.setSource(`file://${this.loadedProject.getSourceFile(this.extension)}`);
+        }
+    }
+
+    onComponentOpen(component) {
+        log.debug(`${component.getName()} opened`);
+
+        let blockly = this.getBlockly();
+        switch (component.getName()) {
+            case exports.BLOCKLY_COMPONENT:
+                if (blockly) {
+                    blockly.addChangeListener(this.blocklyUpdate.bind(this));
+                }
+                if (this.loadedProject) {
+                    this.loadProjectFile(this.loadedProject);
+                }
+                break;
+            case exports.CODE_COMPONENT:
+                if (this.loadedProject) {
+                    this.updateCode()
+                }
+                break;
+            case exports.PHASER_COMPONENT:
+                if (this.loadedProject) {
+                    this.setPhaserSource(this.loadedProject);
+                }
+                break;
+            default:
+                log.debug(`Unknown component ${component.getName()}`);
+                break;
+        }
+    }
+
+    blocklyUpdate(event) {
+        try {
+            /**
+             * All events in Blockly excluding Blockly.Events.UI are used for meaningful changes, Blockly.Events.UI
+             * is for context menu, toolbox and the like opening no reason to spin off a disk operation
+             */
+            if (event.type !== Blockly.Events.UI) {
+                const block = this.getBlockly().getBlockById(event.blockId);
+                if (block && block.onchange) {
+                    block.onchange(event);
+                }
+
+
+                /**
+                 * This method will get an unknown number of events, on the first event start a timeout waiting
+                 * for all the event stream to pass additional events to this method there is no means to determine
+                 * the quantity or the start/end of this stream of events
+                 */
+                if (!this.saveTimeout) {
+                    this.saveTimeout = setTimeout(() => {
+                        this.saveTimeout = null;
+                        this.save();
+                    }, 1000)
+                }
+
+            }
+        } catch (err) {
+            exports.logErrorAndQuit(err, {state: 'saving', project: this.loadedProject});
+        }
+    }
 };
 
 exports.logErrorAndQuit = function (e, state) {
-    console.error(`Error ${state} project changes will not be saved`);
-    fs.writeFileSync('log.txt', `${e.toString()}\nMessage: ${e.message}\nLineNumber: ${e.lineNumber}\nFileName: ${e.fileName}\n`);
-    console.error(e);
+    log.error('Error project changes not saved', e, state);
     app.exit(-1);
 };
