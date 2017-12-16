@@ -10,6 +10,9 @@ const path = require('path');
 const fs = require('fs-extra');
 const {app} = require('electron').remote;
 const {Browser} = require('electron').remote;
+const dialog = require('electron').remote.dialog;
+const {BrowserWindow} = require('electron').remote;
+const log = require('electron-log');
 
 let loadedProject = null;
 
@@ -68,9 +71,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     editorLanguage: 'ace/mode/c_cpp',
     load: loadProjectFile,
     save: save,
-    reload: () => {
-        // workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
-    },
+    saveAs: saveAs,
     onComponentOpen: (component) => {
         console.log(component);
         let blocklyWorkspace = null;
@@ -103,39 +104,34 @@ function setCode(blocklyWorkspace) {
     return code;
 }
 
+
+function saveAs(project) {
+    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+    const code = setCode(blocklyWorkspace);
+    let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
+    xml = Blockly.Xml.domToPrettyText(xml);
+    project.save([{
+        path: project.getFileInProjectDir(`${project.getName()}.ino`),
+        data: code
+    }, {
+        path: project.getBlocksPath(),
+        data: xml
+    }]);
+}
+
 function save() {
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-    const dialog = require('electron').remote.dialog;
-    const {BrowserWindow} = require('electron').remote;
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
-
         xml = Blockly.Xml.domToPrettyText(xml);
-        try {
-            fs.writeFileSync(path.join(loadedProject.loadPath, loadedProject.getName(), `${loadedProject.getName()}.ino`), code);
-        }catch(err){
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-              type: 'error',
-              title: 'Dragon Drop Error',
-              message: `Error in code!\n${err.message}`
-            });
-            console.log(err);
-            return false;
-        }
-
-        try{
-            fs.writeFileSync(loadedProject.getBlocksPath() , xml);
-        }catch(err){
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-              type: 'error',
-              title: 'Dragon Drop Error',
-              message: `Error in code!\n${err.message}`
-            });
-            console.log(err);
-            return false;
-        }
-
+        loadedProject.save([{
+            path: loadedProject.getFileInProjectDir(`${loadedProject.getName()}.ino`),
+            data: code
+        }, {
+            path: loadedProject.getBlocksPath(),
+            data: xml
+        }]);
         return true;
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
@@ -143,16 +139,8 @@ function save() {
           title: 'Dragon Drop Error',
           message: `Error in code!\n${e.message}`
         });
-        console.log(e);
+        log.error(e);
         return false;
-    }
-}
-
-function setBlocklyBlocks(data) {
-    let blocklyComponent = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT);
-    if (blocklyComponent) {
-        let xml = Blockly.Xml.textToDom(data);
-        Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
     }
 }
 
@@ -162,8 +150,6 @@ function loadProjectFile(project) {
         let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
 
         loadedProject = project;
-
-        document.title = `DragonDrop - ${loadedProject.loadPath}`;
 
         fs.readFile(loadedProject.getBlocksPath(), (err, data) => {
             if (err) {
@@ -196,7 +182,7 @@ function loadProjectFile(project) {
 function myUpdateFunction(event) {
     try {
         let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-        if (event.type == Blockly.Events.CHANGE) {
+        if (event.type === Blockly.Events.CHANGE) {
             let block = blocklyWorkspace.getBlockById(event.blockId);
             if (block && block.onchange) {
                 block.onchange(event);
@@ -204,14 +190,6 @@ function myUpdateFunction(event) {
         }
         save();
     }catch(err){
-        console.error('Error saving project changes will not be saved');
-        console.error(err);
-
-        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-            type: 'error',
-            message: 'Problem saving code execution cannot continue'
-        }, () => {
-            app.quit();
-        });
+        workspaceCore.logErrorAndQuit(err, loadedProject);
     }
 }

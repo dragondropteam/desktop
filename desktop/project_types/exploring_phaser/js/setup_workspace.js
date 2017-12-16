@@ -71,6 +71,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     blocklyConfig: workspaceConfig,
     load: loadProjectFile,
     save: save,
+    saveAs: saveAs,
     reload: () => {
         //Limit the number of reloads in case the user ends up spamming this
         if (!reload) {
@@ -213,4 +214,8 @@ function myUpdateFunction(event) {
     } catch (e) {
         workspaceCore.logErrorAndQuit(e, 'saving');
     }
+}
+
+function saveAs(project) {
+
 }

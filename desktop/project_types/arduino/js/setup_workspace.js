@@ -67,6 +67,7 @@ const workspace = new Workspace(new WorkspaceConfig({
     editorLanguage: 'ace/mode/c_cpp',
     load: loadProjectFile,
     save: save,
+    saveAs: saveAs,
     reload: () => {
         workspace.getComponent(workspaceCore.PHASER_COMPONENT).reload();
     },
@@ -102,38 +103,34 @@ function setCode(blocklyWorkspace) {
     return code;
 }
 
+function saveAs(project) {
+    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
+    const code = setCode(blocklyWorkspace);
+    let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
+    xml = Blockly.Xml.domToPrettyText(xml);
+    project.save([{
+        path: project.getFileInProjectDir(`${project.getName()}.ino`),
+        data: code
+    }, {
+        path: project.getBlocksPath(),
+        data: xml
+    }]);
+}
+
 function save() {
     let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
     try {
         const code = setCode(blocklyWorkspace);
         let xml = Blockly.Xml.workspaceToDom(blocklyWorkspace);
-
         xml = Blockly.Xml.domToPrettyText(xml);
 
-        try {
-            fs.writeFileSync(loadedProject.getFileInProjectDir(`${loadedProject.getName()}.ino`), code);
-        } catch (err) {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: `Error in code!\n${err.message}`
-            });
-            log.error(err);
-            return false;
-        }
-
-        try {
-            fs.writeFileSync(loadedProject.getBlocksPath(), xml);
-        } catch (err) {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: `Error in code!\n${err.message}`
-            });
-            log.error(err);
-            return false;
-        }
-
+        loadedProject.save([{
+            path: loadedProject.getFileInProjectDir(`${loadedProject.getName()}.ino`),
+            data: code
+        }, {
+            path: loadedProject.getBlocksPath(),
+            data: xml
+        }]);
         return true;
     } catch (e) {
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
@@ -141,7 +138,7 @@ function save() {
             title: 'Dragon Drop Error',
             message: `Error in code!\n${e.message}`
         });
-        console.log(e);
+        log.error(e);
         return false;
     }
 }
@@ -162,7 +159,8 @@ function loadProjectFile(project) {
                 Blockly.Xml.domToWorkspace(xml, blocklyWorkspace);
                 return;
             } else {
-                debug.error(err);
+                log.error(err);
+                return;
             }
         }
 
@@ -172,12 +170,15 @@ function loadProjectFile(project) {
 }
 
 function myUpdateFunction(event) {
-    let blocklyWorkspace = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace();
-    if (event.type === Blockly.Events.CHANGE) {
-        let block = blocklyWorkspace.getBlockById(event.blockId);
-        if (block && block.onchange) {
-            block.onchange(event);
+    try {
+        if (event.type === Blockly.Events.CHANGE) {
+            const block = workspace.getComponent(workspaceCore.BLOCKLY_COMPONENT).getWorkspace().getBlockById(event.blockId);
+            if (block && block.onchange) {
+                block.onchange(event);
+            }
         }
+        save();
+    } catch (e) {
+        workspaceCore.logErrorAndQuit(e, 'saving');
     }
-    save();
 }

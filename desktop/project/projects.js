@@ -21,13 +21,10 @@ function getRecentProjects() {
     }
 
     let projects = config.get(recentFilesKey);
-    for(let i = 0; i < projects.length; ){
+    for (let i = 0; i < projects.length;) {
         if (!projects[i].loadPath || !fs.existsSync(projects[i].projectPath)) {
-            log.debug('Removing', projects[i]);
-            log.debug(`${!projects[i].loadPath}`);
-            log.debug(`${!fs.existsSync(projects[i].projectPath)}`);
             projects.splice(i, 1);//[i].loadedProject.name += ' - Deleted';
-        }else{
+        } else {
             ++i;
         }
     }
@@ -105,12 +102,12 @@ exports.addToRecentProjects = function (loadedProject) {
  * when loading fails
  * @param {string} projectPath Path to the project to be removed
  */
-exports.removeFromRecentProjects = function(projectPath){
+exports.removeFromRecentProjects = function (projectPath) {
     let recentFiles = getRecentProjects();
 
     let index = indexOfProject(recentFiles, projectPath);
 
-    if(index === -1){
+    if (index === -1) {
         return;
     }
 
@@ -233,4 +230,11 @@ exports.LoadedProject = class LoadedProject {
         return this.fileType === DIGIBLOCKS_PROJECT;
     }
 
+    /**
+     * Get the path to the source output file for this loaded project
+     * @param extension
+     */
+    getSourceFile(extension) {
+        return this.getFileInProjectDir(`${this.getName()}.${extension}`);
+    }
 };

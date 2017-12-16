@@ -246,7 +246,8 @@ function createProjectMenu(arg) {
         label: "Save Project",
         accelerator: 'CmdOrCtrl+S',
         click(item, displayedWindow) {
-            displayedWindow.webContents.send('save_project');
+            if (displayedWindow)
+                displayedWindow.webContents.send('save_project');
         }
     });
 
@@ -282,47 +283,6 @@ function createProjectMenu(arg) {
             }
 
             focusedWindow.send('save_project_as', project);
-
-            // if (fs.existsSync(loadedproject.getBlocksPath())) {
-            //     fs.copy(loadedproject.getBlocksPath(), project.getBlocksPath(), function (err) {
-            //         if (err) {
-            //             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-            //                 type: 'error',
-            //                 title: 'Dragon Drop Error',
-            //                 message: `Could not save ${project.getName()}\n${err.message}`
-            //             });
-            //             return;
-            //         }
-            //
-            //         displayProject(project);
-            //     });
-            // }
-            //
-            // if (fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"))) {
-            //     fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "js"), pathmod.join(project.loadPath, project.getName(), "js"), function (err) {
-            //         if (err) {
-            //             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-            //                 type: 'error',
-            //                 title: 'Dragon Drop Error',
-            //                 message: `Could not save ${project.getName()}\n${err.message}`
-            //             });
-            //         }
-            //     });
-            // }
-            //
-            // if (fs.existsSync(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"))) {
-            //     fs.copy(pathmod.join(loadedproject.loadPath, loadedproject.getName(), "assets"), pathmod.join(project.loadPath, project.getName(), "assets"), function (err) {
-            //         if (err) {
-            //             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-            //                 type: 'error',
-            //                 title: 'Dragon Drop Error',
-            //                 message: `Could not save ${project.getName()}\n${err.message}`
-            //             });
-            //         }
-            //     });
-            // }
-
-            // loadProjectFromPath(project.getProjectPath());
         }
     });
 
