@@ -567,6 +567,8 @@ exports.Workspace = class {
 
     setBlocklyBlocks(blocks) {
         const blocklyComponent = this.getComponent(exports.BLOCKLY_COMPONENT);
+        console.log(blocklyComponent);
+
         if (blocklyComponent) {
             const xml = Blockly.Xml.textToDom(blocks);
             Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
@@ -581,9 +583,12 @@ exports.Workspace = class {
         try {
             data = fs.readFileSync(this.loadedProject.getBlocksPath());
             this.setBlocklyBlocks(data);
-            this.setCode(data);
         } catch (err) {
-            // if(err === Error.ENOENT && this.defaultBlocks)
+            if (err.code === 'ENOENT' && this.defaultBlocks) {
+                this.setBlocklyBlocks(this.defaultBlocks);
+            } else {
+                exports.logErrorAndQuit(err, {state: 'loading', project: project});
+            }
         }
     }
 
