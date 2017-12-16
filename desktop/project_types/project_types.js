@@ -8,6 +8,9 @@ const config = new Config();
 const fs = require('fs-extra');
 const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
+const {app} = require('electron');
+const log = require('electron-log');
+const zipfolder = require('zip-folder');
 
 class ProjectType {
     constructor(tag, display, requirePath, enabled) {
@@ -39,8 +42,18 @@ exports.ProjectType = ProjectType;
  */
 function getProjectTypes() {
     let projectTypes = config.get(projectTypesKey);
-    return projectTypes || defaultValue;
+    return defaultValue;
 }
+
+exports.getDisplayName = function (type) {
+    let displayName = null;
+    getProjectTypes().forEach(project => {
+        if (project.tag === type) {
+            displayName = project.display;
+        }
+    });
+    return displayName;
+};
 
 exports.getProjectTypes = getProjectTypes;
 
@@ -55,12 +68,14 @@ exports.getRequirePath = function (tag) {
 };
 
 
+//TODO: This needs to be moved to its own module
 exports.BaseProjectManager = class BaseProjectManager {
     constructor(buildNumber, type, staticRoot) {
         this.buildNumber = buildNumber;
         this.type = type;
         this.staticRoot = staticRoot;
     }
+
 
     /**
      * Create a new project
@@ -71,16 +86,37 @@ exports.BaseProjectManager = class BaseProjectManager {
      */
     createNewProject(name, filePath, version) {
         console.log(`Creating project ${name} at ${filePath} with version ${version}`);
+        console.log(path.join(app.getPath('temp'), 'dragondrop'));
         try {
-            this.createProjectDir(name, filePath);
-            this.copyBaseFiles(name, filePath);
+            fs.ensureDirSync(filePath);
+
+            const cachePath = fs.mkdtempSync(path.join(app.getPath('temp'), 'dragondrop'));
+            this.createProjectDir(name, cachePath);
+            this.copyBaseFiles(name, cachePath);
             let project = new Project(name, version, this.type, this.createMeta());
-            fs.writeJsonSync(path.join(filePath, `${name}.digiblocks`), project);
-            return new LoadedProject(project, filePath);
+            fs.writeJsonSync(path.join(cachePath, `${name}.digiblocks`), project);
+            zipfolder(cachePath, path.join(filePath, `${name}.drop`), err => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log(`Created project at ${path.join(filePath, `${name}.drop`)}`)
+            });
+            return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this);
         } catch (e) {
             console.error(e);
             return null;
         }
+        // try {
+        //     this.createProjectDir(name, filePath);
+        //     this.copyBaseFiles(name, filePath);
+        //     let project = new Project(name, version, this.type, this.createMeta());
+        //     fs.writeJsonSync(path.join(filePath, `${name}.digiblocks`), project);
+        //     return new LoadedProject(project, filePath);
+        // } catch (e) {
+        //     console.error(e);
+        //     return null;
+        // }
     }
 
     /**
@@ -119,12 +155,12 @@ exports.BaseProjectManager = class BaseProjectManager {
     /**
      * Loads the .digiblocks (JSON) file and generates a LoadedProject to add helper methods and the load location for
      * the project
-     * @param filePath The file path to a .digiblocks file to load
-     *
+     * @param project The JSON file representing this project (.digiblocks)
+     * @param cachePath The path to the folder containing the .digiblocks file in cache folder
+     * @param projectPath The path to the project archive .drop file or .digiblocks file for legacy projects
      */
-    loadProject(filePath) {
-        let project = fs.readJsonSync(filePath);
-        let loadedProject = new LoadedProject(project, path.dirname(filePath));
+    loadProject(project, cachePath, projectPath) {
+        const loadedProject = new LoadedProject(project, cachePath, projectPath, this, path.extname(projectPath).substr(1));
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
@@ -159,9 +195,29 @@ exports.BaseProjectManager = class BaseProjectManager {
     /**
      * Saves the project out to disk
      * @param project The project to save to disk
+     * @param files
+     * @param files.path
+     * @param files.data
      */
-    saveProject(project) {
+    saveProject(project, files) {
         fs.outputJsonSync(project.getProjectPath(), project.loadedProject);
+
+        //If we are only updating the project file there will be no files
+        if (files) {
+            for (let i = 0; i < files.length; ++i) {
+                fs.writeFileSync(files[i].path, files[i].data);
+            }
+        }
+
+        //Update the .drop file if present this can be async as we are not directly using the file
+        if (path.extname(project.projectPath) === '.drop') {
+
+            zipfolder(project.loadPath, project.projectPath, err => {
+                if (err) {
+                    console.error(err);
+                }
+            });
+        }
     }
 
     migrateMetaAndProjectType(loadedProject) {
