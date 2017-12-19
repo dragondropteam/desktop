@@ -260,11 +260,15 @@ function createProjectMenu(arg) {
                 return;
             }
 
-            const saveAsPath = dialog.showSaveDialog({
-                options: {
-                    title: "Create Project",
-                    defaultPath: path.join(app.getPath("documents"), 'DragonDropProjects')
-                }
+            const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}_Copy.drop`);
+
+            const saveAsPath = dialog.showSaveDialog(mainWindow, {
+                title: "Save Project As",
+                defaultPath: defaultPath,
+                filters: [{
+                    name: 'DragonDrop Project',
+                    extensions: ['drop']
+                }]
             });
 
             if (!saveAsPath) {
@@ -278,7 +282,7 @@ function createProjectMenu(arg) {
                 version = electron.remote.getGlobal('version');
             }
 
-            let project = projectInterface.createNewProject(path.basename(saveAsPath), saveAsPath, version);
+            let project = projectInterface.createNewProject(path.basename(saveAsPath), path.dirname(saveAsPath), version);
             if (project === null) {
                 return;
             }
@@ -339,34 +343,6 @@ function createProjectMenu(arg) {
         menuHash['File'].push({
             label: 'Convert to .drop',
             click() {
-                const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.drop`);
-                log.debug(defaultPath);
-                const saveAsPath = dialog.showSaveDialog(mainWindow, {
-                    title: "Migrate Project",
-                    defaultPath: defaultPath,
-                    filters: [{
-                        name: 'DragonDrop Project',
-                        extensions: ['drop']
-                    }]
-                });
-
-                if (saveAsPath) {
-                    const progressWindow = new ProgressWindow('Converting Project');
-                    projects.migrateLegacyProject(loadedproject, saveAsPath)
-                        .then(migratedProject => {
-                            progressWindow.destroy();
-                            loadProjectFromPath(migratedProject);
-                        })
-                        .catch(err => {
-                            progressWindow.destroy();
-                            log.error(err);
-                            dialog.showMessageBox(mainWindow, {
-                                type: 'error',
-                                title: 'Dragon Drop Error',
-                                message: 'Could not migrate project'
-                            })
-                        });
-                }
             }
         })
     }

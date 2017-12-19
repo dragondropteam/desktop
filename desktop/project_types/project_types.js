@@ -4,7 +4,7 @@
  */
 
 const Config = require('electron-store');
-const config = new Config();
+// const config = new Config();
 const fs = require('fs-extra');
 const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
@@ -31,7 +31,7 @@ const defaultValue = [
     new ProjectType('exploring_phaser', 'Exploring Phaser Game Engine', './project_types/exploring_phaser', true),
     new ProjectType('text_phaser', 'Phaser Game Engine', './project_types/text_phaser', true)];
 
-const projectTypesKey = 'PROJECT_TYPES';
+// const projectTypesKey = 'PROJECT_TYPES';
 
 exports.ProjectType = ProjectType;
 
@@ -86,7 +86,6 @@ exports.BaseProjectManager = class BaseProjectManager {
      */
     createNewProject(name, filePath, version) {
         console.log(`Creating project ${name} at ${filePath} with version ${version}`);
-        console.log(path.join(app.getPath('temp'), 'dragondrop'));
         try {
             fs.ensureDirSync(filePath);
 
@@ -95,14 +94,14 @@ exports.BaseProjectManager = class BaseProjectManager {
             this.copyBaseFiles(name, cachePath);
             let project = new Project(name, version, this.type, this.createMeta());
             fs.writeJsonSync(path.join(cachePath, `${name}.digiblocks`), project);
-            zipFolder(cachePath, path.join(filePath, `${name}.drop`), err => {
+            zipFolder(cachePath, path.join(filePath, name), err => {
                 if (err) {
-                    console.error(err);
+                    log.error(err);
                     return;
                 }
-                console.log(`Created project at ${path.join(filePath, `${name}.drop`)}`)
+                log.debug(`Created project at ${path.join(filePath, name)}`)
             });
-            return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this, 'drop');
+            return new LoadedProject(project, cachePath, path.join(filePath, name), this, 'drop');
         } catch (e) {
             console.error(e);
             return null;
