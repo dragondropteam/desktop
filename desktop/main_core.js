@@ -36,6 +36,7 @@ const JSZip = require('jszip');
 const compareVersions = require('compare-versions');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
+const buffer = require('buffer');
 
 //region AUTO_UPDATE
 // Blocked until this can be signed!
@@ -450,13 +451,13 @@ ipcMain.on('prompt', function (eventRet, arg) {
         resizable: false
     });
     arg.val = arg.val || '';
-    const promptHtml = '<label for="val">' + arg.title + '</label>\
-  <form>\
-  <input id="val" value="' + arg.val + '" autofocus />\
-  <button type=sumbit onclick="require(\'electron\').ipcRenderer.send(\'prompt-response\', document.getElementById(\'val\').value);window.close()">Ok</button>\
-  <button type=button onclick="window.close()">Cancel</button>\
-  </form>\
-  <style>body {font-family: sans-serif;} button {float:right; margin-left: 10px;} label,input {margin-bottom: 10px; width: 100%; display:block;}</style>';
+    const promptHtml = `<label for="val">${arg.title}</label>
+  <form>
+  <input id="val" value="${arg.val}" autofocus />
+  <button type=sumbit onclick="require('electron').ipcRenderer.send('prompt-response', document.getElementById('val').value);window.close()">Ok</button>
+  <button type=button onclick="window.close()">Cancel</button>
+  </form>
+  <style>body {font-family: sans-serif;} button {float:right; margin-left: 10px;} label,input {margin-bottom: 10px; width: 100%; display:block;}</style>`;
     promptWindow.loadURL('data:text/html,' + promptHtml);
     promptWindow.show();
     promptWindow.on('closed', function () {
@@ -579,7 +580,7 @@ function loadDropFromPath(projectPath) {
         const digiblocksFile = path.join(cachePath, `${path.basename(projectPath, '.drop')}.digiblocks`);
         fs.stat(projectPath)
             .then(stats => {
-                if (stats.size >= 0x7fffffff) {
+                if (stats.size >= buffer.kMaxLength) {
                     reject({msg: 'File too large to load', id: FILE_TOO_LARGE});
                 } else {
                     return fs.readFile(projectPath);

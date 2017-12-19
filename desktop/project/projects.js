@@ -134,9 +134,8 @@ exports.Project = class Project {
 /**
  * Represents a project that has been loaded has helper methods to access directories, and information about the project
  * and where it exists on disk.
- * @type {LoadedProject}
  */
-exports.LoadedProject = class LoadedProject {
+class LoadedProject {
     /**
      * Constructs a LoadedProject from the project loaded from disk or created and the path to the .digiblocks file
      * where it should be saved/loaded form on disk.
@@ -218,6 +217,12 @@ exports.LoadedProject = class LoadedProject {
         return this.projectManager;
     }
 
+    /**
+     * Pass through files to the project manager to save them to disk
+     * @param files List of file data to save
+     * @param files.path Path to the location in the cache dir this will be saved to
+     * @param files.data Data for the file (this inherently limits files to < 2GB)
+     */
     save(files) {
         this.getProjectManager().saveProject(this, files);
     }
@@ -237,4 +242,6 @@ exports.LoadedProject = class LoadedProject {
     getSourceFile(extension) {
         return this.getFileInProjectDir(`${this.getName()}.${extension}`);
     }
-};
+}
+
+exports.LoadedProject = LoadedProject;
