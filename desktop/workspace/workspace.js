@@ -593,7 +593,6 @@ exports.Workspace = class {
     }
 
     setPhaserSource() {
-        console.log('setPhaserSource()');
         let phaserComponent = this.getComponent(exports.PHASER_COMPONENT);
         if (phaserComponent) {
             phaserComponent.setSource(`file://${this.loadedProject.getSourceFile(this.extension)}`);
@@ -658,6 +657,11 @@ exports.Workspace = class {
         } catch (err) {
             exports.logErrorAndQuit(err, {state: 'saving', project: this.loadedProject});
         }
+    }
+
+    addAsset(source) {
+        const assetsDirectory = this.loadedProject.getFileInProjectDir('assets');
+        return fs.copy(source, path.join(assetsDirectory, path.basename(source)));
     }
 };
 

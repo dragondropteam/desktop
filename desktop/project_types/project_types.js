@@ -102,21 +102,11 @@ exports.BaseProjectManager = class BaseProjectManager {
                 }
                 console.log(`Created project at ${path.join(filePath, `${name}.drop`)}`)
             });
-            return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this);
+            return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this, 'drop');
         } catch (e) {
             console.error(e);
             return null;
         }
-        // try {
-        //     this.createProjectDir(name, filePath);
-        //     this.copyBaseFiles(name, filePath);
-        //     let project = new Project(name, version, this.type, this.createMeta());
-        //     fs.writeJsonSync(path.join(filePath, `${name}.digiblocks`), project);
-        //     return new LoadedProject(project, filePath);
-        // } catch (e) {
-        //     console.error(e);
-        //     return null;
-        // }
     }
 
     /**
@@ -161,6 +151,7 @@ exports.BaseProjectManager = class BaseProjectManager {
      */
     loadProject(project, cachePath, projectPath) {
         const loadedProject = new LoadedProject(project, cachePath, projectPath, this, path.extname(projectPath).substr(1));
+        log.debug(path.extname(projectPath).substr(1));
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
