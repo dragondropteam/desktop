@@ -123,10 +123,12 @@ exports.removeFromRecentProjects = function (projectPath) {
  * @param savePath {String} Path the user selected to contain the migrated project
  */
 exports.migrateLegacyProject = function (project, savePath) {
-    log.debug(`Migrating to ${savePath}`, project);
+
     if (!project.isLegacy()) {
         return;
     }
+
+    log.debug(`Migrating to ${savePath}`, project);
 
     return new Promise((resolve, reject) => {
         zipFolder(project.loadPath, savePath, err => {
