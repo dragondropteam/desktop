@@ -10,6 +10,7 @@ const RECENT_FILES_LIMIT = 10;
 const log = require('electron-log');
 const DIGIBLOCKS_PROJECT = 'digiblocks';
 const DROP_PROJECT = 'drop';
+const zipFolder = require('zip-folder');
 
 function getRecentProjects() {
     /**
@@ -114,6 +115,28 @@ exports.removeFromRecentProjects = function (projectPath) {
     recentFiles.splice(index, 1);
 
     config.set(recentFilesKey, recentFiles);
+};
+
+/**
+ * Convert a legacy project to a .drop project
+ * @param {LoadedProject} project The legacy project to convert to a .drop
+ * @param savePath {String} Path the user selected to contain the migrated project
+ */
+exports.migrateLegacyProject = function (project, savePath) {
+    log.debug(`Migrating to ${savePath}`, project);
+    if (!project.isLegacy()) {
+        return;
+    }
+
+    return new Promise((resolve, reject) => {
+        zipFolder(project.loadPath, savePath, err => {
+            if (err) {
+                reject(err)
+            }
+
+            resolve(savePath);
+        });
+    });
 };
 
 /**

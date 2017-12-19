@@ -10,7 +10,7 @@ const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
 const {app} = require('electron');
 const log = require('electron-log');
-const zipfolder = require('zip-folder');
+const zipFolder = require('zip-folder');
 
 class ProjectType {
     constructor(tag, display, requirePath, enabled) {
@@ -41,7 +41,7 @@ exports.ProjectType = ProjectType;
  * @returns {*[]} An array of ProjectType
  */
 function getProjectTypes() {
-    let projectTypes = config.get(projectTypesKey);
+    // let projectTypes = config.get(projectTypesKey);
     return defaultValue;
 }
 
@@ -58,9 +58,9 @@ exports.getDisplayName = function (type) {
 exports.getProjectTypes = getProjectTypes;
 
 exports.getRequirePath = function (tag) {
-    var requirePath = null;
+    let requirePath = null;
     getProjectTypes().forEach((project) => {
-        if (project.tag == tag) {
+        if (project.tag === tag) {
             requirePath = project.requirePath;
         }
     });
@@ -95,7 +95,7 @@ exports.BaseProjectManager = class BaseProjectManager {
             this.copyBaseFiles(name, cachePath);
             let project = new Project(name, version, this.type, this.createMeta());
             fs.writeJsonSync(path.join(cachePath, `${name}.digiblocks`), project);
-            zipfolder(cachePath, path.join(filePath, `${name}.drop`), err => {
+            zipFolder(cachePath, path.join(filePath, `${name}.drop`), err => {
                 if (err) {
                     console.error(err);
                     return;
@@ -203,7 +203,7 @@ exports.BaseProjectManager = class BaseProjectManager {
         //Update the .drop file if present this can be async as we are not directly using the file
         if (path.extname(project.projectPath) === '.drop') {
 
-            zipfolder(project.loadPath, project.projectPath, err => {
+            zipFolder(project.loadPath, project.projectPath, err => {
                 if (err) {
                     console.error(err);
                 }
