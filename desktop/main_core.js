@@ -339,7 +339,34 @@ function createProjectMenu(arg) {
         menuHash['File'].push({
             label: 'Convert to .drop',
             click() {
-                //TODO: Add a menu option to convert a .digiblocks to a .drop file for some utility to do so
+                const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.drop`);
+                log.debug(defaultPath);
+                const saveAsPath = dialog.showSaveDialog(mainWindow, {
+                    title: "Migrate Project",
+                    defaultPath: defaultPath,
+                    filters: [{
+                        name: 'DragonDrop Project',
+                        extensions: ['drop']
+                    }]
+                });
+
+                if (saveAsPath) {
+                    const progressWindow = new ProgressWindow('Converting Project');
+                    projects.migrateLegacyProject(loadedproject, saveAsPath)
+                        .then(migratedProject => {
+                            progressWindow.destroy();
+                            loadProjectFromPath(migratedProject);
+                        })
+                        .catch(err => {
+                            progressWindow.destroy();
+                            log.error(err);
+                            dialog.showMessageBox(mainWindow, {
+                                type: 'error',
+                                title: 'Dragon Drop Error',
+                                message: 'Could not migrate project'
+                            })
+                        });
+                }
             }
         })
     }
