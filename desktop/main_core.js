@@ -745,3 +745,5 @@ ipcMain.on('save_as_success', (event, project) => {
     project = Object.assign(new LoadedProject(), project);
     displayProject(project);
 });
+
+log.debug(app.getPath('userData'));
