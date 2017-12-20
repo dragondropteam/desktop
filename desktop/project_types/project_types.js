@@ -94,14 +94,14 @@ exports.BaseProjectManager = class BaseProjectManager {
             this.copyBaseFiles(name, cachePath);
             let project = new Project(name, version, this.type, this.createMeta());
             fs.writeJsonSync(path.join(cachePath, `${name}.digiblocks`), project);
-            zipFolder(cachePath, path.join(filePath, name), err => {
+            zipFolder(cachePath, path.join(filePath, `${name}.drop`), err => {
                 if (err) {
                     log.error(err);
                     return;
                 }
                 log.debug(`Created project at ${path.join(filePath, name)}`)
             });
-            return new LoadedProject(project, cachePath, path.join(filePath, name), this, 'drop');
+            return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this, 'drop');
         } catch (e) {
             console.error(e);
             return null;
