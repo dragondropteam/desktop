@@ -228,6 +228,35 @@ function createPreferenceWindow() {
     });
 }
 
+function saveAs(defaultPath, parentWindow) {
+    const saveAsPath = dialog.showSaveDialog(mainWindow, {
+        title: "Save Project As",
+        defaultPath: defaultPath,
+        filters: [{
+            name: 'DragonDrop Project',
+            extensions: ['drop']
+        }]
+    });
+
+    if (!saveAsPath) {
+        return;
+    }
+
+    let version;
+    if (!electron.remote) {
+        version = global.version;
+    } else {
+        version = electron.remote.getGlobal('version');
+    }
+
+    let project = projectInterface.createNewProject(path.basename(saveAsPath, '.drop'), path.dirname(saveAsPath), version);
+    if (project === null) {
+        return;
+    }
+
+    parentWindow.send('save_project_as', project);
+}
+
 function createProjectMenu(arg) {
     let menuHash = Object.create(null);
     //Add MacOS X specific field if necessary
@@ -261,33 +290,7 @@ function createProjectMenu(arg) {
             }
 
             const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}_Copy.drop`);
-
-            const saveAsPath = dialog.showSaveDialog(mainWindow, {
-                title: "Save Project As",
-                defaultPath: defaultPath,
-                filters: [{
-                    name: 'DragonDrop Project',
-                    extensions: ['drop']
-                }]
-            });
-
-            if (!saveAsPath) {
-                return;
-            }
-
-            let version;
-            if (!electron.remote) {
-                version = global.version;
-            } else {
-                version = electron.remote.getGlobal('version');
-            }
-
-            let project = projectInterface.createNewProject(path.basename(saveAsPath), path.dirname(saveAsPath), version);
-            if (project === null) {
-                return;
-            }
-
-            focusedWindow.send('save_project_as', project);
+            saveAs(defaultPath, focusedWindow);
         }
     });
 
@@ -342,7 +345,9 @@ function createProjectMenu(arg) {
         });
         menuHash['File'].push({
             label: 'Convert to .drop',
-            click() {
+            click(item, focusedWindowun) {
+                const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.drop`);
+                saveAs(defaultPath, focusedWindow);
             }
         })
     }
