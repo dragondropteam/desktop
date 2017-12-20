@@ -8,7 +8,7 @@ const Config = require('electron-store');
 const fs = require('fs-extra');
 const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
-const {app} = require('electron');
+const {app, ipcMain} = require('electron');
 const log = require('electron-log');
 const zipFolder = require('zip-folder');
 
@@ -230,8 +230,13 @@ exports.BaseProjectManager = class BaseProjectManager {
         console.log(`displaying ${`file://${__dirname}/static/${index}`} in ${debug ? 'debug' : 'production'}`);
 
         window.loadURL(`file://${this.staticRoot}/${index}`);
-        window.webContents.on('did-finish-load', () => {
+
+        ipcMain.once('render_ready', () => {
             window.send('set_project', project);
-        })
+        });
+
+        // window.webContents.on('did-finish-load', () => {
+        //     window.send('set_project', project);
+        // })
     }
 };
