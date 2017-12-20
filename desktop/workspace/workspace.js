@@ -481,6 +481,10 @@ exports.Workspace = class {
         });
 
         this.layout.init();
+
+        this.layout.on('initialised', () => {
+            ipcRenderer.send('render_ready');
+        });
     }
 
     save() {
@@ -583,6 +587,8 @@ exports.Workspace = class {
         try {
             data = fs.readFileSync(this.loadedProject.getBlocksPath());
             this.setBlocklyBlocks(data);
+            this.updateCode();
+            this.setPhaserSource();
         } catch (err) {
             if (err.code === 'ENOENT' && this.defaultBlocks) {
                 this.setBlocklyBlocks(this.defaultBlocks);
