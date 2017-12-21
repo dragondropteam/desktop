@@ -590,8 +590,9 @@ exports.Workspace = class {
             this.updateCode();
             this.setPhaserSource();
         } catch (err) {
-            if (err.code === 'ENOENT' && this.defaultBlocks) {
-                this.setBlocklyBlocks(this.defaultBlocks);
+            if (err.code === 'ENOENT') {
+                if(this.defaultBlocks)
+                    this.setBlocklyBlocks(this.defaultBlocks);
             } else {
                 exports.logErrorAndQuit(err, {state: 'loading', project: project});
             }

@@ -25,7 +25,7 @@ gulp.task('clean', () => {
  * Install dependencies, in most cases we will really need to update
  * or something else as npm install is a prereq to running this project
  */
-gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks'], () => {
+gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'phaser_workspace', 'arduino_workspace'], () => {
     return gulp.src('package.json')
         .pipe(install());
 });
@@ -191,6 +191,20 @@ gulp.task('icon_blocks', () => {
        .pipe(minify(options))
        .pipe(addsrc(['icon_blocks/**/*', '!icon_blocks/**/*.js']))
        .pipe(gulp.dest('app/icon_blocks'));
+});
+
+gulp.task('phaser_workspace', () => {
+   gulp.src('phaser_workspace/**/*.js')
+       .pipe(minify(options))
+       .pipe(addsrc(['phaser_workspace/**/*', '!phaser_workspace/**/*.js']))
+       .pipe(gulp.dest('app/phaser_workspace'));
+});
+
+gulp.task('arduino_workspace', () => {
+   gulp.src('arduino_workspace/**/*.js')
+       .pipe(minify(options))
+       .pipe(addsrc(['arduino_workspace/**/*', '!arduino_workspace/**/*.js']))
+       .pipe(gulp.dest('app/arduino_workspace'));
 });
 
 

@@ -122,3 +122,7 @@ desktop/app/icon_blocks/
 desktop/app/package-lock\.json
 
 desktop/app/yarn\.lock
+
+desktop/app/phaser_workspace/
+
+desktop/app/arduino_workspace/
