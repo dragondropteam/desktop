@@ -226,17 +226,12 @@ exports.BaseProjectManager = class BaseProjectManager {
     displayProject(window, debug, project) {
         //index_dev.html will use uncompressed versions of the blockly library index.html will use the compressed versions
         //that are used in production
-        let index = debug ? 'index_dev.html' : 'index.html';
-        console.log(`displaying ${`file://${__dirname}/static/${index}`} in ${debug ? 'debug' : 'production'}`);
+        const index = debug ? 'index_dev.html' : 'index.html';
 
         window.loadURL(`file://${this.staticRoot}/${index}`);
 
         ipcMain.once('render_ready', () => {
             window.send('set_project', project);
         });
-
-        // window.webContents.on('did-finish-load', () => {
-        //     window.send('set_project', project);
-        // })
     }
 };
