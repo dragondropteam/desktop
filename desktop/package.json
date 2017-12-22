@@ -16,10 +16,16 @@
     "appId": "edu.digipen.dragondrop",
     "productName": "Dragon Drop",
     "copyright": "Dragon Drop Copyright DigiPen 2016, Blockly Copyright Google, Ace Editor Copyright Cloud9, Golden Layout copyright deepstreamIO",
-    "fileAssociations": {
-      "ext": "digiblocks",
-      "name": "Dragon Drop"
-    },
+    "fileAssociations": [
+      {
+        "ext": "digiblocks",
+        "name": "Dragon Drop"
+      },
+      {
+        "ext": "drop",
+        "name": "Dragon Drop"
+      }
+    ],
     "win": {
       "target": [
         "nsis"
@@ -52,14 +58,14 @@
     "del": "latest",
     "devtron": "^1.4.0",
     "electron": "^1.7.0 ",
-    "electron-rebuild": "^1.5.7",
+    "electron-rebuild": "^1.6.0",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
     "gulp-clean": "^0.3.2",
     "gulp-uglify": "^3.0.0",
     "pump": "^1.0.2",
     "standard": "^10.0.2",
-    "uglify-es": "^3.1.0",
+    "uglify-es": "^3.2.2",
     "username": "*"
   },
   "dependencies": {
