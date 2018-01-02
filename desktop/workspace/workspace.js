@@ -47,11 +47,11 @@ let currentWorkspace = null;
 
 exports.BaseComponent = class {
     constructor(componentState) {
-        this.componentState = componentState.label;
+        this.name = componentState.label;
     }
 
     getName() {
-        return this.componentState;
+        return this.name;
     }
 };
 
@@ -199,13 +199,12 @@ class PhaserComponent extends exports.BaseComponent {
         phaserContainer = container;
 
         container.getElement().html('<webview id="phaser" style="display:flex; width:99%; height:99%; margin:auto; border-style: solid; background: black;"></webview>');
-        container.on('open', () => {
-            this.setupDOM();
-        });
+        container.on('open', () => this.setupDOM());
 
         container.on('destroy', () => {
             phaserContainer = null;
             webview = null;
+            currentWorkspace.removeComponent(this.getName());
         });
 
         container.on('resize', () => {
@@ -222,9 +221,7 @@ class PhaserComponent extends exports.BaseComponent {
 
         webview = document.getElementById('phaser');
 
-        if (currentWorkspace.onComponentOpen) {
-            currentWorkspace.onComponentOpen(this);
-        }
+        currentWorkspace.onComponentOpen(this);
 
         return true;
     }
@@ -287,13 +284,10 @@ function loadProject(loadedProject) {
 
     document.title = `DragonDrop - ${loadedProject.projectPath}`;
 
-    log.debug('Document Title', document.title);
     currentWorkspace.loadProjectFile(loadedProject);
 }
 
-ipcRenderer.on('show_embedded', (event, arg) => {
-    // console.log('show_embedded');
-
+ipcRenderer.on('show_embedded', () => {
     if (!phaserContainer || !webview) {
         return;
     }
@@ -301,10 +295,7 @@ ipcRenderer.on('show_embedded', (event, arg) => {
     webview.openDevTools();
 });
 
-ipcRenderer.on('set_project', (event, arg) => {
-    log.debug('set_project');
-    loadProject(Object.assign(new LoadedProject(), arg));
-});
+ipcRenderer.on('set_project', (event, arg) => loadProject(Object.assign(new LoadedProject(), arg)));
 
 ipcRenderer.on('settings_updated', () => {
     let theme = electronConfig.get('theme');
@@ -317,9 +308,8 @@ ipcRenderer.on('settings_updated', () => {
 });
 
 ipcRenderer.on('save_project', () => {
-    if (currentWorkspace.save()) {
-        currentWorkspace.reload();
-    }
+    currentWorkspace.save();
+    currentWorkspace.reload();
 });
 
 ipcRenderer.on('save_project_as', (event, project) => {
@@ -327,7 +317,6 @@ ipcRenderer.on('save_project_as', (event, project) => {
     project.projectManager = Object.assign(new BaseProjectManager(), project.getProjectManager());
 
     try {
-        console.log('config', currentWorkspace);
         currentWorkspace.saveAs(project);
         ipcRenderer.send('save_as_success', project);
     } catch (err) {
@@ -336,59 +325,16 @@ ipcRenderer.on('save_project_as', (event, project) => {
     }
 });
 
-ipcRenderer.on('eval', () => {
-    currentWorkspace.reload();
-});
+ipcRenderer.on('eval', () => currentWorkspace.reload());
 
-ipcRenderer.on('show_code', (event, arg) => {
-    console.log('show_code');
-    console.log(codeContainer);
-    console.log(layout.isInitialised);
+ipcRenderer.on('show_code', () => currentWorkspace.addComponentIfMissing(exports.CODE_COMPONENT, 'Code'));
 
-    if (codeContainer || !layout.isInitialised) {
-        return;
-    }
-    let root = layout.root.contentItems[0] || layout.root;
+ipcRenderer.on('show_blockly', (event, arg) => currentWorkspace.addComponentIfMissing(exports.BLOCKLY_COMPONENT, 'Blockly'));
 
-    root.addChild({
-        type: 'component',
-        componentName: exports.CODE_COMPONENT,
-        title: 'Code',
-        componentState: {label: exports.CODE_COMPONENT}
-    });
-});
-
-ipcRenderer.on('show_blockly', (event, arg) => {
-    if (blocklyContainer !== null || !layout.isInitialised) {
-        return;
-    }
-
-    let root = layout.root.contentItems[0] || layout.root;
-    root.addChild({
-        type: 'component',
-        componentName: exports.BLOCKLY_COMPONENT,
-        componentState: {label: exports.BLOCKLY_COMPONENT},
-        title: 'Blockly',
-    });
-});
-
-ipcRenderer.on('show_phaser', (event, arg) => {
-    console.log('show_phaser');
-    if (phaserContainer !== null || !layout.isInitialised) {
-        return;
-    }
-
-    let root = layout.root.contentItems[0] || layout.root;
-    root.addChild({
-        type: 'component',
-        componentName: exports.PHASER_COMPONENT,
-        componentState: {label: exports.PHASER_COMPONENT},
-        title: 'Game',
-    });
-});
+ipcRenderer.on('show_phaser', (event, arg) => currentWorkspace.addComponentIfMissing(exports.PHASER_COMPONENT, 'Game'));
 
 ipcRenderer.on('pause_execution', () => {
-    // console.log('pause execution');
+    // log.debug('pause execution');
     if (!webview) {
         return;
     }
@@ -397,7 +343,7 @@ ipcRenderer.on('pause_execution', () => {
 });
 
 ipcRenderer.on('step_execution', () => {
-    // console.log('step execution');
+    // log.debug('step execution');
     if (!webview) {
         return;
     }
@@ -406,7 +352,7 @@ ipcRenderer.on('step_execution', () => {
 });
 
 ipcRenderer.on('resume_execution', () => {
-    // console.log('resume execution');
+    // log.debug('resume execution');
     if (!webview) {
         return;
     }
@@ -476,15 +422,12 @@ exports.Workspace = class {
         this.layout = new GoldenLayout(this.layoutConfig);
 
         this.registerComponents();
-        this.layout.on('componentCreated', (component) => {
-            this.components[component.componentName] = component.instance;
-        });
+
+        this.layout.on('componentCreated', component => this.components[component.componentName] = component.instance);
 
         this.layout.init();
 
-        this.layout.on('initialised', () => {
-            ipcRenderer.send('render_ready');
-        });
+        this.layout.on('initialised', () => ipcRenderer.send('render_ready'));
     }
 
     save() {
@@ -504,6 +447,8 @@ exports.Workspace = class {
                 path: this.loadedProject.getBlocksPath(),
                 data: xml
             }]);
+
+            // this.reload();
         } catch (err) {
             dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                 type: 'error',
@@ -571,7 +516,7 @@ exports.Workspace = class {
 
     setBlocklyBlocks(blocks) {
         const blocklyComponent = this.getComponent(exports.BLOCKLY_COMPONENT);
-        console.log(blocklyComponent);
+        log.debug(blocklyComponent);
 
         if (blocklyComponent) {
             const xml = Blockly.Xml.textToDom(blocks);
@@ -587,19 +532,21 @@ exports.Workspace = class {
         try {
             data = fs.readFileSync(this.loadedProject.getBlocksPath());
             this.setBlocklyBlocks(data);
-            this.updateCode();
-            this.setPhaserSource();
         } catch (err) {
             if (err.code === 'ENOENT') {
-                if(this.defaultBlocks)
+                if (this.defaultBlocks)
                     this.setBlocklyBlocks(this.defaultBlocks);
             } else {
                 exports.logErrorAndQuit(err, {state: 'loading', project: project});
             }
+        } finally {
+            this.updateCode();
+            this.setPhaserSource();
         }
     }
 
     setPhaserSource() {
+        log.debug('setPhaserSource');
         let phaserComponent = this.getComponent(exports.PHASER_COMPONENT);
         if (phaserComponent) {
             phaserComponent.setSource(`file://${this.loadedProject.getSourceFile(this.extension)}`);
@@ -626,7 +573,7 @@ exports.Workspace = class {
                 break;
             case exports.PHASER_COMPONENT:
                 if (this.loadedProject) {
-                    this.setPhaserSource(this.loadedProject);
+                    this.setPhaserSource();
                 }
                 break;
             default:
@@ -669,6 +616,40 @@ exports.Workspace = class {
     addAsset(source) {
         const assetsDirectory = this.loadedProject.getFileInProjectDir('assets');
         return fs.copy(source, path.join(assetsDirectory, path.basename(source)));
+    }
+
+    getLayoutRoot() {
+        return this.layout.root.contentItems[0] || this.layout.root;
+    }
+
+    addChildToRoot(child) {
+        return this.getLayoutRoot().addChild(child);
+    }
+
+    hasComponent(component) {
+        return this.components.hasOwnProperty(component);
+    }
+
+    /**
+     * Add the given component to the workspace if it does not already exist
+     * @param component The name of the component
+     * @param title The title to display on the components tab
+     */
+    addComponentIfMissing(component, title) {
+        if (this.hasComponent(component)) {
+            return;
+        }
+
+        this.addChildToRoot({
+            type: 'component',
+            componentName: component,
+            componentState: {label: component},
+            title: title,
+        });
+    }
+
+    removeComponent(component) {
+        delete this.components[component];
     }
 };
 
