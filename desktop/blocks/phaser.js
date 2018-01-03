@@ -77,40 +77,40 @@ function createDropDownField(write, readOnly) {
 function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROPERTY', newObject = 'OBJECT', newProperty = 'PROPERTY') {
     return function (options) {
         //create custom context menu option
-        var option = {enabled: true};
+        let option = {enabled: true};
         //copy over the property this setter was modifying
-        var xmlProperty = goog.dom.createDom('field', null, this.getFieldValue(origProperty));
+        let xmlProperty = goog.dom.createDom('field', null, this.getFieldValue(origProperty));
         xmlProperty.setAttribute('name', newProperty);
-        var xmlBlock = goog.dom.createDom('block', null, xmlProperty);
+        let xmlBlock = goog.dom.createDom('block', null, xmlProperty);
         //copy over the variable this setter was acting on
         if (origObject && newObject) {
-            var varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
+            let varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
             if (varName == null)
                 varName = 'defaultObject';
             //define shadow variable block
-            var xmlVar = goog.dom.createDom('field', null, varName);
+            let xmlVar = goog.dom.createDom('field', null, varName);
             xmlVar.setAttribute('name', 'VAR');
-            xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
+            let xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
             xmlShadow.setAttribute('type', 'variables_get');
-            xmlObject = goog.dom.createDom('value', null, xmlShadow);
+            let xmlObject = goog.dom.createDom('value', null, xmlShadow);
             xmlObject.setAttribute('name', newObject);
             //assemble into base getter/setter block
             xmlBlock.append(xmlObject);
         }
         //type specific actions
-        var varType = '';
-        var xmlSetterShadow = null;
+        let varType = '';
+        let xmlSetterShadow = null;
         if (this.type.includes('point')) {
             varType = 'point';
             //define setter shadow for point block
-            var xmlPointShadow = createPointShadowDom();
+            let xmlPointShadow = createPointShadowDom();
             xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlPointShadow);
             xmlSetterShadow.setAttribute('name', 'POINT');
             //don't add it here, we don't know if the block is a setter yet
         }
         else if (this.type.includes('numeric')) {
             varType = 'numeric';
-            var xmlNumShadow = createNumShadowDom();
+            let xmlNumShadow = createNumShadowDom();
             xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlNumShadow);
             xmlSetterShadow.setAttribute('name', 'VALUE');
         }
@@ -119,7 +119,7 @@ function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROP
             //no setter shadow, it uses a checkbox on the block itself
         }
         //getter/setter specific actions
-        var getSet = '';
+        let getSet = '';
         if (this.type.includes('get_')) {
             getSet = 'set'; //creating the opposite
             option.text = "Create Setter";
