@@ -185,13 +185,13 @@ function createDefaultMenu() {
         }
     });
     menuHash['File'].push({
-            label: "Load Project",
-            accelerator: 'CmdOrCtrl+O',
+        label: "Load Project",
+        accelerator: 'CmdOrCtrl+O',
         click() {
-                loadProjectDialog();
-            }
+            loadProjectDialog();
         }
-    );
+    });
+
     fillRecentProjects(menuHash);
     menuHash['File'].push({
         label: 'Preferences',
@@ -297,7 +297,7 @@ function createProjectMenu(arg) {
     menuHash['File'].push({
             label: "Load Project",
             accelerator: 'CmdOrCtrl+O',
-        click() {
+            click() {
                 loadProjectDialog();
             }
         }
@@ -501,6 +501,7 @@ let loadedproject;
 
 function displayProject(loadedProject) {
     log.debug(loadedProject);
+
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
     app.addRecentDocument(loadedProject.projectPath || loadedProject.getProjectPath());
@@ -512,7 +513,7 @@ function displayProject(loadedProject) {
         window.show();
     });
 
-    // //TODO: Allow for more then a single loadedProject to be open!
+    //TODO: Allow for more then a single loadedProject to be open!
     if (mainWindow) {
         console.log('Closing the main window');
         mainWindow.destroy();

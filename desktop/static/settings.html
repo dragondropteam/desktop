@@ -21,12 +21,14 @@
     </div>
 
     <md-input-container>
+        <label>Theme</label>
         <md-select ng-model="selectedTheme" placeholder="Select a Theme">
             <md-option ng-value="theme" ng-repeat="theme in themes">{{theme}}</md-option>
         </md-select>
     </md-input-container>
 
     <md-input-container>
+        <label>Font Size</label>
         <md-select ng-model="selectedFontSize" placeholder="Select a Font Size">
             <md-option ng-value="size" ng-repeat="size in fontSizes">{{size}}</md-option>
         </md-select>
