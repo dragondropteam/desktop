@@ -55,6 +55,7 @@ const PHASER_TIME_COLOUR = '#a5d6a7';
 
 //endregion
 
+// goog.require('dragondrop.dom');
 
 function createDropDownField(write, readOnly) {
     const output = {
@@ -74,6 +75,77 @@ function createDropDownField(write, readOnly) {
 }
 
 //curried customContextMenu callback to pass more variables
+
+/**
+ * Creates a shadow block for math_number
+ * @param value The value of the math number
+ * @return {R}
+ */
+function createNumShadowDom(value) {
+    const xmlField = dragondrop.dom.createDom('field', {name: 'NUM'}, String(value || 0));
+    return dragondrop.dom.createDom('shadow', {type: 'math_number'}, xmlField);
+}
+
+//creates the DOM for a shadow point block
+function createPointShadowDom(x, y) {
+    const xmlCoordX = dragondrop.dom.createDom('value', {name: 'X'}, createNumShadowDom(x));
+    const xmlCoordY = dragondrop.dom.createDom('value', {name: 'Y'}, createNumShadowDom(y));
+    return dragondrop.dom.createDom('shadow', {type: 'point_create'}, xmlCoordX, xmlCoordY);
+}
+
+function createStringShadowDom(string) {
+    //TODO: Implement
+}
+
+function createBooleanShadowDom(val) {
+    //TODO: Implement
+}
+
+function createSetterContextMenu(type, propertyTag = 'PROPERTY', valueTag = 'VALUE') {
+    return function (options) {
+        const option = {enabled: true};
+        const field = dragondrop.dom.createDom('field', {name: propertyTag}, this.getFieldValue(valueTag));
+        const block = dragondrop.dom.createDom('block', {type: type}, field);
+        option.callback = Blockly.ContextMenu.callbackFactory(this, block);
+        options.push(option);
+    }
+}
+
+function createVariableShadowDom(name) {
+    const varField = dragondrop.dom.createDom('field', {name: 'VAR'}, name);
+    return dragondrop.dom.createDom('shadow', {type: 'variables_get'}, varField);
+}
+
+function createNumericGetterContextMenu(type, objectTag, propertyTag) {
+    return createGetterContextMenu(type, createNumShadowDom, objectTag, propertyTag);
+}
+
+function createStringGetterContextMenu(type, objectTag, propertyTag) {
+    return createGetterContextMenu(type, createStringShadowDom, objectTag, propertyTag)
+}
+
+function createBooleanGetterContextMenu(type, objectTag, propertyTag) {
+    return createGetterContextMenu(type, createBooleanShadowDom, objectTag, propertyTag);
+}
+
+function createPointGetterContextMenu(type, objectTag = 'OBJECT', propertyTag = 'PROPERTY') {
+    return createGetterContextMenu(type, createPointShadowDom, objectTag, propertyTag);
+}
+
+function createGetterContextMenu(type, shadowGenerator, objectTag, propertyTag) {
+    return function (options) {
+        const option = {enabled: true, text: `Create "set ${this.getFieldValue(propertyTag)}"`};
+        // The property the getter is returning
+        const property = dragondrop.dom.createDom('field', {name: propertyTag}, this.getFieldValue(propertyTag));
+        // The object the getter is working on
+        const variable = dragondrop.dom.createDom('value', {name: objectTag}, createVariableShadowDom(this.getInputTargetBlock(objectTag).getFieldValue('VAR') || 'defaultObject'));
+        //The block will contain a shadow block containing the defaults appropriate to the type of the property
+        const block = dragondrop.dom.createDom('block', {type: type}, property, variable, shadowGenerator());
+        option.callback = Blockly.ContextMenu.callbackFactory(this, block);
+        options.push(option);
+    }
+}
+
 function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROPERTY', newObject = 'OBJECT', newProperty = 'PROPERTY') {
     return function (options) {
         //create custom context menu option
@@ -2659,31 +2731,6 @@ const GAME_OBJECT_NUMERIC_WRITABLE = ['x', 'y', 'angle', 'health', 'height', 'wi
 const GAME_OBJECT_NUMERIC_READONLY = ['bottom', 'top', 'left', 'right', 'centerX', 'centerY', 'deltaX', 'deltaY', 'deltaZ', 'offsetX', 'offsetY', 'previousRotation', 'z'];
 const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITABLE, GAME_OBJECT_NUMERIC_READONLY);
 
-//helpers
-//creates the DOM for a shadow math_number block
-function createNumShadowDom(value) {
-    if (value == null)
-        value = 0;
-    var xmlField = goog.dom.createDom('field', null, String(value));
-    xmlField.setAttribute('name', 'NUM');
-    var xmlShadow = goog.dom.createDom('shadow', null, xmlField);
-    xmlShadow.setAttribute('type', 'math_number');
-    return xmlShadow;
-}
-
-//creates the DOM for a shadow point block
-function createPointShadowDom(x, y) {
-    var xmlCoordX = goog.dom.createDom('value', null, createNumShadowDom(x));
-    xmlCoordX.setAttribute('name', 'X');
-    var xmlCoordY = goog.dom.createDom('value', null, createNumShadowDom(y));
-    xmlCoordY.setAttribute('name', 'Y');
-    var xmlPoint = goog.dom.createDom('shadow');
-    xmlPoint.setAttribute('type', 'point_create');
-    xmlPoint.append(xmlCoordX);
-    xmlPoint.append(xmlCoordY);
-    return xmlPoint;
-}
-
 Blockly.Blocks['set_game_object_point_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -2716,7 +2763,7 @@ Blockly.Blocks['get_game_object_point_field'] = {
         this.setHelpUrl(Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_HELP_URL);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: getSetContextMenu('set_game_object_point_field')
+    customContextMenu: createPointGetterContextMenu('set_game_object_point_field')//getSetContextMenu('set_game_object_point_field')
 };
 
 Blockly.Blocks['set_game_object_numeric_field'] = {
