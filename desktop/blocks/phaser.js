@@ -73,9 +73,7 @@ function createDropDownField(write, readOnly) {
     });
     return output;
 }
-
-//curried customContextMenu callback to pass more variables
-
+//region PROPERTY CONTEXT MENUS
 /**
  * Creates a shadow block for math_number
  * @param {number} [value=0] The value of the math number
@@ -92,7 +90,7 @@ function createNumShadowDom(value = 0) {
  * @param {number} [y=0]  The y coordinate
  * @return {R}
  */
-function createPointShadowDom(x = 0, y = 0) {
+function createPointShadowDom({x = 0, y = 0} = {}) {
     const xmlCoordX = dragondrop.dom.createDom('value', {name: 'X'}, createNumShadowDom(x));
     const xmlCoordY = dragondrop.dom.createDom('value', {name: 'Y'}, createNumShadowDom(y));
     return dragondrop.dom.createDom('shadow', {type: 'point_create'}, xmlCoordX, xmlCoordY);
@@ -103,30 +101,56 @@ function createPointShadowDom(x = 0, y = 0) {
  * @param {String} [string=''] Starting text for the shadow block
  */
 function createStringShadowDom(string = '') {
-    //TODO: Implement
+    const text = dragondrop.dom.createDom('field', {name: 'TEXT'}, string);
+    return dragondrop.dom.createDom('shadow', {type: 'text'}, text);
 }
 
+/**
+ * Create a shadow block for a boolean value
+ * @param {boolean} [val=true] Starting value for the shadow block
+ * @return {R}
+ */
 function createBooleanShadowDom(val = true) {
-    //TODO: Implement
+    const boolean = dragondrop.dom.createDom('field', {name: 'BOOL'}, val === true ? 'TRUE' : 'FALSE');
+    return dragondrop.dom.createDom('shadow', {type: 'logic_boolean'}, boolean);
 }
 
-function createSetterContextMenu(type, objectTag = 'OBJECT', propertyTag = 'PROPERTY') {
+/**
+ * Creates a shadow block for variables values
+ * @param {String} [name='defaultObject'] Starting value for the variable drop down on the shadow block
+ * @return {R}
+ */
+function createVariableShadowDom(name = 'defaultObject') {
+    const varField = dragondrop.dom.createDom('field', {name: 'VAR'}, name);
+    return dragondrop.dom.createDom('shadow', {type: 'variables_get'}, varField);
+}
+
+/**
+ * Creates a context menu function for property setter blocks. As these blocks only have the property and the object
+ * there is no need to distinguish between types of property
+ * @param {String} type The name of the getter associated with this property
+ * @param propertyTag
+ * @param objectTag
+ * @return {Function}
+ */
+function createSetterContextMenu(type, {propertyTag = 'PROPERTY', objectTag = 'OBJECT'} = {}) {
     return function (options) {
         const option = {enabled: true, text: `Create "get ${this.getFieldValue(propertyTag)}"`};
         const field = dragondrop.dom.createDom('field', {name: propertyTag}, this.getFieldValue(propertyTag));
+
         // The object the setter is working on
-        const variable = dragondrop.dom.createDom('value', {name: objectTag}, createVariableShadowDom(this.getInputTargetBlock(objectTag).getFieldValue('VAR') || 'defaultObject'));
-        const block = dragondrop.dom.createDom('block', {type: type}, field, variable);
+        const block = dragondrop.dom.createDom('block', {type: type}, field);
+        if(objectTag){
+            const variable = dragondrop.dom.createDom('value', {name: objectTag}, createVariableShadowDom(this.getInputTargetBlock(objectTag).getFieldValue('VAR')));
+
+            block.append(variable);
+        }
         console.log(block);
         option.callback = Blockly.ContextMenu.callbackFactory(this, block);
         options.push(option);
     }
 }
 
-function createVariableShadowDom(name) {
-    const varField = dragondrop.dom.createDom('field', {name: 'VAR'}, name);
-    return dragondrop.dom.createDom('shadow', {type: 'variables_get'}, varField);
-}
 
 /**
  * Creates a context menu function for numeric getter blocks
@@ -135,8 +159,9 @@ function createVariableShadowDom(name) {
  * @param {String} [options.objectTag = 'OBJECT'] The name of the object field
  * @param {String} [options.propertyTag = 'PROPERTY'] The name of the property field
  * @param {String} [options.valueTag = 'VALUE'] The name of the value field
+ * @return {Function} custom context menu for a numeric getter
  */
-function createNumericGetterContextMenu(type, options = {}) {
+function createNumericGetterContextMenu(type, options) {
     return createGetterContextMenu(type, createNumShadowDom, options);
 }
 
@@ -147,8 +172,9 @@ function createNumericGetterContextMenu(type, options = {}) {
  * @param {String} [options.objectTag = 'OBJECT'] The name of the object field
  * @param {String} [options.propertyTag = 'PROPERTY'] The name of the property field
  * @param {String} [options.valueTag = 'VALUE'] The name of the value field
+ * @return {Function} custom context menu for a string getter
  */
-function createStringGetterContextMenu(type, options = {}) {
+function createStringGetterContextMenu(type, options) {
     return createGetterContextMenu(type, createStringShadowDom, options)
 }
 
@@ -159,8 +185,9 @@ function createStringGetterContextMenu(type, options = {}) {
  * @param {String} [options.objectTag = 'OBJECT'] The name of the object field
  * @param {String} [options.propertyTag = 'PROPERTY'] The name of the property field
  * @param {String} [options.valueTag = 'VALUE'] The name of the value field
+ * @return {Function} custom context menu for a boolean getter
  */
-function createBooleanGetterContextMenu(type, options = {}) {
+function createBooleanGetterContextMenu(type, options) {
     return createGetterContextMenu(type, createBooleanShadowDom, options);
 }
 
@@ -171,107 +198,39 @@ function createBooleanGetterContextMenu(type, options = {}) {
  * @param {String} [options.objectTag = 'OBJECT'] The name of the object field
  * @param {String} [options.propertyTag = 'PROPERTY'] The name of the property field
  * @param {String} [options.valueTag = 'VALUE'] The name of the value field
+ * @return {Function} custom context menu for a point getter
  */
-function createPointGetterContextMenu(type, options = {}) {
+function createPointGetterContextMenu(type, options) {
     return createGetterContextMenu(type, createPointShadowDom, options);
 }
 
 /**
- * Creates a context menu function for getter blocks
- * @param type The type of the setter block the getter is associated with
+ *
+ * @param {String} type The type of the setter block the getter is associated with
  * @param {Function} shadowGenerator Function to generate a shadow block to be used on the value field
- * @param options Options to control the name of the object, property and value fields
- * @param {String} [options.objectTag = 'OBJECT'] The name of the object field
- * @param {String} [options.propertyTag = 'PROPERTY'] The name of the property field
- * @param {String} [options.valueTag = 'VALUE'] The name of the value field
+ * @param {String}} [objectTag="OBJECT"] The tag of the object field
+ * @param {String} [propertyTag="PROPERTY"] The tag of the property field
+ * @param {String} [valueTag="VALUE"] The tag of the value field
+ * @return {Function} Custom context menu to generate a setter from a getter block
  */
-function createGetterContextMenu(type, shadowGenerator, {objectTag: objectTag = 'OBJECT', propertyTag: propertyTag = 'PROPERTY', valueTag: valueTag = 'VALUE'}) {
+function createGetterContextMenu(type, shadowGenerator, {objectTag = 'OBJECT', propertyTag = 'PROPERTY', valueTag = 'VALUE'} = {}) {
     return function (options) {
         const option = {enabled: true, text: `Create "set ${this.getFieldValue(propertyTag)}"`};
         // The property the getter is returning
         const property = dragondrop.dom.createDom('field', {name: propertyTag}, this.getFieldValue(propertyTag));
-        // The object the getter is working on
-        const variable = dragondrop.dom.createDom('value', {name: objectTag}, createVariableShadowDom(this.getInputTargetBlock(objectTag).getFieldValue('VAR') || 'defaultObject'));
         // Default shadow block to populate the setter
         const value = dragondrop.dom.createDom('value', {name: valueTag}, shadowGenerator());
         //The block will contain a shadow block containing the defaults appropriate to the type of the property
-        const block = dragondrop.dom.createDom('block', {type: type}, property, variable, value);
+        const block = dragondrop.dom.createDom('block', {type: type}, property, value);
+
+        if(objectTag){
+            // The object the getter is working on
+            const variable = dragondrop.dom.createDom('value', {name: objectTag}, createVariableShadowDom(this.getInputTargetBlock(objectTag).getFieldValue('VAR')));
+            block.append(variable);
+        }
+
         console.log(block);
         option.callback = Blockly.ContextMenu.callbackFactory(this, block);
-        options.push(option);
-    }
-}
-
-/**
- * @DEPRECATED
- * @param newBlock
- * @param origObject
- * @param origProperty
- * @param newObject
- * @param newProperty
- * @return {Function}
- */
-function getSetContextMenu(newBlock, origObject = 'OBJECT', origProperty = 'PROPERTY', newObject = 'OBJECT', newProperty = 'PROPERTY') {
-    return function (options) {
-        //create custom context menu option
-        let option = {enabled: true};
-        //copy over the property this setter was modifying
-        let xmlProperty = goog.dom.createDom('field', null, this.getFieldValue(origProperty));
-        xmlProperty.setAttribute('name', newProperty);
-        let xmlBlock = goog.dom.createDom('block', null, xmlProperty);
-        //copy over the variable this setter was acting on
-        if (origObject && newObject) {
-            let varName = this.getInputTargetBlock(origObject).getFieldValue('VAR');
-            if (varName == null)
-                varName = 'defaultObject';
-            //define shadow variable block
-            let xmlVar = goog.dom.createDom('field', null, varName);
-            xmlVar.setAttribute('name', 'VAR');
-            let xmlShadow = goog.dom.createDom('shadow', null, xmlVar);
-            xmlShadow.setAttribute('type', 'variables_get');
-            let xmlObject = goog.dom.createDom('value', null, xmlShadow);
-            xmlObject.setAttribute('name', newObject);
-            //assemble into base getter/setter block
-            xmlBlock.append(xmlObject);
-        }
-        //type specific actions
-        let varType = '';
-        let xmlSetterShadow = null;
-        if (this.type.includes('point')) {
-            varType = 'point';
-            //define setter shadow for point block
-            let xmlPointShadow = createPointShadowDom();
-            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlPointShadow);
-            xmlSetterShadow.setAttribute('name', 'POINT');
-            //don't add it here, we don't know if the block is a setter yet
-        }
-        else if (this.type.includes('numeric')) {
-            varType = 'numeric';
-            let xmlNumShadow = createNumShadowDom();
-            xmlSetterShadow = goog.dom.createDom('VALUE', null, xmlNumShadow);
-            xmlSetterShadow.setAttribute('name', 'VALUE');
-        }
-        else if (this.type.includes('boolean')) {
-            varType = 'boolean';
-            //no setter shadow, it uses a checkbox on the block itself
-        }
-        //getter/setter specific actions
-        let getSet = '';
-        if (this.type.includes('get_')) {
-            getSet = 'set'; //creating the opposite
-            option.text = "Create Setter";
-            //extra shadow needed for input on setters
-            xmlBlock.append(xmlSetterShadow);
-        }
-        else if (this.type.includes('set_')) {
-            getSet = 'get';
-            option.text = "Create Getter";
-        }
-        //finalize block by assembling the type name
-        xmlBlock.setAttribute('type', newBlock);
-        //add action that creates a block following the xml we've assembled
-        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
-        //add our custom option to the context menu
         options.push(option);
     }
 }
@@ -1585,8 +1544,8 @@ Blockly.Blocks['get_animation_property'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_PROPERTY_HELP_URL);
-    },
-    customContextMenu: getSetContextMenu('set_animation_property_vi', 'SPRITE', 'FIELD', 'OBJECT', 'FIELD')
+    }
+    // customContextMenu: createNumericGetterContextMenu('set_animation_property_vi', {objectTag: 'SPRITE', propertyTag: 'NEWPROPERTY', 'OBJECT' 'FIELD'})
 };
 
 /**
@@ -1625,8 +1584,8 @@ Blockly.Blocks['set_animation_property_vi'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
-    },
-    customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
+    }
+    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
 };
 
 Blockly.Blocks['animation_get_animation'] = {
@@ -2162,9 +2121,8 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
         this.setHelpUrl(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_HELP_URL);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     },
-    customContextMenu: getSetContextMenu('get_body_field_point_class', 'OBJECT', 'FIELD', 'OBJECT', 'FIELD')
+    customContextMenu: createSetterContextMenu('get_body_field_point_class', {propertyTag: 'FIELD'})
 };
-
 
 Blockly.Blocks['debug_body'] = {
     init: function () {
@@ -2192,7 +2150,7 @@ Blockly.Blocks['get_body_field_point_class'] = {
         this.setHelpUrl(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_HELP_URL);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     },
-    customContextMenu: getSetContextMenu('set_body_field_point_class_vi', 'OBJECT', 'FIELD', 'OBJECT', 'FIELD')
+    customContextMenu: createPointGetterContextMenu('set_body_field_point_class_vi', {propertyTag: 'FIELD', valueTag: 'POINT'})
 };
 
 Blockly.Blocks['set_body_boolean_field'] = {
@@ -2211,7 +2169,7 @@ Blockly.Blocks['set_body_boolean_field'] = {
         this.setHelpUrl(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_HELP_URL);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     },
-    customContextMenu: getSetContextMenu('get_body_boolean_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createSetterContextMenu('get_body_boolean_field', {propertyTag: 'ELEMENT'})
 };
 
 Blockly.Blocks['get_body_boolean_field'] = {
@@ -2227,9 +2185,8 @@ Blockly.Blocks['get_body_boolean_field'] = {
         this.setHelpUrl(Blockly.Msg.GET_BODY_BOOLEAN_FIELD_HELP_URL);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     },
-    customContextMenu: getSetContextMenu('set_body_boolean_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createBooleanGetterContextMenu('set_body_boolean_field', {propertyTag: 'ELEMENT'})
 };
-
 
 Blockly.Blocks['set_body_numeric_field'] = {
     init: function () {
@@ -2248,7 +2205,7 @@ Blockly.Blocks['set_body_numeric_field'] = {
         this.setHelpUrl(Blockly.Msg.SET_BODY_NUMERIC_FIELD_HELP_URL);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     },
-    customContextMenu: getSetContextMenu('get_body_numeric_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createSetterContextMenu('get_body_numeric_field', {propertyTag: 'ELEMENT'})
 };
 
 Blockly.Blocks['get_body_numeric_field'] = {
@@ -2264,10 +2221,11 @@ Blockly.Blocks['get_body_numeric_field'] = {
         this.setHelpUrl(Blockly.Msg.GET_BODY_NUMERIC_FIELD_HELP_URL);
         this.setColour(PHASER_PHYSICS_DYNAMICS);
     },
-    customContextMenu: getSetContextMenu('set_body_numeric_field', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createNumericGetterContextMenu('set_body_numeric_field', {propertyTag: 'ELEMENT'})
 };
-
 //endregion
+
+
 Blockly.Blocks['call_function_on_group'] = {
     init: function () {
         this.appendDummyInput()
@@ -2883,7 +2841,7 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
         this.setHelpUrl(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: getSetContextMenu('get_game_object_boolean_field')
+    customContextMenu: createSetterContextMenu('get_game_object_boolean_field')
 };
 
 Blockly.Blocks['get_game_object_boolean_field'] = {
@@ -2899,7 +2857,7 @@ Blockly.Blocks['get_game_object_boolean_field'] = {
         this.setHelpUrl(Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL);
         this.setColour(PHASER_GAMEOBJECT_COLOUR);
     },
-    customContextMenu: getSetContextMenu('set_game_object_boolean_field')
+    customContextMenu: createBooleanGetterContextMenu('set_game_object_boolean_field')
 };
 
 
@@ -4419,7 +4377,7 @@ Blockly.Blocks['set_sound_boolean_member'] = {
         this.setHelpUrl(Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_HELP_URL);
         this.setColour(PHASER_SOUND_COLOUR);
     },
-    customContextMenu: getSetContextMenu('get_sound_boolean_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createSetterContextMenu('get_sound_boolean_member', {propertyTag: 'ELEMENT'})
 };
 
 Blockly.Blocks['get_sound_boolean_member'] = {
@@ -4435,8 +4393,9 @@ Blockly.Blocks['get_sound_boolean_member'] = {
         this.setHelpUrl(Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_HELP_URL);
         this.setColour(PHASER_SOUND_COLOUR);
     },
-    customContextMenu: getSetContextMenu('set_sound_boolean_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createBooleanGetterContextMenu('set_sound_boolean_member', {propertyTag: 'ELEMENT'})
 };
+
 const SOUND_FIELDS_NUMERIC_WRITABLE = ['position', 'volume'];
 const SOUND_FIELDS_NUMERIC_RO = ['currentTime', 'duration', 'durationMS', 'pausedPosition', 'pausedTime', 'startTime', 'stopTime', 'totalDuration'];
 const SOUND_FIELDS_NUMERIC = createDropDownField(SOUND_FIELDS_NUMERIC_WRITABLE, SOUND_FIELDS_NUMERIC_RO);
@@ -4458,7 +4417,7 @@ Blockly.Blocks['set_sound_numeric_member'] = {
         this.setHelpUrl(Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_HELP_URL);
         this.setColour(PHASER_SOUND_COLOUR);
     },
-    customContextMenu: getSetContextMenu('get_sound_numeric_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createSetterContextMenu('get_sound_numeric_member', {propertyTag: 'ELEMENT'})
 };
 
 Blockly.Blocks['get_sound_numeric_member'] = {
@@ -4474,7 +4433,7 @@ Blockly.Blocks['get_sound_numeric_member'] = {
         this.setHelpUrl(Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_HELP_URL);
         this.setColour(PHASER_SOUND_COLOUR);
     },
-    customContextMenu: getSetContextMenu('set_sound_numeric_member', 'OBJECT', 'ELEMENT', 'OBJECT', 'ELEMENT')
+    customContextMenu: createNumericGetterContextMenu('set_sound_numeric_member', {propertyTag: 'ELEMENT'})
 };
 
 const SOUND_FIELDS_STRING_RO = ['currentMarker', 'key'];
@@ -4986,7 +4945,14 @@ Blockly.Blocks['get_time_numeric_member'] = {
         this.setTooltip(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_TIME_NUMERIC_MEMBER_HELP_URL);
     },
-    customContextMenu: getSetContextMenu('set_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
+    onchange: function() {
+        if(TIME_FIELDS_NUMERIC_RO.includes(this.getFieldValue('PROPERTY'))){
+            this.customContextMenu = null;
+        }else{
+            this.customContextMenu = createNumericGetterContextMenu('set_time_numeric_number', {objectTag: null});
+        }
+    },
+    customContextMenu: createNumericGetterContextMenu('set_time_numeric_member', {objectTag: null})
 };
 
 Blockly.Blocks['set_time_numeric_member'] = {
@@ -5003,7 +4969,7 @@ Blockly.Blocks['set_time_numeric_member'] = {
         this.setTooltip(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_TIME_NUMERIC_MEMBER_HELP_URL);
     },
-    customContextMenu: getSetContextMenu('get_time_numeric_member', null, 'PROPERTY', null, 'PROPERTY')
+    customContextMenu: createSetterContextMenu('get_time_numeric_member', {objectTag: null})
 };
 //endregion
 
