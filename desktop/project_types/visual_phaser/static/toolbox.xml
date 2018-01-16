@@ -1144,6 +1144,30 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="set_animation_boolean_field_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_animation_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUMBER">0</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
             <category name="Phaser Text" colour="#009688">
                 <block type="add_text">

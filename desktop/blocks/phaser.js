@@ -1602,6 +1602,52 @@ Blockly.Blocks['animation_get_animation'] = {
         this.setHelpUrl(Blockly.Msg.ANIMATION_GET_ANIMATION_HELP_URL);
     }
 };
+
+
+// Boolean field blocks for boolean only dropdowns in animation section of Phaser.
+Blockly.Blocks['set_animation_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1, "enableUpdate"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2, "isFinished"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3, "isPaused"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4, "isPlaying"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5, "isReversed"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6, "killOnComplete"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7, "loop"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8, "paused"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9, "reversed"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_2);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_3)
+            .setCheck("Boolean");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
+    }
+    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
+};
+
+
+// Boolean field blocks for boolean only dropdowns in animation section of Phaser.
+Blockly.Blocks['set_animation_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1, "delay"],[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2, "frame"],[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3, "loopCount"],[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4, "speed"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_2);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_3)
+            .setCheck("Number");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
+    }
+    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
+};
+
+
 //endregion
 
 //region GROUP
