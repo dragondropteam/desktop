@@ -2172,6 +2172,26 @@ Blockly.Blocks['set_body_boolean_field'] = {
     customContextMenu: createSetterContextMenu('get_body_boolean_field', {propertyTag: 'ELEMENT'})
 };
 
+Blockly.Blocks['set_body_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1, 'allowRotation'], [Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2, 'allowGravity'], [Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3, 'immovable']]), "ELEMENT")
+            .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2);
+        this.appendValueInput('OBJECT');
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_3)
+            .setCheck("Boolean");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_HELP_URL);
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    },
+    customContextMenu: createSetterContextMenu('get_body_boolean_field', {propertyTag: 'ELEMENT'})
+};
+
 Blockly.Blocks['get_body_boolean_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -2834,6 +2854,26 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_3)
             .appendField(new Blockly.FieldCheckbox('TRUE'), 'BOOLEAN');
+        this.setInputsInline(true);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setTooltip(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL);
+        this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    },
+    customContextMenu: createSetterContextMenu('get_game_object_boolean_field')
+};
+
+Blockly.Blocks['set_game_object_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1)
+            .appendField(new Blockly.FieldDropdown(GAME_OBJECT_BOOLEAN_FIELDS.writable), 'PROPERTY');
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2);
+        this.appendValueInput("VALUE")  // Value input
+            .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_3)
+            .setCheck("Boolean");
         this.setInputsInline(true);
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
