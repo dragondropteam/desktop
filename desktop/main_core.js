@@ -345,7 +345,7 @@ function createProjectMenu(arg) {
         });
         menuHash['File'].push({
             label: 'Convert to .drop',
-            click(item, focusedWindowun) {
+            click(item, focusedWindow) {
                 const defaultPath = path.join(app.getPath('documents'), "DragonDropProjects", `${arg.loadedProject.name}.drop`);
                 saveAs(defaultPath, focusedWindow);
             }
