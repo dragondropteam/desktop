@@ -646,6 +646,13 @@ Blockly.JavaScript['set_body_boolean_field'] = function (block) {
     return `${object}.body.${element} = ${value};\n`;
 };
 
+Blockly.JavaScript['set_body_boolean_field_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+    const element = block.getFieldValue('ELEMENT');
+    const value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.body.${element} = ${value};\n`;
+};
+
 Blockly.JavaScript['get_body_boolean_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
     const element = block.getFieldValue('ELEMENT');
@@ -1038,6 +1045,13 @@ Blockly.JavaScript['set_game_object_boolean_field'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const field = block.getFieldValue('PROPERTY');
     const boolean = block.getFieldValue('BOOLEAN') == 'TRUE';
+    return `${object}.${field} = ${boolean};\n`;
+};
+
+Blockly.JavaScript['set_game_object_boolean_field_vi'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('PROPERTY');
+    const boolean = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     return `${object}.${field} = ${boolean};\n`;
 };
 
