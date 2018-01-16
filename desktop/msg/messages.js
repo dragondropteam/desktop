@@ -2032,6 +2032,27 @@ Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_2 = 'updateIfVisible';
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_2 = 'on ';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_3 = 'to';
+/// Manually placed during animation refactor: Boolean Types
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1 = 'enableUpdate';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2 = 'isFinished';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3 = 'isPaused';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4 = 'isPlaying';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5 = 'isReversed';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6 = 'killOnComplete';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7 = 'loop';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8 = 'paused';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9 = 'reversed';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_1 = 'set boolean field';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_2 = 'of';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_3 = 'to';
+/// Manually placed during animation refactor: Numeric Types
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1 = 'delay';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2 = 'frame';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3 = 'loopCount';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4 = 'speed';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_1 = 'set numeric field';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_2 = 'of';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_3 = 'to';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animation manager on the object';
 /// auto generated
