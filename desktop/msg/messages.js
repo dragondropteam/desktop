@@ -2417,13 +2417,15 @@ Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_HELP_URL = 'https://photonstorm.github.io
 /// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1 = 'set';
 /// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2 = 'for';
+/// auto generated
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_3 = 'to';
+/// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1 = 'allowRotation';
 /// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2 = 'allowGravity';
 /// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3 = 'immovable';
-/// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2 = 'for';
 /// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_TOOLTIP = 'Set the value of the specified boolean field';
 /// auto generated
