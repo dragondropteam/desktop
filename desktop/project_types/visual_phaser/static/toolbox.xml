@@ -1054,6 +1054,64 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="get_animation_boolean_field_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_animation_boolean_field_vi">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_animation_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_animation_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUMBER">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_animation_string_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="set_animation_string_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="text">
+                            <field name="TEXT">new name</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<sep gap="100"></sep>-->
                 <block type="play_animation_vi">
                     <value name="ANIMATION">
                         <shadow type="text">
@@ -1130,77 +1188,21 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="get_animation_property">
-                    <value name="SPRITE">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="set_animation_property_vi">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="set_animation_boolean_field_vi">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                    <value name="VALUE">
-                        <shadow type="logic_boolean">
-                            <field name="BOOL">TRUE</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="get_animation_boolean_field_vi">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="set_animation_numeric_field">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                    <value name="VALUE">
-                        <shadow type="math_number">
-                            <field name="NUMBER">0</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="get_animation_numeric_field">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="set_animation_string_field">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                    <value name="VALUE">
-                        <shadow type="text">
-                            <field name="TEXT">new name</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="get_animation_string_field">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
-                        </shadow>
-                    </value>
-                </block>
+                <!--<block type="get_animation_property">-->
+                    <!--<value name="SPRITE">-->
+                        <!--<shadow type="variables_get">-->
+                            <!--<field name="VAR">defaultObject</field>-->
+                        <!--</shadow>-->
+                    <!--</value>-->
+                <!--</block>-->
+                <!--<block type="set_animation_property_vi">-->
+                    <!--<value name="OBJECT">-->
+                        <!--<shadow type="variables_get">-->
+                            <!--<field name="VAR">defaultObject</field>-->
+                        <!--</shadow>-->
+                    <!--</value>-->
+                <!--</block>-->
+
             </category>
             <category name="Phaser Text" colour="#009688">
                 <block type="add_text">
