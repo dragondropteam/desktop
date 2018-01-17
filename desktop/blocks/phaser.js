@@ -1545,7 +1545,6 @@ Blockly.Blocks['get_animation_property'] = {
         this.setTooltip(Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_PROPERTY_HELP_URL);
     }
-    // customContextMenu: createNumericGetterContextMenu('set_animation_property_vi', {objectTag: 'SPRITE', propertyTag: 'NEWPROPERTY', 'OBJECT' 'FIELD'})
 };
 
 /**
@@ -1603,8 +1602,7 @@ Blockly.Blocks['animation_get_animation'] = {
     }
 };
 
-
-// Boolean field blocks for boolean only dropdowns in animation section of Phaser.
+// Setting blocks for phaser animations section
 Blockly.Blocks['set_animation_boolean_field_vi'] = {
     init: function () {
         this.appendDummyInput()
@@ -1622,11 +1620,8 @@ Blockly.Blocks['set_animation_boolean_field_vi'] = {
         this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
     }
-    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
 };
 
-
-// Boolean field blocks for boolean only dropdowns in animation section of Phaser.
 Blockly.Blocks['set_animation_numeric_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -1644,9 +1639,72 @@ Blockly.Blocks['set_animation_numeric_field'] = {
         this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
     }
-    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
 };
 
+Blockly.Blocks['set_animation_string_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_ANIMATION_STRING_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_STRING_FIELD_DROPDOWN_1, "name"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.SET_ANIMATION_STRING_FIELD_2);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.SET_ANIMATION_STRING_FIELD_3)
+            .setCheck("String");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
+    }
+};
+
+// Get blocks for phaser animation section
+Blockly.Blocks['get_animation_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1, "enableUpdate"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2, "isFinished"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3, "isPaused"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4, "isPlaying"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5, "isReversed"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6, "killOnComplete"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7, "loop"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8, "paused"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9, "reversed"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_2);
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
+    }
+};
+
+Blockly.Blocks['get_animation_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1, "delay"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2, "frame"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3, "loopCount"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4, "speed"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_5, "frameTotal"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_2);
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
+    }
+};
+
+Blockly.Blocks['get_animation_string_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_ANIMATION_STRING_FIELD_1)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_STRING_FIELD_DROPDOWN_1, "name"]]), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.GET_ANIMATION_STRING_FIELD_2);
+        this.setInputsInline(true);
+        this.setOutput(true);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
+    }
+};
 
 //endregion
 
