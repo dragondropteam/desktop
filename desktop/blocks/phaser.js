@@ -1669,7 +1669,7 @@ Blockly.Blocks['get_animation_boolean_field_vi'] = {
         this.appendValueInput('OBJECT')
             .appendField(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_2);
         this.setInputsInline(true);
-        this.setOutput(true);
+        this.setOutput(true, 'Boolean');
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
@@ -1684,7 +1684,7 @@ Blockly.Blocks['get_animation_numeric_field'] = {
         this.appendValueInput('OBJECT')
             .appendField(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_2);
         this.setInputsInline(true);
-        this.setOutput(true);
+        this.setOutput(true, 'Number');
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL);
@@ -1699,7 +1699,7 @@ Blockly.Blocks['get_animation_string_field'] = {
         this.appendValueInput('OBJECT')
             .appendField(Blockly.Msg.GET_ANIMATION_STRING_FIELD_2);
         this.setInputsInline(true);
-        this.setOutput(true);
+        this.setOutput(true, 'String');
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL);
