@@ -5243,11 +5243,6 @@ Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = 'child index';
 Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'fire onComplete';
 
 
-
-  ////////////////////////////
- // Non-generated messages //
-////////////////////////////
-
 // Get / Set for properties
 Blockly.Msg.GET_POINT_FIELD   = 'get point field';
 Blockly.Msg.GET_BOOLEAN_FIELD = 'get boolean field';
