@@ -2065,6 +2065,16 @@ Blockly.Blocks['collide_function_field'] = {
 //endregion
 
 //region BODY
+
+// Consider solution for using this with tooltips. This format is good, but tooltips are nice!
+const BODY_POINT_WRITABLE = ['position', 'anchor', 'cameraOffset', 'scaleMax', 'scaleMin', 'world', 'scale'];
+const BODY_POINT_READABLE = ['previousPoint'];
+const BODY_POINT_FIELDS = createDropDownField(BODY_POINT_WRITABLE, BODY_POINT_READABLE);
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_body_field_point.init}}
+ */
 Blockly.Blocks['set_body_field_point'] = {
     init: function () {
         this.appendDummyInput()
@@ -2085,11 +2095,15 @@ Blockly.Blocks['set_body_field_point'] = {
     }
 };
 
+// Normally, it would be a good idea to have this say something about point fields.
+// However, point fields here are used independently, and so it may make sense to leave them separated as such.
+// (These are not points like elsewhere: More accurately, they're points being used as vectors)
 Blockly.Blocks['set_body_field_point_vi'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_1, "bounce"], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_2, "gravity"], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_3, 'velocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_4, 'acceleration'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_5, 'drag'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_6, 'friction'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_7, 'maxVelocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_8, 'worldBounce']]), "FIELD")
+            .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1_5)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_1, "x"], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_2, "y"]]), "ELEMENT")
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_2);
         this.appendValueInput('OBJECT');
