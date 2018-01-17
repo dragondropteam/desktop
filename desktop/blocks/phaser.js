@@ -1606,12 +1606,12 @@ Blockly.Blocks['animation_get_animation'] = {
 Blockly.Blocks['set_animation_boolean_field_vi'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_1)
+            .appendField(Blockly.Msg.SET_BOOLEAN_FIELD)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1, "enableUpdate"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2, "isFinished"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3, "isPaused"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4, "isPlaying"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5, "isReversed"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6, "killOnComplete"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7, "loop"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8, "paused"],[Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9, "reversed"]]), "FIELD");
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_2);
+            .appendField(Blockly.Msg.OF);
         this.appendValueInput('VALUE')
-            .appendField(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_3)
+            .appendField(Blockly.Msg.TO)
             .setCheck("Boolean");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -1625,12 +1625,12 @@ Blockly.Blocks['set_animation_boolean_field_vi'] = {
 Blockly.Blocks['set_animation_numeric_field'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_1)
+            .appendField(Blockly.Msg.SET_NUMERIC_FIELD)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1, "delay"],[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2, "frame"],[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3, "loopCount"],[Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4, "speed"]]), "FIELD");
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_2);
+            .appendField(Blockly.Msg.OF);
         this.appendValueInput('VALUE')
-            .appendField(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_3)
+            .appendField(Blockly.Msg.TO)
             .setCheck("Number");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -1644,12 +1644,12 @@ Blockly.Blocks['set_animation_numeric_field'] = {
 Blockly.Blocks['set_animation_string_field'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_ANIMATION_STRING_FIELD_1)
+            .appendField(Blockly.Msg.SET_STRING_FIELD)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_STRING_FIELD_DROPDOWN_1, "name"]]), "FIELD");
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.SET_ANIMATION_STRING_FIELD_2);
+            .appendField(Blockly.Msg.OF);
         this.appendValueInput('VALUE')
-            .appendField(Blockly.Msg.SET_ANIMATION_STRING_FIELD_3)
+            .appendField(Blockly.Msg.TO)
             .setCheck("String");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -1664,10 +1664,10 @@ Blockly.Blocks['set_animation_string_field'] = {
 Blockly.Blocks['get_animation_boolean_field_vi'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_1)
+            .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1, "enableUpdate"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2, "isFinished"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3, "isPaused"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4, "isPlaying"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5, "isReversed"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6, "killOnComplete"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7, "loop"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8, "paused"],[Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9, "reversed"]]), "FIELD");
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_2);
+            .appendField(Blockly.Msg.OF);
         this.setInputsInline(true);
         this.setOutput(true, 'Boolean');
         this.setColour(PHASER_ANIMATION_COLOUR);
@@ -1679,10 +1679,10 @@ Blockly.Blocks['get_animation_boolean_field_vi'] = {
 Blockly.Blocks['get_animation_numeric_field'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_1)
+            .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1, "delay"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2, "frame"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3, "loopCount"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4, "speed"],[Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_5, "frameTotal"]]), "FIELD");
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_2);
+            .appendField(Blockly.Msg.OF);
         this.setInputsInline(true);
         this.setOutput(true, 'Number');
         this.setColour(PHASER_ANIMATION_COLOUR);
@@ -1694,10 +1694,10 @@ Blockly.Blocks['get_animation_numeric_field'] = {
 Blockly.Blocks['get_animation_string_field'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GET_ANIMATION_STRING_FIELD_1)
+            .appendField(Blockly.Msg.GET_STRING_FIELD)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_STRING_FIELD_DROPDOWN_1, "name"]]), "FIELD");
         this.appendValueInput('OBJECT')
-            .appendField(Blockly.Msg.GET_ANIMATION_STRING_FIELD_2);
+            .appendField(Blockly.Msg.OF);
         this.setInputsInline(true);
         this.setOutput(true, 'String');
         this.setColour(PHASER_ANIMATION_COLOUR);
