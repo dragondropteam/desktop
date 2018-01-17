@@ -2037,50 +2037,21 @@ Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animati
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
 /// SET for Boolean Types in animations
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1 = 'enableUpdate';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2 = 'isFinished';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3 = 'isPaused';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4 = 'isPlaying';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5 = 'isReversed';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6 = 'faintOnComplete';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7 = 'loop';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8 = 'paused';
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9 = 'reversed';
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP = "Sets the boolean value for the selected animation property";
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// SET for Numeric Types in animations
-Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1 = 'delay';
-Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2 = 'frame';
-Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3 = 'loopCount';
-Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4 = 'speed';
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP = "Sets the numeric value for the selected animation property";
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// SET for String Types in animations
-Blockly.Msg.SET_ANIMATION_STRING_FIELD_DROPDOWN_1 = 'name';
 Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP = "Sets the string value for the selected animation property";
 Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// GET for Boolean Types in animations
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1 = 'enableUpdate';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2 = 'isFinished';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3 = 'isPaused';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4 = 'isPlaying';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5 = 'isReversed';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6 = 'faintOnComplete';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7 = 'loop';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8 = 'paused';
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9 = 'reversed';
 Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP  = "Gets the boolean selected from the specified object.";
 Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// GET for Numeric Types in animations
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1 = 'delay';
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2 = 'frame';
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3 = 'loopCount';
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4 = 'speed';
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_5 = 'frameTotal';
 Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP  = "Gets the number selected from the specified object.";
 Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// SET for String Types in animations
-Blockly.Msg.GET_ANIMATION_STRING_FIELD_DROPDOWN_1 = 'name';
 Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP  = "Gets the string selected from the specified object.";
 Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// auto generated
