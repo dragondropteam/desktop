@@ -2032,7 +2032,11 @@ Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_2 = 'updateIfVisible';
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_2 = 'on ';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_3 = 'to';
-/// Manually placed during animation refactor: Boolean Types
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animation manager on the object';
+/// auto generated
+Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// SET for Boolean Types in animations
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1 = 'enableUpdate';
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2 = 'isFinished';
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3 = 'isPaused';
@@ -2045,7 +2049,7 @@ Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9 = 'reversed';
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_1 = 'set boolean field';
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_2 = 'of';
 Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_3 = 'to';
-/// Manually placed during animation refactor: Numeric Types
+/// SET for Numeric Types in animations
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1 = 'delay';
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2 = 'frame';
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3 = 'loopCount';
@@ -2053,10 +2057,35 @@ Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4 = 'speed';
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_1 = 'set numeric field';
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_2 = 'of';
 Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_3 = 'to';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animation manager on the object';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// SET for String Types in animations
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_DROPDOWN_1 = 'name';
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_1 = 'set string field';
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_2 = 'of';
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_3 = 'to';
+/// GET for Boolean Types in animations
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_1 = 'enableUpdate';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_2 = 'isFinished';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_3 = 'isPaused';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_4 = 'isPlaying';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_5 = 'isReversed';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_6 = 'killOnComplete';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_7 = 'loop';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_8 = 'paused';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_DROPDOWN_9 = 'reversed';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_1 = 'get boolean field';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_2 = 'of';
+/// GET for Numeric Types in animations
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_1 = 'delay';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_2 = 'frame';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_3 = 'loopCount';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_4 = 'speed';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_DROPDOWN_5 = 'frameTotal';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_1 = 'get numeric field';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_2 = 'of';
+/// SET for String Types in animations
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_DROPDOWN_1 = 'name';
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_1 = 'get string field';
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_2 = 'of';
 /// auto generated
 Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_1 = 'on gameobject';
 /// auto generated
