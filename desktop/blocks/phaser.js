@@ -1644,7 +1644,8 @@ Blockly.Blocks['set_animation_boolean_field_vi'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
-    }
+    },
+    customContextMenu: createSetterContextMenu('get_animation_boolean_field_vi', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['set_animation_numeric_field'] = {
@@ -1663,7 +1664,8 @@ Blockly.Blocks['set_animation_numeric_field'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL);
-    }
+    },
+    customContextMenu: createSetterContextMenu('get_animation_numeric_field', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['set_animation_string_field'] = {
@@ -1682,7 +1684,8 @@ Blockly.Blocks['set_animation_string_field'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL);
-    }
+    },
+    customContextMenu: createSetterContextMenu('get_animation_string_field', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['get_animation_boolean_field_vi'] = {
@@ -1697,7 +1700,8 @@ Blockly.Blocks['get_animation_boolean_field_vi'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
-    }
+    },
+    customContextMenu: createBooleanGetterContextMenu('set_animation_boolean_field_vi', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['get_animation_numeric_field'] = {
@@ -1712,7 +1716,8 @@ Blockly.Blocks['get_animation_numeric_field'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL);
-    }
+    },
+    customContextMenu: createNumericGetterContextMenu('set_animation_numeric_field', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['get_animation_string_field'] = {
@@ -1727,7 +1732,8 @@ Blockly.Blocks['get_animation_string_field'] = {
         this.setColour(PHASER_ANIMATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL);
-    }
+    },
+    customContextMenu: createStringGetterContextMenu('set_animation_string_field', {propertyTag: 'FIELD'})
 };
 
 //endregion
