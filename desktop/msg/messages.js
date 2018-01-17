@@ -2347,6 +2347,9 @@ Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_6 = 'friction';
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_8 = 'worldBounce';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_9  = 'deltaMax';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_10 = 'offset';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_11 = 'tilePadding';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_1 = 'x';
 /// auto generated
@@ -2377,6 +2380,9 @@ Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_6 = 'friction';
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_8 = 'worldBounce';
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_9  = 'deltaMax';
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_10 = 'offset';
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_11 = 'tilePadding';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2 = 'for';
 /// auto generated
