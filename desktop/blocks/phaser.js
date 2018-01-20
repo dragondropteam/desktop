@@ -1633,6 +1633,10 @@ Blockly.Blocks['swap_children'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.get_animation_property.init}}
+ */
 Blockly.Blocks['get_animation_property'] = {
     init: function () {
         this.appendValueInput("SPRITE")
@@ -1646,7 +1650,6 @@ Blockly.Blocks['get_animation_property'] = {
         this.setTooltip(Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_PROPERTY_HELP_URL);
     }
-    // customContextMenu: createNumericGetterContextMenu('set_animation_property_vi', {objectTag: 'SPRITE', propertyTag: 'NEWPROPERTY', 'OBJECT' 'FIELD'})
 };
 
 /**
@@ -1670,6 +1673,10 @@ Blockly.Blocks['set_animation_property'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_animation_property_vi.init}}
+ */
 Blockly.Blocks['set_animation_property_vi'] = {
     init: function () {
         this.appendDummyInput("NEWPROPERTY")
@@ -1686,9 +1693,12 @@ Blockly.Blocks['set_animation_property_vi'] = {
         this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
     }
-    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.animation_get_animation.init}}
+ */
 Blockly.Blocks['animation_get_animation'] = {
     init: function () {
         this.appendValueInput("Sprite")
@@ -1703,7 +1713,132 @@ Blockly.Blocks['animation_get_animation'] = {
         this.setHelpUrl(Blockly.Msg.ANIMATION_GET_ANIMATION_HELP_URL);
     }
 };
+
+// Revised field manipulation blocks for animations
+// Note that these do not need to be translated because they will always have to appear as shown below.
+const ANIMATION_BOOLEAN_WRITABLE = ['enableUpdate', 'isFinished', 'isPaused', 'isPlaying', 'isReversed', 'faintOnComplete', 'loop', 'paused', 'reversed'];
+const ANIMATION_BOOLEAN_READABLE = [];
+const ANIMATION_BOOLEAN_FIELDS = createDropDownField(ANIMATION_BOOLEAN_WRITABLE, ANIMATION_BOOLEAN_READABLE);
+
+const ANIMATION_NUMERIC_WRITABLE = ['delay','frame','loopCount','speed'];
+const ANIMATION_NUMERIC_READABLE = ['frameTotal'];
+const ANIMATION_NUMERIC_FIELDS = createDropDownField(ANIMATION_NUMERIC_WRITABLE, ANIMATION_NUMERIC_READABLE);
+
+const ANIMATION_STRING_WRITABLE = ['name'];
+const ANIMATION_STRING_READABLE = [];
+const ANIMATION_STRING_FIELDS = createDropDownField(ANIMATION_STRING_WRITABLE, ANIMATION_STRING_READABLE);
+
+
+Blockly.Blocks['set_animation_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_BOOLEAN_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_BOOLEAN_FIELDS.writable), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.TO)
+            .setCheck("Boolean");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
+    },
+    customContextMenu: createSetterContextMenu('get_animation_boolean_field_vi', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['set_animation_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_NUMERIC_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_NUMERIC_FIELDS.writable), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.TO)
+            .setCheck("Number");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL);
+    },
+    customContextMenu: createSetterContextMenu('get_animation_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['set_animation_string_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_STRING_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_STRING_FIELDS.writable), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.TO)
+            .setCheck("String");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL);
+    },
+    customContextMenu: createSetterContextMenu('get_animation_string_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_animation_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_BOOLEAN_FIELDS.all), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.setInputsInline(true);
+        this.setOutput(true, 'Boolean');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
+    },
+    customContextMenu: createBooleanGetterContextMenu('set_animation_boolean_field_vi', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_animation_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_NUMERIC_FIELDS.all), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.setInputsInline(true);
+        this.setOutput(true, 'Number');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL);
+    },
+    customContextMenu: createNumericGetterContextMenu('set_animation_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_animation_string_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_STRING_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_STRING_FIELDS.all), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.setInputsInline(true);
+        this.setOutput(true, 'String');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL);
+    },
+    customContextMenu: createStringGetterContextMenu('set_animation_string_field', {propertyTag: 'FIELD'})
+};
+
 //endregion
+
 
 //region GROUP
 Blockly.Blocks['create_group'] = {
