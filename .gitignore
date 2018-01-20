@@ -126,3 +126,5 @@ desktop/app/yarn\.lock
 desktop/app/phaser_workspace/
 
 desktop/app/arduino_workspace/
+
+\.idea/jsLibraryMappings\.xml
