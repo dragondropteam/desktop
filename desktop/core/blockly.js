@@ -41,6 +41,9 @@ goog.require('Blockly.FieldTextInput');
 goog.require('Blockly.FieldNumber');
 goog.require('Blockly.FieldNumberBinary');
 goog.require('Blockly.FieldVariable');
+// Modification by DigiPen Institute of Technology
+goog.require('Blockly.FieldProcedure');
+// end modification
 goog.require('Blockly.Generator');
 goog.require('Blockly.Msg');
 goog.require('Blockly.Procedures');
