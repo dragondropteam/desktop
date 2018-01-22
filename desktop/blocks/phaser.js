@@ -55,7 +55,108 @@ const PHASER_TIME_COLOUR = '#a5d6a7';
 
 //endregion
 
-// goog.require('dragondrop.dom');
+const dragondrop = { dom: {} };
+
+/***
+ * Extension of goog.dom from closure library to allow the createDom function to accept custom attributes in the
+ * opt_attributes key-value object
+ */
+
+/**
+ * Returns a dom node with a set of attributes.  This function accepts varargs
+ * for subsequent nodes to be added.  Subsequent nodes will be added to the
+ * first node as childNodes.
+ *
+ * So:
+ * <code>createDom(goog.dom.TagName.DIV, null, createDom(goog.dom.TagName.P),
+ * createDom(goog.dom.TagName.P));</code> would return a div with two child
+ * paragraphs
+ *
+ * For passing properties, please see {@link goog.dom.setProperties} for more
+ * information.
+ *
+ * @param {string|!goog.dom.TagName<T>} tagName Tag to create.
+ * @param {?Object|?Array<string>|string=} opt_attributes If object, then a map
+ *     of name-value pairs for attributes. If a string, then this is the
+ *     className of the new element. If an array, the elements will be joined
+ *     together as the className of the new element.
+ * @param {...(Object|string|Array|NodeList)} var_args Further DOM nodes or
+ *     strings for text nodes. If one of the var_args is an array or NodeList,
+ *     its elements will be added as childNodes instead.
+ * @return {R} Reference to a DOM node. The return type is {!Element} if tagName
+ *     is a string or a more specific type if it is a member of
+ *     goog.dom.TagName (e.g. {!HTMLAnchorElement} for goog.dom.TagName.A).
+ * @template T
+ * @template R := cond(isUnknown(T), 'Element', T) =:
+ */
+dragondrop.dom.createDom = function (tagName, opt_attributes, var_args) {
+    return dragondrop.dom.createDom_(document, arguments);
+};
+
+
+/**
+ * Helper for {@code createDom}.
+ * @param {!Document} doc The document to create the DOM in.
+ * @param {!Arguments} args Argument object passed from the callers. See
+ *     {@code goog.dom.createDom} for details.
+ * @return {!Element} Reference to a DOM node.
+ * @private
+ */
+dragondrop.dom.createDom_ = function (doc, args) {
+    let tagName = String(args[0]);
+    let attributes = args[1];
+    // Internet Explorer is dumb:
+    // name: https://msdn.microsoft.com/en-us/library/ms534184(v=vs.85).aspx
+    // type: https://msdn.microsoft.com/en-us/library/ms534700(v=vs.85).aspx
+    // Also does not allow setting of 'type' attribute on 'input' or 'button'.
+    if (!goog.dom.BrowserFeature.CAN_ADD_NAME_OR_TYPE_ATTRIBUTES && attributes &&
+        (attributes.name || attributes.type)) {
+        var tagNameArr = ['<', tagName];
+        if (attributes.name) {
+            tagNameArr.push(' name="', goog.string.htmlEscape(attributes.name), '"');
+        }
+        if (attributes.type) {
+            tagNameArr.push(' type="', goog.string.htmlEscape(attributes.type), '"');
+
+            // Clone attributes map to remove 'type' without mutating the input.
+            var clone = {};
+            goog.object.extend(clone, attributes);
+
+            // JSCompiler can't see how goog.object.extend added this property,
+            // because it was essentially added by reflection.
+            // So it needs to be quoted.
+            delete clone['type'];
+
+            attributes = clone;
+        }
+        tagNameArr.push('>');
+        tagName = tagNameArr.join('');
+    }
+
+    const element = doc.createElement(tagName);
+
+    if (attributes) {
+        if (goog.isString(attributes)) {
+            element.className = attributes;
+        } else if (goog.isArray(attributes)) {
+            element.className = attributes.join(' ');
+        } else {
+            dragondrop.dom.setAttributes(element, attributes);
+        }
+    }
+
+    if (args.length > 2) {
+        goog.dom.append_(doc, element, args, 2);
+    }
+
+    return element;
+};
+
+dragondrop.dom.setAttributes = function (element, properties) {
+    goog.object.forEach(properties, function (val, key) {
+        element.setAttribute(key, val);
+    });
+};
 
 function createDropDownField(write, readOnly) {
     const output = {
@@ -1532,6 +1633,10 @@ Blockly.Blocks['swap_children'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.get_animation_property.init}}
+ */
 Blockly.Blocks['get_animation_property'] = {
     init: function () {
         this.appendValueInput("SPRITE")
@@ -1545,7 +1650,6 @@ Blockly.Blocks['get_animation_property'] = {
         this.setTooltip(Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_ANIMATION_PROPERTY_HELP_URL);
     }
-    // customContextMenu: createNumericGetterContextMenu('set_animation_property_vi', {objectTag: 'SPRITE', propertyTag: 'NEWPROPERTY', 'OBJECT' 'FIELD'})
 };
 
 /**
@@ -1569,6 +1673,10 @@ Blockly.Blocks['set_animation_property'] = {
     }
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_animation_property_vi.init}}
+ */
 Blockly.Blocks['set_animation_property_vi'] = {
     init: function () {
         this.appendDummyInput("NEWPROPERTY")
@@ -1585,9 +1693,12 @@ Blockly.Blocks['set_animation_property_vi'] = {
         this.setTooltip(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL);
     }
-    // customContextMenu: getSetContextMenu('get_animation_property', 'OBJECT', 'FIELD', 'SPRITE', 'FIELD')
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.animation_get_animation.init}}
+ */
 Blockly.Blocks['animation_get_animation'] = {
     init: function () {
         this.appendValueInput("Sprite")
@@ -1602,7 +1713,132 @@ Blockly.Blocks['animation_get_animation'] = {
         this.setHelpUrl(Blockly.Msg.ANIMATION_GET_ANIMATION_HELP_URL);
     }
 };
+
+// Revised field manipulation blocks for animations
+// Note that these do not need to be translated because they will always have to appear as shown below.
+const ANIMATION_BOOLEAN_WRITABLE = ['enableUpdate', 'isFinished', 'isPaused', 'isPlaying', 'isReversed', 'faintOnComplete', 'loop', 'paused', 'reversed'];
+const ANIMATION_BOOLEAN_READABLE = [];
+const ANIMATION_BOOLEAN_FIELDS = createDropDownField(ANIMATION_BOOLEAN_WRITABLE, ANIMATION_BOOLEAN_READABLE);
+
+const ANIMATION_NUMERIC_WRITABLE = ['delay','frame','loopCount','speed'];
+const ANIMATION_NUMERIC_READABLE = ['frameTotal'];
+const ANIMATION_NUMERIC_FIELDS = createDropDownField(ANIMATION_NUMERIC_WRITABLE, ANIMATION_NUMERIC_READABLE);
+
+const ANIMATION_STRING_WRITABLE = ['name'];
+const ANIMATION_STRING_READABLE = [];
+const ANIMATION_STRING_FIELDS = createDropDownField(ANIMATION_STRING_WRITABLE, ANIMATION_STRING_READABLE);
+
+
+Blockly.Blocks['set_animation_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_BOOLEAN_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_BOOLEAN_FIELDS.writable), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.TO)
+            .setCheck("Boolean");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
+    },
+    customContextMenu: createSetterContextMenu('get_animation_boolean_field_vi', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['set_animation_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_NUMERIC_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_NUMERIC_FIELDS.writable), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.TO)
+            .setCheck("Number");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL);
+    },
+    customContextMenu: createSetterContextMenu('get_animation_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['set_animation_string_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SET_STRING_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_STRING_FIELDS.writable), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.appendValueInput('VALUE')
+            .appendField(Blockly.Msg.TO)
+            .setCheck("String");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL);
+    },
+    customContextMenu: createSetterContextMenu('get_animation_string_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_animation_boolean_field_vi'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_BOOLEAN_FIELDS.all), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.setInputsInline(true);
+        this.setOutput(true, 'Boolean');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL);
+    },
+    customContextMenu: createBooleanGetterContextMenu('set_animation_boolean_field_vi', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_animation_numeric_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_NUMERIC_FIELDS.all), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.setInputsInline(true);
+        this.setOutput(true, 'Number');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL);
+    },
+    customContextMenu: createNumericGetterContextMenu('set_animation_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_animation_string_field'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.GET_STRING_FIELD)
+            .appendField(new Blockly.FieldDropdown(ANIMATION_STRING_FIELDS.all), "FIELD");
+        this.appendValueInput('OBJECT')
+            .appendField(Blockly.Msg.OF);
+        this.setInputsInline(true);
+        this.setOutput(true, 'String');
+        this.setColour(PHASER_ANIMATION_COLOUR);
+        this.setTooltip(Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL);
+    },
+    customContextMenu: createStringGetterContextMenu('set_animation_string_field', {propertyTag: 'FIELD'})
+};
+
 //endregion
+
 
 //region GROUP
 Blockly.Blocks['create_group'] = {

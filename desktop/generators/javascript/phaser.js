@@ -933,9 +933,32 @@ Blockly.JavaScript['set_animation_property'] = function (block) {
 Blockly.JavaScript['set_animation_property_vi'] = function (block) {
     const field = block.getFieldValue('FIELD');
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
-    const newproperty = block.getFieldValue('VALUE') == 'TRUE';
-    return `${object}.animations.${field} = ${newproperty};\n`;
+    const newProperty = block.getFieldValue('VALUE') == 'TRUE';
+    return `${object}.animations.${field} = ${newProperty};\n`;
 };
+
+// Animation SET blocks
+Blockly.JavaScript['set_animation_boolean_field_vi']
+    = Blockly.JavaScript['set_animation_numeric_field']
+    = Blockly.JavaScript['set_animation_string_field']
+    = function (block) {
+    const field = block.getFieldValue('FIELD');
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const newProperty = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${object}.animations.currentAnim.${field} = ${newProperty};\n`;
+};
+
+// Animation GET blocks
+Blockly.JavaScript['get_animation_boolean_field_vi']
+    = Blockly.JavaScript['get_animation_numeric_field']
+    = Blockly.JavaScript['get_animation_string_field']
+    = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('FIELD');
+    return [`${object}.animations.currentAnim.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+
 //endregion
 
 //region INPUT

@@ -2036,6 +2036,24 @@ Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_3 = 'to';
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animation manager on the object';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
+/// SET for Boolean Types in animations
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP = "Sets the boolean value for the selected animation property";
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+/// SET for Numeric Types in animations
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP = "Sets the numeric value for the selected animation property";
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+/// SET for String Types in animations
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP = "Sets the string value for the selected animation property";
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+/// GET for Boolean Types in animations
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP  = "Gets the boolean selected from the specified object.";
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+/// GET for Numeric Types in animations
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP  = "Gets the number selected from the specified object.";
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+/// SET for String Types in animations
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP  = "Gets the string selected from the specified object.";
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
 /// auto generated
 Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_1 = 'on gameobject';
 /// auto generated
@@ -5232,3 +5250,18 @@ Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = 'delay';
 Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = 'child index';
 ///block text - complete the tween when done
 Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'fire onComplete';
+
+
+// Get / Set for properties
+Blockly.Msg.GET_POINT_FIELD   = 'get point field';
+Blockly.Msg.GET_BOOLEAN_FIELD = 'get boolean field';
+Blockly.Msg.GET_NUMERIC_FIELD = 'get numeric field';
+Blockly.Msg.GET_STRING_FIELD  = 'get string field';
+Blockly.Msg.SET_POINT_FIELD   = 'set point field';
+Blockly.Msg.SET_BOOLEAN_FIELD = 'set boolean field';
+Blockly.Msg.SET_NUMERIC_FIELD = 'set numeric field';
+Blockly.Msg.SET_STRING_FIELD  = 'set string field';
+
+// Prepositions
+Blockly.Msg.OF = 'of';
+Blockly.Msg.TO = 'to';
