@@ -422,6 +422,7 @@ Blockly.Blocks['class_definition'] = {
         if (this.arguments_.length) {
             paramString = Blockly.Msg.PROCEDURES_BEFORE_PARAMS +
                 ' ' + this.arguments_.join(', ');
+            this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', this.arguments_.join('\n')));
         }
         // The params field is deterministic based on the mutation,
         // no need to fire a change event.

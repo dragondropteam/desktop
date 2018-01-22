@@ -1173,7 +1173,7 @@ Blockly.Msg.CLASS_DEFINITION_CONSTRUCT_PARAM = 'construct %1';
 /// warning text
 Blockly.Msg.CLASS_DEFINITION_DUPLICATE_WARNING = 'Warning: The class constructor has duplicate parameters.';
 /// tooltip
-Blockly.Msg.CLASS_DEFINITION_TOOLTIP = '';
+Blockly.Msg.CLASS_DEFINITION_TOOLTIP = 'Create %1 with:\n%2';
 /// url
 Blockly.Msg.CLASS_DEFINITION_HELP_URL = '';
 /// block text
