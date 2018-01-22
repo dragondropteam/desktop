@@ -2303,7 +2303,7 @@ Blockly.Blocks['collide_function_field'] = {
 
 //region BODY
 
-// Consider solution for using this with tooltips. This format is good, but tooltips are nice!
+// NOTE: worldBounce is null by default, and when null Body.bounce is used instead. Setting this enables specific values.
 const BODY_POINT_WRITABLE = ['bounce', 'gravity', 'velocity', 'acceleration', 'drag', 'friction', 'maxVelocity', 'worldBounce'];
 const BODY_POINT_WRITABLE_CLASS = ['bounce', 'gravity', 'velocity', 'acceleration', 'drag', 'friction', 'maxVelocity', 'worldBounce', 'deltaMax', 'offset', 'tilePadding'];
 const BODY_POINT_READABLE = [];
@@ -2318,12 +2318,6 @@ const BODY_BOOLEAN_FIELDS = createDropDownField(BODY_BOOLEAN_WRITABLE, BODY_BOOL
 const BODY_NUMERIC_WRITABLE = [ 'mass', 'rotation', 'angularAcceleration', 'angularVelocity', 'angularDrag', 'maxAngular', 'facing', 'overlapR', 'overlapX', 'overlapY' ]; // Full list, note it contains duplicates from GameObject: [ 'mass', 'rotation', 'angularAcceleration', 'angularVelocity', 'angularDrag', 'maxAngular', 'facing', 'overlapR', 'overlapX', 'overlapY', 'x', 'y' ];
 const BODY_NUMERIC_READABLE = [ 'preRotation', 'radius', 'sourceHeight', 'sourceWidth', 'speed', 'type']; // Full list, note it contains duplicates from GameObject: [ 'angle', 'width', 'height', 'halfWidth', 'halfHeight', 'left', 'right', 'top', 'bottom',  'preRotation', 'radius', 'sourceHeight', 'sourceWidth', 'speed', 'type'];
 const BODY_NUMERIC_FIELDS = createDropDownField(BODY_NUMERIC_WRITABLE, BODY_NUMERIC_READABLE);
-
-// No strings
-// const BODY_STRING_WRITABLE =[];
-// const BODY_STRING_READABLE =[];
-// const BODY_STRING_FIELDS = createDropDownField(BODY_STRING_WRITABLE, BODY_STRING_READABLE);
-
 
 
 /**
@@ -2508,7 +2502,7 @@ Blockly.Blocks['get_body_numeric_field'] = {
 Blockly.Blocks['debug_body'] = {
     init: function () {
         this.appendValueInput('BODY')
-            .appendField(Blockly.Msg.DEBUG_BODY_FIELD_1);
+            .appendField(Blockly.Msg.DEBUG_BODY_TEXT);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -2518,6 +2512,26 @@ Blockly.Blocks['debug_body'] = {
     }
 };
 
+// Blockly.Blocks['set_body_collision_type_circle'] = {
+//
+// };
+//
+// Blockly.Blocks['set_body_collision_type_box'] = {
+//
+// };
+
+Blockly.Blocks['stop_body'] = {
+    init: function () {
+        this.appendValueInput('BODY')
+            .appendField(Blockly.Msg.STOP_BODY_TEXT);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip(Blockly.Msg.STOP_BODY_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.STOP_BODY_HELP_URL);
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
 
 //endregion
 
