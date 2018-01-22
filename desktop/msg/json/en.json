@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-11-28 16:46:02.663098",
+		"lastupdated": "2018-01-19 16:59:14.906480",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1016,10 +1016,11 @@
 	"GET_BODY_FIELD_POINT_CLASS_TOOLTIP": "Gets the value of the specified point as a point object",
 	"GET_BODY_FIELD_POINT_CLASS_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html",
 	"SET_BODY_BOOLEAN_FIELD_FIELD_1": "set",
+	"SET_BODY_BOOLEAN_FIELD_FIELD_2": "for",
+	"SET_BODY_BOOLEAN_FIELD_FIELD_3": "to",
 	"SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1": "allowRotation",
 	"SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2": "allowGravity",
 	"SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3": "immovable",
-	"SET_BODY_BOOLEAN_FIELD_FIELD_2": "for",
 	"SET_BODY_BOOLEAN_FIELD_TOOLTIP": "Set the value of the specified boolean field",
 	"SET_BODY_BOOLEAN_FIELD_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html",
 	"GET_BODY_BOOLEAN_FIELD_FIELD_1": "get",
@@ -2408,7 +2409,16 @@
 	"PHASER_YOYO_TWEEN_TOOLTIP": "enable or disable yoyoing for this tween",
 	"PHASER_YOYO_TWEEN_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#yoyo",
 	"PHASER_YOYO_TWEEN_DELAY": "delay",
-	"PHASER_YOYO_TWEEN_DELAY": "child index",
 	"PHASER_YOYO_CHILD_TWEEN_INDEX": "child index",
-	"PHASER_STOP_TWEEN_COMPLETE": "complete"
+	"PHASER_STOP_TWEEN_COMPLETE": "fire onComplete",
+	"GET_POINT_FIELD": "get point field",
+	"GET_BOOLEAN_FIELD": "get boolean field",
+	"GET_NUMERIC_FIELD": "get numeric field",
+	"GET_STRING_FIELD": "get string field",
+	"SET_POINT_FIELD": "set point field",
+	"SET_BOOLEAN_FIELD": "set boolean field",
+	"SET_NUMERIC_FIELD": "set numeric field",
+	"SET_STRING_FIELD": "set string field",
+	"OF": "of",
+	"TO": "to"
 }
