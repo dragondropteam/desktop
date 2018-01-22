@@ -2383,25 +2383,6 @@ Blockly.Msg.SET_BODY_FIELD_POINT_VI_HELP_URL = 'https://photonstorm.github.io/ph
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_1 = 'set point field';
 /// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_1 = 'bounce';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_2 = 'gravity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_3 = 'velocity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_4 = 'acceleration';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_5 = 'drag';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_6 = 'friction';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_8 = 'worldBounce';
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_9  = 'deltaMax';
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_10 = 'offset';
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_11 = 'tilePadding';
-/// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2 = 'for';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3 = 'to';
@@ -2410,11 +2391,18 @@ Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_TOOLTIP = 'Set the value of the body p
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.DEBUG_BODY_FIELD_1 = 'debug body';
-/// auto generated
-Blockly.Msg.DEBUG_BODY_TOOLTIP = 'Set the value of the body point field';
-/// auto generated
+
+
+// STOP BODY
+Blockly.Msg.STOP_BODY_TEXT = 'stop body';
+Blockly.Msg.STOP_BODY_TOOLTIP = 'stops any existing movement or acceleration of the body';
+Blockly.Msg.STOP_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+
+// DEBUG BODY
+Blockly.Msg.DEBUG_BODY_TEXT = 'debug body';
+Blockly.Msg.DEBUG_BODY_TOOLTIP = 'Enable debug information for the game object';
 Blockly.Msg.DEBUG_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+
 /// auto generated
 Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_1 = 'get point field';
 /// auto generated
