@@ -335,6 +335,12 @@
             <!--<block type="ir_output"/>-->
         </category>
     </category>
+    <category name="Performances" colour="330">
+        <category name="The whole enchilada" colour="330">
+            <block type="perform_police_lights_icon">
+            </block>
+        </category>
+    </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>

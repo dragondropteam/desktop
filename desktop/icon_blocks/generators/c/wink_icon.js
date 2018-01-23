@@ -36,3 +36,9 @@ Blockly.C['setrightrgb_icon'] = Blockly.C['setrightrgb'];
 Blockly.C['set_left_eye_icon'] = Blockly.C['set_left_eye'];
 Blockly.C['set_right_eye_icon'] = Blockly.C['set_right_eye'];
 Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
+
+
+// Performances
+Blockly.C['perform_police_lights_icon'] = function() {
+    return 'performPoliceLights();\n';
+};
