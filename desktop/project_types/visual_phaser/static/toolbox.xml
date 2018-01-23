@@ -1573,8 +1573,8 @@
                 </block>
             </category>
             <category name="Body" colour="#6a1b9a">
-                <block type="debug_body">
-                    <value name="BODY">
+                <block type="get_body_field_point_class">
+                    <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
                         </shadow>
@@ -1613,7 +1613,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="get_body_field_point_class">
+                <block type="get_body_boolean_field">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1632,7 +1632,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="get_body_boolean_field">
+                <block type="get_body_numeric_field">
                     <value name="OBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1651,8 +1651,15 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="get_body_numeric_field">
-                    <value name="OBJECT">
+                <block type="stop_body">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="debug_body">
+                    <value name="BODY">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
                         </shadow>

@@ -1717,16 +1717,14 @@ Blockly.Blocks['animation_get_animation'] = {
 // Revised field manipulation blocks for animations
 // Note that these do not need to be translated because they will always have to appear as shown below.
 const ANIMATION_BOOLEAN_WRITABLE = ['enableUpdate', 'isFinished', 'isPaused', 'isPlaying', 'isReversed', 'faintOnComplete', 'loop', 'paused', 'reversed'];
-const ANIMATION_BOOLEAN_READABLE = [];
-const ANIMATION_BOOLEAN_FIELDS = createDropDownField(ANIMATION_BOOLEAN_WRITABLE, ANIMATION_BOOLEAN_READABLE);
+const ANIMATION_BOOLEAN_FIELDS = createDropDownField(ANIMATION_BOOLEAN_WRITABLE, []);
 
 const ANIMATION_NUMERIC_WRITABLE = ['delay','frame','loopCount','speed'];
 const ANIMATION_NUMERIC_READABLE = ['frameTotal'];
 const ANIMATION_NUMERIC_FIELDS = createDropDownField(ANIMATION_NUMERIC_WRITABLE, ANIMATION_NUMERIC_READABLE);
 
 const ANIMATION_STRING_WRITABLE = ['name'];
-const ANIMATION_STRING_READABLE = [];
-const ANIMATION_STRING_FIELDS = createDropDownField(ANIMATION_STRING_WRITABLE, ANIMATION_STRING_READABLE);
+const ANIMATION_STRING_FIELDS = createDropDownField(ANIMATION_STRING_WRITABLE, []);
 
 
 Blockly.Blocks['set_animation_boolean_field_vi'] = {
@@ -2164,6 +2162,7 @@ Blockly.Blocks['add_to_world'] = {
 
 //region PHYSICS
 
+
 //region PHYSICS_STARTUP
 Blockly.Blocks['start_physics'] = {
     init: function () {
@@ -2301,6 +2300,27 @@ Blockly.Blocks['collide_function_field'] = {
 //endregion
 
 //region BODY
+
+// NOTE: worldBounce is null by default, and when null Body.bounce is used instead. Setting this enables specific values.
+const BODY_POINT_WRITABLE = ['bounce', 'gravity', 'velocity', 'acceleration', 'drag', 'friction', 'maxVelocity', 'worldBounce'];
+const BODY_POINT_FIELDS = createDropDownField(BODY_POINT_WRITABLE, []);
+
+const BODY_POINT_WRITABLE_CLASS = ['bounce', 'gravity', 'velocity', 'acceleration', 'drag', 'friction', 'maxVelocity', 'worldBounce', 'deltaMax', 'offset', 'tilePadding'];
+const BODY_POINT_FIELDS_CLASS = createDropDownField(BODY_POINT_WRITABLE_CLASS, []);
+
+const BODY_BOOLEAN_WRITABLE = ['allowDrag', 'allowGravity', 'allowRotation', 'collideWorldBounds', 'customSeparateX', 'customSeparateY', 'dirty', 'enable', 'immovable', 'skipQuadTree', 'stopVelocityOnCollide', 'syncBounds']; // There is also 'moves', omitted to avoid confusion.
+const BODY_BOOLEAN_READABLE = ['embedded', 'isCircle', 'isMoving'];
+const BODY_BOOLEAN_FIELDS = createDropDownField(BODY_BOOLEAN_WRITABLE, BODY_BOOLEAN_READABLE);
+
+const BODY_NUMERIC_WRITABLE = [ 'mass', 'rotation', 'angularAcceleration', 'angularVelocity', 'angularDrag', 'maxAngular', 'facing', 'overlapR', 'overlapX', 'overlapY' ]; // Full list, note it contains duplicates from GameObject: [ 'mass', 'rotation', 'angularAcceleration', 'angularVelocity', 'angularDrag', 'maxAngular', 'facing', 'overlapR', 'overlapX', 'overlapY', 'x', 'y' ];
+const BODY_NUMERIC_READABLE = [ 'preRotation', 'radius', 'sourceHeight', 'sourceWidth', 'speed', 'type']; // Full list, note it contains duplicates from GameObject: [ 'angle', 'width', 'height', 'halfWidth', 'halfHeight', 'left', 'right', 'top', 'bottom',  'preRotation', 'radius', 'sourceHeight', 'sourceWidth', 'speed', 'type'];
+const BODY_NUMERIC_FIELDS = createDropDownField(BODY_NUMERIC_WRITABLE, BODY_NUMERIC_READABLE);
+
+
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_body_field_point.init}}
+ */
 Blockly.Blocks['set_body_field_point'] = {
     init: function () {
         this.appendDummyInput()
@@ -2321,11 +2341,15 @@ Blockly.Blocks['set_body_field_point'] = {
     }
 };
 
+// Normally, it would be a good idea to have this say something about point fields.
+// However, point fields here are used independently, and so it may make sense to leave them separated as such.
+// (These are not points like elsewhere: More accurately, they're points being used as vectors)
 Blockly.Blocks['set_body_field_point_vi'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_1, "bounce"], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_2, "gravity"], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_3, 'velocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_4, 'acceleration'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_5, 'drag'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_6, 'friction'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_7, 'maxVelocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_8, 'worldBounce']]), "FIELD")
+            .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS.writable), "FIELD")
+            .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1_5)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_1, "x"], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_2, "y"]]), "ELEMENT")
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_2);
         this.appendValueInput('OBJECT');
@@ -2345,7 +2369,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_1, "bounce"], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_2, "gravity"], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_3, 'velocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_4, 'acceleration'], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_5, 'drag'], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_6, 'friction'], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_7, 'maxVelocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_DROPDOWN_8, 'worldBounce']]), "FIELD")
+            .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), "FIELD")
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2);
         this.appendValueInput('OBJECT');
         this.appendValueInput('POINT')
@@ -2360,24 +2384,12 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
     customContextMenu: createSetterContextMenu('get_body_field_point_class', {propertyTag: 'FIELD'})
 };
 
-Blockly.Blocks['debug_body'] = {
-    init: function () {
-        this.appendValueInput('BODY')
-            .appendField(Blockly.Msg.DEBUG_BODY_FIELD_1);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setTooltip(Blockly.Msg.DEBUG_BODY_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DEBUG_BODY_HELP_URL);
-        this.setColour(PHASER_PHYSICS_DYNAMICS);
-    }
-};
 
 Blockly.Blocks['get_body_field_point_class'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_1, "bounce"], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_2, "gravity"], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_3, 'velocity'], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_4, 'acceleration'], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_5, 'drag'], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_6, 'friction'], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_7, 'maxVelocity'], [Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_8, 'worldBounce']]), "FIELD")
+            .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.all), "FIELD")
             .appendField(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_2);
         this.appendValueInput('OBJECT');
         this.setInputsInline(true);
@@ -2389,6 +2401,10 @@ Blockly.Blocks['get_body_field_point_class'] = {
     customContextMenu: createPointGetterContextMenu('set_body_field_point_class_vi', {propertyTag: 'FIELD', valueTag: 'POINT'})
 };
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.set_body_boolean_field.init, customContextMenu: Function}}
+ */
 Blockly.Blocks['set_body_boolean_field'] = {
     init: function () {
         this.appendDummyInput()
@@ -2412,7 +2428,7 @@ Blockly.Blocks['set_body_boolean_field_vi'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1, 'allowRotation'], [Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2, 'allowGravity'], [Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3, 'immovable']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown(BODY_BOOLEAN_FIELDS.writable), "ELEMENT")
             .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2);
         this.appendValueInput('OBJECT');
         this.appendValueInput('VALUE')
@@ -2432,7 +2448,7 @@ Blockly.Blocks['get_body_boolean_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1, 'allowRotation'], [Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2, 'allowGravity'], [Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3, 'immovable'], [Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_4, 'isMoving']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown(BODY_BOOLEAN_FIELDS.all), "ELEMENT")
             .appendField(Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_2);
         this.appendValueInput('OBJECT');
         this.setInputsInline(true);
@@ -2448,7 +2464,7 @@ Blockly.Blocks['set_body_numeric_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_1, 'mass'], [Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_2, 'rotation'], [Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_3, 'angularAcceleration'], [Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_4, 'angularVelocity'], [Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_5, 'maxAngular'], [Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_6, 'angularDrag']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown(BODY_NUMERIC_FIELDS.writable), "ELEMENT")
             .appendField(Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_2);
         this.appendValueInput('OBJECT');
         this.appendValueInput('VALUE')
@@ -2468,7 +2484,7 @@ Blockly.Blocks['get_body_numeric_field'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_1, 'speed'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_2, 'mass'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_3, 'rotation'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_4, 'maxVelocity'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_5, 'angularAcceleration'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_6, 'angularVelocity'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_7, 'maxAngularVelocity'], [Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_8, 'angularDrag']]), "ELEMENT")
+            .appendField(new Blockly.FieldDropdown(BODY_NUMERIC_FIELDS.all), "ELEMENT")
             .appendField(Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_2);
         this.appendValueInput('OBJECT');
         this.setInputsInline(true);
@@ -2479,6 +2495,41 @@ Blockly.Blocks['get_body_numeric_field'] = {
     },
     customContextMenu: createNumericGetterContextMenu('set_body_numeric_field', {propertyTag: 'ELEMENT'})
 };
+
+Blockly.Blocks['debug_body'] = {
+    init: function () {
+        this.appendValueInput('BODY')
+            .appendField(Blockly.Msg.DEBUG_BODY_TEXT);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip(Blockly.Msg.DEBUG_BODY_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DEBUG_BODY_HELP_URL);
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
+// Blockly.Blocks['set_body_collision_type_circle'] = {
+//
+// };
+//
+// Blockly.Blocks['set_body_collision_type_box'] = {
+//
+// };
+
+Blockly.Blocks['stop_body'] = {
+    init: function () {
+        this.appendValueInput('BODY')
+            .appendField(Blockly.Msg.STOP_BODY_TEXT);
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip(Blockly.Msg.STOP_BODY_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.STOP_BODY_HELP_URL);
+        this.setColour(PHASER_PHYSICS_DYNAMICS);
+    }
+};
+
 //endregion
 
 
