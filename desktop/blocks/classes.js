@@ -52,6 +52,7 @@ function getClassForBlock(root) {
 
     return null;
 }
+
 //endregion
 //region SUPER
 Blockly.Blocks['super_mutatorcontainer'] = {
@@ -293,7 +294,6 @@ Blockly.Blocks['class_definition'] = {
             .appendField(Blockly.Msg.CLASS_DEFINITION_CONSTRUCT, "CONSTRUCTOR");
         this.setInputsInline(false);
         this.setColour(CLASS_COLOUR);
-        this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.CLASS_DEFINITION_HELP_URL);
         this.setMutator(new Blockly.Mutator(['class_mutatorarg']));
         this.arguments_ = [];
@@ -402,6 +402,7 @@ Blockly.Blocks['class_definition'] = {
      * @this Blockly.Block
      */
     updateParams_: function () {
+        console.log('updateParams_');
         // Check for duplicated arguments.
         let badArg = false;
         let hash = {};
@@ -419,10 +420,12 @@ Blockly.Blocks['class_definition'] = {
         }
         // Merge the arguments into a human-readable list.
         let paramString = '';
-        if (this.arguments_.length) {
+        if (this.arguments_.length > 0) {
             paramString = Blockly.Msg.PROCEDURES_BEFORE_PARAMS +
                 ' ' + this.arguments_.join(', ');
             this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', this.arguments_.join('\n')));
+        } else {
+            this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', ''));
         }
         // The params field is deterministic based on the mutation,
         // no need to fire a change event.
@@ -431,6 +434,17 @@ Blockly.Blocks['class_definition'] = {
             this.setFieldValue(paramString == '' ? Blockly.Msg.CLASS_DEFINITION_CONSTRUCT : Blockly.Msg.CLASS_DEFINITION_CONSTRUCT_PARAM.replace('%1', paramString), 'CONSTRUCTOR');
         } finally {
             Blockly.Events.enable();
+        }
+    },
+    onchange: function (event) {
+        if (!workspace || this.isInFlyout) {
+            return;
+        }
+
+        if (this.arguments_.length > 0) {
+            this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', this.arguments_.join('\n')));
+        } else {
+            this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', ''));
         }
     }
 };
@@ -537,7 +551,7 @@ Blockly.Blocks['member_definition'] = {
         this.setTooltip(Blockly.Msg.MEMBER_DEFINITION_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.MEMBER_DEFINITION_HELP_URL);
     },
-    onchange(){
+    onchange() {
         if (this.isInFlyout) {
             return;
         }
@@ -1693,7 +1707,7 @@ Blockly.Blocks['method_callnoreturn'] = {
             let name = this.getMethodCall();
             let def = DragonDrop.Classes.getDefinition(name, this.workspace);
             if (def && (def.type != this.defType_ ||
-                JSON.stringify(def.arguments_) != JSON.stringify(this.arguments_))) {
+                    JSON.stringify(def.arguments_) != JSON.stringify(this.arguments_))) {
                 // The signatures don't match.
                 def = null;
             }
