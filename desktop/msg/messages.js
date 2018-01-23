@@ -2396,12 +2396,12 @@ Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_HELP_URL = 'https://photonstorm.github
 // STOP BODY
 Blockly.Msg.STOP_BODY_TEXT = 'stop body';
 Blockly.Msg.STOP_BODY_TOOLTIP = 'stops any existing movement or acceleration of the body';
-Blockly.Msg.STOP_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+Blockly.Msg.STOP_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html#stop';
 
 // DEBUG BODY
 Blockly.Msg.DEBUG_BODY_TEXT = 'debug body';
 Blockly.Msg.DEBUG_BODY_TOOLTIP = 'Enable debug information for the game object';
-Blockly.Msg.DEBUG_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
+Blockly.Msg.DEBUG_BODY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#body';
 
 /// auto generated
 Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_1 = 'get point field';

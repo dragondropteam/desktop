@@ -1717,16 +1717,14 @@ Blockly.Blocks['animation_get_animation'] = {
 // Revised field manipulation blocks for animations
 // Note that these do not need to be translated because they will always have to appear as shown below.
 const ANIMATION_BOOLEAN_WRITABLE = ['enableUpdate', 'isFinished', 'isPaused', 'isPlaying', 'isReversed', 'faintOnComplete', 'loop', 'paused', 'reversed'];
-const ANIMATION_BOOLEAN_READABLE = [];
-const ANIMATION_BOOLEAN_FIELDS = createDropDownField(ANIMATION_BOOLEAN_WRITABLE, ANIMATION_BOOLEAN_READABLE);
+const ANIMATION_BOOLEAN_FIELDS = createDropDownField(ANIMATION_BOOLEAN_WRITABLE, []);
 
 const ANIMATION_NUMERIC_WRITABLE = ['delay','frame','loopCount','speed'];
 const ANIMATION_NUMERIC_READABLE = ['frameTotal'];
 const ANIMATION_NUMERIC_FIELDS = createDropDownField(ANIMATION_NUMERIC_WRITABLE, ANIMATION_NUMERIC_READABLE);
 
 const ANIMATION_STRING_WRITABLE = ['name'];
-const ANIMATION_STRING_READABLE = [];
-const ANIMATION_STRING_FIELDS = createDropDownField(ANIMATION_STRING_WRITABLE, ANIMATION_STRING_READABLE);
+const ANIMATION_STRING_FIELDS = createDropDownField(ANIMATION_STRING_WRITABLE, []);
 
 
 Blockly.Blocks['set_animation_boolean_field_vi'] = {
@@ -2305,11 +2303,10 @@ Blockly.Blocks['collide_function_field'] = {
 
 // NOTE: worldBounce is null by default, and when null Body.bounce is used instead. Setting this enables specific values.
 const BODY_POINT_WRITABLE = ['bounce', 'gravity', 'velocity', 'acceleration', 'drag', 'friction', 'maxVelocity', 'worldBounce'];
+const BODY_POINT_FIELDS = createDropDownField(BODY_POINT_WRITABLE, []);
+
 const BODY_POINT_WRITABLE_CLASS = ['bounce', 'gravity', 'velocity', 'acceleration', 'drag', 'friction', 'maxVelocity', 'worldBounce', 'deltaMax', 'offset', 'tilePadding'];
-const BODY_POINT_READABLE = [];
-const BODY_POINT_READABLE_CLASS = [];
-const BODY_POINT_FIELDS = createDropDownField(BODY_POINT_WRITABLE, BODY_POINT_READABLE);
-const BODY_POINT_FIELDS_CLASS = createDropDownField(BODY_POINT_WRITABLE_CLASS, BODY_POINT_READABLE_CLASS);
+const BODY_POINT_FIELDS_CLASS = createDropDownField(BODY_POINT_WRITABLE_CLASS, []);
 
 const BODY_BOOLEAN_WRITABLE = ['allowDrag', 'allowGravity', 'allowRotation', 'collideWorldBounds', 'customSeparateX', 'customSeparateY', 'dirty', 'enable', 'immovable', 'skipQuadTree', 'stopVelocityOnCollide', 'syncBounds']; // There is also 'moves', omitted to avoid confusion.
 const BODY_BOOLEAN_READABLE = ['embedded', 'isCircle', 'isMoving'];
