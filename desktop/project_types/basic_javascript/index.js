@@ -11,7 +11,7 @@ require('../../project/projects');
  */
 const BUILD_NUMBER = 1;
 const PROJECT_TYPE = 'block_javascript';
-const {BaseProjectManager} = require('../project_types');
+const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 
 class BasicJavaScriptManager extends BaseProjectManager {
     constructor() {
