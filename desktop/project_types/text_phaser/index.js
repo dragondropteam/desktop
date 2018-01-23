@@ -9,7 +9,7 @@ require('../../project/projects');
  *
  * @type {number}
  */
-const BUILD_NUMBER = 1;
+const BUILD_NUMBER = 2;
 const PROJECT_TYPE = 'text_phaser';
 
 const fs = require('fs-extra');
@@ -37,6 +37,16 @@ class TextPhaserProjectManager extends BaseProjectManager {
 
     migrate(loadedProject){
         this.migrateMetaAndProjectType(loadedProject);
+
+        let buildNumber = loadedProject.getMetaData().version;
+
+        if(buildNumber === 1){
+            fs.copySync(filesystem.getFilePath('project_types/text_phaser/core_files/js'), loadedProject.getFileInProjectDir(`js`));
+            log.debug('Phaser 2.8.8 -> 2.8.9');
+            ++buildNumber;
+        }
+
+        loadedProject.getMetaData.version = BUILD_NUMBER;
         this.saveProject(loadedProject);
     }
 
