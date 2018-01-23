@@ -9,7 +9,7 @@ require('../../project/projects');
  *
  * @type {number}
  */
-const BUILD_NUMBER = 1;
+const BUILD_NUMBER = 2;
 const fs = require('fs-extra');
 const path = require('path');
 const {Project} = require('project');
@@ -23,6 +23,7 @@ const PROJECT_TYPE = 'visual_phaser';
 let displayedWindow = null;
 const corePhaser = require('../../phaser_core/phaser_core');
 const {BaseProjectManager} = require('../project_types');
+const log = require('electron-log');
 
 class VisualPhaserProjectManager extends BaseProjectManager {
 
@@ -35,6 +36,15 @@ class VisualPhaserProjectManager extends BaseProjectManager {
      */
     migrate(loadedProject) {
         this.migrateMetaAndProjectType(loadedProject);
+        let buildNumber = loadedProject.getMetaData().version;
+
+        if(buildNumber === 1){
+            fs.copySync(filesystem.getFilePath('project_types/text_phaser/core_files/js'), loadedProject.getFileInProjectDir(`js`));
+            log.debug('Phaser 2.8.8 -> 2.8.9');
+            ++buildNumber;
+        }
+
+        loadedProject.getMetaData().version = BUILD_NUMBER;
         this.saveProject(loadedProject);
     }
 
