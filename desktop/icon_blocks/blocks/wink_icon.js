@@ -677,3 +677,25 @@ Blockly.Blocks['set_eyes_icon'] = {
     }
 };
 
+
+Blockly.Blocks['perform_police_lights_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
