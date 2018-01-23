@@ -22,7 +22,7 @@ const {BrowserWindow} = require('electron');
 const PROJECT_TYPE = 'visual_phaser';
 let displayedWindow = null;
 const corePhaser = require('../../phaser_core/phaser_core');
-const {BaseProjectManager} = require('../project_types');
+const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 const log = require('electron-log');
 
 class VisualPhaserProjectManager extends BaseProjectManager {
