@@ -17,7 +17,7 @@ const arduino = require('../../arduino_core/arduino_core');
 const electron = require('electron');
 const {Boards} = require('../../arduino_core/arduino_core');
 const {BrowserWindow} = require('electron');
-const {BaseProjectManager} = require('../project_types');
+const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 
 class ArduinoProjectManager extends BaseProjectManager {
     constructor(){
