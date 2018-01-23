@@ -18,9 +18,8 @@ const electronConfig = new Config();
 const {dialog} = require('electron').remote;
 const GoldenLayout = require('golden-layout');
 const {BrowserWindow, app} = require('electron').remote;
-const {BaseProjectManager} = require('project_types');
+const BaseProjectManager = require('../base_project_manager/base_project_manager');
 const log = require('electron-log');
-const TAG = 'workspace/workspace.js: ';
 //endregion
 
 //REGION CONSTANTS

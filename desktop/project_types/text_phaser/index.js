@@ -17,7 +17,7 @@ const path = require('path');
 
 const filesystem = require(`filesystem`);
 const corePhaser = require('../../phaser_core/phaser_core');
-const {BaseProjectManager} = require('../project_types');
+const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 
 class TextPhaserProjectManager extends BaseProjectManager {
     constructor(){

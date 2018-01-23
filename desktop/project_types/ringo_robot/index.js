@@ -19,7 +19,7 @@ const filesystem = require(`filesystem`);
 const arduino = require('arduino_core');
 const electron = require('electron');
 const {BrowserWindow} = require('electron');
-const {BaseProjectManager} = require('../project_types');
+const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 
 class RingoRobotProjectManager extends BaseProjectManager {
     constructor(){
