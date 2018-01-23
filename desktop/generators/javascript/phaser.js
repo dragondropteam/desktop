@@ -608,6 +608,14 @@ Blockly.JavaScript['debug_body'] = function (block) {
     return `game.debug.body(${body});\n`;
 };
 
+Blockly.JavaScript['stop_body'] = function (block) {
+    const object_name = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC);
+
+    return `${object_name}.body.stop();\n`;
+};
+
+
+
 Blockly.JavaScript['set_body_field_point'] = function (block) {
     const field = block.getFieldValue('FIELD');
     const element = block.getFieldValue('ELEMENT');
