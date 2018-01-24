@@ -38,7 +38,24 @@ Blockly.C['set_right_eye_icon'] = Blockly.C['set_right_eye'];
 Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
 
 
-// Performances
-Blockly.C['perform_police_lights_icon'] = function() {
-    return 'performPoliceLights();\n';
+// Light Effects, Icon only - hence the lack of linkup.
+Blockly.C['light_effect_police_icon'] = function(block) {
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    return `lightEffectPolice( ${duration} );\n`;
 };
+
+Blockly.C['light_effect_disco_icon'] = function(block) {
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    return `lightEffectDisco( ${duration} );\n`;
+};
+
+Blockly.C['light_effect_rainbow_icon'] = function(block) {
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    return `lightEffectRainbow( ${duration} );\n`;
+};
+
+Blockly.C['light_effect_fireworks_icon'] = function(block) {
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    return `lightEffectFireworks( ${duration} );\n`;
+};
+

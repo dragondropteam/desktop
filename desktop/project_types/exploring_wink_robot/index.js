@@ -60,6 +60,10 @@ class ExploringWinkRobotProjectManager extends BaseProjectManager {
                 console.log('WinkHardware.ino deleted');
                 fs.removeSync(loadedProject.getFileInProjectDir('WinkHardware.h'));
                 console.log('WinkHardware.h deleted');
+                fs.removeSync(loadedProject.getFileInProjectDir('DragonDrop.ino'));
+                console.log('WinkHardware.ino deleted');
+                fs.removeSync(loadedProject.getFileInProjectDir('DragonDrop.h'));
+                console.log('WinkHardware.h deleted');
                 fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
                 console.log('.h updated to .hpp');
                 loadedProject.loadedProject.meta.version++;
