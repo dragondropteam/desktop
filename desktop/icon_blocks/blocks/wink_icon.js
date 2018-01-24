@@ -678,20 +678,16 @@ Blockly.Blocks['set_eyes_icon'] = {
 };
 
 
-Blockly.Blocks['perform_police_lights_icon'] = {
+// Light Effects
+
+Blockly.Blocks['light_effect_police_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'policeCar.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
         this.setPreviousStatement(true, null);
@@ -699,3 +695,47 @@ Blockly.Blocks['perform_police_lights_icon'] = {
     }
 };
 
+Blockly.Blocks['light_effect_disco_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'DiscoBall.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+Blockly.Blocks['light_effect_rainbow_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Rainbow.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+Blockly.Blocks['light_effect_fireworks_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Fireworks.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
