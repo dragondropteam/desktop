@@ -17,6 +17,7 @@ const filesystem = require(`filesystem`);
 const PROJECT_TYPE = 'exploring_phaser';
 const corePhaser = require('../../phaser_core/phaser_core');
 const BaseProjectManager = require('../../base_project_manager/base_project_manager');
+const log = require('electron-log')
 
 class VisualPhaserProjectManager extends BaseProjectManager {
     constructor() {
