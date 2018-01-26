@@ -25,7 +25,7 @@ gulp.task('clean', () => {
  * Install dependencies, in most cases we will really need to update
  * or something else as npm install is a prereq to running this project
  */
-gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'phaser_workspace', 'arduino_workspace'], () => {
+gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'phaser_workspace', 'arduino_workspace', 'base_project_manager'], () => {
     return gulp.src('package.json')
         .pipe(install());
 });
@@ -122,6 +122,13 @@ gulp.task('arduino_core', () => {
         .pipe(minify(options))
         .pipe(addsrc(['arduino_core/**/*', '!arduino_core/**/*.js']))
         .pipe(gulp.dest('app/arduino_core'));
+});
+
+gulp.task('base_project_manager', () => {
+    gulp.src('base_project_manager/**/*.js')
+        .pipe(minify(options))
+        .pipe(addsrc(['base_project_manager/**/*', '!base_project_manager/**/*.js']))
+        .pipe(gulp.dest('app/base_project_manager'));
 });
 
 gulp.task('progress_dialog', () =>{
