@@ -586,7 +586,7 @@ function loadDropFromPath(projectPath) {
     return new Promise((resolve, reject) => {
         const zip = new JSZip();
         const cachePath = fs.mkdtempSync(path.join(app.getPath('temp'), 'dragondrop'));
-        const digiblocksFile = path.join(cachePath, `${path.basename(projectPath, '.drop')}.digiblocks`);
+        let digiblocksFile;
         fs.stat(projectPath)
             .then(stats => {
                 if (stats.size >= buffer.kMaxLength) {
@@ -604,7 +604,11 @@ function loadDropFromPath(projectPath) {
                     if (!file.dir) {
                         files.push(file.async('nodebuffer').then(buffer => {
                             return fs.outputFile(path.join(cachePath, relativePath), buffer);
-                        }))
+                        }));
+
+                        if(relativePath.endsWith('.digiblocks')){
+                            digiblocksFile = path.join(cachePath, relativePath);
+                        }
                     }
                 });
                 return Promise.all(files);
