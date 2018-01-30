@@ -4148,6 +4148,83 @@ Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
 
+//arduino math
+Blockly.Msg.ARDUINO_MATH_MAP_VALUE = 'value';
+Blockly.Msg.ARDUINO_MATH_MAP = 'map';
+Blockly.Msg.ARDUINO_MATH_MAP_FROM_LOW = 'from low';
+Blockly.Msg.ARDUINO_MATH_MAP_FROM_HIGH = 'from high';
+Blockly.Msg.ARDUINO_MATH_MAP_TO_LOW = 'to low';
+Blockly.Msg.ARDUINO_MATH_MAP_TO_HIGH = 'to high';
+
+///
+Blockly.Msg.ARDUINO_SERIAL_AVAILABLE = 'serial available';
+Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/available/';
+Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_TOOLTIP = 'Gets the number of bytes available to be read';
+
+Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE = 'serial available for write';
+Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/availableforwrite/';
+Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE_TOOLTIP = 'Gets the number of bytes available to write';
+
+Blockly.Msg.ARDUINO_SERIAL_FIND = 'serial find';
+Blockly.Msg.ARDUINO_SERIAL_FIND_TOOLTIP = 'Returns true if the target string is found in the serial stream else false';
+Blockly.Msg.ARDUINO_SERIAL_FIND_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/find/';
+
+Blockly.Msg.ARDUINO_SERIAL_FIND_UNTIL = 'serial find';
+Blockly.Msg.ARDUINO_SERIAL_UNTIL = 'until';
+Blockly.Msg.ARDUINO_SERIAL_FIND_UNTIL_TOOLTIP = 'Returns true if the target string is found in the serial stream else false if timeout or terminal is found';
+Blockly.Msg.ARDUINO_SERIAL_FIND_UNTIL_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/finduntil/';
+
+Blockly.Msg.ARDUINO_SERIAL_FLUSH = 'serial flush';
+Blockly.Msg.ARDUINO_SERIAL_FLUSH_TOOLTIP = 'wait fo outgoing serial data to complete';
+Blockly.Msg.ARDUINO_SERIAL_FLUSH_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/flush/';
+
+Blockly.Msg.ARDUINO_SERIAL_PARSE_FLOAT = 'serial parse float';
+Blockly.Msg.ARDUINO_SERIAL_PARSE_FLOAT_TOOLTIP = 'read the first valid float form the serial stream';
+Blockly.Msg.ARDUINO_SERIAL_PARSE_FLOAT_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/parsefloat/';
+
+Blockly.Msg.ARDUINO_SERIAL_PARSE_INT = 'serial parse integer';
+Blockly.Msg.ARDUINO_SERIAL_PARSE_INT_TOOLTIP = 'read the first valid integer form the serial stream';
+Blockly.Msg.ARDUINO_SERIAL_PARSE_INT_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/parseint/';
+
+Blockly.Msg.ARDUINO_SERIAL_PEEK = 'serial peek next byte';
+Blockly.Msg.ARDUINO_SERIAL_PEEK_TOOLTIP = 'gets the next byte without removing it from the stream';
+Blockly.Msg.ARDUINO_SERIAL_PEEK_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/peek/';
+
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES = 'serial read bytes into';
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_UP_TO = 'up to length';
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_TOOLTIP = 'gets the next byte without removing it from the stream';
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/readbytesuntil/';
+
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_UNTIL = 'serial read bytes into';
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_UNTIL_TOOLTIP = 'gets the next byte without removing it from the stream';
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_UNTIL_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/readbytesuntil/';
+Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_UNTIL_TERMINAL = 'or until';
+
+Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT = 'serial set timeout to';
+Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT_TOOLTIP = 'sets the max milliseconds to wait for serial data, defaults to 1000 milliseconds';
+Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/communication/serial/settimeout/';
+
+Blockly.Msg.ADVANCED_IO_PULSE_IN = 'pulse in';
+Blockly.Msg.ADVANCED_IO_PULSE_IN_TOOLTIP = 'Reads a HIGH or LOW pulse from a pin returning the duration';
+Blockly.Msg.ADVANCED_IO_PULSE_IN_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/';
+
+Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG = 'pulse in long';
+Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP = 'Reads a HIGH or LOW pulse from a pin returning the duration';
+Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/advanced-io/pulseinlong/';
+
+Blockly.Msg.ADVANCED_IO_SHIFT_IN = 'shift in';
+Blockly.Msg.ADVANCED_IO_SHIFT_IN_TOOLTIP = 'Shifts in a byte of data at a time, this is software based';
+Blockly.Msg.ADVANCED_IO_SHIFT_IN_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/advanced-io/shiftin/';
+
+Blockly.Msg.ADVANCED_IO_SHIFT_OUT = 'shift out';
+Blockly.Msg.ADVANCED_IO_SHIFT_OUT_TOOLTIP = 'Shifts out a byte of data at a time, this is software based';
+Blockly.Msg.ADVANCED_IO_SHIFT_OUT_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/advanced-io/shiftout/';
+
+Blockly.Msg.ADVANCED_IO_LEAST_SIGNIFICANT_BIT_FIRST = 'least significant bit first';
+Blockly.Msg.ADVANCED_IO_BIT_FIRST = 'most significant bit first';
+Blockly.Msg.ADVANCED_IO_DATA_PIN = 'data pin';
+Blockly.Msg.ADVANCED_IO_CLOCK_PIN = 'clock pin';
+Blockly.Msg.ADVANCED_IO_BIT_ORDER = 'bit order';
 //dom
 /// auto generated
 Blockly.Msg.GETELEMENTBYID_TITLE = 'getElementById with ID';
@@ -5253,3 +5330,16 @@ Blockly.Msg.SET_STRING_FIELD  = 'set string field';
 // Prepositions
 Blockly.Msg.OF = 'of';
 Blockly.Msg.TO = 'to';
+Blockly.Msg.FROM = 'from';
+
+//time
+Blockly.Msg.MILLISECONDS = 'milliseconds';
+Blockly.Msg.MICROSECONDS = 'microseconds';
+Blockly.Msg.SECONDS = 'seconds';
+
+//arduino common
+Blockly.Msg.VALUE = 'value';
+Blockly.Msg.PIN = 'pin';
+Blockly.Msg.TIMEOUT = 'timeout';
+Blockly.Msg.HIGH = 'HIGH';
+Blockly.Msg.LOW = 'LOW';
