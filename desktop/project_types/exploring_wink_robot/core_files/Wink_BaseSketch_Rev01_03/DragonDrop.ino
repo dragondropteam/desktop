@@ -16,9 +16,9 @@
  * Picks a int within specified spread of the center. 
  * Not clamped at all, and will not function with negatives.
  *
- * @param {int} center Center of the random number range.
- * @param {int} spread Amount random value must be within Center.
- * @returns {int} Random int within specified spread of the center.
+ * @param center Center of the random number range.
+ * @param spread Amount random value must be within Center.
+ * @returns Random int within specified spread of the center.
  */
 static int randomSpread(int center, int spread) {
     return random(center - spread, center + spread);
@@ -31,9 +31,9 @@ static int randomSpread(int center, int spread) {
  * If max is 0, we don't bother counting, we just delay by incrementBy.
  * This function is blocking.
  *
- * @param {int*} currentTime Pointer to the current time value that is modified.
- * @param {int} g Limit of the currentTime value, not to be exceeded.
- * @param {int} incrementBy The pointer to a blue value scaled by decayScalar.
+ * @param currentTime Pointer to the current time value that is modified.
+ * @param maxTime Limit of the currentTime value, not to be exceeded.
+ * @param incrementBy The pointer to a blue value scaled by decayScalar.
  */
 static void delayPreciesly(int *currentTime, int maxTime, int incrementBy) {
     if(maxTime > 0) {
@@ -54,10 +54,10 @@ static void delayPreciesly(int *currentTime, int maxTime, int incrementBy) {
  * decays by a fixed scalar, decayScalar. r,g,b are ints, meaning all values
  * are truncated automatically. There are no value contraints past those of int.
  *
- * @param {int*} r Pointer to a red value scaled by decayScalar.
- * @param {int*} g Pointer to a green value scaled by decayScalar.
- * @param {int*} b Pointer to a blue value scaled by decayScalar.
- * @param {float} decayScalar Scales r,g,b with no constraints.
+ * @param r Pointer to a red value scaled by decayScalar.
+ * @param g Pointer to a green value scaled by decayScalar.
+ * @param b Pointer to a blue value scaled by decayScalar.
+ * @param decayScalar Scales r,g,b with no constraints.
  */
 static void decay(int *r, int *g, int *b, float decayScalar) {
     *r *= decayScalar;
@@ -71,10 +71,10 @@ static void decay(int *r, int *g, int *b, float decayScalar) {
  * Scales up r,g,b, but with a cap of EYE_MAX. Cap is based on the limits of
  * the uint8_t type, but handled as an int to allow saturation.
  *
- * @param {int*} r Pointer to a red value modified by adding amountToBumpBy.
- * @param {int*} g Pointer to a green value modified by adding amountToBumpBy.
- * @param {int*} b Pointer to a blue value modified by adding amountToBumpBy.
- * @param {int} amountToBumpBy Value to add to and potentially saturate r,g,b by
+ * @param r Pointer to a red value modified by adding amountToBumpBy.
+ * @param g Pointer to a green value modified by adding amountToBumpBy.
+ * @param b Pointer to a blue value modified by adding amountToBumpBy.
+ * @param amountToBumpBy Value to add to and potentially saturate r,g,b by
  */
 static void bump(int *r, int *g, int *b, int amountToBumpBy) {
     const int limit = EYE_MAX; // The value to not be exceeded by bumping.
@@ -95,8 +95,8 @@ static void bump(int *r, int *g, int *b, int amountToBumpBy) {
 /**
  * Converts the specified integer representing seconds to milliseconds.
  *
- * @param {int} seconds The number of seconds to convert to milliseconds.
- * @returns {int} Specified seconds converted to milliseconds.
+ * @param seconds The number of seconds to convert to milliseconds.
+ * @returns Specified seconds converted to milliseconds.
  */
 static int convertToMilliseconds(int seconds) {
     return seconds * 1000;
@@ -107,7 +107,7 @@ static int convertToMilliseconds(int seconds) {
 /**
  * Runs a police light effect for the duration specified.
  *
- * @param {int} duration The time in seconds to run the police lights for.
+ * @param duration The time in seconds to run the police lights for.
  */
 void lightEffectPolice(int duration) {
     const int waitTime = 250;
@@ -140,7 +140,7 @@ void lightEffectPolice(int duration) {
 /**
  * Produces a Twinkling Effect that's very blue and white heavy, like a discoball
  *
- * @param {int} duration The duration of the disco effect in seconds.
+ * @param duration The duration of the disco effect in seconds.
  */
 void lightEffectDisco(int duration) {
     const int waitTime = 125;
@@ -168,7 +168,7 @@ void lightEffectDisco(int duration) {
  * Produces a gradual change of a rainbow-like effect, cycling through 
  * all colors over about 3 seconds.
  *
- * @param {int} duration The duration of the rainbow effect in seconds.
+ * @param duration The duration of the rainbow effect in seconds.
  */
 void lightEffectRainbow(int duration) {
     const int waitTime = 4;   // The time in milliseconds between update loops
@@ -217,7 +217,7 @@ void lightEffectRainbow(int duration) {
  * Creates a diminishing flickering color in each eye semi-randomly.
  * Feature consideration: const array of predictable eye patterns instead of random.
  *
- * @param {int} duration The duration of the firework effect in seconds.
+ * @param duration The duration of the firework effect in seconds.
  */
 void lightEffectFireworks(int duration) {
     const int waitTime = 3;           // MS delay between effect ticks.
