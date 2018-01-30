@@ -3,12 +3,14 @@
 #include "WinkHardware.hpp"
 #include <Adafruit_NeoPixel.h>
 
-// Defines
+// Eye positioning
 #define EYE_LEFT  0
 #define EYE_RIGHT 1
-#define EYE_NUMBER 2
-#define BYTE_MIN 0
-#define BYTE_MAX 255
+#define EYE_COUNT 2
+
+// Numeric limits
+#define EYE_MIN 0
+#define EYE_MAX 255
 
 
 
@@ -68,7 +70,7 @@ static void decay(int *r, int *g, int *b, float decayScalar) {
 
 
 /**
- * Scales up r,g,b, but with a cap of BYTE_MAX. Cap is based on the limits of
+ * Scales up r,g,b, but with a cap of EYE_MAX. Cap is based on the limits of
  * the uint8_t type, but handled as an int to allow saturation.
  *
  * @param {int*} r Pointer to a red value modified by adding amountToBumpBy.
@@ -77,7 +79,7 @@ static void decay(int *r, int *g, int *b, float decayScalar) {
  * @param {int} amountToBumpBy Value to add to and potentially saturate r,g,b by
  */
 static void bump(int *r, int *g, int *b, int amountToBumpBy) {
-    const int limit = BYTE_MAX; // The value to not be exceeded by bumping.
+    const int limit = EYE_MAX; // The value to not be exceeded by bumping.
     const int minimum = 12;     // Arbitrary. Currently tuned to be ~5% of limit.
 
     if(*r > minimum)
@@ -175,29 +177,29 @@ void lightEffectRainbow(int duration) {
     unsigned int runtime = 0; // The amount of time run so far.
 
     // Eye coloring
-    int r = BYTE_MAX;
-    int g = BYTE_MIN;
-    int b = BYTE_MIN;
+    int r = EYE_MAX;
+    int g = EYE_MIN;
+    int b = EYE_MIN;
     
     // Cascade through r->g->b so long as duration is not exceeded.
     eyesOff();
     duration = convertToMilliseconds(duration);
     while(runtime < duration || duration <= 0) {
         
-        if(r == BYTE_MAX) {
-            if(b == BYTE_MIN)
+        if(r == EYE_MAX) {
+            if(b == EYE_MIN)
                 ++g;
             else
                 --b;
         }
-        if(g == BYTE_MAX) {
-            if(r == BYTE_MIN)
+        if(g == EYE_MAX) {
+            if(r == EYE_MIN)
                 ++b;
             else
                 --r;
         }
-        if(b == BYTE_MAX) {
-            if(g == BYTE_MIN)
+        if(b == EYE_MAX) {
+            if(g == EYE_MIN)
                 ++r;
             else
                 --g;
@@ -227,8 +229,8 @@ void lightEffectFireworks(int duration) {
     unsigned int runtime = 0;         // time this has gone for, approximately MS.
 
     // Left and right RGB s for fiddling later.
-    int leftR = BYTE_MIN, leftG = BYTE_MIN, leftB = BYTE_MIN;
-    int rightR = BYTE_MIN, rightG = BYTE_MIN, rightB = BYTE_MIN;
+    int leftR = EYE_MIN, leftG = EYE_MIN, leftB = EYE_MIN;
+    int rightR = EYE_MIN, rightG = EYE_MIN, rightB = EYE_MIN;
 
     // create diminishing flickering color per each eye, randomly.
     eyesOff();
@@ -236,17 +238,19 @@ void lightEffectFireworks(int duration) {
     while(runtime < duration || duration <= 0) {
 
         // If our wait time is up, choose an eye and create new firework.
-        if(delayForFirework <= 0)
+        if(delayForFirework <= 0Eye positioning
         {
             // Set one eye randomly
-            if(random(EYE_NUMBER) == EYE_LEFT) {
-                leftR = constrain(leftR + randomSpread(120, 100), BYTE_MIN, BYTE_MAX); 
-                leftG = constrain(leftG + randomSpread(120, 100), BYTE_MIN, BYTE_MAX);
-                leftB = constrain(leftB + randomSpread(120, 100), BYTE_MIN, BYTE_MAX);
+            if(random(EYE_COUNT) == EYE_LEFT) {
+
+// Numeric limits
+                leftR = constrain(leftR + randomSpread(120, 100), EYE_MIN, EYE_MAX); 
+                leftG = constrain(leftG + randomSpread(120, 100), EYE_MIN, EYE_MAX);
+                leftB = constrain(leftB + randomSpread(120, 100), EYE_MIN, EYE_MAX);
             } else {
-                rightR = constrain(rightR + randomSpread(120, 100), BYTE_MIN, BYTE_MAX); 
-                rightG = constrain(rightG + randomSpread(120, 100), BYTE_MIN, BYTE_MAX); 
-                rightB = constrain(rightB + randomSpread(120, 100), BYTE_MIN, BYTE_MAX);
+                rightR = constrain(rightR + randomSpread(120, 100), EYE_MIN, EYE_MAX); 
+                rightG = constrain(rightG + randomSpread(120, 100), EYE_MIN, EYE_MAX); 
+                rightB = constrain(rightB + randomSpread(120, 100), EYE_MIN, EYE_MAX);
             }
 
             // Reassign next wait time.
