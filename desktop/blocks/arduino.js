@@ -8,11 +8,11 @@ goog.require('Blockly.Blocks');
  * @type {{init: Blockly.Blocks.hardwarestartup.init}}
  */
 Blockly.Blocks['hardwarestartup_arduino'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
-          .appendField(Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1);
+            .appendField(Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1);
         this.appendStatementInput("do")
-          .setCheck(null);
+            .setCheck(null);
         this.setColour(330);
         this.setTooltip(Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL);
@@ -22,7 +22,7 @@ Blockly.Blocks['hardwarestartup_arduino'] = {
 //region TIME
 
 Blockly.Blocks['delayms'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.DELAYMS_FIELD_1);
         this.appendValueInput("IN_MILLISECONDS")
@@ -38,7 +38,7 @@ Blockly.Blocks['delayms'] = {
 };
 
 Blockly.Blocks['delaymicroseconds'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_1);
         this.appendValueInput("MICROSECONDS")
@@ -54,7 +54,7 @@ Blockly.Blocks['delaymicroseconds'] = {
 };
 
 Blockly.Blocks['milliseconds'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.MILLISECONDS_FIELD_1);
         this.setOutput(true, "Number");
@@ -65,7 +65,7 @@ Blockly.Blocks['milliseconds'] = {
 };
 
 Blockly.Blocks['microseconds'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.MICROSECONDS_FIELD_1);
         this.setOutput(true, "Number");
@@ -78,7 +78,7 @@ Blockly.Blocks['microseconds'] = {
 
 //region PINS
 Blockly.Blocks['pininput'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.PININPUT_FIELD_1);
         this.appendValueInput("PIN")
@@ -114,7 +114,7 @@ Blockly.Blocks['digitalwrite'] = {
 };
 
 Blockly.Blocks['digital_read'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.DIGITAL_READ_FIELD_1);
         this.appendValueInput("PIN")
@@ -130,7 +130,7 @@ Blockly.Blocks['digital_read'] = {
 
 //region CONSTANTS
 Blockly.Blocks['high'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.HIGH_FIELD_1);
         this.setOutput(true, "Number");
@@ -142,7 +142,7 @@ Blockly.Blocks['high'] = {
 
 
 Blockly.Blocks['low'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.LOW_FIELD_1);
         this.setOutput(true, "Number");
@@ -153,7 +153,7 @@ Blockly.Blocks['low'] = {
 };
 
 Blockly.Blocks['led_builtin'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.LED_BUILTIN_FIELD_1);
         this.setOutput(true, "Number");
@@ -167,7 +167,7 @@ Blockly.Blocks['led_builtin'] = {
 
 //region ANALOG I/O
 Blockly.Blocks['analog_reference'] = {
-    init: function() {
+    init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.ANALOG_REFERENCE_FIELD_1)
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1, "DEFAULT"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_2, "EXTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_3, "INTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_4, "INTERNAL1V1"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_5, "INTERNAL2V56"]]), "TYPE");
@@ -181,7 +181,7 @@ Blockly.Blocks['analog_reference'] = {
 };
 
 Blockly.Blocks['analog_read'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("PIN")
             .setCheck("Number")
             .appendField(Blockly.Msg.ANALOG_READ_FIELD_1);
@@ -194,7 +194,7 @@ Blockly.Blocks['analog_read'] = {
 };
 
 Blockly.Blocks['analog_write'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
             .appendField(Blockly.Msg.ANALOG_WRITE_FIELD_1);
@@ -362,7 +362,7 @@ Blockly.Blocks['low_byte'] = {
 
 //region ADVANCED I/O
 Blockly.Blocks['tone_pin_freq'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("FREQUENCY")
             .setCheck("Number")
             .appendField(Blockly.Msg.TONE_PIN_FREQ_FIELD_1);
@@ -379,7 +379,7 @@ Blockly.Blocks['tone_pin_freq'] = {
 };
 
 Blockly.Blocks['tone_pin_freq_duration'] = {
-    init: function() {
+    init: function () {
         this.appendValueInput("FREQUENCY")
             .setCheck("Number")
             .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1);
@@ -397,6 +397,138 @@ Blockly.Blocks['tone_pin_freq_duration'] = {
         this.setColour(120);
         this.setTooltip(Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TONE_PIN_FREQ_DURATION_HELP_URL);
+    }
+};
+
+Blockly.Blocks['advanced_io_pulse_in'] = {
+    init: function () {
+        this.appendValueInput('PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_PULSE_IN)
+            .appendField(Blockly.Msg.PIN);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, 'HIGH'], [Blockly.Msg.LOW, 'LOW']]), 'VALUE');
+        this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_HELP_URL);
+        this.setColour(120);
+        this.setOutput(true, 'Number');
+    }
+};
+
+Blockly.Blocks['advanced_io_pulse_in_timeout'] = {
+    init: function () {
+        this.appendValueInput('PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_PULSE_IN)
+            .appendField(Blockly.Msg.PIN);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, 'HIGH'], [Blockly.Msg.LOW, 'LOW']]), 'VALUE')
+        this.appendValueInput('TIMEOUT')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.TIMEOUT);
+        this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_HELP_URL);
+        this.setColour(120);
+        this.setOutput(true, 'Number');
+    }
+};
+
+Blockly.Blocks['advanced_io_pulse_in_long'] = {
+    init: function () {
+        this.appendValueInput('PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG)
+            .appendField(Blockly.Msg.PIN);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, 'HIGH'], [Blockly.Msg.LOW, 'LOW']]), 'VALUE')
+        this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL);
+        this.setColour(120);
+        this.setOutput(true, 'Number');
+    }
+};
+Blockly.Blocks['advanced_io_pulse_in_long_timeout'] = {
+    init: function () {
+        this.appendValueInput('PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG)
+            .appendField(Blockly.Msg.PIN);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, 'HIGH'], [Blockly.Msg.LOW, 'LOW']]), 'VALUE')
+        this.appendValueInput('TIMEOUT')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.TIMEOUT);
+        this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL);
+        this.setColour(120);
+        this.setOutput(true, 'Number');
+    }
+};
+Blockly.Blocks['advanced_io_shift_in'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.ADVANCED_IO_SHIFT_IN);
+        this.appendValueInput('DATA_PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_DATA_PIN);
+        this.appendValueInput('CLOCK_PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_CLOCK_PIN);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.ADVANCED_IO_BIT_ORDER )
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ADVANCED_IO_LEAST_SIGNIFICANT_BIT_FIRST, 'LSBFIRST'], [Blockly.Msg.ADVANCED_IO_BIT_FIRST, 'MSBFIRST']]), 'BIT_ORDER');
+        this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL);
+        this.setColour(120);
+        this.setInputsInline(false);
+        this.setOutput(true, 'Number');
+    }
+};
+Blockly.Blocks['advanced_io_shift_out'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.ADVANCED_IO_SHIFT_OUT);
+        this.appendValueInput('DATA_PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_DATA_PIN);
+        this.appendValueInput('CLOCK_PIN')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ADVANCED_IO_CLOCK_PIN);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ADVANCED_IO_LEAST_SIGNIFICANT_BIT_FIRST, 'LSBFIRST'], [Blockly.Msg.ADVANCED_IO_BIT_FIRST, 'MSBFIRST']]), 'BIT_ORDER');
+        this.appendValueInput('VALUE')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.VALUE);
+        this.setTooltip(Blockly.Msg.ADVANCED_IO_SHIFT_OUT_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.ADVANCED_IO_SHIFT_OUT_HELP_URL);
+        this.setColour(120);
+        this.setInputsInline(false);
+        this.setOutput(true, 'Number');
+    }
+};
+//endregion
+
+//region MATH
+Blockly.Blocks['arduino_math_map'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.ARDUINO_MATH_MAP);
+        this.appendValueInput('VALUE')
+            .setCheck('Number');
+        this.appendValueInput('FROM_LOW')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ARDUINO_MATH_MAP_FROM_LOW);
+        this.appendValueInput('FROM_HIGH')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ARDUINO_MATH_MAP_FROM_HIGH);
+        this.appendValueInput('TO_LOW')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ARDUINO_MATH_MAP_TO_LOW);
+        this.appendValueInput('TO_HIGH')
+            .setCheck('Number')
+            .appendField(Blockly.Msg.ARDUINO_MATH_MAP_TO_HIGH);
+        this.setColour(120);
+        this.setOutput(true, 'Number');
     }
 };
 //endregion
