@@ -7,8 +7,6 @@
 #define EYE_LEFT  0
 #define EYE_RIGHT 1
 #define EYE_COUNT 2
-
-// Numeric limits
 #define EYE_MIN 0
 #define EYE_MAX 255
 
@@ -237,13 +235,9 @@ void lightEffectFireworks(int duration) {
     duration = convertToMilliseconds(duration);
     while(runtime < duration || duration <= 0) {
 
-        // If our wait time is up, choose an eye and create new firework.
-        if(delayForFirework <= 0Eye positioning
-        {
-            // Set one eye randomly
+        // If our wait time is up, choose an eye randomly and create new firework.
+        if(delayForFirework <= 0) {
             if(random(EYE_COUNT) == EYE_LEFT) {
-
-// Numeric limits
                 leftR = constrain(leftR + randomSpread(120, 100), EYE_MIN, EYE_MAX); 
                 leftG = constrain(leftG + randomSpread(120, 100), EYE_MIN, EYE_MAX);
                 leftB = constrain(leftB + randomSpread(120, 100), EYE_MIN, EYE_MAX);

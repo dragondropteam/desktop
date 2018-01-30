@@ -42,7 +42,7 @@ class ExploringWinkRobotProjectManager extends BaseProjectManager {
         this.migrateMetaAndProjectType(loadedProject);
 
         if (loadedProject.loadedProject.meta.version === 1) {
-            console.log('1 => 2\n Update meta to include board');
+            console.log('1 => 2\n  - Update meta to include board');
             loadedProject.loadedProject.meta.board = 'Arduino Fio';
             loadedProject.loadedProject.meta.version++;
         }
@@ -60,10 +60,6 @@ class ExploringWinkRobotProjectManager extends BaseProjectManager {
                 console.log('WinkHardware.ino deleted');
                 fs.removeSync(loadedProject.getFileInProjectDir('WinkHardware.h'));
                 console.log('WinkHardware.h deleted');
-                fs.removeSync(loadedProject.getFileInProjectDir('DragonDrop.ino'));
-                console.log('WinkHardware.ino deleted');
-                fs.removeSync(loadedProject.getFileInProjectDir('DragonDrop.h'));
-                console.log('WinkHardware.h deleted');
                 fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
                 console.log('.h updated to .hpp');
                 loadedProject.loadedProject.meta.version++;
@@ -72,6 +68,20 @@ class ExploringWinkRobotProjectManager extends BaseProjectManager {
             }
         }
 
+        //Update WinkHardware.hpp and add in the custom DragonDrop.ino and DragonDrop.hpp files
+        if (loadedProject.loadedProject.meta.version === 3) {
+            console.log('3 => 4\n  - Remove then update old WinkHardware.hpp\n  - Copy in DragonDrop.ino and DragonDrop.hpp');
+
+            try {
+                fs.removeSync(loadedProject.getFileInProjectDir('WinkHardware.hpp'));
+                console.log('WinkHardware.hpp deleted');
+                fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
+                console.log('WinkHardware.hpp updated and new files copied over.');
+                loadedProject.loadedProject.meta.version++;
+            } catch (err) {
+                return console.error(err);
+            }
+        }
         this.saveProject(loadedProject);
     }
 
