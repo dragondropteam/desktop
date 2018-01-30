@@ -36,3 +36,9 @@ Blockly.C['setrightrgb_icon'] = Blockly.C['setrightrgb'];
 Blockly.C['set_left_eye_icon'] = Blockly.C['set_left_eye'];
 Blockly.C['set_right_eye_icon'] = Blockly.C['set_right_eye'];
 Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
+
+
+Blockly.C['sensors_line_follow_icon'] = function(block) {
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    return `followBlackLine( ${duration} );\n`;
+};

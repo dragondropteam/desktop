@@ -677,3 +677,17 @@ Blockly.Blocks['set_eyes_icon'] = {
     }
 };
 
+Blockly.Blocks['sensors_line_follow_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'LineFollowing.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
