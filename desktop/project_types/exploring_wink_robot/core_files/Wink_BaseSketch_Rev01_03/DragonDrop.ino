@@ -6,19 +6,35 @@
 // Defines
 #define EYE_LEFT  0
 #define EYE_RIGHT 1
+#define EYE_NUMBER 2
+#define BYTE_MIN 0
+#define BYTE_MAX 255
 
 
 
-// Returns an int that is based on the central number, 
-// plus or minus the range provided. Not clamped at all.
-static int rRange(int centralNumber, int range) {
-    return random(centralNumber - range, centralNumber + range);
+/**
+ * Picks a int within specified spread of the center. 
+ * Not clamped at all, and will not function with negatives.
+ *
+ * @param {int} center Center of the random number range.
+ * @param {int} spread Amount random value must be within Center.
+ * @returns {int} Random int within specified spread of the center.
+ */
+static int randomSpread(int center, int spread) {
+    return random(center - spread, center + spread);
 }
 
 
-// Delays a specific ammount and does not exceed it.
-// If max is 0, we don't bother counting, we just delay by amt.
-// MODIFIES INPUTS: curr
+
+/**
+ * If there is a max, delays a specific ammount and does not exceed it.
+ * If max is 0, we don't bother counting, we just delay by incrementBy.
+ * This function is blocking.
+ *
+ * @param {int*} currentTime Pointer to the current time value that is modified.
+ * @param {int} g Limit of the currentTime value, not to be exceeded.
+ * @param {int} incrementBy The pointer to a blue value scaled by decayScalar.
+ */
 static void delayPreciesly(int *currentTime, int maxTime, int incrementBy) {
     if(maxTime > 0) {
         if(*currentTime + incrementBy > maxTime)
@@ -33,9 +49,16 @@ static void delayPreciesly(int *currentTime, int maxTime, int incrementBy) {
 }
 
 
-// Decays by a fixed . On account of int truncation, 
-// any s will cut off at zero.
-// MODIFIES INPUTS: r g b
+
+/**
+ * decays by a fixed scalar, decayScalar. r,g,b are ints, meaning all values
+ * are truncated automatically. There are no value contraints past those of int.
+ *
+ * @param {int*} r Pointer to a red value scaled by decayScalar.
+ * @param {int*} g Pointer to a green value scaled by decayScalar.
+ * @param {int*} b Pointer to a blue value scaled by decayScalar.
+ * @param {float} decayScalar Scales r,g,b with no constraints.
+ */
 static void decay(int *r, int *g, int *b, float decayScalar) {
     *r *= decayScalar;
     *g *= decayScalar;
@@ -43,25 +66,49 @@ static void decay(int *r, int *g, int *b, float decayScalar) {
 }
 
 
-// Scales up s of r/g/b, but with a cap of 255. Cap adjustable in code.
-// MODIFIES INPUTS: r g b
+
+/**
+ * Scales up r,g,b, but with a cap of BYTE_MAX. Cap is based on the limits of
+ * the uint8_t type, but handled as an int to allow saturation.
+ *
+ * @param {int*} r Pointer to a red value modified by adding amountToBumpBy.
+ * @param {int*} g Pointer to a green value modified by adding amountToBumpBy.
+ * @param {int*} b Pointer to a blue value modified by adding amountToBumpBy.
+ * @param {int} amountToBumpBy Value to add to and potentially saturate r,g,b by
+ */
 static void bump(int *r, int *g, int *b, int amountToBumpBy) {
-    const int limit = 255; 
-    const int minimum = 12;
+    const int limit = BYTE_MAX; // The value to not be exceeded by bumping.
+    const int minimum = 12;     // Arbitrary. Currently tuned to be ~5% of limit.
 
     if(*r > minimum)
-        *r = constrain(*r + amountToBumpBy, 0, limit);
+        *r = constrain(*r + amountToBumpBy, minimum, limit);
 
     if(*g > minimum)
-        *g = constrain(*g + amountToBumpBy, 0, limit);
+        *g = constrain(*g + amountToBumpBy, minimum, limit);
 
     if(*b > minimum)
-        *b = constrain(*b + amountToBumpBy, 0, limit);
+        *b = constrain(*b + amountToBumpBy, minimum, limit);
 }
 
 
-// Runs a police effect for exactly the duration specififed, 
-// error is time to switch between light states.
+
+/**
+ * Converts the specified integer representing seconds to milliseconds.
+ *
+ * @param {int} seconds The number of seconds to convert to milliseconds.
+ * @returns {int} Specified seconds converted to milliseconds.
+ */
+static int convertToMilliseconds(int seconds) {
+    return seconds * 1000;
+}
+
+
+
+/**
+ * Runs a police light effect for the duration specified.
+ *
+ * @param {int} duration The time in seconds to run the police lights for.
+ */
 void lightEffectPolice(int duration) {
     const int waitTime = 250;
     unsigned int runtime = 0;
@@ -69,7 +116,7 @@ void lightEffectPolice(int duration) {
 
     // Run until duration exceeded, or forever if duration is <= 0.
     eyesOff();
-    duration *= 1000;
+    duration = convertToMilliseconds(duration);
     while(runtime < duration || duration <= 0) {    
 
         // Alternate lights
@@ -89,21 +136,26 @@ void lightEffectPolice(int duration) {
 }
 
 
-// Twinkling Effect
+
+/**
+ * Produces a Twinkling Effect that's very blue and white heavy, like a discoball
+ *
+ * @param {int} duration The duration of the disco effect in seconds.
+ */
 void lightEffectDisco(int duration) {
     const int waitTime = 125;
     unsigned int runtime = 0;
 
     // Choose some vaguely blue-ish disco colors randomly
     eyesOff();
-    duration *= 1000;
+    duration = convertToMilliseconds(duration);
     while(runtime < duration || duration <= 0) {
 
         // Choose an eye to make 'twinkle'
-        if(random(2) == 0) 
-            leftEye(rRange(100, 70), rRange(150, 100), rRange(200, 40));
+        if(random(2) == EYE_LEFT) 
+            leftEye(randomSpread(100, 70), randomSpread(150, 100), randomSpread(200, 40));
         else 
-            rightEye(rRange(100, 70), rRange(150, 100), rRange(200, 40));
+            rightEye(randomSpread(100, 70), randomSpread(150, 100), randomSpread(200, 40));
         
         // Update duration
         delayPreciesly(&runtime, duration, waitTime);
@@ -111,34 +163,41 @@ void lightEffectDisco(int duration) {
 }
 
 
-// Produces a gradual change of a rainbow-like effect, cycling through 
-// all colors over about 3 seconds.
+
+/**
+ * Produces a gradual change of a rainbow-like effect, cycling through 
+ * all colors over about 3 seconds.
+ *
+ * @param {int} duration The duration of the rainbow effect in seconds.
+ */
 void lightEffectRainbow(int duration) {
-    const int waitTime = 4;
-    unsigned int runtime = 0;
-    int r = 255;
-    int g = 0; 
-    int b = 0;
+    const int waitTime = 4;   // The time in milliseconds between update loops
+    unsigned int runtime = 0; // The amount of time run so far.
+
+    // Eye coloring
+    int r = BYTE_MAX;
+    int g = BYTE_MIN;
+    int b = BYTE_MIN;
     
     // Cascade through r->g->b so long as duration is not exceeded.
     eyesOff();
-    duration *= 1000;
+    duration = convertToMilliseconds(duration);
     while(runtime < duration || duration <= 0) {
         
-        if(r == 255) {
-            if(b == 0)
+        if(r == BYTE_MAX) {
+            if(b == BYTE_MIN)
                 ++g;
             else
                 --b;
         }
-        if(g == 255) {
-            if(r == 0)
+        if(g == BYTE_MAX) {
+            if(r == BYTE_MIN)
                 ++b;
             else
                 --r;
         }
-        if(b == 255) {
-            if(g == 0)
+        if(b == BYTE_MAX) {
+            if(g == BYTE_MIN)
                 ++r;
             else
                 --g;
@@ -153,8 +212,13 @@ void lightEffectRainbow(int duration) {
 }
 
 
-// Creates a diminishing flickering color in each eye semi-randomly.
-// Consider: const array of predictable eye patterns instead of random.
+
+/**
+ * Creates a diminishing flickering color in each eye semi-randomly.
+ * Feature consideration: const array of predictable eye patterns instead of random.
+ *
+ * @param {int} duration The duration of the firework effect in seconds.
+ */
 void lightEffectFireworks(int duration) {
     const int waitTime = 3;           // MS delay between effect ticks.
     const int flickerBumpAmount = 30; // Amount of 'flicker' the fireworks have.
@@ -163,30 +227,30 @@ void lightEffectFireworks(int duration) {
     unsigned int runtime = 0;         // time this has gone for, approximately MS.
 
     // Left and right RGB s for fiddling later.
-    int leftR = 0, leftG = 0, leftB = 0;
-    int rightR = 0, rightG = 0, rightB = 0;
+    int leftR = BYTE_MIN, leftG = BYTE_MIN, leftB = BYTE_MIN;
+    int rightR = BYTE_MIN, rightG = BYTE_MIN, rightB = BYTE_MIN;
 
     // create diminishing flickering color per each eye, randomly.
     eyesOff();
-    duration *= 1000;
+    duration = convertToMilliseconds(duration);
     while(runtime < duration || duration <= 0) {
 
         // If our wait time is up, choose an eye and create new firework.
         if(delayForFirework <= 0)
         {
             // Set one eye randomly
-            if(random(2) == 0) {
-                leftR = constrain(leftR + rRange(120, 100), 0, 255); 
-                leftG = constrain(leftG + rRange(120, 100), 0, 255);
-                leftB = constrain(leftB + rRange(120, 100), 0, 255);
+            if(random(EYE_NUMBER) == EYE_LEFT) {
+                leftR = constrain(leftR + randomSpread(120, 100), BYTE_MIN, BYTE_MAX); 
+                leftG = constrain(leftG + randomSpread(120, 100), BYTE_MIN, BYTE_MAX);
+                leftB = constrain(leftB + randomSpread(120, 100), BYTE_MIN, BYTE_MAX);
             } else {
-                rightR = constrain(rightR + rRange(120, 100), 0, 255); 
-                rightG = constrain(rightG + rRange(120, 100), 0, 255); 
-                rightB = constrain(rightB + rRange(120, 100), 0, 255);
+                rightR = constrain(rightR + randomSpread(120, 100), BYTE_MIN, BYTE_MAX); 
+                rightG = constrain(rightG + randomSpread(120, 100), BYTE_MIN, BYTE_MAX); 
+                rightB = constrain(rightB + randomSpread(120, 100), BYTE_MIN, BYTE_MAX);
             }
 
             // Reassign next wait time.
-            delayForFirework = rRange(300, 280);
+            delayForFirework = randomSpread(300, 280);
         }
 
         // Slowly fade out
