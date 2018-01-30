@@ -1,6 +1,6 @@
 #ifndef DRAGONDROP_H
 #define DRAGONDROP_H
 
-extern void followBlackLine(void);
+extern void sensorLineFollow(void);
 
 #endif

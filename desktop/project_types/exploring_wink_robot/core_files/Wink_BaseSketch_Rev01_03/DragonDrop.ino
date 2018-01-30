@@ -5,10 +5,10 @@
 
 
 
-// Global variables
-double leftOuter, leftInner, rightInner, rightOuter;  
-int displayDelay = 0;
-const int displayDelayReset = 4;
+// Global, file-specific variables
+static double leftOuter, leftInner, rightInner, rightOuter;  
+static int displayDelay = 0;
+static const int displayDelayReset = 4;
 
 
 
@@ -76,7 +76,10 @@ static void readLines(void){ // Via http://www.plumgeek.com/learn-to-code.html
 
 
 
-static void hackyDisplayOutput(void) {
+/**
+ * Displays in the serial output the sensor information as both a graph and 
+ */
+static void displaySensorOutput(void) {
   const int scalarBar = 100;
   for(int i = 0; i < 15; ++i) 
     Serial.println();
@@ -102,7 +105,7 @@ static void hackyDisplayOutput(void) {
 
 
 
-void followBlackLine(int duration){
+void sensorLineFollow(int duration){
   // NOTE: The lower limit seems to be 30 or so.
   // Radius 1 inch max: 50
   // Tuning speed: 40
@@ -116,11 +119,14 @@ void followBlackLine(int duration){
   const double scaleOuter = 1.0;
   
   readLines();
-  if(displayDelay-- <= 0)
-    hackyDisplayOutput();
 
-  leftRGB(0, scaleForSensor(leftInner), scaleForSensor(leftOuter));
-  rightRGB(0, scaleForSensor(rightInner), scaleForSensor(rightOuter));
+  //// Debug graphs
+  // if(displayDelay-- <= 0)
+  // displaySensorOutput();
+
+  //// Debug visuals
+  //leftRGB(0, scaleForSensor(leftInner), scaleForSensor(leftOuter));
+  //rightRGB(0, scaleForSensor(rightInner), scaleForSensor(rightOuter));
 
   motors(scaleForMotor((leftOuter * weightOuter * scaleOuter + leftInner * weightInner * scaleInner) / 2, speedOfMovement)
        , scaleForMotor((rightOuter * weightOuter  * scaleOuter+ rightInner * weightInner * scaleInner) / 2, speedOfMovement));

@@ -40,5 +40,5 @@ Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
 
 Blockly.C['sensors_line_follow_icon'] = function(block) {
     const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
-    return `followBlackLine( ${duration} );\n`;
+    return `sensorLineFollow( ${duration} );\n`;
 };
