@@ -28,7 +28,6 @@ Visit http://www.arduino.cc to learn about the Arduino.
 #include "DragonDrop.hpp" // Include our stuff here
 #include <Adafruit_NeoPixel.h>
 
-
 // ***************************************************
 // Pin defines
 // ***************************************************

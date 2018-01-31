@@ -209,3 +209,4 @@ Blockly.C.scrub_ = function (block, code) {
     let nextCode = Blockly.C.blockToCode(nextBlock);
     return commentCode + code + nextCode;
 };
+
