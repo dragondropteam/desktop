@@ -3,12 +3,131 @@
 #include "WinkHardware.hpp"
 #include <Adafruit_NeoPixel.h>
 
-// Eye positioning
+// Defines
 #define EYE_LEFT  0
 #define EYE_RIGHT 1
 #define EYE_COUNT 2
 #define EYE_MIN 0
 #define EYE_MAX 255
+#define LIGHT_SENSOR_MAX 1000.0
+#define LIGHT_SENSOR_MIN 0
+
+
+// Global, file-specific variables
+static double leftOuter, leftInner, rightInner, rightOuter;  
+static int displayDelay = 0;
+static const int displayDelayReset = 4;
+
+
+
+/**
+ * Scales the provided light sensor value to display visible for an eye.
+ * 
+ * @returns a constraned value between EYE_MIN and EYE_MAX for debug output of light sensors.
+ */
+static int scaleLightSensorForEyes(int toScale)
+{
+  return constrain(((1.0 / (double)toScale) * EYE_MAX) * 15, EYE_MIN, EYE_MAX);
+}
+
+
+
+/**
+ * Scale light sensor information for the motors to be applied.
+ *
+ * @param sensorInput The value read from the sensor. Capped at LIGHT_SENSOR_MAX
+ * @param motorMaxSpeed The speed to scale to 
+ */
+static int scaleLightSensorForMotor(double sensorInput, int motorMaxSpeed)
+{
+  double unscaledSpeedValue = 0; 
+  if(sensorInput > LIGHT_SENSOR_MAX)
+    sensorInput = LIGHT_SENSOR_MAX;
+
+  unscaledSpeedValue = (double)sensorInput / LIGHT_SENSOR_MAX;;
+  unscaledSpeedValue *= motorMaxSpeed; // max motor value
+  return unscaledSpeedValue;
+}
+
+
+
+/**
+ * Reads sensor values into global values. 
+ * Code via http://www.plumgeek.com/learn-to-code.html
+ */
+static void readLines(void){
+  
+  //declare "local" variables, which are only used inside this function
+  int leftLineSensorValueOff, rightLineSensorValueOff; 
+
+  //make sure all bottom IR light sources are off before we begin
+  digitalWrite(LineLeftOuter,LOW);       
+  digitalWrite(LineRightOuter,LOW);
+  digitalWrite(LineLeftInner,LOW);                  
+  digitalWrite(LineRightInner,LOW);
+  delayMicroseconds(500);                //short delay to allow sensors to stabalize to new light levels
+
+  //measure sensors with IR light sources turned off
+  leftLineSensorValueOff=analogRead(LineSenseLeft);
+  rightLineSensorValueOff=analogRead(LineSenseRight);
+
+  //turn on the outer light sources, then re-read the sensors
+  digitalWrite(LineLeftOuter,HIGH);      //turn on outer IR light sources
+  digitalWrite(LineRightOuter,HIGH);  
+  delayMicroseconds(500);                //short delay to allow sensors to stabalize to new light levels
+
+  //measure with outers on, subtract out the dark readings from above
+  leftOuter = analogRead(LineSenseLeft)-leftLineSensorValueOff;
+  rightOuter = analogRead(LineSenseRight)-rightLineSensorValueOff;
+
+  //turn off outer light sources, turn on inner light sources, then re-read the sensors
+  digitalWrite(LineLeftOuter,LOW);       //turn off outer IR light sources
+  digitalWrite(LineRightOuter,LOW);
+  digitalWrite(LineLeftInner,HIGH);      //turn on inner IR light sources
+  digitalWrite(LineRightInner,HIGH);
+  delayMicroseconds(500);                //short delay to allow sensors to stabalize to new light levels
+
+  //measure with inners on, subtract out the dark readings from above
+  leftInner = analogRead(LineSenseLeft)-leftLineSensorValueOff;
+  rightInner = analogRead(LineSenseRight)-rightLineSensorValueOff;
+
+  //turn inner light sources back off
+  digitalWrite(LineLeftInner,LOW);      //turn off inner IR light sources
+  digitalWrite(LineRightInner,LOW);  
+
+}
+
+
+
+/**
+ * Displays in the serial output the sensor information as both a graph and number.
+ * Used for debug output with serial output.
+ */
+static void displayLightSensorOutput(void) {
+  const int scalarBar = 100;
+  for(int i = 0; i < 15; ++i) 
+    Serial.println();
+
+  // Draw graph
+  for(int i = 0; i < 10; ++i)
+  {
+    int iterThreshold = (10 - i) * scalarBar;
+    if(leftOuter > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
+    if(leftInner > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
+    if(rightInner > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
+    if(rightOuter > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
+    Serial.print("\n");
+  }
+  
+  // Print out numbers
+  Serial.println("l_out, l_inn, r_inn, r_out");
+  Serial.print(leftOuter);Serial.print("\t");
+  Serial.print(leftInner);Serial.print("\t");
+  Serial.print(rightInner);Serial.print("\t");
+  Serial.println(rightOuter);
+
+  displayDelay = displayDelayReset;
+}
 
 
 
@@ -275,108 +394,14 @@ void lightEffectFireworks(int duration) {
 }
 
 
-// Global, file-specific variables
-static double leftOuter, leftInner, rightInner, rightOuter;  
-static int displayDelay = 0;
-static const int displayDelayReset = 4;
-
-
-
-static int scaleForSensor(int i)
-{
-  return constrain(((1.0 / (double)i) * 255) * 15, 0, 255);
-}
-
-
-
-static int scaleForMotor(double sensorInput, int motorMaxSpeed)
-{
-  // 1000 is used because that is the max from a given sensor.
-  if(sensorInput > 1000)
-    sensorInput = 1000;
-    
-  double val = (double)sensorInput / 1000;
-  val *= motorMaxSpeed; // max motor value
-  return val;
-}
-
-
-
-static void readLines(void){ // Via http://www.plumgeek.com/learn-to-code.html
-  
-  //declare "local" variables, which are only used inside this function
-  int leftLineSensorValueOff, rightLineSensorValueOff; 
-
-  //make sure all bottom IR light sources are off before we begin
-  digitalWrite(LineLeftOuter,LOW);       
-  digitalWrite(LineRightOuter,LOW);
-  digitalWrite(LineLeftInner,LOW);                  
-  digitalWrite(LineRightInner,LOW);
-  delayMicroseconds(500);                //short delay to allow sensors to stabalize to new light levels
-
-  //measure sensors with IR light sources turned off
-  leftLineSensorValueOff=analogRead(LineSenseLeft);
-  rightLineSensorValueOff=analogRead(LineSenseRight);
-
-  //turn on the outer light sources, then re-read the sensors
-  digitalWrite(LineLeftOuter,HIGH);      //turn on outer IR light sources
-  digitalWrite(LineRightOuter,HIGH);  
-  delayMicroseconds(500);                //short delay to allow sensors to stabalize to new light levels
-
-  //measure with outers on, subtract out the dark readings from above
-  leftOuter = analogRead(LineSenseLeft)-leftLineSensorValueOff;
-  rightOuter = analogRead(LineSenseRight)-rightLineSensorValueOff;
-
-  //turn off outer light sources, turn on inner light sources, then re-read the sensors
-  digitalWrite(LineLeftOuter,LOW);       //turn off outer IR light sources
-  digitalWrite(LineRightOuter,LOW);
-  digitalWrite(LineLeftInner,HIGH);      //turn on inner IR light sources
-  digitalWrite(LineRightInner,HIGH);
-  delayMicroseconds(500);                //short delay to allow sensors to stabalize to new light levels
-
-  //measure with inners on, subtract out the dark readings from above
-  leftInner = analogRead(LineSenseLeft)-leftLineSensorValueOff;
-  rightInner = analogRead(LineSenseRight)-rightLineSensorValueOff;
-
-  //turn inner light sources back off
-  digitalWrite(LineLeftInner,LOW);      //turn off inner IR light sources
-  digitalWrite(LineRightInner,LOW);  
-
-}
-
-
-
 /**
- * Displays in the serial output the sensor information as both a graph and 
+ * Tell the Wink robot to follow a dark line on a white surface at minimum 1/4 inch (ideally 3/8 - 5/8) 
+ * in thickness with turns no more tight than a circle with 1 inch radius.
+ * 
+ * @param duration The amount of time to follow the line
  */
-static void displaySensorOutput(void) {
-  const int scalarBar = 100;
-  for(int i = 0; i < 15; ++i) 
-    Serial.println();
-
-  for(int i = 0; i < 10; ++i)
-  {
-    int iterThreshold = (10 - i) * scalarBar;
-    if(leftOuter > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
-    if(leftInner > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
-    if(rightInner > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
-    if(rightOuter > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");}
-    Serial.print("\n");
-  }
-  
-  Serial.println("l_out, l_inn, r_inn, r_out");
-  Serial.print(leftOuter);Serial.print("\t");
-  Serial.print(leftInner);Serial.print("\t");
-  Serial.print(rightInner);Serial.print("\t");
-  Serial.println(rightOuter);
-
-  displayDelay = displayDelayReset;
-}
-
-
-
 void sensorLineFollow(int duration){
-  // NOTE: The lower limit seems to be 30 or so.
+  // NOTE: The lower limit seems to be 30 or so. Set to this for accuracy.
   // Radius 1 inch max: 50
   // Tuning speed: 40
   const int speedOfMovement = 30;
@@ -388,21 +413,22 @@ void sensorLineFollow(int duration){
   const double scaleInner = 1.0;
   const double scaleOuter = 1.0;
   
+  // Update global values for sensors
   readLines();
 
   //// Debug graphs
   // if(displayDelay-- <= 0)
-  // displaySensorOutput();
+  //   displayLightSensorOutput();
 
   //// Debug visuals
-  //leftRGB(0, scaleForSensor(leftInner), scaleForSensor(leftOuter));
-  //rightRGB(0, scaleForSensor(rightInner), scaleForSensor(rightOuter));
+  // leftRGB(0, scaleLightSensorForEyes(leftInner), scaleLightSensorForEyes(leftOuter));
+  // rightRGB(0, scaleLightSensorForEyes(rightInner), scaleLightSensorForEyes(rightOuter));
 
-  motors(scaleForMotor((leftOuter * weightOuter * scaleOuter + leftInner * weightInner * scaleInner) / 2, speedOfMovement)
-       , scaleForMotor((rightOuter * weightOuter  * scaleOuter+ rightInner * weightInner * scaleInner) / 2, speedOfMovement));
+  // Apply weights, scales, and other tweakables.
+  motors(scaleLightSensorForMotor((leftOuter * weightOuter * scaleOuter + leftInner * weightInner * scaleInner) / 2, speedOfMovement)
+       , scaleLightSensorForMotor((rightOuter * weightOuter  * scaleOuter + rightInner * weightInner * scaleInner) / 2, speedOfMovement));
 
+  // Delay arbitrarily
   delay(10);
-} //end of loop() 
-
-
+} 
 
