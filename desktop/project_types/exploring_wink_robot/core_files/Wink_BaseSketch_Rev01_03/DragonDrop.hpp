@@ -1,7 +1,7 @@
 #ifndef DRAGONDROP_H
 #define DRAGONDROP_H
 
-extern void sensorLineFollow(void);
+extern void sensorLineFollow(int duration, int speed);
 extern void lightEffectPolice(int duration);
 extern void lightEffectDisco(int duration);
 extern void lightEffectRainbow(int duration);

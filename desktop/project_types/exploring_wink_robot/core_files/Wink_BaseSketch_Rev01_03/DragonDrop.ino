@@ -399,12 +399,13 @@ void lightEffectFireworks(int duration) {
  * in thickness with turns no more tight than a circle with 1 inch radius.
  * 
  * @param duration The amount of time to follow the line
+ * @param speed The speed by which you follow the line. 30 is recommended.
  */
-void sensorLineFollow(int duration){
+void sensorLineFollow(int duration, int speed) {
   // NOTE: The lower limit seems to be 30 or so. Set to this for accuracy.
   // Radius 1 inch max: 50
   // Tuning speed: 40
-  const int speedOfMovement = 30;
+  const int speedOfMovement = speed;
   
   // Weights for inner vs outer sensors
   const double innerBiasPercentage = 50; 

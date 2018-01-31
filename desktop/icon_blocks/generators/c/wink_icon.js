@@ -59,10 +59,8 @@ Blockly.C['light_effect_fireworks_icon'] = function(block) {
     return `lightEffectFireworks( ${duration} );\n`;
 };
 
-
-
-
 Blockly.C['sensors_line_follow_icon'] = function(block) {
     const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
-    return `sensorLineFollow( ${duration} );\n`;
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    return `sensorLineFollow( ${duration}, ${speed} );\n`;
 };
