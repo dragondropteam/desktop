@@ -748,6 +748,10 @@ Blockly.Blocks['sensors_line_follow_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("SPEED")
+            .setCheck("Number");
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
         this.setPreviousStatement(true, null);
