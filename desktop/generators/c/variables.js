@@ -65,7 +65,7 @@ Blockly.C['variable_set_typed'] = function(block) {
   }
   var argument0 = Blockly.C.valueToCode(block, 'VALUE',
       Blockly.C.ORDER_ASSIGNMENT) || defaultValue;
-  if(argument0.includes('.')){
+  if(argument0.match(/\d+\.\d+$/)){
     argument0 += 'f';
   }
   var varName = Blockly.C.variableDB_.getName(block.getFieldValue('VAR'),
