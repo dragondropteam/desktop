@@ -123,6 +123,18 @@ static void travelAtSpeedFor(int speed, int duration) {
 
 
 /**
+ * Turns the specified number of degrees.
+ *
+ * @param degrees Degrees to turn, positive right and negative left.
+ */
+static void turnDegrees(int degrees) {
+
+
+}
+
+
+
+/**
  * Runs a police light effect for the duration specified.
  *
  * @param duration The time in seconds to run the police lights for.
@@ -299,7 +311,7 @@ void lightEffectFireworks(int duration) {
  *
  * @param duration How long, in seconds, for the robot to move.
  */
-extern void forwardSlow(int duration) {
+void forwardSlow(int duration) {
   travelAtSpeedFor(MOTOR_SLOW, duration);
 }
 
@@ -310,7 +322,7 @@ extern void forwardSlow(int duration) {
  *
  * @param duration How long, in seconds, for the robot to move.
  */
-extern void forwardMedium(int duration) {  
+void forwardMedium(int duration) {  
   travelAtSpeedFor(MOTOR_MEDIUM, duration);
 }
 
@@ -321,7 +333,7 @@ extern void forwardMedium(int duration) {
  *
  * @param duration How long, in seconds, for the robot to move.
  */
-extern void forwardFast(int duration) {  
+void forwardFast(int duration) {  
   travelAtSpeedFor(MOTOR_FAST, duration);
 }
 
@@ -332,7 +344,7 @@ extern void forwardFast(int duration) {
  *
  * @param duration How long, in seconds, for the robot to move.
  */
-extern void backwardSlow(int duration) { 
+void backwardSlow(int duration) { 
   travelAtSpeedFor(-MOTOR_SLOW, duration);
 }
 
@@ -343,7 +355,7 @@ extern void backwardSlow(int duration) {
  *
  * @param duration How long, in seconds, for the robot to move.
  */
-extern void backwardMedium(int duration) { 
+void backwardMedium(int duration) { 
   travelAtSpeedFor(-MOTOR_MEDIUM, duration);
 }
 
@@ -354,9 +366,30 @@ extern void backwardMedium(int duration) {
  *
  * @param duration How long, in seconds, for the robot to move.
  */
-extern void backwardFast(int duration) { 
+void backwardFast(int duration) { 
   travelAtSpeedFor(-MOTOR_FAST, duration);
 }
 
 
 
+/**
+ * Turns the specified number of degrees to the right.
+ * Turns on the spot, using both motors.
+ *
+ * @param degrees Number of degrees to turn.
+ */
+void turnLeft(int degrees) {
+  turnDegrees(-degrees);
+}
+
+
+
+/**
+ * Turns the specified number of degrees to the right.
+ * Turns on the spot, using both motors.
+ *
+ * @param degrees Number of degrees to turn.
+ */
+void turnRight(int degrees) {
+  turnDegrees(degrees); 
+}
