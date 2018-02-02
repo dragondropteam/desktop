@@ -347,15 +347,25 @@
     <category name="Sensors" colour="330">
         <category name="Sensor Behaviors">
             <block type="sensors_line_follow_icon">
-                <value name="DURATION">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
                 <value name="SPEED">
                     <shadow type="math_number">
                         <field name="NUM">30</field>
                     </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="logic_boolean"/>
+                        <field name="BOOL">TRUE</field>
+                </value>
+            </block>
+            <block type="sensors_line_avoid_icon">
+                <value name="SPEED">
+                    <shadow type="math_number">
+                        <field name="NUM">30</field>
+                    </shadow>
+                </value>
+                <value name="VALUE">
+                    <shadow type="logic_boolean"/>
+                        <field name="BOOL">TRUE</field>
                 </value>
             </block>
         </category>
