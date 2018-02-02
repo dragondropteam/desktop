@@ -15,5 +15,10 @@ extern void forwardFast(int duration);
 extern void backwardSlow(int duration);
 extern void backwardMedium(int duration);
 extern void backwardFast(int duration);
+extern void turnLeft(int degrees);
+extern void turnRight(int degrees);
+
+
+
 
 #endif
