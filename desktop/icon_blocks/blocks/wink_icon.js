@@ -739,3 +739,91 @@ Blockly.Blocks['light_effect_fireworks_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
+
+
+/* Movement patterns */
+Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons1-up.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-up.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons1-down.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-down.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-down.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};

@@ -10,6 +10,12 @@
 #define EYE_MIN 0
 #define EYE_MAX 255
 
+#define MOTOR_SLOW 30
+#define MOTOR_MEDIUM 50
+#define MOTOR_FAST 90
+
+
+
 
 
 /**
@@ -100,6 +106,18 @@ static void bump(int *r, int *g, int *b, int amountToBumpBy) {
  */
 static int convertToMilliseconds(int seconds) {
     return seconds * 1000;
+}
+
+
+
+/**
+ *
+ * @param speed the positive or negative speed value to set the motors to
+ * @param duration How long, in seconds, to run the motors for.
+ */ 
+static void travelAtSpeedFor(int speed, int duration) {
+  motors(speed, speed);
+  delay(convertToMilliseconds(duration));
 }
 
 
@@ -273,3 +291,72 @@ void lightEffectFireworks(int duration) {
         --delayForFlicker;
     }
 }
+
+
+
+/**
+ * Makes the robot go forward at a Slow pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+extern void forwardSlow(int duration) {
+  travelAtSpeedFor(MOTOR_SLOW, duration);
+}
+
+
+
+/**
+ * Makes the robot go forward at a Medium pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+extern void forwardMedium(int duration) {  
+  travelAtSpeedFor(MOTOR_MEDIUM, duration);
+}
+
+
+
+/**
+ * Makes the robot go forward at a Fast pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+extern void forwardFast(int duration) {  
+  travelAtSpeedFor(MOTOR_FAST, duration);
+}
+
+
+
+/**
+ * Makes the robot go backward at a Slow pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+extern void backwardSlow(int duration) { 
+  travelAtSpeedFor(-MOTOR_SLOW, duration);
+}
+
+
+
+/**
+ * Makes the robot go backward at a Medium pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+extern void backwardMedium(int duration) { 
+  travelAtSpeedFor(-MOTOR_MEDIUM, duration);
+}
+
+
+
+/**
+ * Makes the robot go backward at a Fast pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+extern void backwardFast(int duration) { 
+  travelAtSpeedFor(-MOTOR_FAST, duration);
+}
+
+
+
