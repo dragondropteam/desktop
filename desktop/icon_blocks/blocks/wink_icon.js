@@ -678,6 +678,7 @@ Blockly.Blocks['set_eyes_icon'] = {
 };
 
 
+
 // Light Effects
 
 Blockly.Blocks['light_effect_police_icon'] = {
@@ -688,8 +689,8 @@ Blockly.Blocks['light_effect_police_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip('');
+        this.setHelpUrl('');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -703,8 +704,8 @@ Blockly.Blocks['light_effect_disco_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip('');
+        this.setHelpUrl('');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -718,8 +719,8 @@ Blockly.Blocks['light_effect_rainbow_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip('');
+        this.setHelpUrl('');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -733,12 +734,16 @@ Blockly.Blocks['light_effect_fireworks_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip('');
+        this.setHelpUrl('');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
 };
+
+
+
+// IR Sensors and Lines
 
 Blockly.Blocks['sensors_line_follow_icon'] = {
     init: function () {
@@ -754,8 +759,8 @@ Blockly.Blocks['sensors_line_follow_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eye.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
             .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip('');
+        this.setHelpUrl('');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -775,8 +780,8 @@ Blockly.Blocks['sensors_line_avoid_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eye.png'), ICON_SIZE, ICON_SIZE));
         this.appendDummyInput()
             .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip('');
+        this.setHelpUrl('');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
