@@ -52,6 +52,34 @@ static int scaleLightSensorForMotor(double sensorInput, int motorMaxSpeed)
 
 
 /**
+ * Moves the wink robot back using the left motor. Blocks until complete.
+ *
+ * @param moveSpeed The speed at which the wink robot backs up.
+ * @param backupTime Time, in Milliseconds, to perform the action for.
+ */
+static void backLeft(int moveSpeed, int backupTime)
+{
+  motors(-moveSpeed, moveSpeed / 2);
+  delay(backupTime);
+}
+
+
+
+/**
+ * Moves the wink robot back using the right motor. Blocks until complete.
+ *
+ * @param moveSpeed The speed at which the wink robot backs up.
+ * @param backupTime Time, in Milliseconds, to perform the action for.
+ */
+static void backRight(int moveSpeed, int backupTime)
+{
+  motors(moveSpeed / 2, -moveSpeed);
+  delay(backupTime);
+}
+
+
+
+/**
  * Reads sensor values into global values. 
  * Code via http://www.plumgeek.com/learn-to-code.html
  */
@@ -94,7 +122,6 @@ static void readLines(void){
   //turn inner light sources back off
   digitalWrite(LineLeftInner,LOW);      //turn off inner IR light sources
   digitalWrite(LineRightInner,LOW);  
-
 }
 
 
@@ -394,42 +421,87 @@ void lightEffectFireworks(int duration) {
 }
 
 
+
 /**
  * Tell the Wink robot to follow a dark line on a white surface at minimum 1/4 inch (ideally 3/8 - 5/8) 
  * in thickness with turns no more tight than a circle with 1 inch radius.
  * 
- * @param duration The amount of time to follow the line
- * @param speed The speed by which you follow the line. 30 is recommended.
+ * @param speed The speed by which you follow the line. 30-35 is recommended. Lowest is 25, highest about 50.
+ * @param showEyes wether or not to show the visual indication of sensors on the eyes.
  */
-void sensorLineFollow(int duration, int speed) {
-  // NOTE: The lower limit seems to be 30 or so. Set to this for accuracy.
-  // Radius 1 inch max: 50
-  // Tuning speed: 40
-  const int speedOfMovement = speed;
-  
-  // Weights for inner vs outer sensors
-  const double innerBiasPercentage = 50; 
+void sensorLineFollow(int speed, bool showEyes) {
+  // Weights for inner vs outer sensors. Can be tuned as necessary.
+  // Setting to 100 disregards outer sensors entirely, 0 disregards inner sensors.
+  const double innerBiasPercentage = 50; // Value from 0 to 100
   const double weightInner = ((innerBiasPercentage/100)) * 2;
   const double weightOuter = (1 - (innerBiasPercentage/100)) * 2;
-  const double scaleInner = 1.0;
-  const double scaleOuter = 1.0;
   
   // Update global values for sensors
   readLines();
 
-  //// Debug graphs
+  //// Uncomment for Debug graphs using serial output
   // if(displayDelay-- <= 0)
   //   displayLightSensorOutput();
 
-  //// Debug visuals
-  // leftRGB(0, scaleLightSensorForEyes(leftInner), scaleLightSensorForEyes(leftOuter));
-  // rightRGB(0, scaleLightSensorForEyes(rightInner), scaleLightSensorForEyes(rightOuter));
+  // Debug visuals using eyes
+  if(showEyes) {
+    leftRGB(0, scaleLightSensorForEyes(leftInner), scaleLightSensorForEyes(leftOuter));
+    rightRGB(0, scaleLightSensorForEyes(rightInner), scaleLightSensorForEyes(rightOuter));
+  }
 
-  // Apply weights, scales, and other tweakables.
-  motors(scaleLightSensorForMotor((leftOuter * weightOuter * scaleOuter + leftInner * weightInner * scaleInner) / 2, speedOfMovement)
-       , scaleLightSensorForMotor((rightOuter * weightOuter  * scaleOuter + rightInner * weightInner * scaleInner) / 2, speedOfMovement));
+  // Apply weights, and other tweakables.
+  motors(scaleLightSensorForMotor((leftOuter * weightOuter + leftInner * weightInner) / 2, speed)
+       , scaleLightSensorForMotor((rightOuter * weightOuter + rightInner * weightInner) / 2, speed));
 
-  // Delay arbitrarily
   delay(10);
 } 
 
+
+
+
+/**
+ * Causes the robot to travel in a straight line until it runs over a line, 
+ * at which point it will back up and try to go forward at a different angle.
+ * 
+ * @param speed The speed by which the robot moves around.
+ * @param showEyes wether or not to show the visual indication of sensors on the eyes.
+ */
+void sensorLineAvoid(int speed, bool showEyes) {
+  const double combinedLeft = (leftOuter + leftInner) / 2;
+  const double combinedRight = (rightOuter + rightInner) / 2;
+  const int threshold = 500;
+  const int backupTime = 400;
+
+  // Update info. Consider state machine for reading.
+  readLines();
+
+  // Left sensor handling
+  if(combinedLeft > threshold) {
+    if(showEyes)
+      leftPurple(combinedLeft / LIGHT_SENSOR_MAX * EYE_MAX);
+  } else {
+    if(showEyes)
+      leftPurple(EYE_MIN);
+
+    if(combinedRight > threshold)
+      backRight(speed, backupTime);
+  }
+
+  // Right sensor handling
+  if(combinedRight > threshold) {
+    if(showEyes)
+      rightPurple(combinedRight / LIGHT_SENSOR_MAX * EYE_MAX);
+  } else {
+    if(showEyes)
+      rightPurple(EYE_MIN);
+    
+    if(combinedLeft > threshold)
+      backLeft(speed, backupTime); 
+  }
+
+  // Default case handling.
+  if(combinedRight > threshold || combinedLeft > threshold)
+    motors(speed, speed);
+   else
+    motors(0,0);
+}
