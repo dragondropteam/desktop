@@ -59,3 +59,17 @@ Blockly.C['light_effect_fireworks_icon'] = function(block) {
     return `lightEffectFireworks( ${duration} );\n`;
 };
 
+// Beginners Movements
+function moveWithDuration(block, functionName) {
+    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    return functionName + `( ${duration} );\n`;
+}
+
+Blockly.C['motors_beginner_forward_slow_icon'] = function(block){ return moveWithDuration(block, 'forwardSlow') };
+Blockly.C['motors_beginner_forward_medium_icon'] = function(block){ return moveWithDuration(block, 'forwardMedium') };
+Blockly.C['motors_beginner_forward_fast_icon'] = function(block){ return moveWithDuration(block, 'forwardFast') };
+Blockly.C['motors_beginner_backward_slow_icon'] = function(block){ return moveWithDuration(block, 'backwardSlow') };
+Blockly.C['motors_beginner_backward_medium_icon'] = function(block){ return moveWithDuration(block, 'backwardMedium') };
+Blockly.C['motors_beginner_backward_fast_icon'] = function(block){ return moveWithDuration(block, 'backwardFast') };
+
+
