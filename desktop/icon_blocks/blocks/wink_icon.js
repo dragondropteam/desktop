@@ -751,8 +751,8 @@ Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -765,8 +765,8 @@ Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -779,8 +779,8 @@ Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -793,8 +793,8 @@ Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -807,8 +807,8 @@ Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -821,8 +821,8 @@ Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -835,8 +835,8 @@ Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
         this.setColour(330);
         this.appendValueInput("DEGREES")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -849,8 +849,8 @@ Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
         this.setColour(330);
         this.appendValueInput("DEGREES")
             .setCheck("Number");
-        this.setTooltip("");
-        this.setHelpUrl("");
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION);
+        this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
