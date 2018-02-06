@@ -379,8 +379,11 @@ static double scaleUserDegreesToDelay(double userInput) {
  * @param degrees Number of degrees to turn.
  */
 void turnLeft(int degrees) {
-  const int motorPower = 25; // Probably do not touch.
+  const int motorPower = 26; // Probably do not touch.
   const int motorDelay = scaleUserDegreesToDelay(degrees);
+
+  if(degrees == 0)
+    return;
 
   motors(-motorPower, motorPower);
   delay(motorDelay);
@@ -396,8 +399,11 @@ void turnLeft(int degrees) {
  * @param degrees Number of degrees to turn.
  */
 void turnRight(int degrees) {
-  const int motorPower = 25; // Probably do not touch.
+  const int motorPower = 26; // Probably do not touch.
   const int motorDelay = scaleUserDegreesToDelay(degrees);
+
+  if(degrees == 0)
+    return;
 
   motors(motorPower, -motorPower);
   delay(motorDelay);
