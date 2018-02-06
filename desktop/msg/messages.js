@@ -5332,14 +5332,20 @@ Blockly.Msg.OF = 'of';
 Blockly.Msg.TO = 'to';
 Blockly.Msg.FROM = 'from';
 
-//time
+// Time
 Blockly.Msg.MILLISECONDS = 'milliseconds';
 Blockly.Msg.MICROSECONDS = 'microseconds';
 Blockly.Msg.SECONDS = 'seconds';
 
-//arduino common
+// Arduino common
 Blockly.Msg.VALUE = 'value';
 Blockly.Msg.PIN = 'pin';
 Blockly.Msg.TIMEOUT = 'timeout';
 Blockly.Msg.HIGH = 'HIGH';
 Blockly.Msg.LOW = 'LOW';
+
+// Wink Explorers
+Blockly.Msg.WINK_GENERAL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+Blockly.Msg.WINK_MOVEMENT_FORWARD = 'moves the wink robot forward at a speed';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD = 'moves the wink robot backward at a speed';
+Blockly.Msg.WINK_MOVEMENT_ROTATION = 'rotates the wink robot by roughly the specified number of degrees';
