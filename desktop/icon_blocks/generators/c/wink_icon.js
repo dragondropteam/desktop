@@ -60,6 +60,17 @@ Blockly.C['light_effect_fireworks_icon'] = function(block) {
 };
 
 // Beginners Movements
+Blockly.C['motors_beginner_rotate_left_icon'] = function(block) {
+    const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
+    return `turnLeft( ${degrees} );\n`;
+};
+
+Blockly.C['motors_beginner_rotate_right_icon'] = function(block) {
+    const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
+    return `turnRight( ${degrees} );\n`;
+};
+
+
 function moveWithDuration(block, functionName) {
     const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
     return functionName + `( ${duration} );\n`;

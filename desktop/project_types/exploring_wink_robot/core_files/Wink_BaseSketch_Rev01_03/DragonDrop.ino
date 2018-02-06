@@ -14,7 +14,7 @@
 #define MOTOR_MEDIUM 50
 #define MOTOR_FAST 90
 
-
+#define ARBITRARY_TURN_DELAY_FOR_90_DEGREES 650
 
 
 
@@ -118,18 +118,6 @@ static int convertToMilliseconds(int seconds) {
 static void travelAtSpeedFor(int speed, int duration) {
   motors(speed, speed);
   delay(convertToMilliseconds(duration));
-}
-
-
-
-/**
- * Turns the specified number of degrees.
- *
- * @param degrees Degrees to turn, positive right and negative left.
- */
-static void turnDegrees(int degrees) {
-
-
 }
 
 
@@ -373,13 +361,30 @@ void backwardFast(int duration) {
 
 
 /**
- * Turns the specified number of degrees to the right.
+ * Scales up the input accordinly to allow for degree inputs to motors.
+ *
+ * @param userInput Number of degrees the user wants to turn.
+ * @returns The scaled delay value for the wink robot to wait.
+ */
+static double scaleUserDegreesToDelay(double userInput) {
+  return userInput * (ARBITRARY_TURN_DELAY_FOR_90_DEGREES / 90); // Arbitrary.
+}
+
+
+
+/**
+ * Turns the specified number of degrees to the left.
  * Turns on the spot, using both motors.
  *
  * @param degrees Number of degrees to turn.
  */
 void turnLeft(int degrees) {
-  turnDegrees(-degrees);
+  const int motorPower = 25; // Probably do not touch.
+  const int motorDelay = scaleUserDegreesToDelay(degrees);
+
+  motors(-motorPower, motorPower);
+  delay(motorDelay);
+  motors(0, 0);
 }
 
 
@@ -391,5 +396,10 @@ void turnLeft(int degrees) {
  * @param degrees Number of degrees to turn.
  */
 void turnRight(int degrees) {
-  turnDegrees(degrees); 
+  const int motorPower = 25; // Probably do not touch.
+  const int motorDelay = scaleUserDegreesToDelay(degrees);
+
+  motors(motorPower, -motorPower);
+  delay(motorDelay);
+  motors(0, 0);
 }
