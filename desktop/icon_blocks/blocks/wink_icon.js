@@ -827,3 +827,31 @@ Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'leftArrow.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DEGREES")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'rightArrow.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(330);
+        this.appendValueInput("DEGREES")
+            .setCheck("Number");
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
