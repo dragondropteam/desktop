@@ -689,8 +689,8 @@ Blockly.Blocks['light_effect_police_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.LIGHT_EFFECT_POLICE_LIGHTS);
+        this.setHelpUrl(Blockly.Msg.LIGHT_EFFECT_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -704,8 +704,8 @@ Blockly.Blocks['light_effect_disco_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.LIGHT_EFFECT_DISCO_LIGHTS);
+        this.setHelpUrl(Blockly.Msg.LIGHT_EFFECT_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -719,8 +719,8 @@ Blockly.Blocks['light_effect_rainbow_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.LIGHT_EFFECT_RAINBOW_LIGHT);
+        this.setHelpUrl(Blockly.Msg.LIGHT_EFFECT_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -734,8 +734,8 @@ Blockly.Blocks['light_effect_fireworks_icon'] = {
         this.setColour(330);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.LIGHT_EFFECT_FIREWORK_LIGHTS);
+        this.setHelpUrl(Blockly.Msg.LIGHT_EFFECT_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
