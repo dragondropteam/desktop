@@ -11,6 +11,10 @@
 #define EYE_MAX 255
 
 
+// Variables associated with ambient light sensors
+double ambientSensorLeft, ambientSensorCenter, ambientSensorRight; 
+
+
 
 /**
  * Picks a int within specified spread of the center. 
@@ -324,6 +328,9 @@ static int scaleForMotor(double sensorInput, double numPow, double maxSpeed) {
  * IR headliught for barrier avoidance, they do not cover the
  * other side ambient sensors well at all, and the material 
  * wink is starting to avoid comes a lot more into play.
+ *
+ * The IR Headlight method can be tripped up by non-flat surfaces.
+ * The IR Ambient method can be tripped up by colors/shadows.
  */
 void avoidObstacles(){
   delay(100); //delay to allow for wink to go forward for a bit.

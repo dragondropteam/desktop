@@ -59,3 +59,5 @@ Blockly.C['light_effect_fireworks_icon'] = function(block) {
     return `lightEffectFireworks( ${duration} );\n`;
 };
 
+Blockly.C['obstacle_avoid_icon']= function(block) { return "avoidObstacles();\n"; };
+

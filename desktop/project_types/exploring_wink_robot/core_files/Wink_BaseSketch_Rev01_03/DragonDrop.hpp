@@ -6,4 +6,6 @@ extern void lightEffectDisco(int duration);
 extern void lightEffectRainbow(int duration);
 extern void lightEffectFireworks(int duration);
 
+extern void avoidObstacles();
+
 #endif

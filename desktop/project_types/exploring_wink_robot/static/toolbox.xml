@@ -349,6 +349,9 @@
         <!--block type="line_avoidance" -->
         <!--block type="obstacle_avoidance"-->
         <!--block type="obstacle_approach"-->
+        <block type="obstacle_avoid_icon">
+        </block>
+        <block type="bestill"/>
         <category name="Sensor Inputs">
             <block type="buttonwait"/>
             <block type="button_pressed"/>
