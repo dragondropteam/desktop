@@ -725,17 +725,16 @@ Blockly.Blocks['light_effect_rainbow_icon'] = {
     }
 };
 
-Blockly.Blocks['light_effect_fireworks_icon'] = {
+Blockly.Blocks['obstacle_avoid_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Fireworks.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_report_problem.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(330);
-        this.appendValueInput("DURATION")
-            .setCheck("Number");
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
 };
+
