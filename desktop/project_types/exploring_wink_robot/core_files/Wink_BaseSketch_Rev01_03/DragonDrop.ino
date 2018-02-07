@@ -273,3 +273,107 @@ void lightEffectFireworks(int duration) {
         --delayForFlicker;
     }
 }
+
+
+
+/**
+ * A function for debugging IR sensor values using ASCII in the 
+ * serial output.
+ */
+static void displayIRSensorOutput(void) { 
+  const int scalarBar = 5; 
+  for(int i = 0; i < 8; ++i)  
+    Serial.println(); 
+ 
+  // Draw graph 
+  for(int i = 0; i < 10; ++i) 
+  { 
+    int iterThreshold = (10 - i) * scalarBar; 
+    if(ambientSensorLeft > iterThreshold) { Serial.print(" #"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");} 
+    if(ambientSensorCenter > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");} 
+    if(ambientSensorRight > iterThreshold) { Serial.print("#"); Serial.print("\t");} else {Serial.print(" "); Serial.print("\t");} 
+    Serial.print("\n"); 
+  } 
+   
+  // Print out numbers 
+  Serial.println("ir_L,   ir_C,   ir_R"); 
+  Serial.print(ambientSensorLeft);Serial.print("\t"); 
+  Serial.print(ambientSensorCenter);Serial.print("\t"); 
+  Serial.println(ambientSensorRight);
+} 
+
+
+/**
+ * Scales avoidance motor. Takes the inputs provided and allows them
+ * to be scaled based on the other values being tracked. For use
+ * with obstacle avoidance and apprach.
+ */
+static int scaleForMotor(double sensorInput, double numPow, double maxSpeed) {
+  // Sensor max is 1024 but ambient light levels tend to not go above 50 unless a flashlight is involved.
+  const double cap = pow(20.0, numPow); 
+  if(sensorInput > cap)
+    sensorInput = cap;
+    
+  return sensorInput / cap * maxSpeed;
+}
+
+
+/**
+ * Has wink drive about and interact with the world using the
+ * ambient IR sensors. While there are tutorials that use the
+ * IR headliught for barrier avoidance, they do not cover the
+ * other side ambient sensors well at all, and the material 
+ * wink is starting to avoid comes a lot more into play.
+ */
+void avoidObstacles(){
+  delay(100); //delay to allow for wink to go forward for a bit.
+
+  // Note: Maximum sensor value is 1024.
+  // Note: Headlight only impacts center sensor value
+  ambientSensorLeft = analogRead(AmbientSenseLeft); //read sensor
+  ambientSensorCenter = analogRead(AmbientSenseCenter); //read sensor
+  ambientSensorRight = analogRead(AmbientSenseRight); //read sensor
+
+  // IR Sensor initial scale and bias values
+  const double skew = .8;
+  const double numPow = 4;
+
+  // Min speed and max speed in forward and backward 
+  const double minSpeed = -30;
+  const double maxSpeed = 30;
+  const double motorOutputLinearScalar = 10;
+
+  // If abs val below bump thresh, apply scalar to try and get it out.
+  const double minMotorThreshold = 20;
+  const double smallMotorValueScalar = 3;
+
+  // Initial calculation for scaling based on motor input
+  const int left_val = scaleForMotor(pow(ambientSensorLeft, numPow)* skew + pow(ambientSensorCenter, numPow) * (1 - skew), numPow, maxSpeed - minSpeed);
+  const int right_val = scaleForMotor(pow(ambientSensorRight, numPow) * skew + pow(ambientSensorCenter, numPow) * (1 - skew), numPow, maxSpeed - minSpeed);
+
+  // Output values
+  double leftMotorOutput = minSpeed + right_val * motorOutputLinearScalar;
+  double rightMotorOutput =  minSpeed + left_val * motorOutputLinearScalar;
+
+  // Scale values if they're too close to 0.
+  if(abs(leftMotorOutput) < minMotorThreshold)
+    leftMotorOutput *= smallMotorValueScalar;
+
+  if(abs(rightMotorOutput) < minMotorThreshold)
+    rightMotorOutput *= smallMotorValueScalar;
+
+  // Cap values to ensure they never exceed a max.
+  const int absoluteSpeedCap = 80;
+  leftMotorOutput = constrain(leftMotorOutput, -absoluteSpeedCap, absoluteSpeedCap);
+  rightMotorOutput = constrain(rightMotorOutput, -absoluteSpeedCap, absoluteSpeedCap);
+
+  // Apply values
+  motors(leftMotorOutput, rightMotorOutput);  
+
+  // Debug output if necessary.
+  // Note: Do not use the LEDs. As they are LEDs, they 
+  // are capable of messing with the IR sensor values.
+  //displayIRSensorOutput();
+}
+
+
