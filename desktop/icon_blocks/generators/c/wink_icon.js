@@ -62,3 +62,14 @@ Blockly.C['light_effect_fireworks_icon'] = function(block) {
     return `lightEffectFireworks( ${duration} );\n`;
 };
 
+Blockly.C['sensors_line_follow_icon'] = function(block) {
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    const showEyes = block.getFieldValue('SHOW_EYES') == 'TRUE';
+    return `sensorLineFollow( ${speed}, ${showEyes} );\n`;
+};
+
+Blockly.C['sensors_line_avoid_icon'] = function(block) {
+    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
+    const showEyes = block.getFieldValue('SHOW_EYES') == 'TRUE';
+    return `sensorLineAvoid( ${speed}, ${showEyes} );\n`;
+};
