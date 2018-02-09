@@ -29,7 +29,7 @@ const {ipcMain} = require('electron');
 const projects = require('./project/projects');
 const fs = require('fs-extra');
 const projectTypes = require('project_types');
-const arduinoCore = require('arduino_core');
+const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
 let preferencesWindow;
 const JSZip = require('jszip');
@@ -704,6 +704,8 @@ app.on('ready', function () {
         // when you should delete the corresponding element.
         mainWindow = null;
     });
+
+    arduinoCore.ensureLibraries();
 });
 
 app.on('open-file', (event, path) => {
