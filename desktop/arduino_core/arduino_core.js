@@ -383,7 +383,7 @@ exports.showVerifyFailure = function () {
 };
 
 
-function ensureAllFilesInDirectory(directory, documentsPath) {
+function ensureAllFilesInDirectory(directory, documentsPath, onError) {
     fs.readdir(directory).then(files => {
         files.forEach(file => {
             fs.stat(path.join(directory, file)).then(stats => {
@@ -396,22 +396,26 @@ function ensureAllFilesInDirectory(directory, documentsPath) {
                                 log.debug(`${path.join(directory, file)} => ${path.join(documentsPath, file)}`);
                                 fs.copy(path.join(directory, file), path.join(documentsPath, file));
                             }
-                        }).catch(err => { log.error(err) });
+                        }).catch(err => {
+                        log.error(err);
+                        onError()
+                    });
                 }
             }).catch(err => {
                 log.error(err);
+                onError()
             })
         });
     }).catch(err => {
-        log.error(err)
+        log.error(err);
     });
 }
 
 /**
  * Ensures that all libraries exist, this will only work if the user has not changed the default location
  */
-exports.ensureLibraries = function () {
+exports.ensureLibraries = function (onError) {
     const documentsPath = path.join(app.getPath('documents'), 'Arduino/libraries');
     const librariesPath = filesystem.getFilePath('arduino_core/libraries');
-    ensureAllFilesInDirectory(librariesPath, documentsPath)
+    ensureAllFilesInDirectory(librariesPath, documentsPath, onError)
 };
