@@ -10,7 +10,10 @@ const config = new Config();
 const defaultWindows = 'C:\\Program Files (x86)\\Arduino\\arduino_debug.exe';
 const defaultMac = '/Applications/Arduino.app/Contents/MacOS/Arduino';
 const {spawn} = require('child_process');
+const {app} = require('electron');
 const path = require('path');
+const fs = require('fs-extra');
+const filesystem = require('../filesystem/filesystem');
 const {dialog} = require('electron');
 const {Notification} = require('electron');
 const log = require('electron-log');
@@ -63,9 +66,9 @@ exports.Boards = Boards;
  *
  * @returns {string} The path to arduino_debug.exe
  */
-function getArduinoPathWindowsFixed(){
+function getArduinoPathWindowsFixed() {
     let path = config.get(pathKey) || defaultWindows;
-    if(path === 'C:\\Program Files (x86)\\Arduino\\arduino.exe'){
+    if (path === 'C:\\Program Files (x86)\\Arduino\\arduino.exe') {
         path = defaultWindows;
         config.set(pathKey, defaultWindows);
     }
@@ -162,9 +165,9 @@ function invalidArduinoPath(err) {
         errorMessage += '\n' + err.message;
     }
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-      type: 'error',
-      title: 'Dragon Drop Error',
-      message: `Error launching Arduino\n${errorMessage}`
+        type: 'error',
+        title: 'Dragon Drop Error',
+        message: `Error launching Arduino\n${errorMessage}`
     });
 }
 
@@ -219,24 +222,25 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
     menu['Project'].push({
         label: 'Arduino IDE',
         submenu: [{
-        label: "Open Project in Arduino IDE",
-        accelerator: 'CmdOrCtrl+L',
-        click(){
-            try {
-                const child = exports.loadInArduino(exports.getInoPath(project));
-                child.on('error', (err) => {
-                    invalidArduinoPath(err);
-                });
-            } catch (e) {
-                invalidArduinoPath(e);
+            label: "Open Project in Arduino IDE",
+            accelerator: 'CmdOrCtrl+L',
+            click() {
+                try {
+                    const child = exports.loadInArduino(exports.getInoPath(project));
+                    child.on('error', (err) => {
+                        invalidArduinoPath(err);
+                    });
+                } catch (e) {
+                    invalidArduinoPath(e);
+                }
             }
-        }}]
+        }]
     });
 
     menu['Project'].push({
         label: uploadLabel,
         accelerator: 'CmdOrCtrl+U',
-        click(){
+        click() {
             try {
                 const child = exports.uploadToArduino(exports.getInoPath(project), project.getMetaData() != null ? project.getMetaData().board : null, project.getMetaData() != null ? project.getMetaData().port : global.selectedPort);
                 let runningOutput = '';
@@ -275,7 +279,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
     menu['Project'].push({
         label: "Verify Program",
         accelerator: 'CmdOrCtrl+T',
-        click(){
+        click() {
             try {
                 const child = exports.verifyProgram(exports.getInoPath(project));
                 let runningOutput = '';
@@ -320,12 +324,12 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
         label: 'Views',
         submenu: [{
             label: 'Blockly',
-            click(item, focusedWindow){
+            click(item, focusedWindow) {
                 focusedWindow.webContents.send('show_blockly');
             }
         }, {
             label: 'Code',
-            click(item, focusedWindow){
+            click(item, focusedWindow) {
                 focusedWindow.webContents.send('show_code');
             }
         }]
@@ -336,7 +340,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
  * Displays a notification that uploading to a board has suceeded.
  * @param board The board name to display in the notification
  */
-exports.showUploadSuccess = function(board) {
+exports.showUploadSuccess = function (board) {
     let successNotify = new Notification({
         title: 'Upload Complete',
         body: `Program successfully uploaded to ${board}.`
@@ -344,11 +348,11 @@ exports.showUploadSuccess = function(board) {
     successNotify.show();
 };
 
- /**
-  * Displays a notification that uploading to a board has failed.
-  * @param board The board name to display in the notification
-  */
-exports.showUploadFailure = function(board) {
+/**
+ * Displays a notification that uploading to a board has failed.
+ * @param board The board name to display in the notification
+ */
+exports.showUploadFailure = function (board) {
     let failureNotify = new Notification({
         title: 'Upload Failed',
         body: `There was an error uploading to ${board}.`
@@ -359,7 +363,7 @@ exports.showUploadFailure = function(board) {
 /**
  * Displays a notification that verifying an arduino program has succeeded.
  */
-exports.showVerifySuccess = function() {
+exports.showVerifySuccess = function () {
     let successNotify = new Notification({
         title: 'Verification Complete',
         body: 'Program has successfully been verified.'
@@ -370,10 +374,44 @@ exports.showVerifySuccess = function() {
 /**
  * Displays a notification that verifying an arduino program has failed.
  */
-exports.showVerifyFailure = function() {
+exports.showVerifyFailure = function () {
     let failureNotify = new Notification({
         title: 'Verification Failed',
         body: 'There was an error verifying the program.'
     });
     failureNotify.show();
+};
+
+
+function ensureAllFilesInDirectory(directory, documentsPath) {
+    fs.readdir(directory).then(files => {
+        files.forEach(file => {
+            fs.stat(path.join(directory, file)).then(stats => {
+                if (stats.isDirectory()) {
+                    ensureAllFilesInDirectory(path.join(directory, file), path.join(documentsPath, file));
+                } else if (stats.isFile()) {
+                    fs.pathExists(path.join(documentsPath, file))
+                        .then(exists => {
+                            if (!exists) {
+                                log.debug(`${path.join(directory, file)} => ${path.join(documentsPath, file)}`);
+                                fs.copy(path.join(directory, file), path.join(documentsPath, file));
+                            }
+                        }).catch(err => { log.error(err) });
+                }
+            }).catch(err => {
+                log.error(err);
+            })
+        });
+    }).catch(err => {
+        log.error(err)
+    });
+}
+
+/**
+ * Ensures that all libraries exist, this will only work if the user has not changed the default location
+ */
+exports.ensureLibraries = function () {
+    const documentsPath = path.join(app.getPath('documents'), 'Arduino/libraries');
+    const librariesPath = filesystem.getFilePath('arduino_core/libraries');
+    ensureAllFilesInDirectory(librariesPath, documentsPath)
 };
