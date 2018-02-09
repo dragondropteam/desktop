@@ -705,7 +705,20 @@ app.on('ready', function () {
         mainWindow = null;
     });
 
-    arduinoCore.ensureLibraries();
+    let failed = false;
+    arduinoCore.ensureLibraries(err => {
+        if(failed){
+            return;
+        }
+
+        failed  = true;
+
+        dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+            type: 'error',
+            title: 'Dragon Drop Error',
+            message: `Could not setup libraries please install manually`
+        });
+    });
 });
 
 app.on('open-file', (event, path) => {
