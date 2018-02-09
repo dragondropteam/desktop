@@ -5343,3 +5343,10 @@ Blockly.Msg.PIN = 'pin';
 Blockly.Msg.TIMEOUT = 'timeout';
 Blockly.Msg.HIGH = 'HIGH';
 Blockly.Msg.LOW = 'LOW';
+
+// Wink Explorer Light Effects
+Blockly.Msg.LIGHT_EFFECT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+Blockly.Msg.LIGHT_EFFECT_POLICE_LIGHTS = 'makes the eyes flash red and blue';
+Blockly.Msg.LIGHT_EFFECT_DISCO_LIGHTS = 'makes the eyes twinkle with blues, greens, and purples.';
+Blockly.Msg.LIGHT_EFFECT_FIREWORK_LIGHTS = 'makes the eyes flicker as if a firework had gone off';
+Blockly.Msg.LIGHT_EFFECT_RAINBOW_LIGHT = 'makes the eyes cycle through the rainbow';
