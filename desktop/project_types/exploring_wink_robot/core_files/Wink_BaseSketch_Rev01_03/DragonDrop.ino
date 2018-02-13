@@ -383,4 +383,91 @@ void avoidObstacles(){
   //displayIRSensorOutput();
 }
 
+/*
+------ WIP FOR AVOIDING AND FOLLOWING ------
+
+#include "WinkHardware.hpp"  // Leave this line first. Do not edit this line. This causes Arduino
+                             // to include background functions when turning your code into
+                             // machine language Wink can understand.
+int centerLightOff, centerLightOn, centerLightOnly;
+int baseline, avoidThreshold, approachThreshold;
+
+void setup(){
+  hardwareBegin();
+  delay(2000); //wait 2 seconds
+  
+  digitalWrite(Headlight, LOW); //turn off IR Headlight
+  delay(1); //delay 1 millisecond
+  centerLightOff = analogRead(AmbientSenseCenter); //read sensor
+  
+  digitalWrite(Headlight, HIGH); //turn on IR Headlight
+  delay(1); //delay 1 millisecond
+  centerLightOn = analogRead(AmbientSenseCenter); //read sensor
+  baseline = centerLightOn - centerLightOff; //subtract values
+  avoidThreshold = baseline + 50;
+  approachThreshold = baseline + 10;
+}
+
+void Approach() {
+  const int speed = 25;
+  const int turnDelay = 20;
+
+
+
+  digitalWrite(Headlight, LOW); //turn off IR Headlight
+  delay(1); //delay 1 millisecond
+
+  centerLightOff = analogRead(AmbientSenseCenter); //read sensor
+  digitalWrite(Headlight, HIGH); //turn on IR Headlight
+  delay(1); //delay 1 millisecond
+  
+  centerLightOn = analogRead(AmbientSenseCenter); //read sensor
+  centerLightOnly = centerLightOn - centerLightOff;
+  
+  if (centerLightOnly < approachThreshold) { //threshold from above 
+    motors(speed,speed); //drive forward
+  } else {
+    const double skew = 0;
+    if(analogRead(AmbientSenseLeft) > analogRead(AmbientSenseRight))
+      motors(-speed * (1 - skew), speed * (1 + skew)); //be still
+    else
+      motors(speed * (1 + skew), -speed * (1 - skew)); //be still
+     delay(turnDelay);
+  }
+}
+
+void Avoid() {
+  const int speed = 30;
+  const int turnDelay = 200;
+  
+  digitalWrite(Headlight, LOW); //turn off IR Headlight
+  delay(1); //delay 1 millisecond
+
+  centerLightOff = analogRead(AmbientSenseCenter); //read sensor
+  digitalWrite(Headlight, HIGH); //turn on IR Headlight
+  delay(1); //delay 1 millisecond
+  
+  centerLightOn = analogRead(AmbientSenseCenter); //read sensor
+  centerLightOnly = centerLightOn - centerLightOff;
+  
+  if (centerLightOnly < avoidThreshold && analogRead(AmbientSenseCenter) > 8) { //threshold from above 
+    motors(speed,speed); //drive forward
+  } else {
+    const double skew = .2;
+    if(analogRead(AmbientSenseLeft) < analogRead(AmbientSenseRight))
+      motors(-speed * (1 + skew), speed * (1 - skew)); //be still
+    else
+      motors(speed * (1 + skew), -speed * (1 - skew)); //be still
+     delay(turnDelay);
+  }
+}
+
+void loop(){
+  Avoid();
+  //Approach();
+} //end of loop()
+
+*/
+
+
 
