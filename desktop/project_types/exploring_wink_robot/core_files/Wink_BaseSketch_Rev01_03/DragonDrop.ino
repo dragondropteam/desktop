@@ -12,7 +12,11 @@
 #define LIGHT_SENSOR_MAX 1000.0
 #define LIGHT_SENSOR_MIN 0
 
+#define MOTOR_SLOW 30
+#define MOTOR_MEDIUM 50
+#define MOTOR_FAST 90
 
+#define ARBITRARY_TURN_DELAY_FOR_90_DEGREES 650
 // Global, file-specific variables
 static double leftOuter, leftInner, rightInner, rightOuter;  
 static int displayDelay = 0;
@@ -246,6 +250,18 @@ static void bump(int *r, int *g, int *b, int amountToBumpBy) {
  */
 static int convertToMilliseconds(int seconds) {
     return seconds * 1000;
+}
+
+
+
+/**
+ *
+ * @param speed the positive or negative speed value to set the motors to
+ * @param duration How long, in seconds, to run the motors for.
+ */ 
+static void travelAtSpeedFor(int speed, int duration) {
+  motors(speed, speed);
+  delay(convertToMilliseconds(duration));
 }
 
 
@@ -504,4 +520,122 @@ void sensorLineAvoid(int speed, bool showEyes) {
     motors(speed, speed);
    else
     motors(0,0);
+}
+
+
+
+/**
+ * Makes the robot go forward at a Slow pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+void forwardSlow(int duration) {
+  travelAtSpeedFor(MOTOR_SLOW, duration);
+}
+
+
+
+/**
+ * Makes the robot go forward at a Medium pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+void forwardMedium(int duration) {  
+  travelAtSpeedFor(MOTOR_MEDIUM, duration);
+}
+
+
+
+/**
+ * Makes the robot go forward at a Fast pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+void forwardFast(int duration) {  
+  travelAtSpeedFor(MOTOR_FAST, duration);
+}
+
+
+
+/**
+ * Makes the robot go backward at a Slow pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+void backwardSlow(int duration) { 
+  travelAtSpeedFor(-MOTOR_SLOW, duration);
+}
+
+
+
+/**
+ * Makes the robot go backward at a Medium pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+void backwardMedium(int duration) { 
+  travelAtSpeedFor(-MOTOR_MEDIUM, duration);
+}
+
+
+
+/**
+ * Makes the robot go backward at a Fast pace.
+ *
+ * @param duration How long, in seconds, for the robot to move.
+ */
+void backwardFast(int duration) { 
+  travelAtSpeedFor(-MOTOR_FAST, duration);
+}
+
+
+
+/**
+ * Scales up the input accordingly to allow for degree inputs to motors.
+ *
+ * @param userInput Number of degrees the user wants to turn.
+ * @returns The scaled delay value for the wink robot to wait.
+ */
+static double scaleUserDegreesToDelay(double userInput) {
+  return userInput * (ARBITRARY_TURN_DELAY_FOR_90_DEGREES / 90); // Arbitrary.
+}
+
+
+
+/**
+ * Turns the specified number of degrees to the left.
+ * Turns on the spot, using both motors.
+ *
+ * @param degrees Number of degrees to turn.
+ */
+void turnLeftDegrees(int degrees) {
+  const int motorPower = 26; // Probably do not touch.
+  const int motorDelay = scaleUserDegreesToDelay(degrees);
+
+  if(degrees == 0)
+    return;
+
+  motors(-motorPower, motorPower);
+  delay(motorDelay);
+  motors(0, 0);
+}
+
+
+
+/**
+ * Turns the specified number of degrees to the right.
+ * Turns on the spot, using both motors.
+ *
+ * @param degrees Number of degrees to turn.
+ */
+void turnRightDegrees(int degrees) {
+  const int motorPower = 26; // Probably do not touch.
+  const int motorDelay = scaleUserDegreesToDelay(degrees);
+
+  if(degrees == 0)
+    return;
+
+  motors(motorPower, -motorPower);
+  delay(motorDelay);
+  motors(0, 0);
 }
