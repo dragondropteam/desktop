@@ -361,7 +361,7 @@ void backwardFast(int duration) {
 
 
 /**
- * Scales up the input accordinly to allow for degree inputs to motors.
+ * Scales up the input accordingly to allow for degree inputs to motors.
  *
  * @param userInput Number of degrees the user wants to turn.
  * @returns The scaled delay value for the wink robot to wait.
@@ -378,7 +378,7 @@ static double scaleUserDegreesToDelay(double userInput) {
  *
  * @param degrees Number of degrees to turn.
  */
-void turnLeft(int degrees) {
+void turnLeftDegrees(int degrees) {
   const int motorPower = 26; // Probably do not touch.
   const int motorDelay = scaleUserDegreesToDelay(degrees);
 
@@ -398,7 +398,7 @@ void turnLeft(int degrees) {
  *
  * @param degrees Number of degrees to turn.
  */
-void turnRight(int degrees) {
+void turnRightDegrees(int degrees) {
   const int motorPower = 26; // Probably do not touch.
   const int motorDelay = scaleUserDegreesToDelay(degrees);
 
