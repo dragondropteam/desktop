@@ -351,6 +351,8 @@
         <!--block type="obstacle_approach"-->
         <block type="obstacle_avoid_icon">
         </block>
+        <block type="obstacle_approach_icon">
+        </block>
         <block type="bestill"/>
         <category name="Sensor Inputs">
             <block type="buttonwait"/>
