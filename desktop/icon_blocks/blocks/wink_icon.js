@@ -731,8 +731,8 @@ Blockly.Blocks['obstacle_avoid_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_report_problem.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(330);
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip(Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -744,8 +744,8 @@ Blockly.Blocks['obstacle_approach_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ApproachingObstacle.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(330);
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip(Blockly.Msg.SENSOR_OBSTACLE_APPROACH_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }

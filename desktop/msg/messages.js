@@ -5343,3 +5343,7 @@ Blockly.Msg.PIN = 'pin';
 Blockly.Msg.TIMEOUT = 'timeout';
 Blockly.Msg.HIGH = 'HIGH';
 Blockly.Msg.LOW = 'LOW';
+
+Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP = 'Wink robot travels around and attempts to avoid obstacles in front of it.';
+Blockly.Msg.SENSOR_OBSTACLE_APPROACH_TOOLTIP = 'Wink robot approaches an obstacle placed in front of it then moved.';
+Blockly.Msg.WINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
