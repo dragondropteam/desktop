@@ -154,7 +154,7 @@ static void displayIRSensorOutput(void) {
 /**
  * Scales avoidance motor. Takes the inputs provided and allows them
  * to be scaled based on the other values being tracked. For use
- * with obstacle avoidance and apprach.
+ * with obstacle avoidance and approach.
  */
 static int scaleForMotor(double sensorInput, double numPow, double maxSpeed) {
   // Sensor max is 1024 but ambient light levels tend to not go above 50 unless a flashlight is involved.
@@ -439,9 +439,9 @@ void avoidObstacles() {
  * for it to move or adjust.
  **/
 void approachObstacles() {
-  const int motorSpeed = 30;
-  const int updateDelay = 15;
-  const int centerLightThreshold = 50;
+  const int motorSpeed = 32;
+  const int updateDelay = 10;
+  const int centerLightThreshold = 55;
 
   // Use IR headlight to re-evaluate center IR input.
   updateCenterIRSensor();
