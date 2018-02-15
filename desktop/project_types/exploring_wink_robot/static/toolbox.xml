@@ -347,10 +347,8 @@
     <category name="Sensors" colour="330">
         <!--block type="line_follow" -->
         <!--block type="line_avoidance" -->
-        <block type="obstacle_avoid_icon">
-        </block>
-        <block type="obstacle_approach_icon">
-        </block>
+        <block type="obstacle_avoid_icon"/>
+        <block type="obstacle_approach_icon"/>
         <block type="bestill"/>
         <category name="Sensor Inputs">
             <block type="buttonwait"/>

@@ -4,6 +4,14 @@
 //c functions
 //eyesRed(); eyesGreen(); eyesBlue(); eyesPurple(); eyesPink(); eyesYellow(); eyesOrange();
 //eyesCyan(); eyesWhite();
+
+let WINK_BLOCK_COLOR_EYES_BOTH = 330;
+let WINK_BLOCK_COLOR_EYES_RIGHT = 330;
+let WINK_BLOCK_COLOR_EYES_LEFT = 330;
+let WINK_BLOCK_COLOR_LIGHT_EFECTS = 330;
+let WINK_BLOCK_COLOR_OBSTACLE_NAVIGATION = 330;
+
+
 Blockly.Blocks['seteyesred_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -16,7 +24,7 @@ Blockly.Blocks['seteyesred_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESRED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESRED_HELP_URL);
     }
@@ -34,7 +42,7 @@ Blockly.Blocks['seteyesgreen_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESGREEN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESGREEN_HELP_URL);
     }
@@ -52,7 +60,7 @@ Blockly.Blocks['seteyesblue_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESBLUE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESBLUE_HELP_URL);
     }
@@ -70,7 +78,7 @@ Blockly.Blocks['seteyespurple_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESPURPLE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESPURPLE_HELP_URL);
     }
@@ -88,7 +96,7 @@ Blockly.Blocks['seteyespink_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESPINK_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESPINK_HELP_URL);
     }
@@ -106,7 +114,7 @@ Blockly.Blocks['seteyesyellow_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESYELLOW_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESYELLOW_HELP_URL);
     }
@@ -124,7 +132,7 @@ Blockly.Blocks['seteyescyan_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESCYAN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESCYAN_HELP_URL);
     }
@@ -142,7 +150,7 @@ Blockly.Blocks['seteyesorange_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESORANGE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESORANGE_HELP_URL);
     }
@@ -160,7 +168,7 @@ Blockly.Blocks['seteyeswhite_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESWHITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESWHITE_HELP_URL);
     }
@@ -178,7 +186,7 @@ Blockly.Blocks['setleftred_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTRED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTRED_HELP_URL);
     }
@@ -195,7 +203,7 @@ Blockly.Blocks['setleftgreen_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTGREEN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTGREEN_HELP_URL);
     }
@@ -213,7 +221,7 @@ Blockly.Blocks['setleftblue_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTBLUE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTBLUE_HELP_URL);
     }
@@ -230,7 +238,7 @@ Blockly.Blocks['setleftpurple_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTPURPLE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTPURPLE_HELP_URL);
     }
@@ -247,7 +255,7 @@ Blockly.Blocks['setleftpink_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTPINK_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTPINK_HELP_URL);
     }
@@ -264,7 +272,7 @@ Blockly.Blocks['setleftyellow_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTYELLOW_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTYELLOW_HELP_URL);
     }
@@ -281,7 +289,7 @@ Blockly.Blocks['setleftcyan_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTCYAN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTCYAN_HELP_URL);
     }
@@ -298,7 +306,7 @@ Blockly.Blocks['setleftorange_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTORANGE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTORANGE_HELP_URL);
     }
@@ -317,7 +325,7 @@ Blockly.Blocks['setleftwhite_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTWHITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTWHITE_HELP_URL);
     }
@@ -335,7 +343,7 @@ Blockly.Blocks['setrightred_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTRED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTRED_HELP_URL);
     }
@@ -353,7 +361,7 @@ Blockly.Blocks['setrightgreen_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTGREEN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTGREEN_HELP_URL);
     }
@@ -371,7 +379,7 @@ Blockly.Blocks['setrightblue_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTBLUE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTBLUE_HELP_URL);
     }
@@ -389,7 +397,7 @@ Blockly.Blocks['setrightpurple_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTPURPLE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTPURPLE_HELP_URL);
     }
@@ -407,7 +415,7 @@ Blockly.Blocks['setrightpink_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTPINK_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTPINK_HELP_URL);
     }
@@ -425,7 +433,7 @@ Blockly.Blocks['setrightyellow_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTYELLOW_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTYELLOW_HELP_URL);
     }
@@ -443,7 +451,7 @@ Blockly.Blocks['setrightcyan_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTCYAN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTCYAN_HELP_URL);
     }
@@ -461,7 +469,7 @@ Blockly.Blocks['setrightorange_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTORANGE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTORANGE_HELP_URL);
     }
@@ -479,7 +487,7 @@ Blockly.Blocks['setrightwhite_icon'] = {
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTWHITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTWHITE_HELP_URL);
     }
@@ -496,7 +504,7 @@ Blockly.Blocks['seteyesrgb_icon'] = {
             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SETEYESRGB_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETEYESRGB_HELP_URL);
     }
@@ -513,7 +521,7 @@ Blockly.Blocks['setleftrgb_icon'] = {
             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SETLEFTRGB_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETLEFTRGB_HELP_URL);
     }
@@ -530,7 +538,7 @@ Blockly.Blocks['setrightrgb_icon'] = {
             .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SETRIGHTRGB_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SETRIGHTRGB_HELP_URL);
     }
@@ -544,7 +552,7 @@ Blockly.Blocks['turneyesoff_icon'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.TURNEYESOFF_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TURNEYESOFF_HELP_URL);
     }
@@ -559,7 +567,7 @@ Blockly.Blocks['turnlefteyeoff_icon'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TURNLEFTEYEOFF_HELP_URL);
     }
@@ -574,7 +582,7 @@ Blockly.Blocks['turnrighteyeoff_icon'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL);
     }
@@ -620,7 +628,7 @@ Blockly.Blocks['set_left_eye_icon'] = {
             .setCheck("Number")
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_LEFT);
         this.setTooltip(Blockly.Msg.SET_LEFT_EYE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_LEFT_EYE_HELP_URL);
         this.setPreviousStatement(true, null);
@@ -644,7 +652,7 @@ Blockly.Blocks['set_right_eye_icon'] = {
             .setCheck("Number")
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_RIGHT);
         this.setTooltip(Blockly.Msg.SET_RIGHT_EYE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_RIGHT_EYE_HELP_URL);
         this.setPreviousStatement(true, null);
@@ -669,7 +677,7 @@ Blockly.Blocks['set_eyes_icon'] = {
             .setCheck("Number")
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
         this.setPreviousStatement(true, null);
@@ -685,7 +693,7 @@ Blockly.Blocks['light_effect_police_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'policeCar.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_LIGHT_EFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
@@ -700,7 +708,7 @@ Blockly.Blocks['light_effect_disco_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'DiscoBall.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_LIGHT_EFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
@@ -715,7 +723,7 @@ Blockly.Blocks['light_effect_rainbow_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Rainbow.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_LIGHT_EFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
@@ -725,12 +733,32 @@ Blockly.Blocks['light_effect_rainbow_icon'] = {
     }
 };
 
+
+Blockly.Blocks['light_effect_fireworks_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Fireworks.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(WINK_BLOCK_COLOR_LIGHT_EFECTS);
+        this.appendValueInput("DURATION")
+            .setCheck("Number");
+        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+
+
+
+
 Blockly.Blocks['obstacle_avoid_icon'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_report_problem.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_OBSTACLE_NAVIGATION);
         this.setTooltip(Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
@@ -743,7 +771,7 @@ Blockly.Blocks['obstacle_approach_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ApproachingObstacle.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_BLOCK_COLOR_OBSTACLE_NAVIGATION);
         this.setTooltip(Blockly.Msg.SENSOR_OBSTACLE_APPROACH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
