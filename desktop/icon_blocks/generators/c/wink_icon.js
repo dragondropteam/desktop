@@ -101,3 +101,5 @@ Blockly.C['sensors_line_avoid_icon'] = function(block) {
     const showEyes = block.getFieldValue('SHOW_EYES') == 'TRUE';
     return `sensorLineAvoid( ${speed}, ${showEyes} );\n`;
 };
+
+Blockly.C['bestill_icon'] = Blockly.C['bestill'];
