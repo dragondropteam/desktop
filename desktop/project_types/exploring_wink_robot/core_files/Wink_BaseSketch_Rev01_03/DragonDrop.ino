@@ -15,15 +15,30 @@
 #define MOTOR_SLOW 30
 #define MOTOR_MEDIUM 50
 #define MOTOR_FAST 90
+// Obstacle related
+#define ROTATION_LEFT 0
+#define ROTATION_RIGHT 1
 
 #define ARBITRARY_TURN_DELAY_FOR_90_DEGREES 650
 // Global, file-specific variables
 static double leftOuter, leftInner, rightInner, rightOuter;  
 static int displayDelay = 0;
 static const int displayDelayReset = 4;
+// Obstacle avoiding and approaching varaibles.
+int lastDirection = ROTATION_LEFT;
+int consecutiveWiggles = 0;
+int consecutiveLeft = 0;
+int consecutiveRight = 0;
+
+// Variables associated with ambient light sensors
+double ambientSensorLeft, ambientSensorCenter, ambientSensorRight; 
+int centerLightOff, centerLightOn, centerLightOnly;
 
 
 
+////////////////////////////////////////////
+// Static, file-specific helper functions //
+////////////////////////////////////////////
 /**
  * Scales the provided light sensor value to display visible for an eye.
  * 
@@ -175,7 +190,6 @@ static int randomSpread(int center, int spread) {
 }
 
 
-
 /**
  * If there is a max, delays a specific ammount and does not exceed it.
  * If max is 0, we don't bother counting, we just delay by incrementBy.
@@ -199,7 +213,6 @@ static void delayPreciesly(int *currentTime, int maxTime, int incrementBy) {
 }
 
 
-
 /**
  * decays by a fixed scalar, decayScalar. r,g,b are ints, meaning all values
  * are truncated automatically. There are no value contraints past those of int.
@@ -214,7 +227,6 @@ static void decay(int *r, int *g, int *b, float decayScalar) {
     *g *= decayScalar;
     *b *= decayScalar;
 }
-
 
 
 /**
@@ -241,7 +253,6 @@ static void bump(int *r, int *g, int *b, int amountToBumpBy) {
 }
 
 
-
 /**
  * Converts the specified integer representing seconds to milliseconds.
  *
@@ -264,6 +275,78 @@ static void travelAtSpeedFor(int speed, int duration) {
   delay(convertToMilliseconds(duration));
 }
 
+
+
+/**
+ * A function for debugging IR sensor values using ASCII in the 
+ * serial output. Output for the wink robot is, by default,
+ * set at 57600 baud.
+ */
+static void displayIRSensorOutput(void) { 
+  Serial.flush();
+  const int scalarBar = 5; 
+  for(int i = 0; i < 4; ++i)  
+    Serial.println(); 
+
+  // Read sensors
+  ambientSensorLeft = analogRead(AmbientSenseLeft);     
+  ambientSensorCenter = analogRead(AmbientSenseCenter);
+  ambientSensorRight = analogRead(AmbientSenseRight);
+
+  // Draw graph in serial output
+  for(int i = 0; i < 10; ++i) { 
+    int iterThreshold = (10 - i) * scalarBar; 
+    if(ambientSensorLeft > iterThreshold)   Serial.print(" #\t"); else Serial.print(" \t");
+    if(ambientSensorCenter > iterThreshold) Serial.print("#\t");  else Serial.print(" \t");
+    if(ambientSensorRight > iterThreshold)  Serial.print("#\t");  else Serial.print(" \t");
+    Serial.print("\n"); 
+  } 
+   
+  // Print out numbers 
+  Serial.println("ir_L,    ir_C,     ir_R"); 
+  Serial.print(ambientSensorLeft);   Serial.print("\t"); 
+  Serial.print(ambientSensorCenter); Serial.print("\t"); 
+  Serial.println(ambientSensorRight);
+  Serial.flush();
+} 
+
+
+/**
+ * Scales avoidance motor. Takes the inputs provided and allows them
+ * to be scaled based on the other values being tracked. For use
+ * with obstacle avoidance and approach.
+ */
+static int scaleForMotor(double sensorInput, double numPow, double maxSpeed) {
+  // Sensor max is 1024 but ambient light levels tend to not go above 50 unless a flashlight is involved.
+  const double cap = pow(20.0, numPow); 
+  if(sensorInput > cap)
+    sensorInput = cap;
+    
+  return sensorInput / cap * maxSpeed;
+}
+
+
+/**
+ * Updates the value of the centerLightOff, centerLightOn,
+ * and centerLightOnly global variables dynamically. CenterLightOnly
+ * will now contain a value adjuted for current ambient IR sensor inputs.
+ */
+static void updateCenterIRSensor() {
+  // Dynamically read center value and offset it 
+  // so ambient IR change is not an issue.
+  // Start by getting center value while IR headlight is off...
+  digitalWrite(Headlight, LOW);                    //turn off IR Headlight
+  delay(1);                                        //delay 1 millisecond
+  centerLightOff = analogRead(AmbientSenseCenter); //read sensor
+
+  // ...then when IR headlight is on...
+  digitalWrite(Headlight, HIGH);                  //turn on IR Headlight
+  delay(1);                                       //delay 1 millisecond
+  centerLightOn = analogRead(AmbientSenseCenter); //read sensor
+
+  // .. and finally calucalte center light.
+  centerLightOnly = centerLightOn - centerLightOff;
+}
 
 
 /**
@@ -299,6 +382,10 @@ void lightEffectPolice(int duration) {
 
 
 
+
+////////////////////////////////////////////////////////////////
+// Functions designed for external use with DragonDrop Blocks //
+////////////////////////////////////////////////////////////////
 /**
  * Produces a Twinkling Effect that's very blue and white heavy, like a discoball
  *
@@ -323,7 +410,6 @@ void lightEffectDisco(int duration) {
         delayPreciesly(&runtime, duration, waitTime);
     }
 }
-
 
 
 /**
@@ -372,7 +458,6 @@ void lightEffectRainbow(int duration) {
         delayPreciesly(&runtime, duration, waitTime);
     }
 }
-
 
 
 /**
@@ -638,4 +723,110 @@ void turnRightDegrees(int degrees) {
   motors(motorPower, -motorPower);
   delay(motorDelay);
   motors(0, 0);
+}
+
+
+/**
+ * Obstacle avoidance code. Has a few feastures, notably counts the
+ * number of times similar actions are performs then spits in a near-180
+ * degree arc in order to try and escape the pattern or trap. 
+ */
+void avoidObstacles() {
+  const int speed = 30;                       
+  const int turnDelay = 250;                   // How long we turn for each 'tick'
+  const int wigglesBeforeTurnaround = 4;       // Number of oscilating wiggles before turning around
+  const int similarTriesBeforeTurnaround = 8;  // Number of times to try turning in a consecutive direction
+  const int centerLightUpperThreshold = 50;    // The sensor value at which we start caring.
+  const int centerLightLowerThreshold = 8;     // Minimum value for us to consider using middle IR sensor
+  const double motorPowerBias = .2;            // Value from 0 to 1. Higher values bias backwards more.
+
+  // Use IR headlight to re-evaluate center IR input.
+  updateCenterIRSensor();
+
+  // Go forward if threshold is not exceeded.
+  if (centerLightOnly < centerLightUpperThreshold 
+  && analogRead(AmbientSenseCenter) > centerLightLowerThreshold) { //threshold from above 
+    motors(speed,speed); //drive forward
+    consecutiveWiggles = 0;
+  } else {
+
+    // Handle getting a motor stuck on something and making it continuously try to turn into the wall
+    if(consecutiveLeft > similarTriesBeforeTurnaround) {
+      consecutiveLeft = 0;
+      motors(speed, -speed);
+      delay(800);
+      return;
+    } else if(consecutiveRight > similarTriesBeforeTurnaround) {
+      consecutiveRight = 0;
+      motors(-speed, speed);
+      delay(800);
+      return;
+    }
+  
+    // Hande turnaround when number of tries is exceeded.
+    // Alternate between turning left and right to get out of a bind. 
+    // Delays turn randomly within ~60-120 degrees from current.
+    if(++consecutiveWiggles > wigglesBeforeTurnaround) {
+      if(random(2) == ROTATION_LEFT) {
+        motors(-speed, speed); // Turn left
+      } else {
+        motors(speed, -speed); // Turn right
+      }
+
+      // Perform action, update values.
+      delay(random(600, 1000));
+      consecutiveWiggles = 0; 
+      return;
+    }
+
+    // Handle the left or right adjustment. Keep tabs of the number
+    // of 'wiggles' as well, so we can do something about it if the
+    // robot gets stuck.
+    if(analogRead(AmbientSenseLeft) < analogRead(AmbientSenseRight)) {
+      ++consecutiveLeft;
+      consecutiveRight = 0;
+      motors(-speed * (1 + motorPowerBias), speed * (1 - motorPowerBias));
+    } else {
+      ++consecutiveRight;
+      consecutiveLeft = 0;
+      motors(speed * (1 + motorPowerBias), -speed * (1 - motorPowerBias));
+    }
+    
+    delay(turnDelay);
+  }
+}
+
+
+/**
+ * At short range, approaches small obstacles located in front of it.
+ * Stops once it reaches a close enough distance to the object, waiting
+ * for it to move or adjust.
+ **/
+void approachObstacles() {
+  const int motorSpeed = 32;
+  const int updateDelay = 10;
+  const int centerLightThreshold = 55;
+
+  // Use IR headlight to re-evaluate center IR input.
+  updateCenterIRSensor();
+  
+  if (centerLightOnly < centerLightThreshold) { //threshold from above 
+    motors(motorSpeed, motorSpeed); //drive forward
+  } else {
+    const int adjustThreshold = 2;   // Ambient sensor difference required to act.
+    const double motorPowerBias = 0; // Value from 0 to 1.
+    const double ambientLeft = analogRead(AmbientSenseLeft);
+    const double ambientRight = analogRead(AmbientSenseRight);
+    
+    // Adjust to try and center the obstacle
+    if(ambientLeft - ambientRight > adjustThreshold)
+      motors(-motorSpeed * (1 - motorPowerBias), motorSpeed * (1 + motorPowerBias));
+    else if (ambientRight - ambientLeft > adjustThreshold)
+      motors(motorSpeed * (1 + motorPowerBias), -motorSpeed * (1 - motorPowerBias)); 
+    else
+      motors(0, 0);
+    
+    // Wait for next update.
+    delay(updateDelay);
+  }
 }

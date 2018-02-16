@@ -72,6 +72,9 @@ Blockly.C['sensors_line_follow_icon'] = function(block) {
     const showEyes = block.getFieldValue('SHOW_EYES') == 'TRUE';
     return `sensorLineFollow( ${speed}, ${showEyes} );\n`;
 };
+// Obstacle related
+Blockly.C['obstacle_avoid_icon'] = function(block)    { return 'avoidObstacles();\n'; };
+Blockly.C['obstacle_approach_icon'] = function(block) { return 'approachObstacles();\n'; };
 
 Blockly.C['motors_beginner_rotate_right_icon'] = function(block) {
     const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);

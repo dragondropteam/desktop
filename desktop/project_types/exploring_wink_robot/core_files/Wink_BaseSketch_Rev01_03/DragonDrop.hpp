@@ -9,6 +9,11 @@ extern void lightEffectDisco(int duration);
 extern void lightEffectRainbow(int duration);
 extern void lightEffectFireworks(int duration);
 
+// Obstacle-related movement
+extern void approachObstacles();
+extern void avoidObstacles();
+extern void exploreEnvironment();
+
 
 // Beginner movements
 extern void forwardSlow(int duration);
