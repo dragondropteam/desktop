@@ -398,7 +398,6 @@
                     </shadow>
                 </value>
             </block>
-            <block type="bestill"/>
         </category>
     </category>
     <category name="Sensors" colour="330">
@@ -433,14 +432,13 @@
             <block type="button_pressed"/>
             <block type="ir_when"/>
         </category>
-        <!--block type="line_avoidance" -->
         <category name="Sensor Output">
             <!--<block type="ir_output"/>-->
         </category>
     </category>
     <category name="Time" colour="120" enabled="false">
         <block type="delayms">
-            <value name="MILLISECONDS">
+            <value name="IN_MILLISECONDS">
                 <shadow type="math_number">
                     <field name="NUM">0</field>
                 </shadow>
@@ -453,8 +451,8 @@
                 </shadow>
             </value>
         </block>
-        <block type="microseconds"/>
         <block type="milliseconds"/>
+        <block type="microseconds"/>
     </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
