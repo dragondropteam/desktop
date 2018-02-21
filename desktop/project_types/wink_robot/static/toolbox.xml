@@ -536,7 +536,6 @@
                 </shadow>
             </value>
         </block>
-        <block type="bestill"/>
     </category>
     <!--<category name="Wink Sounds" colour="330">-->
       <!--<block type="beepms" disabled="true">-->
