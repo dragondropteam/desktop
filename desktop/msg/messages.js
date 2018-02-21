@@ -3862,7 +3862,7 @@ Blockly.Msg.MICROSECONDS_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
 /// auto generated
-Blockly.Msg.PININPUT_FIELD_1 = 'Set Pin # ';
+Blockly.Msg.PININPUT_FIELD_1 = 'set pin # ';
 /// auto generated
 Blockly.Msg.PININPUT_FIELD_2 = 'to';
 /// auto generated
@@ -3876,7 +3876,7 @@ Blockly.Msg.PININPUT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.PININPUT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.DIGITALWRITE_FIELD_1 = 'Digital Write';
+Blockly.Msg.DIGITALWRITE_FIELD_1 = 'digital write';
 /// auto generated
 Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_1 = 'HIGH';
 /// auto generated
@@ -3888,7 +3888,7 @@ Blockly.Msg.DIGITALWRITE_TOOLTIP = 'Writes either HIGH or LOW to the given pin';
 /// auto generated
 Blockly.Msg.DIGITALWRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalWrite';
 /// auto generated
-Blockly.Msg.DIGITAL_READ_FIELD_1 = 'Digital Read Pin #';
+Blockly.Msg.DIGITAL_READ_FIELD_1 = 'digital read pin #';
 /// auto generated
 Blockly.Msg.DIGITAL_READ_TOOLTIP = 'Reads either HIGH or LOW from a digital pin';
 /// auto generated
@@ -3914,7 +3914,7 @@ Blockly.Msg.LED_BUILTIN_HELP_URL = 'https://www.arduino.cc/en/Reference/Constant
 
 //arduino
 /// auto generated
-Blockly.Msg.ANALOG_REFERENCE_FIELD_1 = 'Set Analog Reference To';
+Blockly.Msg.ANALOG_REFERENCE_FIELD_1 = 'set analog reference to';
 /// auto generated
 Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1 = 'DEFAULT';
 /// auto generated
@@ -3930,15 +3930,15 @@ Blockly.Msg.ANALOG_REFERENCE_TOOLTIP = 'Set the reference voltage for analog inp
 /// auto generated
 Blockly.Msg.ANALOG_REFERENCE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogReference';
 /// auto generated
-Blockly.Msg.ANALOG_READ_FIELD_1 = 'Analog Read Pin #';
+Blockly.Msg.ANALOG_READ_FIELD_1 = 'analog read pin #';
 /// auto generated
 Blockly.Msg.ANALOG_READ_TOOLTIP = 'Read the value from the given analog pin';
 /// auto generated
 Blockly.Msg.ANALOG_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogRead';
 /// auto generated
-Blockly.Msg.ANALOG_WRITE_FIELD_1 = 'Analog Write ';
+Blockly.Msg.ANALOG_WRITE_FIELD_1 = 'analog write ';
 /// auto generated
-Blockly.Msg.ANALOG_WRITE_FIELD_2 = 'to Pin #';
+Blockly.Msg.ANALOG_WRITE_FIELD_2 = 'to pin #';
 /// auto generated
 Blockly.Msg.ANALOG_WRITE_TOOLTIP = '';
 /// auto generated
@@ -4010,21 +4010,21 @@ Blockly.Msg.LOW_BYTE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.LOW_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/LowByte';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_FIELD_1 = 'Play Frequency';
+Blockly.Msg.TONE_PIN_FREQ_FIELD_1 = 'play frequency';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_FIELD_2 = 'on Pin #';
+Blockly.Msg.TONE_PIN_FREQ_FIELD_2 = 'on pin #';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_HELP_URL = 'https://www.arduino.cc/en/Reference/Tone';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1 = 'Play Frequency';
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1 = 'play frequency';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2 = 'on Pin #';
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2 = 'on pin #';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_3 = 'for ';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4 = 'Milliseconds';
+Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4 = 'milliseconds';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP = '';
 /// auto generated
@@ -4072,31 +4072,31 @@ Blockly.Msg.EEPROM_PUT_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMPut
 
 //arduino_serial
 /// auto generated
-Blockly.Msg.SERIAL_READ_FIELD_1 = 'Serial Read First Byte';
+Blockly.Msg.SERIAL_READ_FIELD_1 = 'serial read first byte';
 /// auto generated
 Blockly.Msg.SERIAL_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_READ_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1 = 'Serial Print Line';
+Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1 = 'serial print line';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_LINE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_LINE_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_PRINT_FIELD_1 = 'Serial Print';
+Blockly.Msg.SERIAL_PRINT_FIELD_1 = 'serial print';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_END_FIELD_1 = 'Serial end';
+Blockly.Msg.SERIAL_END_FIELD_1 = 'serial end';
 /// auto generated
 Blockly.Msg.SERIAL_END_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_END_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_BEGIN_FIELD_1 = 'Serial Begin at ';
+Blockly.Msg.SERIAL_BEGIN_FIELD_1 = 'serial begin at ';
 /// auto generated
 Blockly.Msg.SERIAL_BEGIN_FIELD_2 = 'bits per second (baud)';
 /// auto generated
@@ -4627,217 +4627,217 @@ Blockly.Msg.RANDOM_EYES_TOOLTIP = '';
 
 //wink
 /// auto generated
-Blockly.Msg.SETEYESRED_FIELD_1 = 'setEyesRed';
+Blockly.Msg.SETEYESRED_FIELD_1 = 'set eyes red';
 /// auto generated
 Blockly.Msg.SETEYESRED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESGREEN_FIELD_1 = 'setEyesGreen';
+Blockly.Msg.SETEYESGREEN_FIELD_1 = 'set eyes green';
 /// auto generated
 Blockly.Msg.SETEYESGREEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESBLUE_FIELD_1 = 'setEyesBlue';
+Blockly.Msg.SETEYESBLUE_FIELD_1 = 'set eyes blue';
 /// auto generated
 Blockly.Msg.SETEYESBLUE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESPURPLE_FIELD_1 = 'setEyesPurple';
+Blockly.Msg.SETEYESPURPLE_FIELD_1 = 'set eyes purple';
 /// auto generated
 Blockly.Msg.SETEYESPURPLE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESPINK_FIELD_1 = 'setEyesPink';
+Blockly.Msg.SETEYESPINK_FIELD_1 = 'set eyes pink';
 /// auto generated
 Blockly.Msg.SETEYESPINK_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESYELLOW_FIELD_1 = 'setEyesYellow';
+Blockly.Msg.SETEYESYELLOW_FIELD_1 = 'set eyes yellow';
 /// auto generated
 Blockly.Msg.SETEYESYELLOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESCYAN_FIELD_1 = 'setEyesCyan';
+Blockly.Msg.SETEYESCYAN_FIELD_1 = 'set eyes cyan';
 /// auto generated
 Blockly.Msg.SETEYESCYAN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESORANGE_FIELD_1 = 'setEyesOrange';
+Blockly.Msg.SETEYESORANGE_FIELD_1 = 'set eyes orange';
 /// auto generated
 Blockly.Msg.SETEYESORANGE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESWHITE_FIELD_1 = 'setEyesWhite';
+Blockly.Msg.SETEYESWHITE_FIELD_1 = 'set eyes white';
 /// auto generated
 Blockly.Msg.SETEYESWHITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTRED_FIELD_1 = 'setLeftRed';
+Blockly.Msg.SETLEFTRED_FIELD_1 = 'set left red';
 /// auto generated
 Blockly.Msg.SETLEFTRED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTGREEN_FIELD_1 = 'setLeftGreen';
+Blockly.Msg.SETLEFTGREEN_FIELD_1 = 'set left green';
 /// auto generated
 Blockly.Msg.SETLEFTGREEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTBLUE_FIELD_1 = 'setLeftBlue';
+Blockly.Msg.SETLEFTBLUE_FIELD_1 = 'set left blue';
 /// auto generated
 Blockly.Msg.SETLEFTBLUE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTPURPLE_FIELD_1 = 'setLeftPurple';
+Blockly.Msg.SETLEFTPURPLE_FIELD_1 = 'set left purple';
 /// auto generated
 Blockly.Msg.SETLEFTPURPLE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTPINK_FIELD_1 = 'setLeftPink';
+Blockly.Msg.SETLEFTPINK_FIELD_1 = 'set left pink';
 /// auto generated
 Blockly.Msg.SETLEFTPINK_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTYELLOW_FIELD_1 = 'setLeftYellow';
+Blockly.Msg.SETLEFTYELLOW_FIELD_1 = 'set left yellow';
 /// auto generated
 Blockly.Msg.SETLEFTYELLOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTCYAN_FIELD_1 = 'setLeftCyan';
+Blockly.Msg.SETLEFTCYAN_FIELD_1 = 'set left cyan';
 /// auto generated
 Blockly.Msg.SETLEFTCYAN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTORANGE_FIELD_1 = 'setLeftOrange';
+Blockly.Msg.SETLEFTORANGE_FIELD_1 = 'set left orange';
 /// auto generated
 Blockly.Msg.SETLEFTORANGE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTWHITE_FIELD_1 = 'setLeftWhite';
+Blockly.Msg.SETLEFTWHITE_FIELD_1 = 'set left white';
 /// auto generated
 Blockly.Msg.SETLEFTWHITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTRED_FIELD_1 = 'setRightRed';
+Blockly.Msg.SETRIGHTRED_FIELD_1 = 'set right red';
 /// auto generated
 Blockly.Msg.SETRIGHTRED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTGREEN_FIELD_1 = 'setRightGreen';
+Blockly.Msg.SETRIGHTGREEN_FIELD_1 = 'set right green';
 /// auto generated
 Blockly.Msg.SETRIGHTGREEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTBLUE_FIELD_1 = 'setRightBlue';
+Blockly.Msg.SETRIGHTBLUE_FIELD_1 = 'set right blue';
 /// auto generated
 Blockly.Msg.SETRIGHTBLUE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTPURPLE_FIELD_1 = 'setRightPurple';
+Blockly.Msg.SETRIGHTPURPLE_FIELD_1 = 'set right purple';
 /// auto generated
 Blockly.Msg.SETRIGHTPURPLE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTPINK_FIELD_1 = 'setRightPink';
+Blockly.Msg.SETRIGHTPINK_FIELD_1 = 'set right pink';
 /// auto generated
 Blockly.Msg.SETRIGHTPINK_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTYELLOW_FIELD_1 = 'setRightYellow';
+Blockly.Msg.SETRIGHTYELLOW_FIELD_1 = 'set right yellow';
 /// auto generated
 Blockly.Msg.SETRIGHTYELLOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTCYAN_FIELD_1 = 'setRightCyan';
+Blockly.Msg.SETRIGHTCYAN_FIELD_1 = 'set right cyan';
 /// auto generated
 Blockly.Msg.SETRIGHTCYAN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTORANGE_FIELD_1 = 'setRightOrange';
+Blockly.Msg.SETRIGHTORANGE_FIELD_1 = 'set right orange';
 /// auto generated
 Blockly.Msg.SETRIGHTORANGE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTWHITE_FIELD_1 = 'setRightWhite';
+Blockly.Msg.SETRIGHTWHITE_FIELD_1 = 'set right white';
 /// auto generated
 Blockly.Msg.SETRIGHTWHITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESRGB_FIELD_1 = 'setEyesColor';
+Blockly.Msg.SETEYESRGB_FIELD_1 = 'set eyes color';
 /// auto generated
 Blockly.Msg.SETEYESRGB_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTRGB_FIELD_1 = 'setLeftColor';
+Blockly.Msg.SETLEFTRGB_FIELD_1 = 'set left color';
 /// auto generated
 Blockly.Msg.SETLEFTRGB_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTRGB_FIELD_1 = 'setRightColor';
+Blockly.Msg.SETRIGHTRGB_FIELD_1 = 'set right color';
 /// auto generated
 Blockly.Msg.SETRIGHTRGB_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURNEYESOFF_FIELD_1 = 'turnEyesOff';
+Blockly.Msg.TURNEYESOFF_FIELD_1 = 'turn eyes off';
 /// auto generated
 Blockly.Msg.TURNEYESOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURNEYESOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURNLEFTEYEOFF_FIELD_1 = 'turnLeftEyeOff';
+Blockly.Msg.TURNLEFTEYEOFF_FIELD_1 = 'turn left eye off';
 /// auto generated
 Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURNLEFTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1 = 'turnRightEyeOff';
+Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1 = 'turn right eye off';
 /// auto generated
 Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.EYESPREVCOLOUR_FIELD_1 = 'eyesPreviousColor';
+Blockly.Msg.EYESPREVCOLOUR_FIELD_1 = 'eyes previous color';
 /// auto generated
 Blockly.Msg.EYESPREVCOLOUR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.EYESPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.LEFTPREVCOLOUR_FIELD_1 = 'leftPreviousColor';
+Blockly.Msg.LEFTPREVCOLOUR_FIELD_1 = 'left previous color';
 /// auto generated
 Blockly.Msg.LEFTPREVCOLOUR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.LEFTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1 = 'rightPreviousColor';
+Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1 = 'right previous color';
 /// auto generated
 Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = '';
 /// auto generated
@@ -4921,7 +4921,7 @@ Blockly.Msg.BEEPOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.BEEPOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETIRLIGHT_FIELD_1 = 'Turn';
+Blockly.Msg.SETIRLIGHT_FIELD_1 = 'turn';
 /// auto generated
 Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_1 = 'head light';
 /// auto generated
@@ -4941,53 +4941,53 @@ Blockly.Msg.SETIRLIGHT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETIRLIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.READSENSOR_FIELD_1 = 'Read';
+Blockly.Msg.READSENSOR_FIELD_1 = 'read';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1 = 'Line Sensor Left';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1 = 'line sensor left';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2 = 'Line Sensor Right';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2 = 'line sensor right';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3 = 'Ambient Sensor Left';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3 = 'ambient sensor left';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4 = 'Ambient Sensor Center';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4 = 'ambient sensor center';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5 = 'Ambient Sensor Right';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5 = 'ambient sensor right';
 /// auto generated
 Blockly.Msg.READSENSOR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.READSENSOR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_1 = 'Set Left Eye';
+Blockly.Msg.SET_LEFT_EYE_FIELD_1 = 'set left eye';
 /// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_2 = 'Red';
+Blockly.Msg.SET_LEFT_EYE_FIELD_2 = 'red';
 /// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_3 = 'Green';
+Blockly.Msg.SET_LEFT_EYE_FIELD_3 = 'green';
 /// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_4 = 'Blue';
+Blockly.Msg.SET_LEFT_EYE_FIELD_4 = 'blue';
 /// auto generated
 Blockly.Msg.SET_LEFT_EYE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SET_LEFT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_1 = 'Set Right Eye';
+Blockly.Msg.SET_RIGHT_EYE_FIELD_1 = 'set right eye';
 /// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_2 = 'Red';
+Blockly.Msg.SET_RIGHT_EYE_FIELD_2 = 'red';
 /// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_3 = 'Green';
+Blockly.Msg.SET_RIGHT_EYE_FIELD_3 = 'green';
 /// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_4 = 'Blue';
+Blockly.Msg.SET_RIGHT_EYE_FIELD_4 = 'blue';
 /// auto generated
 Blockly.Msg.SET_RIGHT_EYE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SET_RIGHT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SET_EYES_FIELD_1 = 'Set Eyes';
+Blockly.Msg.SET_EYES_FIELD_1 = 'set eyes';
 /// auto generated
-Blockly.Msg.SET_EYES_FIELD_2 = 'Red';
+Blockly.Msg.SET_EYES_FIELD_2 = 'red';
 /// auto generated
-Blockly.Msg.SET_EYES_FIELD_3 = 'Green';
+Blockly.Msg.SET_EYES_FIELD_3 = 'green';
 /// auto generated
-Blockly.Msg.SET_EYES_FIELD_4 = 'Blue';
+Blockly.Msg.SET_EYES_FIELD_4 = 'blue';
 /// auto generated
 Blockly.Msg.SET_EYES_TOOLTIP = '';
 /// auto generated
@@ -5015,13 +5015,13 @@ Blockly.Msg.TURN_BY_VALUES_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURN_BY_VALUES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.RESTART_IR_FIELD_1 = 'Restart IR';
+Blockly.Msg.RESTART_IR_FIELD_1 = 'restart IR';
 /// auto generated
 Blockly.Msg.RESTART_IR_TOOLTIP = 'Start listening for IR should be setup and in loop after processing an input';
 /// auto generated
 Blockly.Msg.RESTART_IR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IS_IR_DONE_FIELD_1 = 'Is IR Done?';
+Blockly.Msg.IS_IR_DONE_FIELD_1 = 'is IR done?';
 /// auto generated
 Blockly.Msg.IS_IR_DONE_TOOLTIP = 'Checks to see if we received an IR input to process';
 /// auto generated
