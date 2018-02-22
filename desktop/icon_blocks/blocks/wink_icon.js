@@ -759,7 +759,7 @@ Blockly.Blocks['sensors_line_follow_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'LineFollowing.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
         this.appendValueInput("SPEED")
@@ -780,7 +780,7 @@ Blockly.Blocks['sensors_line_avoid_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'lineAvoidance.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
         this.appendValueInput("SPEED")
@@ -803,7 +803,7 @@ Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons1-up.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
@@ -817,7 +817,7 @@ Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
@@ -831,7 +831,7 @@ Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-up.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
@@ -845,7 +845,7 @@ Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons1-down.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
@@ -859,7 +859,7 @@ Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-down.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
@@ -873,7 +873,7 @@ Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-down.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
@@ -887,7 +887,7 @@ Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'leftArrow.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DEGREES")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION);
@@ -901,7 +901,7 @@ Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'rightArrow.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
-        this.setColour(330);
+        this.setColour(WINK_MOVEMENT_COLOUR);
         this.appendValueInput("DEGREES")
             .setCheck("Number");
         this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION);
