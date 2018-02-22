@@ -1,3 +1,8 @@
+
+// Color Configuration
+
+
+
 //All content copyright DigiPen Institute of Technology 2016
 Blockly.Blocks['serial_read'] = {
     init: function () {
