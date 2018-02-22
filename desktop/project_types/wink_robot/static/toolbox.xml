@@ -124,7 +124,7 @@
     <sep/>
     <category name="Time" colour="120" enabled="false">
         <block type="delayms">
-            <value name="MILLISECONDS">
+            <value name="IN_MILLISECONDS">
                 <shadow type="math_number">
                     <field name="NUM">0</field>
                 </shadow>
@@ -223,10 +223,28 @@
     </category>
     <category name="Serial" colour="120">
         <block type="text"/>
-        <block type="serial_begin"/>
+        <block type="serial_begin">
+            <value name="SPEED">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
         <block type="serial_end"/>
-        <block type="serial_print_line"/>
-        <block type="serial_print"/>
+        <block type="serial_print_line">
+            <value name="OUTPUT">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="serial_print">
+            <value name="OUTPUT">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+        </block>
         <block type="serial_read"/>
     </category>
     <sep/>
@@ -536,7 +554,6 @@
                 </shadow>
             </value>
         </block>
-        <block type="bestill"/>
     </category>
     <!--<category name="Wink Sounds" colour="330">-->
       <!--<block type="beepms" disabled="true">-->

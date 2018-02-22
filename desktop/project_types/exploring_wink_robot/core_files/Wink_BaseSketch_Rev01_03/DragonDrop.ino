@@ -1,9 +1,15 @@
-// Header inclusions: 
 #include "DragonDrop.hpp"
 #include "WinkHardware.hpp"
 #include <Adafruit_NeoPixel.h>
 
-// Defines
+
+
+
+//////////////////////
+// Constant Defines //
+//////////////////////
+
+// General Defines
 #define EYE_LEFT  0
 #define EYE_RIGHT 1
 #define EYE_COUNT 2
@@ -12,27 +18,41 @@
 #define LIGHT_SENSOR_MAX 1000.0
 #define LIGHT_SENSOR_MIN 0
 
+// Beginner movement related
 #define MOTOR_SLOW 30
 #define MOTOR_MEDIUM 50
 #define MOTOR_FAST 90
+#define ARBITRARY_TURN_DELAY_FOR_90_DEGREES 650
+
 // Obstacle related
 #define ROTATION_LEFT 0
 #define ROTATION_RIGHT 1
 
-#define ARBITRARY_TURN_DELAY_FOR_90_DEGREES 650
-// Global, file-specific variables
-static double leftOuter, leftInner, rightInner, rightOuter;  
-static int displayDelay = 0;
-static const int displayDelayReset = 4;
+
+
+
+/////////////////////////////////////
+// Global tracking and information //
+/////////////////////////////////////
+
+// Wink underside ambient light sensors
+double leftOuter, leftInner, rightInner, rightOuter;  
+
+// Ambient IR sensors and center headlight information
+double ambientSensorLeft, ambientSensorCenter, ambientSensorRight; 
+int centerLightOff, centerLightOn, centerLightOnly;
+
+// Serial output configuration
+int displayDelay = 0;
+int displayDelayReset = 4;
+
 // Obstacle avoiding and approaching varaibles.
 int lastDirection = ROTATION_LEFT;
 int consecutiveWiggles = 0;
 int consecutiveLeft = 0;
 int consecutiveRight = 0;
 
-// Variables associated with ambient light sensors
-double ambientSensorLeft, ambientSensorCenter, ambientSensorRight; 
-int centerLightOff, centerLightOn, centerLightOnly;
+
 
 
 
@@ -48,7 +68,6 @@ static int scaleLightSensorForEyes(int toScale)
 {
   return constrain(((1.0 / (double)toScale) * EYE_MAX) * 15, EYE_MIN, EYE_MAX);
 }
-
 
 
 /**
@@ -69,7 +88,6 @@ static int scaleLightSensorForMotor(double sensorInput, int motorMaxSpeed)
 }
 
 
-
 /**
  * Moves the wink robot back using the left motor. Blocks until complete.
  *
@@ -83,7 +101,6 @@ static void backLeft(int moveSpeed, int backupTime)
 }
 
 
-
 /**
  * Moves the wink robot back using the right motor. Blocks until complete.
  *
@@ -95,7 +112,6 @@ static void backRight(int moveSpeed, int backupTime)
   motors(moveSpeed / 2, -moveSpeed);
   delay(backupTime);
 }
-
 
 
 /**
@@ -144,7 +160,6 @@ static void readLines(void){
 }
 
 
-
 /**
  * Displays in the serial output the sensor information as both a graph and number.
  * Used for debug output with serial output.
@@ -174,7 +189,6 @@ static void displayLightSensorOutput(void) {
 
   displayDelay = displayDelayReset;
 }
-
 
 
 /**
@@ -264,7 +278,6 @@ static int convertToMilliseconds(int seconds) {
 }
 
 
-
 /**
  *
  * @param speed the positive or negative speed value to set the motors to
@@ -274,7 +287,6 @@ static void travelAtSpeedFor(int speed, int duration) {
   motors(speed, speed);
   delay(convertToMilliseconds(duration));
 }
-
 
 
 /**
@@ -522,7 +534,6 @@ void lightEffectFireworks(int duration) {
 }
 
 
-
 /**
  * Tell the Wink robot to follow a dark line on a white surface at minimum 1/4 inch (ideally 3/8 - 5/8) 
  * in thickness with turns no more tight than a circle with 1 inch radius.
@@ -556,8 +567,6 @@ void sensorLineFollow(int speed, bool showEyes) {
 
   delay(10);
 } 
-
-
 
 
 /**
@@ -608,7 +617,6 @@ void sensorLineAvoid(int speed, bool showEyes) {
 }
 
 
-
 /**
  * Makes the robot go forward at a Slow pace.
  *
@@ -617,7 +625,6 @@ void sensorLineAvoid(int speed, bool showEyes) {
 void forwardSlow(int duration) {
   travelAtSpeedFor(MOTOR_SLOW, duration);
 }
-
 
 
 /**
@@ -630,7 +637,6 @@ void forwardMedium(int duration) {
 }
 
 
-
 /**
  * Makes the robot go forward at a Fast pace.
  *
@@ -639,7 +645,6 @@ void forwardMedium(int duration) {
 void forwardFast(int duration) {  
   travelAtSpeedFor(MOTOR_FAST, duration);
 }
-
 
 
 /**
@@ -652,7 +657,6 @@ void backwardSlow(int duration) {
 }
 
 
-
 /**
  * Makes the robot go backward at a Medium pace.
  *
@@ -661,7 +665,6 @@ void backwardSlow(int duration) {
 void backwardMedium(int duration) { 
   travelAtSpeedFor(-MOTOR_MEDIUM, duration);
 }
-
 
 
 /**
@@ -674,7 +677,6 @@ void backwardFast(int duration) {
 }
 
 
-
 /**
  * Scales up the input accordingly to allow for degree inputs to motors.
  *
@@ -684,7 +686,6 @@ void backwardFast(int duration) {
 static double scaleUserDegreesToDelay(double userInput) {
   return userInput * (ARBITRARY_TURN_DELAY_FOR_90_DEGREES / 90); // Arbitrary.
 }
-
 
 
 /**
@@ -704,7 +705,6 @@ void turnLeftDegrees(int degrees) {
   delay(motorDelay);
   motors(0, 0);
 }
-
 
 
 /**
