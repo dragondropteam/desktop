@@ -4106,7 +4106,7 @@ Blockly.Msg.SERIAL_BEGIN_HELP_URL = '';
 
 //arduino_servo
 /// auto generated
-Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'Attach pin';
+Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'attach pin';
 /// auto generated
 Blockly.Msg.SERVO_ATTACH_FIELD_2 = 'to servo';
 /// auto generated
@@ -4114,7 +4114,7 @@ Blockly.Msg.SERVO_ATTACH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_ATTACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttach';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_FIELD_1 = 'Set angle to';
+Blockly.Msg.SERVO_WRITE_FIELD_1 = 'set angle to';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_FIELD_2 = 'on servo';
 /// auto generated
@@ -4122,7 +4122,7 @@ Blockly.Msg.SERVO_WRITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWrite';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'Set microseconds to';
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'set microseconds to';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_2 = 'on servo';
 /// auto generated
@@ -4130,19 +4130,19 @@ Blockly.Msg.SERVO_WRITE_MICROSECONDS_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWriteMicroseconds';
 /// auto generated
-Blockly.Msg.SERVO_READ_FIELD_1 = 'Read from servo';
+Blockly.Msg.SERVO_READ_FIELD_1 = 'read from servo';
 /// auto generated
 Blockly.Msg.SERVO_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoRead';
 /// auto generated
-Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'Check servo';
+Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'check servo';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttached';
 /// auto generated
-Blockly.Msg.SERVO_DETACH_FIELD_1 = 'Detach servo';
+Blockly.Msg.SERVO_DETACH_FIELD_1 = 'detach servo';
 /// auto generated
 Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 /// auto generated
