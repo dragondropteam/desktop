@@ -1,6 +1,5 @@
-
 // Color Configuration
-
+const ARDUINO_SERIAL_COLOUR = '#5B67A5'; // Hue 230
 
 
 //All content copyright DigiPen Institute of Technology 2016
@@ -9,7 +8,7 @@ Blockly.Blocks['serial_read'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.SERIAL_READ_FIELD_1);
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setTooltip(Blockly.Msg.SERIAL_READ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERIAL_READ_HELP_URL);
     }
@@ -22,7 +21,7 @@ Blockly.Blocks['serial_print_line'] = {
             .appendField(Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setTooltip(Blockly.Msg.SERIAL_PRINT_LINE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERIAL_PRINT_LINE_HELP_URL);
     }
@@ -35,7 +34,7 @@ Blockly.Blocks['serial_print'] = {
             .appendField(Blockly.Msg.SERIAL_PRINT_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setTooltip(Blockly.Msg.SERIAL_PRINT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERIAL_PRINT_HELP_URL);
     }
@@ -47,7 +46,7 @@ Blockly.Blocks['serial_end'] = {
             .appendField(Blockly.Msg.SERIAL_END_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setTooltip(Blockly.Msg.SERIAL_END_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERIAL_END_HELP_URL);
     }
@@ -62,7 +61,7 @@ Blockly.Blocks['serial_begin'] = {
             .appendField(Blockly.Msg.SERIAL_BEGIN_FIELD_2);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setTooltip(Blockly.Msg.SERIAL_BEGIN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERIAL_BEGIN_HELP_URL);
     }
@@ -75,7 +74,7 @@ Blockly.Blocks['serial_available'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -86,7 +85,7 @@ Blockly.Blocks['serial_available_write'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -97,7 +96,7 @@ Blockly.Blocks['serial_find'] = {
             .appendField(Blockly.Msg.ARDUINO_SERIAL_FIND);
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_FIND_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_FIND_HELP_URL);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setOutput(true, 'Boolean');
     }
 };
@@ -112,7 +111,7 @@ Blockly.Blocks['serial_find_until'] = {
             .appendField(Blockly.Msg.ARDUINO_SERIAL_UNTIL);
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_FIND_UNTIL_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_FIND_UNTIL_HELP_URL);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setOutput(true, 'Boolean');
     }
 };
@@ -125,7 +124,7 @@ Blockly.Blocks['serial_flush'] = {
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_FLUSH_HELP_URL);
         this.setNextStatement(true);
         this.setPreviousStatement(true)
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -136,7 +135,7 @@ Blockly.Blocks['serial_parse_float'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_PARSE_FLOAT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_PARSE_FLOAT_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -147,7 +146,7 @@ Blockly.Blocks['serial_parse_int'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_PARSE_INT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_PARSE_INT_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -158,7 +157,7 @@ Blockly.Blocks['serial_peek'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_PEEK_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_PEEK_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 Blockly.Blocks['serial_read_bytes'] = {
@@ -173,7 +172,7 @@ Blockly.Blocks['serial_read_bytes'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -192,7 +191,7 @@ Blockly.Blocks['serial_read_bytes_until'] = {
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_READ_BYTES_HELP_URL);
         this.setOutput(true, 'Number');
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
     }
 };
 
@@ -207,7 +206,7 @@ Blockly.Blocks['serial_set_timeout'] = {
         this.setNextStatement(true);
         this.setTooltip(Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT);
-        this.setColour(230);
+        this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setInputsInline(true);
     }
 };
