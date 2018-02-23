@@ -36,7 +36,7 @@
         </block>
         <block type="controls_flow_statements"/>
     </category>
-    <category name="Arrays">
+    <category name="Arrays" colour="#745BA5">
         <block type="typed_arrays_create_with"/>
         <block type="typed_arrays_setIndex"/>
         <block type="typed_arrays_getIndex"/>
@@ -419,7 +419,7 @@
         <block type="low"/>
         <block type="led_builtin"/>
     </category>
-    <category name="Serial" colour="120">
+    <category name="Serial" colour="#5B67A5">
         <block type="text"/>
         <block type="serial_begin">
             <value name="SPEED">

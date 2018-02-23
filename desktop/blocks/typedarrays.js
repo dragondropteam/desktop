@@ -32,7 +32,8 @@ goog.require('Blockly.Blocks');
 /**
  * Common HSV hue for all blocks in this category.
  */
-Blockly.Blocks.arrays.HUE = 260;
+Blockly.Blocks.arrays.HUE = 260; // HEX '#745BA5'
+
 
 Blockly.Blocks['typed_arrays_create_with'] = {
     /**
@@ -280,7 +281,7 @@ Blockly.Blocks['typed_arrays_setIndex'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(Blockly.Blocks.arrays.HUE);
         this.setTooltip(Blockly.Msg.TYPED_ARRAYS_SETINDEX_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TYPED_ARRAYS_SETINDEX_HELP_URL);
     },
@@ -316,7 +317,7 @@ Blockly.Blocks['typed_arrays_getIndex'] = {
             .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(Blockly.Blocks.arrays.HUE);
         this.setTooltip(Blockly.Msg.TYPED_ARRAYS_GETINDEX_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TYPED_ARRAYS_GETINDEX_HELP_URL);
     },
@@ -350,7 +351,7 @@ Blockly.Blocks['typed_arrays_delete'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(Blockly.Blocks.arrays.HUE);
         this.setTooltip(Blockly.Msg.TYPED_ARRAYS_DELETE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TYPED_ARRAYS_DELETE_HELP_URL);
     },

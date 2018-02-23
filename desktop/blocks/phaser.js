@@ -2153,7 +2153,7 @@ Blockly.Blocks['add_to_world'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PHASER_GROUPS_COLOUR);
+        this.setColour(PHASER_WORLD_COLOUR);
         this.setTooltip(Blockly.Msg.ADD_TO_WORLD_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADD_TO_WORLD_HELP_URL);
     }
@@ -3647,7 +3647,7 @@ Blockly.Blocks['get_object_width'] = {
             .appendField(new Blockly.FieldVariable("item"), "NAME");
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.GET_OBJECT_WIDTH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_OBJECT_WIDTH_HELP_URL);
     }
@@ -3666,15 +3666,13 @@ Blockly.Blocks['set_object_width'] = {
             .setCheck("Number");
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.SET_OBJECT_WIDTH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_OBJECT_WIDTH_HELP_URL);
     }
 };
 
 //region EMITTER
-const PARTICLE_COLOUR = '#80cbc4';
-
 Blockly.Blocks['addemitter'] = {
     init: function () {
         this.appendDummyInput()
@@ -3690,7 +3688,7 @@ Blockly.Blocks['addemitter'] = {
             .appendField(Blockly.Msg.ADDEMITTER_FIELD_4);
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.ADDEMITTER_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADDEMITTER_HELP_URL);
     }
@@ -3721,7 +3719,7 @@ Blockly.Blocks['emitter_make_particles'] = {
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
         this.setInputsInline(false);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setHelpUrl(Blockly.Msg.EMITTER_MAKE_PARTICLES_HELP_URL);
         this.setTooltip(Blockly.Msg.EMITTER_MAKE_PARTICLES_TOOLTIP)
     }
@@ -3741,7 +3739,7 @@ Blockly.Blocks['emitters_make_particles'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_MAKE_PARTICLES_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_MAKE_PARTICLES_HELP_URL);
     }
@@ -3766,7 +3764,7 @@ Blockly.Blocks['emitters_set_rotation'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_ROTATION_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_ROTATION_HELP_URL);
     }
@@ -3787,7 +3785,7 @@ Blockly.Blocks['emitters_set_rotation_vi'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_ROTATION_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_ROTATION_VI_HELP_URL);
     }
@@ -3818,7 +3816,7 @@ Blockly.Blocks['emitters_start'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_START_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_START_HELP_URL);
     }
@@ -3843,7 +3841,7 @@ Blockly.Blocks['emitters_start_vi'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_START_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_START_VI_HELP_URL);
     }
@@ -3871,7 +3869,7 @@ Blockly.Blocks['emitters_set_alpha'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_ALPHA_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_ALPHA_HELP_URL);
     }
@@ -3895,7 +3893,7 @@ Blockly.Blocks['emitters_set_alpha_vi'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_ALPHA_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_ALPHA_VI_HELP_URL);
     }
@@ -3929,7 +3927,7 @@ Blockly.Blocks['emitters_set_scale'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_SCALE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_SCALE_HELP_URL);
     }
@@ -3959,7 +3957,7 @@ Blockly.Blocks['emitters_set_scale_vi'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_SCALE_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_SCALE_VI_HELP_URL);
     }
@@ -3979,7 +3977,7 @@ Blockly.Blocks['set_emit_from'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.SET_EMIT_FROM_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_EMIT_FROM_HELP_URL);
     }
@@ -4010,7 +4008,7 @@ Blockly.Blocks['emitters_set_speed'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_SPEED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_SPEED_HELP_URL);
     }
@@ -4037,7 +4035,7 @@ Blockly.Blocks['emitters_set_speed_vi'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_SPEED_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_SPEED_VI_HELP_URL);
     }
@@ -4058,7 +4056,7 @@ Blockly.Blocks['emitters_set_gravity'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_GRAVITY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_GRAVITY_HELP_URL);
     }
@@ -4075,7 +4073,7 @@ Blockly.Blocks['emitters_set_gravity_vi'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_GRAVITY_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_GRAVITY_VI_HELP_URL);
     }
@@ -4092,7 +4090,7 @@ Blockly.Blocks['emitters_set_width'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(PARTICLE_COLOUR);
+        this.setColour(PHASER_PARTICLES_COLOUR);
         this.setTooltip(Blockly.Msg.EMITTERS_SET_WIDTH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EMITTERS_SET_WIDTH_HELP_URL);
     }

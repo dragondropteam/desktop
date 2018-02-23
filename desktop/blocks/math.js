@@ -357,6 +357,7 @@ Blockly.Blocks['math_change'] = {
     });
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
+    this.setColour(Blockly.Blocks.math.HUE)
     this.setTooltip(function() {
       return Blockly.Msg.MATH_CHANGE_TOOLTIP.replace('%1',
           thisBlock.getFieldValue('VAR'));

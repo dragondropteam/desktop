@@ -103,7 +103,7 @@ Blockly.Msg.RENAME_VARIABLE_TITLE = 'Rename all "%1" variables to:';
 
 // Variable creation
 /// button text - Text on the button used to launch the variable creation dialogue.
-Blockly.Msg.NEW_VARIABLE = 'Create variable...';
+Blockly.Msg.NEW_VARIABLE = 'create variable...';
 /// prompt - Prompts the user to enter the name for a new variable.  See [https://github.com/google/blockly/wiki/Variables#dropdown-menu https://github.com/google/blockly/wiki/Variables#dropdown-menu].
 Blockly.Msg.NEW_VARIABLE_TITLE = 'New variable name:';
 /// alert - Tells the user that the name they entered is already in use.
