@@ -510,6 +510,7 @@
         </block>
     </category>
     <category name="Wink Motors" colour="330">
+        <block type="bestill"/>
         <block type="turn_by_values"/>
         <block type="acceleratemotors">
             <value name="startspeed">
