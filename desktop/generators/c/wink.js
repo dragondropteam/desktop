@@ -3,8 +3,11 @@
  */
 'use strict';
 goog.provide('Blockly.C.winks');
-
 goog.require('Blockly.C');
+
+
+
+//region WINK EYES
 
 Blockly.C['seteyesred'] = function (block) {
     let value_intensity = Blockly.C.valueToCode(block, 'INTENSITY', Blockly.C.ORDER_ATOMIC) || '0';
@@ -51,6 +54,33 @@ Blockly.C['seteyeswhite'] = function (block) {
     return `eyesWhite(${value_intensity});\n`;
 };
 
+Blockly.C['seteyesrgb'] = function (block) {
+    let colour_name = block.getFieldValue('NAME') || '#000000';
+    let red = parseInt(colour_name.substring(1, 3), 16);
+    let green = parseInt(colour_name.substring(3, 5), 16);
+    let blue = parseInt(colour_name.substring(5, 7), 16);
+    return `eyesRGB(${red}, ${green}, ${blue});\n`;
+};
+
+Blockly.C['set_eyes'] = function (block) {
+    let value_red = Blockly.C.valueToCode(block, 'RED', Blockly.C.ORDER_ATOMIC) || '0';
+    let value_green = Blockly.C.valueToCode(block, 'GREEN', Blockly.C.ORDER_ATOMIC) || '0';
+    let value_blue = Blockly.C.valueToCode(block, 'BLUE', Blockly.C.ORDER_ATOMIC) || '0';
+    return `eyesRGB(${value_red},${value_green},${value_blue});\n`;
+};
+
+Blockly.C['turneyesoff'] = function (block) {
+    return 'eyesOff();\n';
+};
+
+Blockly.C['eyesprevcolour'] = function (block) {
+    return 'eyesPrevCol();\n';
+};
+
+//endregion WINK EYES
+
+//region WINK EYE LEFT
+
 Blockly.C['setleftred'] = function (block) {
     let value_intensity = Blockly.C.valueToCode(block, 'INTENSITY', Blockly.C.ORDER_ATOMIC) || '0';
     return `leftRed(${value_intensity});\n`
@@ -95,6 +125,33 @@ Blockly.C['setleftwhite'] = function (block) {
     let value_intensity = Blockly.C.valueToCode(block, 'INTENSITY', Blockly.C.ORDER_ATOMIC) || '0';
     return `leftWhite(${value_intensity});\n`;
 };
+
+Blockly.C['setleftrgb'] = function (block) {
+    let colour_name = block.getFieldValue('NAME') || '#000000';
+    let red = parseInt(colour_name.substring(1, 3), 16);
+    let green = parseInt(colour_name.substring(3, 5), 16);
+    let blue = parseInt(colour_name.substring(5, 7), 16);
+    return `leftRGB(${red}, ${green}, ${blue});\n`;
+};
+
+Blockly.C['set_left_eye'] = function (block) {
+    let value_red = Blockly.C.valueToCode(block, 'RED', Blockly.C.ORDER_ATOMIC) || '0';
+    let value_green = Blockly.C.valueToCode(block, 'GREEN', Blockly.C.ORDER_ATOMIC) || '0';
+    let value_blue = Blockly.C.valueToCode(block, 'BLUE', Blockly.C.ORDER_ATOMIC) || '0';
+    return `leftRGB(${value_red},${value_green},${value_blue});\n`;
+};
+
+Blockly.C['turnlefteyeoff'] = function (block) {
+    return 'leftOff();\n';
+};
+
+Blockly.C['leftprevcolour'] = function (block) {
+    return 'leftPrevCol();\n';
+};
+
+//endregion WINK EYE LEFT
+
+//region EYES RIGHT
 
 Blockly.C['setrightred'] = function (block) {
     let value_intensity = Blockly.C.valueToCode(block, 'INTENSITY', Blockly.C.ORDER_ATOMIC) || '0';
@@ -141,22 +198,6 @@ Blockly.C['setrightwhite'] = function (block) {
     return `rightWhite(${value_intensity});\n`;
 };
 
-Blockly.C['seteyesrgb'] = function (block) {
-    let colour_name = block.getFieldValue('NAME') || '#000000';
-    let red = parseInt(colour_name.substring(1, 3), 16);
-    let green = parseInt(colour_name.substring(3, 5), 16);
-    let blue = parseInt(colour_name.substring(5, 7), 16);
-    return `eyesRGB(${red}, ${green}, ${blue});\n`;
-};
-
-Blockly.C['setleftrgb'] = function (block) {
-    let colour_name = block.getFieldValue('NAME') || '#000000';
-    let red = parseInt(colour_name.substring(1, 3), 16);
-    let green = parseInt(colour_name.substring(3, 5), 16);
-    let blue = parseInt(colour_name.substring(5, 7), 16);
-    return `leftRGB(${red}, ${green}, ${blue});\n`;
-};
-
 Blockly.C['setrightrgb'] = function (block) {
     let colour_name = block.getFieldValue('NAME') || '#000000';
     console.log(colour_name);
@@ -166,13 +207,6 @@ Blockly.C['setrightrgb'] = function (block) {
     return `rightRGB(${red}, ${green}, ${blue});\n`;
 };
 
-Blockly.C['set_left_eye'] = function (block) {
-    let value_red = Blockly.C.valueToCode(block, 'RED', Blockly.C.ORDER_ATOMIC) || '0';
-    let value_green = Blockly.C.valueToCode(block, 'GREEN', Blockly.C.ORDER_ATOMIC) || '0';
-    let value_blue = Blockly.C.valueToCode(block, 'BLUE', Blockly.C.ORDER_ATOMIC) || '0';
-    return `leftRGB(${value_red},${value_green},${value_blue});\n`;
-};
-
 Blockly.C['set_right_eye'] = function (block) {
     let value_red = Blockly.C.valueToCode(block, 'RED', Blockly.C.ORDER_ATOMIC) || '0';
     let value_green = Blockly.C.valueToCode(block, 'GREEN', Blockly.C.ORDER_ATOMIC) || '0';
@@ -180,36 +214,18 @@ Blockly.C['set_right_eye'] = function (block) {
     return `rightRGB(${value_red},${value_green},${value_blue});\n`;
 };
 
-Blockly.C['set_eyes'] = function (block) {
-    let value_red = Blockly.C.valueToCode(block, 'RED', Blockly.C.ORDER_ATOMIC) || '0';
-    let value_green = Blockly.C.valueToCode(block, 'GREEN', Blockly.C.ORDER_ATOMIC) || '0';
-    let value_blue = Blockly.C.valueToCode(block, 'BLUE', Blockly.C.ORDER_ATOMIC) || '0';
-    return `eyesRGB(${value_red},${value_green},${value_blue});\n`;
-};
-
-Blockly.C['turneyesoff'] = function (block) {
-    return 'eyesOff();\n';
-};
-
-Blockly.C['turnlefteyeoff'] = function (block) {
-    return 'leftOff();\n';
-};
-
 Blockly.C['turnrighteyeoff'] = function (block) {
     return 'rightOff();\n';
-};
-
-Blockly.C['eyesprevcolour'] = function (block) {
-    return 'eyesPrevCol();\n';
-};
-
-Blockly.C['leftprevcolour'] = function (block) {
-    return 'leftPrevCol();\n';
 };
 
 Blockly.C['rightprevcolour'] = function (block) {
     return 'rightPrevCol();\n';
 };
+
+//endregion EYES RIGHT
+
+//region WINK REQUIRED BLOCKS
+// These blocks are always generated in the project.
 
 Blockly.C['hardwarestartup'] = function (block) {
     let statements_do = Blockly.C.statementToCode(block, 'do');
@@ -222,6 +238,10 @@ Blockly.C['loop'] = function (block) {
     Blockly.C.definitions_['loop'] = `// Below is the "loop" function. This is where you'll write most of your code. Whatever is included\n// inside the "loop" function will run over and over until Wink runs out of power or you turn him off.\nvoid loop(){\n${statements_do}}\n`;
     return null;
 };
+
+//endregion REQUIRED SECTIONS
+
+//region WINK MOTORS
 
 Blockly.C['acceleratemotors'] = function (block) {
     let value_startspeed = Blockly.C.valueToCode(block, 'startsspeed', Blockly.C.ORDER_ATOMIC) || '0';
@@ -251,9 +271,37 @@ Blockly.C['spinright'] = function (block) {
     return `spinRight(${value_speed});\n`;
 };
 
+Blockly.C['turn_by_values'] = function (block) {
+    let dropdown_direction = block.getFieldValue('direction');
+    let number_speed = block.getFieldValue('speed');
+    let number_duration = block.getFieldValue('duration');
+
+    let code = '';
+    switch (dropdown_direction) {
+        case 'left':
+            return `spinLeft(${number_speed});\ndelay(${number_duration});\nbeStill();\n`;
+        case 'right':
+            return `spinRight(${number_speed});\ndelay(${number_duration});\nbeStill();\n`;
+        default:
+    }
+    return [code, Blockly.C.ORDER_NONE];
+};
+
+//endregion WINK MOTORS
+
+//region WINK INPUT
 Blockly.C['buttonwait'] = function (block) {
     return `waitForButton();\n`;
 };
+
+Blockly.C['button_pressed'] = function (block) {
+    let code = 'buttonPressed()';
+    return [code, Blockly.C.ORDER_NONE];
+};
+
+//endregion WINK INPUT
+
+//region WINK SPEAKER
 
 Blockly.C['beepms'] = function (block) {
     let value_beep = Blockly.C.valueToCode(block, 'beepms', Blockly.C.ORDER_ATOMIC) || '0';
@@ -267,6 +315,10 @@ Blockly.C['beepon'] = function (block) {
 Blockly.C['beepoff'] = function (block) {
     return 'beepOff();\n';
 };
+
+//endregion WINK SPEAKER
+
+//region WINK SENSORS
 
 Blockly.C['setirlight'] = function (block) {
     let dropdown_light = block.getFieldValue('LIGHT');
@@ -331,27 +383,9 @@ Blockly.C['readsensor'] = function (block) {
     return [code, Blockly.C.ORDER_ATOMIC];
 };
 
-Blockly.C['button_pressed'] = function (block) {
-    let code = 'buttonPressed()';
-    return [code, Blockly.C.ORDER_NONE];
-};
+//endregion WINK SENSORS
 
-
-Blockly.C['turn_by_values'] = function (block) {
-    let dropdown_direction = block.getFieldValue('direction');
-    let number_speed = block.getFieldValue('speed');
-    let number_duration = block.getFieldValue('duration');
-
-    let code = '';
-    switch (dropdown_direction) {
-        case 'left':
-            return `spinLeft(${number_speed});\ndelay(${number_duration});\nbeStill();\n`;
-        case 'right':
-            return `spinRight(${number_speed});\ndelay(${number_duration});\nbeStill();\n`;
-        default:
-    }
-    return [code, Blockly.C.ORDER_NONE];
-};
+//region WINK IR COMMUNICATION
 
 Blockly.C['restart_ir'] = function (block) {
     return "//Listen for 4 byte packets\nRxIRRestart(4);\n";
@@ -389,5 +423,5 @@ Blockly.C['get_pressed_ir_button'] = function() {
     return ['GetIRButton()', Blockly.C.ORDER_ATOMIC];
 };
 
-
+//endregion WINK IR COMMUNICATION
 

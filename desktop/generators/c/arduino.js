@@ -10,20 +10,29 @@ Blockly.C['hardwarestartup_arduino'] = function (block) {
 };
 
 //region TIME
-Blockly.C['milliseconds'] = function (block) {
-    return ['millis()', Blockly.C.ORDER_NONE];
-};
-Blockly.C['microseconds'] = function (block) {
-    return ['micros()', Blockly.C.ORDER_NONE];
+
+Blockly.C['delayseconds'] = function (block) {
+    var value_seconds = Blockly.C.valueToCode(block, 'SECONDS', Blockly.C.ORDER_ATOMIC) || '0';
+    return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' seconds\n';
 };
 Blockly.C['delayms'] = function (block) {
-    var value_milliseconds = Blockly.C.valueToCode(block, 'IN_MILLISECONDS', Blockly.C.ORDER_ATOMIC) || '0';
+    var value_milliseconds = Blockly.C.valueToCode(block, 'MILLISECONDS', Blockly.C.ORDER_ATOMIC) || '0';
     return 'delay( ' + value_milliseconds + ' );\n';
 };
 Blockly.C['delaymicroseconds'] = function (block) {
     var value_microseconds = Blockly.C.valueToCode(block, 'MICROSECONDS', Blockly.C.ORDER_ATOMIC) || '0';
     return 'delayMicroseconds( ' + value_microseconds + ' );\n';
 };
+Blockly.C['seconds'] = function (block) {
+    return ['(millis() / 1000)', Blockly.C.ORDER_NONE];
+};
+Blockly.C['milliseconds'] = function (block) {
+    return ['millis()', Blockly.C.ORDER_NONE];
+};
+Blockly.C['microseconds'] = function (block) {
+    return ['micros()', Blockly.C.ORDER_NONE];
+};
+
 //endregion
 
 //region CONSTANTS
@@ -41,7 +50,6 @@ Blockly.C['led_builtin'] = function (block) {
 };
 
 //endregion
-
 
 //region DIGITAL I/O
 Blockly.C['pininput'] = function (block) {

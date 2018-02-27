@@ -40,81 +40,81 @@ Blockly.Blocks['hardwarestartup_arduino'] = {
 Blockly.Blocks['delayseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMS_FIELD_1);
+            .appendField(Blockly.Msg.DELAY);
         this.appendValueInput("SECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMS_FIELD_2);
+            .appendField(Blockly.Msg.SECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.DELAYMS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAYMS_HELP_URL);
+        this.setTooltip(Blockly.Msg.DELAY_SECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAY_SECONDS_HELP_URL);
     }
 };
 
 Blockly.Blocks['delayms'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMS_FIELD_1);
-        this.appendValueInput("IN_MILLISECONDS")
+            .appendField(Blockly.Msg.DELAY);
+        this.appendValueInput("MILLISECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMS_FIELD_2);
+            .appendField(Blockly.Msg.MILLISECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.DELAYMS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAYMS_HELP_URL);
+        this.setTooltip(Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAY_MILLISECONDS_HELP_URL);
     }
 };
 
 Blockly.Blocks['delaymicroseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_1);
+            .appendField(Blockly.Msg.DELAY);
         this.appendValueInput("MICROSECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_2);
+            .appendField(Blockly.Msg.MICROSECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.DELAYMICROSECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAYMICROSECONDS_HELP_URL);
+        this.setTooltip(Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAY_MICROSECONDS_HELP_URL);
     }
 };
 
 Blockly.Blocks['seconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MILLISECONDS_FIELD_1);
+            .appendField(Blockly.Msg.SECONDS + ' ' + Blockly.Msg.SINCE_START);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.MILLISECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MILLISECONDS_HELP_URL);
+        this.setTooltip(Blockly.Msg.SECONDS_SINCE_START_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SECONDS_SINCE_START_HELP_URL);
     }
 };
 
 Blockly.Blocks['milliseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MILLISECONDS_FIELD_1);
+            .appendField(Blockly.Msg.MILLISECONDS + ' ' + Blockly.Msg.SINCE_START);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.MILLISECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MILLISECONDS_HELP_URL);
+        this.setTooltip(Blockly.Msg.MILLISECONDS_SINCE_START_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MILLISECONDS_SINCE_START_HELP_URL);
     }
 };
 
 Blockly.Blocks['microseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MICROSECONDS_FIELD_1);
+            .appendField(Blockly.Msg.MICROSECONDS + ' ' + Blockly.Msg.SINCE_START);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.MICROSECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MICROSECONDS_HELP_URL);
+        this.setTooltip(Blockly.Msg.MICROSECONDS_SINCE_START_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MICROSECONDS_SINCE_START_HELP_URL);
     }
 };
 
