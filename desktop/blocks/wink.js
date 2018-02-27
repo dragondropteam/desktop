@@ -202,6 +202,7 @@ Blockly.Blocks['set_eyes'] = {
 //endregion Wink Eyes
 
 //region WINK LEFT EYE
+
 Blockly.Blocks['setleftred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -381,6 +382,7 @@ Blockly.Blocks['set_left_eye'] = {
 //endregion Wink Left Eye
 
 //region WINK RIGHT EYE
+
 Blockly.Blocks['setrightred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -588,6 +590,7 @@ Blockly.Blocks['loop'] = {
 //endregion Wink Required Blocks
 
 //region WINK MOTORS
+
 Blockly.Blocks['acceleratemotors'] = {
     init: function () {
         this.appendDummyInput()
@@ -697,6 +700,7 @@ Blockly.Blocks['bestill'] = {
 // endregion motors
 
 //region WINK INPUT
+
 Blockly.Blocks['buttonwait'] = {
     init: function () {
         this.appendDummyInput()
@@ -724,6 +728,7 @@ Blockly.Blocks['button_pressed'] = {
 //endregion Wink Input
 
 //region WINK SPEAKER
+
 Blockly.Blocks['beepms'] = {
     init: function () {
         this.appendDummyInput()
@@ -768,6 +773,7 @@ Blockly.Blocks['beepoff'] = {
 //endregion Wink Speaker
 
 //region WINK SENSORS
+
 Blockly.Blocks['setirlight'] = {
     init: function () {
         this.appendDummyInput()
@@ -797,6 +803,7 @@ Blockly.Blocks['readsensor'] = {
 //endregion Wink Sensors
 
 //region WINK IR COMMUNICATION
+
 //We are going to assume 4 bytes not specified explicitly in the name
 Blockly.Blocks['restart_ir'] = {
     init: function () {

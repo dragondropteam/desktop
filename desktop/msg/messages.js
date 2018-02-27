@@ -3834,34 +3834,6 @@ Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.DELAYMS_FIELD_1 = 'delay';
-/// auto generated
-Blockly.Msg.DELAYMS_FIELD_2 = 'milliseconds';
-/// auto generated
-Blockly.Msg.DELAYMS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.DELAYMS_HELP_URL = 'https://www.arduino.cc/en/Reference/Delay';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_FIELD_1 = 'delay';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_FIELD_2 = 'microseconds';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/DelayMicroseconds';
-/// auto generated
-Blockly.Msg.MILLISECONDS_FIELD_1 = 'milliseconds since start ';
-/// auto generated
-Blockly.Msg.MILLISECONDS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.MILLISECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Millis';
-/// auto generated
-Blockly.Msg.MICROSECONDS_FIELD_1 = 'microseconds since start ';
-/// auto generated
-Blockly.Msg.MICROSECONDS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
-/// auto generated
 Blockly.Msg.PININPUT_FIELD_1 = 'set pin # ';
 /// auto generated
 Blockly.Msg.PININPUT_FIELD_2 = 'to';
@@ -5333,9 +5305,27 @@ Blockly.Msg.TO = 'to';
 Blockly.Msg.FROM = 'from';
 
 // Time
+Blockly.Msg.DELAY = 'delay';
 Blockly.Msg.MILLISECONDS = 'milliseconds';
 Blockly.Msg.MICROSECONDS = 'microseconds';
 Blockly.Msg.SECONDS = 'seconds';
+Blockly.Msg.SINCE_START = 'since start'
+
+// Arduino time tooltips
+Blockly.Msg.SECONDS_SINCE_START_TOOLTIP = 'Gets the number of seconds since start of the program.';
+Blockly.Msg.MILLISECONDS_SINCE_START_TOOLTIP = 'Gets the number of milliseconds since start of the program. There are 1,000 milliseconds in a second.';
+Blockly.Msg.MICROSECONDS_SINCE_START_TOOLTIP = 'Gets the number of microseconds since start of the program. There are 1,000,000 microseconds in a second.';
+Blockly.Msg.DELAY_SECONDS_TOOLTIP = 'Wait the specified number of seconds before continuing with the program.';
+Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP = 'Wait the specified number of milliseconds before continuing. There are 1,000 milliseconds in a second.';
+Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = 'Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.';;
+
+// Arduino time help URLs
+Blockly.Msg.SECONDS_SINCE_START_HELP_URL = ''; // Doesn't actually exist as part of arduino.
+Blockly.Msg.MILLISECONDS_SINCE_START_HELP_URL = 'https://www.arduino.cc/en/Reference/Millis';
+Blockly.Msg.MICROSECONDS_SINCE_START_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
+Blockly.Msg.DELAY_SECONDS_HELP_URL = ''; // Doesn't actually exist as part of arduino.
+Blockly.Msg.DELAY_MILLISECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Delay';
+Blockly.Msg.DELAY_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/DelayMicroseconds';
 
 // Arduino common
 Blockly.Msg.VALUE = 'value';
