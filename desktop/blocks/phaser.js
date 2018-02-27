@@ -1714,6 +1714,7 @@ Blockly.Blocks['animation_get_animation'] = {
     }
 };
 
+//region ANIMATION
 // Revised field manipulation blocks for animations
 // Note that these do not need to be translated because they will always have to appear as shown below.
 const ANIMATION_BOOLEAN_WRITABLE = ['enableUpdate', 'isFinished', 'isPaused', 'isPlaying', 'isReversed', 'faintOnComplete', 'loop', 'paused', 'reversed'];
@@ -1836,7 +1837,6 @@ Blockly.Blocks['get_animation_string_field'] = {
 };
 
 //endregion
-
 
 //region GROUP
 Blockly.Blocks['create_group'] = {
@@ -2830,7 +2830,6 @@ Blockly.Blocks['move_to_object'] = {
 //endregion
 
 //region INPUT
-const INPUT_COLOUR = 300;
 
 //region MOUSE
 Blockly.Blocks['get_current_mouse_position'] = {
@@ -2858,6 +2857,7 @@ Blockly.Blocks['is_mouse_button_clicked'] = {
 };
 //endregion
 
+//region KEYBOARD
 Blockly.Blocks['create_cursor_keys'] = {
     init: function () {
         this.appendDummyInput()
@@ -2865,7 +2865,7 @@ Blockly.Blocks['create_cursor_keys'] = {
         this.setOutput(true, null);
         this.setTooltip(Blockly.Msg.CREATE_CURSOR_KEYS_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.CREATE_CURSOR_KEYS_HELP_URL);
-        this.setColour(INPUT_COLOUR);
+        this.setColour(PHASER_KEYBOARD_INPUT);
     }
 };
 
@@ -2976,6 +2976,8 @@ Blockly.Blocks['is_key_down'] = {
         this.setColour(PHASER_KEYBOARD_INPUT);
     }
 };
+//endregion
+
 //endregion
 
 //region WORLD

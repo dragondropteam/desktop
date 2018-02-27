@@ -7,7 +7,7 @@ goog.require('Blockly.Blocks');
 const WINK_EYES_BOTH_COLOUR = '#a55b80'; // Hue: 330
 const WINK_EYE_LEFT_COLOUR = '#a55b80';
 const WINK_EYE_RIGHT_COLOUR = '#a55b80';
-const WINK_EYES_DEFAULT_FIELD_COLOUR = '#FF6666'; // Default for RGB selection fields, to be changed by users.
+const WINK_EYES_DEFAULT_FIELD_COLOUR = '#ff0000'; // Default for Color Pallet selection fields. FF6666 is nice.
 const WINK_SETUP_AND_LOOP_COLOR = '#a55b80';
 const WINK_MOTORS_COLOUR = '#a55b80';
 const WINK_INPUT_COLOUR = '#a55b80';
@@ -17,7 +17,7 @@ const WINK_IR_COMMUNICATION_COLOUR = '#a55b80';
 
 
 
-// region Wink Eyes
+// region WINK EYES
 //Set eye color left/right/on/off/rgb
 //c functions
 //eyesRed(); eyesGreen(); eyesBlue(); eyesPurple(); eyesPink(); eyesYellow(); eyesOrange();
@@ -35,6 +35,7 @@ Blockly.Blocks['seteyesred'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESRED_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyesgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -47,6 +48,7 @@ Blockly.Blocks['seteyesgreen'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESGREEN_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyesblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -59,6 +61,7 @@ Blockly.Blocks['seteyesblue'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESBLUE_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyespurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -71,6 +74,7 @@ Blockly.Blocks['seteyespurple'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESPURPLE_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyespink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -83,6 +87,7 @@ Blockly.Blocks['seteyespink'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESPINK_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyesyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -95,6 +100,7 @@ Blockly.Blocks['seteyesyellow'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESYELLOW_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyescyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -107,6 +113,7 @@ Blockly.Blocks['seteyescyan'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESCYAN_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyesorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -119,6 +126,7 @@ Blockly.Blocks['seteyesorange'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESORANGE_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyeswhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -131,6 +139,7 @@ Blockly.Blocks['seteyeswhite'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESWHITE_HELP_URL);
     }
 };
+
 Blockly.Blocks['seteyesrgb'] = {
     init: function () {
         this.appendDummyInput()
@@ -143,6 +152,7 @@ Blockly.Blocks['seteyesrgb'] = {
         this.setHelpUrl(Blockly.Msg.SETEYESRGB_HELP_URL);
     }
 };
+
 Blockly.Blocks['turneyesoff'] = {
     init: function () {
         this.appendDummyInput()
@@ -154,6 +164,7 @@ Blockly.Blocks['turneyesoff'] = {
         this.setHelpUrl(Blockly.Msg.TURNEYESOFF_HELP_URL);
     }
 };
+
 Blockly.Blocks['eyesprevcolour'] = {
     init: function () {
         this.appendDummyInput()
@@ -165,6 +176,7 @@ Blockly.Blocks['eyesprevcolour'] = {
         this.setHelpUrl(Blockly.Msg.EYESPREVCOLOUR_HELP_URL);
     }
 };
+
 Blockly.Blocks['set_eyes'] = {
     init: function () {
         this.appendDummyInput()
@@ -189,7 +201,7 @@ Blockly.Blocks['set_eyes'] = {
 
 //endregion Wink Eyes
 
-//region Wink Left Eye
+//region WINK LEFT EYE
 Blockly.Blocks['setleftred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -202,6 +214,7 @@ Blockly.Blocks['setleftred'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTRED_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -214,6 +227,7 @@ Blockly.Blocks['setleftgreen'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTGREEN_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -226,6 +240,7 @@ Blockly.Blocks['setleftblue'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTBLUE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftpurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -238,6 +253,7 @@ Blockly.Blocks['setleftpurple'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTPURPLE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftpink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -250,6 +266,7 @@ Blockly.Blocks['setleftpink'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTPINK_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -262,6 +279,7 @@ Blockly.Blocks['setleftyellow'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTYELLOW_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftcyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -274,6 +292,7 @@ Blockly.Blocks['setleftcyan'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTCYAN_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -299,6 +318,7 @@ Blockly.Blocks['setleftwhite'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTWHITE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setleftrgb'] = {
     init: function () {
         this.appendDummyInput()
@@ -311,6 +331,7 @@ Blockly.Blocks['setleftrgb'] = {
         this.setHelpUrl(Blockly.Msg.SETLEFTRGB_HELP_URL);
     }
 };
+
 Blockly.Blocks['turnlefteyeoff'] = {
     init: function () {
         this.appendDummyInput()
@@ -322,6 +343,7 @@ Blockly.Blocks['turnlefteyeoff'] = {
         this.setHelpUrl(Blockly.Msg.TURNLEFTEYEOFF_HELP_URL);
     }
 };
+
 Blockly.Blocks['leftprevcolour'] = {
     init: function () {
         this.appendDummyInput()
@@ -333,6 +355,7 @@ Blockly.Blocks['leftprevcolour'] = {
         this.setHelpUrl(Blockly.Msg.LEFTPREVCOLOUR_HELP_URL);
     }
 };
+
 Blockly.Blocks['set_left_eye'] = {
     init: function () {
         this.appendDummyInput()
@@ -357,7 +380,7 @@ Blockly.Blocks['set_left_eye'] = {
 
 //endregion Wink Left Eye
 
-//region Wink Right Eye
+//region WINK RIGHT EYE
 Blockly.Blocks['setrightred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -370,6 +393,7 @@ Blockly.Blocks['setrightred'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTRED_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -382,6 +406,7 @@ Blockly.Blocks['setrightgreen'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTGREEN_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -394,6 +419,7 @@ Blockly.Blocks['setrightblue'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTBLUE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightpurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -406,6 +432,7 @@ Blockly.Blocks['setrightpurple'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTPURPLE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightpink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -418,6 +445,7 @@ Blockly.Blocks['setrightpink'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTPINK_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -430,6 +458,7 @@ Blockly.Blocks['setrightyellow'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTYELLOW_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightcyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -442,6 +471,7 @@ Blockly.Blocks['setrightcyan'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTCYAN_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -454,6 +484,7 @@ Blockly.Blocks['setrightorange'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTORANGE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightwhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
@@ -466,6 +497,7 @@ Blockly.Blocks['setrightwhite'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTWHITE_HELP_URL);
     }
 };
+
 Blockly.Blocks['setrightrgb'] = {
     init: function () {
         this.appendDummyInput()
@@ -478,6 +510,7 @@ Blockly.Blocks['setrightrgb'] = {
         this.setHelpUrl(Blockly.Msg.SETRIGHTRGB_HELP_URL);
     }
 };
+
 Blockly.Blocks['turnrighteyeoff'] = {
     init: function () {
         this.appendDummyInput()
@@ -489,6 +522,7 @@ Blockly.Blocks['turnrighteyeoff'] = {
         this.setHelpUrl(Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL);
     }
 };
+
 Blockly.Blocks['rightprevcolour'] = {
     init: function () {
         this.appendDummyInput()
@@ -500,6 +534,7 @@ Blockly.Blocks['rightprevcolour'] = {
         this.setHelpUrl(Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL);
     }
 };
+
 Blockly.Blocks['set_right_eye'] = {
     init: function () {
         this.appendDummyInput()
@@ -524,7 +559,7 @@ Blockly.Blocks['set_right_eye'] = {
 
 //endregion Wink Right Eye
 
-//region Wink Required Blocks
+//region WINK REQUIRED BLOCKS
 
 Blockly.Blocks['hardwarestartup'] = {
     init: function () {
@@ -537,6 +572,7 @@ Blockly.Blocks['hardwarestartup'] = {
         this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_HELP_URL);
     }
 };
+
 Blockly.Blocks['loop'] = {
     init: function () {
         this.appendDummyInput()
@@ -551,7 +587,7 @@ Blockly.Blocks['loop'] = {
 
 //endregion Wink Required Blocks
 
-//region Wink Motors
+//region WINK MOTORS
 Blockly.Blocks['acceleratemotors'] = {
     init: function () {
         this.appendDummyInput()
@@ -575,6 +611,7 @@ Blockly.Blocks['acceleratemotors'] = {
         this.setHelpUrl(Blockly.Msg.ACCELERATEMOTORS_HELP_URL);
     }
 };
+
 Blockly.Blocks['motors'] = {
     init: function () {
         this.appendDummyInput()
@@ -594,6 +631,7 @@ Blockly.Blocks['motors'] = {
         this.setHelpUrl(Blockly.Msg.MOTORS_HELP_URL);
     }
 };
+
 Blockly.Blocks['spinleft'] = {
     init: function () {
         this.appendValueInput("speed")
@@ -607,6 +645,7 @@ Blockly.Blocks['spinleft'] = {
         this.setHelpUrl(Blockly.Msg.SPINLEFT_HELP_URL);
     }
 };
+
 Blockly.Blocks['spinright'] = {
     init: function () {
         this.appendValueInput("speed")
@@ -620,6 +659,7 @@ Blockly.Blocks['spinright'] = {
         this.setHelpUrl(Blockly.Msg.SPINRIGHT_HELP_URL);
     }
 };
+
 Blockly.Blocks['turn_by_values'] = {
     init: function () {
         this.appendDummyInput()
@@ -641,6 +681,7 @@ Blockly.Blocks['turn_by_values'] = {
         this.setHelpUrl(Blockly.Msg.TURN_BY_VALUES_HELP_URL);
     }
 };
+
 Blockly.Blocks['bestill'] = {
     init: function () {
         this.appendDummyInput()
@@ -655,7 +696,7 @@ Blockly.Blocks['bestill'] = {
 
 // endregion motors
 
-//region Wink Input
+//region WINK INPUT
 Blockly.Blocks['buttonwait'] = {
     init: function () {
         this.appendDummyInput()
@@ -682,7 +723,7 @@ Blockly.Blocks['button_pressed'] = {
 
 //endregion Wink Input
 
-//region Wink Speaker
+//region WINK SPEAKER
 Blockly.Blocks['beepms'] = {
     init: function () {
         this.appendDummyInput()
@@ -699,6 +740,7 @@ Blockly.Blocks['beepms'] = {
         this.setHelpUrl(Blockly.Msg.BEEPMS_HELP_URL);
     }
 };
+
 Blockly.Blocks['beepon'] = {
     init: function () {
         this.appendDummyInput()
@@ -710,6 +752,7 @@ Blockly.Blocks['beepon'] = {
         this.setHelpUrl(Blockly.Msg.BEEPON_HELP_URL);
     }
 };
+
 Blockly.Blocks['beepoff'] = {
     init: function () {
         this.appendDummyInput()
@@ -724,7 +767,7 @@ Blockly.Blocks['beepoff'] = {
 
 //endregion Wink Speaker
 
-//region Wink Sensors
+//region WINK SENSORS
 Blockly.Blocks['setirlight'] = {
     init: function () {
         this.appendDummyInput()
@@ -738,6 +781,7 @@ Blockly.Blocks['setirlight'] = {
         this.setHelpUrl(Blockly.Msg.SETIRLIGHT_HELP_URL);
     }
 };
+
 Blockly.Blocks['readsensor'] = {
     init: function () {
         this.appendDummyInput()
@@ -752,7 +796,7 @@ Blockly.Blocks['readsensor'] = {
 
 //endregion Wink Sensors
 
-//region Wink IR Communication
+//region WINK IR COMMUNICATION
 //We are going to assume 4 bytes not specified explicitly in the name
 Blockly.Blocks['restart_ir'] = {
     init: function () {
@@ -765,6 +809,7 @@ Blockly.Blocks['restart_ir'] = {
         this.setHelpUrl(Blockly.Msg.RESTART_IR_HELP_URL);
     }
 };
+
 Blockly.Blocks['is_ir_done'] = {
     init: function () {
         this.appendDummyInput()
@@ -898,6 +943,7 @@ Blockly.Blocks['ir_control'] = {
         this.setHelpUrl(Blockly.Msg.IR_CONTROL_HELP_URL);
     },
 };
+
 Blockly.Blocks['ir_control_container'] = {
     init: function () {
         this.appendDummyInput()
@@ -909,6 +955,7 @@ Blockly.Blocks['ir_control_container'] = {
         this.setHelpUrl(Blockly.Msg.IR_CONTROL_CONTAINER_HELP_URL);
     }
 };
+
 Blockly.Blocks['ir_control_control'] = {
     init: function () {
         this.appendDummyInput()
@@ -1033,6 +1080,7 @@ Blockly.Blocks['ir_when'] = {
         }
     }
 };
+
 Blockly.Blocks['ir_button'] = {
     init: function () {
         this.appendDummyInput()
@@ -1044,6 +1092,7 @@ Blockly.Blocks['ir_button'] = {
         this.setHelpUrl(Blockly.Msg.IR_BUTTON_HELP_URL);
     }
 };
+
 Blockly.Blocks['get_pressed_ir_button'] = {
     init: function () {
         this.appendDummyInput()
