@@ -103,7 +103,7 @@ Blockly.Msg.RENAME_VARIABLE_TITLE = 'Rename all "%1" variables to:';
 
 // Variable creation
 /// button text - Text on the button used to launch the variable creation dialogue.
-Blockly.Msg.NEW_VARIABLE = 'Create variable...';
+Blockly.Msg.NEW_VARIABLE = 'create variable...';
 /// prompt - Prompts the user to enter the name for a new variable.  See [https://github.com/google/blockly/wiki/Variables#dropdown-menu https://github.com/google/blockly/wiki/Variables#dropdown-menu].
 Blockly.Msg.NEW_VARIABLE_TITLE = 'New variable name:';
 /// alert - Tells the user that the name they entered is already in use.
@@ -3834,34 +3834,6 @@ Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.DELAYMS_FIELD_1 = 'delay';
-/// auto generated
-Blockly.Msg.DELAYMS_FIELD_2 = 'milliseconds';
-/// auto generated
-Blockly.Msg.DELAYMS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.DELAYMS_HELP_URL = 'https://www.arduino.cc/en/Reference/Delay';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_FIELD_1 = 'delay';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_FIELD_2 = 'microseconds';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.DELAYMICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/DelayMicroseconds';
-/// auto generated
-Blockly.Msg.MILLISECONDS_FIELD_1 = 'milliseconds since start ';
-/// auto generated
-Blockly.Msg.MILLISECONDS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.MILLISECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Millis';
-/// auto generated
-Blockly.Msg.MICROSECONDS_FIELD_1 = 'microseconds since start ';
-/// auto generated
-Blockly.Msg.MICROSECONDS_TOOLTIP = '';
-/// auto generated
-Blockly.Msg.MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
-/// auto generated
 Blockly.Msg.PININPUT_FIELD_1 = 'set pin # ';
 /// auto generated
 Blockly.Msg.PININPUT_FIELD_2 = 'to';
@@ -4106,7 +4078,7 @@ Blockly.Msg.SERIAL_BEGIN_HELP_URL = '';
 
 //arduino_servo
 /// auto generated
-Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'Attach pin';
+Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'attach pin';
 /// auto generated
 Blockly.Msg.SERVO_ATTACH_FIELD_2 = 'to servo';
 /// auto generated
@@ -4114,7 +4086,7 @@ Blockly.Msg.SERVO_ATTACH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_ATTACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttach';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_FIELD_1 = 'Set angle to';
+Blockly.Msg.SERVO_WRITE_FIELD_1 = 'set angle to';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_FIELD_2 = 'on servo';
 /// auto generated
@@ -4122,7 +4094,7 @@ Blockly.Msg.SERVO_WRITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWrite';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'Set microseconds to';
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'set microseconds to';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_2 = 'on servo';
 /// auto generated
@@ -4130,19 +4102,19 @@ Blockly.Msg.SERVO_WRITE_MICROSECONDS_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWriteMicroseconds';
 /// auto generated
-Blockly.Msg.SERVO_READ_FIELD_1 = 'Read from servo';
+Blockly.Msg.SERVO_READ_FIELD_1 = 'read from servo';
 /// auto generated
 Blockly.Msg.SERVO_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoRead';
 /// auto generated
-Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'Check servo';
+Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'check servo';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttached';
 /// auto generated
-Blockly.Msg.SERVO_DETACH_FIELD_1 = 'Detach servo';
+Blockly.Msg.SERVO_DETACH_FIELD_1 = 'detach servo';
 /// auto generated
 Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 /// auto generated
@@ -5333,9 +5305,27 @@ Blockly.Msg.TO = 'to';
 Blockly.Msg.FROM = 'from';
 
 // Time
+Blockly.Msg.DELAY = 'delay';
 Blockly.Msg.MILLISECONDS = 'milliseconds';
 Blockly.Msg.MICROSECONDS = 'microseconds';
 Blockly.Msg.SECONDS = 'seconds';
+Blockly.Msg.SINCE_START = 'since start'
+
+// Arduino time tooltips
+Blockly.Msg.SECONDS_SINCE_START_TOOLTIP = 'Gets the number of seconds since start of the program.';
+Blockly.Msg.MILLISECONDS_SINCE_START_TOOLTIP = 'Gets the number of milliseconds since start of the program. There are 1,000 milliseconds in a second.';
+Blockly.Msg.MICROSECONDS_SINCE_START_TOOLTIP = 'Gets the number of microseconds since start of the program. There are 1,000,000 microseconds in a second.';
+Blockly.Msg.DELAY_SECONDS_TOOLTIP = 'Wait the specified number of seconds before continuing with the program.';
+Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP = 'Wait the specified number of milliseconds before continuing. There are 1,000 milliseconds in a second.';
+Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = 'Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.';;
+
+// Arduino time help URLs
+Blockly.Msg.SECONDS_SINCE_START_HELP_URL = ''; // Doesn't actually exist as part of arduino.
+Blockly.Msg.MILLISECONDS_SINCE_START_HELP_URL = 'https://www.arduino.cc/en/Reference/Millis';
+Blockly.Msg.MICROSECONDS_SINCE_START_HELP_URL = 'https://www.arduino.cc/en/Reference/Micros';
+Blockly.Msg.DELAY_SECONDS_HELP_URL = ''; // Doesn't actually exist as part of arduino.
+Blockly.Msg.DELAY_MILLISECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/Delay';
+Blockly.Msg.DELAY_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/DelayMicroseconds';
 
 // Arduino common
 Blockly.Msg.VALUE = 'value';
