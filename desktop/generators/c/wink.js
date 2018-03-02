@@ -37,7 +37,7 @@ Blockly.C['seteyesyellow'] = function (block) {
 };
 
 Blockly.C['seteyescyan'] = function (block) {
-    let value_intensity = Blockly.C.valueToCode(block, 'INTENSITY', Blockly.C.ORDER_ATOMƒresIC) || '0';
+    let value_intensity = Blockly.C.valueToCode(block, 'INTENSITY', Blockly.C.ORDER_ATOMIC) || '0';
     return `eyesCyan(${value_intensity});\n`;
 };
 
