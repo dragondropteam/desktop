@@ -2,6 +2,20 @@
 goog.provide('Blockly.Blocks.arduino');
 goog.require('Blockly.Blocks');
 
+
+const ARDUINO_TIME_COLOUR = '#5BA55B'; // Hue 120;
+const ARDUINO_PINS_COLOUR = '#5BA55B';
+const ARDUINO_CONSTANTS_COLOUR = '#5BA55B';
+const ARDUINO_ANALOG_IO_COLOUR = '#5BA55B';
+const ARDUINO_RANDOM_NUMBER_COLOUR = '#5BA55B';
+const ARDUINO_BITS_AND_BYTES_COLOUR = '#5BA55B';
+const ARDUINO_ADVANCED_IO_COLOUR = '#5BA55B';
+const ARDUINO_MATH_COLOUR = '#5BA55B';
+
+
+
+//region REQUIRED BLOCKS
+
 /**
  * There has to be a different hardware startup block for arduino as
  * we do not have the hardware setup step
@@ -19,61 +33,91 @@ Blockly.Blocks['hardwarestartup_arduino'] = {
     }
 };
 
+//endregion WINK REQUIRED BLOCKS
+
 //region TIME
+
+Blockly.Blocks['delayseconds'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.DELAY);
+        this.appendValueInput("SECONDS")
+            .setCheck("Number");
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SECONDS);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.DELAY_SECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAY_SECONDS_HELP_URL);
+    }
+};
 
 Blockly.Blocks['delayms'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMS_FIELD_1);
+            .appendField(Blockly.Msg.DELAY);
         this.appendValueInput("MILLISECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMS_FIELD_2);
+            .appendField(Blockly.Msg.MILLISECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
-        this.setTooltip(Blockly.Msg.DELAYMS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAYMS_HELP_URL);
+        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAY_MILLISECONDS_HELP_URL);
     }
 };
 
 Blockly.Blocks['delaymicroseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_1);
+            .appendField(Blockly.Msg.DELAY);
         this.appendValueInput("MICROSECONDS")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAYMICROSECONDS_FIELD_2);
+            .appendField(Blockly.Msg.MICROSECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
-        this.setTooltip(Blockly.Msg.DELAYMICROSECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAYMICROSECONDS_HELP_URL);
+        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.DELAY_MICROSECONDS_HELP_URL);
+    }
+};
+
+Blockly.Blocks['seconds'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SECONDS + ' ' + Blockly.Msg.SINCE_START);
+        this.setOutput(true, "Number");
+        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.SECONDS_SINCE_START_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.SECONDS_SINCE_START_HELP_URL);
     }
 };
 
 Blockly.Blocks['milliseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MILLISECONDS_FIELD_1);
+            .appendField(Blockly.Msg.MILLISECONDS + ' ' + Blockly.Msg.SINCE_START);
         this.setOutput(true, "Number");
-        this.setColour(120);
-        this.setTooltip(Blockly.Msg.MILLISECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MILLISECONDS_HELP_URL);
+        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.MILLISECONDS_SINCE_START_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MILLISECONDS_SINCE_START_HELP_URL);
     }
 };
 
 Blockly.Blocks['microseconds'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MICROSECONDS_FIELD_1);
+            .appendField(Blockly.Msg.MICROSECONDS + ' ' + Blockly.Msg.SINCE_START);
         this.setOutput(true, "Number");
-        this.setColour(120);
-        this.setTooltip(Blockly.Msg.MICROSECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MICROSECONDS_HELP_URL);
+        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setTooltip(Blockly.Msg.MICROSECONDS_SINCE_START_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.MICROSECONDS_SINCE_START_HELP_URL);
     }
 };
+
 //endregion
 
 //region PINS
@@ -88,7 +132,7 @@ Blockly.Blocks['pininput'] = {
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PININPUT_MODE_DROPDOWN_1, "INPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_2, "OUTPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_3, "INPUT_PULLUP"]]), "MODE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_PINS_COLOUR);
         this.setTooltip(Blockly.Msg.PININPUT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.PININPUT_HELP_URL);
     }
@@ -107,7 +151,7 @@ Blockly.Blocks['digitalwrite'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_PINS_COLOUR);
         this.setTooltip(Blockly.Msg.DIGITALWRITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.DIGITALWRITE_HELP_URL);
     }
@@ -121,7 +165,7 @@ Blockly.Blocks['digital_read'] = {
             .setCheck("Number");
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_PINS_COLOUR);
         this.setTooltip(Blockly.Msg.DIGITAL_READ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.DIGITAL_READ_HELP_URL);
     }
@@ -134,7 +178,7 @@ Blockly.Blocks['high'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.HIGH_FIELD_1);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_CONSTANTS_COLOUR);
         this.setTooltip(Blockly.Msg.HIGH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.HIGH_HELP_URL);
     }
@@ -146,7 +190,7 @@ Blockly.Blocks['low'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.LOW_FIELD_1);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_CONSTANTS_COLOUR);
         this.setTooltip(Blockly.Msg.LOW_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.LOW_HELP_URL);
     }
@@ -157,7 +201,7 @@ Blockly.Blocks['led_builtin'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.LED_BUILTIN_FIELD_1);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_CONSTANTS_COLOUR);
         this.setTooltip(Blockly.Msg.LED_BUILTIN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.LED_BUILTIN_HELP_URL);
     }
@@ -174,7 +218,7 @@ Blockly.Blocks['analog_reference'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_ANALOG_IO_COLOUR);
         this.setTooltip(Blockly.Msg.ANALOG_REFERENCE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ANALOG_REFERENCE_HELP_URL);
     }
@@ -187,7 +231,7 @@ Blockly.Blocks['analog_read'] = {
             .appendField(Blockly.Msg.ANALOG_READ_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_ANALOG_IO_COLOUR);
         this.setTooltip(Blockly.Msg.ANALOG_READ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ANALOG_READ_HELP_URL);
     }
@@ -204,11 +248,12 @@ Blockly.Blocks['analog_write'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_ANALOG_IO_COLOUR);
         this.setTooltip(Blockly.Msg.ANALOG_WRITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ANALOG_WRITE_HELP_URL);
     }
 };
+
 //endregion
 
 //region RANDOM NUMBERS
@@ -220,7 +265,7 @@ Blockly.Blocks['random_seed'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_RANDOM_NUMBER_COLOUR);
         this.setTooltip(Blockly.Msg.RANDOM_SEED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.RANDOM_SEED_HELP_URL);
     }
@@ -236,11 +281,12 @@ Blockly.Blocks['random'] = {
             .appendField(Blockly.Msg.RANDOM_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_RANDOM_NUMBER_COLOUR);
         this.setTooltip(Blockly.Msg.RANDOM_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.RANDOM_HELP_URL);
     }
 };
+
 //endregion
 
 //region BITS AND BYTES
@@ -252,7 +298,7 @@ Blockly.Blocks['bit'] = {
             .appendField(Blockly.Msg.BIT_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.BIT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.BIT_HELP_URL);
     }
@@ -269,7 +315,7 @@ Blockly.Blocks['bit_clear'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.BIT_CLEAR_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.BIT_CLEAR_HELP_URL);
     }
@@ -286,7 +332,7 @@ Blockly.Blocks['bit_set'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.BIT_SET_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.BIT_SET_HELP_URL);
     }
@@ -306,7 +352,7 @@ Blockly.Blocks['bit_write'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.BIT_WRITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.BIT_WRITE_HELP_URL);
     }
@@ -322,7 +368,7 @@ Blockly.Blocks['bit_read'] = {
             .appendField(Blockly.Msg.BIT_READ_FIELD_2);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.BIT_READ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.BIT_READ_HELP_URL);
     }
@@ -335,7 +381,7 @@ Blockly.Blocks['high_byte'] = {
             .appendField(Blockly.Msg.HIGH_BYTE_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.HIGH_BYTE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.HIGH_BYTE_HELP_URL);
     }
@@ -348,7 +394,7 @@ Blockly.Blocks['low_byte'] = {
             .appendField(Blockly.Msg.LOW_BYTE_FIELD_1);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
         this.setTooltip(Blockly.Msg.LOW_BYTE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.LOW_BYTE_HELP_URL);
     }
@@ -372,7 +418,7 @@ Blockly.Blocks['tone_pin_freq'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setTooltip(Blockly.Msg.TONE_PIN_FREQ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TONE_PIN_FREQ_HELP_URL);
     }
@@ -394,7 +440,7 @@ Blockly.Blocks['tone_pin_freq_duration'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setTooltip(Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.TONE_PIN_FREQ_DURATION_HELP_URL);
     }
@@ -410,7 +456,7 @@ Blockly.Blocks['advanced_io_pulse_in'] = {
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, 'HIGH'], [Blockly.Msg.LOW, 'LOW']]), 'VALUE');
         this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_HELP_URL);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setOutput(true, 'Number');
     }
 };
@@ -428,7 +474,7 @@ Blockly.Blocks['advanced_io_pulse_in_timeout'] = {
             .appendField(Blockly.Msg.TIMEOUT);
         this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_HELP_URL);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setOutput(true, 'Number');
     }
 };
@@ -443,10 +489,11 @@ Blockly.Blocks['advanced_io_pulse_in_long'] = {
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, 'HIGH'], [Blockly.Msg.LOW, 'LOW']]), 'VALUE')
         this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setOutput(true, 'Number');
     }
 };
+
 Blockly.Blocks['advanced_io_pulse_in_long_timeout'] = {
     init: function () {
         this.appendValueInput('PIN')
@@ -460,10 +507,11 @@ Blockly.Blocks['advanced_io_pulse_in_long_timeout'] = {
             .appendField(Blockly.Msg.TIMEOUT);
         this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setOutput(true, 'Number');
     }
 };
+
 Blockly.Blocks['advanced_io_shift_in'] = {
     init: function () {
         this.appendDummyInput()
@@ -479,11 +527,12 @@ Blockly.Blocks['advanced_io_shift_in'] = {
             .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ADVANCED_IO_LEAST_SIGNIFICANT_BIT_FIRST, 'LSBFIRST'], [Blockly.Msg.ADVANCED_IO_BIT_FIRST, 'MSBFIRST']]), 'BIT_ORDER');
         this.setTooltip(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADVANCED_IO_PULSE_IN_LONG_HELP_URL);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setInputsInline(false);
         this.setOutput(true, 'Number');
     }
 };
+
 Blockly.Blocks['advanced_io_shift_out'] = {
     init: function () {
         this.appendDummyInput()
@@ -501,11 +550,12 @@ Blockly.Blocks['advanced_io_shift_out'] = {
             .appendField(Blockly.Msg.VALUE);
         this.setTooltip(Blockly.Msg.ADVANCED_IO_SHIFT_OUT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.ADVANCED_IO_SHIFT_OUT_HELP_URL);
-        this.setColour(120);
+        this.setColour(ARDUINO_ADVANCED_IO_COLOUR);
         this.setInputsInline(false);
         this.setOutput(true, 'Number');
     }
 };
+
 //endregion
 
 //region MATH
@@ -527,8 +577,9 @@ Blockly.Blocks['arduino_math_map'] = {
         this.appendValueInput('TO_HIGH')
             .setCheck('Number')
             .appendField(Blockly.Msg.ARDUINO_MATH_MAP_TO_HIGH);
-        this.setColour(120);
+        this.setColour(ARDUINO_MATH_COLOUR);
         this.setOutput(true, 'Number');
     }
 };
+
 //endregion

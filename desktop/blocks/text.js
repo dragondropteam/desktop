@@ -691,7 +691,7 @@ Blockly.Blocks['log_console'] = {
         .appendField(Blockly.Msg.LOG_CONSOLE_TITLE);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(Blockly.Blocks.texts.HUE)
     this.setTooltip(Blockly.Msg.LOG_CONSOLE_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.LOG_CONSOLE_HELP_URL);
   }
