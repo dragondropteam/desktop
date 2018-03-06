@@ -173,12 +173,27 @@
                     <field name="VAR">text</field>
                 </block>
             </value>
+            <value name="AT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
         </block>
         <block type="text_getSubstring">
             <value name="STRING">
                 <block type="variables_get">
                     <field name="VAR">text</field>
                 </block>
+            </value>
+            <value name="AT1">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="AT2">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
             </value>
         </block>
         <block type="text_changeCase">
@@ -244,6 +259,11 @@
                     <field name="VAR">list</field>
                 </block>
             </value>
+            <value name="AT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
         </block>
         <block type="lists_setIndex">
             <value name="LIST">
@@ -251,12 +271,27 @@
                     <field name="VAR">list</field>
                 </block>
             </value>
+            <value name="AT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
         </block>
         <block type="lists_getSublist">
             <value name="LIST">
                 <block type="variables_get">
                     <field name="VAR">list</field>
                 </block>
+            </value>
+            <value name="AT1">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="AT2">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
             </value>
         </block>
         <block type="lists_split">
@@ -314,7 +349,7 @@
                 <block type="start_phaser_for_states"/>
             </category>
             <category name="States" colour="#689f38">
-                <block type="class_type">
+                <block colour="689f38" type="class_type">
                     <mutation name="Phaser.State">
                     </mutation>
                 </block>
