@@ -648,7 +648,8 @@ Blockly.Blocks['get_world_property'] = {
         this.setTooltip(Blockly.Msg.GET_WORLD_PROPERTY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_WORLD_PROPERTY_HELP_URL);
         this.setColour(PHASER_WORLD_COLOUR);
-    }
+    },
+    customContextMenu: createSetterContextMenu('set_world_bounds', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['set_world_bounds'] = {
@@ -673,7 +674,8 @@ Blockly.Blocks['set_world_bounds'] = {
         this.setHelpUrl(Blockly.Msg.SET_WORLD_BOUNDS_HELP_URL);
         this.setColour(PHASER_WORLD_COLOUR);
         this.setInputsInline(true);
-    }
+    },
+    customContextMenu: createSetterContextMenu('get_world_property', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['create_point'] = {
@@ -726,7 +728,7 @@ Blockly.Blocks['get_time_numeric_member'] = {
         if(TIME_FIELDS_NUMERIC_RO.includes(this.getFieldValue('PROPERTY'))){
             this.customContextMenu = null;
         }else{
-            this.customContextMenu = createNumericGetterContextMenu('set_time_numeric_number', {objectTag: null});
+            this.customContextMenu = createNumericGetterContextMenu('set_time_numeric_member', {objectTag: null});
         }
     },
     customContextMenu: createNumericGetterContextMenu('set_time_numeric_member', {objectTag: null})
@@ -3659,7 +3661,8 @@ Blockly.Blocks['set_body_field_point_vi'] = {
         this.setTooltip(Blockly.Msg.SET_BODY_FIELD_POINT_VI_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SET_BODY_FIELD_POINT_VI_HELP_URL);
         this.setColour(PHASER_PHYSICS_BODY_COLOUR);
-    }
+    },
+    customContextMenu: createSetterContextMenu('get_body_field_point_class', {propertyTag: 'FIELD'})
 };
 
 Blockly.Blocks['set_body_field_point_class_vi'] = {
@@ -3669,7 +3672,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
             .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), "FIELD")
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2);
         this.appendValueInput('OBJECT');
-        this.appendValueInput('POINT')
+        this.appendValueInput('VALUE')
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -3695,7 +3698,7 @@ Blockly.Blocks['get_body_field_point_class'] = {
         this.setHelpUrl(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_HELP_URL);
         this.setColour(PHASER_PHYSICS_BODY_COLOUR);
     },
-    customContextMenu: createPointGetterContextMenu('set_body_field_point_class_vi', {propertyTag: 'FIELD', valueTag: 'POINT'})
+    customContextMenu: createPointGetterContextMenu('set_body_field_point_vi', {propertyTag: 'FIELD', valueTag: 'POINT'})
 };
 
 /**
@@ -4182,9 +4185,9 @@ Blockly.Blocks['point_get_element'] = {
         this.setTooltip(Blockly.Msg.POINT_GET_ELEMENT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.POINT_GET_ELEMENT_HELP_URL);
         this.setOutput(true);
-    }
+    },
+    customContextMenu: createPointGetterContextMenu('point_set_element', {propertyTag: 'ELEMENT', objectTag: 'POINT'})
 };
-
 
 Blockly.Blocks['point_set_element'] = {
     init: function () {
@@ -4204,7 +4207,8 @@ Blockly.Blocks['point_set_element'] = {
         this.setHelpUrl(Blockly.Msg.POINT_SET_ELEMENT_HELP_URL);
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
-    }
+    },
+    customContextMenu: createSetterContextMenu('point_get_element', {propertyTag: 'ELEMENT', objectTag: 'POINT'})
 };
 
 /**
