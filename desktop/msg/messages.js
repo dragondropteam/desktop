@@ -3012,13 +3012,13 @@ Blockly.Msg.CREATE_BITMAPFONT_TOOLTIP = 'Loads a font into the game. These don\'
 /// auto generated
 Blockly.Msg.CREATE_BITMAPFONT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#bitmapFont';
 /// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_1 = 'draw circle';
+Blockly.Msg.DRAWCIRCLE_FIELD_1 = 'draw circle at position';
 /// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_2 = 'x';
+Blockly.Msg.DRAWCIRCLE_FIELD_2 = 'x:';
 /// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_3 = 'x';
+Blockly.Msg.DRAWCIRCLE_FIELD_3 = 'y:';
 /// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_4 = 'with diameter';
+Blockly.Msg.DRAWCIRCLE_FIELD_4 = 'with diameter:';
 /// auto generated
 Blockly.Msg.DRAWCIRCLE_TOOLTIP = 'Draws a circle at a given position in the world. Doesn\'t work on its own. Put it inside the \'fill shapes with\' block.';
 /// auto generated
