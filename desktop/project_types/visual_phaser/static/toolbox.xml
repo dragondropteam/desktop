@@ -1593,7 +1593,6 @@
                     </value>
                 </block>
             </category>
-
         </category>
         <category name="Physics" colour="#6A1B9A">
             <category name="Setup" colour="#6A1B9A">
@@ -1997,7 +1996,7 @@
                 </block>
             </category>
         </category>
-        <category name="Input" colour="#0d47a1">
+        <category name="Input" colour="#1565C0">
             <category name="Keyboard" colour="#1565C0">
                 <block type="is_key_down"/>
                 <!--TODO: Cursors, Key objects, and other input methods to allow students more control -->
