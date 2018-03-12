@@ -4,17 +4,19 @@ goog.provide('Blockly.Blocks.wink');
 goog.require('Blockly.Blocks');
 
 // Block Colors
-const WINK_EYES_BOTH_COLOUR = '#a55b80'; // Hue: 330
-const WINK_EYE_LEFT_COLOUR = '#a55b80';
-const WINK_EYE_RIGHT_COLOUR = '#a55b80';
-const WINK_EYES_DEFAULT_FIELD_COLOUR = '#ff0000'; // Default for Color Pallet selection fields. FF6666 is nice.
-const WINK_SETUP_AND_LOOP_COLOR = '#a55b80';
-const WINK_MOTORS_COLOUR = '#a55b80';
-const WINK_INPUT_COLOUR = '#a55b80';
-const WINK_SPEAKER_COLOUR = '#a55b80';
-const WINK_SENSORS_COLOUR = '#a55b80';
-const WINK_IR_COMMUNICATION_COLOUR = '#a55b80';
+const WINK_EYES_BOTH_COLOUR = '#b71c1c'; // Hue: 330
+const WINK_EYE_LEFT_COLOUR = '#d32f2f';
+const WINK_EYE_RIGHT_COLOUR = '#f44336';
 
+const WINK_SETUP_AND_LOOP_COLOR = '#F7941E';
+const WINK_MOTORS_COLOUR = '#43a047';
+const WINK_INPUT_COLOUR = '#e65100';
+const WINK_SPEAKER_COLOUR = '#d84315';
+const WINK_SENSORS_COLOUR = '#757575';
+const WINK_IR_COMMUNICATION_COLOUR = '#546e7a';
+
+
+const WINK_EYES_DEFAULT_FIELD_COLOUR = '#FF6666'; // Default for Color Pallet selection fields. FF6666 is nice.
 
 
 // region WINK EYES
