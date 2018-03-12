@@ -41,71 +41,84 @@ Blockly.C['set_right_eye_icon'] = Blockly.C['set_right_eye'];
 Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
 
 
-
 // Light Effects, Icon only - hence the lack of linkup.
-Blockly.C['light_effect_police_icon'] = function(block) {
-    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.C['light_effect_police_icon'] = function (block) {
+    const duration = Blockly.C.valueToCode(block, 'DURATION', Blockly.C.ORDER_ATOMIC);
     return `lightEffectPolice( ${duration} );\n`;
 };
 
-Blockly.C['light_effect_disco_icon'] = function(block) {
-    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.C['light_effect_disco_icon'] = function (block) {
+    const duration = Blockly.C.valueToCode(block, 'DURATION', Blockly.C.ORDER_ATOMIC);
     return `lightEffectDisco( ${duration} );\n`;
 };
 
-Blockly.C['light_effect_rainbow_icon'] = function(block) {
-    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.C['light_effect_rainbow_icon'] = function (block) {
+    const duration = Blockly.C.valueToCode(block, 'DURATION', Blockly.C.ORDER_ATOMIC);
     return `lightEffectRainbow( ${duration} );\n`;
 };
 
-Blockly.C['light_effect_fireworks_icon'] = function(block) {
-    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.C['light_effect_fireworks_icon'] = function (block) {
+    const duration = Blockly.C.valueToCode(block, 'DURATION', Blockly.C.ORDER_ATOMIC);
     return `lightEffectFireworks( ${duration} );\n`;
 };
 
 function moveWithDuration(block, functionName) {
-    const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+    const duration = Blockly.C.valueToCode(block, 'DURATION', Blockly.C.ORDER_ATOMIC);
     return `${functionName}(${duration});\n`;
 }
 
-Blockly.C['motors_beginner_forward_slow_icon'] = function(block){ return moveWithDuration(block, 'forwardSlow') };
-Blockly.C['motors_beginner_forward_medium_icon'] = function(block){ return moveWithDuration(block, 'forwardMedium') };
-Blockly.C['motors_beginner_forward_fast_icon'] = function(block){ return moveWithDuration(block, 'forwardFast') };
-Blockly.C['motors_beginner_backward_slow_icon'] = function(block){ return moveWithDuration(block, 'backwardSlow') };
-Blockly.C['motors_beginner_backward_medium_icon'] = function(block){ return moveWithDuration(block, 'backwardMedium') };
-Blockly.C['motors_beginner_backward_fast_icon'] = function(block){ return moveWithDuration(block, 'backwardFast') };
-
+Blockly.C['motors_beginner_forward_slow_icon'] = function (block) {
+    return moveWithDuration(block, 'forwardSlow')
+};
+Blockly.C['motors_beginner_forward_medium_icon'] = function (block) {
+    return moveWithDuration(block, 'forwardMedium')
+};
+Blockly.C['motors_beginner_forward_fast_icon'] = function (block) {
+    return moveWithDuration(block, 'forwardFast')
+};
+Blockly.C['motors_beginner_backward_slow_icon'] = function (block) {
+    return moveWithDuration(block, 'backwardSlow')
+};
+Blockly.C['motors_beginner_backward_medium_icon'] = function (block) {
+    return moveWithDuration(block, 'backwardMedium')
+};
+Blockly.C['motors_beginner_backward_fast_icon'] = function (block) {
+    return moveWithDuration(block, 'backwardFast')
+};
 
 
 // Beginners Movements
-Blockly.C['motors_beginner_rotate_left_icon'] = function(block) {
-    const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.C['motors_beginner_rotate_left_icon'] = function (block) {
+    const degrees = Blockly.C.valueToCode(block, 'DEGREES', Blockly.C.ORDER_ATOMIC);
     return `turnLeftDegrees( ${degrees} );\n`;
 };
 
-Blockly.C['motors_beginner_rotate_right_icon'] = function(block) {
-    const degrees = Blockly.JavaScript.valueToCode(block, 'DEGREES', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.C['motors_beginner_rotate_right_icon'] = function (block) {
+    const degrees = Blockly.C.valueToCode(block, 'DEGREES', Blockly.C.ORDER_ATOMIC);
     return `turnRightDegrees( ${degrees} );\n`;
 };
 
-Blockly.C['sensors_line_follow_icon'] = function(block) {
-    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
-    const showEyes = block.getFieldValue('SHOW_EYES') == 'TRUE';
+Blockly.C['sensors_line_follow_icon'] = function (block) {
+    const speed = Blockly.C.valueToCode(block, 'SPEED', Blockly.C.ORDER_ATOMIC);
+    const showEyes = block.getFieldValue('SHOW_EYES') === 'TRUE';
     return `sensorLineFollow( ${speed}, ${showEyes} );\n`;
 };
 
-Blockly.C['sensors_line_avoid_icon'] = function(block) {
-    const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
-    const showEyes = block.getFieldValue('SHOW_EYES') == 'TRUE';
+Blockly.C['sensors_line_avoid_icon'] = function (block) {
+    const speed = Blockly.C.valueToCode(block, 'SPEED', Blockly.C.ORDER_ATOMIC);
+    const showEyes = block.getFieldValue('SHOW_EYES') === 'TRUE';
     return `sensorLineAvoid( ${speed}, ${showEyes} );\n`;
 };
 
 
-
 // Obstacle related
-Blockly.C['obstacle_avoid_icon'] = function(block)    { return 'avoidObstacles();\n'; };
-Blockly.C['obstacle_approach_icon'] = function(block) { return 'approachObstacles();\n'; };
+Blockly.C['obstacle_avoid_icon'] = function (block) {
+    return 'avoidObstacles();\n';
+};
 
+Blockly.C['obstacle_approach_icon'] = function (block) {
+    return 'approachObstacles();\n';
+};
 
 
 // General Movement
