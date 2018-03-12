@@ -5,12 +5,14 @@
 //eyesRed(); eyesGreen(); eyesBlue(); eyesPurple(); eyesPink(); eyesYellow(); eyesOrange();
 //eyesCyan(); eyesWhite();
 
-const WINK_MOVEMENT_COLOUR = 330;
-const WINK_BLOCK_COLOUR_EYES_BOTH = 330;
-const WINK_BLOCK_COLOUR_EYES_RIGHT = 330;
-const WINK_BLOCK_COLOUR_EYES_LEFT = 330;
-const WINK_BLOCK_COLOUR_LIGHT_EFFECTS = 330;
-const WINK_BLOCK_COLOUR_OBSTACLE_NAVIGATION = 330;
+const WINK_MOVEMENT_COLOUR = '#2e7d32'; //330;
+const WINK_BLOCK_COLOUR_EYES_LEFT = '#3f51b5'; //330;
+const WINK_BLOCK_COLOUR_EYES_RIGHT = '#3f51b5'; //330;
+const WINK_BLOCK_COLOUR_EYES_BOTH = '#3f51b5'; //330;
+const WINK_BLOCK_COLOUR_LIGHT_EFFECTS = '#7986cb'; //330;
+const WINK_BLOCK_COLOUR_OBSTACLE_NAVIGATION = ''; //330;
+
+
 
 Blockly.Blocks['seteyesred_icon'] = {
     init: function () {
