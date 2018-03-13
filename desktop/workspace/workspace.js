@@ -358,7 +358,47 @@ ipcRenderer.on('resume_execution', () => {
 
     webview.executeJavaScript('game.disableStep();');
 });
+
 //endregion
+class DataSource {
+    save(workspace) {
+    }
+
+    saveAs(workspace, destPath) {
+
+    }
+
+    loadProjectFile() {
+
+    }
+}
+
+class BlocklyDataSource extends DataSource {
+
+    save(workspace) {
+
+    }
+
+
+    saveAs(workspace, destPath) {
+
+    }
+
+    /**
+     * @override
+     * @return {{code: string, blocks: string}}
+     */
+    loadProjectFile() {
+        return GeneratedCode('code', 'blocks');
+    }
+}
+
+class GeneratedCode {
+    constructor(code = "", blocks = null) {
+        this.code = code;
+        this.blocks = blocks;
+    }
+}
 
 exports.Workspace = class {
     constructor({blocklyConfig, layoutConfig, extension, defaultBlocks, editorLanguage}) {
@@ -372,9 +412,8 @@ exports.Workspace = class {
 
         this.saveTimeout = false;
 
-        assert(this.blocklyConfig !== null);
-        assert(this.layoutConfig !== null);
-        assert(this.extension !== null);
+        assert(this.layoutConfig, 'LayoutConfig must be defined');
+        assert(this.extension, 'Language extension must be defined');
     }
 
     static getDefaultBlocklyConfig(toolboxSource) {
