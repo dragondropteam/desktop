@@ -382,3 +382,13 @@ Blockly.Blocks['procedures_defreturn_icon'] = {
     customContextMenu: Blockly.Blocks['procedures_defnoreturn'].customContextMenu,
     callType_: 'procedures_callreturn'
 };
+
+//Override the defType for both means to call a procedure to reference our icon based definitions
+Blockly.Blocks['procedures_callnoreturn'].defType_ = 'procedures_defnoreturn_icon';
+Blockly.Blocks['procedures_callreturn'].defType_ = 'procedures_defreturn_icon';
+
+//Add in our custom definitions to ifreturn and return to ensure that those blocks show up as valid children
+Blockly.Blocks['procedures_ifreturn'].FUNCTION_TYPES.push('procedures_defreturn_icon');
+Blockly.Blocks['procedures_ifreturn'].FUNCTION_TYPES.push('procedures_defnoreturn_icon');
+Blockly.Blocks['procedures_return'].FUNCTION_TYPES.push('procedures_defreturn_icon');
+Blockly.Blocks['procedures_return'].FUNCTION_TYPES.push('procedures_defnoreturn_icon');
