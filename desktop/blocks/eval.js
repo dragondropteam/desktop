@@ -9,12 +9,17 @@
 goog.provide('Blockly.Blocks.eval');
 goog.require('Blockly.Blocks');
 
+const EVAL_JAVASCRIPT_COLOUR = '#EC591A';
+
+
+//region JAVASCRIPT
+
 Blockly.Blocks['javascript_eval'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.JAVASCRIPT_EVAL_TITLE)
             .appendField(new Blockly.FieldTextInput(''), 'EVAL');
-        this.setColour('#ff6d00');
+        this.setColour(EVAL_JAVASCRIPT_COLOUR);
         this.setNextStatement(true, null);
         this.setPreviousStatement(true, null);
         this.setTooltip(Blockly.Msg.JAVASCRIPT_EVAL_TOOLTIP);
@@ -28,10 +33,12 @@ Blockly.Blocks['javascript_eval_output'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TITLE)
             .appendField(new Blockly.FieldTextInput(''), 'EVAL');
-        this.setColour('#ff6d00');
+        this.setColour(EVAL_JAVASCRIPT_COLOUR);
         this.setOutput(true);
         this.setTooltip(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL);
         this.setInputsInline(true);
     }
 };
+
+//endregion javascript
