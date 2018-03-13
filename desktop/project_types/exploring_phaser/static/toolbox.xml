@@ -173,12 +173,27 @@
                     <field name="VAR">text</field>
                 </block>
             </value>
+            <value name="AT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
         </block>
         <block type="text_getSubstring">
             <value name="STRING">
                 <block type="variables_get">
                     <field name="VAR">text</field>
                 </block>
+            </value>
+            <value name="AT1">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="AT2">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
             </value>
         </block>
         <block type="text_changeCase">
@@ -209,7 +224,13 @@
                 </shadow>
             </value>
         </block>
-        <block type="log_console"/>
+        <block type="log_console">
+            <value name="OUTPUT">
+                <shadow type="text">
+                    <field name="TEXT"></field>
+                </shadow>
+            </value>
+        </block>
     </category>
     <category name="Lists" colour="260">
         <block type="lists_create_with">
@@ -238,6 +259,11 @@
                     <field name="VAR">list</field>
                 </block>
             </value>
+            <value name="AT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
         </block>
         <block type="lists_setIndex">
             <value name="LIST">
@@ -245,12 +271,27 @@
                     <field name="VAR">list</field>
                 </block>
             </value>
+            <value name="AT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
         </block>
         <block type="lists_getSublist">
             <value name="LIST">
                 <block type="variables_get">
                     <field name="VAR">list</field>
                 </block>
+            </value>
+            <value name="AT1">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="AT2">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
             </value>
         </block>
         <block type="lists_split">
@@ -303,11 +344,11 @@
     <sep/>
     <category name="Phaser" colour="#BCD5D1">
         <category name="Game" colour="#558b2f">
-            <category name="Startup" colour="#689f38">
+            <category name="Startup" colour="#558b2f">
                 <block type="phaser_simple_init_icon"/>
                 <block type="start_phaser_for_states"/>
             </category>
-            <category name="States" colour="#7cb342">
+            <category name="States" colour="#689f38">
                 <block type="class_type">
                     <mutation name="Phaser.State">
                     </mutation>
@@ -320,7 +361,7 @@
                 </block>
                 <block type="statemanager_start_state"/>
             </category>
-            <category name="World" colour="#8bc34a">
+            <category name="World" colour="#7cb342">
                 <block type="get_world_property"/>
                 <block type="set_world_bounds">
                     <value name="X_POS">
@@ -354,7 +395,7 @@
                 <!--Not necessary at the moment 0 functions take this-->
                 <!--<block type="get_world_reference"/>-->
             </category>
-            <category name="Time" colour="#a5d6a7">
+            <category name="Time" colour="#8bc34a">
                 <block type="delta_time_seconds"/>
                 <block type="delta_time_milliseconds"/>
                 <block type="set_time_numeric_member">
@@ -879,7 +920,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Groups" colour="#00695c">
+            <category name="Groups" colour="#116056">
                 <!--TODO: Add to group, block to allow a user to add existing objects to the group -->
                 <block type="create_group"/>
                 <block type="create_object_in_group_vi">
@@ -1042,7 +1083,7 @@
                 </block>
                 <!--<block type="call_function_on_group"/>-->
             </category>
-            <category name="Animation" colour="#00796b">
+            <category name="Animation" colour="#22736D">
                 <block type="add_animation_vi">
                     <value name="OBJECT">
                         <shadow type="variables_get">
@@ -1145,7 +1186,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Phaser Text" colour="#009688">
+            <category name="Phaser Text" colour="#348783">
                 <block type="add_text_icon">
                     <value name="X_POS">
                         <shadow type="math_number">
@@ -1182,7 +1223,7 @@
                 </block>
             </category>
             <!--TODO: -> Value Input -->
-            <category name="Particles" colour="#83C2D1">
+            <category name="Particles" colour="#459A9A">
                 <block type="addemitter">
                     <value name="X">
                         <shadow type="math_number">
@@ -1357,7 +1398,7 @@
                 <!--<block type='set_emit_from'></block>-->
             </category>
             <!--TODO: -> Value Input and clean up of inline -->
-            <category name="Game Object" colour="#00bfa5">
+            <category name="Game Object" colour="#56ADB0">
                 <!--<block type="set_object_anchor"/>-->
                 <block type="get_game_object_point_field">
                     <value name="OBJECT">
@@ -1488,10 +1529,9 @@
                     </value>
                 </block>
             </category>
-
         </category>
-        <category name="Physics" colour="#aa00ff">
-            <category name="Setup" colour="#d500f9">
+        <category name="Physics" colour="#6A1B9A">
+            <category name="Setup" colour="#6A1B9A">
                 <block type="start_arcade_physics"/>
                 <block type="enable_body_group_vi">
                     <value name="OBJECT">
@@ -1508,7 +1548,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Body" colour="#6a1b9a">
+            <category name="Body" colour="#862FB2">
                 <block type="debug_body">
                     <value name="BODY">
                         <shadow type="variables_get">
@@ -1529,7 +1569,7 @@
                     </value>
                 </block>
                 <block type="set_body_field_point_class_vi">
-                    <value name="POINT">
+                    <value name="VALUE">
                         <shadow type="point_create">
                             <value name="X">
                                 <shadow type="math_number">
@@ -1590,7 +1630,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Dynamics" colour="#6a1b9a">
+            <category name="Dynamics" colour="#A142CA">
                 <block type="move_to_pointer_extended">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
@@ -1632,7 +1672,7 @@
                 </block>
 
             </category>
-            <category name="Collision" colour="#8e24aa">
+            <category name="Collision" colour="#BD56E2">
                 <block type="collide_vi">
                     <value name="LHS">
                         <shadow type="variables_get">
@@ -1686,8 +1726,8 @@
             </category>
         </category>
         <!--TODO: Create remaining shape blocks -->
-        <category name="Geometry" colour="#424242">
-            <category name="Rectangle" colour="#757575">
+        <category name="Geometry" colour="#5C5C5C">
+            <category name="Rectangle" colour="#5C5C5C">
                 <block type="rectangle_create">
                     <value name="WIDTH">
                         <shadow type="math_number">
@@ -1711,7 +1751,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Point" colour="#616161">
+            <category name="Point" colour="#757575">
                 <block type="point_create">
                     <value name="X">
                         <shadow type="math_number">
@@ -1880,68 +1920,25 @@
                 </block>
             </category>
         </category>
-        <category name="Input" colour="#0d47a1">
+        <category name="Input" colour="#1565C0">
             <category name="Keyboard" colour="#1565c0">
                 <block type="is_key_down"/>
                 <!--TODO: Cursors, Key objects, and other input methods to allow students more control -->
                 <!--<block type="create_cursor_keys"/>-->
             </category>
             <!--TODO: Mouse input functions for position, key down, etc... -->
-            <category name="Mouse" colour="#1976d2">
+            <category name="Mouse" colour="#2C85DB">
                 <block type="get_current_mouse_position"/>
                 <block type="is_mouse_button_clicked"/>
             </category>
             <!--TODO: Gamepad support-->
-            <!--<category name="Gamepad" colour="#42a5f5"></category>-->
+            <!--<category name="Gamepad" colour="#42A5F5"></category>-->
         </category>
-        <category name="Graphics" colour="">
-            <block type="create_graphics_object">
-                <value name="x">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="y">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="draw_shapes_with_colour">
-                <value name="colour">
-                    <shadow type="colour_picker">
-                        <field name="COLOUR">#ff0000</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="draw_rectangle">
-                <value name="x">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="y">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="w">
-                    <shadow type="math_number">
-                        <field name="NUM">50</field>
-                    </shadow>
-                </value>
-                <value name="h">
-                    <shadow type="math_number">
-                        <field name="NUM">50</field>
-                    </shadow>
-                </value>
-            </block>
-        </category>
-        <category name="Utility" colour="#ff3d00">
-            <category name="General" colour="#ff3d00">
+        <category name="Utility" colour="#E03400">
+            <category name="General" colour="#E03400">
                 <block type="center_and_stretch"/>
             </category>
-            <category name="Debug" colour="#ff6e40">
+            <category name="Debug" colour="#E6460D">
                 <block type="enable_step"/>
                 <block type="disable_step"/>
                 <block type="debug_sprite">
@@ -1962,11 +1959,11 @@
                     </value>
                 </block>
             </category>
-            <category name="JavaScript" colour="#ff6d00">
+            <category name="JavaScript" colour="#EC591A">
                 <block type="javascript_eval"/>
                 <block type="javascript_eval_output"/>
             </category>
-            <category name="Phaser Lists" colour="#bf360c">
+            <category name="Phaser Lists" colour="#F36B28">
                 <block type="list_find_closest">
                     <value name="VALUE">
                         <shadow type="math_number">
@@ -2026,7 +2023,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Math" colour="#ffab91">
+            <category name="Math" colour="#F97E35">
                 <block type="math_deg_to_rad">
                     <value name="DEGREES">
                         <shadow type="math_number">
@@ -2139,7 +2136,7 @@
                     </value>
                 </block>
             </category>
-            <category name="Random" colour="#ff7043">
+            <category name="Random" colour="#FF9042">
                 <!--<block type="create_random_generator"></block>-->
                 <!--<block type="create_random_generator_seeded">
                     <value name="SEED">
@@ -2178,6 +2175,49 @@
                 </block>
                 <block type="random_sign"></block>
             </category>
+        </category>
+        <category name="Graphics" colour="#C66959">
+            <block type="create_graphics_object">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="draw_shapes_with_colour">
+                <value name="colour">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="draw_rectangle">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="w">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="h">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
         </category>
         <category name="Camera" colour="#607d8b">
             <block type="camera_fade">
@@ -2278,7 +2318,7 @@
             </block>
             <block type="camera_unfollow"/>
         </category>
-        <category name="Sound" colour="#827717">
+        <category name="Sound" colour="#BF8B2A">
             <block type="load_sound">
                 <value name="TAG">
                     <shadow type="text">
