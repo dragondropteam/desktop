@@ -8,33 +8,34 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-const {Workspace} = require('../../../workspace');
+const {Workspace, PHASER_COMPONENT, CODE_COMPONENT} = require('../../../workspace');
 const workspaceCore = require('../../../workspace');
 const TIMEOUT = 500;
 const fs = require('fs-extra');
 const log = require('electron-log');
 
 let layoutConfig = {
-        settings: {
-            showPopoutIcon: false
-        },
+    settings: {
+        showPopoutIcon: false
+    },
+    content: [{
+        type: 'row',
         content: [{
-            type: 'row',
-            content: [{
-                type: 'component',
-                componentName: workspaceCore.PHASER_COMPONENT,
-                title: 'Game',
-                componentState: {label: workspaceCore.PHASER_COMPONENT}
-            }, {
-                type: 'component',
-                componentName: workspaceCore.CODE_COMPONENT,
-                title: 'Code',
-                componentState: {label: workspaceCore.CODE_COMPONENT}
-            }]
+            type: 'component',
+            componentName: PHASER_COMPONENT,
+            title: 'Game',
+            componentState: {label: PHASER_COMPONENT}
+        }, {
+            type: 'component',
+            componentName: CODE_COMPONENT,
+            title: 'Code',
+            componentState: {label: CODE_COMPONENT}
         }]
-    };
+    }]
+};
 
 class TextPhaserWorkspace extends Workspace {
+
     constructor() {
         super({
             layoutConfig: layoutConfig,
@@ -49,7 +50,7 @@ class TextPhaserWorkspace extends Workspace {
      * @override
      */
     updateCode() {
-        const code =  fs.readFileSync(this.loadedProject.getSourceFile(this.extension), 'utf8');
+        const code = fs.readFileSync(this.loadedProject.getSourceFile(this.extension), 'utf8');
         log.debug(code);
         const codeComponent = this.getComponent(workspaceCore.CODE_COMPONENT);
         if (codeComponent) {
@@ -67,7 +68,7 @@ class TextPhaserWorkspace extends Workspace {
                 return;
             }
 
-            const code = this.updateCode();
+            const code = this.getCode();
             this.loadedProject.save([{
                 path: this.loadedProject.getSourceFile(this.extension),
                 data: code
@@ -95,9 +96,16 @@ class TextPhaserWorkspace extends Workspace {
             assets.forEach(file => {
                 fs.copySync(this.loadedProject.getFileInProjectDir('assets/' + file), project.getFileInProjectDir('assets/' + file));
             });
-            super.saveAs(project);
+
+            const code = this.getCode();
+
+            project.save([{
+                    path: project.getFileInProjectDir(`${project.getName()}.html`),
+                    data: code
+            }]);
         } catch (err) {
             if (err !== Error.ENOENT) {
+                log.error(err);
                 throw err;
             }
         }
@@ -107,11 +115,11 @@ class TextPhaserWorkspace extends Workspace {
      * @override
      */
     getCode() {
-       if(!this.getComponent(workspaceCore.CODE_COMPONENT)){
-           return null;
-       }
+        if (!this.getComponent(workspaceCore.CODE_COMPONENT)) {
+            return null;
+        }
 
-       return this.getComponent(workspaceCore.CODE_COMPONENT).getCode();
+        return this.getComponent(workspaceCore.CODE_COMPONENT).getCode();
     }
 
     /**
