@@ -20,6 +20,7 @@ const GoldenLayout = require('golden-layout');
 const {BrowserWindow, app} = require('electron').remote;
 const BaseProjectManager = require('../base_project_manager/base_project_manager');
 const log = require('electron-log');
+const Rx = require('rxjs/Rx');
 //endregion
 
 //REGION CONSTANTS
@@ -358,7 +359,102 @@ ipcRenderer.on('resume_execution', () => {
 
     webview.executeJavaScript('game.disableStep();');
 });
+
 //endregion
+
+//region DATA_SOURCE
+class DataSource {
+    save(workspace) {
+    }
+
+    saveAs(workspace, destPath) {
+
+    }
+
+    loadProjectFile() {
+
+    }
+}
+
+class BlocklyDataSource extends DataSource {
+
+    save(workspace) {
+
+    }
+
+
+    saveAs(workspace, destPath) {
+
+    }
+
+    /**
+     * @override
+     * @return {{code: string, blocks: string}}
+     */
+    loadProjectFile() {
+        return GeneratedCode('code', 'blocks');
+    }
+}
+
+class TextDataSource extends DataSource {
+    save(workspace){
+
+    }
+
+    saveAs(workspace, destPath){
+
+    }
+
+    loadProjectFile(workspace) {
+
+    }
+}
+
+class GeneratedCode {
+    constructor(code = "", blocks = null) {
+        this.code = code;
+        this.blocks = blocks;
+    }
+}
+//endregion
+
+exports.GeneratedCode = GeneratedCode;
+exports.DataSource = DataSource;
+exports.BlocklyDataSource = BlocklyDataSource;
+exports.TextDataSource = TextDataSource;
+
+/**
+ * Default configuration for the display and controls of Blockly
+ * @param toolboxSource The toolbox to use for this Blockly instance
+ * @return {{comments: boolean, disable: boolean, collapse: boolean, grid: {spacing: number, length: number, colour: string, snap: boolean}, maxBlocks: number, media: string, readOnly: boolean, rtl: boolean, scrollbars: boolean, toolbox: *, zoom: {controls: boolean, wheel: boolean, startScale: number, maxScale: number, minScale: number, scaleSpeed: number}}}
+ */
+exports.getDefaultBlocklyConfig = function(toolboxSource) {
+    return {
+        comments: true,
+        disable: true,
+        collapse: true,
+        grid: {
+            spacing: 25,
+            length: 3,
+            colour: '#ccc',
+            snap: true
+        },
+        maxBlocks: Infinity,
+        media: '../../../media/',
+        readOnly: false,
+        rtl: false,
+        scrollbars: true,
+        toolbox: toolboxSource,
+        zoom: {
+            controls: true,
+            wheel: true,
+            startScale: 1.0,
+            maxScale: 4,
+            minScale: .25,
+            scaleSpeed: 1.1
+        }
+    };
+};
 
 exports.Workspace = class {
     constructor({blocklyConfig, layoutConfig, extension, defaultBlocks, editorLanguage}) {
@@ -372,9 +468,8 @@ exports.Workspace = class {
 
         this.saveTimeout = false;
 
-        assert(this.blocklyConfig !== null);
-        assert(this.layoutConfig !== null);
-        assert(this.extension !== null);
+        assert(this.layoutConfig, 'LayoutConfig must be defined');
+        assert(this.extension, 'Language extension must be defined');
     }
 
     static getDefaultBlocklyConfig(toolboxSource) {
