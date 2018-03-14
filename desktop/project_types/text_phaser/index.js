@@ -18,7 +18,7 @@ const path = require('path');
 const filesystem = require(`filesystem`);
 const corePhaser = require('../../phaser_core/phaser_core');
 const BaseProjectManager = require('../../base_project_manager/base_project_manager');
-
+const log = require('electron-log');
 class TextPhaserProjectManager extends BaseProjectManager {
     constructor(){
         super(BUILD_NUMBER, PROJECT_TYPE, `${__dirname}/static`);
