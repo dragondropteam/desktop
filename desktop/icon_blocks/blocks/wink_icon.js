@@ -790,7 +790,7 @@ Blockly.Blocks['bestill_icon'] = {
 Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons1-up.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons1-up.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
@@ -805,7 +805,7 @@ Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
 Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons2-up.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
@@ -820,7 +820,7 @@ Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
 Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-up.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-up.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
@@ -835,7 +835,7 @@ Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
 Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons1-down.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons1-down.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
@@ -850,7 +850,7 @@ Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
 Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-down.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons2-down.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
@@ -865,7 +865,7 @@ Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
 Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-down.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons3-down.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
@@ -918,7 +918,7 @@ Blockly.Blocks['sensors_line_follow_icon'] = {
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons2-up.svg'), ICON_SIZE, ICON_SIZE));
         this.appendValueInput("SPEED")
             .setCheck("Number");
         this.appendDummyInput()
@@ -940,7 +940,7 @@ Blockly.Blocks['sensors_line_avoid_icon'] = {
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'chevrons2-up.svg'), ICON_SIZE, ICON_SIZE));
         this.appendValueInput("SPEED")
             .setCheck("Number");
         this.appendDummyInput()
