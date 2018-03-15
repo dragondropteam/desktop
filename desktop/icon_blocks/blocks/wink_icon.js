@@ -1,23 +1,20 @@
 //All content copyright DigiPen Institute of Technology 2016
 'use strict';
-//Set eye color left/right/on/off/rgb
-//c functions
-//eyesRed(); eyesGreen(); eyesBlue(); eyesPurple(); eyesPink(); eyesYellow(); eyesOrange();
-//eyesCyan(); eyesWhite();
 
-const WINK_ICON_MOVEMENT_COLOUR = '#22736D'; //330;
-const WINK_ICON_MOVEMENT_ADVANCED_COLOUR = '#348783'; //330;
-const WINK_ICON_BLOCK_COLOUR_EYES_LEFT = '#686868'; //330;
-const WINK_ICON_BLOCK_COLOUR_EYES_RIGHT = '#686868'; //330;
-const WINK_ICON_BLOCK_COLOUR_EYES_BOTH = '#686868'; //330;
-const WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS = '#838383'; //330;
+// Block Colors
+const WINK_ICON_BLOCK_COLOUR_EYES_LEFT = '#6b6b6b'; //330;
+const WINK_ICON_BLOCK_COLOUR_EYES_RIGHT = '#6b6b6b'; //330;
+const WINK_ICON_BLOCK_COLOUR_EYES_BOTH = '#6b6b6b'; //330;
+const WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS = '#848484'; //330;
 
+const WINK_ICON_MOVEMENT_COLOUR = '#348783'; //330;
+const WINK_ICON_MOVEMENT_ADVANCED_COLOUR = '#459A9A'; //330;
 
-const WINK_ICON_SENSOR_BEHAVIORS = '#e65100'; //330;
-const WINK_ICON_SENSOR_INPUTS = '#ef6c00'; //330;
-const WINK_ICON_SENSOR_OUTPUTS = '#f57c00'; //330;
+const WINK_ICON_SENSOR_BEHAVIORS = '#F36B28'; //330;
+const WINK_ICON_SENSOR_INPUTS = '#F97E35'; //330;
+const WINK_ICON_SENSOR_OUTPUTS = '#FF9042'; //330;
 
-const WINK_ICON_TIME_COLOUR = '#1565c0';
+const WINK_ICON_TIME_COLOUR = '#2175CE';//'#2C85DB';
 
 
 
@@ -37,13 +34,15 @@ Blockly.Blocks['hardwarestartup_icon'] = {
 
 //endregion
 
-//region LIGHT_EFFECTS
+//region WINK_ICON_LIGHT_EFFECTS
 
 Blockly.Blocks['light_effect_police_icon'] = {
     init: function () {
+        this.setInputsInline(true);
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'policeCar.png'), ICON_SIZE, ICON_SIZE));
-        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'clock.svg'), ICON_SIZE, ICON_SIZE));
         this.setColour(WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
@@ -56,9 +55,11 @@ Blockly.Blocks['light_effect_police_icon'] = {
 
 Blockly.Blocks['light_effect_disco_icon'] = {
     init: function () {
+        this.setInputsInline(true);
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'DiscoBall.png'), ICON_SIZE, ICON_SIZE));
-        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'clock.svg'), ICON_SIZE, ICON_SIZE));
         this.setColour(WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
@@ -71,9 +72,11 @@ Blockly.Blocks['light_effect_disco_icon'] = {
 
 Blockly.Blocks['light_effect_rainbow_icon'] = {
     init: function () {
+        this.setInputsInline(true);
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Rainbow.png'), ICON_SIZE, ICON_SIZE));
-        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'clock.svg'), ICON_SIZE, ICON_SIZE));
         this.setColour(WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
@@ -86,9 +89,11 @@ Blockly.Blocks['light_effect_rainbow_icon'] = {
 
 Blockly.Blocks['light_effect_fireworks_icon'] = {
     init: function () {
+        this.setInputsInline(true);
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Fireworks.png'), ICON_SIZE, ICON_SIZE));
-        this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'clock.svg'), ICON_SIZE, ICON_SIZE));
         this.setColour(WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS);
         this.appendValueInput("DURATION")
             .setCheck("Number");
@@ -99,7 +104,7 @@ Blockly.Blocks['light_effect_fireworks_icon'] = {
     }
 };
 
-//endregion
+//endregion light effects
 
 //region WINK_ICON_EYES
 
@@ -768,71 +773,20 @@ Blockly.Blocks['set_right_eye_icon'] = {
 
 //endregion
 
+//region WINK_ICON_MOTOR_BEGINNER
 
-
-
-
-
-Blockly.Blocks['loop_icon'] = {
+Blockly.Blocks['bestill_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.LOOP_FIELD_1);
-        this.appendStatementInput("do")
-            .setCheck(null);
-        this.setColour(330);
-        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
-    }
-};
-
-
-
-//region SENSORS
-
-Blockly.Blocks['sensors_line_follow_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'LineFollowing.png'), ICON_SIZE, ICON_SIZE));
-        this.setInputsInline(true);
-        this.setColour(WINK_ICON_MOVEMENT_COLOUR);
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
-        this.appendValueInput("SPEED")
-            .setCheck("Number");
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eye.png'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
-        this.setTooltip('');
-        this.setHelpUrl('');
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'stop.svg'), ICON_SIZE, ICON_SIZE));
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-    }
-};
-Blockly.Blocks['sensors_line_avoid_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'lineAvoidance.png'), ICON_SIZE, ICON_SIZE));
-        this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
-        this.appendValueInput("SPEED")
-            .setCheck("Number");
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eye.png'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
-        this.setTooltip('');
-        this.setHelpUrl('');
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
+        this.setTooltip(Blockly.Msg.BESTILL_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.BESTILL_HELP_URL);
     }
 };
 
-//endregion
-
-/* Movement patterns */
 Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -847,6 +801,7 @@ Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -861,6 +816,7 @@ Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -875,6 +831,7 @@ Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -889,6 +846,7 @@ Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -903,6 +861,7 @@ Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -917,6 +876,7 @@ Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -931,6 +891,7 @@ Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -946,13 +907,58 @@ Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
     }
 };
 
+//endregion
 
+//region WINK_ICON_SENSOR_BEHAVIOR
 
+Blockly.Blocks['sensors_line_follow_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'LineFollowing.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(WINK_ICON_MOVEMENT_COLOUR);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("SPEED")
+            .setCheck("Number");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.svg'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
+        this.setColour(WINK_ICON_SENSOR_BEHAVIORS);
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+Blockly.Blocks['sensors_line_avoid_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'lineAvoidance.png'), ICON_SIZE, ICON_SIZE));
+        this.setInputsInline(true);
+        this.setColour(WINK_ICON_MOVEMENT_COLOUR);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'Icons.psdchevrons2-up.png'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("SPEED")
+            .setCheck("Number");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeGradient.svg'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
+        this.setColour(WINK_ICON_SENSOR_BEHAVIORS);
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
 
 Blockly.Blocks['obstacle_avoid_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_report_problem.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'warning.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_SENSOR_BEHAVIORS);
         this.setTooltip(Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP);
@@ -961,6 +967,7 @@ Blockly.Blocks['obstacle_avoid_icon'] = {
         this.setNextStatement(true, null);
     }
 };
+
 Blockly.Blocks['obstacle_approach_icon'] = {
     init: function () {
         this.appendDummyInput()
@@ -974,97 +981,51 @@ Blockly.Blocks['obstacle_approach_icon'] = {
     }
 };
 
-Blockly.Blocks['bestill_icon'] = {
+//endregion beginner movement
+
+//region WINK_ICON_TIME
+
+Blockly.Blocks['delayseconds_icon'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'stop.svg'), ICON_SIZE, ICON_SIZE));
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(WINK_ICON_MOVEMENT_COLOUR);
-        this.setTooltip(Blockly.Msg.BESTILL_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.BESTILL_HELP_URL);
-    }
-};
-
-
-
-Blockly.Blocks['delayseconds'] = {
-    init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAY);
-        this.appendValueInput("SECONDS_icon")
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'clock.svg'), ICON_SIZE, ICON_SIZE));
+        this.appendValueInput("SECONDS")
             .setCheck("Number");
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.SECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setInputsInline(true);
+        this.setColour(WINK_ICON_TIME_COLOUR);
         this.setTooltip(Blockly.Msg.DELAY_SECONDS_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.DELAY_SECONDS_HELP_URL);
     }
 };
 
-Blockly.Blocks['delayms_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAY);
-        this.appendValueInput("MILLISECONDS")
-            .setCheck("Number");
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.MILLISECONDS);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAY_MILLISECONDS_HELP_URL);
-    }
-};
-
-Blockly.Blocks['delaymicroseconds_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.DELAY);
-        this.appendValueInput("MICROSECONDS")
-            .setCheck("Number");
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.MICROSECONDS);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.DELAY_MICROSECONDS_HELP_URL);
-    }
-};
-
 Blockly.Blocks['seconds_icon'] = {
     init: function () {
+        this.setInputsInline(true);
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SECONDS + ' ' + Blockly.Msg.SINCE_START);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'clock.svg'), ICON_SIZE, ICON_SIZE));
         this.setOutput(true, "Number");
-        this.setColour(ARDUINO_TIME_COLOUR);
+        this.setColour(WINK_ICON_TIME_COLOUR);
         this.setTooltip(Blockly.Msg.SECONDS_SINCE_START_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SECONDS_SINCE_START_HELP_URL);
     }
 };
 
-Blockly.Blocks['milliseconds_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.MILLISECONDS + ' ' + Blockly.Msg.SINCE_START);
-        this.setOutput(true, "Number");
-        this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.MILLISECONDS_SINCE_START_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MILLISECONDS_SINCE_START_HELP_URL);
-    }
-};
+//endregion wink icon time
 
-Blockly.Blocks['microseconds_icon'] = {
+
+// Unsorted
+Blockly.Blocks['loop_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MICROSECONDS + ' ' + Blockly.Msg.SINCE_START);
-        this.setOutput(true, "Number");
-        this.setColour(ARDUINO_TIME_COLOUR);
-        this.setTooltip(Blockly.Msg.MICROSECONDS_SINCE_START_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.MICROSECONDS_SINCE_START_HELP_URL);
+            .appendField(Blockly.Msg.LOOP_FIELD_1);
+        this.appendStatementInput("do")
+            .setCheck(null);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
     }
 };
