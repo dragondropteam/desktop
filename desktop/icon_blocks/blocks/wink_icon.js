@@ -121,7 +121,7 @@ Blockly.Blocks['seteyesred_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESRED_TOOLTIP);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_RED);
         this.setHelpUrl(Blockly.Msg.SETEYESRED_HELP_URL);
     }
 };
@@ -139,8 +139,8 @@ Blockly.Blocks['seteyesgreen_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESGREEN_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESGREEN_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_GREEN);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -157,8 +157,8 @@ Blockly.Blocks['seteyesblue_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESBLUE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESBLUE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_BLUE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -175,8 +175,8 @@ Blockly.Blocks['seteyespurple_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESPURPLE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESPURPLE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_PURPLE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -193,8 +193,8 @@ Blockly.Blocks['seteyespink_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESPINK_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESPINK_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_PINK);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -211,8 +211,8 @@ Blockly.Blocks['seteyesyellow_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESYELLOW_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESYELLOW_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_YELLOW);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -229,8 +229,8 @@ Blockly.Blocks['seteyescyan_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESCYAN_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESCYAN_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_CYAN);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -247,8 +247,8 @@ Blockly.Blocks['seteyesorange_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESORANGE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESORANGE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_ORANGE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -265,8 +265,8 @@ Blockly.Blocks['seteyeswhite_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESWHITE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESWHITE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_WHITE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -282,8 +282,8 @@ Blockly.Blocks['seteyesrgb_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SETEYESRGB_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETEYESRGB_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_SELECT);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -297,8 +297,8 @@ Blockly.Blocks['turneyesoff_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.TURNEYESOFF_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.TURNEYESOFF_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_OFF);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -319,8 +319,8 @@ Blockly.Blocks['set_eyes_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
-        this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_EYES_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_RGB);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -343,8 +343,8 @@ Blockly.Blocks['setleftred_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTRED_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTRED_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_RED);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -361,8 +361,8 @@ Blockly.Blocks['setleftgreen_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTGREEN_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTGREEN_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_GREEN);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -379,8 +379,8 @@ Blockly.Blocks['setleftblue_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTBLUE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTBLUE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_BLUE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -397,8 +397,8 @@ Blockly.Blocks['setleftpurple_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTPURPLE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTPURPLE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_PURPLE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -415,8 +415,8 @@ Blockly.Blocks['setleftpink_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTPINK_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTPINK_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_PINK);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -433,8 +433,8 @@ Blockly.Blocks['setleftyellow_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTYELLOW_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTYELLOW_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_YELLOW);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -451,8 +451,8 @@ Blockly.Blocks['setleftcyan_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTCYAN_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTCYAN_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_CYAN);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -469,8 +469,8 @@ Blockly.Blocks['setleftorange_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTORANGE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTORANGE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_ORANGE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -488,8 +488,8 @@ Blockly.Blocks['setleftwhite_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTWHITE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTWHITE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_WHITE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -505,8 +505,8 @@ Blockly.Blocks['setleftrgb_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SETLEFTRGB_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETLEFTRGB_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_SELECT);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -520,8 +520,8 @@ Blockly.Blocks['turnlefteyeoff_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.TURNLEFTEYEOFF_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_OFF);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -542,8 +542,8 @@ Blockly.Blocks['set_left_eye_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_LEFT);
-        this.setTooltip(Blockly.Msg.SET_LEFT_EYE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_LEFT_EYE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_LEFT_RGB);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -566,8 +566,8 @@ Blockly.Blocks['setrightred_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTRED_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTRED_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_RED);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -584,8 +584,8 @@ Blockly.Blocks['setrightgreen_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTGREEN_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTGREEN_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_GREEN);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -602,8 +602,8 @@ Blockly.Blocks['setrightblue_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTBLUE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTBLUE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_BLUE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -620,8 +620,8 @@ Blockly.Blocks['setrightpurple_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTPURPLE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTPURPLE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_PURPLE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -638,8 +638,8 @@ Blockly.Blocks['setrightpink_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTPINK_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTPINK_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_PINK);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -656,8 +656,8 @@ Blockly.Blocks['setrightyellow_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTYELLOW_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTYELLOW_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_YELLOW);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -674,8 +674,8 @@ Blockly.Blocks['setrightcyan_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTCYAN_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTCYAN_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_CYAN);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -692,8 +692,8 @@ Blockly.Blocks['setrightorange_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTORANGE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTORANGE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_ORANGE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -710,8 +710,8 @@ Blockly.Blocks['setrightwhite_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTWHITE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTWHITE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_WHITE);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -727,8 +727,8 @@ Blockly.Blocks['setrightrgb_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SETRIGHTRGB_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SETRIGHTRGB_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_SELECT);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -742,8 +742,8 @@ Blockly.Blocks['turnrighteyeoff_icon'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_OFF);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
     }
 };
 
@@ -764,8 +764,8 @@ Blockly.Blocks['set_right_eye_icon'] = {
             .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'blue.png'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_RIGHT);
-        this.setTooltip(Blockly.Msg.SET_RIGHT_EYE_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.SET_RIGHT_EYE_HELP_URL);
+        this.setTooltip(Blockly.Msg.WINK_EYE_RIGHT_RGB);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -926,8 +926,8 @@ Blockly.Blocks['sensors_line_follow_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
         this.setColour(WINK_ICON_SENSOR_BEHAVIORS);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SENSOR_LINE_FOLLOW_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
@@ -948,8 +948,8 @@ Blockly.Blocks['sensors_line_avoid_icon'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldCheckbox("TRUE"), "SHOW_EYES");
         this.setColour(WINK_ICON_SENSOR_BEHAVIORS);
-        this.setTooltip('');
-        this.setHelpUrl('');
+        this.setTooltip(Blockly.Msg.SENSOR_LINE_AVOID_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.WINK_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
     }
