@@ -1,30 +1,24 @@
-const {Workspace} = require('../workspace');
+const {Workspace, BlocklyComponent} = require('../workspace');
 const workspaceCore = require('../workspace');
 
-let layoutConfig = {
-    settings: {
-        showPopoutIcon: false
-    },
-    content: [{
-        type: 'row',
-        content: [{
-            type: 'component',
-            componentName: workspaceCore.BLOCKLY_COMPONENT,
-            title: 'Blocks',
-            componentState: {label: workspaceCore.BLOCKLY_COMPONENT}
-        }, {
-            type: 'component',
-            componentName: workspaceCore.CODE_COMPONENT,
-            title: 'Code',
-            componentState: {label: workspaceCore.CODE_COMPONENT}
-        }]
-    }]
-};
-
-exports.ArduinoWorkspace = class PhaserWorkspace extends Workspace {
+exports.ArduinoWorkspace = class ArduinoWorkspace extends Workspace {
     constructor(toolboxSource, startingBlocks) {
+        const layoutConfig = {
+            settings: {
+                showPopoutIcon: false
+            },
+            content: [{
+                type: 'row',
+                content: [BlocklyComponent.generateContent(Workspace.getDefaultBlocklyConfig(toolboxSource)), {
+                    type: 'component',
+                    componentName: workspaceCore.CODE_COMPONENT,
+                    title: 'Code',
+                    componentState: {label: workspaceCore.CODE_COMPONENT}
+                }]
+            }]
+        };
+
         super({
-            blocklyConfig: Workspace.getDefaultBlocklyConfig(toolboxSource),
             layoutConfig: layoutConfig,
             extension: 'ino',
             editorLanguage: 'ace/mode/c_cpp',

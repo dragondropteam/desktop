@@ -131,6 +131,7 @@ module.exports = BaseProjectManager = class BaseProjectManager {
         //If we are only updating the project file there will be no files
         if (files) {
             for (let i = 0; i < files.length; ++i) {
+                fs.ensureFileSync(files[i].path);
                 fs.writeFileSync(files[i].path, files[i].data);
             }
         }
