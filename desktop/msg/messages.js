@@ -4983,7 +4983,7 @@ Blockly.Msg.TURN_BY_VALUES_FIELD_3 = 'delay';
 /// auto generated
 Blockly.Msg.TURN_BY_VALUES_FIELD_4 = 'milliseconds';
 /// auto generated
-Blockly.Msg.TURN_BY_VALUES_TOOLTIP = '';
+Blockly.Msg.TURN_BY_VALUES_TOOLTIP = 'Turns the robot at the specified speed for the specified duration in the specified direction - either left or right. Negative values are accepted.';
 /// auto generated
 Blockly.Msg.TURN_BY_VALUES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -5336,35 +5336,35 @@ Blockly.Msg.LOW = 'LOW';
 
 // Wink Explorers
 Blockly.Msg.WINK_GENERAL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
-Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = 'moves the wink robot forward at a slow(30) speed';
-Blockly.Msg.WINK_MOVEMENT_FORWARD_MODERATE = 'moves the wink robot forward at a moderate(50) speed';
-Blockly.Msg.WINK_MOVEMENT_FORWARD_FAST = 'moves the wink robot forward at a fast(90) speed';
-Blockly.Msg.WINK_MOVEMENT_BACKWARD_SLOW = 'moves the wink robot backward at a slow(30) speed';
-Blockly.Msg.WINK_MOVEMENT_BACKWARD_MODERATE = 'moves the wink robot backward at a moderate(50) speed';
-Blockly.Msg.WINK_MOVEMENT_BACKWARD_FAST = 'moves the wink robot backward at a fast(90) speed';
-Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = 'rotates the wink robot left by roughly the specified number of degrees';
-Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = 'rotates the wink robot right by roughly the specified number of degrees';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = 'Moves the wink robot forward at a slow(30) speed.';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_MODERATE = 'Moves the wink robot forward at a moderate(50) speed.';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_FAST = 'Moves the wink robot forward at a fast(90) speed.';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_SLOW = 'Moves the wink robot backward at a slow(30) speed.';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_MODERATE = 'Moves the wink robot backward at a moderate(50) speed.';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_FAST = 'Moves the wink robot backward at a fast(90) speed.';
+Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = 'Rotates the wink robot left by roughly the specified number of degrees.';
+Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = 'Rotates the wink robot right by roughly the specified number of degrees.';
 
 // Wink Explorer Light Effects
 Blockly.Msg.LIGHT_EFFECT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
-Blockly.Msg.LIGHT_EFFECT_POLICE_LIGHTS = 'makes the eyes flash red and blue';
-Blockly.Msg.LIGHT_EFFECT_DISCO_LIGHTS = 'makes the eyes twinkle with blues, greens, and purples.';
-Blockly.Msg.LIGHT_EFFECT_FIREWORK_LIGHTS = 'makes the eyes flicker as if a firework had gone off';
-Blockly.Msg.LIGHT_EFFECT_RAINBOW_LIGHT = 'makes the eyes cycle through the rainbow';
+Blockly.Msg.LIGHT_EFFECT_POLICE_LIGHTS = 'Makes the eyes flash red and blue for the specified time in seconds.';
+Blockly.Msg.LIGHT_EFFECT_DISCO_LIGHTS = 'Makes the eyes twinkle with blues, greens, and purples for the specified time in seconds.';
+Blockly.Msg.LIGHT_EFFECT_FIREWORK_LIGHTS = 'Makes the eyes flicker as if a firework had gone off for the specified time in seconds.';
+Blockly.Msg.LIGHT_EFFECT_RAINBOW_LIGHT = 'Makes the eyes cycle through the rainbow for the specified time in seconds.';
 
 // Wink explorer sensor behaviors
 Blockly.Msg.SENSOR_LINE_FOLLOW_TOOLTIP = 'Wink robot will follow a black line. For best results, use a solid dark line 3/4cm - 1cm thick on white paper.';
 Blockly.Msg.SENSOR_LINE_AVOID_TOOLTIP = 'Wink robot will avoid black lines. For best results, use solid lines at least 1/2cm thick or more on white paper.';
 Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP = 'Wink robot travels around and attempts to avoid obstacles in front of it.';
 Blockly.Msg.SENSOR_OBSTACLE_APPROACH_TOOLTIP = 'Wink robot approaches an obstacle placed in front of it then moved.';
-Blockly.Msg.WINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+
 
 // Wink Explorer eyes
 
 // General
 Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 = 'Sets the ';
 Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2 = ' to be ';
-Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING = ' with the specified intensity from 0 to 255.';
+Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING = ' with the specified intensity from 0-255.';
 
 // Left
 Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'left eye' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
