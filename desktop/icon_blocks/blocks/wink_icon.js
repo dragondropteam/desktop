@@ -795,7 +795,7 @@ Blockly.Blocks['motors_beginner_forward_slow_icon'] = {
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -810,7 +810,7 @@ Blockly.Blocks['motors_beginner_forward_medium_icon'] = {
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD_MODERATE);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -825,7 +825,7 @@ Blockly.Blocks['motors_beginner_forward_fast_icon'] = {
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_FORWARD_FAST);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -840,7 +840,7 @@ Blockly.Blocks['motors_beginner_backward_slow_icon'] = {
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD_SLOW);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -855,7 +855,7 @@ Blockly.Blocks['motors_beginner_backward_medium_icon'] = {
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD_MODERATE);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -870,7 +870,7 @@ Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DURATION")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_BACKWARD_FAST);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -880,12 +880,12 @@ Blockly.Blocks['motors_beginner_backward_fast_icon'] = {
 Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'leftArrow.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'arrowLeft.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DEGREES")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -895,12 +895,12 @@ Blockly.Blocks['motors_beginner_rotate_left_icon'] = {
 Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'rightArrow.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'arrowRight.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendValueInput("DEGREES")
             .setCheck("Number");
-        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION);
+        this.setTooltip(Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT);
         this.setHelpUrl(Blockly.Msg.WINK_GENERAL_HELP_URL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
