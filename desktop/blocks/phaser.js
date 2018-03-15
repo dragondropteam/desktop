@@ -49,8 +49,8 @@ const PHASER_RECTANGLE_COLOUR = '#5C5C5C'; //'#616161';
 const PHASER_POINT_COLOUR = '#757575';     // (no change)
 
 const PHASER_KEYBOARD_INPUT = '#1565C0'; // (no change)
-const PHASER_MOUSE_INPUT = '#2C85DB';    //'#42A5F5'
-const PHASER_GAMEPAD_INPUT = '#42A5F5';  // UNUSED
+const PHASER_MOUSE_INPUT = '#2479D1';    //'#42A5F5' // ?2175CE 277DD5 2C85DB
+const PHASER_GAMEPAD_INPUT = '#328DE2';  // UNUSED // ?328DE2
 
 const PHASER_UTILITY_COLOUR = '#E03400';      //'#ff6d00'; UNUSED
 const PHASER_UTIL_GENERAL_COLOUR = '#E03400'; //'#ff3d00';
@@ -68,6 +68,8 @@ const PHASER_SOUND_COLOUR = '#bf9023'; //'#827717'
 const PHYSICS_COLOUR = "#5A5C51"; // DEPRECATED ONLY, DO NOT USE
 
 //endregion colours
+
+
 
 //region DOM
 
