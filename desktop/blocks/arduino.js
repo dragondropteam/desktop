@@ -3,7 +3,7 @@ goog.provide('Blockly.Blocks.arduino');
 goog.require('Blockly.Blocks');
 
 
-const ARDUINO_TIME_COLOUR = '#1565c0';
+const ARDUINO_TIME_COLOUR = '#328DE2';
 const ARDUINO_PINS_COLOUR = 60;//'#ad1457';
 const ARDUINO_CONSTANTS_COLOUR = 90;//'#6a1b9a';
 const ARDUINO_ANALOG_IO_COLOUR = 120;//'#4527a0';
