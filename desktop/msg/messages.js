@@ -5336,9 +5336,14 @@ Blockly.Msg.LOW = 'LOW';
 
 // Wink Explorers
 Blockly.Msg.WINK_GENERAL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
-Blockly.Msg.WINK_MOVEMENT_FORWARD = 'moves the wink robot forward at a speed';
-Blockly.Msg.WINK_MOVEMENT_BACKWARD = 'moves the wink robot backward at a speed';
-Blockly.Msg.WINK_MOVEMENT_ROTATION = 'rotates the wink robot by roughly the specified number of degrees';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = 'moves the wink robot forward at a slow(30) speed';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_MODERATE = 'moves the wink robot forward at a moderate(50) speed';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_FAST = 'moves the wink robot forward at a fast(90) speed';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_SLOW = 'moves the wink robot backward at a slow(30) speed';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_MODERATE = 'moves the wink robot backward at a moderate(50) speed';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_FAST = 'moves the wink robot backward at a fast(90) speed';
+Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = 'rotates the wink robot left by roughly the specified number of degrees';
+Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = 'rotates the wink robot right by roughly the specified number of degrees';
 
 // Wink Explorer Light Effects
 Blockly.Msg.LIGHT_EFFECT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';

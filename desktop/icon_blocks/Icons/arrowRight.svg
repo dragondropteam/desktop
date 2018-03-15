@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   fill="#000000"
+   height="24"
+   viewBox="0 0 24 24"
+   width="24"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="arrowRight.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1050"
+     inkscape:window-height="1657"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="22.627418"
+     inkscape:cx="3.5940921"
+     inkscape:cy="18.724133"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M 0,0 H 24 V 24 H 0 Z"
+     id="path2"
+     inkscape:connector-curvature="0"
+     style="fill:none" />
+  <path
+     d="M 21.6471,10.727178 15.028382,4.1526536 13.122246,6.191372 16.358693,9.2852361 C 14.404104,9.2733341 12.750932,9.3525474 11.351784,9.5202667 3.948927,10.407665 3.657351,13.772738 3.4575,19.229 l 2.775006,-10e-7 C 6.812129,13.74563 6.052368,12.16912 16.22611,12.213314 l -3.103864,3.138058 2.038718,1.994524 z"
+     id="path4"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccscccccc"
+     style="fill:#7ab3e7;fill-opacity:1" />
+</svg>
