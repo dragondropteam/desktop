@@ -44,6 +44,7 @@ let webview = null;
 let editor = null;
 let layout = null;
 let currentWorkspace = null;
+const TYPE_COMPONENT = 'component';
 
 exports.BaseComponent = class {
     constructor(componentState) {
@@ -57,8 +58,26 @@ exports.BaseComponent = class {
 
 //region COMPONENTS
 class BlocklyComponent extends exports.BaseComponent {
+
+    static generateContent(blocklyConfig) {
+        assert(blocklyConfig != null);
+
+        return {
+            type: TYPE_COMPONENT,
+            title: exports.BLOCKLY_COMPONENT,
+            componentName: exports.BLOCKLY_COMPONENT,
+            componentState: {
+                label: exports.BLOCKLY_COMPONENT,
+                blocklyConfig: blocklyConfig
+            }
+        }
+    }
+
     constructor(container, componentState) {
         super(componentState);
+
+        this.blocklyConfig = componentState.blocklyConfig;
+
         blocklyContainer = container;
         container.getElement().html('<div id="blocklyArea"><div id="blocklyDiv" style="position: absolute"></div></div>');
 
@@ -115,11 +134,7 @@ class BlocklyComponent extends exports.BaseComponent {
         blocklyArea = document.getElementById(BLOCKLY_AREA_ID);
         blocklyDiv = document.getElementById(BLOCKLY_DIV_ID);
 
-        workspace = Blockly.inject(BLOCKLY_DIV_ID, currentWorkspace.blocklyConfig);
-
-        if (currentWorkspace.onComponentOpen) {
-            currentWorkspace.onComponentOpen(this);
-        }
+        workspace = Blockly.inject(BLOCKLY_DIV_ID, this.blocklyConfig);
 
         this.resize();
 
@@ -131,11 +146,28 @@ class BlocklyComponent extends exports.BaseComponent {
     }
 }
 
+exports.BlocklyComponent = BlocklyComponent;
+
 class CodeComponent extends exports.BaseComponent {
+
+    static generateContent(editorConfig = {}) {
+        return {
+            type: TYPE_COMPONENT,
+            title: exports.CODE_COMPONENT,
+            componentName: exports.CODE_COMPONENT,
+            componentState: {
+                label: exports.CODE_COMPONENT,
+                editorOptions: editorConfig
+            }
+        }
+    }
+
     constructor(container, componentState) {
         super(componentState);
         codeContainer = container;
         container.getElement().html('<div id="editor"></div>');
+
+        this.editorOptions = componentState.editorOptions || {};
 
         container.on('open', () => {
             this.setupDOM();
@@ -165,11 +197,14 @@ class CodeComponent extends exports.BaseComponent {
 
         document.getElementById(EDITOR_ID).style.fontSize = `${electronConfig.get('fontsize') || '12'}px`;
         this.editor = ace.edit(EDITOR_ID);
+
         editor = this.editor;
+
         this.editor.$blockScrolling = Infinity;
+
         log.debug(currentWorkspace.editorLanguage);
-        this.editor.getSession().setMode(currentWorkspace.editorLanguage);
-        this.editor.setReadOnly(currentWorkspace.editorReadOnly);
+        this.editor.getSession().setMode(this.editorOptions.editorLanguage);
+        this.editor.setReadOnly(this.editorOptions.readOnly);
         let theme = electronConfig.get('theme');
         if (theme) {
             theme = theme.toLowerCase().replace(' ', '_');
@@ -191,6 +226,8 @@ class CodeComponent extends exports.BaseComponent {
         return this.editor.getValue();
     }
 }
+
+exports.CodeComponent = CodeComponent;
 
 class PhaserComponent extends exports.BaseComponent {
 
@@ -262,6 +299,8 @@ class PhaserComponent extends exports.BaseComponent {
         this.paused = false;
     }
 }
+
+exports.PhaserCompnent = PhaserComponent;
 
 exports.registerDefaultComponents = function () {
     layout.registerComponent(exports.BLOCKLY_COMPONENT, BlocklyComponent);
@@ -397,11 +436,11 @@ class BlocklyDataSource extends DataSource {
 }
 
 class TextDataSource extends DataSource {
-    save(workspace){
+    save(workspace) {
 
     }
 
-    saveAs(workspace, destPath){
+    saveAs(workspace, destPath) {
 
     }
 
@@ -416,6 +455,7 @@ class GeneratedCode {
         this.blocks = blocks;
     }
 }
+
 //endregion
 
 exports.GeneratedCode = GeneratedCode;
@@ -428,7 +468,7 @@ exports.TextDataSource = TextDataSource;
  * @param toolboxSource The toolbox to use for this Blockly instance
  * @return {{comments: boolean, disable: boolean, collapse: boolean, grid: {spacing: number, length: number, colour: string, snap: boolean}, maxBlocks: number, media: string, readOnly: boolean, rtl: boolean, scrollbars: boolean, toolbox: *, zoom: {controls: boolean, wheel: boolean, startScale: number, maxScale: number, minScale: number, scaleSpeed: number}}}
  */
-exports.getDefaultBlocklyConfig = function(toolboxSource) {
+exports.getDefaultBlocklyConfig = function (toolboxSource) {
     return {
         comments: true,
         disable: true,
@@ -457,8 +497,7 @@ exports.getDefaultBlocklyConfig = function(toolboxSource) {
 };
 
 exports.Workspace = class {
-    constructor({blocklyConfig, layoutConfig, extension, defaultBlocks, editorLanguage}) {
-        this.blocklyConfig = blocklyConfig;
+    constructor({layoutConfig, extension, defaultBlocks, editorLanguage}) {
         this.layoutConfig = layoutConfig;
         this.extension = extension;
         this.defaultBlocks = defaultBlocks;
@@ -517,7 +556,37 @@ exports.Workspace = class {
 
         this.registerComponents();
 
-        this.layout.on('componentCreated', component => this.components[component.componentName] = component.instance);
+        this.layout.on('componentCreated', component => {
+            // log.debug(`${component.getName()} opened`);
+
+            let blockly = this.getBlockly();
+            switch (component.componentName) {
+                case exports.BLOCKLY_COMPONENT:
+                    if (blockly) {
+                        blockly.addChangeListener(this.blocklyUpdate.bind(this));
+                    }
+                    if (this.loadedProject) {
+                        this.loadProjectFile(this.loadedProject);
+                    }
+                    break;
+                case exports.CODE_COMPONENT:
+                    if (this.loadedProject) {
+                        this.updateCode()
+                    }
+                    break;
+                case exports.PHASER_COMPONENT:
+                    if (this.loadedProject) {
+                        this.setPhaserSource();
+                    }
+                    break;
+                default:
+                    log.debug(`Unknown component ${component.componentName}`);
+                    break;
+            }
+            this.components[component.componentName] = component.instance;
+            console.log(component);
+            console.log(component.instance);
+        });
 
         this.layout.init();
 
@@ -584,7 +653,7 @@ exports.Workspace = class {
         throw new Error('getCode not implemented');
     }
 
-    getBlockly() {
+        getBlockly() {
         const component = this.getComponent(exports.BLOCKLY_COMPONENT);
         if (component) {
             return component.getWorkspace();
@@ -644,35 +713,6 @@ exports.Workspace = class {
         let phaserComponent = this.getComponent(exports.PHASER_COMPONENT);
         if (phaserComponent) {
             phaserComponent.setSource(`file://${this.loadedProject.getSourceFile(this.extension)}`);
-        }
-    }
-
-    onComponentOpen(component) {
-        log.debug(`${component.getName()} opened`);
-
-        let blockly = this.getBlockly();
-        switch (component.getName()) {
-            case exports.BLOCKLY_COMPONENT:
-                if (blockly) {
-                    blockly.addChangeListener(this.blocklyUpdate.bind(this));
-                }
-                if (this.loadedProject) {
-                    this.loadProjectFile(this.loadedProject);
-                }
-                break;
-            case exports.CODE_COMPONENT:
-                if (this.loadedProject) {
-                    this.updateCode()
-                }
-                break;
-            case exports.PHASER_COMPONENT:
-                if (this.loadedProject) {
-                    this.setPhaserSource();
-                }
-                break;
-            default:
-                log.debug(`Unknown component ${component.getName()}`);
-                break;
         }
     }
 

@@ -8,7 +8,7 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-const {Workspace, PHASER_COMPONENT, CODE_COMPONENT} = require('../../../workspace');
+const {Workspace, CodeComponent, PHASER_COMPONENT, CODE_COMPONENT} = require('../../../workspace');
 const workspaceCore = require('../../../workspace');
 const TIMEOUT = 500;
 const fs = require('fs-extra');
