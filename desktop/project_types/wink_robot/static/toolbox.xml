@@ -532,7 +532,18 @@
         <block type="buttonwait"/>
         <block type="button_pressed"/>
     </category>
-    <category name="Wink Motors" colour="#756f5a">
+    <category name="Wink Sensors" colour="#756f5a">
+        <block type="setirlight"/>
+        <block type="readsensor"/>
+    </category>
+    <category name="Wink IR Communication" colour="#607d8b">
+        <block type="ir_when"/>
+        <block type="restart_ir"/>
+        <block type="is_ir_done"/>
+        <block type="get_pressed_ir_button"/>
+        <block type="ir_button"/>
+    </category>
+    <category name="Wink Motors" colour="#459A9A">
          <block type="bestill"/>
          <block type="turn_by_values"/>
          <block type="acceleratemotors">
@@ -579,17 +590,6 @@
              </value>
          </block>
      </category>
-    <category name="Wink Sensors" colour="#607d8b">
-        <block type="setirlight"/>
-        <block type="readsensor"/>
-    </category>
-    <category name="Wink IR Communication" colour="#459A9A">
-        <block type="ir_when"/>
-        <block type="restart_ir"/>
-        <block type="is_ir_done"/>
-        <block type="get_pressed_ir_button"/>
-        <block type="ir_button"/>
-    </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
