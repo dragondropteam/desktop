@@ -422,14 +422,14 @@
         <category name="Sensor Inputs" colour="#F97E35">
             <block type="buttonwait"/>
             <block type="button_pressed"/>
-            <block type="ir_when"/>
+            <!--<block type="ir_when"/>-->
         </category>
-        <category name="Sensor Output" colour="#FF9042">
-            <!--<block type="ir_output"/>-->
-        </category>
+        <!--<category name="Sensor Output" colour="#FF9042">
+            <block type="ir_output"/>
+        </category>-->
     </category>
-    <category name="Time" colour="#2175CE" enabled="false">
-        <category name="Beginner" colour="#2175CE">
+    <category name="Time" colour="#594eb1" enabled="false">
+        <category name="Beginner" colour="#594eb1">
             <block type="delayseconds_icon">
                 <value name="SECONDS">
                     <shadow type="math_number">
@@ -439,7 +439,7 @@
             </block>
             <block type="seconds_icon"/>
         </category>
-        <category name="Advanced" colour="#328DE2">
+        <category name="Advanced" colour="#6758ca">
             <block type="delayseconds">
                 <value name="SECONDS">
                     <shadow type="math_number">

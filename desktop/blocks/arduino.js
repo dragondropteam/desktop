@@ -2,14 +2,21 @@
 goog.provide('Blockly.Blocks.arduino');
 goog.require('Blockly.Blocks');
 
+const ARDUINO_REQUIRED_BLOCKS_COLOUR = '#558B2F'; //'#689f38';
 
-const ARDUINO_TIME_COLOUR = '#328DE2';
-const ARDUINO_PINS_COLOUR = 60;//'#ad1457';
-const ARDUINO_CONSTANTS_COLOUR = 90;//'#6a1b9a';
-const ARDUINO_ANALOG_IO_COLOUR = 120;//'#4527a0';
+
+const ARDUINO_TIME_COLOUR = '#726dc5';//377ae2
+const ARDUINO_PINS_COLOUR = '#4d6bc4';//'#2c897f';
+const ARDUINO_ANALOG_IO_COLOUR = '#439bbc';//'#2aaf44';
+const ARDUINO_ADVANCED_IO_COLOUR = '#2c897f';//'#6c9e28';
+const ARDUINO_EEPROM_COLOUR = '#44a14f';//bfab36
+const ARDUINO_SERVO_COLOUR = '#73a82b';//d2aa35
+const ARDUINO_SERIAL_COLOUR = '#bfab36';//9d5b32
+const ARDUINO_CONSTANTS_COLOUR = '#c08027';//'#e6505b';
+
+// Unused?
 const ARDUINO_RANDOM_NUMBER_COLOUR = 150;//'#283593';
 const ARDUINO_BITS_AND_BYTES_COLOUR = 180;//'#1565c0';
-const ARDUINO_ADVANCED_IO_COLOUR = 210;//'#00838f';
 const ARDUINO_MATH_COLOUR = 240;//'#00695c';
 
 
@@ -27,7 +34,7 @@ Blockly.Blocks['hardwarestartup_arduino'] = {
             .appendField(Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1);
         this.appendStatementInput("do")
             .setCheck(null);
-        this.setColour(330);
+        this.setColour(ARDUINO_REQUIRED_BLOCKS_COLOUR);
         this.setTooltip(Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL);
     }

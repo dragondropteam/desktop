@@ -7,16 +7,14 @@ goog.require('Blockly.Blocks');
 const WINK_EYES_BOTH_COLOUR = '#b71c1c'; // Hue: 330
 const WINK_EYE_LEFT_COLOUR = '#d32f2f';
 const WINK_EYE_RIGHT_COLOUR = '#f44336';
-
-const WINK_SETUP_AND_LOOP_COLOR = '#558B2F';
-const WINK_MOTORS_COLOUR = '#459A9A';
 const WINK_INPUT_COLOUR = '#F97E35';
+const WINK_SENSORS_COLOUR = '#756f5a';//756f5a
+const WINK_IR_COMMUNICATION_COLOUR = '#607d8b';//607d8b
+const WINK_MOTORS_COLOUR = '#459A9A';//459A9A
+
 const WINK_SPEAKER_COLOUR = '#d84315';
-const WINK_SENSORS_COLOUR = '#757575';
-const WINK_IR_COMMUNICATION_COLOUR = '#F97E35';
-
 const WINK_EYES_DEFAULT_FIELD_COLOUR = '#FF6666'; // Default for Color Pallet selection fields. FF6666 is nice.
-
+const WINK_SETUP_AND_LOOP_COLOR = '#558B2F';
 
 
 // region WINK EYES
