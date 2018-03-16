@@ -16,7 +16,7 @@ Blockly.Blocks['servo_attach'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_SERVO_COLOUR);
         this.setTooltip(Blockly.Msg.SERVO_ATTACH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERVO_ATTACH_HELP_URL);
     }
@@ -33,7 +33,7 @@ Blockly.Blocks['servo_write'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_SERVO_COLOUR);
         this.setTooltip(Blockly.Msg.SERVO_WRITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERVO_WRITE_HELP_URL);
     }
@@ -50,7 +50,7 @@ Blockly.Blocks['servo_write_microseconds'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_SERVO_COLOUR);
         this.setTooltip(Blockly.Msg.SERVO_WRITE_MICROSECONDS_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERVO_WRITE_MICROSECONDS_HELP_URL);
     }
@@ -65,7 +65,7 @@ Blockly.Blocks['servo_read'] = {
         this.setOutput(true, "Number");
         // this.setPreviousStatement(true, null);
         // this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_SERVO_COLOUR);
         this.setTooltip(Blockly.Msg.SERVO_READ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERVO_READ_HELP_URL);
     }
@@ -80,7 +80,7 @@ Blockly.Blocks['servo_attached'] = {
         this.setOutput(true, "Boolean");
         // this.setPreviousStatement(true, null);
         // this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_SERVO_COLOUR);
         this.setTooltip(Blockly.Msg.SERVO_ATTACHED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERVO_ATTACHED_HELP_URL);
     }
@@ -94,7 +94,7 @@ Blockly.Blocks['servo_detach'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(120);
+        this.setColour(ARDUINO_SERVO_COLOUR);
         this.setTooltip(Blockly.Msg.SERVO_DETACH_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.SERVO_DETACH_HELP_URL);
     }
