@@ -9,7 +9,7 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-const {Workspace, BlocklyComponent, CodeComponent, BLOCKLY_COMPONENT, CODE_COMPONENT} = require('../../../workspace');
+const {Workspace, BlocklyComponent, CodeComponent, BlocklyDataSource} = require('../../../workspace');
 const fs = require('fs-extra');
 const path = require('path');
 
@@ -22,8 +22,13 @@ let layoutConfig = {
     content: [{
         type: 'row',
         content: [
-            BlocklyComponent.generateContent(Workspace.getDefaultBlocklyConfig(toolboxSource))
-            , CodeComponent.generateContent({
+            BlocklyComponent.generateContent(BlocklyComponent.getDefaultBlocklyConfig(toolboxSource), (workspace) => {
+                const code = Blockly.JavaScript.workspaceToCode(workspace);
+                let xml = Blockly.Xml.workspaceToDom(workspace);
+                xml = Blockly.Xml.domToPrettyText(xml);
+                return {code: code, xml: xml};
+            })
+        , CodeComponent.generateContent({
                 editorLanguage: 'ace/mode/javascript',
                 readOnly: true
             })]
@@ -35,7 +40,8 @@ class TextPhaserWorkspace extends Workspace {
         super({
             layoutConfig: layoutConfig,
             extension: 'js',
-            editorLanguage: 'ace/mode/javascript'
+            editorLanguage: 'ace/mode/javascript',
+            dataSource: new BlocklyDataSource()
         });
         this.reloadTimer = null;
     }

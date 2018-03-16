@@ -59,7 +59,13 @@ exports.BaseComponent = class {
 //region COMPONENTS
 class BlocklyComponent extends exports.BaseComponent {
 
-    static generateContent(blocklyConfig) {
+    /**
+     * Generate an object representing the configuration of a BlocklyComponent for GoldenLayout
+     * @param blocklyConfig {@link https://developers.google.com/blockly/guides/get-started/web#configuration}
+     * @param workspaceToCode A function to map a workspace to {@see GeneratedCode}
+     * @return {*} An Item Configuration for GoldenLayout {@link http://golden-layout.com/docs/ItemConfig.html}
+     */
+    static generateContent(blocklyConfig, workspaceToCode) {
         assert(blocklyConfig != null);
 
         return {
@@ -68,15 +74,46 @@ class BlocklyComponent extends exports.BaseComponent {
             componentName: exports.BLOCKLY_COMPONENT,
             componentState: {
                 label: exports.BLOCKLY_COMPONENT,
-                blocklyConfig: blocklyConfig
+                blocklyConfig: blocklyConfig,
+                workspaceToCode: workspaceToCode
             }
         }
+    }
+
+    static getDefaultBlocklyConfig(toolboxSource) {
+        return {
+            comments: true,
+            disable: true,
+            collapse: true,
+            grid: {
+                spacing: 25,
+                length: 3,
+                colour: '#ccc',
+                snap: true
+            },
+            maxBlocks: Infinity,
+            media: '../../../media/',
+            readOnly: false,
+            rtl: false,
+            scrollbars: true,
+            toolbox: toolboxSource,
+            zoom: {
+                controls: true,
+                wheel: true,
+                startScale: 1.0,
+                maxScale: 4,
+                minScale: .25,
+                scaleSpeed: 1.1
+            }
+        };
     }
 
     constructor(container, componentState) {
         super(componentState);
 
         this.blocklyConfig = componentState.blocklyConfig;
+        this.workspaceToCode = componentState.workspaceToCode;
+        this.codeObservable_ = new Rx.Subject();
 
         blocklyContainer = container;
         container.getElement().html('<div id="blocklyArea"><div id="blocklyDiv" style="position: absolute"></div></div>');
@@ -136,6 +173,9 @@ class BlocklyComponent extends exports.BaseComponent {
 
         workspace = Blockly.inject(BLOCKLY_DIV_ID, this.blocklyConfig);
 
+        this.workspace = workspace;
+        this.workspace.addChangeListener(this.blocklyUpdate.bind(this));
+
         this.resize();
 
         return true;
@@ -143,6 +183,35 @@ class BlocklyComponent extends exports.BaseComponent {
 
     getWorkspace() {
         return workspace;
+    }
+
+    hasCodeObservable() {
+        return true;
+    }
+
+    get codeObservable() {
+        return this.codeObservable_
+            .map(this.workspaceToCode);
+    }
+
+    blocklyUpdate(event) {
+        try {
+            /**
+             * All events in Blockly excluding Blockly.Events.UI are used for meaningful changes, Blockly.Events.UI
+             * is for context menu, toolbox and the like opening no reason to spin off a disk operation
+             */
+            if (event.type !== Blockly.Events.UI) {
+                const block = this.workspace.getBlockById(event.blockId);
+                if (block && block.onchange) {
+                    block.onchange(event);
+                }
+
+
+                this.codeObservable_.next(this.workspace);
+            }
+        } catch (err) {
+            exports.logErrorAndQuit(err, {state: 'saving', project: this.loadedProject});
+        }
     }
 }
 
@@ -185,6 +254,10 @@ class CodeComponent extends exports.BaseComponent {
             codeContainer = null;
             editor = null;
         });
+
+        this.codeSubscriber = {
+            next: code => this.setCode(code.code)
+        }
     }
 
     setupDOM() {
@@ -224,6 +297,10 @@ class CodeComponent extends exports.BaseComponent {
 
     getCode() {
         return this.editor.getValue();
+    }
+
+    hasCodeObservable() {
+        return false;
     }
 }
 
@@ -297,6 +374,10 @@ class PhaserComponent extends exports.BaseComponent {
         }
 
         this.paused = false;
+    }
+
+    hasCodeObservable() {
+        return false;
     }
 }
 
@@ -402,7 +483,16 @@ ipcRenderer.on('resume_execution', () => {
 //endregion
 
 //region DATA_SOURCE
-class DataSource {
+class DataSource  {
+
+    constructor(extension){
+        this.extension = extension;
+    }
+
+    setProject(project){
+        this.project = project;
+    }
+
     save(workspace) {
     }
 
@@ -417,12 +507,26 @@ class DataSource {
 
 class BlocklyDataSource extends DataSource {
 
-    save(workspace) {
-
+    constructor(defaultBlocks, extension){
+        super(extension);
+        this.defaultBlocks = defaultBlocks;
     }
 
+    save(code) {
+        if(!this.project){
+            return;
+        }
 
-    saveAs(workspace, destPath) {
+        this.project.save([{
+            path: this.project.getFileInProjectDir(`${project.getName()}.${this.extension}`),
+            data: code.code
+        }, {
+            path: this.project.getBlocksPath(),
+            data: code.xml
+        }]);
+    }
+
+    saveAs(code, destPath) {
 
     }
 
@@ -430,14 +534,29 @@ class BlocklyDataSource extends DataSource {
      * @override
      * @return {{code: string, blocks: string}}
      */
-    loadProjectFile() {
-        return GeneratedCode('code', 'blocks');
+    loadProjectFile(project) {
+cd
     }
 }
 
 class TextDataSource extends DataSource {
-    save(workspace) {
-
+    save(code, loadedProject) {
+        try {
+            loadedProject.save([{
+                path: loadedProject.getSourceFile(this.extension),
+                data: code.code
+            }, {
+                path: loadedProject.getBlocksPath(),
+                data: code.xml
+            }]);
+        } catch (err) {
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Error in code!\n${err.message}`
+            });
+            log.error(err);
+        }
     }
 
     saveAs(workspace, destPath) {
@@ -497,46 +616,20 @@ exports.getDefaultBlocklyConfig = function (toolboxSource) {
 };
 
 exports.Workspace = class {
-    constructor({layoutConfig, extension, defaultBlocks, editorLanguage}) {
+    constructor({layoutConfig, extension, defaultBlocks, editorLanguage, dataSource}) {
         this.layoutConfig = layoutConfig;
         this.extension = extension;
         this.defaultBlocks = defaultBlocks;
         this.editorLanguage = editorLanguage;
-
+        this.codeSubject = new Rx.ReplaySubject(1);
+        this.projectSubject = new Rx.ReplaySubject(1);
         this.components = {};
 
-        this.saveTimeout = false;
+        this.dataSource = dataSource;
+        this.codeSubject.subscribe(code => this.dataSource.save(code));
 
         assert(this.layoutConfig, 'LayoutConfig must be defined');
         assert(this.extension, 'Language extension must be defined');
-    }
-
-    static getDefaultBlocklyConfig(toolboxSource) {
-        return {
-            comments: true,
-            disable: true,
-            collapse: true,
-            grid: {
-                spacing: 25,
-                length: 3,
-                colour: '#ccc',
-                snap: true
-            },
-            maxBlocks: Infinity,
-            media: '../../../media/',
-            readOnly: false,
-            rtl: false,
-            scrollbars: true,
-            toolbox: toolboxSource,
-            zoom: {
-                controls: true,
-                wheel: true,
-                startScale: 1.0,
-                maxScale: 4,
-                minScale: .25,
-                scaleSpeed: 1.1
-            }
-        };
     }
 
     registerComponents() {
@@ -557,14 +650,30 @@ exports.Workspace = class {
         this.registerComponents();
 
         this.layout.on('componentCreated', component => {
-            // log.debug(`${component.getName()} opened`);
+            log.debug(`${component.componentName} opened`);
 
-            let blockly = this.getBlockly();
+            if (component.instance.hasCodeObservable()) {
+                console.log('Code Observable Found');
+                component.instance.codeObservable
+                    .debounceTime(TIMEOUT)
+                    .subscribe({
+                        next: code => {
+                            console.log(code);
+                            this.codeSubject.next(code)
+                        },
+                        error: err => exports.logErrorAndQuit(err, 'Code Update'),
+                        complete: () => console.log('Observer got a complete notification'),
+                    });
+            }
+
+            if (component.instance.codeSubscriber) {
+                console.log('Code Subscriber Found');
+                this.codeSubject
+                    .subscribe(component.instance.codeSubscriber);
+            }
+
             switch (component.componentName) {
                 case exports.BLOCKLY_COMPONENT:
-                    if (blockly) {
-                        blockly.addChangeListener(this.blocklyUpdate.bind(this));
-                    }
                     if (this.loadedProject) {
                         this.loadProjectFile(this.loadedProject);
                     }
@@ -583,9 +692,8 @@ exports.Workspace = class {
                     log.debug(`Unknown component ${component.componentName}`);
                     break;
             }
+
             this.components[component.componentName] = component.instance;
-            console.log(component);
-            console.log(component.instance);
         });
 
         this.layout.init();
@@ -653,7 +761,7 @@ exports.Workspace = class {
         throw new Error('getCode not implemented');
     }
 
-        getBlockly() {
+    getBlockly() {
         const component = this.getComponent(exports.BLOCKLY_COMPONENT);
         if (component) {
             return component.getWorkspace();
@@ -690,22 +798,8 @@ exports.Workspace = class {
     loadProjectFile(project) {
         this.loadedProject = project;
 
-        let data = null;
-
-        try {
-            data = fs.readFileSync(this.loadedProject.getBlocksPath());
-            this.setBlocklyBlocks(data);
-        } catch (err) {
-            if (err.code === 'ENOENT') {
-                if (this.defaultBlocks)
-                    this.setBlocklyBlocks(this.defaultBlocks);
-            } else {
-                exports.logErrorAndQuit(err, {state: 'loading', project: project});
-            }
-        } finally {
-            this.updateCode();
-            this.setPhaserSource();
-        }
+        const code = this.dataSource.loadProjectFile(project);
+        this.codeSubject.next(code);
     }
 
     setPhaserSource() {
@@ -713,37 +807,6 @@ exports.Workspace = class {
         let phaserComponent = this.getComponent(exports.PHASER_COMPONENT);
         if (phaserComponent) {
             phaserComponent.setSource(`file://${this.loadedProject.getSourceFile(this.extension)}`);
-        }
-    }
-
-    blocklyUpdate(event) {
-        try {
-            /**
-             * All events in Blockly excluding Blockly.Events.UI are used for meaningful changes, Blockly.Events.UI
-             * is for context menu, toolbox and the like opening no reason to spin off a disk operation
-             */
-            if (event.type !== Blockly.Events.UI) {
-                const block = this.getBlockly().getBlockById(event.blockId);
-                if (block && block.onchange) {
-                    block.onchange(event);
-                }
-
-
-                /**
-                 * This method will get an unknown number of events, on the first event start a timeout waiting
-                 * for all the event stream to pass additional events to this method there is no means to determine
-                 * the quantity or the start/end of this stream of events
-                 */
-                if (!this.saveTimeout) {
-                    this.saveTimeout = setTimeout(() => {
-                        this.saveTimeout = null;
-                        this.save();
-                    }, 1000)
-                }
-
-            }
-        } catch (err) {
-            exports.logErrorAndQuit(err, {state: 'saving', project: this.loadedProject});
         }
     }
 
@@ -774,6 +837,8 @@ exports.Workspace = class {
             return;
         }
 
+        //TODO: Need to make sure that this matches the original content that we started with, otherwise the created
+        //component will not be correctly configured
         this.addChildToRoot({
             type: 'component',
             componentName: component,
