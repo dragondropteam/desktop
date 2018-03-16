@@ -1,6 +1,5 @@
 'use strict';
 goog.provide('Blockly.Blocks.arduino_eeprom');
-
 goog.require('Blockly.Blocks');
 
 //region EEPROM
@@ -11,7 +10,7 @@ Blockly.Blocks['eeprom_read'] = {
             .appendField(Blockly.Msg.EEPROM_READ_ADDRESS);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_EEPROM_COLOUR);
         this.setTooltip(Blockly.Msg.EEPROM_READ_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_READ_HELP_URL);
     }
@@ -28,7 +27,7 @@ Blockly.Blocks['eeprom_write'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setColour(120);
+        this.setColour(ARDUINO_EEPROM_COLOUR);
         this.setTooltip(Blockly.Msg.EEPROM_WRITE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_WRITE_HELP_URL);
     }
@@ -45,7 +44,7 @@ Blockly.Blocks['eeprom_update'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setColour(120);
+        this.setColour(ARDUINO_EEPROM_COLOUR);
         this.setTooltip(Blockly.Msg.EEPROM_UPDATE_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_UPDATE_HELP_URL);
     }
@@ -62,7 +61,7 @@ Blockly.Blocks['eeprom_get'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setColour(120);
+        this.setColour(ARDUINO_EEPROM_COLOUR);
         this.setTooltip(Blockly.Msg.EEPROM_GET_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_GET_HELP_URL);
     }
@@ -78,7 +77,7 @@ Blockly.Blocks['eeprom_put'] = {
             .appendField(Blockly.Msg.EEPROM_PUT_ADDRESS);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(120);
+        this.setColour(ARDUINO_EEPROM_COLOUR);
         this.setTooltip(Blockly.Msg.EEPROM_PUT_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.EEPROM_PUT_HELP_URL);
     }
