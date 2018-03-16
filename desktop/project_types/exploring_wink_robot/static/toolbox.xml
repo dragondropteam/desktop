@@ -1,6 +1,6 @@
 <xml id="toolbox" style="display: none">
-    <category name="Eyes" colour="330">
-        <category name="Left Eye" colour="330">
+    <category name="Eyes" colour="#6b6b6b">
+        <category name="Left Eye" colour="#6b6b6b">
             <block type="setleftred_icon">
                 <value name="INTENSITY">
                     <shadow type="math_number">
@@ -85,7 +85,7 @@
                 </value>
             </block>
         </category>
-        <category name="Right Eye" colour="330">
+        <category name="Right Eye" colour="#6b6b6b">
             <block type="setrightred_icon">
                 <value name="INTENSITY">
                     <shadow type="math_number">
@@ -170,7 +170,7 @@
                 </value>
             </block>
         </category>
-        <category name="Both Eyes" colour="330">
+        <category name="Both Eyes" colour="#6b6b6b">
             <block type="seteyesred_icon">
                 <value name="INTENSITY">
                     <shadow type="math_number">
@@ -261,7 +261,7 @@
                 </value>
             </block>
         </category>
-        <category name="Light Effects" colour="330">
+        <category name="Light Effects" colour="#848484">
             <block type="light_effect_police_icon">
                 <value name="DURATION">
                     <shadow type="math_number">
@@ -292,8 +292,8 @@
             </block>
         </category>
     </category>
-    <category name="Motors" colour="330">
-        <category name="Beginner" colour="330">
+    <category name="Motors" colour="#348783">
+        <category name="Beginner" colour="#348783">
             <block type="bestill_icon"/>
             <block type="motors_beginner_forward_slow_icon">
                 <value name="DURATION">
@@ -352,7 +352,7 @@
                 </value>
             </block>
         </category>
-        <category name="Advanced">
+        <category name="Advanced" colour="#459A9A">
             <block type="bestill"/>
             <block type="turn_by_values"/>
             <block type="acceleratemotors">
@@ -400,17 +400,13 @@
             </block>
         </category>
     </category>
-    <category name="Sensors" colour="330">
-        <category name="Sensor Behaviors">
+    <category name="Sensors" colour="#F36B28">
+        <category name="Sensor Behaviors" colour="#F36B28">
             <block type="sensors_line_follow_icon">
                 <value name="SPEED">
                     <shadow type="math_number">
                         <field name="NUM">30</field>
                     </shadow>
-                </value>
-                <value name="VALUE">
-                    <shadow type="logic_boolean"/>
-                        <field name="BOOL">TRUE</field>
                 </value>
             </block>
             <block type="sensors_line_avoid_icon">
@@ -419,48 +415,56 @@
                         <field name="NUM">30</field>
                     </shadow>
                 </value>
-                <value name="VALUE">
-                    <shadow type="logic_boolean"/>
-                        <field name="BOOL">TRUE</field>
-                </value>
             </block>
             <block type="obstacle_avoid_icon"/>
             <block type="obstacle_approach_icon"/>
         </category>
-        <category name="Sensor Inputs">
+        <category name="Sensor Inputs" colour="#F97E35">
             <block type="buttonwait"/>
             <block type="button_pressed"/>
             <block type="ir_when"/>
         </category>
-        <category name="Sensor Output">
+        <category name="Sensor Output" colour="#FF9042">
             <!--<block type="ir_output"/>-->
         </category>
     </category>
-    <category name="Time" colour="120" enabled="false">
-        <block type="delayseconds">
-            <value name="SECONDS">
-                <shadow type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="delayms">
-            <value name="MILLISECONDS">
-                <shadow type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="delaymicroseconds">
-            <value name="MICROSECONDS">
-                <shadow type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="seconds"/>
-        <block type="milliseconds"/>
-        <block type="microseconds"/>
+    <category name="Time" colour="#2175CE" enabled="false">
+        <category name="Beginner" colour="#2175CE">
+            <block type="delayseconds_icon">
+                <value name="SECONDS">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seconds_icon"/>
+        </category>
+        <category name="Advanced" colour="#328DE2">
+            <block type="delayseconds">
+                <value name="SECONDS">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delayms">
+                <value name="MILLISECONDS">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delaymicroseconds">
+                <value name="MICROSECONDS">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="seconds"/>
+            <block type="milliseconds"/>
+            <block type="microseconds"/>
+        </category>
     </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
