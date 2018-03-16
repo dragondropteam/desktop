@@ -4835,7 +4835,7 @@ Blockly.Msg.ACCELERATEMOTORS_FIELD_3 = 'end speed';
 /// auto generated
 Blockly.Msg.ACCELERATEMOTORS_FIELD_4 = 'duration';
 /// auto generated
-Blockly.Msg.ACCELERATEMOTORS_TOOLTIP = '';
+Blockly.Msg.ACCELERATEMOTORS_TOOLTIP = 'Accelerates from the start to the end speed over the specified duration';
 /// auto generated
 Blockly.Msg.ACCELERATEMOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -4845,31 +4845,31 @@ Blockly.Msg.MOTORS_FIELD_2 = 'left speed';
 /// auto generated
 Blockly.Msg.MOTORS_FIELD_3 = 'right speed';
 /// auto generated
-Blockly.Msg.MOTORS_TOOLTIP = '';
+Blockly.Msg.MOTORS_TOOLTIP = 'Sets the motor speed to something positive or negative for both the left and right motor';
 /// auto generated
 Blockly.Msg.MOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.SPINLEFT_FIELD_1 = 'spin left';
 /// auto generated
-Blockly.Msg.SPINLEFT_TOOLTIP = '';
+Blockly.Msg.SPINLEFT_TOOLTIP = 'Spins the wink robot to the left';
 /// auto generated
 Blockly.Msg.SPINLEFT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.SPINRIGHT_FIELD_1 = 'spin right';
 /// auto generated
-Blockly.Msg.SPINRIGHT_TOOLTIP = '';
+Blockly.Msg.SPINRIGHT_TOOLTIP = 'Spins the wink robot to the right';
 /// auto generated
 Blockly.Msg.SPINRIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.BESTILL_FIELD_1 = 'be still';
 /// auto generated
-Blockly.Msg.BESTILL_TOOLTIP = '';
+Blockly.Msg.BESTILL_TOOLTIP = 'Stops the wink robot from moving';
 /// auto generated
 Blockly.Msg.BESTILL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.BUTTONWAIT_FIELD_1 = 'wait for button press';
 /// auto generated
-Blockly.Msg.BUTTONWAIT_TOOLTIP = '';
+Blockly.Msg.BUTTONWAIT_TOOLTIP = 'Waits until a remote button is pressed to continue.';
 /// auto generated
 Blockly.Msg.BUTTONWAIT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -4877,19 +4877,19 @@ Blockly.Msg.BEEPMS_FIELD_1 = 'beep';
 /// auto generated
 Blockly.Msg.BEEPMS_FIELD_2 = 'milliseconds';
 /// auto generated
-Blockly.Msg.BEEPMS_TOOLTIP = '';
+Blockly.Msg.BEEPMS_TOOLTIP = 'beeps for a specified duration';
 /// auto generated
 Blockly.Msg.BEEPMS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.BEEPON_FIELD_1 = 'turn beep on';
 /// auto generated
-Blockly.Msg.BEEPON_TOOLTIP = '';
+Blockly.Msg.BEEPON_TOOLTIP = 'Turns on the beep until it\'s told to stop;';
 /// auto generated
 Blockly.Msg.BEEPON_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.BEEPOFF_FIELD_1 = 'turn beep off';
 /// auto generated
-Blockly.Msg.BEEPOFF_TOOLTIP = '';
+Blockly.Msg.BEEPOFF_TOOLTIP = 'Turns off the beep. Phew.';
 /// auto generated
 Blockly.Msg.BEEPOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -4937,7 +4937,7 @@ Blockly.Msg.SET_LEFT_EYE_FIELD_3 = 'green';
 /// auto generated
 Blockly.Msg.SET_LEFT_EYE_FIELD_4 = 'blue';
 /// auto generated
-Blockly.Msg.SET_LEFT_EYE_TOOLTIP = '';
+Blockly.Msg.SET_LEFT_EYE_TOOLTIP = 'Sets the color of the left eye.';
 /// auto generated
 Blockly.Msg.SET_LEFT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -4949,7 +4949,7 @@ Blockly.Msg.SET_RIGHT_EYE_FIELD_3 = 'green';
 /// auto generated
 Blockly.Msg.SET_RIGHT_EYE_FIELD_4 = 'blue';
 /// auto generated
-Blockly.Msg.SET_RIGHT_EYE_TOOLTIP = '';
+Blockly.Msg.SET_RIGHT_EYE_TOOLTIP = 'Sets the color of the right eye.';
 /// auto generated
 Blockly.Msg.SET_RIGHT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -4961,13 +4961,13 @@ Blockly.Msg.SET_EYES_FIELD_3 = 'green';
 /// auto generated
 Blockly.Msg.SET_EYES_FIELD_4 = 'blue';
 /// auto generated
-Blockly.Msg.SET_EYES_TOOLTIP = '';
+Blockly.Msg.SET_EYES_TOOLTIP = 'Sets the color of both eyes.';
 /// auto generated
 Blockly.Msg.SET_EYES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.BUTTON_PRESSED_FIELD_1 = 'button pressed';
 /// auto generated
-Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
+Blockly.Msg.BUTTON_PRESSED_TOOLTIP = 'Gets the remote button that was pressed.';
 /// auto generated
 Blockly.Msg.BUTTON_PRESSED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -4983,7 +4983,7 @@ Blockly.Msg.TURN_BY_VALUES_FIELD_3 = 'delay';
 /// auto generated
 Blockly.Msg.TURN_BY_VALUES_FIELD_4 = 'milliseconds';
 /// auto generated
-Blockly.Msg.TURN_BY_VALUES_TOOLTIP = '';
+Blockly.Msg.TURN_BY_VALUES_TOOLTIP = 'Turns the robot at the specified speed for the specified duration in the specified direction - either left or right. Negative values are accepted.';
 /// auto generated
 Blockly.Msg.TURN_BY_VALUES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -5051,13 +5051,13 @@ Blockly.Msg.IR_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTAINER_FIELD_1 = 'when IR is done';
 /// auto generated
-Blockly.Msg.IR_CONTROL_CONTAINER_TOOLTIP = '';
+Blockly.Msg.IR_CONTROL_CONTAINER_TOOLTIP = 'Code starts running from here when IR data is done being recieved.';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTAINER_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTROL_FIELD_1 = 'check key for press';
 /// auto generated
-Blockly.Msg.IR_CONTROL_CONTROL_TOOLTIP = '';
+Blockly.Msg.IR_CONTROL_CONTROL_TOOLTIP = 'Check to see what key was pressed';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -5309,7 +5309,7 @@ Blockly.Msg.DELAY = 'delay';
 Blockly.Msg.MILLISECONDS = 'milliseconds';
 Blockly.Msg.MICROSECONDS = 'microseconds';
 Blockly.Msg.SECONDS = 'seconds';
-Blockly.Msg.SINCE_START = 'since start'
+Blockly.Msg.SINCE_START = 'since start';
 
 // Arduino time tooltips
 Blockly.Msg.SECONDS_SINCE_START_TOOLTIP = 'Gets the number of seconds since start of the program.';
@@ -5317,7 +5317,7 @@ Blockly.Msg.MILLISECONDS_SINCE_START_TOOLTIP = 'Gets the number of milliseconds 
 Blockly.Msg.MICROSECONDS_SINCE_START_TOOLTIP = 'Gets the number of microseconds since start of the program. There are 1,000,000 microseconds in a second.';
 Blockly.Msg.DELAY_SECONDS_TOOLTIP = 'Wait the specified number of seconds before continuing with the program.';
 Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP = 'Wait the specified number of milliseconds before continuing. There are 1,000 milliseconds in a second.';
-Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = 'Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.';;
+Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = 'Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.';
 
 // Arduino time help URLs
 Blockly.Msg.SECONDS_SINCE_START_HELP_URL = ''; // Doesn't actually exist as part of arduino.
@@ -5336,17 +5336,77 @@ Blockly.Msg.LOW = 'LOW';
 
 // Wink Explorers
 Blockly.Msg.WINK_GENERAL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
-Blockly.Msg.WINK_MOVEMENT_FORWARD = 'moves the wink robot forward at a speed';
-Blockly.Msg.WINK_MOVEMENT_BACKWARD = 'moves the wink robot backward at a speed';
-Blockly.Msg.WINK_MOVEMENT_ROTATION = 'rotates the wink robot by roughly the specified number of degrees';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = 'Moves the wink robot forward at a slow(30) speed.';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_MODERATE = 'Moves the wink robot forward at a moderate(50) speed.';
+Blockly.Msg.WINK_MOVEMENT_FORWARD_FAST = 'Moves the wink robot forward at a fast(90) speed.';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_SLOW = 'Moves the wink robot backward at a slow(30) speed.';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_MODERATE = 'Moves the wink robot backward at a moderate(50) speed.';
+Blockly.Msg.WINK_MOVEMENT_BACKWARD_FAST = 'Moves the wink robot backward at a fast(90) speed.';
+Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = 'Rotates the wink robot left by roughly the specified number of degrees.';
+Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = 'Rotates the wink robot right by roughly the specified number of degrees.';
 
 // Wink Explorer Light Effects
 Blockly.Msg.LIGHT_EFFECT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
-Blockly.Msg.LIGHT_EFFECT_POLICE_LIGHTS = 'makes the eyes flash red and blue';
-Blockly.Msg.LIGHT_EFFECT_DISCO_LIGHTS = 'makes the eyes twinkle with blues, greens, and purples.';
-Blockly.Msg.LIGHT_EFFECT_FIREWORK_LIGHTS = 'makes the eyes flicker as if a firework had gone off';
-Blockly.Msg.LIGHT_EFFECT_RAINBOW_LIGHT = 'makes the eyes cycle through the rainbow';
+Blockly.Msg.LIGHT_EFFECT_POLICE_LIGHTS = 'Makes the eyes flash red and blue for the specified time in seconds.';
+Blockly.Msg.LIGHT_EFFECT_DISCO_LIGHTS = 'Makes the eyes twinkle with blues, greens, and purples for the specified time in seconds.';
+Blockly.Msg.LIGHT_EFFECT_FIREWORK_LIGHTS = 'Makes the eyes flicker as if a firework had gone off for the specified time in seconds.';
+Blockly.Msg.LIGHT_EFFECT_RAINBOW_LIGHT = 'Makes the eyes cycle through the rainbow for the specified time in seconds.';
 
+// Wink explorer sensor behaviors
+Blockly.Msg.SENSOR_LINE_FOLLOW_TOOLTIP = 'Wink robot will follow a black line. For best results, use a solid dark line 3/4cm - 1cm thick on white paper.';
+Blockly.Msg.SENSOR_LINE_AVOID_TOOLTIP = 'Wink robot will avoid black lines. For best results, use solid lines at least 1/2cm thick or more on white paper.';
 Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP = 'Wink robot travels around and attempts to avoid obstacles in front of it.';
 Blockly.Msg.SENSOR_OBSTACLE_APPROACH_TOOLTIP = 'Wink robot approaches an obstacle placed in front of it then moved.';
-Blockly.Msg.WINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
+
+
+// Wink Explorer eyes
+
+// General
+Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 = 'Sets the ';
+Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2 = ' to be ';
+Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING = ' with the specified intensity from 0-255.';
+
+// Left
+Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'left eye' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
+Blockly.Msg.WINK_EYE_LEFT_RED    = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'red' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_GREEN  = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'green' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_BLUE   = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'blue' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_PURPLE = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'purple' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_PINK   = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'pink' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_YELLOW = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'yellow' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_CYAN   = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'cyan' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_ORANGE = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'orange' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'white' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_LEFT_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'the specified color with max intensity.';
+Blockly.Msg.WINK_EYE_LEFT_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYE_LEFT_OFF    = "Turns off the left eye.";
+
+// Right
+Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'left eye' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
+Blockly.Msg.WINK_EYE_RIGHT_RED    = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'red' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_GREEN  = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'green' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_BLUE   = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'blue' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_PURPLE = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'purple' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_PINK   = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'pink' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_YELLOW = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'yellow' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_CYAN   = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'cyan' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_ORANGE = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'orange' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'white' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYE_RIGHT_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'the specified color with max intensity.';
+Blockly.Msg.WINK_EYE_RIGHT_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYE_RIGHT_OFF    = "Turns off the right eye.";
+
+// Both
+Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'eyes' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
+Blockly.Msg.WINK_EYES_BOTH_RED    = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'red' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_GREEN  = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'green' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_BLUE   = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'blue' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_PURPLE = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'purple' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_PINK   = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'pink' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_YELLOW = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'yellow' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_CYAN   = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'cyan' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_ORANGE = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'orange' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'white' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
+Blockly.Msg.WINK_EYES_BOTH_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'the specified color with max intensity.';
+Blockly.Msg.WINK_EYES_BOTH_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYES_BOTH_OFF    = "Turns off both of the eyes.";
