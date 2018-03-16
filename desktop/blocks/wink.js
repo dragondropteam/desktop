@@ -995,7 +995,7 @@ Blockly.Blocks['ir_when'] = {
     },
 
     mutationToDom: function () {
-        console.log('mutationToDom');
+        //console.log('mutationToDom');
         if (this.keyPressChecks == 0) {
             return null;
         }

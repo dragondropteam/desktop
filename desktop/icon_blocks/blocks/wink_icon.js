@@ -12,7 +12,7 @@ const WINK_ICON_MOVEMENT_ADVANCED_COLOUR = '#459A9A'; //330;
 
 const WINK_ICON_SENSOR_BEHAVIORS = '#F36B28'; //330;
 const WINK_ICON_SENSOR_INPUTS = '#F97E35'; //330;
-const WINK_ICON_SENSOR_OUTPUTS = '#FF9042'; //330;
+const WINK_ICON_SENSOR_OUTPUTS = '#FF9042'; //330;F
 
 const WINK_ICON_TIME_COLOUR = '#2175CE';//'#2C85DB';
 
@@ -914,7 +914,7 @@ Blockly.Blocks['motors_beginner_rotate_right_icon'] = {
 Blockly.Blocks['sensors_line_follow_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'LineFollowing.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'lineFollow.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendDummyInput()
@@ -936,7 +936,7 @@ Blockly.Blocks['sensors_line_follow_icon'] = {
 Blockly.Blocks['sensors_line_avoid_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'lineAvoidance.png'), ICON_SIZE, ICON_SIZE));
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'lineAvoid.svg'), ICON_SIZE, ICON_SIZE));
         this.setInputsInline(true);
         this.setColour(WINK_ICON_MOVEMENT_COLOUR);
         this.appendDummyInput()
