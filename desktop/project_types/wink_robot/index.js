@@ -37,8 +37,6 @@ class WinkRobotProjectManager extends BaseProjectManager {
     }
 
     migrate(loadedProject) {
-        console.log(`Migrating project from ${loadedProject.loadedProject.meta.version} to ${BUILD_NUMBER}`);
-
         this.migrateMetaAndProjectType(loadedProject);
 
         if (loadedProject.loadedProject.meta.version === 1) {
