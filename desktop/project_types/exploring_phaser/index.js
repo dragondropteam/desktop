@@ -31,7 +31,6 @@ class VisualPhaserProjectManager extends BaseProjectManager {
     migrate(loadedProject) {
         this.migrateMetaAndProjectType(loadedProject);
 
-
         let buildNumber = loadedProject.getMetaData().version;
 
         if(buildNumber === 1){
