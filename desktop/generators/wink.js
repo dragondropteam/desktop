@@ -116,6 +116,7 @@ Blockly.C.init = function (workspace) {
     let variables = Blockly.Variables.allVariables(workspace);
     for (let i = 0; i < variables.length; i++) {
         let varType = workspace.getVariableType(variables[i]);
+        console.log('varType' + varType);
         defvars[i] = DefineVar(variables[i], Blockly.C.TYPE_CONVERSION[varType][0]);
     }
 

@@ -203,6 +203,14 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
                 refresh(project);
             }
         });
+        menu['Project'].push({
+            label: 'Serial Monitor',
+            click() {
+                //TODO: This will need to show up in a window see mocks
+                const {showSerialMonitor} = require('../serial_monitor/serial_monitor');
+                showSerialMonitor(project.loadedProject.meta.port);
+            }
+        });
         success();
     });
 };
