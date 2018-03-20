@@ -72,7 +72,7 @@
     <md-divider class="divider"></md-divider>
     <md-input-container class="baudRate">
         <label>Baud Rate</label>
-        <md-select ng-model="baudRate" placeholder="Select a Baud Rate">
+        <md-select ng-change="updateBaudRate()" ng-model="baudRate" placeholder="Select a Baud Rate">
             <md-option ng-value="opt" ng-repeat="opt in validBaudRates">{{ opt }}</md-option>
         </md-select>
     </md-input-container>
@@ -121,6 +121,16 @@
         $scope.output = '';
         $scope.serialWrite = '';
 
+
+        $scope.updateBaudRate = () => {
+            port.update({
+                baudRate: $scope.baudRate
+            }, (err) => {
+                if (err) {
+                    console.error(err);
+                }
+            });
+        };
 
         $scope.sendData = () => {
             port.write($scope.serialWrite);
