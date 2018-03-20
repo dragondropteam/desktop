@@ -125,6 +125,7 @@ Blockly.Blocks['variables_get_typed'] = {
      * @this Blockly.Block
      */
     init: function () {
+        console.log("WE MADE A TYPED < GET > VARIABLE W/ TYPE " + this.type_);
         this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
         this.setColour(Blockly.Blocks.variables.HUE);
         this.appendDummyInput()
@@ -135,7 +136,7 @@ Blockly.Blocks['variables_get_typed'] = {
         this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
         this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     },
-    contextMenuType_: 'variables_set',
+    contextMenuType_: 'variable_set_typed',
     /**
      * Add menu option to create getter/setter block for this setter/getter.
      * @param {!Array} options List of menu options to add to.
@@ -177,6 +178,7 @@ Blockly.Blocks['variables_get_typed'] = {
         }
 
         if (changeEvent.element == 'field' && changeEvent.name == 'TYPE') {
+            console.log("Set type for fields");
             this.cType = changeEvent.newValue;
             if (changeEvent.newValue == 'INTEGER' || changeEvent.newValue == 'FLOAT') {
                 this.type_ = 'Number';
@@ -210,6 +212,7 @@ Blockly.Blocks['variables_get_typed'] = {
 Blockly.Blocks['variable_set_typed'] = {
 
     init: function () {
+        console.log("WE MADE A TYPED < SET > VARIABLE W/ TYPE " + this.type_);
         this.appendValueInput("VALUE")
         //.setCheck("Number")
             .appendField(Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1)
@@ -221,6 +224,7 @@ Blockly.Blocks['variable_set_typed'] = {
         this.setColour(330);
         this.setTooltip(Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.VARIABLE_SET_TYPED_HELP_URL);
+        // Should match types
         this.type_ = 'Number';
         this.cType = 'INTEGER';
         this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
