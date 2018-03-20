@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serial Monitor</title>
+    <link rel="stylesheet" href="../../static/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .title {
+            grid-row: 1;
+            grid-column: 1 / span 4;
+            margin-bottom: 0;
+        }
+
+        .scriptMonitor {
+            overflow: auto;
+            white-space: pre-line;
+            padding-left: 1em;
+            padding-right: 1em;
+            grid-row: 2;
+            grid-column: 1 / span 4;
+            margin: 0;
+        }
+
+        .grid {
+            height: 90%;
+            width: 100%;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-rows: 10% 80% auto 10%;
+            grid-template-columns: 1fr 3fr 1fr 1fr;
+        }
+
+        .serialWrite {
+            grid-row: 4;
+            grid-column: 2;
+        }
+
+        .baudRate {
+            margin-left: 1em;
+            grid-row: 4;
+            grid-column: 1;
+        }
+
+        .sendSerial {
+            grid-row: 4;
+            grid-column: 3;
+        }
+
+        .clearDisplay {
+            grid-row: 4;
+            grid-column: 4;
+            margin-right: 1em;
+        }
+
+        .divider {
+            grid-row: 3;
+            grid-column: 1 / span 4;
+        }
+    </style>
+</head>
+<body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="serial-monitor-controller">
+
+<div class="grid">
+    <md-toolbar layout="row" class="title md-primary">
+        <h1 class="md-toolbar-tools" layout-padding>{{ getTitle() }}</h1>
+    </md-toolbar>
+
+    <p class="scriptMonitor">
+        {{output}}
+    </p>
+    <md-divider class="divider"></md-divider>
+    <md-input-container class="baudRate">
+        <label>Baud Rate</label>
+        <md-select ng-model="baudRate" placeholder="Select a Baud Rate">
+            <md-option ng-value="opt" ng-repeat="opt in validBaudRates">{{ opt }}</md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container class="serialWrite">
+        <label>Serial Write</label>
+        <input type="text" ng-model="serialWrite">
+    </md-input-container>
+    <md-button class="md-raised sendSerial" ng-click="sendData()">Send</md-button>
+    <md-button class="md-raised clearDisplay" ng-click="clear()">Clear</md-button>
+</div>
+</div>
+
+<!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+<script>if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}</script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="../../static/angular.min.js"></script>
+<script src="../../static/angular-animate.min.js"></script>
+<script src="../../static/angular-aria.min.js"></script>
+<script src="../../static/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="../../static/angular-material.min.js"></script>
+
+<!-- JQuery -->
+<script src="../../static/jquery-3.2.1.min.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+<script>
+    const {ipcRenderer} = require('electron');
+    const SerialMonitor = require('../serial_monitor');
+    const SerialPort = require('serialport');
+
+    const app = angular.module('DragonDrop', ['ngMaterial']);
+    let portId_ = '';
+    let port;
+
+    app.controller('serial-monitor-controller', function ($scope) {
+        $scope.baudRate = SerialMonitor.DEFAULT_BAUD_RATE;
+        $scope.validBaudRates = SerialMonitor.VALID_BAUD_RATES;
+        $scope.output = '';
+        $scope.serialWrite = '';
+
+
+        $scope.sendData = () => {
+            port.write($scope.serialWrite);
+            $scope.serialWrite = '';
+        };
+
+        $scope.clear = () => {
+            $scope.output = '';
+        };
+
+        ipcRenderer.on('serial-port', (event, portId) => {
+            console.log(portId);
+            const parser = new SerialPort.parsers.Readline();
+            port = new SerialPort(portId, {
+                baudRate: $scope.baudRate
+            });
+
+            portId_ = portId;
+            port.pipe(parser);
+            parser.on('data', data => $scope.$apply(() => $scope.output += data + '\n'));
+        });
+
+        $scope.getTitle = () => 'Serial Monitor ' + portId_;
+    });
+
+</script>
+
+</body>
+</html>
