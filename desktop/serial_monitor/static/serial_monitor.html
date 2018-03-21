@@ -57,6 +57,11 @@
             grid-row: 3;
             grid-column: 1 / span 4;
         }
+
+        .connection-closed {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="serial-monitor-controller">
@@ -66,9 +71,9 @@
         <h1 class="md-toolbar-tools" layout-padding>{{ getTitle() }}</h1>
     </md-toolbar>
 
-    <p class="scriptMonitor">
-        {{output}}
+    <p ng-bind-html="output" class="scriptMonitor">
     </p>
+
     <md-divider class="divider"></md-divider>
     <md-input-container class="baudRate">
         <label>Baud Rate</label>
@@ -96,6 +101,7 @@
 <script src="../../static/angular-animate.min.js"></script>
 <script src="../../static/angular-aria.min.js"></script>
 <script src="../../static/angular-messages.min.js"></script>
+<script src="../../static/angular-sanitize.min.js"></script>
 
 <!-- Angular Material Library -->
 <script src="../../static/angular-material.min.js"></script>
@@ -107,12 +113,14 @@
 <script>if (window.module) module = window.module;</script>
 
 <script>
+    const {remote} = require('electron');
     const {ipcRenderer} = require('electron');
-    const SerialMonitor = require('../serial_monitor');
+    const SerialMonitor = remote.require('./serial_monitor/serial_monitor');
+    const WindowManager = remote.require('./window_manager/window_manager');
     const SerialPort = require('serialport');
 
-    const app = angular.module('DragonDrop', ['ngMaterial']);
-    let portId_ = '';
+    const app = angular.module('DragonDrop', ['ngMaterial', 'ngSanitize']);
+    let portId = '';
     let port;
 
     app.controller('serial-monitor-controller', function ($scope) {
@@ -120,7 +128,7 @@
         $scope.validBaudRates = SerialMonitor.VALID_BAUD_RATES;
         $scope.output = '';
         $scope.serialWrite = '';
-
+        $scope.closed = false;
 
         $scope.updateBaudRate = () => {
             port.update({
@@ -141,19 +149,36 @@
             $scope.output = '';
         };
 
-        ipcRenderer.on('serial-port', (event, portId) => {
-            console.log(portId);
+        ipcRenderer.on('model', (event, model) => {
             const parser = new SerialPort.parsers.Readline();
-            port = new SerialPort(portId, {
+            port = new SerialPort(model.port, {
                 baudRate: $scope.baudRate
+            }, (err) => {
+              if(err){
+                  console.error(err);
+                  SerialMonitor.showErrorNoConnect();
+                  return;
+              }
+
+              WindowManager.showWindow('SERIAL_MONITOR');
             });
 
-            portId_ = portId;
+            portId = model.port;
             port.pipe(parser);
+
             parser.on('data', data => $scope.$apply(() => $scope.output += data + '\n'));
+
+            port.on('close', () => {
+                $scope.$apply(() => {
+                    $scope.closed = true;
+                    $scope.output += '<span class="connection-closed">connection closed</span>'
+                });
+            });
+
+            $scope.$apply();
         });
 
-        $scope.getTitle = () => 'Serial Monitor ' + portId_;
+        $scope.getTitle = () => 'Serial Monitor ' + portId;
     });
 
 </script>

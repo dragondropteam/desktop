@@ -1,19 +1,24 @@
-const {BrowserWindow} = require('electron');
+const {BrowserWindow, dialog} = require('electron');
+const WindowManager = require('../window_manager/window_manager');
+const SERIAL_MONITOR = 'SERIAL_MONITOR';
+
+
 exports.showSerialMonitor = function (port) {
     console.log('Show Serial Monitor');
-    let serialMonitor = new BrowserWindow({
+
+    WindowManager.create({
         width: 800,
         height: 600,
         show: false,
         resizable: false
+    }, {
+        id: SERIAL_MONITOR,
+        url: 'file://' + __dirname + '/static/serial_monitor.html',
+        model: {
+            port: port
+        },
+        // autoShow: false
     });
-
-    serialMonitor.loadURL('file://' + __dirname + '/static/serial_monitor.html');
-
-    serialMonitor.once('ready-to-show', () => {
-        serialMonitor.show();
-        serialMonitor.webContents.send('serial-port', port);
-    })
 };
 
 exports.DEFAULT_BAUD_RATE = 57600;
@@ -32,3 +37,15 @@ exports.VALID_BAUD_RATES = [
     230400,
     250000
 ];
+
+exports.SERIAL_MONITOR = SERIAL_MONITOR;
+
+exports.showErrorNoConnect = function() {
+    WindowManager.closeWindow(SERIAL_MONITOR);
+
+    dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+        type: 'error',
+        title: 'Dragon Drop Error',
+        message: 'Could not connect to port.\nCheck your connection and try again.'
+    });
+};
