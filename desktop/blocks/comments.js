@@ -9,7 +9,7 @@ goog.provide('Blockly.Blocks.comments');
 goog.require('Blockly.Blocks');
 
 
-const COMMENTS_COLOR = '#EC591A';
+const COMMENTS_COLOR = '#629755';
 
 
 Blockly.Blocks['comment_oneline'] = {
