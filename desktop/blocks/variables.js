@@ -143,13 +143,28 @@ Blockly.Blocks['variables_get_typed'] = {
      * @this Blockly.Block
      */
     customContextMenu: function (options) {
-        var option = {enabled: true};
-        var name = this.getFieldValue('VAR');
+        let option = {enabled: true};
+
+        let name = this.getFieldValue('VAR');
         option.text = this.contextMenuMsg_.replace('%1', name);
-        var xmlField = goog.dom.createDom('field', null, name);
+
+        // <field name="VAR">Example</field>
+        let xmlField = goog.dom.createDom('field', null, name);
         xmlField.setAttribute('name', 'VAR');
-        var xmlBlock = goog.dom.createDom('block', null, xmlField);
+
+        // <mutation type="..." ctype="..."></mutation>
+        let mutationField = goog.dom.createDom('mutation', null);
+        mutationField.setAttribute('type', this.type_);
+        mutationField.setAttribute('ctype', this.cType);
+
+        // <field name="TYPE">...</field>
+        let typeField = goog.dom.createDom('field', null, this.cType);
+        typeField.setAttribute('name', 'TYPE');
+
+        // Actually constructs the XML using google's create DOM (variadic)
+        let xmlBlock = goog.dom.createDom('block', null, xmlField, mutationField, typeField);
         xmlBlock.setAttribute('type', this.contextMenuType_);
+
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
         options.push(option);
     },
