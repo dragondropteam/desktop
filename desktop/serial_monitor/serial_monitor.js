@@ -17,7 +17,7 @@ exports.showSerialMonitor = function (port) {
         model: {
             port: port
         },
-        // autoShow: false
+        autoShow: false
     });
 };
 

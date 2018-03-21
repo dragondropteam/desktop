@@ -62,6 +62,16 @@
             color: red;
             font-weight: bold;
         }
+
+        .connection-open {
+            color: green;
+            font-weight: bold;
+        }
+
+        .reconnect {
+            padding-right: 1em;
+        }
+        
     </style>
 </head>
 <body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="serial-monitor-controller">
@@ -69,6 +79,7 @@
 <div class="grid">
     <md-toolbar layout="row" class="title md-primary">
         <h1 class="md-toolbar-tools" layout-padding>{{ getTitle() }}</h1>
+        <md-button class="reconnect" ng-click="reconnect()" ng-if="closed">RECONNECT</md-button>
     </md-toolbar>
 
     <p ng-bind-html="output" class="scriptMonitor">
@@ -140,6 +151,21 @@
             });
         };
 
+        function setupParser(port) {
+            const parser = new SerialPort.parsers.Readline();
+
+            port.pipe(parser);
+
+            parser.on('data', data => $scope.$apply(() => $scope.output += data + '\n'));
+
+            port.on('close', () => {
+                $scope.$apply(() => {
+                    $scope.closed = true;
+                    $scope.output += '<span class="connection-closed">connection closed\n</span>'
+                });
+            });
+        }
+
         $scope.sendData = () => {
             port.write($scope.serialWrite);
             $scope.serialWrite = '';
@@ -150,33 +176,43 @@
         };
 
         ipcRenderer.on('model', (event, model) => {
-            const parser = new SerialPort.parsers.Readline();
+            portId = model.port;
             port = new SerialPort(model.port, {
                 baudRate: $scope.baudRate
             }, (err) => {
-              if(err){
-                  console.error(err);
-                  SerialMonitor.showErrorNoConnect();
-                  return;
-              }
+                if (err) {
+                    console.error(err);
+                    SerialMonitor.showErrorNoConnect();
+                    return;
+                }
 
-              WindowManager.showWindow('SERIAL_MONITOR');
+                setupParser(port);
+                WindowManager.showWindow('SERIAL_MONITOR');
             });
 
-            portId = model.port;
-            port.pipe(parser);
-
-            parser.on('data', data => $scope.$apply(() => $scope.output += data + '\n'));
-
-            port.on('close', () => {
-                $scope.$apply(() => {
-                    $scope.closed = true;
-                    $scope.output += '<span class="connection-closed">connection closed</span>'
-                });
-            });
 
             $scope.$apply();
         });
+
+
+        $scope.reconnect = () => {
+            if (!$scope.closed) {
+                return;
+            }
+
+            port = new SerialPort(portId, {
+                baudRate: $scope.baudRate
+            }, (err) => {
+                if (err) {
+                    $scope.output += '<span class="connection-closed">could not reconnect\n</span>';
+                    return;
+                }
+
+                setupParser(port);
+                $scope.closed = false;
+                $scope.output += '<span class="connection-open">connection reestablished\n</span>';
+            });
+        };
 
         $scope.getTitle = () => 'Serial Monitor ' + portId;
     });
