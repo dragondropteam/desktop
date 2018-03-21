@@ -860,6 +860,30 @@ Blockly.WorkspaceSvg.prototype.cleanUp = function() {
 };
 
 /**
+ * Adds a comment to the workspace.
+ */
+Blockly.WorkspaceSvg.prototype.addComment = function() {
+  console.log("Make a block here");
+
+  // create options object
+  // var option = {enabled: true};
+
+  // Create inner <field name="..."></field>
+  var xmlField = goog.dom.createDom('field', null);
+  xmlField.setAttribute('name', 'TEXT');
+
+  // Create outer <block type="comment_oneline"></block>
+  var xmlBlock = goog.dom.createDom('block', null, xmlField);
+  xmlBlock.setAttribute('type', 'comment_oneline');
+  xmlBlock.setAttribute('x', '100');
+  xmlBlock.setAttribute('y', '100');
+
+  console.log(xmlBlock);
+
+  return Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+};
+
+/**
  * Show the context menu for the workspace.
  * @param {!Event} e Mouse event.
  * @private
@@ -891,6 +915,15 @@ Blockly.WorkspaceSvg.prototype.showContextMenu_ = function(e) {
     cleanOption.enabled = topBlocks.length > 1;
     cleanOption.callback = this.cleanUp.bind(this);
     menuOptions.push(cleanOption);
+  }
+
+  // Option to add a comment.
+  if (this.scrollbar) {
+      var commentOption = {};
+      commentOption.text = Blockly.Msg.ADD_COMMENT_BLOCK;
+      commentOption.enabled = true;
+      commentOption.callback = this.addComment();
+      menuOptions.push(commentOption);
   }
 
   // Add a little animation to collapsing and expanding.
