@@ -2038,6 +2038,7 @@
             <category name="JavaScript" colour="#EC591A">
                 <block type="javascript_eval"/>
                 <block type="javascript_eval_output"/>
+                <block type="comment_oneline"/>
             </category>
             <category name="Phaser Lists" colour="#F36B28">
                 <block type="list_find_closest">
