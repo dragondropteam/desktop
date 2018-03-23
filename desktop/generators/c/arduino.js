@@ -13,7 +13,7 @@ Blockly.C['hardwarestartup_arduino'] = function (block) {
 
 Blockly.C['delayseconds'] = function (block) {
     var value_seconds = Blockly.C.valueToCode(block, 'SECONDS', Blockly.C.ORDER_ATOMIC) || '0';
-    return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' seconds\n';
+    return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' second(s)\n';
 };
 Blockly.C['delayms'] = function (block) {
     var value_milliseconds = Blockly.C.valueToCode(block, 'MILLISECONDS', Blockly.C.ORDER_ATOMIC) || '0';
