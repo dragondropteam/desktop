@@ -8,7 +8,16 @@ const ringoRobot = require('../project_types/ringo_robot');
 const textPhaser = require('../project_types/text_phaser');
 const visualPhaser = require('../project_types/visual_phaser');
 const winkRobot = require('../project_types/wink_robot');
+const windowManager = require('../window_manager/window_manager');
 
+describe('WindowManager', () => {
+    it('Should generate unique ids', () => {
+        const idOne = windowManager.generateId();
+        const idTwo = windowManager.generateId();
+
+        assert.notStrictEqual(idOne, idTwo);
+    })
+});
 
 describe('Project Types', () => {
     describe('Arduino', () => {
