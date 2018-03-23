@@ -128,7 +128,7 @@ Blockly.C['bestill_icon'] = Blockly.C['bestill'];
 
 Blockly.C['delayseconds_icon'] = function (block) {
     var value_seconds = Blockly.C.valueToCode(block, 'SECONDS', Blockly.C.ORDER_ATOMIC) || '0';
-    return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' seconds\n';
+    return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' second(s)\n';
 };
 
 Blockly.C['seconds_icon'] = function (block) {
