@@ -125,7 +125,6 @@ Blockly.Blocks['variables_get_typed'] = {
      * @this Blockly.Block
      */
     init: function () {
-        console.log("WE MADE A TYPED < GET > VARIABLE W/ TYPE " + this.type_);
         this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
         this.setColour(Blockly.Blocks.variables.HUE);
         this.appendDummyInput()
@@ -143,26 +142,25 @@ Blockly.Blocks['variables_get_typed'] = {
      * @this Blockly.Block
      */
     customContextMenu: function (options) {
-        let option = {enabled: true};
-
-        let name = this.getFieldValue('VAR');
+        const option = {enabled: true};
+        const name = this.getFieldValue('VAR');
         option.text = this.contextMenuMsg_.replace('%1', name);
 
         // <field name="VAR">Example</field>
-        let xmlField = goog.dom.createDom('field', null, name);
+        const xmlField = goog.dom.createDom('field', null, name);
         xmlField.setAttribute('name', 'VAR');
 
         // <mutation type="..." ctype="..."></mutation>
-        let mutationField = goog.dom.createDom('mutation', null);
+        const mutationField = goog.dom.createDom('mutation', null);
         mutationField.setAttribute('type', this.type_);
         mutationField.setAttribute('ctype', this.cType);
 
         // <field name="TYPE">...</field>
-        let typeField = goog.dom.createDom('field', null, this.cType);
+        const typeField = goog.dom.createDom('field', null, this.cType);
         typeField.setAttribute('name', 'TYPE');
 
         // Actually constructs the XML using google's create DOM (variadic)
-        let xmlBlock = goog.dom.createDom('block', null, xmlField, mutationField, typeField);
+        const xmlBlock = goog.dom.createDom('block', null, xmlField, mutationField, typeField);
         xmlBlock.setAttribute('type', this.contextMenuType_);
 
         option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
@@ -193,7 +191,6 @@ Blockly.Blocks['variables_get_typed'] = {
         }
 
         if (changeEvent.element == 'field' && changeEvent.name == 'TYPE') {
-            console.log("Set type for fields");
             this.cType = changeEvent.newValue;
             if (changeEvent.newValue == 'INTEGER' || changeEvent.newValue == 'FLOAT') {
                 this.type_ = 'Number';
@@ -227,7 +224,6 @@ Blockly.Blocks['variables_get_typed'] = {
 Blockly.Blocks['variable_set_typed'] = {
 
     init: function () {
-        console.log("WE MADE A TYPED < SET > VARIABLE W/ TYPE " + this.type_);
         this.appendValueInput("VALUE")
         //.setCheck("Number")
             .appendField(Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1)
@@ -239,7 +235,6 @@ Blockly.Blocks['variable_set_typed'] = {
         this.setColour(330);
         this.setTooltip(Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.VARIABLE_SET_TYPED_HELP_URL);
-        // Should match types
         this.type_ = 'Number';
         this.cType = 'INTEGER';
         this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
