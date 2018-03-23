@@ -200,7 +200,7 @@ Blockly.C['setrightwhite'] = function (block) {
 
 Blockly.C['setrightrgb'] = function (block) {
     let colour_name = block.getFieldValue('NAME') || '#000000';
-    console.log(colour_name);
+
     let red = parseInt(colour_name.substring(1, 3), 16);
     let green = parseInt(colour_name.substring(3, 5), 16);
     let blue = parseInt(colour_name.substring(5, 7), 16);
@@ -244,7 +244,7 @@ Blockly.C['loop'] = function (block) {
 //region WINK MOTORS
 
 Blockly.C['acceleratemotors'] = function (block) {
-    let value_startspeed = Blockly.C.valueToCode(block, 'startsspeed', Blockly.C.ORDER_ATOMIC) || '0';
+    let value_startspeed = Blockly.C.valueToCode(block, 'startspeed', Blockly.C.ORDER_ATOMIC) || '0';
     let value_endspeed = Blockly.C.valueToCode(block, 'endspeed', Blockly.C.ORDER_ATOMIC) || '0';
     let value_duration = Blockly.C.valueToCode(block, 'duration', Blockly.C.ORDER_ATOMIC) || '0';
 
