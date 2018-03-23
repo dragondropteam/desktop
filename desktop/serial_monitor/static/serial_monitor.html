@@ -92,7 +92,7 @@
 </head>
 <body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="serial-monitor-controller">
 
-<div class="grid">
+<form class="grid">
     <md-toolbar layout="row" class="title md-primary">
         <h1 class="md-toolbar-tools" layout-padding>{{ getTitle() }}</h1>
         <md-button class="reconnect" ng-click="reconnect()" ng-if="closed">RECONNECT</md-button>
@@ -117,10 +117,11 @@
     <md-input-container class="autoScroll">
         <md-checkbox ng-model="autoscroll">Auto Scroll</md-checkbox>
     </md-input-container>
-    <md-button class="md-raised sendSerial" ng-click="sendData()">Send</md-button>
+    <md-button class="md-raised sendSerial" ng-click="sendData()" type="submit">Send</md-button>
     <md-button class="md-raised clearDisplay" ng-click="clear()">Clear</md-button>
-</div>
-</div>
+</form>
+
+</body>
 
 <!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
 <script>if (typeof module === 'object') {
