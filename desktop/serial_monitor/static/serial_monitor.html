@@ -6,29 +6,35 @@
     <link rel="stylesheet" href="../../static/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        :root {
+            --spanning: 1 / span 5;
+        }
+
         .title {
             grid-row: 1;
-            grid-column: 1 / span 4;
+            grid-column: var(--spanning);
             margin-bottom: 0;
         }
 
-        .scriptMonitor {
-            overflow: auto;
+        .serialBody {
             white-space: pre-line;
-            padding-left: 1em;
-            padding-right: 1em;
+            padding: 1em 1em 2em;
+            margin: 0;
+        }
+
+        .serialOutput {
+            overflow: auto;
             grid-row: 2;
-            grid-column: 1 / span 4;
+            grid-column: var(--spanning);
             margin: 0;
         }
 
         .grid {
-            height: 90%;
+            height: 100%;
             width: 100%;
             display: grid;
-            grid-gap: 10px;
-            grid-template-rows: 10% 80% auto 10%;
-            grid-template-columns: 1fr 3fr 1fr 1fr;
+            grid-template-rows: 0.5fr 5fr auto 0.5fr;
+            grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
         }
 
         .serialWrite {
@@ -42,20 +48,30 @@
             grid-column: 1;
         }
 
-        .sendSerial {
+        .autoScroll {
             grid-row: 4;
             grid-column: 3;
         }
 
-        .clearDisplay {
+        .sendSerial {
             grid-row: 4;
             grid-column: 4;
+            align-self: start;
+            margin-top: 10px
+        }
+
+        .clearDisplay {
+            grid-row: 4;
+            grid-column: 5;
             margin-right: 1em;
+            align-self: start;
+            margin-top: 10px
         }
 
         .divider {
             grid-row: 3;
-            grid-column: 1 / span 4;
+            grid-column: var(--spanning);
+            margin-bottom: 10px;
         }
 
         .connection-closed {
@@ -71,7 +87,7 @@
         .reconnect {
             padding-right: 1em;
         }
-        
+
     </style>
 </head>
 <body ng-app="DragonDrop" ng-cloak layout="column" ng-controller="serial-monitor-controller">
@@ -82,8 +98,10 @@
         <md-button class="reconnect" ng-click="reconnect()" ng-if="closed">RECONNECT</md-button>
     </md-toolbar>
 
-    <p ng-bind-html="output" class="scriptMonitor">
-    </p>
+    <div class="serialOutput">
+        <p ng-bind-html="output" class="serialBody"></p>
+        <div id="end"></div>
+    </div>
 
     <md-divider class="divider"></md-divider>
     <md-input-container class="baudRate">
@@ -95,6 +113,9 @@
     <md-input-container class="serialWrite">
         <label>Serial Write</label>
         <input type="text" ng-model="serialWrite">
+    </md-input-container>
+    <md-input-container class="autoScroll">
+        <md-checkbox ng-model="autoscroll">Auto Scroll</md-checkbox>
     </md-input-container>
     <md-button class="md-raised sendSerial" ng-click="sendData()">Send</md-button>
     <md-button class="md-raised clearDisplay" ng-click="clear()">Clear</md-button>
@@ -134,12 +155,13 @@
     let portId = '';
     let port;
 
-    app.controller('serial-monitor-controller', function ($scope) {
+    app.controller('serial-monitor-controller', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
         $scope.baudRate = SerialMonitor.DEFAULT_BAUD_RATE;
         $scope.validBaudRates = SerialMonitor.VALID_BAUD_RATES;
         $scope.output = '';
         $scope.serialWrite = '';
         $scope.closed = false;
+        $scope.autoscroll = true;
 
         $scope.updateBaudRate = () => {
             port.update({
@@ -156,12 +178,12 @@
 
             port.pipe(parser);
 
-            parser.on('data', data => $scope.$apply(() => $scope.output += data + '\n'));
+            parser.on('data', data => $scope.$apply(() => appendOutput(data + '\n')));
 
             port.on('close', () => {
                 $scope.$apply(() => {
                     $scope.closed = true;
-                    $scope.output += '<span class="connection-closed">connection closed\n</span>'
+                    appendOutput('<span class="connection-closed">connection closed\n</span>');
                 });
             });
         }
@@ -174,6 +196,14 @@
         $scope.clear = () => {
             $scope.output = '';
         };
+
+        function appendOutput(append) {
+            $scope.output += append;
+            if ($scope.autoscroll) {
+                $location.hash('end');
+                $anchorScroll();
+            }
+        }
 
         ipcRenderer.on('model', (event, model) => {
             portId = model.port;
@@ -204,18 +234,18 @@
                 baudRate: $scope.baudRate
             }, (err) => {
                 if (err) {
-                    $scope.output += '<span class="connection-closed">could not reconnect\n</span>';
+                    appendOutput('<span class="connection-closed">could not reconnect\n</span>');
                     return;
                 }
 
                 setupParser(port);
                 $scope.closed = false;
-                $scope.output += '<span class="connection-open">connection reestablished\n</span>';
+                appendOutput('<span class="connection-open">connection reestablished\n</span>');
             });
         };
 
         $scope.getTitle = () => 'Serial Monitor ' + portId;
-    });
+    }]);
 
 </script>
 
