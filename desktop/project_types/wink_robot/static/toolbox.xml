@@ -249,6 +249,38 @@
             </value>
         </block>
         <block type="serial_read"/>
+        <block type="serial_available"/>
+        <block type="serial_available_write"/>
+        <block type="serial_find">
+            <value name="TARGET">
+                <shadow type="text">
+                    <field name="TEXT">targetString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="serial_find_until">
+            <value name="TARGET">
+                <shadow type="text">
+                    <field name="TEXT">targetString</field>
+                </shadow>
+            </value>
+            <value name="TERMINAL">
+                <shadow type="text">
+                    <field name="TEXT">terminalString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="serial_flush"/>
+        <block type="serial_parse_float"/>
+        <block type="serial_parse_int"/>
+        <block type="serial_peek"/>
+        <block type="serial_set_timeout">
+            <value name="MILLISECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
     </category>
     <category name="Constants" colour="#c08027">
          <block type="high"/>
