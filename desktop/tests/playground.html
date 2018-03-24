@@ -98,7 +98,7 @@
       'use strict';
       var workspace = null;
       var fakeDragStack = [];
-
+      var numDrags = 0;
       /*
       var txt = '';
       var xmlhttp = new XMLHttpRequest();
@@ -284,15 +284,28 @@
 
       function fakeDragWrapper() {
           var dragInfo = fakeDragStack.pop();
+
+          // Track number of drags for debug output.
+          numDrags += 1;
+          if(numDrags % 100 == 0)
+              console.log(numDrags + " drags have been performed so far...")
+
           if (dragInfo) {
               fakeDrag(dragInfo.id, dragInfo.dx, dragInfo.dy, dragInfo.workspace);
           }
+          else
+              console.log("Finsihed " + numDrags + " drags.")
+
       }
 
       function fakeManyDrags() {
           var blockList = workspace.getAllBlocks();
           const drags = 5 * blockList.length;
+
+          // Log output
           console.log("Performing " + drags + " drags.");
+          numDrags = 0;
+
           for (let i = 0; i < drags; i++) {
               fakeDragStack.push(
                   {
@@ -348,6 +361,25 @@
           '    <statement name="DO0"></statement>',
           '    <next></next>',
           '  </block>'].join('\n');
+
+      function placeAll() {
+          var prototypes = [];
+          var toolbox = getToolboxElement();
+          var blocks = toolbox.getElementsByTagName('block');
+          for (let i = 0, block; block = blocks[i]; i++) {
+              prototypes.push(block.getAttribute('type'));
+          }
+
+          for (var i = 0; i < prototypes.length; i++) {
+              var prototype = prototypes[i];
+              var block = workspace.newBlock(prototype);
+              block.initSvg();
+              block.getSvgRoot().setAttribute('transform', 'translate(' +
+                  Math.round(Math.random() * 40 + 20) + ', ' +
+                  Math.round(Math.random() * 40 + i * 10) + ')');
+              block.render();
+          }
+      }
 
   </script>
 
@@ -425,6 +457,7 @@
     <input type="button" value="Airstrike!" onclick="airstrike(100)">
     <input type="button" value="Spaghetti!" onclick="spaghetti(8)">
     <input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
+    <input type="button" value="Make ALL the blocks!" onclick="placeAll()">
   </p>
   <p>
     Log events: &nbsp;
