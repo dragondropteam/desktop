@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>XML Test</title>
+	<script src="/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<p id="test">This is a test page</p>
+</body>
+<script type="text/javascript">
+
+// Place new toolboxes to parse in here
+$(document).ready(function(){
+	parseToolbox("Example", "test.xml");
+});
+
+// Parses the specified toolbox and appends it to the document.
+// Toolbox IDs are set to "toolbox-" + toolbox_name
+function parseToolbox(toolbox_name, file_path) {
+	$.ajax({
+		type: "GET",
+		url: file_path,
+		dataType: "xml",
+		success: (xml) => { ParseInternal(xml, toolbox_name); }
+	}).done(function(a, b) {
+	    console.log( "done a: " + toStr(a) + " b: " + toStr(b) );
+	})
+	.fail(function(a, b) {
+	    console.error( "error a: " + toStr(a) + " b: " + toStr(b) );
+	})
+	.always(function(a, b) {
+	    console.log( "always a: " + toStr(a) + " b: " + toStr(b) );
+	});
+
+	// Parses the XML, adjusts name, and appends it to the document.
+	function ParseInternal(xml, name) {
+		// Create a new XML element, fill the internals with the xml,
+		// and set the attributes for it accordingly.
+		let e = document.createElement("xml");
+		e.innerHTML = xml.childNodes[0].innerHTML;
+		e.setAttribute("id", "toolbox-" + name);
+		e.setAttribute("style","display: none");
+		console.log(e);
+
+		// Append the XML to the document body.
+		document.body.appendChild(e);
+	}
+}
+
+// Javascript object printing with pretty-print
+function toStr(obj) {
+	return JSON.stringify(obj, null, 2);
+}
+
+// Sets an attribute in all tags with the specified name on an XML document.
+// It's the more general version of the following example line:
+// xml.getElementsByTagName("xml")[0].attributes[0].textContent = name;
+function setAttrInTags(xml, xml_tag, attr_name, new_value) {
+	const elements = xml.getElementsByTagName(xml_tag);
+	for(let i = 0; i < elements.length; i += 1) {
+
+		const attributes = xml.getElementsByTagName(xml_tag)[i].attributes;
+		for(let j = 0; j < attributes.length; j += 1) {
+
+			const name = xml.getElementsByTagName(xml_tag)[i].attributes[j].name;
+			if(name == attr_name) {
+				xml.getElementsByTagName(xml_tag)[i].attributes[j].textContent = new_value;
+			}
+		}
+	}
+}
+
+</script>
+
+
+</html>
