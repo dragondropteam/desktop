@@ -128,3 +128,7 @@ desktop/app/phaser_workspace/
 desktop/app/arduino_workspace/
 
 \.idea/jsLibraryMappings\.xml
+
+desktop/app/serial_monitor/
+
+desktop/app/window_manager/
