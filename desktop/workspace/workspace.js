@@ -54,6 +54,14 @@ exports.BaseComponent = class {
     getName() {
         return this.name;
     }
+
+    /**
+     * Called when this component is attached to the workspace.
+     * @param workspace
+     */
+    onAttach(workspace) {
+        // this.workspace = workspace;
+    }
 };
 
 //region COMPONENTS
@@ -80,6 +88,16 @@ class BlocklyComponent extends exports.BaseComponent {
         }
     }
 
+    static generateWorkspaceMappingFunction(workspaceToCode) {
+        return function (workspace) {
+            const code = workspaceToCode(workspace);
+            const dom = Blockly.Xml.workspaceToDom(workspace);
+            const xml = Blockly.Xml.domToText(dom);
+            return {code: code, xml: xml};
+        }
+    }
+
+    //TODO: This will need to take into account the users sound preference at some point
     static getDefaultBlocklyConfig(toolboxSource) {
         return {
             comments: true,
@@ -256,8 +274,9 @@ class CodeComponent extends exports.BaseComponent {
         });
 
         this.codeSubscriber = {
-            next: code => this.setCode(code.code)
+            next: console.log
         }
+
     }
 
     setupDOM() {
@@ -334,8 +353,6 @@ class PhaserComponent extends exports.BaseComponent {
         }
 
         webview = document.getElementById('phaser');
-
-        currentWorkspace.onComponentOpen(this);
 
         return true;
     }
@@ -483,13 +500,13 @@ ipcRenderer.on('resume_execution', () => {
 //endregion
 
 //region DATA_SOURCE
-class DataSource  {
+class DataSource {
 
-    constructor(extension){
+    constructor(extension) {
         this.extension = extension;
     }
 
-    setProject(project){
+    setProject(project) {
         this.project = project;
     }
 
@@ -507,13 +524,13 @@ class DataSource  {
 
 class BlocklyDataSource extends DataSource {
 
-    constructor(defaultBlocks, extension){
+    constructor(extension, defaultBlocks) {
         super(extension);
         this.defaultBlocks = defaultBlocks;
     }
 
     save(code) {
-        if(!this.project){
+        if (!this.project) {
             return;
         }
 
@@ -530,12 +547,21 @@ class BlocklyDataSource extends DataSource {
 
     }
 
-    /**
-     * @override
-     * @return {{code: string, blocks: string}}
-     */
     loadProjectFile(project) {
-cd
+        let data = null;
+
+        try {
+            data = fs.readFileSync(project.getBlocksPath());
+        } catch (err) {
+            if (err.code === 'ENOENT') {
+                if (this.defaultBlocks)
+                    data = this.defaultBlocks;
+            } else {
+                exports.logErrorAndQuit(err, {state: 'loading', project: project});
+            }
+        }
+
+        return {xml: data};
     }
 }
 
@@ -797,7 +823,6 @@ exports.Workspace = class {
 
     loadProjectFile(project) {
         this.loadedProject = project;
-
         const code = this.dataSource.loadProjectFile(project);
         this.codeSubject.next(code);
     }
@@ -855,5 +880,5 @@ exports.Workspace = class {
 exports.logErrorAndQuit = function (e, state) {
     log.error(e.message);
     log.error('Error project changes not saved', e, state);
-    app.exit(-1);
+    // app.exit(-1);
 };
