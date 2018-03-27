@@ -103,7 +103,7 @@
     function logErr(message) {
       document.getElementById('dd-log').innerHTML 
       = document.getElementById('dd-log').innerHTML 
-      + '<div style="background-color: rgb(255, 200, 200); padding: 2px; border-bottom: 1px rgb(210, 210, 220) solid;"><code>'
+      + '<div class="dd-output-err"><code>'
       + toStr(message) 
       + '</code></div>'
     }
@@ -111,7 +111,7 @@
     function logLine(message) {
       document.getElementById('dd-log').innerHTML 
       = document.getElementById('dd-log').innerHTML 
-      + '<div style="background-color: rgb(250, 250, 252); padding: 2px; border-bottom: 1px rgb(210, 210, 220) solid;"><code>'
+      + '<div class="dd-output-log"><code>'
       + toStr(message) 
       + '</code></div>'
     }
@@ -138,18 +138,16 @@
       };
     })();
 
-    (function(){
-
-    })();
 
     // Place new toolboxes to parse in here
     $(document).ready(function(){
       parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml");
+      parseToolbox("wink", "../project_types/exploring_wink_robot/static/toolbox.xml");
+      parseToolbox("arduino", "../project_types/arduino/static/toolbox.xml");
+      parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml");
+      parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml");
       //parseToolbox("simple", "../project_types/visual_phaser/static/toolbox.xml");
-
-
       // Intercept console information from the webpage to add to output.
-
     });
 
     // Parses the specified toolbox and appends it to the document.
@@ -162,14 +160,11 @@
         dataType: "xml",
         success: (xml) => { ParseInternal(xml, toolbox_name); }
       }).done(function(a, b) {
-          console.log( "done a: " + toStr(a) + " b: " + toStr(b) );
+          console.log("Done parsing toolbox-" + toolbox_name);
       })
       .fail(function(a, b) {
-          console.error( "error a: " + toStr(a) + " b: " + toStr(b) );
+          console.log("FAILED TO PARSE " + toolbox_name + " AT " + file_path);
       })
-      .always(function(a, b) {
-          console.log( "always a: " + toStr(a) + " b: " + toStr(b) );
-      });
 
       // Parses the XML, adjusts name, and appends it to the document.
       function ParseInternal(xml, name) {
@@ -179,7 +174,6 @@
         e.innerHTML = xml.childNodes[0].innerHTML;
         e.setAttribute("id", "toolbox-" + name);
         e.setAttribute("style","display: none");
-        console.log(e);
 
         // Append the XML to the document body.
         document.body.appendChild(e);
@@ -264,8 +258,8 @@
     }
 
     function getToolboxElement() {
-        //var match = location.search.match('toolbox-simple');///toolbox=([^&]+)/);
-        return document.getElementById('toolbox-phaser');//document.getElementById('toolbox' + (match ? match[1] : 'categories'));
+        var match = location.search.match(toolbox=([^&]+)/);
+        return document.getElementById('toolbox' + (match ? match[1] : 'categories'));
     }
 
     function toXml() {
@@ -498,6 +492,16 @@
       font-weight: normal;
       font-size: 125%;
     }
+    .dd-output-log {
+      background-color: rgb(250, 250, 252); 
+      padding: 2px; 
+      border-bottom: 1px rgb(210, 210, 220) solid;
+    }
+    .dd-output-err {
+      background-color: rgb(255, 200, 200); 
+      padding: 2px; 
+      border-bottom: 1px rgb(210, 210, 220) solid;
+    }
     #dd-log{
       height: 50%;
       overflow-y: scroll;
@@ -561,7 +565,7 @@
   <h2>
     Stress test
   </h2>
-  
+
   <p>
     <input type="button" value="Airstrike!" onclick="airstrike(100)">
     <br/><input type="button" value="Spaghetti!" onclick="spaghetti(8)">
