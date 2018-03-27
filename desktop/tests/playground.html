@@ -6,15 +6,15 @@
   <script src="../blockly_uncompressed.js"></script>
 
   <script src="../generators/javascript.js"></script>
-  <script src="../generators/javascript/classes.js"></script> // custom
+  <script src="../generators/javascript/classes.js"></script> <!-- custom -->
   <script src="../generators/javascript/colour.js"></script>
-  <script src="../generators/javascript/dom.js"></script> // custom
-  <script src="../generators/javascript/eval.js"></script> // custom
+  <script src="../generators/javascript/dom.js"></script> <!-- custom -->
+  <script src="../generators/javascript/eval.js"></script> <!-- custom -->
   <script src="../generators/javascript/lists.js"></script>
   <script src="../generators/javascript/logic.js"></script>
   <script src="../generators/javascript/loops.js"></script>
   <script src="../generators/javascript/math.js"></script>
-  <script src="../generators/javascript/phaser.js"></script> // custom
+  <script src="../generators/javascript/phaser.js"></script> <!-- custom -->
   <script src="../generators/javascript/procedures.js"></script>
   <script src="../generators/javascript/text.js"></script>
   <script src="../generators/javascript/variables.js"></script>
@@ -91,26 +91,125 @@
   <script src="../blocks/typedarrays.js"></script>
   <script src="../blocks/variables.js"></script>
   <script src="../blocks/wink.js"></script>
-<script>
+
+<!-- Script loading and resources -->
+<script src="../static/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
     'use strict';
     var workspace = null;
     var fakeDragStack = [];
     var numDrags = 0;
-    /*
-    var txt = '';
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-            txt = xmlhttp.responseText;
+
+    function logErr(message) {
+      document.getElementById('dd-log').innerHTML 
+      = document.getElementById('dd-log').innerHTML 
+      + '<div style="background-color: rgb(255, 200, 200); padding: 2px; border-bottom: 1px rgb(210, 210, 220) solid;"><code>'
+      + toStr(message) 
+      + '</code></div>'
+    }
+
+    function logLine(message) {
+      document.getElementById('dd-log').innerHTML 
+      = document.getElementById('dd-log').innerHTML 
+      + '<div style="background-color: rgb(250, 250, 252); padding: 2px; border-bottom: 1px rgb(210, 210, 220) solid;"><code>'
+      + toStr(message) 
+      + '</code></div>'
+    }
+
+    function scrollLog() {
+      $('#dd-log').scrollTop($('#dd-log')[0].scrollHeight - $('#dd-log')[0].clientHeight);
+    }
+
+    // Step in and nab the console log and console error output so we can
+    // feed them to the screen as well. 
+    (function(){
+      console.log("Configuring Output");
+      var oldLog = console.log;
+      console.log = function (message) {
+          logLine(message);
+          scrollLog();
+          oldLog.apply(console, arguments);
+      };
+      var oldErr = console.error;
+      console.error = function (message) {
+          logErr(message);
+          scrollLog();
+          oldErr.apply(console, Array.prototype.slice.call(arguments).join(' '));
+      };
+    })();
+
+    (function(){
+
+    })();
+
+    // Place new toolboxes to parse in here
+    $(document).ready(function(){
+      parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml");
+      //parseToolbox("simple", "../project_types/visual_phaser/static/toolbox.xml");
+
+
+      // Intercept console information from the webpage to add to output.
+
+    });
+
+    // Parses the specified toolbox and appends it to the document.
+    // Toolbox IDs are set to "toolbox-" + toolbox_name
+    function parseToolbox(toolbox_name, file_path) {
+      console.log("Parsing toolbox: " + toolbox_name)
+      $.ajax({
+        type: "GET",
+        url: file_path,
+        dataType: "xml",
+        success: (xml) => { ParseInternal(xml, toolbox_name); }
+      }).done(function(a, b) {
+          console.log( "done a: " + toStr(a) + " b: " + toStr(b) );
+      })
+      .fail(function(a, b) {
+          console.error( "error a: " + toStr(a) + " b: " + toStr(b) );
+      })
+      .always(function(a, b) {
+          console.log( "always a: " + toStr(a) + " b: " + toStr(b) );
+      });
+
+      // Parses the XML, adjusts name, and appends it to the document.
+      function ParseInternal(xml, name) {
+        // Create a new XML element, fill the internals with the xml,
+        // and set the attributes for it accordingly.
+        let e = document.createElement("xml");
+        e.innerHTML = xml.childNodes[0].innerHTML;
+        e.setAttribute("id", "toolbox-" + name);
+        e.setAttribute("style","display: none");
+        console.log(e);
+
+        // Append the XML to the document body.
+        document.body.appendChild(e);
+      }
+    }
+
+    // Javascript object printing with pretty-print
+    function toStr(obj) {
+      return JSON.stringify(obj, null, 2);
+    }
+
+    // Sets an attribute in all tags with the specified name on an XML document.
+    // It's the more general version of the following example line:
+    // xml.getElementsByTagName("xml")[0].attributes[0].textContent = name;
+    function setAttrInTags(xml, xml_tag, attr_name, new_value) {
+      const elements = xml.getElementsByTagName(xml_tag);
+      for(let i = 0; i < elements.length; i += 1) {
+
+        const attributes = xml.getElementsByTagName(xml_tag)[i].attributes;
+        for(let j = 0; j < attributes.length; j += 1) {
+
+          const name = xml.getElementsByTagName(xml_tag)[i].attributes[j].name;
+          if(name == attr_name) {
+            xml.getElementsByTagName(xml_tag)[i].attributes[j].textContent = new_value;
+          }
         }
-    };
-    xmlhttp.open("GET","http://localhost:8080/desktop/tests/simple.xml",true);
-    xmlhttp.send();
-    */
+      }
+    }
 
-
-
-
+    // The start of the application. This parses URL arguments and whatnot, arranging blockly.
     function start() {
         // Parse the URL arguments.
         var match = location.search.match(/dir=([^&]+)/);
@@ -166,7 +265,7 @@
 
     function getToolboxElement() {
         //var match = location.search.match('toolbox-simple');///toolbox=([^&]+)/);
-        return document.getElementById('toolbox-simple');//document.getElementById('toolbox' + (match ? match[1] : 'categories'));
+        return document.getElementById('toolbox-phaser');//document.getElementById('toolbox' + (match ? match[1] : 'categories'));
     }
 
     function toXml() {
@@ -225,6 +324,7 @@
     }
 
     function airstrike(n) {
+        console.log("Placing " + n + " random blocks");
         var prototypes = [];
         var toolbox = getToolboxElement();
         var blocks = toolbox.getElementsByTagName('block');
@@ -291,7 +391,7 @@
             fakeDrag(dragInfo.id, dragInfo.dx, dragInfo.dy, dragInfo.workspace);
         }
         else
-            console.log("Finsihed " + numDrags + " drags.")
+            console.log("Finsihed " + numDrags + " drags")
 
     }
 
@@ -300,7 +400,7 @@
         const drags = 5 * blockList.length;
 
         // Log output
-        console.log("Performing " + drags + " drags.");
+        console.log("Performing " + drags + " drags");
         numDrags = 0;
 
         for (let i = 0; i < drags; i++) {
@@ -389,8 +489,19 @@
       overflow: hidden;
     }
     h1 {
+      text-align: center;
       font-weight: normal;
-      font-size: 140%;
+      font-size: 150%;
+    }
+    h2 {
+      text-align: center;
+      font-weight: normal;
+      font-size: 125%;
+    }
+    #dd-log{
+      height: 50%;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
     #blocklyDiv {
       float: right;
@@ -444,89 +555,30 @@
     &nbsp;
     <input type="button" value="To Dart" onclick="toCode('Dart')">
     <br>
-    <textarea id="importExport" style="width: 26%; height: 12em"
+    <textarea id="importExport" style="width: 29%; max-width: 29%; height: 12em; max-height: 20em;"
       onchange="taChange();" onkeyup="taChange()"></textarea>
   </p>
-
+  <h2>
+    Stress test
+  </h2>
+  
   <p>
-    Stress test: &nbsp;
     <input type="button" value="Airstrike!" onclick="airstrike(100)">
-    <!--input type="button" value="Spaghetti!" onclick="spaghetti(8)"-->
-    <input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
-    <input type="button" value="Make ALL the blocks!" onclick="placeAll()">
+    <br/><input type="button" value="Spaghetti!" onclick="spaghetti(8)">
+    <br/><input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
+    <br/><input type="button" value="Make ALL the blocks!" onclick="placeAll()">
   </p>
+<hr/>
+  <h2>
+    Output
+  </h2>
   <p>
-    Log events: &nbsp;
-    <input type="checkbox" onclick="logEvents(this.checked)" id="logCheck">
+    <input type="checkbox" onclick="logEvents(this.checked)" id="logCheck"> Log block events
   </p>
-
+  <hr/>
+    <div id="dd-log">
+    </div>
+  <hr/>
 </body>
-
-
-<script src="../static/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-
-// Place new toolboxes to parse in here
-$(document).ready(function(){
-  parseToolbox("simple", "../project_types/visual_phaser/static/toolbox.xml");
-});
-
-// Parses the specified toolbox and appends it to the document.
-// Toolbox IDs are set to "toolbox-" + toolbox_name
-function parseToolbox(toolbox_name, file_path) {
-  $.ajax({
-    type: "GET",
-    url: file_path,
-    dataType: "xml",
-    success: (xml) => { ParseInternal(xml, toolbox_name); }
-  }).done(function(a, b) {
-      console.log( "done a: " + toStr(a) + " b: " + toStr(b) );
-  })
-  .fail(function(a, b) {
-      console.error( "error a: " + toStr(a) + " b: " + toStr(b) );
-  })
-  .always(function(a, b) {
-      console.log( "always a: " + toStr(a) + " b: " + toStr(b) );
-  });
-
-  // Parses the XML, adjusts name, and appends it to the document.
-  function ParseInternal(xml, name) {
-    // Create a new XML element, fill the internals with the xml,
-    // and set the attributes for it accordingly.
-    let e = document.createElement("xml");
-    e.innerHTML = xml.childNodes[0].innerHTML;
-    e.setAttribute("id", "toolbox-" + name);
-    e.setAttribute("style","display: none");
-    console.log(e);
-
-    // Append the XML to the document body.
-    document.body.appendChild(e);
-  }
-}
-
-// Javascript object printing with pretty-print
-function toStr(obj) {
-  return JSON.stringify(obj, null, 2);
-}
-
-// Sets an attribute in all tags with the specified name on an XML document.
-// It's the more general version of the following example line:
-// xml.getElementsByTagName("xml")[0].attributes[0].textContent = name;
-function setAttrInTags(xml, xml_tag, attr_name, new_value) {
-  const elements = xml.getElementsByTagName(xml_tag);
-  for(let i = 0; i < elements.length; i += 1) {
-
-    const attributes = xml.getElementsByTagName(xml_tag)[i].attributes;
-    for(let j = 0; j < attributes.length; j += 1) {
-
-      const name = xml.getElementsByTagName(xml_tag)[i].attributes[j].name;
-      if(name == attr_name) {
-        xml.getElementsByTagName(xml_tag)[i].attributes[j].textContent = new_value;
-      }
-    }
-  }
-}
-
-</script>
 
 </html>
