@@ -22,13 +22,11 @@ let layoutConfig = {
     content: [{
         type: 'row',
         content: [
-            BlocklyComponent.generateContent(BlocklyComponent.getDefaultBlocklyConfig(toolboxSource), (workspace) => {
-                const code = Blockly.JavaScript.workspaceToCode(workspace);
-                let xml = Blockly.Xml.workspaceToDom(workspace);
-                xml = Blockly.Xml.domToPrettyText(xml);
-                return {code: code, xml: xml};
-            })
-        , CodeComponent.generateContent({
+            //TODO: creatBlocklyMap(Blockly.JavaScript.workspaceToCode); Generate a function
+            BlocklyComponent.generateContent(
+                BlocklyComponent.getDefaultBlocklyConfig(toolboxSource),
+                BlocklyComponent.generateWorkspaceMappingFunction(Blockly.JavaScript.workspaceToCode.bind(Blockly.JavaScript)))
+            , CodeComponent.generateContent({
                 editorLanguage: 'ace/mode/javascript',
                 readOnly: true
             })]
@@ -41,7 +39,7 @@ class TextPhaserWorkspace extends Workspace {
             layoutConfig: layoutConfig,
             extension: 'js',
             editorLanguage: 'ace/mode/javascript',
-            dataSource: new BlocklyDataSource()
+            dataSource: new BlocklyDataSource('js')
         });
         this.reloadTimer = null;
     }
