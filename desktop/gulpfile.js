@@ -13,6 +13,9 @@ const del = require('del');
 const exec = require('child_process').exec;
 
 const options = {mangle: {reserved: ['require']}};
+
+process.env.ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY = true;
+
 /**
  * Remove all files besides the application package.json
  */
@@ -25,7 +28,7 @@ gulp.task('clean', () => {
  * Install dependencies, in most cases we will really need to update
  * or something else as npm install is a prereq to running this project
  */
-gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'phaser_workspace', 'arduino_workspace', 'base_project_manager'], () => {
+gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'phaser_workspace', 'arduino_workspace', 'base_project_manager', 'serial_monitor', 'window_manager'], () => {
     return gulp.src('package.json')
         .pipe(install());
 });
@@ -179,6 +182,20 @@ gulp.task('project', () => {
         .pipe(minify(options))
         .pipe(addsrc(['project/**/*', '!project/**/*.js']))
         .pipe(gulp.dest('app/project'));
+});
+
+gulp.task('window_manager', () => {
+    gulp.src('window_manager/**/*.js')
+        .pipe(minify(options))
+        .pipe(addsrc(['window_manager/**/*', '!window_manager/**/*.js']))
+        .pipe(gulp.dest('app/window_manager'));
+});
+
+gulp.task('serial_monitor', () => {
+    gulp.src('serial_monitor/**/*.js')
+        .pipe(minify(options))
+        .pipe(addsrc(['serial_monitor/**/*', '!serial_monitor/**/*.js']))
+        .pipe(gulp.dest('app/serial_monitor'));
 });
 
 gulp.task('static', () => {
