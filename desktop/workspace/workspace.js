@@ -342,11 +342,11 @@ class CodeComponent extends exports.BaseComponent {
     }
 
     setCode(code) {
-        if(!this.editor){
+        if (!this.editor) {
             setTimeout(this.setCode.bind(this), 500, code);
             return;
         }
-        
+
         this.editor.setValue(code, -1);
     }
 
@@ -421,6 +421,41 @@ class PhaserComponent extends exports.BaseComponent {
         }
     }
 
+
+    onAttach(workspace) {
+        super.onAttach(workspace);
+        // ipcRenderer.on('pause_execution', () => {
+        //     // log.debug('pause execution');
+        //     if (!webview) {
+        //         return;
+        //     }
+        //
+        //     webview.executeJavaScript('game.enableStep();');
+        // });
+        //
+        // ipcRenderer.on('step_execution', () => {
+        //     // log.debug('step execution');
+        //     if (!webview) {
+        //         return;
+        //     }
+        //
+        //     webview.executeJavaScript('game.step();');
+        // });
+        //
+        // ipcRenderer.on('resume_execution', () => {
+        //     // log.debug('resume execution');
+        //     if (!webview) {
+        //         return;
+        //     }
+        //
+        //     webview.executeJavaScript('game.disableStep();');
+        // });
+    }
+
+    onDetach(workspace) {
+        super.onDetach(workspace);
+    }
+
     pauseExecution() {
         this.paused = true;
     }
@@ -486,11 +521,6 @@ ipcRenderer.on('settings_updated', () => {
     document.getElementById('editor').style.fontSize = `${electronConfig.get('fontsize') || '12'}px`
 });
 
-ipcRenderer.on('save_project', () => {
-    currentWorkspace.save();
-    currentWorkspace.reload();
-});
-
 ipcRenderer.on('save_project_as', (event, project) => {
     project = Object.assign(new LoadedProject(), project);
     project.projectManager = Object.assign(new BaseProjectManager(), project.getProjectManager());
@@ -505,35 +535,6 @@ ipcRenderer.on('save_project_as', (event, project) => {
 });
 
 ipcRenderer.on('eval', () => currentWorkspace.reload());
-
-
-ipcRenderer.on('pause_execution', () => {
-    // log.debug('pause execution');
-    if (!webview) {
-        return;
-    }
-
-    webview.executeJavaScript('game.enableStep();');
-});
-
-ipcRenderer.on('step_execution', () => {
-    // log.debug('step execution');
-    if (!webview) {
-        return;
-    }
-
-    webview.executeJavaScript('game.step();');
-});
-
-ipcRenderer.on('resume_execution', () => {
-    // log.debug('resume execution');
-    if (!webview) {
-        return;
-    }
-
-    webview.executeJavaScript('game.disableStep();');
-});
-
 //endregion
 
 //region DATA_SOURCE
@@ -543,19 +544,37 @@ class DataSource {
         this.extension = extension;
     }
 
+    /**
+     * Set the project associated with this DataSource
+     * @param {LoadedProject} project The project this DataSource is in charge of loading/writing to disk
+     */
     setProject(project) {
         this.project = project;
     }
 
-    save(workspace) {
+    /**
+     * Save the {@see GeneratedCode} to the current project
+     * @param code The generated code for the current project, and optionally the xml for blocks
+     * @param code.code generated/entered code for the current project
+     * @param code.xml xml representing the blocks if any
+     */
+    save(code) {
+        throw new Error("save not implemented");
     }
 
-    saveAs(workspace, destPath) {
-
+    /**
+     * Save code to LoadedProject
+     * @param code The generated code for the current project, and optionally the xml for blocks
+     * @param code.code generated/entered code for the current project
+     * @param code.xml xml representing the blocks if any
+     * @param {LoadedProject} destinationProject The destination project to save this project as
+     */
+    saveAs(code, destinationProject) {
+        throw new Error("saveAs not implemented");
     }
 
-    loadProjectFile() {
-
+    loadProjectFile(project) {
+        throw new Error('loadProjectFile not implemented');
     }
 }
 
@@ -580,8 +599,23 @@ class BlocklyDataSource extends DataSource {
         }]);
     }
 
-    saveAs(code, destPath) {
-
+    saveAs(code, destinationProject) {
+        try {
+            destinationProject.save([{
+                path: destinationProject.getFileInProjectDir(`${destinationProject.getName()}.${this.extension}`),
+                data: code.code
+            }, {
+                path: destinationProject.getBlocksPath(),
+                data: code.xml
+            }]);
+        } catch (err) {
+            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
+                type: 'error',
+                title: 'Dragon Drop Error',
+                message: `Error in code!\n${err.message}`
+            });
+            log.error(err);
+        }
     }
 
     loadProjectFile(project) {
@@ -622,8 +656,7 @@ class TextDataSource extends DataSource {
         }
     }
 
-    saveAs(workspace, destPath) {
-
+    saveAs(workspace, destProject) {
     }
 
     loadProjectFile(workspace) {
@@ -631,16 +664,7 @@ class TextDataSource extends DataSource {
     }
 }
 
-class GeneratedCode {
-    constructor(code = "", blocks = null) {
-        this.code = code;
-        this.blocks = blocks;
-    }
-}
-
 //endregion
-
-exports.GeneratedCode = GeneratedCode;
 exports.DataSource = DataSource;
 exports.BlocklyDataSource = BlocklyDataSource;
 exports.TextDataSource = TextDataSource;
@@ -708,11 +732,11 @@ exports.Workspace = class {
             .debounceTime(TIMEOUT)
             .subscribe({
                 next: code => {
-                    console.log(code);
+                    this.code = code;
                     this.codeSubject.next(code);
                 },
                 error: err => exports.logErrorAndQuit(err, 'Code Update')
-            })
+            });
     }
 
     registerProjectSubscriber(subscriber) {
@@ -727,6 +751,10 @@ exports.Workspace = class {
         ipcRenderer.on('show_code', () => this.addComponentIfMissing(exports.CODE_COMPONENT, 'Code'));
         ipcRenderer.on('show_blockly', () => this.addComponentIfMissing(exports.BLOCKLY_COMPONENT, 'Blockly'));
         ipcRenderer.on('show_phaser', () => this.addComponentIfMissing(exports.PHASER_COMPONENT, 'Game'));
+        ipcRenderer.on('save_project', () => {
+            this.save();
+            this.reload();
+        });
     }
 
     init() {
@@ -752,66 +780,25 @@ exports.Workspace = class {
      * @param component
      */
     componentCreated(component) {
-        console.log(component)
         component.instance.onAttach(this);
         component.on('itemDestroyed', () => component.instance.onDetach(this));
         this.components[component.componentName] = component.instance;
     }
 
     save() {
-        try {
-            if (!this.getBlockly()) {
-                return;
-            }
-
-            const code = this.updateCode();
-            let xml = Blockly.Xml.workspaceToDom(this.getBlockly());
-            xml = Blockly.Xml.domToPrettyText(xml);
-
-            this.loadedProject.save([{
-                path: this.loadedProject.getSourceFile(this.extension),
-                data: code
-            }, {
-                path: this.loadedProject.getBlocksPath(),
-                data: xml
-            }]);
-
-            // this.reload();
-        } catch (err) {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: `Error in code!\n${err.message}`
-            });
-            log.error(err);
+        if (!this.code) {
+            return;
         }
+
+        this.dataSource.save(this.code);
     }
 
     saveAs(project) {
-        try {
-            if (!this.getBlockly()) {
-                return;
-            }
-
-            const code = this.getCode();
-            let xml = Blockly.Xml.workspaceToDom(this.getBlockly());
-            xml = Blockly.Xml.domToPrettyText(xml);
-
-            project.save([{
-                path: project.getFileInProjectDir(`${project.getName()}.js`),
-                data: code
-            }, {
-                path: project.getBlocksPath(),
-                data: xml
-            }]);
-        } catch (err) {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: `Error in code!\n${err.message}`
-            });
-            log.error(err);
+        if (!this.code) {
+            return;
         }
+
+        this.dataSource.saveAs(this.code, project);
     }
 
     reload() {
@@ -842,8 +829,8 @@ exports.Workspace = class {
 
     /**
      * Add the given component to the workspace if it does not already exist
-     * @param component The name of the component
-     * @param title The title to display on the components tab
+     * @param {!string} component The name of the component
+     * @param {!string} title The title to display on the components tab
      */
     addComponentIfMissing(component, title) {
         log.debug('Add Component if Missing', component, title);
@@ -852,8 +839,6 @@ exports.Workspace = class {
             return;
         }
 
-        //TODO: Need to make sure that this matches the original content that we started with, otherwise the created
-        //component will not be correctly configured
         const config = {
             type: TYPE_COMPONENT,
             componentName: component,
@@ -866,6 +851,11 @@ exports.Workspace = class {
         this.addChildToRoot(config);
     }
 
+    /**
+     * Removes the component from the workspace, this saves the components state to allow the user to reopen the
+     * component later
+     * @param {!BaseComponent} component The component to remove
+     */
     removeComponent(component) {
         // console.log(component.componentState);
         this.componentStates[component.getName()] = component.componentState;
@@ -876,5 +866,5 @@ exports.Workspace = class {
 exports.logErrorAndQuit = function (e, state) {
     log.error(e.message);
     log.error('Error project changes not saved', e, state);
-    // app.exit(-1);
+    app.exit(-1);
 };
