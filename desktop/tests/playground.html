@@ -102,8 +102,8 @@
 
     function parseToolboxes() {
       const promises = [];
-      promises.push(parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml"));
       promises.push(parseToolbox("wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
+      promises.push(parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml"));
       promises.push(parseToolbox("arduino", "../project_types/arduino/static/toolbox.xml"));
       promises.push(parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml"));
       promises.push(parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
@@ -331,6 +331,42 @@
         console.log(e);
     }
 
+    function cleanReload() {
+      console.log("Reloading workspace");
+      $( '.injectionDiv' ).remove();
+      let toolbox = getToolboxElement();
+      let match = location.search.match(/dir=([^&]+)/);
+      let rtl = match && match[1] == 'rtl';
+      match = location.search.match(/side=([^&]+)/);
+      let side = match ? match[1] : 'start';
+      document.forms.options.elements.side.value = side;
+      workspace = Blockly.inject('blocklyDiv',
+          {comments: true,
+              disable: true,
+              collapse: true,
+              grid:
+                  {spacing: 25,
+                      length: 3,
+                      colour: '#ccc',
+                      snap: true},
+              horizontalLayout: side == 'top' || side == 'bottom',
+              maxBlocks: Infinity,
+              media: '../media/',
+              readOnly: false,
+              rtl: rtl,
+              scrollbars: true,
+              toolbox: toolbox,
+              toolboxPosition: side == 'top' || side == 'start' ? 'start' : 'end',
+              zoom:
+                  {controls: true,
+                      wheel: true,
+                      startScale: 1.0,
+                      maxScale: 4,
+                      minScale: .25,
+                      scaleSpeed: 1.1}
+          });
+    }
+
     function airstrike(n) {
         console.log("Placing " + n + " random blocks");
         var prototypes = [];
@@ -546,9 +582,7 @@
       <option value="ltr">LTR</option>
       <option value="rtl">RTL</option>
     </select>
-    <select id="which-toolbox" name="toolbox" >
-      
-    </select>
+    <select id="which-toolbox" name="toolbox" onchange="return cleanReload();"></select>
     <select name="side" onchange="document.forms.options.submit()">
       <option value="start">Start</option>
       <option value="end">End</option>
