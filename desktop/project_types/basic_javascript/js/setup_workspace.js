@@ -9,15 +9,17 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-const {Workspace, BlocklyComponent, CodeComponent} = require('../../../workspace');
+const {Workspace} = require('../../../workspace');
+const BlocklyComponent = require('../../../workspace/components/blockly_component');
+const CodeComponent = require('../../../workspace/components/code_component');
 const BlocklyDataSource = require('../../../workspace/datasource/blocklydatasource');
 
 const fs = require('fs-extra');
 const path = require('path');
 
-let toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
+const toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
 
-let layoutConfig = {
+const layoutConfig = {
     settings: {
         showPopoutIcon: false
     },
