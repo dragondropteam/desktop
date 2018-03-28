@@ -100,6 +100,16 @@
     var fakeDragStack = [];
     var numDrags = 0;
 
+    function parseToolboxes() {
+      const promises = [];
+      promises.push(parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml"));
+      promises.push(parseToolbox("wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
+      promises.push(parseToolbox("arduino", "../project_types/arduino/static/toolbox.xml"));
+      promises.push(parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml"));
+      promises.push(parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
+      return Promise.all(promises);
+    }
+
     function logErr(message) {
       document.getElementById('dd-log').innerHTML 
       = document.getElementById('dd-log').innerHTML 
@@ -141,30 +151,33 @@
 
     // Place new toolboxes to parse in here
     $(document).ready(function(){
-      parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml");
-      parseToolbox("wink", "../project_types/exploring_wink_robot/static/toolbox.xml");
-      parseToolbox("arduino", "../project_types/arduino/static/toolbox.xml");
-      parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml");
-      parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml");
+
       //parseToolbox("simple", "../project_types/visual_phaser/static/toolbox.xml");
       // Intercept console information from the webpage to add to output.
+      parseToolboxes().then(runNow);
     });
 
     // Parses the specified toolbox and appends it to the document.
     // Toolbox IDs are set to "toolbox-" + toolbox_name
     function parseToolbox(toolbox_name, file_path) {
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          type: "GET",
+          url: file_path,
+          dataType: "xml",
+          success: (xml) => { 
+            ParseInternal(xml, toolbox_name); 
+            console.log("Done parsing toolbox-" + toolbox_name);
+            document.getElementById("which-toolbox").innerHTML = document.getElementById("which-toolbox").innerHTML + '<option value="' + toolbox_name + '">' + toolbox_name + '</option>';
+            resolve();
+          }
+        }).fail(function() {
+            console.log("FAILED TO PARSE " + toolbox_name + " AT " + file_path);
+            reject();
+        })
+      });
       console.log("Parsing toolbox: " + toolbox_name)
-      $.ajax({
-        type: "GET",
-        url: file_path,
-        dataType: "xml",
-        success: (xml) => { ParseInternal(xml, toolbox_name); }
-      }).done(function(a, b) {
-          console.log("Done parsing toolbox-" + toolbox_name);
-      })
-      .fail(function(a, b) {
-          console.log("FAILED TO PARSE " + toolbox_name + " AT " + file_path);
-      })
+     
 
       // Parses the XML, adjusts name, and appends it to the document.
       function ParseInternal(xml, name) {
@@ -204,7 +217,7 @@
     }
 
     // The start of the application. This parses URL arguments and whatnot, arranging blockly.
-    function start() {
+    function runNow() {
         // Parse the URL arguments.
         var match = location.search.match(/dir=([^&]+)/);
         var rtl = match && match[1] == 'rtl';
@@ -258,8 +271,9 @@
     }
 
     function getToolboxElement() {
-        var match = location.search.match(toolbox=([^&]+)/);
-        return document.getElementById('toolbox' + (match ? match[1] : 'categories'));
+        let which = document.getElementById("which-toolbox");
+        console.log(which.options[which.selectedIndex].value);
+        return document.getElementById("toolbox-" + which.options[which.selectedIndex].value);
     }
 
     function toXml() {
@@ -518,7 +532,7 @@
   </style>
 </head>
 <html>
-<body onload="start()">
+<body>
 
   <div id="blocklyDiv"></div>
 
@@ -532,9 +546,8 @@
       <option value="ltr">LTR</option>
       <option value="rtl">RTL</option>
     </select>
-    <select name="toolbox" onchange="document.forms.options.submit()">
-      <option value="simple">Simple</option>
-      <!--option value="categories">Categories</option-->
+    <select id="which-toolbox" name="toolbox" >
+      
     </select>
     <select name="side" onchange="document.forms.options.submit()">
       <option value="start">Start</option>
