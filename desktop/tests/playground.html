@@ -2,9 +2,38 @@
 <head>
   <meta charset="utf-8">
   <title>Blockly Playground</title>
-  <!--xml src="simple.xml" type="text/xmldata" id="toolbox-simple" ></xml-->
-  <script src="../blockly_uncompressed.js"></script>
 
+  <!-- Stylesheet links -->
+  <link rel="stylesheet" type="text/css" href="playground.css">
+
+  <!-- Including JS files for blockly -->
+  <script src="../blockly_uncompressed.js"></script>
+  <script src="../generators/c.js"></script> <!-- custom -->
+  <script src="../generators/c/arduino.js"></script> <!-- custom -->
+  <script src="../generators/c/arduino_eeprom.js"></script> <!-- custom -->
+  <script src="../generators/c/arduino_pwm.js"></script> <!-- custom -->
+  <script src="../generators/c/arduino_serial.js"></script> <!-- custom -->
+  <script src="../generators/c/arduino_servo.js"></script> <!-- custom -->
+  <script src="../generators/c/arrays.js"></script> <!-- custom -->
+  <script src="../generators/c/colour.js"></script> <!-- custom -->
+  <script src="../generators/c/lists.js"></script> <!-- custom -->
+  <script src="../generators/c/logic.js"></script> <!-- custom -->
+  <script src="../generators/c/loops.js"></script> <!-- custom -->
+  <script src="../generators/c/math.js"></script> <!-- custom -->
+  <script src="../generators/c/procedures.js"></script> <!-- custom -->
+  <script src="../generators/c/ringo.js"></script> <!-- custom -->
+  <script src="../generators/c/text.js"></script> <!-- custom -->
+  <script src="../generators/c/variables.js"></script> <!-- custom -->
+  <script src="../generators/c/wink.js"></script> <!-- custom -->
+  <script src="../generators/dart.js"></script>
+  <script src="../generators/dart/logic.js"></script>
+  <script src="../generators/dart/loops.js"></script>
+  <script src="../generators/dart/math.js"></script>
+  <script src="../generators/dart/text.js"></script>
+  <script src="../generators/dart/lists.js"></script>
+  <script src="../generators/dart/colour.js"></script>
+  <script src="../generators/dart/variables.js"></script>
+  <script src="../generators/dart/procedures.js"></script>
   <script src="../generators/javascript.js"></script>
   <script src="../generators/javascript/classes.js"></script> <!-- custom -->
   <script src="../generators/javascript/colour.js"></script>
@@ -18,25 +47,6 @@
   <script src="../generators/javascript/procedures.js"></script>
   <script src="../generators/javascript/text.js"></script>
   <script src="../generators/javascript/variables.js"></script>
-
-  <script src="../generators/python.js"></script>
-  <script src="../generators/python/logic.js"></script>
-  <script src="../generators/python/loops.js"></script>
-  <script src="../generators/python/math.js"></script>
-  <script src="../generators/python/text.js"></script>
-  <script src="../generators/python/lists.js"></script>
-  <script src="../generators/python/colour.js"></script>
-  <script src="../generators/python/variables.js"></script>
-  <script src="../generators/python/procedures.js"></script>
-  <script src="../generators/php.js"></script>
-  <script src="../generators/php/logic.js"></script>
-  <script src="../generators/php/loops.js"></script>
-  <script src="../generators/php/math.js"></script>
-  <script src="../generators/php/text.js"></script>
-  <script src="../generators/php/lists.js"></script>
-  <script src="../generators/php/colour.js"></script>
-  <script src="../generators/php/variables.js"></script>
-  <script src="../generators/php/procedures.js"></script>
   <script src="../generators/lua.js"></script>
   <script src="../generators/lua/logic.js"></script>
   <script src="../generators/lua/loops.js"></script>
@@ -46,60 +56,63 @@
   <script src="../generators/lua/colour.js"></script>
   <script src="../generators/lua/variables.js"></script>
   <script src="../generators/lua/procedures.js"></script>
-  <script src="../generators/dart.js"></script>
-  <script src="../generators/dart/logic.js"></script>
-  <script src="../generators/dart/loops.js"></script>
-  <script src="../generators/dart/math.js"></script>
-  <script src="../generators/dart/text.js"></script>
-  <script src="../generators/dart/lists.js"></script>
-  <script src="../generators/dart/colour.js"></script>
-  <script src="../generators/dart/variables.js"></script>
-  <script src="../generators/dart/procedures.js"></script>
+  <script src="../generators/php.js"></script>
+  <script src="../generators/php/logic.js"></script>
+  <script src="../generators/php/loops.js"></script>
+  <script src="../generators/php/math.js"></script>
+  <script src="../generators/php/text.js"></script>
+  <script src="../generators/php/lists.js"></script>
+  <script src="../generators/php/colour.js"></script>
+  <script src="../generators/php/variables.js"></script>
+  <script src="../generators/php/procedures.js"></script>
+  <script src="../generators/python.js"></script>
+  <script src="../generators/python/logic.js"></script>
+  <script src="../generators/python/loops.js"></script>
+  <script src="../generators/python/math.js"></script>
+  <script src="../generators/python/text.js"></script>
+  <script src="../generators/python/lists.js"></script>
+  <script src="../generators/python/colour.js"></script>
+  <script src="../generators/python/variables.js"></script>
+  <script src="../generators/python/procedures.js"></script>
+
   <script src="../msg/messages.js"></script>
 
-  <!-- ORIGINAL -->
-  <!--script src="../blocks/phaser.js"></script>
-  <script src="../blocks/logic.js"></script>
-  <script src="../blocks/loops.js"></script>
-  <script src="../blocks/math.js"></script>
-  <script src="../blocks/text.js"></script>
-  <script src="../blocks/lists.js"></script>
+  <script src="../blocks/arduino.js"></script> <!-- custom -->
+  <script src="../blocks/arduino_eeprom.js"></script> <!-- custom -->
+  <script src="../blocks/arduino_pwm.js"></script> <!-- custom -->
+  <script src="../blocks/arduino_serial.js"></script> <!-- custom -->
+  <script src="../blocks/arduino_servo.js"></script> <!-- custom -->
+  <script src="../blocks/classes.js"></script> <!-- custom -->
   <script src="../blocks/colour.js"></script>
-  <script src="../blocks/variables.js"></script>
-  <script src="../blocks/procedures.js"></script-->
-
-  <!-- CUSTOM -->
-  <script src="../blocks/arduino.js"></script>
-  <script src="../blocks/arduino_eeprom.js"></script>
-  <script src="../blocks/arduino_pwm.js"></script>
-  <script src="../blocks/arduino_serial.js"></script>
-  <script src="../blocks/arduino_servo.js"></script>
-  <script src="../blocks/classes.js"></script>
-  <script src="../blocks/colour.js"></script>
-  <script src="../blocks/dom.js"></script>
-  <script src="../blocks/dragondropdom.js"></script>
-  <script src="../blocks/eval.js"></script>
+  <script src="../blocks/dom.js"></script> <!-- custom -->
+  <script src="../blocks/dragondropdom.js"></script> <!-- custom -->
+  <script src="../blocks/eval.js"></script> <!-- custom -->
   <script src="../blocks/lists.js"></script>
   <script src="../blocks/logic.js"></script>
   <script src="../blocks/loops.js"></script>
   <script src="../blocks/math.js"></script>
   <script src="../blocks/phaser.js"></script>
   <script src="../blocks/procedures.js"></script>
-  <script src="../blocks/procedures_typed.js"></script>
-  <script src="../blocks/ringo.js"></script>
+  <script src="../blocks/procedures_typed.js"></script> <!-- custom -->
+  <script src="../blocks/ringo.js"></script> <!-- custom -->
   <script src="../blocks/text.js"></script>
-  <script src="../blocks/typedarrays.js"></script>
+  <script src="../blocks/typedarrays.js"></script> <!-- custom -->
   <script src="../blocks/variables.js"></script>
-  <script src="../blocks/wink.js"></script>
+  <script src="../blocks/wink.js"></script> <!-- custom -->
 
 <!-- Script loading and resources -->
 <script src="../static/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
     'use strict';
-    var workspace = null;
-    var fakeDragStack = [];
-    var numDrags = 0;
 
+    // Global variables
+    var workspace = null;   // The workspace representing blockly.
+    var fakeDragStack = []; // Holds the queued fake drags that will occur after creation.
+    var numDrags = 0;       // Tracks number of automatic drags performed.
+    var isVisible = true;   // Can we see the blockly workspace/ is it rendered? True by default.
+
+    // Parses out the toolboxes and associates them with a name. 
+    // Toolbox load order isn't guarenteed, but toolboxes will load before blockly does.
     function parseToolboxes() {
       const promises = [];
       promises.push(parseToolbox("wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
@@ -110,51 +123,49 @@
       return Promise.all(promises);
     }
 
+    // Captues and writes error messages out to the console
     function logErr(message) {
       document.getElementById('dd-log').innerHTML 
-      = document.getElementById('dd-log').innerHTML 
-      + '<div class="dd-output-err"><code>'
-      + toStr(message) 
-      + '</code></div>'
+      = document.getElementById('dd-log').innerHTML + "[ERR] " + message + "\n";
+      //+ '<div class="dd-output-err"><code>' + toStr(message) + '</code></div>';
     }
 
+    // Captues and writes general logging messages out to the console
     function logLine(message) {
       document.getElementById('dd-log').innerHTML 
-      = document.getElementById('dd-log').innerHTML 
-      + '<div class="dd-output-log"><code>'
-      + toStr(message) 
-      + '</code></div>'
+      = document.getElementById('dd-log').innerHTML + "[Log] " + message + "\n";
+      //+ '<div class="dd-output-log"><code>' + toStr(message) + '</code></div>';
     }
 
+    // Forces the log div to scroll automatically as more things are added.
     function scrollLog() {
       $('#dd-log').scrollTop($('#dd-log')[0].scrollHeight - $('#dd-log')[0].clientHeight);
     }
 
-    // Step in and nab the console log and console error output so we can
-    // feed them to the screen as well. 
-    (function(){
-      console.log("Configuring Output");
-      var oldLog = console.log;
-      console.log = function (message) {
-          logLine(message);
+    // Intercept the console logging for errors, warnings, and logs. We then hand it to our
+    // logging functions, but make sure we rebind the console to each thing so we still get
+    // stuff in the broswer console.
+    ['log','warn','error'].forEach(function (verb) {
+      console[verb] = (function (method, verb) {
+        return function(text) {
+          if(verb == "error")
+            logErr(text);
+          else
+            logLine(text);  
           scrollLog();
-          oldLog.apply(console, arguments);
-      };
-      var oldErr = console.error;
-      console.error = function (message) {
-          logErr(message);
-          scrollLog();
-          oldErr.apply(console, Array.prototype.slice.call(arguments).join(' '));
-      };
-    })();
+        };
+      })
+      (console[verb].bind(console), verb);
+    });
 
+    // Catch errors and pass them off to logging. 
+    window.onerror = function(err) {
+        console.error(err);
+    };
 
-    // Place new toolboxes to parse in here
+    // Document initialization, steps enforced with promises.
     $(document).ready(function(){
-
-      //parseToolbox("simple", "../project_types/visual_phaser/static/toolbox.xml");
-      // Intercept console information from the webpage to add to output.
-      parseToolboxes().then(runNow);
+      parseToolboxes().then(initializeBlockly);
     });
 
     // Parses the specified toolbox and appends it to the document.
@@ -167,7 +178,7 @@
           dataType: "xml",
           success: (xml) => { 
             ParseInternal(xml, toolbox_name); 
-            console.log("Done parsing toolbox-" + toolbox_name);
+            console.log("Parsed toolbox-" + toolbox_name);
             document.getElementById("which-toolbox").innerHTML = document.getElementById("which-toolbox").innerHTML + '<option value="' + toolbox_name + '">' + toolbox_name + '</option>';
             resolve();
           }
@@ -176,8 +187,7 @@
             reject();
         })
       });
-      console.log("Parsing toolbox: " + toolbox_name)
-     
+
 
       // Parses the XML, adjusts name, and appends it to the document.
       function ParseInternal(xml, name) {
@@ -217,7 +227,7 @@
     }
 
     // The start of the application. This parses URL arguments and whatnot, arranging blockly.
-    function runNow() {
+    function initializeBlockly() {
         // Parse the URL arguments.
         var match = location.search.match(/dir=([^&]+)/);
         var rtl = match && match[1] == 'rtl';
@@ -272,7 +282,6 @@
 
     function getToolboxElement() {
         let which = document.getElementById("which-toolbox");
-        console.log(which.options[which.selectedIndex].value);
         return document.getElementById("toolbox-" + which.options[which.selectedIndex].value);
     }
 
@@ -331,6 +340,11 @@
         console.log(e);
     }
 
+    function toggleWorkspaceVisibility() {
+      isVisible = !isVisible;
+      workspace.setVisible(isVisible);
+    }
+    
     function cleanReload() {
       console.log("Reloading workspace");
       $( '.injectionDiv' ).remove();
@@ -521,51 +535,8 @@
             block.render();
         }
     }
-
 </script>
-  <style>
-    html, body {
-      height: 100%;
-    }
-    body {
-      background-color: #fff;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
-    h1 {
-      text-align: center;
-      font-weight: normal;
-      font-size: 150%;
-    }
-    h2 {
-      text-align: center;
-      font-weight: normal;
-      font-size: 125%;
-    }
-    .dd-output-log {
-      background-color: rgb(250, 250, 252); 
-      padding: 2px; 
-      border-bottom: 1px rgb(210, 210, 220) solid;
-    }
-    .dd-output-err {
-      background-color: rgb(255, 200, 200); 
-      padding: 2px; 
-      border-bottom: 1px rgb(210, 210, 220) solid;
-    }
-    #dd-log{
-      height: 50%;
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
-    #blocklyDiv {
-      float: right;
-      height: 95%;
-      width: 70%;
-    }
-    #importExport {
-      font-family: monospace;
-    }
-  </style>
+
 </head>
 <html>
 <body>
@@ -574,15 +545,23 @@
 
   <h1>Blockly Playground</h1>
 
-  <p><a href="javascript:void(workspace.setVisible(true))">Show</a>
-   - <a href="javascript:void(workspace.setVisible(false))">Hide</a></p>
+  <p class="dd-center">
+    <a href="javascript:void(toggleWorkspaceVisibility())">Toggle Visibility</a>
+  </p>
 
   <form id="options">
+    Toolbox: 
+    <select id="which-toolbox" name="toolbox" onchange="return cleanReload();"></select>
+    <br/>
+
+    Text Alignment: 
     <select name="dir" onchange="document.forms.options.submit()">
       <option value="ltr">LTR</option>
       <option value="rtl">RTL</option>
-    </select>
-    <select id="which-toolbox" name="toolbox" onchange="return cleanReload();"></select>
+    </select> 
+    <br/>
+
+    Dropdown Position: 
     <select name="side" onchange="document.forms.options.submit()">
       <option value="start">Start</option>
       <option value="end">End</option>
@@ -598,6 +577,8 @@
     <br>
     <input type="button" value="To JavaScript" onclick="toCode('JavaScript')">
     &nbsp;
+    <input type="button" value="To C" onclick="toCode('C')">
+    &nbsp;
     <input type="button" value="To Python" onclick="toCode('Python')">
     &nbsp;
     <input type="button" value="To PHP" onclick="toCode('PHP')">
@@ -606,7 +587,7 @@
     &nbsp;
     <input type="button" value="To Dart" onclick="toCode('Dart')">
     <br>
-    <textarea id="importExport" style="width: 29%; max-width: 29%; height: 12em; max-height: 20em;"
+    <textarea id="importExport" style=""
       onchange="taChange();" onkeyup="taChange()"></textarea>
   </p>
   <h2>
@@ -624,11 +605,10 @@
     Output
   </h2>
   <p>
-    <input type="checkbox" onclick="logEvents(this.checked)" id="logCheck"> Log block events
+    <input type="checkbox" onclick="logEvents(this.checked)" id="logCheck" > Log block events
   </p>
   <hr/>
-    <div id="dd-log">
-    </div>
+    <textarea id="dd-log" readonly="true"></textarea>
   <hr/>
 </body>
 
