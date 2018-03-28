@@ -31,7 +31,7 @@ h2 {
   width: 29%; 
   max-width: 29%; 
   height: 12em; 
-  max-height: 20em;
+  max-height: 30em;
 }
 
 
@@ -41,7 +41,7 @@ h2 {
   width: 29%; 
   max-width: 29%; 
   height: 25em; 
-  max-height: 40em;
+  max-height: 70em;
   overflow-y: scroll;
   overflow-x: hidden;  
 }
