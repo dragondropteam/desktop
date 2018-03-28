@@ -9,7 +9,9 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-const {Workspace, BlocklyComponent, CodeComponent, BlocklyDataSource} = require('../../../workspace');
+const {Workspace, BlocklyComponent, CodeComponent} = require('../../../workspace');
+const BlocklyDataSource = require('../../../workspace/datasource/blocklydatasource');
+
 const fs = require('fs-extra');
 const path = require('path');
 
