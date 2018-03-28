@@ -47,6 +47,7 @@ const TYPE_COMPONENT = 'component';
 
 exports.BaseComponent = class {
     constructor(componentState) {
+        this.componentState = componentState;
         this.name = componentState.label;
     }
 
@@ -60,6 +61,10 @@ exports.BaseComponent = class {
      */
     onAttach(workspace) {
         // this.workspace = workspace;
+    }
+
+    onDetach(workspace) {
+        workspace.removeComponent(this);
     }
 };
 
@@ -131,6 +136,8 @@ class BlocklyComponent extends exports.BaseComponent {
         this.blocklyConfig = componentState.blocklyConfig;
         this.workspaceToCode = componentState.workspaceToCode;
         this.codeObservable_ = new Rx.Subject();
+
+        this.id = Math.random();
 
         blocklyContainer = container;
         container.getElement().html('<div id="blocklyArea"><div id="blocklyDiv" style="position: absolute"></div></div>');
@@ -230,6 +237,11 @@ class BlocklyComponent extends exports.BaseComponent {
 
 
     projectLoad(code) {
+        if (!this.workspace) {
+            setTimeout(this.projectLoad.bind(this), 500, code);
+            return;
+        }
+
         const xml = Blockly.Xml.textToDom(code.xml);
         Blockly.Xml.domToWorkspace(xml, this.workspace);
     }
@@ -330,6 +342,11 @@ class CodeComponent extends exports.BaseComponent {
     }
 
     setCode(code) {
+        if(!this.editor){
+            setTimeout(this.setCode.bind(this), 500, code);
+            return;
+        }
+        
         this.editor.setValue(code, -1);
     }
 
@@ -489,11 +506,6 @@ ipcRenderer.on('save_project_as', (event, project) => {
 
 ipcRenderer.on('eval', () => currentWorkspace.reload());
 
-ipcRenderer.on('show_code', () => currentWorkspace.addComponentIfMissing(exports.CODE_COMPONENT, 'Code'));
-
-ipcRenderer.on('show_blockly', (event, arg) => currentWorkspace.addComponentIfMissing(exports.BLOCKLY_COMPONENT, 'Blockly'));
-
-ipcRenderer.on('show_phaser', (event, arg) => currentWorkspace.addComponentIfMissing(exports.PHASER_COMPONENT, 'Game'));
 
 ipcRenderer.on('pause_execution', () => {
     // log.debug('pause execution');
@@ -676,6 +688,8 @@ exports.Workspace = class {
         this.dataSource = dataSource;
         this.codeSubject.subscribe(code => this.dataSource.save(code));
 
+        this.componentStates = {};
+
         assert(this.layoutConfig, 'LayoutConfig must be defined');
     }
 
@@ -701,7 +715,7 @@ exports.Workspace = class {
             })
     }
 
-    registerProjectSubscriber(subscriber){
+    registerProjectSubscriber(subscriber) {
         this.projectSubject.subscribe(subscriber);
     }
 
@@ -709,12 +723,16 @@ exports.Workspace = class {
         this.codeSubject.subscribe(subscriber);
     }
 
-    // deregisterCodeSubscriber(subscriber) {
-    //
-    // }
+    setIPCListeners() {
+        ipcRenderer.on('show_code', () => this.addComponentIfMissing(exports.CODE_COMPONENT, 'Code'));
+        ipcRenderer.on('show_blockly', () => this.addComponentIfMissing(exports.BLOCKLY_COMPONENT, 'Blockly'));
+        ipcRenderer.on('show_phaser', () => this.addComponentIfMissing(exports.PHASER_COMPONENT, 'Game'));
+    }
 
     init() {
         currentWorkspace = this;
+
+        this.setIPCListeners();
 
         this.layout = new GoldenLayout(this.layoutConfig);
 
@@ -733,8 +751,10 @@ exports.Workspace = class {
      * @private
      * @param component
      */
-    componentCreated(component){
+    componentCreated(component) {
+        console.log(component)
         component.instance.onAttach(this);
+        component.on('itemDestroyed', () => component.instance.onDetach(this));
         this.components[component.componentName] = component.instance;
     }
 
@@ -794,56 +814,13 @@ exports.Workspace = class {
         }
     }
 
-    getCode() {
-        throw new Error('getCode not implemented');
-    }
-
-    getBlockly() {
-        const component = this.getComponent(exports.BLOCKLY_COMPONENT);
-        if (component) {
-            return component.getWorkspace();
-        }
-        return null;
-    }
-
-    updateCode() {
-        if (!this.getBlockly()) {
-            return;
-        }
-
-        const code = this.getCode();
-        const codeComponent = this.getComponent(exports.CODE_COMPONENT);
-        if (codeComponent) {
-            codeComponent.setCode(code);
-        }
-        return code;
-    }
-
     reload() {
-    }
-
-    setBlocklyBlocks(blocks) {
-        const blocklyComponent = this.getComponent(exports.BLOCKLY_COMPONENT);
-        log.debug(blocklyComponent);
-
-        if (blocklyComponent) {
-            const xml = Blockly.Xml.textToDom(blocks);
-            Blockly.Xml.domToWorkspace(xml, blocklyComponent.getWorkspace());
-        }
     }
 
     loadProjectFile(project) {
         this.loadedProject = project;
         const code = this.dataSource.loadProjectFile(project);
         this.projectSubject.next(code);
-    }
-
-    setPhaserSource() {
-        log.debug('setPhaserSource');
-        let phaserComponent = this.getComponent(exports.PHASER_COMPONENT);
-        if (phaserComponent) {
-            phaserComponent.setSource(`file://${this.loadedProject.getSourceFile(this.extension)}`);
-        }
     }
 
     addAsset(source) {
@@ -869,22 +846,30 @@ exports.Workspace = class {
      * @param title The title to display on the components tab
      */
     addComponentIfMissing(component, title) {
+        log.debug('Add Component if Missing', component, title);
+
         if (this.hasComponent(component)) {
             return;
         }
 
         //TODO: Need to make sure that this matches the original content that we started with, otherwise the created
         //component will not be correctly configured
-        this.addChildToRoot({
-            type: 'component',
+        const config = {
+            type: TYPE_COMPONENT,
             componentName: component,
             componentState: {label: component},
             title: title,
-        });
+        };
+
+        Object.assign(config.componentState, this.componentStates[component] || {});
+
+        this.addChildToRoot(config);
     }
 
     removeComponent(component) {
-        delete this.components[component];
+        // console.log(component.componentState);
+        this.componentStates[component.getName()] = component.componentState;
+        delete this.components[component.getName()];
     }
 };
 
