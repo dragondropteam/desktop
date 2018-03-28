@@ -115,11 +115,11 @@
     // Toolbox load order isn't guarenteed, but toolboxes will load before blockly does.
     function parseToolboxes() {
       const promises = [];
-      promises.push(parseToolbox("wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
+      promises.push(parseToolbox("wink", "../project_types/wink_robot/static/toolbox.xml"));
       promises.push(parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml"));
       promises.push(parseToolbox("arduino", "../project_types/arduino/static/toolbox.xml"));
-      promises.push(parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml"));
-      promises.push(parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
+      //promises.push(parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml"));
+      //promises.push(parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
       return Promise.all(promises);
     }
 
@@ -264,6 +264,7 @@
                         minScale: .25,
                         scaleSpeed: 1.1}
             });
+        workspace.toolbox += toolbox;
         // Restore previously displayed text.
         if (sessionStorage) {
             var text = sessionStorage.getItem('textarea');
@@ -441,7 +442,6 @@
         var dragInfo = fakeDragStack.pop();
 
         // Track number of drags for debug output.
-        numDrags += 1;
         if(numDrags % 100 == 0)
             console.log(numDrags + " drags have been performed so far...")
 
@@ -450,7 +450,7 @@
         }
         else
             console.log("Finsihed " + numDrags + " drags")
-
+        numDrags += 1;
     }
 
     function fakeManyDrags() {
@@ -561,7 +561,7 @@
     </select> 
     <br/>
 
-    Dropdown Position: 
+    Toolbox Position: 
     <select name="side" onchange="document.forms.options.submit()">
       <option value="start">Start</option>
       <option value="end">End</option>
@@ -596,7 +596,7 @@
 
   <p>
     <input type="button" value="Airstrike!" onclick="airstrike(100)">
-    <br/><input type="button" value="Spaghetti!" onclick="spaghetti(8)">
+    <br/><input type="button" value="Spaghetti!" onclick="spaghetti(7)">
     <br/><input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
     <br/><input type="button" value="Make ALL the blocks!" onclick="placeAll()">
   </p>
