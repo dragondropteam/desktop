@@ -22,7 +22,6 @@ let layoutConfig = {
     content: [{
         type: 'row',
         content: [
-            //TODO: creatBlocklyMap(Blockly.JavaScript.workspaceToCode); Generate a function
             BlocklyComponent.generateContent(
                 BlocklyComponent.getDefaultBlocklyConfig(toolboxSource),
                 BlocklyComponent.generateWorkspaceMappingFunction(Blockly.JavaScript.workspaceToCode.bind(Blockly.JavaScript)))
@@ -33,28 +32,5 @@ let layoutConfig = {
     }]
 };
 
-class TextPhaserWorkspace extends Workspace {
-    constructor() {
-        super({
-            layoutConfig: layoutConfig,
-            extension: 'js',
-            editorLanguage: 'ace/mode/javascript',
-            dataSource: new BlocklyDataSource('js')
-        });
-        this.reloadTimer = null;
-    }
-
-    /**
-     * @override
-     */
-    getCode() {
-        if (!this.getBlockly()) {
-            return;
-        }
-
-        return Blockly.JavaScript.workspaceToCode(this.getBlockly());
-    }
-}
-
-const workspace = new TextPhaserWorkspace();
+const workspace = new Workspace(layoutConfig, new BlocklyDataSource('js'));
 workspace.init();
