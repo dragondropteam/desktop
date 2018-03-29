@@ -1,6 +1,7 @@
 const {BaseComponent, TYPE_COMPONENT, TIMEOUT} = require('./component');
 const assert = require('assert');
 const Rx = require('rxjs/Rx');
+const log = require('electron-log');
 const BLOCKLY_DIV_ID = 'blocklyDiv';
 const BLOCKLY_AREA_ID = 'blocklyArea';
 
@@ -25,7 +26,7 @@ class BlocklyComponent extends BaseComponent {
      * @param workspaceToCode A function to map a workspace to {@see GeneratedCode}
      * @return {*} An Item Configuration for GoldenLayout {@link http://golden-layout.com/docs/ItemConfig.html}
      */
-    static generateContent(blocklyConfig, workspaceToCode) {
+    static generateContent(blocklyConfig, workspaceToCode, disableOrphans = false) {
         assert(blocklyConfig != null);
 
         return {
@@ -35,7 +36,8 @@ class BlocklyComponent extends BaseComponent {
             componentState: {
                 label: BlocklyComponent.ID,
                 blocklyConfig: blocklyConfig,
-                workspaceToCode: workspaceToCode
+                workspaceToCode: workspaceToCode,
+                disableOrphans: disableOrphans
             }
         }
     }
@@ -83,6 +85,7 @@ class BlocklyComponent extends BaseComponent {
 
         this.blocklyConfig = componentState.blocklyConfig;
         this.workspaceToCode = componentState.workspaceToCode;
+        this.disableOrphans = componentState.disableOrphans;
         this.codeObservable_ = new Rx.Subject();
 
         this.blocklyContainer = container;
@@ -141,7 +144,17 @@ class BlocklyComponent extends BaseComponent {
         this.blocklyDiv = document.getElementById(BLOCKLY_DIV_ID);
 
         this.workspace = Blockly.inject(BLOCKLY_DIV_ID, this.blocklyConfig);
+
+        /**
+         * If we are in a language where orphans are not allowed disable them, this event listener must come before
+         * the change listener
+         */
+        if(this.disableOrphans){
+            this.workspace.addChangeListener(Blockly.Events.disableOrphans);
+        }
+
         this.workspace.addChangeListener(this.blocklyUpdate.bind(this));
+
 
         this.resize();
 
@@ -163,6 +176,7 @@ class BlocklyComponent extends BaseComponent {
              * All events in Blockly excluding Blockly.Events.UI are used for meaningful changes, Blockly.Events.UI
              * is for context menu, toolbox and the like opening no reason to spin off a disk operation
              */
+            console.log(event.type);
             if (event.type !== Blockly.Events.UI) {
                 const block = this.workspace.getBlockById(event.blockId);
                 if (block && block.onchange) {
@@ -173,7 +187,7 @@ class BlocklyComponent extends BaseComponent {
                 this.codeObservable_.next(this.workspace);
             }
         } catch (err) {
-            exports.logErrorAndQuit(err, {state: 'saving', project: this.loadedProject});
+            this.codeObservable_.error(err);
         }
     }
 

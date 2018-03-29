@@ -39,6 +39,7 @@ exports.ArduinoWorkspace = class ArduinoWorkspace extends Workspace {
 
 
     onComponentOpen(component) {
+        //TODO: Add this to where it needs to be
         this.getBlockly().addChangeListener(Blockly.Events.disableOrphans);
         return super.onComponentOpen(component);
     }
