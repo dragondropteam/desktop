@@ -58,4 +58,9 @@ h2 {
   border-bottom: 1px rgb(210, 210, 220) solid;
   padding: 2px; 
 }
-
+.dd-stress-test-button {
+  width: 150px;
+}
+.dd-export-button {
+  width: 95px;
+}

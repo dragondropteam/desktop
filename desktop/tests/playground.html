@@ -106,18 +106,19 @@
     'use strict';
 
     // Global variables
-    var workspace = null;   // The workspace representing blockly.
-    var fakeDragStack = []; // Holds the queued fake drags that will occur after creation.
-    var numDrags = 0;       // Tracks number of automatic drags performed.
-    var isVisible = true;   // Can we see the blockly workspace/ is it rendered? True by default.
+    var workspace = null;    // The workspace representing blockly.
+    var fakeDragStack = [];  // Holds the queued fake drags that will occur after creation.
+    var languageLookup = []; // 
+    var numDrags = 0;        // Tracks number of automatic drags performed.
+    var isVisible = true;    // Can we see the blockly workspace/ is it rendered? True by default.
 
     // Parses out the toolboxes and associates them with a name. 
     // Toolbox load order isn't guarenteed, but toolboxes will load before blockly does.
     function parseToolboxes() {
       const promises = [];
-      promises.push(parseToolbox("wink", "../project_types/wink_robot/static/toolbox.xml"));
-      promises.push(parseToolbox("phaser", "../project_types/visual_phaser/static/toolbox.xml"));
-      promises.push(parseToolbox("arduino", "../project_types/arduino/static/toolbox.xml"));
+      promises.push(parseToolbox("wink", ['C'], "../project_types/wink_robot/static/toolbox.xml"));
+      promises.push(parseToolbox("arduino", ['C'], "../project_types/arduino/static/toolbox.xml"));
+      promises.push(parseToolbox("phaser", ['JavaScript'], "../project_types/visual_phaser/static/toolbox.xml"));
       //promises.push(parseToolbox("exploring_phaser", "../project_types/exploring_phaser/static/toolbox.xml"));
       //promises.push(parseToolbox("exploring_wink", "../project_types/exploring_wink_robot/static/toolbox.xml"));
       return Promise.all(promises);
@@ -170,7 +171,8 @@
 
     // Parses the specified toolbox and appends it to the document.
     // Toolbox IDs are set to "toolbox-" + toolbox_name
-    function parseToolbox(toolbox_name, file_path) {
+    function parseToolbox(toolbox_name, lang, file_path) {
+      languageLookup[toolbox_name] = lang;
       return new Promise((resolve, reject) => {
         $.ajax({
           type: "GET",
@@ -228,43 +230,24 @@
 
     // The start of the application. This parses URL arguments and whatnot, arranging blockly.
     function initializeBlockly() {
+        // Set button availability
+        updateButtonStatus();
+
         // Parse the URL arguments.
         var match = location.search.match(/dir=([^&]+)/);
         var rtl = match && match[1] == 'rtl';
         document.forms.options.elements.dir.selectedIndex = Number(rtl);
         var toolbox = getToolboxElement();
         document.forms.options.elements.toolbox.selectedIndex = 0;
+        
         //Number(toolbox.getElementsByTagName('simple').length == 0);
         match = location.search.match(/side=([^&]+)/);
         var side = match ? match[1] : 'start';
         document.forms.options.elements.side.value = side;
+        
         // Create main workspace.
-        workspace = Blockly.inject('blocklyDiv',
-            {comments: true,
-                disable: true,
-                collapse: true,
-                grid:
-                    {spacing: 25,
-                        length: 3,
-                        colour: '#ccc',
-                        snap: true},
-                horizontalLayout: side == 'top' || side == 'bottom',
-                maxBlocks: Infinity,
-                media: '../media/',
-                readOnly: false,
-                rtl: rtl,
-                scrollbars: true,
-                toolbox: toolbox,
-                toolboxPosition: side == 'top' || side == 'start' ? 'start' : 'end',
-                zoom:
-                    {controls: true,
-                        wheel: true,
-                        startScale: 1.0,
-                        maxScale: 4,
-                        minScale: .25,
-                        scaleSpeed: 1.1}
-            });
-        workspace.toolbox += toolbox;
+        workspace = injectWorkspace(side, rtl, toolbox);
+
         // Restore previously displayed text.
         if (sessionStorage) {
             var text = sessionStorage.getItem('textarea');
@@ -281,11 +264,51 @@
         taChange();
     }
 
+    function updateButtonStatus() {
+      // Disable buttons selectively
+      let which = document.getElementById("which-toolbox");
+      let exportName = which.options[which.selectedIndex].value;
+      let exportButtons = document.getElementsByClassName('dd-export-button');
+      
+      for(let i = 0; i < exportButtons.length; i += 1) {
+        let buttonName = exportButtons[i].value;
+        let lookup = "To " + languageLookup[exportName];
+        
+        if(buttonName == lookup)
+          exportButtons[i].disabled = false;
+        else
+          exportButtons[i].disabled = true;
+      }
+    }
+
+    // Cleanly reloads the workspaced but not the page.
+    function cleanReload() {
+      // Remove previous workspace and cleanup
+      console.log('Reloading workspace');
+      $('.injectionDiv').remove();
+
+      // Update exporting informaiton
+      updateButtonStatus();
+
+      // Parse out information for the toolbox
+      let toolbox = getToolboxElement();
+      let match = location.search.match(/dir=([^&]+)/);
+      let rtl = match && match[1] == 'rtl';
+      match = location.search.match(/side=([^&]+)/);
+      let side = match ? match[1] : 'start';
+      document.forms.options.elements.side.value = side;
+
+      // Re-inject main workspace.
+      workspace = injectWorkspace(side, rtl, toolbox);
+    }
+
+    // Gets the currently selected toolbox element.
     function getToolboxElement() {
         let which = document.getElementById("which-toolbox");
         return document.getElementById("toolbox-" + which.options[which.selectedIndex].value);
     }
 
+    // Converts the current workspace to text XML ouput.
     function toXml() {
         var output = document.getElementById('importExport');
         var xml = Blockly.Xml.workspaceToDom(workspace);
@@ -295,6 +318,7 @@
         taChange();
     }
 
+    // Converts the xml in the input area to blocks in the workspace.
     function fromXml() {
         var input = document.getElementById('importExport');
         var xml = Blockly.Xml.textToDom(input.value);
@@ -302,6 +326,7 @@
         taChange();
     }
 
+    // Converts the current workspace in the selected language to the selected language.
     function toCode(lang) {
         var output = document.getElementById('importExport');
         output.value = Blockly[lang].workspaceToCode(workspace);
@@ -346,16 +371,8 @@
       workspace.setVisible(isVisible);
     }
     
-    function cleanReload() {
-      console.log("Reloading workspace");
-      $( '.injectionDiv' ).remove();
-      let toolbox = getToolboxElement();
-      let match = location.search.match(/dir=([^&]+)/);
-      let rtl = match && match[1] == 'rtl';
-      match = location.search.match(/side=([^&]+)/);
-      let side = match ? match[1] : 'start';
-      document.forms.options.elements.side.value = side;
-      workspace = Blockly.inject('blocklyDiv',
+    function injectWorkspace(side, rtl, toolbox) {
+      return Blockly.inject('blocklyDiv',
           {comments: true,
               disable: true,
               collapse: true,
@@ -443,7 +460,7 @@
 
         // Track number of drags for debug output.
         if(numDrags % 100 == 0)
-            console.log(numDrags + " drags have been performed so far...")
+            console.log(numDrags + " drags so far...")
 
         if (dragInfo) {
             fakeDrag(dragInfo.id, dragInfo.dx, dragInfo.dy, dragInfo.workspace);
@@ -546,7 +563,7 @@
   <h1>Blockly Playground</h1>
 
   <p class="dd-center">
-    <a href="javascript:void(toggleWorkspaceVisibility())">Toggle Visibility</a>
+    <a href="javascript:void(toggleWorkspaceVisibility())">Toggle Workspace Visibility</a>
   </p>
 
   <form id="options">
@@ -570,40 +587,31 @@
     </select>
   </form>
 
-  <p>
+  <p style="text-align: center;">
+
     <input type="button" value="Export to XML" onclick="toXml()">
-    &nbsp;
     <input type="button" value="Import from XML" onclick="fromXml()" id="import">
-    <br>
-    <input type="button" value="To JavaScript" onclick="toCode('JavaScript')">
-    &nbsp;
-    <input type="button" value="To C" onclick="toCode('C')">
-    &nbsp;
-    <input type="button" value="To Python" onclick="toCode('Python')">
-    &nbsp;
-    <input type="button" value="To PHP" onclick="toCode('PHP')">
-    &nbsp;
-    <input type="button" value="To Lua" onclick="toCode('Lua')">
-    &nbsp;
-    <input type="button" value="To Dart" onclick="toCode('Dart')">
-    <br>
+    <br/>
+    <br/>
+    <input type="button" class="dd-export-button" value="To JavaScript" onclick="toCode('JavaScript')">
+    <input type="button" class="dd-export-button" value="To C" onclick="toCode('C')">
+    <input type="button" class="dd-export-button" value="To Python" onclick="toCode('Python')">
+    <input type="button" class="dd-export-button" value="To PHP" onclick="toCode('PHP')">
+    <input type="button" class="dd-export-button" value="To Lua" onclick="toCode('Lua')">
+    <input type="button" class="dd-export-button" value="To Dart" onclick="toCode('Dart')"><br/><br/>
     <textarea id="importExport" style=""
       onchange="taChange();" onkeyup="taChange()"></textarea>
   </p>
-  <h2>
-    Stress test
-  </h2>
-
-  <p>
-    <input type="button" value="Airstrike!" onclick="airstrike(100)">
-    <br/><input type="button" value="Spaghetti!" onclick="spaghetti(7)">
-    <br/><input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
-    <br/><input type="button" value="Make ALL the blocks!" onclick="placeAll()">
+  <hr/>
+  <h2> Stress tests </h2>
+  <p style="text-align: center;">
+    <input class="dd-stress-test-button" type="button" value="Create random blocks" onclick="airstrike(100)">
+    <input class="dd-stress-test-button" class="dd-stress-test" type="button" value="Create ALL the blocks" onclick="placeAll()">
+    <input class="dd-stress-test-button" type="button" value="Create logic spaghetti" onclick="spaghetti(7)">
+    <input class="dd-stress-test-button" type="button" value="Fake some drags" onclick="fakeManyDrags()">
   </p>
-<hr/>
-  <h2>
-    Output
-  </h2>
+  <hr/>
+  <h2> Output </h2>
   <p>
     <input type="checkbox" onclick="logEvents(this.checked)" id="logCheck" > Log block events
   </p>
