@@ -112,6 +112,9 @@
     var numDrags = 0;        // Tracks number of automatic drags performed.
     var isVisible = true;    // Can we see the blockly workspace/ is it rendered? True by default.
 
+      /////////////////////////
+     // Initialization Step //
+    /////////////////////////
     // Parses out the toolboxes and associates them with a name. 
     // Toolbox load order isn't guarenteed, but toolboxes will load before blockly does.
     function parseToolboxes() {
@@ -124,12 +127,26 @@
       return Promise.all(promises);
     }
 
+
+    // Javascript object printing with pretty-print
+    function toStr(obj) {
+      return JSON.stringify(obj, null, 2);
+    }
+
+
+    // A javascript sleep version
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
     // Captues and writes error messages out to the console
     function logErr(message) {
       document.getElementById('dd-log').innerHTML 
       = document.getElementById('dd-log').innerHTML + "[ERR] " + message + "\n";
       //+ '<div class="dd-output-err"><code>' + toStr(message) + '</code></div>';
     }
+
 
     // Captues and writes general logging messages out to the console
     function logLine(message) {
@@ -138,10 +155,12 @@
       //+ '<div class="dd-output-log"><code>' + toStr(message) + '</code></div>';
     }
 
+
     // Forces the log div to scroll automatically as more things are added.
     function scrollLog() {
       $('#dd-log').scrollTop($('#dd-log')[0].scrollHeight - $('#dd-log')[0].clientHeight);
     }
+
 
     // Intercept the console logging for errors, warnings, and logs. We then hand it to our
     // logging functions, but make sure we rebind the console to each thing so we still get
@@ -159,15 +178,18 @@
       (console[verb].bind(console), verb);
     });
 
+
     // Catch errors and pass them off to logging. 
     window.onerror = function(err) {
         console.error(err);
     };
 
+
     // Document initialization, steps enforced with promises.
     $(document).ready(function(){
       parseToolboxes().then(initializeBlockly);
     });
+
 
     // Parses the specified toolbox and appends it to the document.
     // Toolbox IDs are set to "toolbox-" + toolbox_name
@@ -179,7 +201,7 @@
           url: file_path,
           dataType: "xml",
           success: (xml) => { 
-            ParseInternal(xml, toolbox_name); 
+            parseInternal(xml, toolbox_name); 
             console.log("Parsed toolbox-" + toolbox_name);
             document.getElementById("which-toolbox").innerHTML = document.getElementById("which-toolbox").innerHTML + '<option value="' + toolbox_name + '">' + toolbox_name + '</option>';
             resolve();
@@ -190,9 +212,8 @@
         })
       });
 
-
       // Parses the XML, adjusts name, and appends it to the document.
-      function ParseInternal(xml, name) {
+      function parseInternal(xml, name) {
         // Create a new XML element, fill the internals with the xml,
         // and set the attributes for it accordingly.
         let e = document.createElement("xml");
@@ -205,10 +226,84 @@
       }
     }
 
-    // Javascript object printing with pretty-print
-    function toStr(obj) {
-      return JSON.stringify(obj, null, 2);
+
+    // Gets the currently selected toolbox element.
+    function getToolboxElement() {
+        let which = document.getElementById("which-toolbox");
+        return document.getElementById("toolbox-" + which.options[which.selectedIndex].value);
     }
+
+
+    // Converts the current workspace to text XML ouput.
+    function toXml() {
+        var output = document.getElementById('importExport');
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        output.value = Blockly.Xml.domToPrettyText(xml);
+        output.focus();
+        output.select();
+        taChange();
+    }
+
+
+    // Converts the xml in the input area to blocks in the workspace.
+    function fromXml() {
+        var input = document.getElementById('importExport');
+        var xml = Blockly.Xml.textToDom(input.value);
+        Blockly.Xml.domToWorkspace(xml, workspace);
+        taChange();
+    }
+
+
+    // Converts the current workspace in the selected language to the selected language.
+    function toCode(lang) {
+        var output = document.getElementById('importExport');
+        output.value = Blockly[lang].workspaceToCode(workspace);
+        taChange();
+    }
+
+
+    // Disable the "Import from XML" button if the XML is invalid.
+    // Preserve text between page reloads.
+    function taChange() {
+        var textarea = document.getElementById('importExport');
+        if (sessionStorage) {
+            sessionStorage.setItem('textarea', textarea.value);
+        }
+        var valid = true;
+        try {
+            Blockly.Xml.textToDom(textarea.value);
+        } catch (e) {
+            valid = false;
+        }
+        document.getElementById('import').disabled = !valid;
+    }
+
+
+    // Logs events that get stored in the session are here.
+    function logEvents(state) {
+        var checkbox = document.getElementById('logCheck');
+        checkbox.checked = state;
+        if (sessionStorage) {
+            sessionStorage.setItem('logEvents', Number(state));
+        }
+        if (state) {
+            workspace.addChangeListener(logger);
+        } else {
+            workspace.removeChangeListener(logger);
+        }
+    }
+
+
+    function logger(e) {
+        console.log(e);
+    }
+
+
+    function toggleWorkspaceVisibility() {
+        isVisible = !isVisible;
+       workspace.setVisible(isVisible);
+    }
+
 
     // Sets an attribute in all tags with the specified name on an XML document.
     // It's the more general version of the following example line:
@@ -228,8 +323,10 @@
       }
     }
 
+
     // The start of the application. This parses URL arguments and whatnot, arranging blockly.
     function initializeBlockly() {
+
         // Set button availability
         updateButtonStatus();
 
@@ -264,6 +361,7 @@
         taChange();
     }
 
+
     function updateButtonStatus() {
       // Disable buttons selectively
       let which = document.getElementById("which-toolbox");
@@ -271,15 +369,16 @@
       let exportButtons = document.getElementsByClassName('dd-export-button');
       
       for(let i = 0; i < exportButtons.length; i += 1) {
-        let buttonName = exportButtons[i].value;
-        let lookup = "To " + languageLookup[exportName];
+          let buttonName = exportButtons[i].value;
+          let lookup = "To " + languageLookup[exportName];
         
-        if(buttonName == lookup)
-          exportButtons[i].disabled = false;
-        else
-          exportButtons[i].disabled = true;
+          if(buttonName == lookup)
+              exportButtons[i].disabled = false;
+          else
+              exportButtons[i].disabled = true;
       }
     }
+
 
     // Cleanly reloads the workspaced but not the page.
     function cleanReload() {
@@ -301,76 +400,9 @@
       // Re-inject main workspace.
       workspace = injectWorkspace(side, rtl, toolbox);
     }
-
-    // Gets the currently selected toolbox element.
-    function getToolboxElement() {
-        let which = document.getElementById("which-toolbox");
-        return document.getElementById("toolbox-" + which.options[which.selectedIndex].value);
-    }
-
-    // Converts the current workspace to text XML ouput.
-    function toXml() {
-        var output = document.getElementById('importExport');
-        var xml = Blockly.Xml.workspaceToDom(workspace);
-        output.value = Blockly.Xml.domToPrettyText(xml);
-        output.focus();
-        output.select();
-        taChange();
-    }
-
-    // Converts the xml in the input area to blocks in the workspace.
-    function fromXml() {
-        var input = document.getElementById('importExport');
-        var xml = Blockly.Xml.textToDom(input.value);
-        Blockly.Xml.domToWorkspace(xml, workspace);
-        taChange();
-    }
-
-    // Converts the current workspace in the selected language to the selected language.
-    function toCode(lang) {
-        var output = document.getElementById('importExport');
-        output.value = Blockly[lang].workspaceToCode(workspace);
-        taChange();
-    }
-
-    // Disable the "Import from XML" button if the XML is invalid.
-    // Preserve text between page reloads.
-    function taChange() {
-        var textarea = document.getElementById('importExport');
-        if (sessionStorage) {
-            sessionStorage.setItem('textarea', textarea.value);
-        }
-        var valid = true;
-        try {
-            Blockly.Xml.textToDom(textarea.value);
-        } catch (e) {
-            valid = false;
-        }
-        document.getElementById('import').disabled = !valid;
-    }
-
-    function logEvents(state) {
-        var checkbox = document.getElementById('logCheck');
-        checkbox.checked = state;
-        if (sessionStorage) {
-            sessionStorage.setItem('logEvents', Number(state));
-        }
-        if (state) {
-            workspace.addChangeListener(logger);
-        } else {
-            workspace.removeChangeListener(logger);
-        }
-    }
-
-    function logger(e) {
-        console.log(e);
-    }
-
-    function toggleWorkspaceVisibility() {
-      isVisible = !isVisible;
-      workspace.setVisible(isVisible);
-    }
     
+
+    // Pushes a new toolbox and workspace into the dedicated blockly div.
     function injectWorkspace(side, rtl, toolbox) {
       return Blockly.inject('blocklyDiv',
           {comments: true,
@@ -399,6 +431,8 @@
           });
     }
 
+
+    // Places n blocks randomly selected from the toolbox into the world.
     function airstrike(n) {
         console.log("Placing " + n + " random blocks");
         var prototypes = [];
@@ -418,6 +452,8 @@
         }
     }
 
+
+    // Using the specified ID and workspace, drags the block to the target location.
     function fakeDrag(id, dx, dy, opt_workspace) {
         var ws = opt_workspace || Blockly.getMainWorkspace();
         var blockToDrag = ws.getBlockById(id);
@@ -455,6 +491,8 @@
             }, 30);
     }
 
+
+    // Wraps the behavior associated with dragging tests. Performs one drag action.
     function fakeDragWrapper() {
         var dragInfo = fakeDragStack.pop();
 
@@ -470,6 +508,8 @@
         numDrags += 1;
     }
 
+
+    // Fakes drags equal to five times the number of blocks in the workspace actively
     function fakeManyDrags() {
         var blockList = workspace.getAllBlocks();
         const drags = 5 * blockList.length;
@@ -491,6 +531,8 @@
         fakeDragWrapper();
     }
 
+
+    // Generates a large number of logic blocks
     function spaghetti(n) {
         var xml = spaghettiXml;
         for(var i = 0; i < n; i++) {
@@ -534,6 +576,8 @@
         '    <next></next>',
         '  </block>'].join('\n');
 
+
+    // Places all available blocks in the currently selected toolbox.
     function placeAll() {
         var prototypes = [];
         var toolbox = getToolboxElement();
