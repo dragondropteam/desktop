@@ -15,7 +15,7 @@ class BlocklyDataSource extends DataSource {
         }
 
         this.project.save([{
-            path: this.project.getFileInProjectDir(`${project.getName()}.${this.extension}`),
+            path: this.project.getSourceFile(this.extension),
             data: code.code
         }, {
             path: this.project.getBlocksPath(),
@@ -26,7 +26,7 @@ class BlocklyDataSource extends DataSource {
     saveAs(code, destinationProject) {
         try {
             destinationProject.save([{
-                path: destinationProject.getFileInProjectDir(`${destinationProject.getName()}.${this.extension}`),
+                path: destinationProject.getSourceFile(this.extension),
                 data: code.code
             }, {
                 path: destinationProject.getBlocksPath(),
@@ -43,17 +43,17 @@ class BlocklyDataSource extends DataSource {
     }
 
     loadProjectFile(project) {
+        this.setProject(project);
         let data = null;
-
         try {
             data = fs.readFileSync(project.getBlocksPath());
         } catch (err) {
             if (err.code === 'ENOENT') {
+                console.log('No blocks');
                 if (this.defaultBlocks)
                     data = this.defaultBlocks;
             } else {
                 throw err;
-                // exports.logErrorAndQuit(err, {state: 'loading', project: project});
             }
         }
 
