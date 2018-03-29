@@ -127,7 +127,7 @@ Blockly.C.init = function (workspace) {
  * @return {string} Completed code.
  */
 Blockly.C.finish = function (code) {
-    console.log(Blockly.C.type);
+    //console.log(Blockly.C.type);
     // Indent every line.
     if (code) {
         code = Blockly.C.prefixLines(code, Blockly.C.INDENT);
