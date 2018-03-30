@@ -10,7 +10,7 @@
 //region REQUIRE
 
 const assert = require('assert');
-const {TYPE_COMPONENT, TIMEOUT} = require('./components/default_components');
+const {TYPE_COMPONENT, TIMEOUT} = require('./components/component');
 
 const {ipcRenderer} = require('electron');
 const {LoadedProject} = require('project');
@@ -22,52 +22,17 @@ const BaseProjectManager = require('../base_project_manager/base_project_manager
 const log = require('electron-log');
 const Rx = require('rxjs/Rx');
 const defaultComponents = require('./components/default_components');
-
 //endregion
 
-//Store the containers we get from registering the component, these are null til initialised and null after being
-//destroyed
 let currentWorkspace = null;
-
-//region IPC_RENDERER LISTENERS
-function loadProject(loadedProject) {
-    loadedProject.projectManager = Object.assign(new BaseProjectManager(), loadedProject.projectManager);
-
-    //Layout may not be initialized yet, so wait and see if it comes up
-    if (!currentWorkspace || !currentWorkspace.layout.isInitialised) {
-        setTimeout(() => {
-            loadProject(loadedProject);
-        }, TIMEOUT);
-        return;
-    }
-
-    document.title = `DragonDrop - ${loadedProject.projectPath}`;
-
-    currentWorkspace.loadProjectFile(loadedProject);
-}
-
-
-ipcRenderer.on('set_project', (event, arg) => loadProject(Object.assign(new LoadedProject(), arg)));
-
-ipcRenderer.on('save_project_as', (event, project) => {
-    project = Object.assign(new LoadedProject(), project);
-    project.projectManager = Object.assign(new BaseProjectManager(), project.getProjectManager());
-
-    try {
-        currentWorkspace.saveAs(project);
-        ipcRenderer.send('save_as_success', project);
-    } catch (err) {
-        log.error('save as failed', err);
-        ipcRenderer.send('save_as_failure', err)
-    }
-});
-//endregion
 
 exports.Workspace = class {
     constructor(layoutConfig, dataSource, componentRegister = defaultComponents) {
         this.layoutConfig = layoutConfig;
         this.codeSubject = new Rx.ReplaySubject(1);
         this.projectSubject = new Rx.ReplaySubject(1);
+        this.reloadObservable = new Rx.Subject();
+
         this.components = {};
         this.componentRegister = componentRegister;
 
@@ -77,7 +42,7 @@ exports.Workspace = class {
         this.componentStates = {};
 
         currentWorkspace = this;
-        
+
         assert(this.layoutConfig, 'LayoutConfig must be defined');
     }
 
@@ -109,12 +74,44 @@ exports.Workspace = class {
         this.codeSubject.subscribe(subscriber);
     }
 
-    setIPCListeners() {
-        ipcRenderer.on('save_project', this.saveAndReload.bind(this));
-        ipcRenderer.on('eval', this.reload.bind(this));
+    registerReloadSubscriber(subscriber) {
+        this.reloadObservable.subscribe(subscriber);
     }
 
-    saveAndReload(){
+    loadProject(loadedProject) {
+        loadedProject.projectManager = Object.assign(new BaseProjectManager(), loadedProject.projectManager);
+
+        //Layout may not be initialized yet, so wait and see if it comes up
+        if (!this.layout.isInitialised) {
+            setTimeout(this.loadProject.bind(this), TIMEOUT, loadedProject);
+            return;
+        }
+
+        document.title = `${loadedProject.getName()} - ${loadedProject.projectPath}`;
+
+        this.loadProjectFile(loadedProject);
+    }
+
+    setIPCListeners() {
+        ipcRenderer.on('save_project', this.saveAndReload.bind(this));
+        ipcRenderer.on('save_project_as', (event, project) => {
+            project = Object.assign(new LoadedProject(), project);
+            project.projectManager = Object.assign(new BaseProjectManager(), project.getProjectManager());
+
+            try {
+                this.saveAs(project);
+                ipcRenderer.send('save_as_success', project);
+            } catch (err) {
+                log.error('save as failed', err);
+                ipcRenderer.send('save_as_failure', err);
+            }
+        });
+
+        ipcRenderer.on('eval', this.reload.bind(this));
+        ipcRenderer.on('set_project', (event, arg) => this.loadProject(Object.assign(new LoadedProject(), arg)));
+    }
+
+    saveAndReload() {
         this.save();
         this.reload();
     }
@@ -127,6 +124,7 @@ exports.Workspace = class {
         this.registerComponents();
 
         this.layout.on('componentCreated', this.componentCreated.bind(this));
+
 
         this.layout.init();
 
@@ -162,12 +160,13 @@ exports.Workspace = class {
     }
 
     reload() {
+        this.reloadObservable.next();
     }
 
     loadProjectFile(project) {
         this.loadedProject = project;
         const code = this.dataSource.loadProjectFile(project);
-        this.projectSubject.next(code);
+        this.projectSubject.next({project: project, code: code});
     }
 
     addAsset(source) {

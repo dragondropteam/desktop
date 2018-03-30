@@ -21,7 +21,12 @@ class PhaserComponent extends BaseComponent {
     }
 
     static generateContent() {
-
+        return {
+            type: 'component',
+            componentName: PhaserComponent.ID,
+            title: PhaserComponent.TITLE,
+            componentState: {label: PhaserComponent.ID}
+        }
     }
 
     constructor(container, componentState) {
@@ -49,6 +54,12 @@ class PhaserComponent extends BaseComponent {
     }
 
     setSource(source) {
+        //WebView may not be ready yet just wait a small ammount of time
+        if(!this.webview){
+            setTimeout(this.setSource.bind(this), TIMEOUT, source);
+            return;
+        }
+
         log.debug(`setSource to ${source}`);
         this.webview.src = source;
         this.source = source;
@@ -62,14 +73,20 @@ class PhaserComponent extends BaseComponent {
         }
     }
 
+    projectLoad(project){
+        this.setSource(`file://${project.project.getSourceFile('html')}`)
+    }
 
     onAttach(workspace) {
         super.onAttach(workspace);
 
-        ipcRenderer.on('show_embed', this.toggleDevTools.bind(this));
+        ipcRenderer.on('show_embedded', this.toggleDevTools.bind(this));
         ipcRenderer.on('pause_execution', this.pauseExecution.bind(this));
         ipcRenderer.on('step_execution', this.stepExecution.bind(this));
         ipcRenderer.on('resume_execution', this.resumeExecution.bind(this));
+
+        workspace.registerProjectSubscriber(this.projectLoad.bind(this));
+        workspace.registerReloadSubscriber(this.reload.bind(this));
     }
 
     onDetach(workspace) {

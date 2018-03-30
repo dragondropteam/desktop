@@ -176,7 +176,6 @@ class BlocklyComponent extends BaseComponent {
              * All events in Blockly excluding Blockly.Events.UI are used for meaningful changes, Blockly.Events.UI
              * is for context menu, toolbox and the like opening no reason to spin off a disk operation
              */
-            console.log(event.type);
             if (event.type !== Blockly.Events.UI) {
                 const block = this.workspace.getBlockById(event.blockId);
                 if (block && block.onchange) {
@@ -192,13 +191,13 @@ class BlocklyComponent extends BaseComponent {
     }
 
 
-    projectLoad(code) {
+    projectLoad(project) {
         if (!this.workspace) {
-            setTimeout(this.projectLoad.bind(this), 500, code);
+            setTimeout(this.projectLoad.bind(this), 500, project);
             return;
         }
 
-        const xml = Blockly.Xml.textToDom(code.xml);
+        const xml = Blockly.Xml.textToDom(project.code.xml);
         Blockly.Xml.domToWorkspace(xml, this.workspace);
     }
 
