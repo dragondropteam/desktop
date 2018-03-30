@@ -7,6 +7,12 @@ const zipFolder = require('zip-folder');
 
 module.exports = BaseProjectManager = class BaseProjectManager {
 
+    /**
+     * Set the buildNumber, type, and root for static files
+     * @param buildNumber The build number for the project type
+     * @param type project type id
+     * @param staticRoot root to find static files
+     */
     constructor(buildNumber, type, staticRoot) {
         this.buildNumber = buildNumber;
         this.type = type;
@@ -131,13 +137,13 @@ module.exports = BaseProjectManager = class BaseProjectManager {
         //If we are only updating the project file there will be no files
         if (files) {
             for (let i = 0; i < files.length; ++i) {
+                fs.ensureFileSync(files[i].path);
                 fs.writeFileSync(files[i].path, files[i].data);
             }
         }
 
         //Update the .drop file if present this can be async as we are not directly using the file
         if (path.extname(project.projectPath) === '.drop') {
-
             zipFolder(project.loadPath, project.projectPath, err => {
                 if (err) {
                     console.error(err);
@@ -146,6 +152,10 @@ module.exports = BaseProjectManager = class BaseProjectManager {
         }
     }
 
+    /**
+     * Add meta data and set project type if missing
+     * @param loadedProject The project to add meta data to.
+     */
     migrateMetaAndProjectType(loadedProject) {
         if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
             loadedProject.loadedProject.meta = this.createMeta();

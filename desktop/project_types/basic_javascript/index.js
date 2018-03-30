@@ -40,6 +40,24 @@ class BasicJavaScriptManager extends BaseProjectManager {
             }
         }];
 
+        menu['View'].push({
+            label: 'Views',
+            submenu: [
+                {
+                    label: 'Blockly',
+                    click(item, focusedWindow){
+                        focusedWindow.webContents.send('show_blockly');
+                    }
+                },
+                {
+                    label: 'Code',
+                    click(item, focusedWindow){
+                        focusedWindow.webContents.send('show_code');
+                    }
+                }
+            ]
+        });
+
         success();
     }
 }
