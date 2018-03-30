@@ -20,13 +20,13 @@ class BaseComponent {
      * Called when this component is closing and being removed from the workspace
      */
     onDetach() {
-        this.parent = null;
         this.parent.removeComponent(this);
+        this.parent = null;
     }
 }
 
 module.exports = {
     BaseComponent: BaseComponent,
     TYPE_COMPONENT: 'component',
-    TIMEOUT: 500
+    TIMEOUT: 100
 };
