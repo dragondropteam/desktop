@@ -3,140 +3,48 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-/**
- * Created by lukepowell on 10/10/16.
- *
- * All content copyright DigiPen Institute of Technology 2016
- */
-const {Workspace, CodeComponent, PHASER_COMPONENT, CODE_COMPONENT} = require('../../../workspace');
-const workspaceCore = require('../../../workspace');
-const TIMEOUT = 500;
-const fs = require('fs-extra');
-const log = require('electron-log');
+const {Workspace} = require('../../../workspace');
+const BlocklyComponent = require('../../../workspace/components/blockly_component');
+const CodeComponent = require('../../../workspace/components/code_component');
+const PhaserComponent = require('../../../workspace/components/phaser_component');
+const TextDataSource = require('../../../workspace/datasource/textdatasource');
 
-let layoutConfig = {
+const fs = require('fs-extra');
+const path = require('path');
+
+const toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
+const startingBlocks = '<xml xmlns="http://www.w3.org/1999/xhtml">' +
+    '<block type="phaser_simple_init"></block>' +
+    '</xml>';
+
+const layoutConfig = {
     settings: {
         showPopoutIcon: false
     },
     content: [{
         type: 'row',
-        content: [{
-            type: 'component',
-            componentName: PHASER_COMPONENT,
-            title: 'Game',
-            componentState: {label: PHASER_COMPONENT}
-        }, {
-            type: 'component',
-            componentName: CODE_COMPONENT,
-            title: 'Code',
-            componentState: {label: CODE_COMPONENT}
-        }]
+        content: [
+            PhaserComponent.generateContent()
+            , CodeComponent.generateContent({
+                editorLanguage: 'ace/mode/html'
+            }, false)]
     }]
 };
 
-class TextPhaserWorkspace extends Workspace {
-
-    constructor() {
-        super({
-            layoutConfig: layoutConfig,
-            extension: 'html',
-            editorLanguage: 'ace/mode/html'
+class TextPhaserDataSource extends TextDataSource {
+    /**
+     * First copy over all assets that are in this project, then simply call the existing save as to copy over blocks
+     * @param code The generated code to save out to destinationProject
+     * @param destinationProject The destination project to save the current project to
+     */
+    saveAs(code, destinationProject) {
+        const assets = fs.readdirSync(this.project.getFileInProjectDir('assets'));
+        assets.forEach(file => {
+            fs.copySync(this.project.getFileInProjectDir('assets/' + file), destinationProject.getFileInProjectDir('assets/' + file));
         });
-        this.reloadTimer = null;
-    }
-
-
-    /**
-     * @override
-     */
-    updateCode() {
-        const code = fs.readFileSync(this.loadedProject.getSourceFile(this.extension), 'utf8');
-        log.debug(code);
-        const codeComponent = this.getComponent(workspaceCore.CODE_COMPONENT);
-        if (codeComponent) {
-            codeComponent.setCode(code);
-        }
-        return code;
-    }
-
-    /**
-     * @override
-     */
-    save() {
-        try {
-            if (!this.getComponent(workspaceCore.CODE_COMPONENT)) {
-                return;
-            }
-
-            const code = this.getCode();
-            this.loadedProject.save([{
-                path: this.loadedProject.getSourceFile(this.extension),
-                data: code
-            }]);
-
-            // this.reload();
-        } catch (err) {
-            dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: `Error in code!\n${err.message}`
-            });
-            log.error(err);
-        }
-    }
-
-
-    /**
-     * @override
-     * @param project
-     */
-    saveAs(project) {
-        try {
-            const assets = fs.readdirSync(this.loadedProject.getFileInProjectDir('assets'));
-            assets.forEach(file => {
-                fs.copySync(this.loadedProject.getFileInProjectDir('assets/' + file), project.getFileInProjectDir('assets/' + file));
-            });
-
-            const code = this.getCode();
-
-            project.save([{
-                    path: project.getFileInProjectDir(`${project.getName()}.html`),
-                    data: code
-            }]);
-        } catch (err) {
-            if (err !== Error.ENOENT) {
-                log.error(err);
-                throw err;
-            }
-        }
-    }
-
-    /**
-     * @override
-     */
-    getCode() {
-        if (!this.getComponent(workspaceCore.CODE_COMPONENT)) {
-            return null;
-        }
-
-        return this.getComponent(workspaceCore.CODE_COMPONENT).getCode();
-    }
-
-    /**
-     * @override
-     */
-    reload() {
-        const phaserComponent = this.getComponent(workspaceCore.PHASER_COMPONENT);
-        if (phaserComponent) {
-            if (!this.reloadTimer) {
-                this.reloadTimer = setTimeout(() => {
-                    this.reloadTimer = null;
-                    phaserComponent.reload();
-                }, TIMEOUT);
-            }
-        }
+        super.saveAs(code, destinationProject);
     }
 }
 
-const workspace = new TextPhaserWorkspace();
+const workspace = new Workspace(layoutConfig, new TextPhaserDataSource('html'));
 workspace.init();

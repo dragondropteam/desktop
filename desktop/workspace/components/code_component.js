@@ -1,5 +1,6 @@
 const {BaseComponent, TYPE_COMPONENT, TIMEOUT} = require('./component');
 const {ipcRenderer} = require('electron');
+const Rx = require('rxjs/Rx');
 const Config = require('electron-store');
 const electronConfig = new Config();
 const EDITOR_ID = 'editor';
@@ -38,7 +39,8 @@ class CodeComponent extends BaseComponent {
         this.codeContainer.getElement().html('<div id="editor"></div>');
 
         this.editorOptions = componentState.editorOptions || {};
-        this.subscriber = componentState.subscriber || true;
+        this.subscriber = componentState.subscriber;
+        this.codeObservable_ = new Rx.Subject();
 
         this.codeContainer.on('open', () => {
             this.setupDOM();
@@ -89,6 +91,10 @@ class CodeComponent extends BaseComponent {
             this.editor.setTheme(`ace/theme/${theme}`);
         }
 
+        this.editor.on('change', () => {
+           this.codeObservable_.next({code: this.getCode()});
+        });
+
         return true;
     }
 
@@ -116,6 +122,10 @@ class CodeComponent extends BaseComponent {
         document.getElementById(EDITOR_ID).style.fontSize = `${electronConfig.get('fontsize') || '12'}px`
     }
 
+    projectLoad(project){
+        this.setCode(project.code.code);
+    }
+
     /**
      * @override
      * @param workspace
@@ -126,6 +136,9 @@ class CodeComponent extends BaseComponent {
 
         if (this.subscriber) {
             workspace.registerCodeSubscriber(this.codeSubscriber);
+        }else{
+            workspace.registerProjectSubscriber(this.projectLoad.bind(this));
+            workspace.registerCodeObservable(this.codeObservable_);
         }
 
         ipcRenderer.on('settings_updated', this.updateSettings.bind(this));
