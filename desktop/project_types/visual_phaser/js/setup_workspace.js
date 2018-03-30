@@ -3,13 +3,6 @@
  *
  * All content copyright DigiPen Institute of Technology 2016
  */
-// const {PhaserWorkspace} = require('../../../phaser_workspace');
-// const fs = require('fs-extra');
-// const path = require('path');
-// let toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
-// const workspace = new PhaserWorkspace(toolboxSource);
-// workspace.init();
-
 const {Workspace} = require('../../../workspace');
 const BlocklyComponent = require('../../../workspace/components/blockly_component');
 const CodeComponent = require('../../../workspace/components/code_component');
