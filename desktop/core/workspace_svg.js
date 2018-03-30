@@ -702,6 +702,15 @@ Blockly.WorkspaceSvg.prototype.isDeleteArea = function(e) {
  * @private
  */
 Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
+
+  // Keep tabs on the mouse position.
+  var mousePoint = Blockly.mouseToSvg(e, this.getParentSvg(), this.getInverseScreenCTM());
+  this.mouseLocation = {
+    x: (mousePoint.x),// originOffset.x) / this.scale,
+    y: (mousePoint.y)// originOffset.y) / this.scale
+  };
+
+  // Mark as focused.
   this.markFocused();
   if (Blockly.isTargetInput_(e)) {
     return;
@@ -863,8 +872,6 @@ Blockly.WorkspaceSvg.prototype.cleanUp = function() {
  * Adds a comment to the workspace.
  */
 Blockly.WorkspaceSvg.prototype.addComment = function() {
-  console.log("Make a block here");
-
   // create options object
   // var option = {enabled: true};
 
@@ -872,15 +879,20 @@ Blockly.WorkspaceSvg.prototype.addComment = function() {
   var xmlField = goog.dom.createDom('field', null);
   xmlField.setAttribute('name', 'TEXT');
 
-  // Create outer <block type="comment_oneline"></block>
+  // Actually constructs the XML using google's create DOM
   var xmlBlock = goog.dom.createDom('block', null, xmlField);
   xmlBlock.setAttribute('type', 'comment_oneline');
-  xmlBlock.setAttribute('x', '100');
-  xmlBlock.setAttribute('y', '100');
+  xmlBlock.setAttribute('x', '0');
+  xmlBlock.setAttribute('y', '0');
 
-  console.log(xmlBlock);
-
-  return Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+  var mouseLoc = { x:0, y:0 };
+  if(this.mouseLocation)
+  {
+    let mainWorkspace = Blockly.getMainWorkspace();
+    mouseLoc.x = (this.mouseLocation.x - mainWorkspace.scrollX) / mainWorkspace.scale;
+    mouseLoc.y = (this.mouseLocation.y - mainWorkspace.scrollY) / mainWorkspace.scale;
+  }
+  Blockly.ContextMenu.callbackFactoryWorkspace(this, mouseLoc, xmlBlock)();
 };
 
 /**
@@ -922,7 +934,7 @@ Blockly.WorkspaceSvg.prototype.showContextMenu_ = function(e) {
       var commentOption = {};
       commentOption.text = Blockly.Msg.ADD_COMMENT_BLOCK;
       commentOption.enabled = true;
-      commentOption.callback = this.addComment();
+      commentOption.callback = this.addComment.bind(this);
       menuOptions.push(commentOption);
   }
 
