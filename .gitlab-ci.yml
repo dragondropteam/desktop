@@ -42,17 +42,21 @@ buildWindows:
   tags:
     - windows
     
-#buildLinux:
-#  before_script:
-#    - cd desktop
-#    - npm install
-#    - cd .. 
-#  script:
-#    - cd desktop
-#    - gulp
-#    - cd ..
-#  artifacts:
-#    paths:
-#    - dist
-#  tags:
-#    - linux
+buildLinux:
+  stage: build
+  before_script:
+    - cd desktop
+    - yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - gulp
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  only:
+   - master
+   - develop
+  tags:
+    - linux
