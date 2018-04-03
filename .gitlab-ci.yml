@@ -8,43 +8,55 @@ buildMacOS:
   stage: build
   before_script:
     - cd desktop
-    - npm install
+    - yarn install
     - cd ..
   script:
     - cd desktop
-    - ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp
+    - gulp
     - cd ..
   artifacts:
     paths:
     - dist
   only:
    - master
+   - develop
   tags:
     - macOS
 
-#buildWindows:
-# script:
-#    - cd desktop
-#    - call npm install
-#    - call gulp
-#    - cd ..
-#  artifacts:
-#    paths:
-#    - dist
-#  tags:
-#    - windows
+buildWindows:
+  stage: build
+  before_script:
+    - cd desktop
+    - call yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - call gulp
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  only:
+    - master
+    - develop
+  tags:
+    - windows
     
-#buildLinux:
-#  before_script:
-#    - cd desktop
-#    - npm install
-#    - cd .. 
-#  script:
-#    - cd desktop
-#    - gulp
-#    - cd ..
-#  artifacts:
-#    paths:
-#    - dist
-#  tags:
-#    - linux
+buildLinux:
+  stage: build
+  before_script:
+    - cd desktop
+    - yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - gulp
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  only:
+   - master
+   - develop
+  tags:
+    - linux
