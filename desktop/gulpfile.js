@@ -13,6 +13,9 @@ const del = require('del');
 const exec = require('child_process').exec;
 
 const options = {mangle: {reserved: ['require']}};
+
+process.env.ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY = 'true';
+
 /**
  * Remove all files besides the application package.json
  */
