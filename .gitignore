@@ -134,3 +134,5 @@ desktop/app/serial_monitor/
 desktop/app/window_manager/
 
 desktop/package-lock\.json
+
+desktop/app/base_project_manager/base_project_manager\.js
