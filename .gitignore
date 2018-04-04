@@ -132,3 +132,5 @@ desktop/app/arduino_workspace/
 desktop/app/serial_monitor/
 
 desktop/app/window_manager/
+
+desktop/package-lock\.json

@@ -32,7 +32,7 @@ const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
 let preferencesWindow;
 const JSZip = require('jszip');
-const compareVersions = require('compare-versions');
+const semver = require('semver');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
@@ -565,7 +565,7 @@ function loadDigiblocksFromPath(projectPath) {
     return new Promise((resolve, reject) => {
         fs.readJson(projectPath)
             .then(projectFile => {
-                if (compareVersions(global.version, projectFile.version) < 0) {
+                if (semver.gt(global.version, projectFile.version)) {
                     reject(VERSION_MISMATCH)
                 }
 
@@ -616,7 +616,7 @@ function loadDropFromPath(projectPath) {
                 return fs.readJson(digiblocksFile);
             })
             .then(projectFile => {
-                if (compareVersions(global.version, projectFile.version) < 0) {
+                if (semver.gt(global.version, projectFile.version)) {g
                     reject({
                         msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
