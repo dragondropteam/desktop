@@ -3,8 +3,7 @@ const clean = require('gulp-clean');
 
 const builder = require("electron-builder");
 const Platform = builder.Platform;
-// const install = require("gulp-install");
-const yarn = require('gulp-yarn');
+const install = require("gulp-install");
 const uglifyjs = require('uglify-es');
 const composer = require('gulp-uglify/composer');
 const pump = require('pump');
@@ -30,8 +29,8 @@ gulp.task('clean', () => {
  * or something else as npm install is a prereq to running this project
  */
 gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager'], () => {
-    return gulp.src(['./package.json', './yarn.lock'])
-        .pipe(yarn());
+    return gulp.src('package.json')
+        .pipe(install());
 });
 
 gulp.task('mainProcess', ['blocklyBuild'], () => {
