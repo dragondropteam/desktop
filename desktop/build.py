@@ -292,6 +292,7 @@ class Gen_compressed(threading.Thread):
             for error in errors:
                 print("SERVER ERROR: %s" % target_filename)
                 print(error["error"])
+            sys.stdout.flush()
             os._exit(1)
         elif json_data.has_key("errors"):
             errors = json_data["errors"]
