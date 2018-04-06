@@ -26,13 +26,13 @@ app.setAppUserModelId("edu.digipen.dragondrop"); //set AUMID
 
 const {ipcMain} = require('electron');
 const projects = require('./project/projects');
+const {checkVersion} = require('./project/projects');
 const fs = require('fs-extra');
 const projectTypes = require('project_types');
 const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
 let preferencesWindow;
 const JSZip = require('jszip');
-const semver = require('semver');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
@@ -565,8 +565,12 @@ function loadDigiblocksFromPath(projectPath) {
     return new Promise((resolve, reject) => {
         fs.readJson(projectPath)
             .then(projectFile => {
-                if (semver.gt(global.version, projectFile.version)) {
-                    reject(VERSION_MISMATCH)
+                if (!checkVersion(global.version, projectFile.version)) {
+                    reject({
+                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        id: VERSION_MISMATCH
+                    });
+                    return;
                 }
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
@@ -616,7 +620,7 @@ function loadDropFromPath(projectPath) {
                 return fs.readJson(digiblocksFile);
             })
             .then(projectFile => {
-                if (semver.gt(global.version, projectFile.version)) {g
+                if (!checkVersion(global.version, projectFile.version)) {
                     reject({
                         msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
