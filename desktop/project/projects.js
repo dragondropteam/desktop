@@ -11,6 +11,7 @@ const log = require('electron-log');
 const DIGIBLOCKS_PROJECT = 'digiblocks';
 const DROP_PROJECT = 'drop';
 const zipFolder = require('zip-folder');
+const semver = require('semver');
 
 function getRecentProjects() {
     /**
@@ -139,6 +140,29 @@ exports.migrateLegacyProject = function (project, savePath) {
             resolve(savePath);
         });
     });
+};
+
+/**
+ * Take a semver 1.0.0 prerelease string and convert to a 2.0.0 prerelease string
+ * @param semver The 1.0.0 prerelease string
+ */
+exports.convertSemverOneToSemverTwo = function (semver) {
+    //Already a 2.0.0 string just return
+    if(semver.includes('-beta.') || semver.includes('-alpha.') || semver.includes('-rc.'))
+        return semver;
+
+    return semver.replace('-beta', '-beta.').replace('-alpha', '-alpha.').replace('-rc', '-rc.');
+};
+
+/**
+ * Check to see if an application version is older then the project version the user is trying to load
+ * @param applicationVersion The version of DragonDrop
+ * @param projectVersion The version of the project
+ * @returns {boolean} true if the project is from this version of DragonDrop or older, false if it is from a newer version and
+ *               cannot be loaded
+ */
+exports.checkVersion = function (applicationVersion, projectVersion) {
+    return semver.gt(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
 };
 
 /**

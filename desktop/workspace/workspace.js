@@ -225,5 +225,5 @@ exports.Workspace = class {
 exports.logErrorAndQuit = function (e, state) {
     log.error(e.message);
     log.error('Error project changes not saved', e, state);
-    app.exit(-1);
+    // app.exit(-1);
 };
