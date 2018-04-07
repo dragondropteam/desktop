@@ -33,7 +33,7 @@ gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core
         .pipe(install());
 });
 
-gulp.task('mainProcess', ['blocklyBuild'], () => {
+gulp.task('mainProcess', () => {
     return gulp.src('*.js')
         .pipe(minify(options))
         .pipe(addsrc('*.html'))
