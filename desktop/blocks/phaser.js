@@ -3674,7 +3674,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
             .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), "FIELD")
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2);
         this.appendValueInput('OBJECT');
-        this.appendValueInput('VALUE')
+        this.appendValueInput('POINT')
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
