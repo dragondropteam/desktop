@@ -162,7 +162,7 @@ exports.convertSemverOneToSemverTwo = function (semver) {
  *               cannot be loaded
  */
 exports.checkVersion = function (applicationVersion, projectVersion) {
-    return semver.gt(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
+    return semver.gte(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
 };
 
 /**
