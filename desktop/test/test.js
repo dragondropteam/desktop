@@ -76,6 +76,10 @@ describe('check version', () => {
 
     it('Should handle a prerelease from newer major versiongul', () => {
         assert.ok(checkVersion('2.0.0-beta10', '1.1.0'));
+    });
+
+    it('Should be true for equal versions', ()  => {
+        assert.ok(checkVersion('2.0.0', '2.0.0'));
     })
 });
 
