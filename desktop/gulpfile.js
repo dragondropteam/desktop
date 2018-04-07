@@ -48,6 +48,9 @@ gulp.task('buildCurrentPlatform', ['install'], () => {
     return builder.build();
 });
 
+gulp.task('buildCurrentPlatformNoCheck', () => {
+    return builder.build();
+});
 
 //region PROJECT TYPES
 gulp.task('arduino', () => {
