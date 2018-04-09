@@ -198,7 +198,9 @@ class BlocklyComponent extends BaseComponent {
         }
 
         const xml = Blockly.Xml.textToDom(project.code.xml);
+        Blockly.Events.recordUndo = false;
         Blockly.Xml.domToWorkspace(xml, this.workspace);
+        Blockly.Events.recordUndo =  true;
     }
 
     /**
