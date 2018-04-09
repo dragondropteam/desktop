@@ -182,7 +182,6 @@ class BlocklyComponent extends BaseComponent {
                     block.onchange(event);
                 }
 
-
                 this.codeObservable_.next(this.workspace);
             }
         } catch (err) {
@@ -192,12 +191,19 @@ class BlocklyComponent extends BaseComponent {
 
 
     projectLoad(project) {
+
+        if(!project.code.xml){
+            return;
+        }
+
         if (!this.workspace) {
             setTimeout(this.projectLoad.bind(this), 500, project);
             return;
         }
 
         const xml = Blockly.Xml.textToDom(project.code.xml);
+
+        //We are loading the starting blocks for the application they should not be part of the undo stack
         Blockly.Events.recordUndo = false;
         Blockly.Xml.domToWorkspace(xml, this.workspace);
         Blockly.Events.recordUndo =  true;
