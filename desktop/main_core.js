@@ -90,11 +90,11 @@ function fillRecentProjects(menuHash) {
     let loadedProjects = [];
     const recentProjects = projects.getRecentProjects();
     recentProjects.forEach((project) => {
-        project = new projects.LoadedProject(project.loadedProject, project.loadPath);
+        project = Object.assign(new projects.LoadedProject(), project);
         loadedProjects.push({
             label: `${project.getName()} - ${project.loadedProject.type}`,
             click() {
-                loadProjectFromPath(project.getProjectPath());
+                loadProjectFromPath(project.projectPath);
             }
         });
     });
@@ -637,6 +637,7 @@ function loadDropFromPath(projectPath) {
 
 function projectLoadErrorHandler(err) {
     log.error(err);
+
     switch (err.id) {
         case FILE_TOO_LARGE:
             dialog.showMessageBox(mainWindow, {
