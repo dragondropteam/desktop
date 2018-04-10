@@ -38,6 +38,7 @@ const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
 const windowManager = require('./window_manager/window_manager');
+let splashScreen = false;
 
 //region AUTO_UPDATE
 // Blocked until this can be signed!
@@ -558,7 +559,12 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit();
     }else{
-        showSplashScreen();
+        if(!splashScreen) {
+            //Showing the splash screen in this callback directly will crash
+            setTimeout(() => showSplashScreen(), 0);
+        }else{
+            app.quit();
+        }
     }
 });
 
@@ -728,6 +734,7 @@ function showSplashScreen(err) {
 
     mainWindow.on('ready-to-show', () => {
         mainWindow.show();
+        splashScreen = true;
     });
 
     mainWindow.on('show', () => {
@@ -742,6 +749,7 @@ function showSplashScreen(err) {
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
+        splashScreen = false;
         mainWindow = null;
     });
 }
