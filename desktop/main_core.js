@@ -12,6 +12,7 @@ exports.setIndex = function (file) {
 
 
 const electron = require('electron');
+const {shell} = require('electron');
 const packageJSON = require('./package.json');
 global.version = packageJSON.version;
 
@@ -36,6 +37,7 @@ const JSZip = require('jszip');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
+const windowManager = require('./window_manager/window_manager');
 
 //region AUTO_UPDATE
 // Blocked until this can be signed!
@@ -134,20 +136,25 @@ function addToggleDevTools(menuHash) {
 
 let wikiWindow = null;
 
+function reportBug(err) {
+    // shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1/create/5');
+    if(mainWindow) {
+        mainWindow.webContents.send('report_bug', err || false);
+    }
+}
+
 function addHelpMenu(menuHash) {
     menuHash['Help'] = [{
         label: 'View Wiki',
         click() {
-            const {shell} = require('electron');
             shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
         }
     }];
 
     menuHash['Help'].push({
         label: 'Report Bug',
-        click() {
-            const {shell} = require('electron');
-            shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
+        click(){
+            reportBug();
         }
     });
 
@@ -550,6 +557,8 @@ app.on('window-all-closed', function () {
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
         app.quit();
+    }else{
+        showSplashScreen();
     }
 });
 
@@ -680,6 +689,18 @@ function loadProjectFromPath(projectPath) {
 let projectToLoad = null;
 
 function showUnknownError(err) {
+    //
+    // windowManager.create({
+    //     width: 800,
+    //     height: 600,
+    //     show: false,
+    //     resizable: false,
+    //     parent: mainWindow
+    // }, {
+    //     url: 'file://' + __dirname + '/static/report_bug.html',
+    //     model: err
+    // });
+
     const option = dialog.showMessageBox(mainWindow, {
         type: 'error',
         title: 'Dragon Drop Error',
@@ -692,7 +713,7 @@ function showUnknownError(err) {
     });
 
     if(option === 1){
-        //Do a thing
+        reportBug(err);
     }
 }
 function showSplashScreen(err) {
