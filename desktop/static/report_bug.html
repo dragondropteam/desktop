@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Bug</title>
+    <link rel="stylesheet" href="angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="DragonDrop" ng-cloak layout="row" ng-controller="report-bug-controller">
+
+<!-- This fixes issues with Electron http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+<script>if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}</script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="angular.min.js"></script>
+<script src="angular-animate.min.js"></script>
+<script src="angular-aria.min.js"></script>
+<script src="angular-messages.min.js"></script>
+
+
+<!-- Angular Material Library -->
+<script src="angular-material.min.js"></script>
+
+<!-- JQuery -->
+<script src="jquery-3.2.1.min.js"></script>
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+<button id="myCustomTrigger"> Wee</button>
+
+<script type="text/javascript"
+        src="https://digipen.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-18xvrn/b/20/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=88c8ad41"></script>
+<script type="text/javascript">window.ATL_JQ_PAGE_PROPS = {
+    "triggerFunction": function (showCollectorDialog) {
+        //Requires that jQuery is available!
+        jQuery("#myCustomTrigger").click(function (e) {
+            e.preventDefault();
+            showCollectorDialog();
+        });
+    }
+};</script>
+
+<script>
+    const {ipcRenderer} = require('electron');
+    var app = angular.module('DragonDrop', ['ngMaterial', 'ngMessages']);
+    app.controller('report-bug-controller', function ($scope) {
+    });
+</script>
+</body>
+</html>
