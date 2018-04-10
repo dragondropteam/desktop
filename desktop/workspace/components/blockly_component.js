@@ -4,6 +4,7 @@ const Rx = require('rxjs/Rx');
 const log = require('electron-log');
 const BLOCKLY_DIV_ID = 'blocklyDiv';
 const BLOCKLY_AREA_ID = 'blocklyArea';
+const {ipcRenderer} = require('electron');
 
 class BlocklyComponent extends BaseComponent {
 
@@ -201,12 +202,16 @@ class BlocklyComponent extends BaseComponent {
             return;
         }
 
-        const xml = Blockly.Xml.textToDom(project.code.xml);
+        try {
+            const xml = Blockly.Xml.textToDom(project.code.xml);
 
-        //We are loading the starting blocks for the application they should not be part of the undo stack
-        Blockly.Events.recordUndo = false;
-        Blockly.Xml.domToWorkspace(xml, this.workspace);
-        Blockly.Events.recordUndo =  true;
+            //We are loading the starting blocks for the application they should not be part of the undo stack
+            Blockly.Events.recordUndo = false;
+            Blockly.Xml.domToWorkspace(xml, this.workspace);
+            Blockly.Events.recordUndo = true;
+        }catch(err){
+            ipcRenderer.send('project-load-error', {message: err.message, stack: err.stack});
+        }
     }
 
     /**

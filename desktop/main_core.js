@@ -12,6 +12,7 @@ exports.setIndex = function (file) {
 
 
 const electron = require('electron');
+const {shell} = require('electron');
 const packageJSON = require('./package.json');
 global.version = packageJSON.version;
 
@@ -36,6 +37,8 @@ const JSZip = require('jszip');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
+const windowManager = require('./window_manager/window_manager');
+let splashScreen = false;
 
 //region AUTO_UPDATE
 // Blocked until this can be signed!
@@ -134,20 +137,25 @@ function addToggleDevTools(menuHash) {
 
 let wikiWindow = null;
 
+function reportBug(err) {
+    // shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1/create/5');
+    if(mainWindow) {
+        mainWindow.webContents.send('report_bug', err || false);
+    }
+}
+
 function addHelpMenu(menuHash) {
     menuHash['Help'] = [{
         label: 'View Wiki',
         click() {
-            const {shell} = require('electron');
             shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
         }
     }];
 
     menuHash['Help'].push({
         label: 'Report Bug',
-        click() {
-            const {shell} = require('electron');
-            shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
+        click(){
+            reportBug();
         }
     });
 
@@ -499,8 +507,6 @@ ipcMain.on('show_code', function (event, arg) {
 let loadedproject;
 
 function displayProject(loadedProject) {
-    log.debug(loadedProject);
-
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
     app.addRecentDocument(loadedProject.projectPath || loadedProject.getProjectPath());
@@ -552,6 +558,13 @@ app.on('window-all-closed', function () {
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
         app.quit();
+    }else{
+        if(!splashScreen) {
+            //Showing the splash screen in this callback directly will crash
+            setTimeout(() => showSplashScreen(), 0);
+        }else{
+            app.quit();
+        }
     }
 });
 
@@ -567,7 +580,7 @@ function loadDigiblocksFromPath(projectPath) {
             .then(projectFile => {
                 if (!checkVersion(global.version, projectFile.version)) {
                     reject({
-                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
                     return;
@@ -622,7 +635,7 @@ function loadDropFromPath(projectPath) {
             .then(projectFile => {
                 if (!checkVersion(global.version, projectFile.version)) {
                     reject({
-                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
                 }
@@ -634,6 +647,10 @@ function loadDropFromPath(projectPath) {
             });
     });
 }
+
+ipcMain.on('project-load-error', (event, err) => {
+    showSplashScreen(err);
+});
 
 function projectLoadErrorHandler(err) {
     log.error(err);
@@ -654,11 +671,8 @@ function projectLoadErrorHandler(err) {
             });
             break;
         default:
-            dialog.showMessageBox(mainWindow, {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: 'Could not load project'
-            })
+            showUnknownError(err);
+            break;
     }
 }
 
@@ -680,6 +694,66 @@ function loadProjectFromPath(projectPath) {
 
 let projectToLoad = null;
 
+function showUnknownError(err) {
+    //
+    // windowManager.create({
+    //     width: 800,
+    //     height: 600,
+    //     show: false,
+    //     resizable: false,
+    //     parent: mainWindow
+    // }, {
+    //     url: 'file://' + __dirname + '/static/report_bug.html',
+    //     model: err
+    // });
+
+    const option = dialog.showMessageBox(mainWindow, {
+        type: 'error',
+        title: 'Dragon Drop Error',
+        message: 'Could not load project',
+        detail: err.message,
+        buttons: [
+            'OK',
+            'Report Bug'
+        ]
+    });
+
+    if(option === 1){
+        reportBug(err);
+    }
+}
+function showSplashScreen(err) {
+    if(mainWindow){
+        mainWindow.destroy();
+    }
+
+    // Create the browser window.
+    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false, show: false});
+    // and load the index.html of the app.
+    mainWindow.loadURL('file://' + __dirname + '/projects.html');
+
+    mainWindow.on('ready-to-show', () => {
+        mainWindow.show();
+        splashScreen = true;
+    });
+
+    mainWindow.on('show', () => {
+        if(err){
+            showUnknownError(err);
+            err = null;
+        }
+    });
+
+    // Emitted when the window is closed.
+    mainWindow.on('closed', function () {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        splashScreen = false;
+        mainWindow = null;
+    });
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function () {
@@ -691,32 +765,16 @@ app.on('ready', function () {
         loadProjectFromPath(projectToLoad);
         return;
     }
-    // Create the browser window.
-    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false});
+
 
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
     } else {
-        // and load the index.html of the app.
-        mainWindow.loadURL('file://' + __dirname + '/projects.html');
+        showSplashScreen();
     }
 
-    // Emitted when the window is closed.
-    mainWindow.on('closed', function () {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null;
-    });
-
-    let failed = false;
     arduinoCore.ensureLibraries(err => {
-        if(failed){
-            return;
-        }
-
-        failed  = true;
-
+        log.err(err);
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
             type: 'error',
             title: 'Dragon Drop Error',
