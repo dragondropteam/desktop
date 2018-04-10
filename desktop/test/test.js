@@ -74,7 +74,7 @@ describe('check version', () => {
         assert.equal(checkVersion('1.0.0', '2.0.0'), false);
     });
 
-    it('Should handle a prerelease from newer major versiongul', () => {
+    it('Should handle a prerelease from newer major version', () => {
         assert.ok(checkVersion('2.0.0-beta10', '1.1.0'));
     });
 
@@ -82,8 +82,6 @@ describe('check version', () => {
         assert.ok(checkVersion('2.0.0', '2.0.0'));
     })
 });
-
-
 
 
 describe('WindowManager', () => {

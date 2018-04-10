@@ -499,8 +499,6 @@ ipcMain.on('show_code', function (event, arg) {
 let loadedproject;
 
 function displayProject(loadedProject) {
-    log.debug(loadedProject);
-
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
     app.addRecentDocument(loadedProject.projectPath || loadedProject.getProjectPath());
@@ -567,7 +565,7 @@ function loadDigiblocksFromPath(projectPath) {
             .then(projectFile => {
                 if (!checkVersion(global.version, projectFile.version)) {
                     reject({
-                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
                     return;
@@ -622,7 +620,7 @@ function loadDropFromPath(projectPath) {
             .then(projectFile => {
                 if (!checkVersion(global.version, projectFile.version)) {
                     reject({
-                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
                 }
@@ -634,6 +632,10 @@ function loadDropFromPath(projectPath) {
             });
     });
 }
+
+ipcMain.on('project-load-error', (event, err) => {
+    showSplashScreen(err);
+});
 
 function projectLoadErrorHandler(err) {
     log.error(err);
@@ -654,11 +656,8 @@ function projectLoadErrorHandler(err) {
             });
             break;
         default:
-            dialog.showMessageBox(mainWindow, {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: 'Could not load project'
-            })
+            showUnknownError(err);
+            break;
     }
 }
 
@@ -680,6 +679,52 @@ function loadProjectFromPath(projectPath) {
 
 let projectToLoad = null;
 
+function showUnknownError(err) {
+    const option = dialog.showMessageBox(mainWindow, {
+        type: 'error',
+        title: 'Dragon Drop Error',
+        message: 'Could not load project',
+        detail: err.message,
+        buttons: [
+            'OK',
+            'Report Bug'
+        ]
+    });
+
+    if(option === 1){
+        //Do a thing
+    }
+}
+function showSplashScreen(err) {
+    if(mainWindow){
+        mainWindow.destroy();
+    }
+
+    // Create the browser window.
+    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false, show: false});
+    // and load the index.html of the app.
+    mainWindow.loadURL('file://' + __dirname + '/projects.html');
+
+    mainWindow.on('ready-to-show', () => {
+        mainWindow.show();
+    });
+
+    mainWindow.on('show', () => {
+        if(err){
+            showUnknownError(err);
+            err = null;
+        }
+    });
+
+    // Emitted when the window is closed.
+    mainWindow.on('closed', function () {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        mainWindow = null;
+    });
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function () {
@@ -691,32 +736,16 @@ app.on('ready', function () {
         loadProjectFromPath(projectToLoad);
         return;
     }
-    // Create the browser window.
-    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false});
+
 
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
     } else {
-        // and load the index.html of the app.
-        mainWindow.loadURL('file://' + __dirname + '/projects.html');
+        showSplashScreen();
     }
 
-    // Emitted when the window is closed.
-    mainWindow.on('closed', function () {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null;
-    });
-
-    let failed = false;
     arduinoCore.ensureLibraries(err => {
-        if(failed){
-            return;
-        }
-
-        failed  = true;
-
+        log.err(err);
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
             type: 'error',
             title: 'Dragon Drop Error',
