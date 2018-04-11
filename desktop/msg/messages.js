@@ -4817,13 +4817,13 @@ Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.ht
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_FIELD_1 = 'setup';
 /// auto generated
-Blockly.Msg.HARDWARESTARTUP_TOOLTIP = '';
+Blockly.Msg.HARDWARESTARTUP_TOOLTIP = 'This code is run once when the device is first turned on';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
 Blockly.Msg.LOOP_FIELD_1 = 'loop';
 /// auto generated
-Blockly.Msg.LOOP_TOOLTIP = '';
+Blockly.Msg.LOOP_TOOLTIP = 'This code is run continuously once the device is turned on';
 /// auto generated
 Blockly.Msg.LOOP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
@@ -5367,49 +5367,46 @@ Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2 = ' to be ';
 Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING = ' with the specified intensity from 0-255.';
 
 // Left
-Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'left eye' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
-Blockly.Msg.WINK_EYE_LEFT_RED    = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'red' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_GREEN  = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'green' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_BLUE   = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'blue' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_PURPLE = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'purple' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_PINK   = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'pink' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_YELLOW = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'yellow' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_CYAN   = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'cyan' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_ORANGE = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'orange' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'white' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_LEFT_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'the specified color with max intensity.';
-Blockly.Msg.WINK_EYE_LEFT_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_LEFT_EYE + 'the specified Red, Green, and Blue values.';
-Blockly.Msg.WINK_EYE_LEFT_OFF    = "Turns off the left eye.";
+Blockly.Msg.WINK_EYE_LEFT_RED    = 'Sets the left eye to be red with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_GREEN  = 'Sets the left eye to be green with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_BLUE   = 'Sets the left eye to be blue with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_PURPLE = 'Sets the left eye to be purple with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_PINK   = 'Sets the left eye to be pink with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_YELLOW = 'Sets the left eye to be yellow with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_CYAN   = 'Sets the left eye to be cyan with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_ORANGE = 'Sets the left eye to be orange with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_WHITE  = 'Sets the left eye to be white with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_SELECT = 'Sets the left eye to be the specified color with max intensity.';
+Blockly.Msg.WINK_EYE_LEFT_RGB    = 'Sets the left eye to be the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYE_LEFT_OFF    = 'Turns off the left eye.';
 
 // Right
-Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'left eye' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
-Blockly.Msg.WINK_EYE_RIGHT_RED    = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'red' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_GREEN  = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'green' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_BLUE   = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'blue' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_PURPLE = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'purple' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_PINK   = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'pink' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_YELLOW = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'yellow' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_CYAN   = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'cyan' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_ORANGE = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'orange' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'white' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYE_RIGHT_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'the specified color with max intensity.';
-Blockly.Msg.WINK_EYE_RIGHT_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_RIGHT_EYE + 'the specified Red, Green, and Blue values.';
-Blockly.Msg.WINK_EYE_RIGHT_OFF    = "Turns off the right eye.";
+Blockly.Msg.WINK_EYE_RIGHT_RED    = 'Sets the right eye to be red with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_GREEN  = 'Sets the right eye to be green with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_BLUE   = 'Sets the right eye to be blue with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_PURPLE = 'Sets the right eye to be purple with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_PINK   = 'Sets the right eye to be pink with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_YELLOW = 'Sets the right eye to be yellow with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_CYAN   = 'Sets the right eye to be cyan with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_ORANGE = 'Sets the right eye to be orange with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_WHITE  = 'Sets the right eye to be white with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_SELECT = 'Sets the right eye to be the specified color with max intensity.';
+Blockly.Msg.WINK_EYE_RIGHT_RGB    = 'Sets the right eye to be the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYE_RIGHT_OFF    = 'Turns off the right eye.';
 
 // Both
-Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES = Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_1 + 'eyes' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2;
-Blockly.Msg.WINK_EYES_BOTH_RED    = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'red' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_GREEN  = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'green' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_BLUE   = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'blue' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_PURPLE = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'purple' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_PINK   = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'pink' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_YELLOW = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'yellow' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_CYAN   = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'cyan' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_ORANGE = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'orange' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'white' + Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING;
-Blockly.Msg.WINK_EYES_BOTH_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'the specified color with max intensity.';
-Blockly.Msg.WINK_EYES_BOTH_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'the specified Red, Green, and Blue values.';
-Blockly.Msg.WINK_EYES_BOTH_OFF    = "Turns off both of the eyes.";
+Blockly.Msg.WINK_EYES_BOTH_RED    = 'Sets both eyes to be red with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_GREEN  = 'Sets both eyes to be green with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_BLUE   = 'Sets both eyes to be blue with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_PURPLE = 'Sets both eyes to be purple with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_PINK   = 'Sets both eyes to be pink with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_YELLOW = 'Sets both eyes to be yellow with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_CYAN   = 'Sets both eyes to be cyan with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_ORANGE = 'Sets both eyes to be orange with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_WHITE  = 'Sets both eyes to be white with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_SELECT = 'Sets both eyes to be the specified color with max intensity.';
+Blockly.Msg.WINK_EYES_BOTH_RGB    = 'Sets both eyes to be the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYES_BOTH_OFF    = 'Turns off both of the eyes.';
 
 //Icon Startup/Loop
 Blockly.Msg.ICON_SETUP = 'once at start';
