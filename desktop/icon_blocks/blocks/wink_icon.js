@@ -16,22 +16,33 @@ const WINK_ICON_SENSOR_OUTPUTS = '#FF9042'; //330;F
 
 const WINK_ICON_TIME_COLOUR = '#6553c2';//'#2C85DB';
 
-
-
 //region REQUIRED_BLOCKS
 
 Blockly.Blocks['hardwarestartup_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.HARDWARESTARTUP_FIELD_1);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_play_arrow_black_24px.svg'), ICON_SIZE, ICON_SIZE))
+            .appendField(Blockly.Msg.ICON_SETUP);
         this.appendStatementInput("do")
             .setCheck(null);
-        this.setColour('#1565c0');
+        this.setColour(WINK_SETUP_AND_LOOP_COLOR);
         this.setTooltip(Blockly.Msg.HARDWARESTARTUP_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_HELP_URL);
     }
 };
 
+Blockly.Blocks['loop_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_loop_black_24px.svg'), ICON_SIZE, ICON_SIZE))
+            .appendField(Blockly.Msg.ICON_LOOP);
+        this.appendStatementInput("do")
+            .setCheck(null);
+        this.setColour(WINK_SETUP_AND_LOOP_COLOR);
+        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
+    }
+};
 //endregion
 
 //region WINK_ICON_LIGHT_EFFECTS
@@ -1015,17 +1026,3 @@ Blockly.Blocks['seconds_icon'] = {
 };
 
 //endregion wink icon time
-
-
-// Unsorted
-Blockly.Blocks['loop_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.LOOP_FIELD_1);
-        this.appendStatementInput("do")
-            .setCheck(null);
-        this.setColour(330);
-        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
-    }
-};
