@@ -254,7 +254,10 @@
          <block type="high"/>
          <block type="low"/>
          <block type="led_builtin"/>
-     </category>
+    </category>
+    <category name="Utility" colour="#E03400">
+         <block type="comment_oneline"/>
+    </category>
     <sep/>
     <category name="Wink Eyes" colour="#b71c1c">
         <block type="seteyesred">
