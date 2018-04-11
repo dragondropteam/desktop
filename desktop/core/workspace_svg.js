@@ -889,7 +889,13 @@ Blockly.WorkspaceSvg.prototype.addComment = function() {
   if(this.mouseLocation)
   {
     let mainWorkspace = Blockly.getMainWorkspace();
-    mouseLoc.x = (this.mouseLocation.x - mainWorkspace.scrollX) / mainWorkspace.scale;
+    let item = document.getElementsByClassName('blocklyToolboxDiv');
+    console.log(item);
+    let offset = 0; // default. 0 is acceptable.
+    if(item[0])
+      offset = item[0].clientWidth;
+
+    mouseLoc.x = (this.mouseLocation.x - mainWorkspace.scrollX) / mainWorkspace.scale - offset;
     mouseLoc.y = (this.mouseLocation.y - mainWorkspace.scrollY) / mainWorkspace.scale;
   }
   Blockly.ContextMenu.callbackFactoryWorkspace(this, mouseLoc, xmlBlock)();
