@@ -40,6 +40,8 @@ Blockly.C['set_left_eye_icon'] = Blockly.C['set_left_eye'];
 Blockly.C['set_right_eye_icon'] = Blockly.C['set_right_eye'];
 Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
 
+Blockly.C['hardwarestartup_icon'] = Blockly.C['hardwarestartup'];
+Blockly.C['loop_icon'] = Blockly.C['loop'];
 
 // Light Effects, Icon only - hence the lack of linkup.
 Blockly.C['light_effect_police_icon'] = function (block) {

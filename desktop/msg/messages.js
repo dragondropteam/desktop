@@ -5410,3 +5410,7 @@ Blockly.Msg.WINK_EYES_BOTH_WHITE  = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + '
 Blockly.Msg.WINK_EYES_BOTH_SELECT = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'the specified color with max intensity.';
 Blockly.Msg.WINK_EYES_BOTH_RGB    = Blockly.Msg.WINK_EXPLORER_BASE_BOTH_EYES + 'the specified Red, Green, and Blue values.';
 Blockly.Msg.WINK_EYES_BOTH_OFF    = "Turns off both of the eyes.";
+
+//Icon Startup/Loop
+Blockly.Msg.ICON_SETUP = 'once at start';
+Blockly.Msg.ICON_LOOP = 'loop always';
