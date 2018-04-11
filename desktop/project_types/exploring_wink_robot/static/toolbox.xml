@@ -466,6 +466,9 @@
             <block type="microseconds"/>
         </category>
     </category>
+    <category name="Utilities" colour="#EC591A">
+        <block type="comment_oneline_icon"/>
+    </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>

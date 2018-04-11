@@ -108,3 +108,17 @@ Blockly.Blocks['faint_object_icon'] = {
         this.setHelpUrl(Blockly.Msg.FAINT_OBJECT_HELP_URL);
     }
 };
+
+// Assigning to default block to get the icon.
+Blockly.Blocks['comment_oneline'] = Blockly.Blocks['comment_oneline_icon'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'comment.svg'), ICON_SIZE / 2, ICON_SIZE / 2))
+            .appendField(new Blockly.FieldTextInput(''), 'TEXT');
+        this.setColour(EVAL_JAVASCRIPT_COLOUR);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
