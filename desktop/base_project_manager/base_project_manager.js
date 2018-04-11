@@ -92,7 +92,9 @@ module.exports = BaseProjectManager = class BaseProjectManager {
      */
     loadProject(project, cachePath, projectPath) {
         const loadedProject = new LoadedProject(project, cachePath, projectPath, this, path.extname(projectPath).substr(1));
-        log.debug(path.extname(projectPath).substr(1));
+        // log.debug(path.extname(projectPath).substr(1));
+
+        project.version = global.version;
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
