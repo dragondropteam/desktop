@@ -113,6 +113,11 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
     //region METHODS
     function populateMethods(procedureList, templateName) {
         for (let i = 0; i < procedureList.length; i++) {
+
+            if(!procedureList[i][3]){
+                continue;
+            }
+            
             let name = procedureList[i][0];
             let args = procedureList[i][1];
             // <block type="method_callnoreturn" gap="16">
