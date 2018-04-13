@@ -42,6 +42,7 @@ Blockly.C['set_eyes_icon'] = Blockly.C['set_eyes'];
 
 Blockly.C['hardwarestartup_icon'] = Blockly.C['hardwarestartup'];
 Blockly.C['loop_icon'] = Blockly.C['loop'];
+Blockly.C['comment_oneline_icon'] = Blockly.C['comment_oneline'];
 
 // Light Effects, Icon only - hence the lack of linkup.
 Blockly.C['light_effect_police_icon'] = function (block) {
@@ -137,3 +138,5 @@ Blockly.C['delayseconds_icon'] = function (block) {
 Blockly.C['seconds_icon'] = function () {
     return [`seconds()`, Blockly.C.ORDER_ATOMIC];
 };
+
+

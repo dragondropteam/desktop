@@ -5288,6 +5288,8 @@ Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = 'child index';
 ///block text - complete the tween when done
 Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'fire onComplete';
 
+// Blockly General
+Blockly.Msg.ADD_COMMENT_BLOCK = 'Add Comment Block';
 
 // Get / Set for properties
 Blockly.Msg.GET_POINT_FIELD   = 'get point field';
