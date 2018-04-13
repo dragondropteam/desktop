@@ -15,7 +15,7 @@ const COMMENTS_COLOR = '#EC591A';
 Blockly.Blocks['comment_oneline'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField('//')
+            .appendField('comment')
             .appendField(new Blockly.FieldTextInput(''), 'TEXT');
         this.setColour(COMMENTS_COLOR);
         this.setNextStatement(true, null);
