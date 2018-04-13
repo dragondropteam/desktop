@@ -27,7 +27,7 @@ app.setAppUserModelId("edu.digipen.dragondrop"); //set AUMID
 
 const {ipcMain} = require('electron');
 const projects = require('./project/projects');
-const {checkVersion} = require('./project/projects');
+const {isFromNewerVersion, isFromOlderVersion} = require('./project/projects');
 const fs = require('fs-extra');
 const projectTypes = require('project_types');
 const arduinoCore = require('./arduino_core/arduino_core');
@@ -139,7 +139,7 @@ let wikiWindow = null;
 
 function reportBug(err) {
     // shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1/create/5');
-    if(mainWindow) {
+    if (mainWindow) {
         mainWindow.webContents.send('report_bug', err || false);
     }
 }
@@ -154,7 +154,7 @@ function addHelpMenu(menuHash) {
 
     menuHash['Help'].push({
         label: 'Report Bug',
-        click(){
+        click() {
             reportBug();
         }
     });
@@ -558,11 +558,11 @@ app.on('window-all-closed', function () {
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
         app.quit();
-    }else{
-        if(!splashScreen) {
+    } else {
+        if (!splashScreen) {
             //Showing the splash screen in this callback directly will crash
             setTimeout(() => showSplashScreen(), 0);
-        }else{
+        } else {
             app.quit();
         }
     }
@@ -578,11 +578,30 @@ function loadDigiblocksFromPath(projectPath) {
     return new Promise((resolve, reject) => {
         fs.readJson(projectPath)
             .then(projectFile => {
-                if (!checkVersion(global.version, projectFile.version)) {
+
+                let action = 0;
+                if (isFromNewerVersion(global.version, projectFile.version)) {
                     reject({
                         message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
+                    return;
+                } else if (isFromOlderVersion(global.version, projectFile.version)) {
+                    action = dialog.showMessageBox(mainWindow, {
+                        type: 'question',
+                        title: 'Dragon Drop',
+                        message: 'Project is from an older version of DragonDrop',
+                        detail: 'Do you want to convert the project to the current version of Dragon Drop. Doing so will prevent opening the project in prior versions of Dragon Drop. Or load the project in read only mode preserving backwards compatibility.',
+                        buttons: [
+                            'Convert Project',
+                            'Read Only',
+                            'Cancel'
+                        ]
+                    });
+                }
+
+                if (action === 2) {
+                    showSplashScreen();
                     return;
                 }
 
@@ -622,7 +641,7 @@ function loadDropFromPath(projectPath) {
                             return fs.outputFile(path.join(cachePath, relativePath), buffer);
                         }));
 
-                        if(relativePath.endsWith('.digiblocks')){
+                        if (relativePath.endsWith('.digiblocks')) {
                             digiblocksFile = path.join(cachePath, relativePath);
                         }
                     }
@@ -633,11 +652,30 @@ function loadDropFromPath(projectPath) {
                 return fs.readJson(digiblocksFile);
             })
             .then(projectFile => {
-                if (!checkVersion(global.version, projectFile.version)) {
+                let action = 0;
+                if (isFromNewerVersion(global.version, projectFile.version)) {
                     reject({
                         message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
+                    return;
+                } else if (isFromOlderVersion(global.version, projectFile.version)) {
+                    action = dialog.showMessageBox(mainWindow, {
+                        type: 'question',
+                        title: 'Dragon Drop',
+                        message: 'Project is from an older version of DragonDrop',
+                        detail: 'Do you want to convert the project to the current version of Dragon Drop. Doing so will prevent opening the project in prior versions of Dragon Drop. Or load the project in read only mode preserving backwards compatibility.',
+                        buttons: [
+                            'Convert Project',
+                            'Read Only',
+                            'Cancel'
+                        ]
+                    });
+                }
+
+                if (action === 2) {
+                    showSplashScreen();
+                    return;
                 }
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
                 resolve(projectInterface.loadProject(projectFile, cachePath, projectPath));
@@ -718,12 +756,13 @@ function showUnknownError(err) {
         ]
     });
 
-    if(option === 1){
+    if (option === 1) {
         reportBug(err);
     }
 }
+
 function showSplashScreen(err) {
-    if(mainWindow){
+    if (mainWindow) {
         mainWindow.destroy();
     }
 
@@ -738,7 +777,7 @@ function showSplashScreen(err) {
     });
 
     mainWindow.on('show', () => {
-        if(err){
+        if (err) {
             showUnknownError(err);
             err = null;
         }
