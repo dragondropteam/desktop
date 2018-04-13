@@ -89,10 +89,13 @@ module.exports = BaseProjectManager = class BaseProjectManager {
      * @param project The JSON file representing this project (.digiblocks)
      * @param cachePath The path to the folder containing the .digiblocks file in cache folder
      * @param projectPath The path to the project archive .drop file or .digiblocks file for legacy projects
+     * @param readOnly Is the project read only (i.e. a legacy project we want to view but not change)
      */
-    loadProject(project, cachePath, projectPath) {
+    loadProject(project, cachePath, projectPath, readOnly = false) {
         const loadedProject = new LoadedProject(project, cachePath, projectPath, this, path.extname(projectPath).substr(1));
-        log.debug(path.extname(projectPath).substr(1));
+        loadedProject.setReadOnly(readOnly)
+
+        project.version = global.version;
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
@@ -132,6 +135,11 @@ module.exports = BaseProjectManager = class BaseProjectManager {
      * @param files.data
      */
     saveProject(project, files) {
+
+        if (project.readOnly) {
+            return;
+        }
+
         fs.outputJsonSync(project.getProjectPath(), project.loadedProject);
 
         //If we are only updating the project file there will be no files
