@@ -9,7 +9,7 @@ require('../../project/projects');
  *
  * @type {number}
  */
-const BUILD_NUMBER = 3;
+const BUILD_NUMBER = 5;
 const PROJECT_TYPE = 'exploring_wink';
 const fs = require('fs-extra');
 const path = require('path');
@@ -73,13 +73,25 @@ class ExploringWinkRobotProjectManager extends BaseProjectManager {
             try {
                 fs.removeSync(loadedProject.getFileInProjectDir('WinkHardware.hpp'));
                 console.log('WinkHardware.hpp deleted');
-                fs.copySync(filesystem.getFilePath('project_types/wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
+                fs.copySync(filesystem.getFilePath('project_types/exploring_wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
                 console.log('WinkHardware.hpp updated and new files copied over.');
                 loadedProject.loadedProject.meta.version++;
             } catch (err) {
                 return console.error(err);
             }
         }
+
+        if (loadedProject.loadedProject.meta.version === 4) {
+            console.log('4 => 5\n  - Update DragonDrop.ino/hpp');
+
+            try {
+                fs.copySync(filesystem.getFilePath('project_types/exploring_wink_robot/core_files/Wink_BaseSketch_Rev01_03'), loadedProject.getProjectDir());
+                loadedProject.loadedProject.meta.version++;
+            } catch (err) {
+                return console.error(err);
+            }
+        }
+
         this.saveProject(loadedProject);
     }
 
