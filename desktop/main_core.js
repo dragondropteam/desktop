@@ -138,9 +138,9 @@ function addToggleDevTools(menuHash) {
 let wikiWindow = null;
 
 function reportBug(err) {
-    // shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1/create/5');
+    const errorSerialize = err ? {message: err.message, stack: err.stack} : false;
     if (mainWindow) {
-        mainWindow.webContents.send('report_bug', {message: err.message, stack: err.stack} || false);
+        mainWindow.webContents.send('report_bug', errorSerialize);
     }
 }
 
