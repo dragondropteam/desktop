@@ -13,7 +13,7 @@ const assert = require('assert');
 const {TYPE_COMPONENT, TIMEOUT} = require('./components/component');
 
 const {ipcRenderer} = require('electron');
-const {LoadedProject} = require('project');
+const {LoadedProject} = require('../project/projects');
 const path = require('path');
 const fs = require('fs-extra');
 const GoldenLayout = require('golden-layout');

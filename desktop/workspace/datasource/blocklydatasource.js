@@ -10,10 +10,6 @@ class BlocklyDataSource extends DataSource {
     }
 
     save(code) {
-        if(this.project.readOnly){
-            return;
-        }
-
         if (!this.project) {
             return;
         }
@@ -28,10 +24,6 @@ class BlocklyDataSource extends DataSource {
     }
 
     saveAs(code, destinationProject) {
-        if(this.project.readOnly){
-            return;
-        }
-
         try {
             destinationProject.save([{
                 path: destinationProject.getSourceFile(this.extension),

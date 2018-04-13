@@ -622,8 +622,7 @@ function loadDigiblocksFromPath(projectPath) {
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
 
-                const project = projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath);
-                project.setReadOnly(action === ACTION_READ_ONLY);
+                const project = projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath, action === ACTION_READ_ONLY);
                 global.loadProjectReadOnly = project.readOnly;
 
                 resolve(project);
@@ -690,8 +689,7 @@ function loadDropFromPath(projectPath) {
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
 
-                const project = projectInterface.loadProject(projectFile, cachePath, projectPath);
-                project.setReadOnly(action === ACTION_READ_ONLY);
+                const project = projectInterface.loadProject(projectFile, cachePath, projectPath, action === ACTION_READ_ONLY);
                 global.loadProjectReadOnly = project.readOnly;
 
                 resolve(project);
@@ -737,7 +735,6 @@ function loadProjectFromPath(projectPath) {
     loadProject
         .then(project => {
             progressWindow.destroy();
-            log.debug('Loading ', project);
             displayProject(project);
         })
         .catch(err => {
