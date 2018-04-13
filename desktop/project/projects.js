@@ -213,6 +213,7 @@ class LoadedProject {
         this.projectPath = projectPath;
         this.projectManager = projectManager;
         this.fileType = fileType;
+        this.readOnly = false;
     }
 
     /**
@@ -302,6 +303,10 @@ class LoadedProject {
      */
     getSourceFile(extension) {
         return this.getFileInProjectDir(`${this.getName()}.${extension}`);
+    }
+
+    setReadOnly(readOnly){
+        this.readOnly = readOnly;
     }
 }
 
