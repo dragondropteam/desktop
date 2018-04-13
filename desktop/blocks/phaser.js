@@ -55,6 +55,7 @@ const PHASER_GAMEPAD_INPUT = '#328DE2';  // UNUSED // ?328DE2
 const PHASER_UTILITY_COLOUR = '#E03400';      //'#ff6d00'; UNUSED
 const PHASER_UTIL_GENERAL_COLOUR = '#E03400'; //'#ff3d00';
 const PHASER_UTIL_DEBUG_COLOUR = '#E6460D';   //'#ff6e40';
+//const EVAL_JAVASCRIPT_COLOUR = '#EC591A';
 const PHASER_UTIL_LIST_COLOUR = '#F36B28';    //'#bf360c';
 const PHASER_MATH_COLOUR = '#F97E35';         //'#ffab91';
 const PHASER_RANDOM_COLOUR = '#FF9042';       //'#ff7043';
@@ -3674,7 +3675,7 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
             .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), "FIELD")
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2);
         this.appendValueInput('OBJECT');
-        this.appendValueInput('VALUE')
+        this.appendValueInput('POINT')
             .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);

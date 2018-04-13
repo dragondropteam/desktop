@@ -11,6 +11,7 @@ const log = require('electron-log');
 const DIGIBLOCKS_PROJECT = 'digiblocks';
 const DROP_PROJECT = 'drop';
 const zipFolder = require('zip-folder');
+const semver = require('semver');
 
 function getRecentProjects() {
     /**
@@ -142,6 +143,50 @@ exports.migrateLegacyProject = function (project, savePath) {
 };
 
 /**
+ * Take a semver 1.0.0 prerelease string and convert to a 2.0.0 prerelease string
+ * @param semver The 1.0.0 prerelease string
+ */
+exports.convertSemverOneToSemverTwo = function (semver) {
+    // console.log(semver.replace(/(^[0-9.]*)-beta(\d*)/g, '$1-beta.$2'));
+    semver = semver.replace(/(^[0-9.]*)-beta(\d*)/g,  (match, p1, p2) => {
+        return p2 ? `${p1}-beta.${p2}` : `${p1}-beta`;
+    });
+
+    semver = semver.replace(/(^[0-9.]*)-alpha(\d*)/g, (match, p1, p2) => {
+        return p2 ? `${p1}-alpha.${p2}` : `${p1}-alpha`;
+    });
+
+    semver = semver.replace(/(^[0-9.]*)-rc(\d*)/g, (match, p1, p2) => {
+        return p2 ? `${p1}-rc.${p2}` : `${p1}-rc`;
+    });
+
+    return semver;
+};
+
+/**
+ * Check to see if an application version is newer then the project version the user is trying to load
+ * @param applicationVersion The version of DragonDrop
+ * @param projectVersion The version of the project
+ * @returns {boolean} true if the project is from this version of DragonDrop or older, false if it is from a newer version and
+ *               cannot be loaded
+ */
+exports.isFromOlderVersion = function (applicationVersion, projectVersion) {
+    return semver.gt(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
+};
+
+/**
+ * Check to see if an application version is older then the project version the user is trying to load
+ * @param applicationVersion The version of DragonDrop
+ * @param projectVersion The version of the project
+ * @returns {boolean} true if the project is from this version of DragonDrop or older, false if it is from a newer version and
+ *               cannot be loaded
+ */
+exports.isFromNewerVersion = function (applicationVersion, projectVersion) {
+    return semver.lt(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
+};
+
+
+/**
  * Simple class structure stores information on the version of DragonDrop, the type of project and any metadata for
  * that project type. Is generally not used directly. {@see LoadedProject} is passed instead, it adds utility functions
  * and information about the location of the project.
@@ -177,6 +222,7 @@ class LoadedProject {
         this.projectPath = projectPath;
         this.projectManager = projectManager;
         this.fileType = fileType;
+        this.readOnly = false;
     }
 
     /**
@@ -249,6 +295,11 @@ class LoadedProject {
      * @param files.data Data for the file (this inherently limits files to < 2GB)
      */
     save(files) {
+
+        if(this.readOnly){
+            return;
+        }
+
         this.getProjectManager().saveProject(this, files);
     }
 
@@ -266,6 +317,10 @@ class LoadedProject {
      */
     getSourceFile(extension) {
         return this.getFileInProjectDir(`${this.getName()}.${extension}`);
+    }
+
+    setReadOnly(readOnly){
+        this.readOnly = readOnly;
     }
 }
 

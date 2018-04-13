@@ -273,10 +273,27 @@ static void bump(int *r, int *g, int *b, int amountToBumpBy) {
  * @param seconds The number of seconds to convert to milliseconds.
  * @returns Specified seconds converted to milliseconds.
  */
-static int convertToMilliseconds(int seconds) {
+int convertToMilliseconds(int seconds) {
     return seconds * 1000;
 }
 
+/**
+ * Seconds elapsed since device start
+ * @returns Seconds elapsed since device start
+ */
+unsigned long seconds() {
+    return millis() / 1000;
+}
+
+/**
+ * Converts the specified integer representing milliseconds to seconds.
+ *
+ * @param seconds The number of seconds to convert to milliseconds.
+ * @returns Specified seconds converted to milliseconds.
+ */
+int convertMillisecondsToSeconds(int milliseconds) {
+    return milliseconds / 1000;
+}
 
 /**
  *

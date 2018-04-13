@@ -1,6 +1,6 @@
 {
   "name": "DragonDrop",
-  "version": "2.0.0-beta9",
+  "version": "2.0.0-rc.1",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
@@ -63,6 +63,7 @@
     "gulp-add-src": "^0.2.0",
     "gulp-clean": "^0.3.2",
     "gulp-uglify": "^3.0.0",
+    "gulp-yarn": "^1.0.1",
     "pump": "^1.0.2",
     "standard": "^10.0.2",
     "uglify-es": "^3.2.2",
@@ -75,7 +76,6 @@
     "angular-material": "^1.1.5",
     "arduino": "file:project_types/arduino",
     "arduino_core": "file:arduino_core",
-    "compare-versions": "^3.1.0",
     "electron-builder": "19.37.2",
     "electron-log": "^2.2.11",
     "electron-store": "*",
@@ -89,6 +89,8 @@
     "project": "file:project",
     "project_types": "file:project_types",
     "promisepipe": "^2.1.1",
+    "rxjs": "^5.5.7",
+    "semver": "^5.5.0",
     "serialport": "^6.0.4",
     "username": "^3.0.0",
     "wink_robot": "file:project_types/wink_robot",

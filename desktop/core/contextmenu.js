@@ -146,3 +146,25 @@ Blockly.ContextMenu.callbackFactory = function(block, xml) {
     newBlock.select();
   };
 };
+
+// For cases where you're not inside of a block, instead allow block creation
+// based on XML, not specifically a block object.
+Blockly.ContextMenu.callbackFactoryWorkspace = function(workspace, mouse, xml) {
+  return function() {
+    Blockly.Events.disable();
+    try {
+        // Create the comment block based on XML
+        var newBlock = Blockly.Xml.domToBlock(xml, workspace);
+
+        // Move the new block to the mouse.
+        newBlock.moveBy(mouse.x, mouse.y);
+
+    } finally {
+        Blockly.Events.enable();
+    }
+    if (Blockly.Events.isEnabled() && !newBlock.isShadow()) {
+        Blockly.Events.fire(new Blockly.Events.Create(newBlock));
+    }
+    newBlock.select();
+  };
+};

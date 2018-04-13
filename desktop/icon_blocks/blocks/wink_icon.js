@@ -2,20 +2,21 @@
 'use strict';
 
 // Block Colors
-const WINK_ICON_BLOCK_COLOUR_EYES_LEFT = '#6b6b6b'; //330;
-const WINK_ICON_BLOCK_COLOUR_EYES_RIGHT = '#6b6b6b'; //330;
-const WINK_ICON_BLOCK_COLOUR_EYES_BOTH = '#6b6b6b'; //330;
-const WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS = '#848484'; //330;
+const WINK_ICON_BLOCK_COLOUR_EYES_LEFT = '#6b6b6b';
+const WINK_ICON_BLOCK_COLOUR_EYES_RIGHT = '#6b6b6b';
+const WINK_ICON_BLOCK_COLOUR_EYES_BOTH = '#6b6b6b';
+const WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS = '#848484';
 
-const WINK_ICON_MOVEMENT_COLOUR = '#348783'; //330;
-const WINK_ICON_MOVEMENT_ADVANCED_COLOUR = '#459A9A'; //330;
+const WINK_ICON_MOVEMENT_COLOUR = '#348783';
+const WINK_ICON_MOVEMENT_ADVANCED_COLOUR = '#459A9A';
 
-const WINK_ICON_SENSOR_BEHAVIORS = '#F36B28'; //330;
-const WINK_ICON_SENSOR_INPUTS = '#F97E35'; //330;
-const WINK_ICON_SENSOR_OUTPUTS = '#FF9042'; //330;F
+const WINK_ICON_SENSOR_BEHAVIORS = '#F36B28';
+const WINK_ICON_SENSOR_INPUTS = '#F97E35';
+const WINK_ICON_SENSOR_OUTPUTS = '#FF9042';
 
-const WINK_ICON_TIME_COLOUR = '#6553c2';//'#2C85DB';
+const WINK_ICON_TIME_COLOUR = '#6553c2';
 
+const WINK_ICON_COMMENTS_COLOR = '#EC591A';
 
 
 //region REQUIRED_BLOCKS
@@ -23,19 +24,31 @@ const WINK_ICON_TIME_COLOUR = '#6553c2';//'#2C85DB';
 Blockly.Blocks['hardwarestartup_icon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.HARDWARESTARTUP_FIELD_1);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_play_arrow_black_24px.svg'), ICON_SIZE, ICON_SIZE))
+            .appendField(Blockly.Msg.ICON_SETUP);
         this.appendStatementInput("do")
             .setCheck(null);
-        this.setColour('#1565c0');
+        this.setColour(WINK_SETUP_AND_LOOP_COLOR);
         this.setTooltip(Blockly.Msg.HARDWARESTARTUP_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.HARDWARESTARTUP_HELP_URL);
     }
 };
 
+Blockly.Blocks['loop_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'ic_loop_black_24px.svg'), ICON_SIZE, ICON_SIZE))
+            .appendField(Blockly.Msg.ICON_LOOP);
+        this.appendStatementInput("do")
+            .setCheck(null);
+        this.setColour(WINK_SETUP_AND_LOOP_COLOR);
+        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
+    }
+};
 //endregion
 
 //region WINK_ICON_LIGHT_EFFECTS
-
 Blockly.Blocks['light_effect_police_icon'] = {
     init: function () {
         this.setInputsInline(true);
@@ -110,19 +123,31 @@ Blockly.Blocks['light_effect_fireworks_icon'] = {
 
 Blockly.Blocks['seteyesred_icon'] = {
     init: function () {
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.svg'), ICON_SIZE, ICON_SIZE));
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.svg'), ICON_SIZE, ICON_SIZE));
+        // this.appendDummyInput()
+        //     .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.svg'), ICON_SIZE, ICON_SIZE));
+        // this.appendDummyInput()
+        //     .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.svg'), ICON_SIZE, ICON_SIZE));
+        // this.appendValueInput("INTENSITY")
+        //     // .appendField(Blockly.Msg.SETEYESRED_FIELD_1)
+        //     .setCheck("Number");
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
+        // // this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
+        // this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_RED);
+        // this.setHelpUrl(Blockly.Msg.SETEYESRED_HELP_URL);
+
         this.setInputsInline(true);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.svg'), ICON_SIZE, ICON_SIZE));
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'eyeRed.svg'), ICON_SIZE, ICON_SIZE));
+        this.setColour(WINK_ICON_BLOCK_COLOUR_LIGHT_EFFECTS);
         this.appendValueInput("INTENSITY")
-            // .appendField(Blockly.Msg.SETEYESRED_FIELD_1)
             .setCheck("Number");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(WINK_ICON_BLOCK_COLOUR_EYES_BOTH);
         this.setTooltip(Blockly.Msg.WINK_EYES_BOTH_RED);
         this.setHelpUrl(Blockly.Msg.SETEYESRED_HELP_URL);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
     }
 };
 
@@ -1016,16 +1041,19 @@ Blockly.Blocks['seconds_icon'] = {
 
 //endregion wink icon time
 
-
-// Unsorted
-Blockly.Blocks['loop_icon'] = {
-    init: function () {
+//region WINK_ICON_UTILITIES
+// Do this to re-assign the oneline comment block on the whole. Not stellar, but works for right-clicking.
+Blockly.Blocks['comment_oneline'] = Blockly.Blocks['comment_oneline_icon'] = {
+    init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.LOOP_FIELD_1);
-        this.appendStatementInput("do")
-            .setCheck(null);
-        this.setColour(330);
-        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'comment.svg'), ICON_SIZE / 2, ICON_SIZE / 2))
+            .appendField(new Blockly.FieldTextInput(''), 'TEXT');
+        this.setColour(WINK_ICON_COMMENTS_COLOR);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setTooltip('');
+        this.setHelpUrl('');
     }
 };
+
+//endregion Utilities

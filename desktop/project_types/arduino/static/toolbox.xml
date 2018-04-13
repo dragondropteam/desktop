@@ -485,6 +485,9 @@
         <block type="low"/>
         <block type="led_builtin"/>
     </category>
+    <category name="Utility" colour="#E03400">
+        <block type="comment_oneline"/>
+    </category>
     <sep/>
     <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
