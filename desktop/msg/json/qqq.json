@@ -2449,6 +2449,7 @@
 	"PHASER_YOYO_TWEEN_DELAY": "block text - delay to the start of the yoyo if enabling",
 	"PHASER_YOYO_CHILD_TWEEN_INDEX": "block text - index of the child tween",
 	"PHASER_STOP_TWEEN_COMPLETE": "block text - complete the tween when done",
+	"ADD_COMMENT_BLOCK": "",
 	"GET_POINT_FIELD": "",
 	"GET_BOOLEAN_FIELD": "",
 	"GET_NUMERIC_FIELD": "",

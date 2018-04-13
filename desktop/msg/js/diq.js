@@ -62,6 +62,7 @@ Blockly.Msg.ADD_CHILD_VI_FIELD_2 = "to";  // untranslated
 Blockly.Msg.ADD_CHILD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChild";  // untranslated
 Blockly.Msg.ADD_CHILD_VI_TOOLTIP = "Add a child to a sprite. This will make them move together.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Tefsir cı ke";
+Blockly.Msg.ADD_COMMENT_BLOCK = "Add Comment Block";  // untranslated
 Blockly.Msg.ADD_EVENT_LISTENER_DO = "do";  // untranslated
 Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE = "for event of type";  // untranslated
 Blockly.Msg.ADD_EVENT_LISTENER_HELP_URL = "";  // untranslated
