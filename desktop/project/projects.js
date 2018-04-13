@@ -295,6 +295,11 @@ class LoadedProject {
      * @param files.data Data for the file (this inherently limits files to < 2GB)
      */
     save(files) {
+
+        if(this.readOnly){
+            return;
+        }
+
         this.getProjectManager().saveProject(this, files);
     }
 

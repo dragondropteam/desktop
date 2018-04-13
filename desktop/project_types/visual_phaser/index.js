@@ -12,15 +12,9 @@ require('../../project/projects');
 const BUILD_NUMBER = 2;
 const fs = require('fs-extra');
 const path = require('path');
-const {Project} = require('project');
-const {LoadedProject} = require('project');
 
 const filesystem = require(`filesystem`);
-const electron = require('electron');
-const {dialog} = require('electron');
-const {BrowserWindow} = require('electron');
 const PROJECT_TYPE = 'visual_phaser';
-let displayedWindow = null;
 const corePhaser = require('../../phaser_core/phaser_core');
 const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 const log = require('electron-log');

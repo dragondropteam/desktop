@@ -26,8 +26,7 @@ const layoutConfig = {
         content: [
             BlocklyComponent.generateContent(
                 BlocklyComponent.getDefaultBlocklyConfig(toolboxSource),
-                BlocklyComponent.generateWorkspaceMappingFunction(Blockly.JavaScript.workspaceToCode.bind(Blockly.JavaScript)),
-                true)
+                BlocklyComponent.generateWorkspaceMappingFunction(Blockly.JavaScript.workspaceToCode.bind(Blockly.JavaScript)))
             , {
                 type: 'column',
                 content: [
