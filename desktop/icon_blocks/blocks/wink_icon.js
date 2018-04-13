@@ -1057,17 +1057,3 @@ Blockly.Blocks['comment_oneline'] = Blockly.Blocks['comment_oneline_icon'] = {
 };
 
 //endregion Utilities
-
-// Unsorted
-Blockly.Blocks['loop_icon'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.LOOP_FIELD_1);
-        this.appendStatementInput("do")
-            .setCheck(null);
-        this.setColour(330);
-        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
-        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
-    }
-};
-
