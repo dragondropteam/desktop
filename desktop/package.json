@@ -1,6 +1,6 @@
 {
   "name": "DragonDrop",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
@@ -51,7 +51,8 @@
     "start-dev": "electron main_dev.js",
     "test": "electron-mocha",
     "rebuild": "electron-rebuild .",
-    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp"
+    "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp",
+    "spaghetti": "serve ../"
   },
   "devDependencies": {
     "arduino": "file:project_types/arduino",
@@ -65,6 +66,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-yarn": "^1.0.1",
     "pump": "^1.0.2",
+    "serve": "^6.5.5",
     "standard": "^10.0.2",
     "uglify-es": "^3.2.2",
     "username": "*"
