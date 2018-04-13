@@ -155,15 +155,27 @@ exports.convertSemverOneToSemverTwo = function (semver) {
 };
 
 /**
+ * Check to see if an application version is newer then the project version the user is trying to load
+ * @param applicationVersion The version of DragonDrop
+ * @param projectVersion The version of the project
+ * @returns {boolean} true if the project is from this version of DragonDrop or older, false if it is from a newer version and
+ *               cannot be loaded
+ */
+exports.isFromOlderVersion = function (applicationVersion, projectVersion) {
+    return semver.gt(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
+};
+
+/**
  * Check to see if an application version is older then the project version the user is trying to load
  * @param applicationVersion The version of DragonDrop
  * @param projectVersion The version of the project
  * @returns {boolean} true if the project is from this version of DragonDrop or older, false if it is from a newer version and
  *               cannot be loaded
  */
-exports.checkVersion = function (applicationVersion, projectVersion) {
-    return semver.gte(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
+exports.isFromNewerVersion = function (applicationVersion, projectVersion) {
+    return semver.lt(exports.convertSemverOneToSemverTwo(applicationVersion), exports.convertSemverOneToSemverTwo(projectVersion));
 };
+
 
 /**
  * Simple class structure stores information on the version of DragonDrop, the type of project and any metadata for
