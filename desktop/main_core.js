@@ -761,16 +761,18 @@ app.on('ready', function () {
     const args = yargs(process.argv.slice(1)).argv;
     createDefaultMenu();
 
+
+    //We need to show a window in this callback otherwise the application will quit, show always show the splash screen
+    //if we get a project to load it will close this window. Hopefully before ready-to-show is called preventing flickering
+    showSplashScreen();
+
     if (projectToLoad) {
         loadProjectFromPath(projectToLoad);
         return;
     }
 
-
     if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
         loadProjectFromPath(args._[0]);
-    } else {
-        showSplashScreen();
     }
 
     arduinoCore.ensureLibraries(err => {
