@@ -192,6 +192,7 @@ exports.BaseProjectManager = class BaseProjectManager {
     saveProject(project, files) {
         fs.outputJsonSync(project.getProjectPath(), project.loadedProject);
 
+
         //If we are only updating the project file there will be no files
         if (files) {
             for (let i = 0; i < files.length; ++i) {

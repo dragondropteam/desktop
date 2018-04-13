@@ -229,7 +229,7 @@
         <block type="serial_begin">
             <value name="SPEED">
                 <shadow type="math_number">
-                    <field name="NUM">0</field>
+                    <field name="NUM">57600</field>
                 </shadow>
             </value>
         </block>
@@ -286,7 +286,10 @@
          <block type="high"/>
          <block type="low"/>
          <block type="led_builtin"/>
-     </category>
+    </category>
+    <category name="Utility" colour="#E03400">
+         <block type="comment_oneline"/>
+    </category>
     <sep/>
     <category name="Wink Eyes" colour="#b71c1c">
         <block type="seteyesred">

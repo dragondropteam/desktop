@@ -77,9 +77,6 @@ dist/
 
 \.idea/atlassian-ide-plugin\.xml
 
-*_compressed.js
-
-desktop/blockly_uncompressed\.js
 
 desktop/app/gulpfile\.js
 
@@ -129,3 +126,39 @@ desktop/app/phaser_workspace/
 desktop/app/arduino_workspace/
 
 \.idea/jsLibraryMappings\.xml
+
+desktop/app/serial_monitor/
+
+desktop/app/window_manager/
+
+desktop/package-lock\.json
+
+desktop/app/base_project_manager/base_project_manager\.js
+
+venv/
+
+desktop/app/arduino_compressed\.js
+
+desktop/app/blockly_compressed\.js
+
+desktop/app/blocks_compressed\.js
+
+desktop/app/c_compressed\.js
+
+desktop/app/dart_compressed\.js
+
+desktop/app/javascript_compressed\.js
+
+desktop/app/lua_compressed\.js
+
+desktop/app/phaser_compressed\.js
+
+desktop/app/php_compressed\.js
+
+desktop/app/python_compressed\.js
+
+desktop/app/ringo_compressed\.js
+
+desktop/app/wink_compressed\.js
+
+desktop/yarn-error\.log

@@ -1,5 +1,5 @@
 # DragonDrop
-[![build status](http://wwwprod4.digipen.edu/k12/dragondrop/badges/master/build.svg)](http://wwwprod4.digipen.edu/k12/dragondrop/commits/master)
+[![build status](https://gitlabk12.digipen.edu/k12/dragondrop/badges/master/build.svg)](https://gitlabk12.digipen.edu/k12/dragondrop/commits/master)
 
 A simple visual programming IDE for Wink, Arduino, Phaser and more
 

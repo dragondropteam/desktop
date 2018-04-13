@@ -7,6 +7,12 @@ const zipFolder = require('zip-folder');
 
 module.exports = BaseProjectManager = class BaseProjectManager {
 
+    /**
+     * Set the buildNumber, type, and root for static files
+     * @param buildNumber The build number for the project type
+     * @param type project type id
+     * @param staticRoot root to find static files
+     */
     constructor(buildNumber, type, staticRoot) {
         this.buildNumber = buildNumber;
         this.type = type;
@@ -83,10 +89,13 @@ module.exports = BaseProjectManager = class BaseProjectManager {
      * @param project The JSON file representing this project (.digiblocks)
      * @param cachePath The path to the folder containing the .digiblocks file in cache folder
      * @param projectPath The path to the project archive .drop file or .digiblocks file for legacy projects
+     * @param readOnly Is the project read only (i.e. a legacy project we want to view but not change)
      */
-    loadProject(project, cachePath, projectPath) {
+    loadProject(project, cachePath, projectPath, readOnly = false) {
         const loadedProject = new LoadedProject(project, cachePath, projectPath, this, path.extname(projectPath).substr(1));
-        log.debug(path.extname(projectPath).substr(1));
+        loadedProject.setReadOnly(readOnly)
+
+        project.version = global.version;
 
         if ((project.meta && project.meta.version < this.buildNumber) || (!project.meta) || (!project.type)) {
             this.migrate(loadedProject)
@@ -126,18 +135,23 @@ module.exports = BaseProjectManager = class BaseProjectManager {
      * @param files.data
      */
     saveProject(project, files) {
+
+        if (project.readOnly) {
+            return;
+        }
+
         fs.outputJsonSync(project.getProjectPath(), project.loadedProject);
 
         //If we are only updating the project file there will be no files
         if (files) {
             for (let i = 0; i < files.length; ++i) {
+                fs.ensureFileSync(files[i].path);
                 fs.writeFileSync(files[i].path, files[i].data);
             }
         }
 
         //Update the .drop file if present this can be async as we are not directly using the file
         if (path.extname(project.projectPath) === '.drop') {
-
             zipFolder(project.loadPath, project.projectPath, err => {
                 if (err) {
                     console.error(err);
@@ -146,6 +160,10 @@ module.exports = BaseProjectManager = class BaseProjectManager {
         }
     }
 
+    /**
+     * Add meta data and set project type if missing
+     * @param loadedProject The project to add meta data to.
+     */
     migrateMetaAndProjectType(loadedProject) {
         if (!loadedProject.loadedProject.meta || !loadedProject.loadedProject.type) {
             loadedProject.loadedProject.meta = this.createMeta();

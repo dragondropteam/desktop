@@ -12,6 +12,7 @@ exports.setIndex = function (file) {
 
 
 const electron = require('electron');
+const {shell} = require('electron');
 const packageJSON = require('./package.json');
 global.version = packageJSON.version;
 
@@ -26,16 +27,18 @@ app.setAppUserModelId("edu.digipen.dragondrop"); //set AUMID
 
 const {ipcMain} = require('electron');
 const projects = require('./project/projects');
+const {isFromNewerVersion, isFromOlderVersion} = require('./project/projects');
 const fs = require('fs-extra');
 const projectTypes = require('project_types');
 const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
 let preferencesWindow;
 const JSZip = require('jszip');
-const compareVersions = require('compare-versions');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
+const windowManager = require('./window_manager/window_manager');
+let splashScreen = false;
 
 //region AUTO_UPDATE
 // Blocked until this can be signed!
@@ -90,11 +93,11 @@ function fillRecentProjects(menuHash) {
     let loadedProjects = [];
     const recentProjects = projects.getRecentProjects();
     recentProjects.forEach((project) => {
-        project = new projects.LoadedProject(project.loadedProject, project.loadPath);
+        project = Object.assign(new projects.LoadedProject(), project);
         loadedProjects.push({
             label: `${project.getName()} - ${project.loadedProject.type}`,
             click() {
-                loadProjectFromPath(project.getProjectPath());
+                loadProjectFromPath(project.projectPath);
             }
         });
     });
@@ -134,11 +137,17 @@ function addToggleDevTools(menuHash) {
 
 let wikiWindow = null;
 
+function reportBug(err) {
+    const errorSerialize = err ? {message: err.message, stack: err.stack} : false;
+    if (mainWindow) {
+        mainWindow.webContents.send('report_bug', errorSerialize);
+    }
+}
+
 function addHelpMenu(menuHash) {
     menuHash['Help'] = [{
         label: 'View Wiki',
         click() {
-            const {shell} = require('electron');
             shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
         }
     }];
@@ -146,8 +155,7 @@ function addHelpMenu(menuHash) {
     menuHash['Help'].push({
         label: 'Report Bug',
         click() {
-            const {shell} = require('electron');
-            shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1');
+            reportBug();
         }
     });
 
@@ -499,8 +507,6 @@ ipcMain.on('show_code', function (event, arg) {
 let loadedproject;
 
 function displayProject(loadedProject) {
-    log.debug(loadedProject);
-
     loadedproject = loadedProject;
     projects.addToRecentProjects(loadedProject);
     app.addRecentDocument(loadedProject.projectPath || loadedProject.getProjectPath());
@@ -548,13 +554,47 @@ let mainWindow = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
+    console.log('window-all-closed');
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
         app.quit();
+    } else {
+        if (!splashScreen) {
+            //Showing the splash screen in this callback directly will crash
+            setTimeout(() => showSplashScreen(), 0);
+        } else {
+            app.quit();
+        }
     }
 });
 
+
+const ACTION_CONVERT = 0;
+const ACTION_READ_ONLY = 1;
+const ACTION_CANCEL = 2;
+
+/**
+ * Shows a dialog when loading an older project.
+ *
+ * Allows the user to convert the project to the version of DragonDrop or to load the project in read only mode which
+ * will not make any changes to the project and will not update the projects version code.
+ *
+ * @return {number} 0: Convert Project, 1: Read Only, 2: Cancel
+ */
+function showConversionDialog() {
+    return dialog.showMessageBox(mainWindow, {
+        type: 'question',
+        title: 'Dragon Drop',
+        message: 'Project is from an older version of DragonDrop',
+        detail: 'Do you want to convert the project to the current version of Dragon Drop. Doing so will prevent opening the project in prior versions of Dragon Drop. Or load the project in read only mode preserving backwards compatibility.',
+        buttons: [
+            'Convert Project',
+            'Read Only',
+            'Cancel'
+        ]
+    });
+}
 
 /**
  * Loads a project from the path to a given .digiblocks file if the file is able to be loaded it will then be displayed
@@ -565,12 +605,28 @@ function loadDigiblocksFromPath(projectPath) {
     return new Promise((resolve, reject) => {
         fs.readJson(projectPath)
             .then(projectFile => {
-                if (compareVersions(global.version, projectFile.version) < 0) {
-                    reject(VERSION_MISMATCH)
+
+                let action = 0;
+                if (isFromNewerVersion(global.version, projectFile.version)) {
+                    reject({
+                        message: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        id: VERSION_MISMATCH
+                    });
+                    return;
+                } else if (isFromOlderVersion(global.version, projectFile.version)) {
+                    action = showConversionDialog();
+                }
+
+                if (action === ACTION_CANCEL) {
+                    return;
                 }
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
-                resolve(projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath));
+
+                const project = projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath, action === ACTION_READ_ONLY);
+                global.loadProjectReadOnly = project.readOnly;
+
+                resolve(project);
             })
             .catch(err => {
                 reject(err);
@@ -580,6 +636,7 @@ function loadDigiblocksFromPath(projectPath) {
 
 const FILE_TOO_LARGE = 1;
 const VERSION_MISMATCH = 2;
+
 
 function loadDropFromPath(projectPath) {
     return new Promise((resolve, reject) => {
@@ -605,7 +662,7 @@ function loadDropFromPath(projectPath) {
                             return fs.outputFile(path.join(cachePath, relativePath), buffer);
                         }));
 
-                        if(relativePath.endsWith('.digiblocks')){
+                        if (relativePath.endsWith('.digiblocks')) {
                             digiblocksFile = path.join(cachePath, relativePath);
                         }
                     }
@@ -616,14 +673,27 @@ function loadDropFromPath(projectPath) {
                 return fs.readJson(digiblocksFile);
             })
             .then(projectFile => {
-                if (compareVersions(global.version, projectFile.version) < 0) {
+                let action = 0;
+                if (isFromNewerVersion(global.version, projectFile.version)) {
                     reject({
-                        msg: `Version mismatch running ${global.version} need ${projectFile.version}`,
+                        message: `Version mismatch running ${global.version} need ${projectFile.version}`,
                         id: VERSION_MISMATCH
                     });
+                    return;
+                } else if (isFromOlderVersion(global.version, projectFile.version)) {
+                    action = showConversionDialog();
                 }
+
+                if (action === ACTION_CANCEL) {
+                    return;
+                }
+
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
-                resolve(projectInterface.loadProject(projectFile, cachePath, projectPath));
+
+                const project = projectInterface.loadProject(projectFile, cachePath, projectPath, action === ACTION_READ_ONLY);
+                global.loadProjectReadOnly = project.readOnly;
+
+                resolve(project);
             })
             .catch(err => {
                 reject(err);
@@ -631,8 +701,23 @@ function loadDropFromPath(projectPath) {
     });
 }
 
+ipcMain.on('project-load-error', (event, err) => {
+    showSplashScreen(err);
+});
+
 function projectLoadErrorHandler(err) {
     log.error(err);
+
+    if(err.code === 'ENOENT'){
+        dialog.showMessageBox(mainWindow, {
+            type: "error",
+            title: "Dragon Drop Error",
+            message: "Project Not Found",
+            detail: "Project cannot be found at the location it has either been moved or been deleted."
+        });
+        return;
+    }
+
     switch (err.id) {
         case FILE_TOO_LARGE:
             dialog.showMessageBox(mainWindow, {
@@ -649,11 +734,8 @@ function projectLoadErrorHandler(err) {
             });
             break;
         default:
-            dialog.showMessageBox(mainWindow, {
-                type: 'error',
-                title: 'Dragon Drop Error',
-                message: 'Could not load project'
-            })
+            showUnknownError(err);
+            break;
     }
 }
 
@@ -664,7 +746,6 @@ function loadProjectFromPath(projectPath) {
     loadProject
         .then(project => {
             progressWindow.destroy();
-            log.debug('Loading ', project);
             displayProject(project);
         })
         .catch(err => {
@@ -675,6 +756,72 @@ function loadProjectFromPath(projectPath) {
 
 let projectToLoad = null;
 
+function showUnknownError(err) {
+    //
+    // windowManager.create({
+    //     width: 800,
+    //     height: 600,
+    //     show: false,
+    //     resizable: false,
+    //     parent: mainWindow
+    // }, {
+    //     url: 'file://' + __dirname + '/static/report_bug.html',
+    //     model: err
+    // });
+
+    const option = dialog.showMessageBox(mainWindow, {
+        type: 'error',
+        title: 'Dragon Drop Error',
+        message: 'Could not load project',
+        detail: err.message,
+        buttons: [
+            'OK',
+            'Report Bug'
+        ]
+    });
+
+    if (option === 1) {
+        reportBug(err);
+    }
+}
+
+function showSplashScreen(err) {
+
+    //Do this first to prevent all closed
+    const newWindow = new BrowserWindow({width: 900, height: 500, resizable: false, show: false});
+
+    if (mainWindow) {
+        mainWindow.destroy();
+    }
+
+    // Create the browser window.
+    mainWindow = newWindow;
+
+    // and load the index.html of the app.
+    mainWindow.loadURL('file://' + __dirname + '/projects.html');
+
+    mainWindow.on('ready-to-show', () => {
+        mainWindow.show();
+        splashScreen = true;
+    });
+
+    mainWindow.on('show', () => {
+        if (err) {
+            showUnknownError(err);
+            err = null;
+        }
+    });
+
+    // Emitted when the window is closed.
+    mainWindow.on('closed', function () {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        splashScreen = false;
+        mainWindow = null;
+    });
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function () {
@@ -682,36 +829,22 @@ app.on('ready', function () {
     const args = yargs(process.argv.slice(1)).argv;
     createDefaultMenu();
 
+
+    //We need to show a window in this callback otherwise the application will quit, show always show the splash screen
+    //if we get a project to load it will close this window. Hopefully before ready-to-show is called preventing flickering
+    showSplashScreen();
+
     if (projectToLoad) {
         loadProjectFromPath(projectToLoad);
         return;
     }
-    // Create the browser window.
-    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false});
 
-    if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
+    if (args._.length >= 1 && !process.defaultApp && process.platform !== 'darwin') {
         loadProjectFromPath(args._[0]);
-    } else {
-        // and load the index.html of the app.
-        mainWindow.loadURL('file://' + __dirname + '/projects.html');
     }
 
-    // Emitted when the window is closed.
-    mainWindow.on('closed', function () {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null;
-    });
-
-    let failed = false;
     arduinoCore.ensureLibraries(err => {
-        if(failed){
-            return;
-        }
-
-        failed  = true;
-
+        log.err(err);
         dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
             type: 'error',
             title: 'Dragon Drop Error',

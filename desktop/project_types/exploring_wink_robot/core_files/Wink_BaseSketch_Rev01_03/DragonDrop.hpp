@@ -27,5 +27,8 @@ extern void backwardFast(int duration);
 extern void turnLeftDegrees(int degrees);
 extern void turnRightDegrees(int degrees);
 
+//Time Methods
+extern int convertToMilliseconds(int seconds);
+extern unsigned long seconds();
 
 #endif

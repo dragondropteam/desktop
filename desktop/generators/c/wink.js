@@ -229,7 +229,7 @@ Blockly.C['rightprevcolour'] = function (block) {
 
 Blockly.C['hardwarestartup'] = function (block) {
     let statements_do = Blockly.C.statementToCode(block, 'do');
-    Blockly.C.definitions_['setup'] = `// Below is the "setup" function. It runs one time as soon as Wink turns on. You can add stuff\n// to this function if you want, but hardwareBegin() should always be the first code in the list.\nvoid setup(){\n\thardwareBegin();\n${statements_do}}\n`;
+    Blockly.C.definitions_['setup'] = `// Below is the "setup" function. It runs one time as soon as Wink turns on. You can add stuff\n// to this function if you want, but hardwareBegin() should always be the first code in the list.\nvoid setup(){\n  hardwareBegin();\n${statements_do}}\n`;
     return null;
 };
 
@@ -400,17 +400,17 @@ Blockly.C['ir_when'] = function (block) {
         return '';
     }
 
-    let code = 'if(IsIRDone()){\n\tint button = GetIRButton();\n';
+    let code = 'if(IsIRDone()){\n  int button = GetIRButton();\n';
 
     for (let i = 1; i <= block.keyPressChecks; ++i) {
-        let prefix = i == 1 ? '\tif' : '\telse if';
+        let prefix = i == 1 ? '  if' : '  else if';
         let dropDown = block.getFieldValue('BUTTON' + i);
         let statement = Blockly.C.statementToCode(block, 'CHECK' + i);
-        statement = statement.replace('\n', '\n\t');
+        statement = statement.replace('\n', '\n  ');
         code += `${prefix}(button == ${dropDown}){\n  ${statement}  RxIRRestart(4);\n  }\n`;
     }
 
-    code += '\telse{\n    RxIRRestart(4);\n  }\n}\n';
+    code += '  else{\n    RxIRRestart(4);\n  }\n}\n';
     return code;
 };
 

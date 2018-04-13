@@ -17,6 +17,8 @@ exports.ProgressWindow  = class {
     destroy(){
         if(this.modalWindow){
             this.modalWindow.close();
+            //Clear this so any subsequent calls to destroy no-op
+            this.modalWindow = null;
         }
     }
 };
