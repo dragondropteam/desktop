@@ -15,21 +15,33 @@ assert.falsy = function (value, message) {
     assert.equal(value, false, message);
 };
 
-assert.truthy = function(value, message) {
+assert.truthy = function (value, message) {
     assert.ok(value, message);
 };
 
 describe('semver conversion', () => {
-    it('Should convert beta', () =>{
+    it('Should convert beta with a number', () => {
         assert.equal(convertSemverOneToSemverTwo('1.0.0-beta1'), '1.0.0-beta.1');
     });
 
-    it('Should convert alpha', () => {
+    it('Should convert alpha with a number', () => {
         assert.equal(convertSemverOneToSemverTwo('1.0.0-alpha1'), '1.0.0-alpha.1');
     });
 
-    it('Should convert rc', () => {
+    it('Should convert rc with a number', () => {
         assert.equal(convertSemverOneToSemverTwo('1.0.0-rc1'), '1.0.0-rc.1');
+    });
+
+    it('Should convert beta without a number', () => {
+        assert.equal(convertSemverOneToSemverTwo('1.0.0-beta'), '1.0.0-beta');
+    });
+
+    it('Should convert alpha without a number', () => {
+        assert.equal(convertSemverOneToSemverTwo('1.0.0-alpha'), '1.0.0-alpha');
+    });
+
+    it('Should convert rc without a number', () => {
+        assert.equal(convertSemverOneToSemverTwo('1.0.0-rc'), '1.0.0-rc');
     });
 
     it('Should not convert stable', () => {
@@ -86,7 +98,7 @@ describe('isFromOlderVersion', () => {
         assert.truthy(isFromOlderVersion('2.0.0-beta10', '1.1.0'));
     });
 
-    it('Should be false for equal versions', ()  => {
+    it('Should be false for equal versions', () => {
         assert.equal(isFromOlderVersion('2.0.0', '2.0.0'), false);
     })
 });
@@ -136,7 +148,7 @@ describe('isFromNewerVersion', () => {
         assert.falsy(isFromNewerVersion('2.0.0-beta10', '1.1.0'));
     });
 
-    it('Should be false for equal versions', ()  => {
+    it('Should be false for equal versions', () => {
         assert.falsy(isFromNewerVersion('2.0.0', '2.0.0'));
     })
 });

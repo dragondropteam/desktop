@@ -147,11 +147,20 @@ exports.migrateLegacyProject = function (project, savePath) {
  * @param semver The 1.0.0 prerelease string
  */
 exports.convertSemverOneToSemverTwo = function (semver) {
-    //Already a 2.0.0 string just return
-    if(semver.includes('-beta.') || semver.includes('-alpha.') || semver.includes('-rc.'))
-        return semver;
+    // console.log(semver.replace(/(^[0-9.]*)-beta(\d*)/g, '$1-beta.$2'));
+    semver = semver.replace(/(^[0-9.]*)-beta(\d*)/g,  (match, p1, p2) => {
+        return p2 ? `${p1}-beta.${p2}` : `${p1}-beta`;
+    });
 
-    return semver.replace('-beta', '-beta.').replace('-alpha', '-alpha.').replace('-rc', '-rc.');
+    semver = semver.replace(/(^[0-9.]*)-alpha(\d*)/g, (match, p1, p2) => {
+        return p2 ? `${p1}-alpha.${p2}` : `${p1}-alpha`;
+    });
+
+    semver = semver.replace(/(^[0-9.]*)-rc(\d*)/g, (match, p1, p2) => {
+        return p2 ? `${p1}-rc.${p2}` : `${p1}-rc`;
+    });
+
+    return semver;
 };
 
 /**
