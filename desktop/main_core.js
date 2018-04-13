@@ -569,6 +569,32 @@ app.on('window-all-closed', function () {
 });
 
 
+const ACTION_CONVERT = 0;
+const ACTION_READ_ONLY = 1;
+const ACTION_CANCEL = 2;
+
+/**
+ * Shows a dialog when loading an older project.
+ *
+ * Allows the user to convert the project to the version of DragonDrop or to load the project in read only mode which
+ * will not make any changes to the project and will not update the projects version code.
+ *
+ * @return {number} 0: Convert Project, 1: Read Only, 2: Cancel
+ */
+function showConversionDialog() {
+    return dialog.showMessageBox(mainWindow, {
+        type: 'question',
+        title: 'Dragon Drop',
+        message: 'Project is from an older version of DragonDrop',
+        detail: 'Do you want to convert the project to the current version of Dragon Drop. Doing so will prevent opening the project in prior versions of Dragon Drop. Or load the project in read only mode preserving backwards compatibility.',
+        buttons: [
+            'Convert Project',
+            'Read Only',
+            'Cancel'
+        ]
+    });
+}
+
 /**
  * Loads a project from the path to a given .digiblocks file if the file is able to be loaded it will then be displayed
  * else it will display an error and remove from the list of recent projects as needed
@@ -587,26 +613,19 @@ function loadDigiblocksFromPath(projectPath) {
                     });
                     return;
                 } else if (isFromOlderVersion(global.version, projectFile.version)) {
-                    action = dialog.showMessageBox(mainWindow, {
-                        type: 'question',
-                        title: 'Dragon Drop',
-                        message: 'Project is from an older version of DragonDrop',
-                        detail: 'Do you want to convert the project to the current version of Dragon Drop. Doing so will prevent opening the project in prior versions of Dragon Drop. Or load the project in read only mode preserving backwards compatibility.',
-                        buttons: [
-                            'Convert Project',
-                            'Read Only',
-                            'Cancel'
-                        ]
-                    });
+                    action = showConversionDialog();
                 }
 
-                if (action === 2) {
-                    showSplashScreen();
+                if (action === ACTION_CANCEL) {
                     return;
                 }
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
-                resolve(projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath));
+
+                const project = projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath);
+                project.setReadOnly(action === ACTION_READ_ONLY);
+
+                resolve(project);
             })
             .catch(err => {
                 reject(err);
@@ -616,6 +635,7 @@ function loadDigiblocksFromPath(projectPath) {
 
 const FILE_TOO_LARGE = 1;
 const VERSION_MISMATCH = 2;
+
 
 function loadDropFromPath(projectPath) {
     return new Promise((resolve, reject) => {
@@ -660,25 +680,19 @@ function loadDropFromPath(projectPath) {
                     });
                     return;
                 } else if (isFromOlderVersion(global.version, projectFile.version)) {
-                    action = dialog.showMessageBox(mainWindow, {
-                        type: 'question',
-                        title: 'Dragon Drop',
-                        message: 'Project is from an older version of DragonDrop',
-                        detail: 'Do you want to convert the project to the current version of Dragon Drop. Doing so will prevent opening the project in prior versions of Dragon Drop. Or load the project in read only mode preserving backwards compatibility.',
-                        buttons: [
-                            'Convert Project',
-                            'Read Only',
-                            'Cancel'
-                        ]
-                    });
+                    action = showConversionDialog();
                 }
 
-                if (action === 2) {
-                    showSplashScreen();
+                if (action === ACTION_READ_ONLY) {
                     return;
                 }
+
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
-                resolve(projectInterface.loadProject(projectFile, cachePath, projectPath));
+
+                const project = projectInterface.loadProject(projectFile, cachePath, projectPath);
+                project.setReadOnly(action === ACTION_READ_ONLY);
+
+                resolve(project);
             })
             .catch(err => {
                 reject(err);
