@@ -62,7 +62,9 @@ exports.Workspace = class {
                     this.code = code;
                     this.codeSubject.next(code);
                 },
-                error: err => exports.logErrorAndQuit(err, 'Code Update')
+                error: err => {
+                    ipcRenderer.send('project-load-error', {message: err.message, stack: err.stack});
+                }
             });
     }
 
