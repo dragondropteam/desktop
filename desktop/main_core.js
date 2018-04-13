@@ -624,6 +624,7 @@ function loadDigiblocksFromPath(projectPath) {
 
                 const project = projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath);
                 project.setReadOnly(action === ACTION_READ_ONLY);
+                global.loadProjectReadOnly = project.readOnly;
 
                 resolve(project);
             })
@@ -691,6 +692,7 @@ function loadDropFromPath(projectPath) {
 
                 const project = projectInterface.loadProject(projectFile, cachePath, projectPath);
                 project.setReadOnly(action === ACTION_READ_ONLY);
+                global.loadProjectReadOnly = project.readOnly;
 
                 resolve(project);
             })
