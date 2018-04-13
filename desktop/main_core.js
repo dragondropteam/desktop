@@ -707,6 +707,16 @@ ipcMain.on('project-load-error', (event, err) => {
 function projectLoadErrorHandler(err) {
     log.error(err);
 
+    if(err.code === 'ENOENT'){
+        dialog.showMessageBox(mainWindow, {
+            type: "error",
+            title: "Dragon Drop Error",
+            message: "Project Not Found",
+            detail: "Project cannot be found at the location it has either been moved or been deleted."
+        });
+        return;
+    }
+
     switch (err.id) {
         case FILE_TOO_LARGE:
             dialog.showMessageBox(mainWindow, {
