@@ -140,7 +140,7 @@ let wikiWindow = null;
 function reportBug(err) {
     // shell.openExternal('https://digipen.atlassian.net/servicedesk/customer/portal/1/create/5');
     if (mainWindow) {
-        mainWindow.webContents.send('report_bug', err || false);
+        mainWindow.webContents.send('report_bug', {message: err.message, stack: err.stack} || false);
     }
 }
 
@@ -554,6 +554,7 @@ let mainWindow = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
+    console.log('window-all-closed');
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
@@ -785,12 +786,17 @@ function showUnknownError(err) {
 }
 
 function showSplashScreen(err) {
+
+    //Do this first to prevent all closed
+    const newWindow = new BrowserWindow({width: 900, height: 500, resizable: false, show: false});
+
     if (mainWindow) {
         mainWindow.destroy();
     }
 
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 900, height: 500, resizable: false, show: false});
+    mainWindow = newWindow;
+
     // and load the index.html of the app.
     mainWindow.loadURL('file://' + __dirname + '/projects.html');
 
