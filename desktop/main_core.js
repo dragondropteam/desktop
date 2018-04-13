@@ -684,7 +684,7 @@ function loadDropFromPath(projectPath) {
                     action = showConversionDialog();
                 }
 
-                if (action === ACTION_READ_ONLY) {
+                if (action === ACTION_CANCEL) {
                     return;
                 }
 
