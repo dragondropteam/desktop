@@ -839,7 +839,7 @@ app.on('ready', function () {
         return;
     }
 
-    if (args._.length >= 1 && !process.defaultApp && process.platform === 'win32') {
+    if (args._.length >= 1 && !process.defaultApp && process.platform !== 'darwin') {
         loadProjectFromPath(args._[0]);
     }
 
