@@ -5,6 +5,7 @@ const log = require('electron-log');
 const BLOCKLY_DIV_ID = 'blocklyDiv';
 const BLOCKLY_AREA_ID = 'blocklyArea';
 const {ipcRenderer} = require('electron');
+const {remote} = require('electron');
 
 class BlocklyComponent extends BaseComponent {
 
@@ -66,7 +67,7 @@ class BlocklyComponent extends BaseComponent {
             },
             maxBlocks: Infinity,
             media: '../../../media/',
-            readOnly: false,
+            readOnly: !!remote.getGlobal('loadProjectReadOnly'),
             rtl: false,
             scrollbars: true,
             toolbox: toolboxSource,
