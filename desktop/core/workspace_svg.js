@@ -702,6 +702,15 @@ Blockly.WorkspaceSvg.prototype.isDeleteArea = function(e) {
  * @private
  */
 Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
+
+  // Keep tabs on the mouse position.
+  var mousePoint = Blockly.mouseToSvg(e, this.getParentSvg(), this.getInverseScreenCTM());
+  this.mouseLocation = {
+    x: (mousePoint.x),// originOffset.x) / this.scale,
+    y: (mousePoint.y)// originOffset.y) / this.scale
+  };
+
+  // Mark as focused.
   this.markFocused();
   if (Blockly.isTargetInput_(e)) {
     return;
@@ -860,6 +869,39 @@ Blockly.WorkspaceSvg.prototype.cleanUp = function() {
 };
 
 /**
+ * Adds a comment to the workspace.
+ */
+Blockly.WorkspaceSvg.prototype.addComment = function() {
+  // create options object
+  // var option = {enabled: true};
+
+  // Create inner <field name="..."></field>
+  var xmlField = goog.dom.createDom('field', null);
+  xmlField.setAttribute('name', 'TEXT');
+
+  // Actually constructs the XML using google's create DOM
+  var xmlBlock = goog.dom.createDom('block', null, xmlField);
+  xmlBlock.setAttribute('type', 'comment_oneline');
+  xmlBlock.setAttribute('x', '0');
+  xmlBlock.setAttribute('y', '0');
+
+  var mouseLoc = { x:0, y:0 };
+  if(this.mouseLocation)
+  {
+    let mainWorkspace = Blockly.getMainWorkspace();
+    let item = document.getElementsByClassName('blocklyToolboxDiv');
+    console.log(item);
+    let offset = 0; // default. 0 is acceptable.
+    if(item[0])
+      offset = item[0].clientWidth;
+
+    mouseLoc.x = (this.mouseLocation.x - mainWorkspace.scrollX) / mainWorkspace.scale - offset;
+    mouseLoc.y = (this.mouseLocation.y - mainWorkspace.scrollY) / mainWorkspace.scale;
+  }
+  Blockly.ContextMenu.callbackFactoryWorkspace(this, mouseLoc, xmlBlock)();
+};
+
+/**
  * Show the context menu for the workspace.
  * @param {!Event} e Mouse event.
  * @private
@@ -891,6 +933,15 @@ Blockly.WorkspaceSvg.prototype.showContextMenu_ = function(e) {
     cleanOption.enabled = topBlocks.length > 1;
     cleanOption.callback = this.cleanUp.bind(this);
     menuOptions.push(cleanOption);
+  }
+
+  // Option to add a comment.
+  if (this.scrollbar) {
+      var commentOption = {};
+      commentOption.text = Blockly.Msg.ADD_COMMENT_BLOCK;
+      commentOption.enabled = true;
+      commentOption.callback = this.addComment.bind(this);
+      menuOptions.push(commentOption);
   }
 
   // Add a little animation to collapsing and expanding.

@@ -16,6 +16,9 @@ const WINK_ICON_SENSOR_OUTPUTS = '#FF9042';
 
 const WINK_ICON_TIME_COLOUR = '#6553c2';
 
+const WINK_ICON_COMMENTS_COLOR = '#EC591A';
+
+
 //region REQUIRED_BLOCKS
 
 Blockly.Blocks['hardwarestartup_icon'] = {
@@ -1037,3 +1040,34 @@ Blockly.Blocks['seconds_icon'] = {
 };
 
 //endregion wink icon time
+
+//region WINK_ICON_UTILITIES
+// Do this to re-assign the oneline comment block on the whole. Not stellar, but works for right-clicking.
+Blockly.Blocks['comment_oneline'] = Blockly.Blocks['comment_oneline_icon'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldImage(path_.join(iconsPath, 'comment.svg'), ICON_SIZE / 2, ICON_SIZE / 2))
+            .appendField(new Blockly.FieldTextInput(''), 'TEXT');
+        this.setColour(WINK_ICON_COMMENTS_COLOR);
+        this.setNextStatement(true, null);
+        this.setPreviousStatement(true, null);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+//endregion Utilities
+
+// Unsorted
+Blockly.Blocks['loop_icon'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.LOOP_FIELD_1);
+        this.appendStatementInput("do")
+            .setCheck(null);
+        this.setColour(330);
+        this.setTooltip(Blockly.Msg.LOOP_TOOLTIP);
+        this.setHelpUrl(Blockly.Msg.LOOP_HELP_URL);
+    }
+};
+
