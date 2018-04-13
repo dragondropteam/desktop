@@ -62,6 +62,7 @@ Blockly.Msg.ADD_CHILD_VI_FIELD_2 = "to";
 Blockly.Msg.ADD_CHILD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#addChild";
 Blockly.Msg.ADD_CHILD_VI_TOOLTIP = "Add a child to a sprite. This will make them move together.";
 Blockly.Msg.ADD_COMMENT = "Add Comment";
+Blockly.Msg.ADD_COMMENT_BLOCK = "Add Comment Block";
 Blockly.Msg.ADD_EVENT_LISTENER_DO = "do";
 Blockly.Msg.ADD_EVENT_LISTENER_EVENT_TYPE = "for event of type";
 Blockly.Msg.ADD_EVENT_LISTENER_HELP_URL = "";
