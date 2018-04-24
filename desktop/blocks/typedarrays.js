@@ -134,9 +134,9 @@ Blockly.Blocks['typed_arrays_create_with'] = {
             } else if (changeEvent.newValue == 'FLOAT') {
                 this.setOutput(true, 'ArrayFLOAT');
             } else if (changeEvent.newValue == 'BOOLEAN') {
-                this.setOutput(true, 'ArrayBOOL');
+                this.setOutput(true, 'ArrayBoolean');
             } else if (changeEvent.newValue == 'STRING') {
-                this.setOutput(true, 'ArraySTRING');
+                this.setOutput(true, 'ArrayString');
             }
 
             let i = 0;
@@ -193,9 +193,9 @@ Blockly.Blocks['typed_arrays_create_with'] = {
         } else if (this.ctype == 'FLOAT') {
             this.setOutput(true, 'ArrayFLOAT');
         } else if (this.ctype == 'BOOLEAN') {
-            this.setOutput(true, 'ArrayBOOL');
+            this.setOutput(true, 'ArrayBoolean');
         } else if (this.ctype == 'STRING') {
-            this.setOutput(true, 'ArraySTRING');
+            this.setOutput(true, 'ArrayString');
         }
 
         for (var i = 0; i < this.itemCount_; i++) {
