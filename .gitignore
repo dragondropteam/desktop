@@ -162,3 +162,5 @@ desktop/app/ringo_compressed\.js
 desktop/app/wink_compressed\.js
 
 desktop/yarn-error\.log
+
+node_modules/

@@ -49,6 +49,7 @@
 <md-divider></md-divider>
 <div layout="row" layout-align="center end" flex="10">
     <h6>All Content Copyright DigiPen Institute of Technology 2016</h6>
+    <p ngIf="!!message">{{message}}</p>
 </div>
 
 <!--<img layout-align="end end" src="static/img/ic_settings_black_24px.svg"/>-->
@@ -76,6 +77,11 @@
         ipcRenderer.on('recent_projects_updated', () => {
             $scope.recentPaths = projects.getRecentProjects();
             $scope.$apply();
+        });
+
+        ipcRenderer.on('message', (event, message) => {
+          $scope.message = message;
+          $scope.$apply();
         });
 
         $scope.displayName = function (type) {

@@ -10,6 +10,13 @@
   "homepage": "wwprod5.digipen.edu",
   "main": "main.js",
   "build": {
+    "publish": [
+      {
+        "provider": "s3",
+        "bucket": "releases",
+        "endpoint": "http://localhost:9000"
+      }
+    ],
     "directories": {
       "output": "../dist"
     },
@@ -52,22 +59,24 @@
     "test": "electron-mocha",
     "rebuild": "electron-rebuild .",
     "build": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true gulp",
-    "spaghetti": "serve ../"
+    "spaghetti": "serve ../",
+    "dist": "ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY=true electron-builder --publish always"
   },
   "devDependencies": {
     "arduino": "file:project_types/arduino",
     "del": "latest",
     "devtron": "^1.4.0",
     "electron": "^1.7.0 ",
+    "electron-publisher-s3": "^20.9.0",
     "electron-rebuild": "^1.6.0",
     "gulp": "^3.9.1",
-    "gulp-add-src": "^0.2.0",
-    "gulp-clean": "^0.3.2",
+    "gulp-add-src": "^1.0.0",
+    "gulp-clean": "^0.4.0",
     "gulp-uglify": "^3.0.0",
     "gulp-yarn": "^1.0.1",
-    "pump": "^1.0.2",
+    "pump": "^3.0.0",
     "serve": "^6.5.5",
-    "standard": "^10.0.2",
+    "standard": "^11.0.1",
     "uglify-es": "^3.2.2",
     "username": "*"
   },
@@ -78,11 +87,12 @@
     "angular-material": "^1.1.5",
     "arduino": "file:project_types/arduino",
     "arduino_core": "file:arduino_core",
-    "electron-builder": "19.37.2",
+    "electron-builder": "20.10.0",
     "electron-log": "^2.2.11",
     "electron-store": "*",
+    "electron-updater": "^2.21.8",
     "filesystem": "file:filesystem",
-    "fs-extra": "^4.0.3",
+    "fs-extra": "^5.0.0",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
     "is-invalid-path": "*",
@@ -97,7 +107,7 @@
     "username": "^3.0.0",
     "wink_robot": "file:project_types/wink_robot",
     "workspace": "file:workspace",
-    "yargs": "^10.0.3",
+    "yargs": "^11.0.0",
     "zip-folder": "*"
   },
   "license": "UNLICENSED",
