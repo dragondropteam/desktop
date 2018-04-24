@@ -4108,7 +4108,7 @@ Blockly.Msg.SERVO_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoRead';
 /// auto generated
-Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'check servo';
+Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'servo attached?';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_TOOLTIP = '';
 /// auto generated
@@ -4119,6 +4119,7 @@ Blockly.Msg.SERVO_DETACH_FIELD_1 = 'detach servo';
 Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
+Blockly.Msg.SERVO_CANNOT_BE_NULL = "servo field cannot be left empty";
 
 //arduino math
 Blockly.Msg.ARDUINO_MATH_MAP_VALUE = 'value';

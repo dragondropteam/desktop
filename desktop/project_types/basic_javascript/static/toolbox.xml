@@ -5,7 +5,7 @@
         <block type="logic_operation"></block>
         <block type="logic_negate"></block>
         <block type="logic_boolean"></block>
-        <block type="logic_null" disabled="true"></block>
+        <block type="logic_null"></block>
         <block type="logic_ternary"></block>
     </category>
     <category name="Loops" colour="120">
@@ -16,7 +16,6 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_repeat" disabled="true"></block>
         <block type="controls_whileUntil"></block>
         <block type="controls_for">
             <value name="FROM">
