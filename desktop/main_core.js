@@ -618,7 +618,7 @@ function loadDigiblocksFromPath(projectPath) {
                 }
 
                 if (action === ACTION_CANCEL) {
-                    return;
+                  return resolve(null);
                 }
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
@@ -685,7 +685,7 @@ function loadDropFromPath(projectPath) {
                 }
 
                 if (action === ACTION_CANCEL) {
-                    return;
+                  return resolve(null);
                 }
 
                 projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
@@ -746,7 +746,9 @@ function loadProjectFromPath(projectPath) {
     loadProject
         .then(project => {
             progressWindow.destroy();
-            displayProject(project);
+            if(project) {
+              displayProject(project);
+            }
         })
         .catch(err => {
             progressWindow.destroy();
