@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-04-13 05:06:18.048000",
+		"lastupdated": "2018-04-24 15:09:45.760751",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1850,7 +1850,7 @@
 	"SERVO_READ_FIELD_1": "read from servo",
 	"SERVO_READ_TOOLTIP": "",
 	"SERVO_READ_HELP_URL": "https://www.arduino.cc/en/Reference/ServoRead",
-	"SERVO_ATTACHED_FIELD_1": "check servo",
+	"SERVO_ATTACHED_FIELD_1": "servo attached?",
 	"SERVO_ATTACHED_TOOLTIP": "",
 	"SERVO_ATTACHED_HELP_URL": "https://www.arduino.cc/en/Reference/ServoAttached",
 	"SERVO_DETACH_FIELD_1": "detach servo",
