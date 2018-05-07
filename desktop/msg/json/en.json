@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-04-24 15:09:45.760751",
+		"lastupdated": "2018-05-07 16:41:07.900858",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -826,6 +826,18 @@
 	"SET_ANIMATION_PROPERTY_VI_FIELD_3": "to",
 	"SET_ANIMATION_PROPERTY_VI_TOOLTIP": "Set a property from the animation manager on the object",
 	"SET_ANIMATION_PROPERTY_VI_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy",
+	"SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP": "Sets the boolean value for the selected animation property",
+	"SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html",
+	"SET_ANIMATION_NUMERIC_FIELD_TOOLTIP": "Sets the numeric value for the selected animation property",
+	"SET_ANIMATION_NUMERIC_FIELD_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html",
+	"SET_ANIMATION_STRING_FIELD_TOOLTIP": "Sets the string value for the selected animation property",
+	"SET_ANIMATION_STRING_FIELD_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html",
+	"GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP": "Gets the boolean selected from the specified object.",
+	"GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html",
+	"GET_ANIMATION_NUMERIC_FIELD_TOOLTIP": "Gets the number selected from the specified object.",
+	"GET_ANIMATION_NUMERIC_FIELD_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html",
+	"GET_ANIMATION_STRING_FIELD_TOOLTIP": "Gets the string selected from the specified object.",
+	"GET_ANIMATION_STRING_FIELD_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html",
 	"ANIMATION_GET_ANIMATION_FIELD_1": "on gameobject",
 	"ANIMATION_GET_ANIMATION_FIELD_2": "get animation by name",
 	"ANIMATION_GET_ANIMATION_NAME_TEXT_DEFAULT": "default",
@@ -1856,6 +1868,7 @@
 	"SERVO_DETACH_FIELD_1": "detach servo",
 	"SERVO_DETACH_TOOLTIP": "",
 	"SERVO_DETACH_HELP_URL": "https://www.arduino.cc/en/Reference/ServoDetach",
+	"SERVO_CANNOT_BE_NULL": "servo field cannot be left empty",
 	"ARDUINO_MATH_MAP_VALUE": "value",
 	"ARDUINO_MATH_MAP": "map",
 	"ARDUINO_MATH_MAP_FROM_LOW": "from low",
@@ -2545,5 +2558,12 @@
 	"WINK_EYES_BOTH_RGB": "Sets both eyes to be the specified Red, Green, and Blue values.",
 	"WINK_EYES_BOTH_OFF": "Turns off both of the eyes.",
 	"ICON_SETUP": "once at start",
-	"ICON_LOOP": "loop always"
+	"ICON_LOOP": "loop always",
+	"FOLLOW_STYLE": "with style",
+	"FOLLOW_LOCKON": "lockon",
+	"FOLLOW_PLATFORMER": "platformer",
+	"FOLLOW_TOPDOWN": "topdown",
+	"FOLLOW_TOPDOWN_TIGHT": "topdown tight",
+	"LERP_X": "lerp x",
+	"LERP_Y": "lerp y"
 }

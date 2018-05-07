@@ -1151,15 +1151,26 @@ Blockly.JavaScript['camera_follow'] = function (block) {
 
 Blockly.JavaScript['camera_follow_vi'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
-    return `game.camera.follow(${object}, undefined, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
+    return `game.camera.follow(${object});\n`;
+};
 
+Blockly.JavaScript['camera_follow_vi_complex'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.camera.follow(${object});\n`;
 };
 
 Blockly.JavaScript['camera_follow_vi_styled'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const style = block.getFieldValue('STYLE');
-    return `game.camera.follow(${object}, Phaser.Camera.${style}, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
+    return `game.camera.follow(${object}, Phaser.Camera.${style});\n`;
+};
 
+Blockly.JavaScript['camera_follow_vi_complex'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const lerpX = Blockly.JavaScript.valueToCode(block, 'LERP_X', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const lerpY = Blockly.JavaScript.valueToCode(block, 'LERP_Y', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const style = block.getFieldValue('STYLE');
+    return `game.camera.follow(${object}, Phaser.Camera.${style}, ${lerpX}, ${lerpY});\n`;
 };
 
 Blockly.JavaScript['get_camera'] = function (block) {
