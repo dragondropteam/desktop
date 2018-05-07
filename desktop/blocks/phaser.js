@@ -651,8 +651,7 @@ Blockly.Blocks['get_world_property'] = {
         this.setTooltip(Blockly.Msg.GET_WORLD_PROPERTY_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.GET_WORLD_PROPERTY_HELP_URL);
         this.setColour(PHASER_WORLD_COLOUR);
-    },
-    customContextMenu: createSetterContextMenu('set_world_bounds', {propertyTag: 'FIELD'})
+    }
 };
 
 Blockly.Blocks['set_world_bounds'] = {
@@ -677,8 +676,7 @@ Blockly.Blocks['set_world_bounds'] = {
         this.setHelpUrl(Blockly.Msg.SET_WORLD_BOUNDS_HELP_URL);
         this.setColour(PHASER_WORLD_COLOUR);
         this.setInputsInline(true);
-    },
-    customContextMenu: createSetterContextMenu('get_world_property', {propertyTag: 'FIELD'})
+    }
 };
 
 Blockly.Blocks['create_point'] = {
