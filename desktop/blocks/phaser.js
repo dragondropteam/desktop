@@ -5386,6 +5386,32 @@ Blockly.Blocks['camera_follow_vi'] = {
   }
 };
 
+Blockly.Blocks['camera_follow_vi_complex'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.FOLLOW_STYLE)
+      .appendField(new Blockly.FieldDropdown([
+        [Blockly.Msg.FOLLOW_LOCKON, 'Phaser.Camera.FOLLOW_LOCKON'],
+        [Blockly.Msg.FOLLOW_PLATFORMER, 'Phaser.Camera.FOLLOW_PLATFORMER'],
+        [Blockly.Msg.FOLLOW_TOPDOWN, 'Phaser.Camera.FOLLOW_TOPDOWN'],
+        [Blockly.Msg.FOLLOW_TOPDOWN_TIGHT, 'Phaser.Camera.FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
+    this.appendValueInput('LERP_X')
+      .appendField(Blockly.Msg.LERP_X)
+      .setCheck('Number');
+    this.appendValueInput('LERP_Y')
+      .appendField(Blockly.Msg.LERP_Y)
+      .setCheck('Number');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CAMERA_COLOUR);
+    this.setTooltip(Blockly.Msg.CAMERA_FOLLOW_VI_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CAMERA_FOLLOW_VI_HELP_URL);
+  }
+};
+
 Blockly.Blocks['camera_fade'] = {
   init: function () {
     this.appendValueInput('COLOUR')
