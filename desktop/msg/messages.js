@@ -36,7 +36,6 @@ goog.provide('Blockly.Msg.en');
 
 goog.require('Blockly.Msg');
 
-
 /**
  * Due to the frequency of long strings, the 80-column wrap rule need not apply
  * to message files.
@@ -1283,7 +1282,6 @@ Blockly.Msg.LOG_CONSOLE_TOOLTIP = 'Logs a message to the debug console. Used cor
 /// url
 Blockly.Msg.LOG_CONSOLE_HELP_URL = 'https://en.wikipedia.org/wiki/System_console';
 
-
 // once upon a time, tooltips, etc. were written directly into the block definitions
 // this was bad for localization, so they got pulled out into these variables with a script
 
@@ -2037,23 +2035,23 @@ Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animati
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#destroy';
 /// SET for Boolean Types in animations
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP = "Sets the boolean value for the selected animation property";
-Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP = 'Sets the boolean value for the selected animation property';
+Blockly.Msg.SET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html';
 /// SET for Numeric Types in animations
-Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP = "Sets the numeric value for the selected animation property";
-Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_TOOLTIP = 'Sets the numeric value for the selected animation property';
+Blockly.Msg.SET_ANIMATION_NUMERIC_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html';
 /// SET for String Types in animations
-Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP = "Sets the string value for the selected animation property";
-Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_TOOLTIP = 'Sets the string value for the selected animation property';
+Blockly.Msg.SET_ANIMATION_STRING_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html';
 /// GET for Boolean Types in animations
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP  = "Gets the boolean selected from the specified object.";
-Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP = 'Gets the boolean selected from the specified object.';
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html';
 /// GET for Numeric Types in animations
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP  = "Gets the number selected from the specified object.";
-Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP = 'Gets the number selected from the specified object.';
+Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html';
 /// SET for String Types in animations
-Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP  = "Gets the string selected from the specified object.";
-Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP = 'Gets the string selected from the specified object.';
+Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Animation.html';
 /// auto generated
 Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_1 = 'on gameobject';
 /// auto generated
@@ -2365,7 +2363,7 @@ Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_6 = 'friction';
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_8 = 'worldBounce';
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_9  = 'deltaMax';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_9 = 'deltaMax';
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_10 = 'offset';
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_11 = 'tilePadding';
 /// auto generated
@@ -2391,7 +2389,6 @@ Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_TOOLTIP = 'Set the value of the body p
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-
 
 // STOP BODY
 Blockly.Msg.STOP_BODY_TEXT = 'stop body';
@@ -4119,7 +4116,7 @@ Blockly.Msg.SERVO_DETACH_FIELD_1 = 'detach servo';
 Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_DETACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoDetach';
-Blockly.Msg.SERVO_CANNOT_BE_NULL = "servo field cannot be left empty";
+Blockly.Msg.SERVO_CANNOT_BE_NULL = 'servo field cannot be left empty';
 
 //arduino math
 Blockly.Msg.ARDUINO_MATH_MAP_VALUE = 'value';
@@ -5293,14 +5290,14 @@ Blockly.Msg.PHASER_STOP_TWEEN_COMPLETE = 'fire onComplete';
 Blockly.Msg.ADD_COMMENT_BLOCK = 'Add Comment Block';
 
 // Get / Set for properties
-Blockly.Msg.GET_POINT_FIELD   = 'get point field';
+Blockly.Msg.GET_POINT_FIELD = 'get point field';
 Blockly.Msg.GET_BOOLEAN_FIELD = 'get boolean field';
 Blockly.Msg.GET_NUMERIC_FIELD = 'get numeric field';
-Blockly.Msg.GET_STRING_FIELD  = 'get string field';
-Blockly.Msg.SET_POINT_FIELD   = 'set point field';
+Blockly.Msg.GET_STRING_FIELD = 'get string field';
+Blockly.Msg.SET_POINT_FIELD = 'set point field';
 Blockly.Msg.SET_BOOLEAN_FIELD = 'set boolean field';
 Blockly.Msg.SET_NUMERIC_FIELD = 'set numeric field';
-Blockly.Msg.SET_STRING_FIELD  = 'set string field';
+Blockly.Msg.SET_STRING_FIELD = 'set string field';
 
 // Prepositions
 Blockly.Msg.OF = 'of';
@@ -5361,7 +5358,6 @@ Blockly.Msg.SENSOR_LINE_AVOID_TOOLTIP = 'Wink robot will avoid black lines. For 
 Blockly.Msg.SENSOR_OBSTACLE_AVOID_TOOLTIP = 'Wink robot travels around and attempts to avoid obstacles in front of it.';
 Blockly.Msg.SENSOR_OBSTACLE_APPROACH_TOOLTIP = 'Wink robot approaches an obstacle placed in front of it then moved.';
 
-
 // Wink Explorer eyes
 
 // General
@@ -5370,47 +5366,57 @@ Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_2 = ' to be ';
 Blockly.Msg.WINK_EXPLORER_BASE_EYE_TEXT_ENDING = ' with the specified intensity from 0-255.';
 
 // Left
-Blockly.Msg.WINK_EYE_LEFT_RED    = 'Sets the left eye to be red with the specified intensity';
-Blockly.Msg.WINK_EYE_LEFT_GREEN  = 'Sets the left eye to be green with the specified intensity';
-Blockly.Msg.WINK_EYE_LEFT_BLUE   = 'Sets the left eye to be blue with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_RED = 'Sets the left eye to be red with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_GREEN = 'Sets the left eye to be green with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_BLUE = 'Sets the left eye to be blue with the specified intensity';
 Blockly.Msg.WINK_EYE_LEFT_PURPLE = 'Sets the left eye to be purple with the specified intensity';
-Blockly.Msg.WINK_EYE_LEFT_PINK   = 'Sets the left eye to be pink with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_PINK = 'Sets the left eye to be pink with the specified intensity';
 Blockly.Msg.WINK_EYE_LEFT_YELLOW = 'Sets the left eye to be yellow with the specified intensity';
-Blockly.Msg.WINK_EYE_LEFT_CYAN   = 'Sets the left eye to be cyan with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_CYAN = 'Sets the left eye to be cyan with the specified intensity';
 Blockly.Msg.WINK_EYE_LEFT_ORANGE = 'Sets the left eye to be orange with the specified intensity';
-Blockly.Msg.WINK_EYE_LEFT_WHITE  = 'Sets the left eye to be white with the specified intensity';
+Blockly.Msg.WINK_EYE_LEFT_WHITE = 'Sets the left eye to be white with the specified intensity';
 Blockly.Msg.WINK_EYE_LEFT_SELECT = 'Sets the left eye to be the specified color with max intensity.';
-Blockly.Msg.WINK_EYE_LEFT_RGB    = 'Sets the left eye to be the specified Red, Green, and Blue values.';
-Blockly.Msg.WINK_EYE_LEFT_OFF    = 'Turns off the left eye.';
+Blockly.Msg.WINK_EYE_LEFT_RGB = 'Sets the left eye to be the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYE_LEFT_OFF = 'Turns off the left eye.';
 
 // Right
-Blockly.Msg.WINK_EYE_RIGHT_RED    = 'Sets the right eye to be red with the specified intensity';
-Blockly.Msg.WINK_EYE_RIGHT_GREEN  = 'Sets the right eye to be green with the specified intensity';
-Blockly.Msg.WINK_EYE_RIGHT_BLUE   = 'Sets the right eye to be blue with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_RED = 'Sets the right eye to be red with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_GREEN = 'Sets the right eye to be green with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_BLUE = 'Sets the right eye to be blue with the specified intensity';
 Blockly.Msg.WINK_EYE_RIGHT_PURPLE = 'Sets the right eye to be purple with the specified intensity';
-Blockly.Msg.WINK_EYE_RIGHT_PINK   = 'Sets the right eye to be pink with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_PINK = 'Sets the right eye to be pink with the specified intensity';
 Blockly.Msg.WINK_EYE_RIGHT_YELLOW = 'Sets the right eye to be yellow with the specified intensity';
-Blockly.Msg.WINK_EYE_RIGHT_CYAN   = 'Sets the right eye to be cyan with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_CYAN = 'Sets the right eye to be cyan with the specified intensity';
 Blockly.Msg.WINK_EYE_RIGHT_ORANGE = 'Sets the right eye to be orange with the specified intensity';
-Blockly.Msg.WINK_EYE_RIGHT_WHITE  = 'Sets the right eye to be white with the specified intensity';
+Blockly.Msg.WINK_EYE_RIGHT_WHITE = 'Sets the right eye to be white with the specified intensity';
 Blockly.Msg.WINK_EYE_RIGHT_SELECT = 'Sets the right eye to be the specified color with max intensity.';
-Blockly.Msg.WINK_EYE_RIGHT_RGB    = 'Sets the right eye to be the specified Red, Green, and Blue values.';
-Blockly.Msg.WINK_EYE_RIGHT_OFF    = 'Turns off the right eye.';
+Blockly.Msg.WINK_EYE_RIGHT_RGB = 'Sets the right eye to be the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYE_RIGHT_OFF = 'Turns off the right eye.';
 
 // Both
-Blockly.Msg.WINK_EYES_BOTH_RED    = 'Sets both eyes to be red with the specified intensity';
-Blockly.Msg.WINK_EYES_BOTH_GREEN  = 'Sets both eyes to be green with the specified intensity';
-Blockly.Msg.WINK_EYES_BOTH_BLUE   = 'Sets both eyes to be blue with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_RED = 'Sets both eyes to be red with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_GREEN = 'Sets both eyes to be green with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_BLUE = 'Sets both eyes to be blue with the specified intensity';
 Blockly.Msg.WINK_EYES_BOTH_PURPLE = 'Sets both eyes to be purple with the specified intensity';
-Blockly.Msg.WINK_EYES_BOTH_PINK   = 'Sets both eyes to be pink with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_PINK = 'Sets both eyes to be pink with the specified intensity';
 Blockly.Msg.WINK_EYES_BOTH_YELLOW = 'Sets both eyes to be yellow with the specified intensity';
-Blockly.Msg.WINK_EYES_BOTH_CYAN   = 'Sets both eyes to be cyan with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_CYAN = 'Sets both eyes to be cyan with the specified intensity';
 Blockly.Msg.WINK_EYES_BOTH_ORANGE = 'Sets both eyes to be orange with the specified intensity';
-Blockly.Msg.WINK_EYES_BOTH_WHITE  = 'Sets both eyes to be white with the specified intensity';
+Blockly.Msg.WINK_EYES_BOTH_WHITE = 'Sets both eyes to be white with the specified intensity';
 Blockly.Msg.WINK_EYES_BOTH_SELECT = 'Sets both eyes to be the specified color with max intensity.';
-Blockly.Msg.WINK_EYES_BOTH_RGB    = 'Sets both eyes to be the specified Red, Green, and Blue values.';
-Blockly.Msg.WINK_EYES_BOTH_OFF    = 'Turns off both of the eyes.';
+Blockly.Msg.WINK_EYES_BOTH_RGB = 'Sets both eyes to be the specified Red, Green, and Blue values.';
+Blockly.Msg.WINK_EYES_BOTH_OFF = 'Turns off both of the eyes.';
 
 //Icon Startup/Loop
 Blockly.Msg.ICON_SETUP = 'once at start';
 Blockly.Msg.ICON_LOOP = 'loop always';
+
+//Camera follow
+Blockly.Msg.FOLLOW_STYLE = 'with style';
+Blockly.Msg.FOLLOW_LOCKON = 'lockon';
+Blockly.Msg.FOLLOW_PLATFORMER = 'platformer';
+Blockly.Msg.FOLLOW_TOPDOWN = 'topdown';
+Blockly.Msg.FOLLOW_TOPDOWN_TIGHT = 'topdown tight';
+
+Blockly.Msg.LERP_X = 'lerp x';
+Blockly.Msg.LERP_Y = 'lerp y';
