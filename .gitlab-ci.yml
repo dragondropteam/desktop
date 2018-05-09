@@ -39,7 +39,7 @@ buildWindows:
     - cd ..
   script:
     - cd desktop
-    - call gulp publishCurrentForm
+    - call gulp publishCurrentPlatform
     - cd ..
   artifacts:
     paths:
@@ -62,7 +62,7 @@ buildLinux:
     - cd ..
   script:
     - cd desktop
-    - gulp publishCurrentForm
+    - gulp publishCurrentPlatform
     - cd ..
   artifacts:
     paths:
