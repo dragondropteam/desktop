@@ -48,6 +48,12 @@ gulp.task('buildCurrentPlatform', ['install'], () => {
     return builder.build();
 });
 
+gulp.task('publishCurrentPlatform', ['install'], () => {
+    return builder.build({
+      publish: 'always'
+    });
+});
+
 gulp.task('buildCurrentPlatformNoCheck', () => {
     return builder.build();
 });
