@@ -9,7 +9,6 @@ buildMacOS:
   before_script:
     - cd desktop
     - yarn install
-    - gulp
     - cd app
     - yarn install
     - cd ..
@@ -32,7 +31,6 @@ buildWindows:
   before_script:
     - cd desktop
     - call yarn install
-    - call gulp
     - cd app
     - call yarn install
     - cd ..
@@ -55,7 +53,6 @@ buildLinux:
   before_script:
     - cd desktop
     - yarn install
-    - gulp
     - cd app
     - yarn install
     - cd ..
