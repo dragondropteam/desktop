@@ -29,7 +29,7 @@ const {ipcMain} = require('electron');
 const projects = require('./project/projects');
 const {isFromNewerVersion, isFromOlderVersion} = require('./project/projects');
 const fs = require('fs-extra');
-const projectTypes = require('project_types');
+const projectTypes = require('./project_types/project_types');
 const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
 let preferencesWindow;

@@ -63,8 +63,8 @@
 <script src="./static/angular-material.min.js"></script>
 
 <script>
-    const projects = require('project');
-    const projectTypes = require('project_types');
+    const projects = require('./project/projects');
+    const projectTypes = require('./project_types/project_types');
     const path = require('path');
     var app = angular.module('DragonDrop', ['ngMaterial']);
     app.controller('recentFilesController', function ($scope) {
