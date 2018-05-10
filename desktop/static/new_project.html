@@ -103,7 +103,7 @@
         var type = 'wink';
         var app = angular.module('DragonDrop', ['ngMaterial', 'ngMessages']);
         app.controller('projects-controller', function($scope){
-            const projectTypes = require('project_types');
+            const projectTypes = require('../project_types/project_types');
             $scope.projects = projectTypes.getProjectTypes();
             $scope.project = project;
             $scope.projectType = 'wink';

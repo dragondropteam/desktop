@@ -9,7 +9,7 @@ const {BrowserWindow} = require('electron');
 const builder = require("electron-builder");
 const Platform = builder.Platform;
 const {shell} = require('electron');
-const {ProgressWindow} = require('progress_dialog');
+const {ProgressWindow} = require('../progress_dialog/progress');
 
 function getCurrentPlatform() {
     switch (process.platform) {
