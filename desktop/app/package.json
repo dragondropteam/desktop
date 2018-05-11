@@ -31,7 +31,7 @@
     "is-invalid-path": "*",
     "jszip": "^3.1.5",
     "promisepipe": "^2.1.1",
-    "rxjs": "^6.1.0",
+    "rxjs": "^5.5.7",
     "semver": "^5.5.0",
     "serialport": "^6.0.4",
     "username": "^3.0.0",
