@@ -2559,5 +2559,7 @@
 	"FOLLOW_TOPDOWN": "",
 	"FOLLOW_TOPDOWN_TIGHT": "",
 	"LERP_X": "",
-	"LERP_Y": ""
+	"LERP_Y": "",
+	"RANDOM_BOOLEAN": "",
+	"RANDOM_BOOLEAN_TOOLTIP": ""
 }
