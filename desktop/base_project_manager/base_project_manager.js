@@ -27,7 +27,7 @@ module.exports = BaseProjectManager = class BaseProjectManager {
      * @return {LoadedProject} A LoadedProject representing the newly created project.
      */
     createNewProject(name, filePath, version) {
-        console.log(`Creating project ${name} at ${filePath} with version ${version}`);
+        log.debug(`Creating project ${name} at ${filePath} with version ${version}`);
         try {
             fs.ensureDirSync(filePath);
 
@@ -45,7 +45,7 @@ module.exports = BaseProjectManager = class BaseProjectManager {
             });
             return new LoadedProject(project, cachePath, path.join(filePath, `${name}.drop`), this, 'drop');
         } catch (e) {
-            console.error(e);
+            log.error(e);
             return null;
         }
     }
@@ -154,7 +154,7 @@ module.exports = BaseProjectManager = class BaseProjectManager {
         if (path.extname(project.projectPath) === '.drop') {
             zipFolder(project.loadPath, project.projectPath, err => {
                 if (err) {
-                    console.error(err);
+                    log.error(err);
                 }
             });
         }
