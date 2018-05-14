@@ -2429,6 +2429,7 @@
                 </value>
             </block>
             <block type="camera_unfollow"/>
+            <block type="game_camera"/>
         </category>
         <category name="Sound" colour="#BF8B2A">
             <block type="load_sound">

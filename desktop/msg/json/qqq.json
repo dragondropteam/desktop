@@ -2561,5 +2561,8 @@
 	"LERP_X": "",
 	"LERP_Y": "",
 	"RANDOM_BOOLEAN": "",
-	"RANDOM_BOOLEAN_TOOLTIP": ""
+	"RANDOM_BOOLEAN_TOOLTIP": "",
+	"GAME_CAMERA": "",
+	"GAME_CAMERA_TOOLTIP": "tooltip",
+	"GAME_CAMERA_URL": "url"
 }

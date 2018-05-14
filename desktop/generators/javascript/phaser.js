@@ -1659,6 +1659,10 @@ Blockly.JavaScript['sound_restart'] = function (block) {
 //endregion
 
 //region CAMERA
+Blockly.JavaScript["game_camera"] = function() {
+    return ['game.camera', Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['camera_fade'] = function (block) {
     const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
     const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-05-14 14:46:29.504772",
+		"lastupdated": "2018-05-14 15:32:38.263778",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2567,5 +2567,8 @@
 	"LERP_X": "lerp x",
 	"LERP_Y": "lerp y",
 	"RANDOM_BOOLEAN": "random boolean",
-	"RANDOM_BOOLEAN_TOOLTIP": "generates either true or false"
+	"RANDOM_BOOLEAN_TOOLTIP": "generates either true or false",
+	"GAME_CAMERA": "camera",
+	"GAME_CAMERA_TOOLTIP": "reference to the current games camera",
+	"GAME_CAMERA_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Camera.html"
 }
