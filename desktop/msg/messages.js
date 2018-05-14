@@ -5420,3 +5420,6 @@ Blockly.Msg.FOLLOW_TOPDOWN_TIGHT = 'topdown tight';
 
 Blockly.Msg.LERP_X = 'lerp x';
 Blockly.Msg.LERP_Y = 'lerp y';
+
+Blockly.Msg.RANDOM_BOOLEAN = 'random boolean';
+Blockly.Msg.RANDOM_BOOLEAN_TOOLTIP = 'generates either true or false';

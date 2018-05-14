@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-05-07 16:41:07.900858",
+		"lastupdated": "2018-05-14 14:46:29.504772",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2565,5 +2565,7 @@
 	"FOLLOW_TOPDOWN": "topdown",
 	"FOLLOW_TOPDOWN_TIGHT": "topdown tight",
 	"LERP_X": "lerp x",
-	"LERP_Y": "lerp y"
+	"LERP_Y": "lerp y",
+	"RANDOM_BOOLEAN": "random boolean",
+	"RANDOM_BOOLEAN_TOOLTIP": "generates either true or false"
 }
