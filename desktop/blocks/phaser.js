@@ -5385,6 +5385,18 @@ Blockly.Blocks['draw_circle'] = {
 //region PHASER_CAMERA
 
 //region CAMERA.METHODS
+
+Blockly.Blocks['game_camera'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GAME_CAMERA);
+    this.setOutput(true);
+    this.setColour(PHASER_CAMERA_COLOUR);
+    this.setTooltip(Blockly.Msg.GAME_CAMERA_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GAME_CAMERA_URL);
+  }
+};
+
 Blockly.Blocks['camera_follow_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')

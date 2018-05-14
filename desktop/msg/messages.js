@@ -5423,3 +5423,9 @@ Blockly.Msg.LERP_Y = 'lerp y';
 
 Blockly.Msg.RANDOM_BOOLEAN = 'random boolean';
 Blockly.Msg.RANDOM_BOOLEAN_TOOLTIP = 'generates either true or false';
+
+Blockly.Msg.GAME_CAMERA = 'camera';
+/// tooltip
+Blockly.Msg.GAME_CAMERA_TOOLTIP = 'reference to the current games camera';
+/// url
+Blockly.Msg.GAME_CAMERA_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html';
