@@ -9,6 +9,7 @@ buildMacOS:
   before_script:
     - cd desktop
     - yarn install
+    - gulp
     - cd app
     - yarn install
     - cd ..
