@@ -2251,6 +2251,7 @@
                     </value>
                 </block>
                 <block type="random_sign"></block>
+                <block type="random_boolean"></block>
             </category>
         </category>
         <category name="Graphics" colour="#C66959">
