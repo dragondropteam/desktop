@@ -1805,6 +1805,10 @@ Blockly.JavaScript['random_real_in_range'] = function (block) {
 Blockly.JavaScript['random_sign'] = function (block) {
     return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['random_boolean'] = function () {
+    return ['game.rnd.pick([true, false])', Blockly.JavaScript.ORDER_NONE];
+};
 //endregion
 
 //region MATH

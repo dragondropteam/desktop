@@ -4844,6 +4844,18 @@ Blockly.Blocks['random_sign'] = {
     this.setHelpUrl(Blockly.Msg.RANDOM_SIGN_HELP_URL);
   }
 };
+
+Blockly.Blocks['random_boolean'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.RANDOM_BOOLEAN);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_RANDOM_COLOUR);
+    this.setTooltip(Blockly.Msg.RANDOM_BOOLEAN_TOOLTIP);
+    this.setHelpUrl('');
+  }
+};
+
 //endregion
 
 //region MATH
