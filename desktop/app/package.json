@@ -25,7 +25,7 @@
     "electron-builder": "20.13.3",
     "electron-log": "^2.2.11",
     "electron-store": "*",
-    "fs-extra": "^6.0.0",
+    "fs-extra": "^4.0.3",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
     "is-invalid-path": "*",
