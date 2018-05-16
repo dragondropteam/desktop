@@ -127,12 +127,6 @@
                     return;
                 }
 
-                const isInvalid = require('is-invalid-path');
-                if(isInvalid(project.path)){
-                    alert('The selected path is invalid');
-                    return;
-                }
-
                 if (fs.existsSync(path.join(project.path, `${project.name}.drop`))) {
                     const selection = dialog.showMessageBox({
                         type: 'question',
