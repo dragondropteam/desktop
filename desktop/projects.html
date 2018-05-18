@@ -28,6 +28,10 @@
         <md-button class="md-raised md-primary projectButton" onClick="loadProjectDialog()">Load Project
             <md-icon>folder open</md-icon>
         </md-button>
+        <md-button ng-if="downloadAvailable" class="md-raised md-primary projectButton" ng-click="downloadUpdate()">
+            Download Update
+            <md-icon>update</md-icon>
+        </md-button>
     </div>
     <md-divider></md-divider>
     <div layout="column" flex="70">
@@ -63,62 +67,80 @@
 <script src="./static/angular-material.min.js"></script>
 
 <script>
-    const projects = require('./project/projects');
-    const projectTypes = require('./project_types/project_types');
-    const path = require('path');
-    var app = angular.module('DragonDrop', ['ngMaterial']);
-    app.controller('recentFilesController', function ($scope) {
-        $scope.recentPaths = projects.getRecentProjects();
-        $scope.loadProject = function (loadPath, name) {
-            ipcRenderer.send('load_project', loadPath);
-        };
+  const projects = require('./project/projects');
+  const projectTypes = require('./project_types/project_types');
+  const path = require('path');
+  var app = angular.module('DragonDrop', ['ngMaterial']);
+  app.controller('recentFilesController', function ($scope) {
+    $scope.recentPaths = projects.getRecentProjects();
+    $scope.downloadAvailable = false;
+    $scope.downloadingUpdate = false;
+    $scope.progress = 0;
 
-        ipcRenderer.on('recent_projects_updated', () => {
-            $scope.recentPaths = projects.getRecentProjects();
-            $scope.$apply();
-        });
+    $scope.loadProject = function (loadPath, name) {
+      ipcRenderer.send('load_project', loadPath);
+    };
 
-        $scope.displayName = function (type) {
-            {
-                return projectTypes.getDisplayName(type);
-            }
-        }
+    ipcRenderer.on('recent_projects_updated', () => {
+      $scope.recentPaths = projects.getRecentProjects();
+      $scope.$apply();
     });
 
-    const {ipcRenderer} = require('electron');
-    const npm = require('./package.json');
-    var element = document.getElementById("version");
-    element.innerHTML = `version: ${npm.version}`;
+    ipcRenderer.on('message', (event, message, info) => {
+      switch (message) {
+        case 'update-available':
+          $scope.downloadAvailable = true;
+          $scope.version = info;
+          break;
+      }
+      $scope.$apply();
+    });
 
-    function createProject() {
-        ipcRenderer.send('create_project');
-    }
+    $scope.displayName = function (type) {
+      return projectTypes.getDisplayName(type);
+    };
 
-    function clearProjects() {
-        projects.clearRecentProjects();
-    }
+    $scope.downloadUpdate = function () {
+      ipcRenderer.send('download_update', $scope.version);
+    };
+  });
 
-    function loadProjectDialog() {
-        ipcRenderer.send('load_project_dialog');
-    }
+  const {ipcRenderer} = require('electron');
+  const npm = require('./package.json');
+  var element = document.getElementById('version');
+  element.innerHTML = `version: ${npm.version}`;
+
+  function createProject () {
+    ipcRenderer.send('create_project');
+  }
+
+  function clearProjects () {
+    projects.clearRecentProjects();
+  }
+
+  function loadProjectDialog () {
+    ipcRenderer.send('load_project_dialog');
+  }
+
+
 </script>
 
 <script type="text/javascript"
         src="https://digipen.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-18xvrn/b/20/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=88c8ad41"></script>
 <script type="text/javascript">window.ATL_JQ_PAGE_PROPS = {
-    "triggerFunction": function (showCollectorDialog) {
-        ipcRenderer.on('report_bug', (event, arg) => {
-            console.log(arg);
-            if (arg) {
-                window.ATL_JQ_PAGE_PROPS.fieldValues.description = window.ATL_JQ_PAGE_PROPS.fieldValues.description + `Extra Information:\nMessage:\n${arg.message}\nStack:\n${arg.stack}`;
-            }
-            showCollectorDialog();
-        });
-    },
+  'triggerFunction': function (showCollectorDialog) {
+    ipcRenderer.on('report_bug', (event, arg) => {
+      console.log(arg);
+      if (arg) {
+        window.ATL_JQ_PAGE_PROPS.fieldValues.description = window.ATL_JQ_PAGE_PROPS.fieldValues.description + `Extra Information:\nMessage:\n${arg.message}\nStack:\n${arg.stack}`;
+      }
+      showCollectorDialog();
+    });
+  },
 
-    fieldValues: {
-        description: 'Expected Behavior:\n\nActual Behavior:\n\nSteps to reproduce:\n\n'
-    }
+  fieldValues: {
+    description: 'Expected Behavior:\n\nActual Behavior:\n\nSteps to reproduce:\n\n'
+  }
 };</script>
 </body>
 </html>
