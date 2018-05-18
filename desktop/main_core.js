@@ -53,7 +53,7 @@ function sendStatusToWindow (text, info) {
 //Events
 autoUpdater.on('error', (event, error) => {
   log.error(error);
-  if(downloadProgressWindow){
+  if (downloadProgressWindow) {
     downloadProgressWindow.destroy();
   }
 });
@@ -85,6 +85,7 @@ ipcMain.on('download_update', (event, version) => {
   downloadProgressWindow = new ProgressWindow(`Downloading Update`);
   autoUpdater.downloadUpdate();
 });
+
 //endregion
 
 function fillEditMenu (menuHash) {
@@ -634,9 +635,9 @@ function loadDigiblocksFromPath (projectPath) {
           action = showConversionDialog();
         }
 
-                if (action === ACTION_CANCEL) {
-                  return resolve(null);
-                }
+        if (action === ACTION_CANCEL) {
+          return resolve(null);
+        }
 
         projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
 
@@ -701,12 +702,10 @@ function loadDropFromPath (projectPath) {
         }
 
         if (action === ACTION_CANCEL) {
-          return;
+          return resolve(null);
         }
 
-                if (action === ACTION_CANCEL) {
-                  return resolve(null);
-                }
+        projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
 
         const project = projectInterface.loadProject(projectFile, cachePath, projectPath, action === ACTION_READ_ONLY);
         global.loadProjectReadOnly = project.readOnly;
@@ -757,21 +756,21 @@ function projectLoadErrorHandler (err) {
   }
 }
 
-function loadProjectFromPath(projectPath) {
-    let progressWindow = new ProgressWindow('Loading Project');
-    const extension = path.extname(projectPath);
-    const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
-    loadProject
-        .then(project => {
-            progressWindow.destroy();
-            if(project) {
-              displayProject(project);
-            }
-        })
-        .catch(err => {
-            progressWindow.destroy();
-            projectLoadErrorHandler(err)
-        });
+function loadProjectFromPath (projectPath) {
+  let progressWindow = new ProgressWindow('Loading Project');
+  const extension = path.extname(projectPath);
+  const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
+  loadProject
+    .then(project => {
+      progressWindow.destroy();
+      if (project) {
+        displayProject(project);
+      }
+    })
+    .catch(err => {
+      progressWindow.destroy();
+      projectLoadErrorHandler(err);
+    });
 }
 
 let projectToLoad = null;
@@ -838,7 +837,6 @@ app.on('ready', function () {
   const yargs = require('yargs');
   const args = yargs(process.argv.slice(1)).argv;
   createDefaultMenu();
-
 
   //We need to show a window in this callback otherwise the application will quit, show always show the splash screen
   //if we get a project to load it will close this window. Hopefully before ready-to-show is called preventing flickering
