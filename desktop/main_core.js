@@ -41,39 +41,50 @@ let splashScreen = false;
 
 //region AUTO_UPDATE
 const {autoUpdater} = require('electron-updater');
+autoUpdater.autoDownload = false;
 autoUpdater.logger = require('electron-log');
 autoUpdater.logger.transports.file.level = 'info';
 
-function sendStatusToWindow (text) {
-  log.info(text);
-  mainWindow.webContents.send('message', text);
+function sendStatusToWindow (text, info) {
+  log.warn('sendStatusToWindow', text, info);
+  mainWindow.webContents.send('message', text, info);
 }
 
 //Events
 autoUpdater.on('error', (event, error) => {
-  sendStatusToWindow(error.message);
+  log.error(error);
+  if(downloadProgressWindow){
+    downloadProgressWindow.destroy();
+  }
 });
 
-autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('checking-for-update');
-});
+// autoUpdater.on('checking-for-update', () => {
+//   sendStatusToWindow('checking-for-update');
+// });
 
 autoUpdater.on('update-available', (event, info) => {
   sendStatusToWindow('update-available');
 });
 
-autoUpdater.on('update-not-available', () => {
-  sendStatusToWindow('update-not-available');
-});
+// autoUpdater.on('update-not-available', () => {
+//   sendStatusToWindow('update-not-available');
+// });
 
 autoUpdater.on('download-progress', (event, progress) => {
-  sendStatusToWindow('download-progress');
+  sendStatusToWindow('download-progress', progress);
 });
+
+let downloadProgressWindow = null;
 
 autoUpdater.on('update-downloaded', (event, progress) => {
-  sendStatusToWindow('update-downloaded');
+  downloadProgressWindow.destroy();
+  autoUpdater.quitAndInstall();
 });
 
+ipcMain.on('download_update', (event, version) => {
+  downloadProgressWindow = new ProgressWindow(`Downloading Update`);
+  autoUpdater.downloadUpdate();
+});
 //endregion
 
 function fillEditMenu (menuHash) {
@@ -795,6 +806,7 @@ function showSplashScreen (err) {
 
   mainWindow.on('ready-to-show', () => {
     sendStatusToWindow('ready');
+    autoUpdater.checkForUpdates();
     mainWindow.show();
     splashScreen = true;
   });
@@ -823,7 +835,6 @@ app.on('ready', function () {
   const args = yargs(process.argv.slice(1)).argv;
   createDefaultMenu();
 
-  autoUpdater.checkForUpdatesAndNotify();
 
   //We need to show a window in this callback otherwise the application will quit, show always show the splash screen
   //if we get a project to load it will close this window. Hopefully before ready-to-show is called preventing flickering
