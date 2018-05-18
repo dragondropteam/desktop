@@ -1170,7 +1170,7 @@ Blockly.JavaScript['camera_follow_vi_complex'] = function (block) {
     const lerpX = Blockly.JavaScript.valueToCode(block, 'LERP_X', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     const lerpY = Blockly.JavaScript.valueToCode(block, 'LERP_Y', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     const style = block.getFieldValue('STYLE');
-    return `game.camera.follow(${object}, Phaser.Camera.${style}, ${lerpX}, ${lerpY});\n`;
+    return `game.camera.follow(${object}, ${style}, ${lerpX}, ${lerpY});\n`;
 };
 
 Blockly.JavaScript['get_camera'] = function (block) {
