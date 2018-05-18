@@ -24,7 +24,7 @@ const log = require('electron-log');
  */
 const macPrefix = '/Contents/MacOS/Arduino';
 const {BrowserWindow} = require('electron');
-const {ProgressWindow} = require('progress_dialog');
+const {ProgressWindow} = require('../progress_dialog/progress');
 
 exports.macPrefix = macPrefix;
 

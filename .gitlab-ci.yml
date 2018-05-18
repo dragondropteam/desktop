@@ -9,14 +9,10 @@ buildMacOS:
   before_script:
     - cd desktop
     - yarn install
-    - gulp
-    - cd app
-    - yarn install
-    - cd ..
     - cd ..
   script:
     - cd desktop
-    - gulp
+    - gulp publishCurrentPlatform
     - cd ..
   artifacts:
     paths:
@@ -32,14 +28,10 @@ buildWindows:
   before_script:
     - cd desktop
     - call yarn install
-    - call gulp
-    - cd app
-    - call yarn install
-    - cd ..
     - cd ..
   script:
     - cd desktop
-    - call gulp
+    - call gulp publishCurrentPlatform
     - cd ..
   artifacts:
     paths:
@@ -55,14 +47,10 @@ buildLinux:
   before_script:
     - cd desktop
     - yarn install
-    - gulp
-    - cd app
-    - yarn install
-    - cd ..
     - cd ..
   script:
     - cd desktop
-    - gulp
+    - gulp publishCurrentPlatform
     - cd ..
   artifacts:
     paths:

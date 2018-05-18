@@ -44,8 +44,14 @@ gulp.task('mainProcess', () => {
  * Automatically uses package.json in cwd and the current platform
  */
 
-gulp.task('buildCurrentPlatform', ['install'], () => {
+gulp.task('buildCurrentPlatform',  ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager'], () => {
     return builder.build();
+});
+
+gulp.task('publishCurrentPlatform',  ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager'], () => {
+    return builder.build({
+      publish: 'always'
+    });
 });
 
 gulp.task('buildCurrentPlatformNoCheck', () => {
