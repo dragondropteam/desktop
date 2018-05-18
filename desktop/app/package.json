@@ -1,6 +1,6 @@
 {
   "name": "DragonDrop",
-  "version": "2.0.0-rc.7-dev",
+  "version": "2.0.0-rc.6-dev",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
@@ -25,10 +25,10 @@
     "electron-builder": "20.13.3",
     "electron-log": "^2.2.11",
     "electron-store": "*",
+    "electron-updater": "^2.21.10",
     "fs-extra": "^4.0.3",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
-    "is-invalid-path": "*",
     "jszip": "^3.1.5",
     "promisepipe": "^2.1.1",
     "rxjs": "^5.5.7",
