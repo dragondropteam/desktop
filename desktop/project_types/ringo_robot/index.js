@@ -15,8 +15,8 @@ const PROJECT_TYPE = 'ringo';
 const fs = require('fs-extra');
 const path = require('path');
 
-const filesystem = require(`filesystem`);
-const arduino = require('arduino_core');
+const filesystem = require('../../filesystem/filesystem');
+const arduino = require('../../arduino_core/arduino_core');
 const electron = require('electron');
 const {BrowserWindow} = require('electron');
 const BaseProjectManager = require('../../base_project_manager/base_project_manager');

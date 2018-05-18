@@ -13,7 +13,7 @@ const BUILD_NUMBER = 2;
 const fs = require('fs-extra');
 const path = require('path');
 
-const filesystem = require(`filesystem`);
+const filesystem = require('../../filesystem/filesystem');
 const PROJECT_TYPE = 'visual_phaser';
 const corePhaser = require('../../phaser_core/phaser_core');
 const BaseProjectManager = require('../../base_project_manager/base_project_manager');

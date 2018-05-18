@@ -15,7 +15,7 @@ const PROJECT_TYPE = 'text_phaser';
 const fs = require('fs-extra');
 const path = require('path');
 
-const filesystem = require(`filesystem`);
+const filesystem = require('../../filesystem/filesystem');
 const corePhaser = require('../../phaser_core/phaser_core');
 const BaseProjectManager = require('../../base_project_manager/base_project_manager');
 const log = require('electron-log');

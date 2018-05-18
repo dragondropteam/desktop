@@ -103,7 +103,7 @@
         var type = 'wink';
         var app = angular.module('DragonDrop', ['ngMaterial', 'ngMessages']);
         app.controller('projects-controller', function($scope){
-            const projectTypes = require('project_types');
+            const projectTypes = require('../project_types/project_types');
             $scope.projects = projectTypes.getProjectTypes();
             $scope.project = project;
             $scope.projectType = 'wink';
@@ -124,12 +124,6 @@
 
                 if(!(/^[A-Za-z]\w+$/.test(project.name))){
                     alert('Project name must start with a character and use only A-Z a-z 0-9 _ and -');
-                    return;
-                }
-
-                const isInvalid = require('is-invalid-path');
-                if(isInvalid(project.path)){
-                    alert('The selected path is invalid');
                     return;
                 }
 

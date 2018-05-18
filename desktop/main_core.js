@@ -28,7 +28,7 @@ const {ipcMain} = require('electron');
 const projects = require('./project/projects');
 const {isFromNewerVersion, isFromOlderVersion} = require('./project/projects');
 const fs = require('fs-extra');
-const projectTypes = require('project_types');
+const projectTypes = require('./project_types/project_types');
 const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
 let preferencesWindow;
@@ -634,9 +634,9 @@ function loadDigiblocksFromPath (projectPath) {
           action = showConversionDialog();
         }
 
-        if (action === ACTION_CANCEL) {
-          return;
-        }
+                if (action === ACTION_CANCEL) {
+                  return resolve(null);
+                }
 
         projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
 
@@ -704,7 +704,9 @@ function loadDropFromPath (projectPath) {
           return;
         }
 
-        projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+                if (action === ACTION_CANCEL) {
+                  return resolve(null);
+                }
 
         const project = projectInterface.loadProject(projectFile, cachePath, projectPath, action === ACTION_READ_ONLY);
         global.loadProjectReadOnly = project.readOnly;
@@ -755,19 +757,21 @@ function projectLoadErrorHandler (err) {
   }
 }
 
-function loadProjectFromPath (projectPath) {
-  let progressWindow = new ProgressWindow('Loading Project');
-  const extension = path.extname(projectPath);
-  const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
-  loadProject
-    .then(project => {
-      progressWindow.destroy();
-      displayProject(project);
-    })
-    .catch(err => {
-      progressWindow.destroy();
-      projectLoadErrorHandler(err);
-    });
+function loadProjectFromPath(projectPath) {
+    let progressWindow = new ProgressWindow('Loading Project');
+    const extension = path.extname(projectPath);
+    const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
+    loadProject
+        .then(project => {
+            progressWindow.destroy();
+            if(project) {
+              displayProject(project);
+            }
+        })
+        .catch(err => {
+            progressWindow.destroy();
+            projectLoadErrorHandler(err)
+        });
 }
 
 let projectToLoad = null;

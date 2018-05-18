@@ -1151,15 +1151,26 @@ Blockly.JavaScript['camera_follow'] = function (block) {
 
 Blockly.JavaScript['camera_follow_vi'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
-    return `game.camera.follow(${object}, undefined, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
+    return `game.camera.follow(${object});\n`;
+};
 
+Blockly.JavaScript['camera_follow_vi_complex'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    return `game.camera.follow(${object});\n`;
 };
 
 Blockly.JavaScript['camera_follow_vi_styled'] = function (block) {
     const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const style = block.getFieldValue('STYLE');
-    return `game.camera.follow(${object}, Phaser.Camera.${style}, 0.1, 0.1);\ngame.renderer.renderSession.roundPixels = true;\n`;
+    return `game.camera.follow(${object}, Phaser.Camera.${style});\n`;
+};
 
+Blockly.JavaScript['camera_follow_vi_complex'] = function (block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const lerpX = Blockly.JavaScript.valueToCode(block, 'LERP_X', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const lerpY = Blockly.JavaScript.valueToCode(block, 'LERP_Y', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    const style = block.getFieldValue('STYLE');
+    return `game.camera.follow(${object}, Phaser.Camera.${style}, ${lerpX}, ${lerpY});\n`;
 };
 
 Blockly.JavaScript['get_camera'] = function (block) {
@@ -1648,6 +1659,10 @@ Blockly.JavaScript['sound_restart'] = function (block) {
 //endregion
 
 //region CAMERA
+Blockly.JavaScript["game_camera"] = function() {
+    return ['game.camera', Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['camera_fade'] = function (block) {
     const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
     const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
@@ -1793,6 +1808,10 @@ Blockly.JavaScript['random_real_in_range'] = function (block) {
 
 Blockly.JavaScript['random_sign'] = function (block) {
     return [`game.rnd.sign()`, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['random_boolean'] = function () {
+    return ['game.rnd.pick([true, false])', Blockly.JavaScript.ORDER_NONE];
 };
 //endregion
 
