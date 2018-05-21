@@ -15,6 +15,7 @@ function disableIfNotInClassBlock(root) {
     //Assume that the block is illegal
     let legal = false;
     let inClass = false;
+    const enabled = root.disabled;
 
     let block = root;
     do {
@@ -29,7 +30,7 @@ function disableIfNotInClassBlock(root) {
     if (legal) {
         //If we are coming from a illegal state we need to make sure this block is reenabled and the warning text
         //is cleared. If we are coming from a legal state this will do nothing
-        root.setDisabled(false);
+        root.setDisabled(enabled);
         root.setWarningText(null);
     } else {
         root.setDisabled(true);
