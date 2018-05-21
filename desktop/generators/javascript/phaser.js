@@ -1196,6 +1196,7 @@ Blockly.JavaScript['add_text'] = function (block) {
     const value_font_size = Blockly.JavaScript.valueToCode(block, 'FONT_SIZE', Blockly.JavaScript.ORDER_ATOMIC);
     const colour_fill = block.getFieldValue('FILL');
     return [`game.add.text(${value_x_pos}, ${value_y_pos}, ${value_initial_text}, { fontsize: '${value_font_size}', fill: '${colour_fill}'})`, Blockly.JavaScript.ORDER_NONE];
+    return [`game.add.text(${value_x_pos}, ${value_y_pos}, ${value_initial_text}, { fontSize: '${value_font_size}', fill: '${colour_fill}'})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['set_text'] = function (block) {
