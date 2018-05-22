@@ -54,13 +54,13 @@ function getClassForBlock (root) {
 }
 
 function handleDisable (event, block) {
-  if(event.type !== Blockly.Events.CHANGE && event.type !== Blockly.Events.MOVE){
+  if (event.type !== Blockly.Events.CHANGE && event.type !== Blockly.Events.MOVE) {
     return;
   }
 
   if (event.type === Blockly.Events.CHANGE && event.element === 'disabled') {
     return;
-  }else if(event.type === Blockly.Events.MOVE && !event.newInputName){
+  } else if (event.type === Blockly.Events.MOVE && !event.newInputName) {
     return;
   }
 

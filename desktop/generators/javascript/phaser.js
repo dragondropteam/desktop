@@ -1195,8 +1195,7 @@ Blockly.JavaScript['add_text'] = function (block) {
     const value_initial_text = Blockly.JavaScript.valueToCode(block, 'INITIAL_TEXT', Blockly.JavaScript.ORDER_ATOMIC);
     const value_font_size = Blockly.JavaScript.valueToCode(block, 'FONT_SIZE', Blockly.JavaScript.ORDER_ATOMIC);
     const colour_fill = block.getFieldValue('FILL');
-    return [`game.add.text(${value_x_pos}, ${value_y_pos}, ${value_initial_text}, { fontsize: '${value_font_size}', fill: '${colour_fill}'})`, Blockly.JavaScript.ORDER_NONE];
-    return [`game.add.text(${value_x_pos}, ${value_y_pos}, ${value_initial_text}, { fontSize: '${value_font_size}', fill: '${colour_fill}'})`, Blockly.JavaScript.ORDER_NONE];
+    return [`game.add.text(${value_x_pos}, ${value_y_pos}, ${value_initial_text}, { fontSize: '${value_font_size}px', fill: '${colour_fill}'})`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['set_text'] = function (block) {
@@ -1469,6 +1468,13 @@ Blockly.JavaScript['rectangle_create'] = function (block) {
     const width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     const height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_ATOMIC) || 0;
     return [`new Phaser.Rectangle(${x}, ${y}, ${width}, ${height})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+
+Blockly.JavaScript['rectangle_intersects'] = function (block) {
+  const rectA = Blockly.JavaScript.valueToCode(block, 'RECT_A', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+  const rectB = Blockly.JavaScript.valueToCode(block, 'RECT_B', Blockly.JavaScript.ORDER_ATOMIC) || 'null';
+  return [`Phaser.Rectangle.intersects(${rectA}, ${rectB})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 //region POINT
