@@ -122,7 +122,8 @@ class CodeComponent extends BaseComponent {
         document.getElementById(EDITOR_ID).style.fontSize = `${electronConfig.get('fontsize') || '12'}px`
     }
 
-    projectLoad(project){
+    projectLoad(projectFactory){
+        const project = projectFactory();
         this.setCode(project.code.code);
     }
 
