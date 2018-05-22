@@ -4132,6 +4132,29 @@ Blockly.Blocks['rectangle_create'] = {
     this.setOutput(true);
   }
 };
+
+//contains, contains point, contains rect, intersects
+// Blockly.Blocks['rectangle_get_prop'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//   }
+// };
+
+Blockly.Blocks['rectangle_intersects'] = {
+  init: function() {
+    this.appendValueInput('RECT_A');
+    this.appendDummyInput()
+      .appendField('intersects');
+    this.appendValueInput('RECT_B');
+    this.appendDummyInput()
+      .appendField('?');
+    this.setInputsInline(true);
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_CREATE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_CREATE_HELP_URL);
+    this.setOutput(true, 'Boolean');
+  }
+};
 //endregion
 
 //region POINT
