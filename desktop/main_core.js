@@ -38,6 +38,7 @@ const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
 const windowManager = require('./window_manager/window_manager');
 let splashScreen = false;
+let readOnlyProject = false;
 
 //region AUTO_UPDATE
 const {autoUpdater} = require('electron-updater');
@@ -305,7 +306,8 @@ function createProjectMenu (arg) {
     click (item, displayedWindow) {
       if (displayedWindow)
         displayedWindow.webContents.send('save_project');
-    }
+    },
+    enabled: !readOnlyProject
   });
 
   menuHash['File'].push({
@@ -318,7 +320,8 @@ function createProjectMenu (arg) {
 
       const defaultPath = path.join(app.getPath('documents'), 'DragonDropProjects', `${arg.loadedProject.name}_Copy.drop`);
       saveAs(defaultPath, focusedWindow);
-    }
+    },
+    enabled: !readOnlyProject
   });
 
   menuHash['File'].push({
@@ -375,7 +378,8 @@ function createProjectMenu (arg) {
       click (item, focusedWindow) {
         const defaultPath = path.join(app.getPath('documents'), 'DragonDropProjects', `${arg.loadedProject.name}.drop`);
         saveAs(defaultPath, focusedWindow);
-      }
+      },
+      enabled: !readOnlyProject
     });
   }
 
@@ -639,6 +643,8 @@ function loadDigiblocksFromPath (projectPath) {
           return resolve(null);
         }
 
+        readOnlyProject = action === ACTION_READ_ONLY;
+
         projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
 
         const project = projectInterface.loadProject(projectFile, path.dirname(projectPath), projectPath, action === ACTION_READ_ONLY);
@@ -705,8 +711,9 @@ function loadDropFromPath (projectPath) {
           return resolve(null);
         }
 
-        projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
+        readOnlyProject = action === ACTION_READ_ONLY;
 
+        projectInterface = require(projectTypes.getRequirePath(projectFile.type || 'wink'));
         const project = projectInterface.loadProject(projectFile, cachePath, projectPath, action === ACTION_READ_ONLY);
         global.loadProjectReadOnly = project.readOnly;
 
