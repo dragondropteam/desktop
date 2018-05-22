@@ -73,7 +73,8 @@ class PhaserComponent extends BaseComponent {
         }
     }
 
-    projectLoad(project){
+    projectLoad(projectFactory){
+        const project = projectFactory();
         this.setSource(`file://${project.project.getSourceFile('html')}`)
     }
 
