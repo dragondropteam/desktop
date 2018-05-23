@@ -25,7 +25,7 @@ const defaultValue = [
     new ProjectType('wink', 'PlumGeek Robotics Wink', './project_types/wink_robot', true),
     new ProjectType('exploring_wink', 'Exploring Wink', './project_types/exploring_wink_robot', true),
     new ProjectType('arduino', 'Arduino', './project_types/arduino', true),
-    new ProjectType('ringo', 'PlumGeek Robotics Ringo', './project_types/ringo_robot', false),
+    new ProjectType('ringo', 'PlumGeek Robotics Ringo', './project_types/ringo_robot', true),
     new ProjectType('block_javascript', 'JavaScript Blocks', './project_types/basic_javascript', true),
     new ProjectType('visual_phaser', 'Visual Phaser Game Engine', './project_types/visual_phaser', true),
     new ProjectType('exploring_phaser', 'Exploring Phaser Game Engine', './project_types/exploring_phaser', true),
