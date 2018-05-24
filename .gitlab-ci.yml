@@ -2,8 +2,48 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
  
 stages:
+ - test
  - build
  
+testMacOS:
+  stage: test
+  before_script:
+    - cd desktop
+    - yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - yarn test
+    - cd ..
+  tags:
+    - macOS
+    
+testLinux:
+  stage: test
+  before_script:
+    - cd desktop
+    - yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - yarn test
+    - cd ..
+  tags:
+    - linux
+    
+testWindows:
+  stage: test
+  before_script:
+    - cd desktop
+    - call yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - call yarn test
+    - cd ..
+  tags:
+    - windows
+    
 buildMacOS:
   stage: build
   before_script:
