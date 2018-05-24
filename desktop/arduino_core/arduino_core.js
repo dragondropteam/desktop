@@ -114,15 +114,20 @@ exports.loadInArduino = function (path) {
  * @param path The path to .ino file for a given project
  * @param board The identifier for a board should be one of {@link Boards}
  * @param port The identifier for the port the board is connected to
+ * @param optParams Optional additional parameters to apply after the board for example CPU
  * @return {ChildProcess} The spawned process of the Arduino IDE used to upload the project
  */
-exports.uploadToArduino = function (path, board, port) {
+exports.uploadToArduino = function (path, board, port, optParams = null) {
     let args = ['--upload'];
-    console.log(`Uploading to Arudino platform with board ${board} and port ${port}`);
+    console.log(`Uploading to Arudino platform with board ${board} and port ${port} and optParms ${optParams}`);
 
     if (board != null) {
         args.push(`--board`);
-        args.push(`${Boards[board]}`);
+
+        if(!optParams)
+            args.push(`${Boards[board]}`);
+        else
+            args.push(`${Boards[board]}:${optParams}`);
     }
     if (port != null) {
         args.push(`--port`);
@@ -250,7 +255,9 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
         accelerator: 'CmdOrCtrl+U',
         click() {
             try {
-                const child = exports.uploadToArduino(exports.getInoPath(project), project.getMetaData() != null ? project.getMetaData().board : null, project.getMetaData() != null ? project.getMetaData().port : global.selectedPort);
+                //If there is no metadata use a default
+                const metadata = project.getMetaData() || {board: null, port: global.selectedPort, optParams: null};
+                const child = exports.uploadToArduino(exports.getInoPath(project),metadata.board, metadata.port, metadata.optParams);
                 let runningOutput = '';
                 let error = false;
 
