@@ -4267,331 +4267,331 @@ Blockly.Msg.HARDWARESTARTUP_RINGO_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_RINGO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_FIELD_1 = 'Get Gyro Calibration Multiplier';
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_FIELD_1 = 'get gyro calibration multiplier';
 /// auto generated
 Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.BEGIN_NAVIGATION_FIELD_1 = 'Begin Navigation';
+Blockly.Msg.BEGIN_NAVIGATION_FIELD_1 = 'begin navigation';
 /// auto generated
 Blockly.Msg.BEGIN_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SIMPLE_GYRO_NAVIGATION_FIELD_1 = 'Simple Gyro Navigation';
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION_FIELD_1 = 'simple gyro navigation';
 /// auto generated
 Blockly.Msg.SIMPLE_GYRO_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SIMPLE_NAVIGATION_FIELD_1 = 'Simple Navigation';
+Blockly.Msg.SIMPLE_NAVIGATION_FIELD_1 = 'simple navigation';
 /// auto generated
 Blockly.Msg.SIMPLE_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_FIELD_1 = 'Navigation XY with';
+Blockly.Msg.NAVIGATION_XY_FIELD_1 = 'navigation xy with';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_FIELD_2 = 'Gyro Sensitivity';
+Blockly.Msg.NAVIGATION_XY_FIELD_2 = 'gyro sensitivity';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_FIELD_3 = 'Acceleration Sensitivity';
+Blockly.Msg.NAVIGATION_XY_FIELD_3 = 'acceleration sensitivity';
 /// auto generated
 Blockly.Msg.NAVIGATION_XY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_FIELD_1 = 'Calibrate Navigation Sensors';
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_FIELD_1 = 'calibrate navigation sensors';
 /// auto generated
 Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.ZERO_NAVIGATION_FIELD_1 = 'Reset Navigation';
+Blockly.Msg.ZERO_NAVIGATION_FIELD_1 = 'reset navigation';
 /// auto generated
 Blockly.Msg.ZERO_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PAUSE_NAVIGATION_FIELD_1 = 'Pause Navigation';
+Blockly.Msg.PAUSE_NAVIGATION_FIELD_1 = 'pause navigation';
 /// auto generated
 Blockly.Msg.PAUSE_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.RESUME_NAVIGATION_FIELD_1 = 'Resume Navigation';
+Blockly.Msg.RESUME_NAVIGATION_FIELD_1 = 'resume navigation';
 /// auto generated
 Blockly.Msg.RESUME_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NAVIGATION_PAUSED_FIELD_1 = 'Is Navigation Paused';
+Blockly.Msg.NAVIGATION_PAUSED_FIELD_1 = 'is navigation paused';
 /// auto generated
 Blockly.Msg.NAVIGATION_PAUSED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = 'Delay With Navigation for ';
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = 'delay with navigation for ';
 /// auto generated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_2 = 'milliseconds';
 /// auto generated
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = 'Delay With Simple Navigation for';
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = 'delay with simple navigation for';
 /// auto generated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_2 = 'milliseconds';
 /// auto generated
-Blockly.Msg.PRESENT_HEADING_FIELD_1 = 'Get Present Heading';
+Blockly.Msg.PRESENT_HEADING_FIELD_1 = 'get present heading';
 /// auto generated
 Blockly.Msg.PRESENT_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_X_FIELD_1 = 'Get Degrees X';
+Blockly.Msg.GET_DEGREES_X_FIELD_1 = 'get degrees x';
 /// auto generated
 Blockly.Msg.GET_DEGREES_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Z_FIELD_1 = 'Get Degrees Per Second Z';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z_FIELD_1 = 'get degrees per second z';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'Get Degrees Per Second X';
+Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'get degrees per second X';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'Get Degrees Per Second Y';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'get degrees per second Y';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_TO_STOP_FIELD_1 = 'Get Degrees To Stop';
+Blockly.Msg.GET_DEGREES_TO_STOP_FIELD_1 = 'get degrees to stop';
 /// auto generated
 Blockly.Msg.GET_DEGREES_TO_STOP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_X_FIELD_1 = 'Get X Acceleration';
+Blockly.Msg.GET_ACCEL_X_FIELD_1 = 'get x acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Y_FIELD_1 = 'Get Y Acceleration';
+Blockly.Msg.GET_ACCEL_Y_FIELD_1 = 'get y acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Z_FIELD_1 = 'Get Z Acceleration';
+Blockly.Msg.GET_ACCEL_Z_FIELD_1 = 'get z acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Y_UNZEROED_FIELD_1 = 'Get Y Acceleration Unzeroed';
+Blockly.Msg.GET_ACCEL_Y_UNZEROED_FIELD_1 = 'get y acceleration unzeroed';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Y_UNZEROED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_VEL_X_FIELD_1 = 'Get X Velocity';
+Blockly.Msg.GET_VEL_X_FIELD_1 = 'get x velocity';
 /// auto generated
 Blockly.Msg.GET_VEL_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_VEL_Y_FIELD_1 = 'Get Y Velocity';
+Blockly.Msg.GET_VEL_Y_FIELD_1 = 'get y velocity';
 /// auto generated
 Blockly.Msg.GET_VEL_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_POS_X_FIELD_1 = 'Get X Position';
+Blockly.Msg.GET_POS_X_FIELD_1 = 'get x position';
 /// auto generated
 Blockly.Msg.GET_POS_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_POS_Y_FIELD_1 = 'Get Y Position';
+Blockly.Msg.GET_POS_Y_FIELD_1 = 'get y position';
 /// auto generated
 Blockly.Msg.GET_POS_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.IS_STATIONARY_FIELD_1 = 'Is Ringo Stationary';
+Blockly.Msg.IS_STATIONARY_FIELD_1 = 'is gingo stationary';
 /// auto generated
 Blockly.Msg.IS_STATIONARY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NON_STATIONARY_VALUE_FIELD_1 = 'Get Non-Stationary Value';
+Blockly.Msg.NON_STATIONARY_VALUE_FIELD_1 = 'get non-stationary value';
 /// auto generated
 Blockly.Msg.NON_STATIONARY_VALUE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NON_STATIONARY_AXIS_FIELD_1 = 'Get Non-Stationary Axis';
+Blockly.Msg.NON_STATIONARY_AXIS_FIELD_1 = 'get non-stationary axis';
 /// auto generated
 Blockly.Msg.NON_STATIONARY_AXIS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MIN_TURN_FIELD_1 = 'Minimum Turn';
+Blockly.Msg.MIN_TURN_FIELD_1 = 'minimum turn';
 /// auto generated
-Blockly.Msg.MIN_TURN_FIELD_2 = 'Degrees';
+Blockly.Msg.MIN_TURN_FIELD_2 = 'degrees';
 /// auto generated
 Blockly.Msg.MIN_TURN_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MIN_TURN_TO_HEADING_FIELD_1 = 'Minimum Turn to Heading';
+Blockly.Msg.MIN_TURN_TO_HEADING_FIELD_1 = 'minimum turn to heading';
 /// auto generated
 Blockly.Msg.MIN_TURN_TO_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_FIELD_1 = 'Vector To Degrees';
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_1 = 'vector to degrees';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_FIELD_2 = 'X Component';
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_2 = 'x component';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_FIELD_3 = 'Y Component';
+Blockly.Msg.VECTOR_TO_DEGREES_FIELD_3 = 'y component';
 /// auto generated
 Blockly.Msg.VECTOR_TO_DEGREES_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_SET_RANGE_FIELD_1 = 'Set Gyro Range';
+Blockly.Msg.GYRO_SET_RANGE_FIELD_1 = 'set gyro range';
 /// auto generated
 Blockly.Msg.GYRO_SET_RANGE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_BUFFER_SIZE_FIELD_1 = 'Get Gyro Buffer Size';
+Blockly.Msg.GYRO_BUFFER_SIZE_FIELD_1 = 'get gyro buffer size';
 /// auto generated
 Blockly.Msg.GYRO_BUFFER_SIZE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_GET_AXIS_FIELD_1 = 'Get Gyro Axis';
+Blockly.Msg.GYRO_GET_AXIS_FIELD_1 = 'get gyro axis';
 /// auto generated
 Blockly.Msg.GYRO_GET_AXIS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_SET_FREQUENCY_FIELD_1 = 'Set Gyro Frequency';
+Blockly.Msg.GYRO_SET_FREQUENCY_FIELD_1 = 'set gyro frequency';
 /// auto generated
 Blockly.Msg.GYRO_SET_FREQUENCY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_FIELD_1 = 'Get Gyro Range From Chip';
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_FIELD_1 = 'get gyro range from chip';
 /// auto generated
 Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_1 = 'Set';
+Blockly.Msg.SET_PIXEL_RGB_FIELD_1 = 'set';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_1 = 'Left Eye';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_1 = 'left eye';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_2 = 'Right Eye';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_2 = 'right eye';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_3 = 'Body Top';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_3 = 'body top';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_4 = 'Body Bottom';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_4 = 'body bottom';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_5 = 'Tail Top';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_5 = 'tail top';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_6 = 'tail bottom';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_2 = 'Pixel';
+Blockly.Msg.SET_PIXEL_RGB_FIELD_2 = 'pixel';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_3 = 'Red';
+Blockly.Msg.SET_PIXEL_RGB_FIELD_3 = 'red';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_4 = 'Green';
+Blockly.Msg.SET_PIXEL_RGB_FIELD_4 = 'green';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_5 = 'Blue';
+Blockly.Msg.SET_PIXEL_RGB_FIELD_5 = 'blue';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_1 = 'Set';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_1 = 'set';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_1 = 'Left Eye';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_1 = 'left eye';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_2 = 'Right Eye';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_2 = 'right eye';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_3 = 'Body Top';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_3 = 'body top';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_4 = 'Body Bottom';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_4 = 'body bottom';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_5 = 'Tail Top';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_5 = 'tail top';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_6 = 'tail bottom';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_2 = 'to';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_COLOUR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_1 = 'Set All Pixels to';
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_1 = 'set all pixels to';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_2 = 'Red';
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_2 = 'red';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_3 = 'Green';
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_3 = 'green';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_4 = 'Blue';
+Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_4 = 'blue';
 /// auto generated
 Blockly.Msg.SET_ALL_PIXEL_RGB_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.REFRESH_PIXELS_FIELD_1 = 'Refresh Pixels';
+Blockly.Msg.REFRESH_PIXELS_FIELD_1 = 'refresh pixels';
 /// auto generated
 Blockly.Msg.REFRESH_PIXELS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_FIELD_1 = 'Set All Pixels to';
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_FIELD_1 = 'set all pixels to';
 /// auto generated
 Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_MOTOR_MAX_FIELD_1 = 'Get Motor Max';
+Blockly.Msg.GET_MOTOR_MAX_FIELD_1 = 'get motor max';
 /// auto generated
 Blockly.Msg.GET_MOTOR_MAX_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_LEFT_MOTOR_FIELD_1 = 'Get Current Left Motor Speed';
+Blockly.Msg.GET_LEFT_MOTOR_FIELD_1 = 'get current left motor speed';
 /// auto generated
 Blockly.Msg.GET_LEFT_MOTOR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_RIGHT_MOTOR_FIELD_1 = 'Get Current Right Motor Speed';
+Blockly.Msg.GET_RIGHT_MOTOR_FIELD_1 = 'get current right motor speed';
 /// auto generated
 Blockly.Msg.GET_RIGHT_MOTOR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MOTORS_BEGIN_FIELD_1 = 'Begin Motors';
+Blockly.Msg.MOTORS_BEGIN_FIELD_1 = 'begin motors';
 /// auto generated
 Blockly.Msg.MOTORS_BEGIN_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1 = 'Reset Maintain Heading';
+Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1 = 'reset maintain heading';
 /// auto generated
 Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_1 = 'Maintain Heading with ';
+Blockly.Msg.MAINTAIN_HEADING_FIELD_1 = 'maintain heading with ';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_2 = 'Direction';
+Blockly.Msg.MAINTAIN_HEADING_FIELD_2 = 'direction';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_3 = 'and Speed';
+Blockly.Msg.MAINTAIN_HEADING_FIELD_3 = 'and speed';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_4 = 'and Wiggle';
+Blockly.Msg.MAINTAIN_HEADING_FIELD_4 = 'and wiggle';
 /// auto generated
 Blockly.Msg.MAINTAIN_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_1 = 'Drive in An Arc';
+Blockly.Msg.DRIVE_ARC_FIELD_1 = 'drive in an arc';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_2 = 'Turning (degrees)';
+Blockly.Msg.DRIVE_ARC_FIELD_2 = 'turning (degrees)';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_3 = 'With Left Motor At';
+Blockly.Msg.DRIVE_ARC_FIELD_3 = 'with left motor at';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_4 = 'With Right Motor At';
+Blockly.Msg.DRIVE_ARC_FIELD_4 = 'with right motor at';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_5 = 'With Max Expected Turn Time (milliseconds)';
+Blockly.Msg.DRIVE_ARC_FIELD_5 = 'with max expected turn time (milliseconds)';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_6 = 'With Max Expected Skid Time (milliseconds)';
+Blockly.Msg.DRIVE_ARC_FIELD_6 = 'with max expected skid time (milliseconds)';
 /// auto generated
 Blockly.Msg.DRIVE_ARC_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_START_CHIRP_FIELD_1 = 'Play Start Chirp';
+Blockly.Msg.PLAY_START_CHIRP_FIELD_1 = 'play start chirp';
 /// auto generated
 Blockly.Msg.PLAY_START_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_ACK_FIELD_1 = 'Play Acknowledgment Chirp';
+Blockly.Msg.PLAY_ACK_FIELD_1 = 'play acknowledgment chirp';
 /// auto generated
 Blockly.Msg.PLAY_ACK_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_NON_ACK_FIELD_1 = 'Play Non-Acknowledgment Chirp';
+Blockly.Msg.PLAY_NON_ACK_FIELD_1 = 'play non-acknowledgment chirp';
 /// auto generated
 Blockly.Msg.PLAY_NON_ACK_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_ANGER_FIELD_1 = 'Player Anger';
+Blockly.Msg.PLAY_ANGER_FIELD_1 = 'play anger';
 /// auto generated
 Blockly.Msg.PLAY_ANGER_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_BOREDOM_FIELD_1 = 'Play Boredom';
+Blockly.Msg.PLAY_BOREDOM_FIELD_1 = 'play boredom';
 /// auto generated
 Blockly.Msg.PLAY_BOREDOM_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_EXCITED_FIELD_1 = 'Play Excited';
+Blockly.Msg.PLAY_EXCITED_FIELD_1 = 'play excited';
 /// auto generated
 Blockly.Msg.PLAY_EXCITED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FIELD_1 = 'Play Chirp';
+Blockly.Msg.PLAY_CHIRP_FIELD_1 = 'play chirp';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FIELD_2 = 'With Frequency';
+Blockly.Msg.PLAY_CHIRP_FIELD_2 = 'with frequency';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FIELD_3 = 'With Amplitude';
+Blockly.Msg.PLAY_CHIRP_FIELD_3 = 'with amplitude';
 /// auto generated
 Blockly.Msg.PLAY_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_CHIRP_FIELD_1 = 'Turn Chirp Off';
+Blockly.Msg.OFF_CHIRP_FIELD_1 = 'turn chirp off';
 /// auto generated
 Blockly.Msg.OFF_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_PIXELS_FIELD_1 = 'Turn All Pixels Off';
+Blockly.Msg.OFF_PIXELS_FIELD_1 = 'turn all pixels off';
 /// auto generated
 Blockly.Msg.OFF_PIXELS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_FIELD_1 = 'Turn';
+Blockly.Msg.OFF_PIXEL_FIELD_1 = 'turn';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_1 = 'Left Eye';
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_1 = 'left eye';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_2 = 'Right Eye';
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_2 = 'right eye';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_3 = 'Body Top';
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_3 = 'body top';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_4 = 'Body Bottom';
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_4 = 'body bottom';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_5 = 'Tail Top';
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_5 = 'tail top';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_6 = 'Tail Bottom';
+Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_6 = 'tail bottom';
 /// auto generated
 Blockly.Msg.OFF_PIXEL_FIELD_2 = 'off';
 /// auto generated
 Blockly.Msg.OFF_PIXEL_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.RANDOM_EYES_FIELD_1 = 'Set Eyes To A Random Colour';
+Blockly.Msg.RANDOM_EYES_FIELD_1 = 'set eyes to a random colour';
 /// auto generated
 Blockly.Msg.RANDOM_EYES_TOOLTIP = '';
 
