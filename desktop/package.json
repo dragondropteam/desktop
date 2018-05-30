@@ -66,6 +66,7 @@
     "del": "latest",
     "devtron": "^1.4.0",
     "electron": "^1.8.6",
+    "electron-mocha": "^6.0.2",
     "electron-publisher-s3": "^20.13.1",
     "electron-rebuild": "^1.6.0",
     "gulp": "^3.9.1",
