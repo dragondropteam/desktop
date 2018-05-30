@@ -243,7 +243,7 @@ function createPreferenceWindow () {
     return;
   }
 
-  preferencesWindow = new BrowserWindow({width: 600, height: 500, resizable: false});
+  preferencesWindow = new BrowserWindow({width: 600, height: 600, resizable: false});
 
   preferencesWindow.loadURL('file://' + __dirname + '/static/settings.html');
 
