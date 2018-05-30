@@ -6,6 +6,8 @@ const BLOCKLY_DIV_ID = 'blocklyDiv';
 const BLOCKLY_AREA_ID = 'blocklyArea';
 const {ipcRenderer} = require('electron');
 const {remote} = require('electron');
+const Config = require('electron-store');
+const config = new Config();
 
 class BlocklyComponent extends BaseComponent {
 
@@ -56,6 +58,7 @@ class BlocklyComponent extends BaseComponent {
   //TODO: This will need to take into account the users sound preference at some point
   static getDefaultBlocklyConfig (toolboxSource) {
     return {
+      sounds: config.get('blocksSounds', true),
       comments: true,
       disable: true,
       collapse: true,
