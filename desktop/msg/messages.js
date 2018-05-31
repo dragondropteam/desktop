@@ -4335,11 +4335,11 @@ Blockly.Msg.GET_DEGREES_PER_SECOND_Z_FIELD_1 = 'get degrees per second z';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'get degrees per second X';
+Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'get degrees per second x';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'get degrees per second Y';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'get degrees per second y';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Y_TOOLTIP = '';
 /// auto generated
@@ -4379,7 +4379,7 @@ Blockly.Msg.GET_POS_Y_FIELD_1 = 'get y position';
 /// auto generated
 Blockly.Msg.GET_POS_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.IS_STATIONARY_FIELD_1 = 'is gingo stationary';
+Blockly.Msg.IS_STATIONARY_FIELD_1 = 'is ringo stationary';
 /// auto generated
 Blockly.Msg.IS_STATIONARY_TOOLTIP = '';
 /// auto generated
