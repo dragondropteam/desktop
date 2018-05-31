@@ -360,15 +360,6 @@
                     </value>
                 </block>
                 <block type="statemanager_start_state"/>
-                <block type="statemanager_get_current_state"/>
-                <block type="statemanager_restart_state"/>
-                <block type="statemanager_check_state">
-                    <value name="NAME">
-                        <shadow type="text">
-                            <field name="TEXT">key</field>
-                        </shadow>
-                    </value>
-                </block>
             </category>
             <category name="World" colour="#7cb342">
                 <block type="get_world_property"/>
