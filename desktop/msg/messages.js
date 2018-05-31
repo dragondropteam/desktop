@@ -5429,3 +5429,14 @@ Blockly.Msg.GAME_CAMERA = 'camera';
 Blockly.Msg.GAME_CAMERA_TOOLTIP = 'reference to the current games camera';
 /// url
 Blockly.Msg.GAME_CAMERA_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html';
+
+//states;
+Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE_FIELD_1 = 'get current state';
+Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE_TOOLTIP = 'Gets the current State';
+Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE_HELP_URL = 'http://phaser.io/docs/2.6.2/Phaser.StateManager.html#getCurrentState';
+Blockly.Msg.STATEMANAGER_RESTART_STATE_FIELD_1 = 'restart state';
+Blockly.Msg.STATEMANAGER_RESTART_STATE_TOOLTIP = 'Restarts the current State. State.shutDown will be called (if it exists) before the State is restarted.';
+Blockly.Msg.STATEMANAGER_RESTART_STATE_HELP_URL = 'http://phaser.io/docs/2.6.2/Phaser.StateManager.html#restart';
+Blockly.Msg.STATEMANAGER_CHECK_STATE_FIELD_1 = 'is valid state?';
+Blockly.Msg.STATEMANAGER_CHECK_STATE_TOOLTIP = 'Returns if a given phaser state is valid. A State is considered valid if it has at least one of the core functions: preload, create, update or render.';
+Blockly.Msg.STATEMANAGER_CHECK_STATE_HELP_URL = 'http://phaser.io/docs/2.6.2/Phaser.StateManager.html#checkState';
