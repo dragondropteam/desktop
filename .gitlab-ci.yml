@@ -22,7 +22,6 @@ testLinux:
   stage: test
   before_script:
     - cd desktop
-    - yarn install
     - cd ..
   script:
     - cd desktop
