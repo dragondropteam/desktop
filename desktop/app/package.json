@@ -22,7 +22,6 @@
     "angular-animate": "*",
     "angular-aria": "*",
     "angular-material": "^1.1.5",
-    "electron-builder": "20.13.3",
     "electron-log": "^2.2.11",
     "electron-store": "*",
     "electron-updater": "^2.21.10",
