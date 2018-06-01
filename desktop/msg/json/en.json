@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-05-30 16:38:48.145000",
+		"lastupdated": "2018-06-01 14:30:50.706000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1995,9 +1995,9 @@
 	"GET_DEGREES_X_TOOLTIP": "",
 	"GET_DEGREES_PER_SECOND_Z_FIELD_1": "get degrees per second z",
 	"GET_DEGREES_PER_SECOND_Z_TOOLTIP": "",
-	"GET_DEGREES_PER_SECOND_X_FIELD_1": "get degrees per second X",
+	"GET_DEGREES_PER_SECOND_X_FIELD_1": "get degrees per second x",
 	"GET_DEGREES_PER_SECOND_X_TOOLTIP": "",
-	"GET_DEGREES_PER_SECOND_Y_FIELD_1": "get degrees per second Y",
+	"GET_DEGREES_PER_SECOND_Y_FIELD_1": "get degrees per second y",
 	"GET_DEGREES_PER_SECOND_Y_TOOLTIP": "",
 	"GET_DEGREES_TO_STOP_FIELD_1": "get degrees to stop",
 	"GET_DEGREES_TO_STOP_TOOLTIP": "",
@@ -2017,7 +2017,7 @@
 	"GET_POS_X_TOOLTIP": "",
 	"GET_POS_Y_FIELD_1": "get y position",
 	"GET_POS_Y_TOOLTIP": "",
-	"IS_STATIONARY_FIELD_1": "is gingo stationary",
+	"IS_STATIONARY_FIELD_1": "is ringo stationary",
 	"IS_STATIONARY_TOOLTIP": "",
 	"NON_STATIONARY_VALUE_FIELD_1": "get non-stationary value",
 	"NON_STATIONARY_VALUE_TOOLTIP": "",
