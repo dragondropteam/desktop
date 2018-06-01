@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-05-18 16:36:19.617240",
+		"lastupdated": "2018-06-01 14:51:09.139000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2570,5 +2570,14 @@
 	"RANDOM_BOOLEAN_TOOLTIP": "generates either true or false",
 	"GAME_CAMERA": "camera",
 	"GAME_CAMERA_TOOLTIP": "reference to the current games camera",
-	"GAME_CAMERA_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Camera.html"
+	"GAME_CAMERA_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Camera.html",
+	"STATEMANAGER_GET_CURRENT_STATE": "get current state",
+	"STATEMANAGER_GET_CURRENT_STATE_TOOLTIP": "Gets the current State",
+	"STATEMANAGER_GET_CURRENT_STATE_HELP_URL": "http://phaser.io/docs/2.6.2/Phaser.StateManager.html#getCurrentState",
+	"STATEMANAGER_RESTART_STATE": "restart state",
+	"STATEMANAGER_RESTART_STATE_TOOLTIP": "Restarts the current State. State.shutDown will be called (if it exists) before the State is restarted.",
+	"STATEMANAGER_RESTART_STATE_HELP_URL": "http://phaser.io/docs/2.6.2/Phaser.StateManager.html#restart",
+	"STATEMANAGER_CHECK_STATE": "is valid state?",
+	"STATEMANAGER_CHECK_STATE_TOOLTIP": "Returns if a given phaser state is valid. A State is considered valid if it has at least one of the core functions: preload, create, update or render.",
+	"STATEMANAGER_CHECK_STATE_HELP_URL": "http://phaser.io/docs/2.6.2/Phaser.StateManager.html#checkState"
 }

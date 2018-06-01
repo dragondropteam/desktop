@@ -632,7 +632,7 @@ Blockly.Blocks['statemanager_start_state'] = {
 Blockly.Blocks['statemanager_get_current_state'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE_FIELD_1);
+      .appendField(Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE);
     this.setOutput(true, null);
     this.setColour(PHASER_STATES_COLOUR);
     this.setTooltip(Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE_TOOLTIP);
@@ -643,7 +643,7 @@ Blockly.Blocks['statemanager_get_current_state'] = {
 Blockly.Blocks['statemanager_restart_state'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.STATEMANAGER_RESTART_STATE_FIELD_1);
+      .appendField(Blockly.Msg.STATEMANAGER_RESTART_STATE);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_STATES_COLOUR);
@@ -656,7 +656,7 @@ Blockly.Blocks['statemanager_check_state'] = {
   init: function() {
     this.appendValueInput("NAME")
       .setCheck("String")
-      .appendField(Blockly.Msg.STATEMANAGER_CHECK_STATE_FIELD_1);
+      .appendField(Blockly.Msg.STATEMANAGER_CHECK_STATE);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_STATES_COLOUR);
