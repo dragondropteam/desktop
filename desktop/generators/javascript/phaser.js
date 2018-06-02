@@ -1455,9 +1455,9 @@ Blockly.JavaScript['statemanager_add_state'] = function (block) {
 };
 
 Blockly.JavaScript['statemanager_start_state'] = function (block) {
-    var text_tag = block.getFieldValue('TAG');
+    const tag = block.getFieldValue('TAG');
 
-    return `game.state.start('${text_tag}');\n`;
+    return `game.state.start('${tag}');\n`;
 };
 
 Blockly.JavaScript['statemanager_get_current_state'] = function(block) {
