@@ -24,7 +24,7 @@ const path = require('path');
 const toolboxSource = fs.readFileSync(path.join(__dirname, 'toolbox.xml'), 'utf8');
 const startingBlocks = '<xml xmlns="http://www.w3.org/1999/xhtml">\n' +
     '<block type="hardwarestartup_icon" id=",(1UN`:wW_-XR^e4%e4z" deletable="false" x="13" y="138"></block>\n' +
-    '<block type="loop_icon" id="3XQ,:+8Ta^:x2dcPMRF="  deletable="false" x="13" y="213"></block>\n' +
+    '<block type="loop_icon" id="3XQ,:+8Ta^:x2dcPMRF="  deletable="false" x="13" y="313"></block>\n' +
     '</xml>';
 const layoutConfig = {
     settings: {
