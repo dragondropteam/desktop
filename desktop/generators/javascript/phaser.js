@@ -1455,10 +1455,24 @@ Blockly.JavaScript['statemanager_add_state'] = function (block) {
 };
 
 Blockly.JavaScript['statemanager_start_state'] = function (block) {
-    var text_tag = block.getFieldValue('TAG');
+    const tag = block.getFieldValue('TAG');
 
-    return `game.state.start('${text_tag}');\n`
+    return `game.state.start('${tag}');\n`;
 };
+
+Blockly.JavaScript['statemanager_get_current_state'] = function(block) {
+    return [`game.state.getCurrentState()`,Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['statemanager_restart_state'] = function(block) {
+  return `game.state.restart();\n`;
+};
+
+Blockly.JavaScript['statemanager_check_state'] = function(block) {
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.state.checkState(${key})`, Blockly.JavaScript.ORDER_NONE];
+};
+
 //endregion
 
 //region GEOMETRY
