@@ -365,7 +365,7 @@
                 <block type="statemanager_check_state">
                     <value name="NAME">
                         <shadow type="text">
-                            <field name="TEXT">key</field>
+                            <field name="TEXT">tag</field>
                         </shadow>
                     </value>
                 </block>
