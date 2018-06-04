@@ -177,7 +177,7 @@ Blockly.C['set_all_pixel_rgb'] = function(block) {
     const value_red = Blockly.C.valueToCode(block, 'RED', Blockly.C.ORDER_ATOMIC) || '0';
     const value_green = Blockly.C.valueToCode(block, 'GREEN', Blockly.C.ORDER_ATOMIC) || '0';
     const value_blue = Blockly.C.valueToCode(block, 'BLUE', Blockly.C.ORDER_ATOMIC) || '0';
-    return `SetAllPixelsRGB(${dropdown_pixel}, ${value_red}, ${value_green}, ${value_blue});\n`;
+    return `SetAllPixelsRGB( ${value_red}, ${value_green}, ${value_blue});\n`;
 };
 
 Blockly.C['refresh_pixels'] = function (block) {

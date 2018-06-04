@@ -20,7 +20,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 
 #include "Arduino.h"
 #include "FunStuff.hpp"
-#include "Navigation.h"
+#include "Navigation.hpp"
 #include <Adafruit_NeoPixel.h>
 
 
