@@ -2189,5 +2189,8 @@
 	"DURATION": "",
 	"TURN": "",
 	"WHEN_IR_DONE": "",
-	"IN_ARRAY": ""
+	"IN_ARRAY": "",
+	"CENTER_RIGHT": "",
+	"CENTER_LEFT": "",
+	"PLATFORMER": ""
 }
