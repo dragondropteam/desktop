@@ -2581,13 +2581,13 @@ Blockly.Msg.POINT_CREATE_TOOLTIP = 'Defines a point which represents a location 
 /// auto generated
 Blockly.Msg.POINT_CREATE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html';
 /// auto generated
-Blockly.Msg.POINT_GET_ELEMENT = 'get point.';
+Blockly.Msg.POINT_GET_ELEMENT = 'get point';
 /// auto generated
 Blockly.Msg.POINT_GET_ELEMENT_TOOLTIP = 'Defines a point which represents a location in 2D';
 /// auto generated
 Blockly.Msg.POINT_GET_ELEMENT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html';
 /// auto generated
-Blockly.Msg.POINT_SET_ELEMENT = 'set point.';
+Blockly.Msg.POINT_SET_ELEMENT = 'set point';
 /// auto generated
 Blockly.Msg.POINT_SET_ELEMENT_TOOLTIP = 'Defines a point which represents a location in 2D';
 /// auto generated
@@ -4540,7 +4540,7 @@ Blockly.Msg.UP = 'up';
 Blockly.Msg.MIDDLE = 'middle';
 Blockly.Msg.GET = 'get';
 Blockly.Msg.XCOLON = 'x:';
-Blockly.Msg.YCOLON = 'y';
+Blockly.Msg.YCOLON = 'y:';
 Blockly.Msg.BY = 'by';
 Blockly.Msg.DEGREES = 'degrees';
 Blockly.Msg.MIN = 'min';
