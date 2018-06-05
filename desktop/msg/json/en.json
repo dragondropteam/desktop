@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-05 13:25:45.442000",
+		"lastupdated": "2018-06-05 14:49:28.319000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1103,10 +1103,10 @@
 	"POINT_CREATE": "make point",
 	"POINT_CREATE_TOOLTIP": "Defines a point which represents a location in 2D",
 	"POINT_CREATE_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Point.html",
-	"POINT_GET_ELEMENT": "get point.",
+	"POINT_GET_ELEMENT": "get point",
 	"POINT_GET_ELEMENT_TOOLTIP": "Defines a point which represents a location in 2D",
 	"POINT_GET_ELEMENT_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Point.html",
-	"POINT_SET_ELEMENT": "set point.",
+	"POINT_SET_ELEMENT": "set point",
 	"POINT_SET_ELEMENT_TOOLTIP": "Defines a point which represents a location in 2D",
 	"POINT_SET_ELEMENT_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Point.html",
 	"POINT_SET_MAGNITUDE": "set magnitude for",
@@ -2170,7 +2170,7 @@
 	"MIDDLE": "middle",
 	"GET": "get",
 	"XCOLON": "x:",
-	"YCOLON": "y",
+	"YCOLON": "y:",
 	"BY": "by",
 	"DEGREES": "degrees",
 	"MIN": "min",
@@ -2195,5 +2195,8 @@
 	"DURATION": "duration",
 	"TURN": "turn",
 	"WHEN_IR_DONE": "when IR is done",
-	"IN_ARRAY": "in array"
+	"IN_ARRAY": "in array",
+	"CENTER_RIGHT": "center right",
+	"CENTER_LEFT": "center left",
+	"PLATFORMER": "platformer"
 }

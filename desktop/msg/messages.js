@@ -4567,3 +4567,6 @@ Blockly.Msg.DURATION = 'duration';
 Blockly.Msg.TURN = 'turn';
 Blockly.Msg.WHEN_IR_DONE = 'when IR is done';
 Blockly.Msg.IN_ARRAY = 'in array';
+Blockly.Msg.CENTER_RIGHT = 'center right';
+Blockly.Msg.CENTER_LEFT = 'center left';
+Blockly.Msg.PLATFORMER = 'platformer';
