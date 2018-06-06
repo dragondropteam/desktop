@@ -5440,3 +5440,57 @@ Blockly.Msg.STATEMANAGER_RESTART_STATE_HELP_URL = 'http://phaser.io/docs/2.6.2/P
 Blockly.Msg.STATEMANAGER_CHECK_STATE = 'is valid state?';
 Blockly.Msg.STATEMANAGER_CHECK_STATE_TOOLTIP = 'Returns if a given phaser state is valid. A State is considered valid if it has at least one of the core functions: preload, create, update or render.';
 Blockly.Msg.STATEMANAGER_CHECK_STATE_HELP_URL = 'http://phaser.io/docs/2.6.2/Phaser.StateManager.html#checkState';
+
+Blockly.Msg.DEBUG_BODY_INFO = 'render body info for';
+Blockly.Msg.DEBUG_BODY_INFO_TOOLTIP = 'Render a Sprites Physic Body information.';
+Blockly.Msg.DEBUG_BODY_INFO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#bodyInfo';
+Blockly.Msg.XCOLON = 'x:';
+Blockly.Msg.YCOLON = 'y:';
+Blockly.Msg.COLOUR = 'colour';
+
+Blockly.Msg.DEBUG_CAMERA = 'debug camera';
+Blockly.Msg.DEBUG_CAMERA_TOOLTIP = 'Marks the follow target and deadzone.';
+Blockly.Msg.DEBUG_CAMERA_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#camera';
+
+Blockly.Msg.DEBUG_CAMERA_INFO = 'render camera info at';
+Blockly.Msg.DEBUG_CAMERA_INFO_TOOLTIP = 'Render camera information including dimensions and location.';
+Blockly.Msg.DEBUG_CAMERA_INFO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#cameraInfo';
+
+Blockly.Msg.DEBUG_INPUT_INFO = 'render mouse info at';
+Blockly.Msg.DEBUG_INPUT_INFO_TOOLTIP = '';
+Blockly.Msg.DEBUG_INPUT_INFO_HELP_URL = '';
+
+Blockly.Msg.DEBUG_KEY = 'render key info for';
+Blockly.Msg.DEBUG_KEY_TOOLTIP = 'Renders Phaser.Key object information.';
+Blockly.Msg.DEBUG_KEY_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#key';
+
+Blockly.Msg.AT_POSITION = 'at position';
+
+Blockly.Msg.DEBUG_PHSYICS_GROUP = 'render body info of group';
+Blockly.Msg.DEBUG_PHYSICS_GROUP_CHECK = 'only for alive members';
+Blockly.Msg.DEBUG_PHYSICS_GROUP_TOOLTIP = 'Render each physics body in a group.';
+Blockly.Msg.DEBUG_PHYSICS_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#physicsGroup';
+
+Blockly.Msg.DEBUG_RECTANGLE = 'render rectangle on object';
+Blockly.Msg.DEBUG_RECTANGLE_TOOLTIP = 'Renders a Rectangle.';
+Blockly.Msg.DEBUG_RECTANGLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#rectangle';
+
+Blockly.Msg.DEBUG_SOUND = 'render debug info for sound manager at position';
+Blockly.Msg.DEBUG_SOUND_TOOLTIP = 'Render Sound Manager information, including volume, mute, audio mode, and locked status.';
+Blockly.Msg.DEBUG_SOUND_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#sound';
+
+Blockly.Msg.DEBUG_SOUND_INFO = 'render debug info for sound';
+Blockly.Msg.DEBUG_SOUND_INFO_TOOLTIP = 'Render Sound Manager information, including volume, mute, audio mode, and locked status.';
+Blockly.Msg.DEBUG_SOUND_INFO_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#sound';
+
+Blockly.Msg.DEBUG_SPRITE_COORDS = 'render coordinates of';
+Blockly.Msg.DEBUG_SPRITE_COORDS_TOOLTIP = 'Renders the sprite coordinates in local, positional and world space.';
+Blockly.Msg.DEBUG_SPRITE_COORDS_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#spriteCoords';
+
+Blockly.Msg.DEBUG_SPRITE_INFO = 'render info of sprite';
+Blockly.Msg.DEBUG_SPRITE_INFO_TOOLTIP = '';
+Blockly.Msg.DEBUG_SPRITE_INFO_HELP_URL = '';
+
+Blockly.Msg.DEBUG_TEXT = 'render';
+Blockly.Msg.DEBUG_TEXT_TOOLTIP = '';
+Blockly.Msg.DEBUG_TEXT_HELP_URL = '';
