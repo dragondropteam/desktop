@@ -799,7 +799,7 @@ function showUnknownError (err) {
   }
 }
 
-function showSplashScreen (err) {
+function showSplashScreen (err, onShow) {
 
   //Do this first to prevent all closed
   const newWindow = new BrowserWindow({width: 900, height: 500, resizable: false, show: false});
@@ -826,6 +826,10 @@ function showSplashScreen (err) {
       showUnknownError(err);
       err = null;
     }
+
+    if (onShow) {
+      onShow();
+    }
   });
 
   // Emitted when the window is closed.
@@ -841,22 +845,32 @@ function showSplashScreen (err) {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function () {
-  const yargs = require('yargs');
-  const args = yargs(process.argv.slice(1)).argv;
   createDefaultMenu();
 
   //We need to show a window in this callback otherwise the application will quit, show always show the splash screen
   //if we get a project to load it will close this window. Hopefully before ready-to-show is called preventing flickering
-  showSplashScreen();
-
-  if (projectToLoad) {
-    loadProjectFromPath(projectToLoad);
-    return;
-  }
-
-  if (args._.length >= 1 && !process.defaultApp && process.platform !== 'darwin') {
-    loadProjectFromPath(args._[0]);
-  }
+  showSplashScreen(null, () => {
+    //TODO: Use more of yargs, we should be able to specify hyphenated arguments --dev and the like to increase usability
+    const yargs = require('yargs');
+    const args = yargs(process.argv.slice(1)).argv;
+    if (projectToLoad) {
+      // This handles loading a file that was double clicked on MacOS which uses events
+      loadProjectFromPath(projectToLoad);
+    }
+    else if(args._.length > 0){
+      //If we have any unhyphenated arguments passed to our program check to see if any of them are projects to load
+      //if so load the first project found
+      for(let i = 0; i < args._.length; ++i){
+        if(args._[i].endsWith('.digiblocks') || args._[i].endsWith('.drop')){
+          loadProjectFromPath(args._[i]);
+          //For assume that only a single project has been provided. If the user has provided more then a single project
+          //they are not following the CLI interface currently. Just open the first one we find. This can be updated
+          //to allow loading of an arbitrary amount of projects later when multi-window support is in
+          break;
+        }
+      }
+    }
+  });
 
   arduinoCore.ensureLibraries(err => {
     log.err(err);
