@@ -5497,3 +5497,7 @@ Blockly.Msg.DEBUG_TEXT_HELP_URL = '';
 
 Blockly.Msg.HEIGHT = 'height';
 Blockly.Msg.WIDTH = 'width';
+
+Blockly.Msg.SUPER = 'super';
+Blockly.Msg.GET_SUPER_TOOLTIP = 'Get a reference to the super class';
+Blockly.Msg.GET_SUPER_HELPURL = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super';

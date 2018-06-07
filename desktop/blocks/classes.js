@@ -44,7 +44,7 @@ function disableIfNotInClassBlock (root) {
 function getClassForBlock (root) {
   let block = root;
   do {
-    if (block.type.contains('class_definition')) {
+    if (block.type.startsWith('class_definition')) {
       return block;
     }
     block = block.getSurroundParent();
@@ -285,13 +285,11 @@ Blockly.Blocks['super_constructor'] = {
     //unlike with constructors, methods, and procedures this block will end up with the parameters
   },
   onchange: function (event) {
-    if (!this.workspace || this.isInFlyout) {
+    if (!workspace || this.isInFlyout) {
       return;
     }
 
-    console.log(event);
-
-    handleDisable(event, this);
+    disableIfNotInClassBlock(this);
   }
 };
 //endregion
@@ -470,7 +468,7 @@ Blockly.Blocks['class_definition_simple'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.CLASS_DEFINITION_CLASS)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CLASS_DEFINITION_DEFAULT_NAME, DragonDrop.Classes.rename), 'NAME')
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CLASS_DEFINITION_DEFAULT_NAME, DragonDrop.Classes.rename), 'NAME');
     this.appendStatementInput('METHODS')
       .setCheck('METHOD_DEFINITION', true)
       .appendField(Blockly.Msg.CLASS_DEFINITION_METHODS);
@@ -633,7 +631,6 @@ Blockly.Blocks['class_definition_simple'] = {
     }
   }
 };
-
 
 Blockly.Blocks['class_mutatorcontainer'] = {
   /**
@@ -1680,8 +1677,7 @@ Blockly.Blocks['method_callnoreturn'] = {
       this.setFieldValue(newName, 'NAME');
       this.setFieldValue(CALL_IN_CLASS_MSG.replace('%1', this.class_ || 'class'), 'INSTANCE_NAME');
       this.setTooltip(
-        (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP :
-          Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
+        (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP : Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
           .replace('%1', newName));
     }
   },
@@ -1892,7 +1888,7 @@ Blockly.Blocks['method_callnoreturn'] = {
       let name = this.getMethodCall();
       let def = DragonDrop.Classes.getDefinition(name, this.workspace);
       if (def && (def.type != this.defType_ ||
-        JSON.stringify(def.arguments_) != JSON.stringify(this.arguments_))) {
+          JSON.stringify(def.arguments_) != JSON.stringify(this.arguments_))) {
         // The signatures don't match.
         def = null;
       }
@@ -2146,4 +2142,22 @@ Blockly.Blocks['method_return'] = {
    * Blockly.Blocks['procedures_ifreturn'].FUNCTION_TYPES.push('custom_func');
    */
   FUNCTION_TYPES: ['method_defnoreturn', 'method_defreturn']
+};
+
+Blockly.Blocks['get_super'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SUPER);
+    this.setColour(CLASS_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_SUPER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_SUPER_HELPURL);
+    this.setOutput(true);
+  },
+  onchange: function (event) {
+    if (!workspace || this.isInFlyout) {
+      return;
+    }
+
+    disableIfNotInClassBlock(this);
+  }
 };
