@@ -18,7 +18,7 @@ function disableIfNotInClassBlock (root) {
 
   let block = root;
   do {
-    if (block.type == 'class_definition') {
+    if (block.type.startsWith('class_definition')) {
       legal = true;
       inClass = true;
       break;
@@ -44,7 +44,7 @@ function disableIfNotInClassBlock (root) {
 function getClassForBlock (root) {
   let block = root;
   do {
-    if (block.type == 'class_definition') {
+    if (block.type.contains('class_definition')) {
       return block;
     }
     block = block.getSurroundParent();
@@ -466,6 +466,175 @@ Blockly.Blocks['class_definition'] = {
     }
   }
 };
+Blockly.Blocks['class_definition_simple'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.CLASS_DEFINITION_CLASS)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CLASS_DEFINITION_DEFAULT_NAME, DragonDrop.Classes.rename), 'NAME')
+    this.appendStatementInput('METHODS')
+      .setCheck('METHOD_DEFINITION', true)
+      .appendField(Blockly.Msg.CLASS_DEFINITION_METHODS);
+    this.appendStatementInput('CONSTRUCTOR')
+      .setCheck(['MEMBER_DEFINITION', 'CALL_SUPER'])
+      .appendField(Blockly.Msg.CLASS_DEFINITION_CONSTRUCT, 'CONSTRUCTOR');
+    this.setInputsInline(false);
+    this.setColour(CLASS_COLOUR);
+    this.setHelpUrl(Blockly.Msg.CLASS_DEFINITION_HELP_URL);
+    this.setMutator(new Blockly.Mutator(['class_mutatorarg']));
+    this.arguments_ = [];
+  },
+  getClassDef: function () {
+    return this.getFieldValue('NAME');
+  },
+  getConstructorDef: function () {
+    return [this.getFieldValue('NAME'), this.arguments_];
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  getVars: function () {
+    return this.arguments_;
+  },
+  /**
+   * Create XML to represent the argument inputs.
+   * @param {=boolean} opt_paramIds If true include the IDs of the parameter
+   *     quarks.  Used by DragonDrop.Classes.mutateCallers for reconnection.
+   * @return {!Element} XML storage element.
+   * @this Blockly.Block
+   */
+  mutationToDom: function (opt_paramIds) {
+    let container = document.createElement('mutation');
+    if (opt_paramIds) {
+      container.setAttribute('name', this.getFieldValue('NAME'));
+    }
+    for (let i = 0; i < this.arguments_.length; i++) {
+      let parameter = document.createElement('arg');
+      parameter.setAttribute('name', this.arguments_[i]);
+      if (opt_paramIds && this.paramIds_) {
+        parameter.setAttribute('paramId', this.paramIds_[i]);
+      }
+      container.appendChild(parameter);
+    }
+
+    return container;
+  },
+  /**
+   * Parse XML to restore the argument inputs.
+   * @param {!Element} xmlElement XML storage element.
+   * @this Blockly.Block
+   */
+  domToMutation: function (xmlElement) {
+    this.arguments_ = [];
+    for (let i = 0, childNode; childNode = xmlElement.childNodes[i]; i++) {
+      if (childNode.nodeName.toLowerCase() == 'arg') {
+        this.arguments_.push(childNode.getAttribute('name'));
+      }
+    }
+    this.updateParams_();
+    DragonDrop.Classes.mutateConstructors(this);
+  },
+  /**
+   * Populate the mutator's dialog with this block's components.
+   * @param {!Blockly.Workspace} workspace Mutator's workspace.
+   * @return {!Blockly.Block} Root block in mutator.
+   * @this Blockly.Block
+   */
+  decompose: function (workspace) {
+    let containerBlock = workspace.newBlock('class_mutatorcontainer');
+    containerBlock.initSvg();
+
+    // Parameter list.
+    let connection = containerBlock.getInput('STACK').connection;
+    for (let i = 0; i < this.arguments_.length; i++) {
+      let paramBlock = workspace.newBlock('class_mutatorarg');
+      paramBlock.initSvg();
+      paramBlock.setFieldValue(this.arguments_[i], 'NAME');
+      // Store the old location.
+      paramBlock.oldLocation = i;
+      connection.connect(paramBlock.previousConnection);
+      connection = paramBlock.nextConnection;
+    }
+
+    // Initialize procedure's callers with blank IDs.
+    DragonDrop.Classes.mutateConstructors(this);
+    return containerBlock;
+  },
+  /**
+   * Reconfigure this block based on the mutator dialog's components.
+   * @param {!Blockly.Block} containerBlock Root block in mutator.
+   * @this Blockly.Block
+   */
+  compose: function (containerBlock) {
+    // Parameter list.
+    this.arguments_ = [];
+    this.paramIds_ = [];
+    let paramBlock = containerBlock.getInputTargetBlock('STACK');
+    while (paramBlock) {
+      this.arguments_.push(paramBlock.getFieldValue('NAME'));
+      this.paramIds_.push(paramBlock.id);
+      paramBlock = paramBlock.nextConnection &&
+        paramBlock.nextConnection.targetBlock();
+    }
+    this.updateParams_();
+    DragonDrop.Classes.mutateConstructors(this);
+  },
+  /**
+   * Update the display of parameters for this procedure definition block.
+   * Display a warning if there are duplicate named parameters.
+   * @private
+   * @this Blockly.Block
+   */
+  updateParams_: function () {
+    console.log('updateParams_');
+    // Check for duplicated arguments.
+    let badArg = false;
+    let hash = {};
+    for (let i = 0; i < this.arguments_.length; i++) {
+      if (hash['arg_' + this.arguments_[i].toLowerCase()]) {
+        badArg = true;
+        break;
+      }
+      hash['arg_' + this.arguments_[i].toLowerCase()] = true;
+    }
+    if (badArg) {
+      this.setWarningText(Blockly.Msg.CLASS_DEFINITION_DUPLICATE_WARNING);
+    } else {
+      this.setWarningText(null);
+    }
+    // Merge the arguments into a human-readable list.
+    let paramString = '';
+    if (this.arguments_.length > 0) {
+      paramString = Blockly.Msg.PROCEDURES_BEFORE_PARAMS +
+        ' ' + this.arguments_.join(', ');
+      this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', this.arguments_.join('\n')));
+    } else {
+      this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', ''));
+    }
+    // The params field is deterministic based on the mutation,
+    // no need to fire a change event.
+    Blockly.Events.disable();
+    try {
+      this.setFieldValue(paramString == '' ? Blockly.Msg.CLASS_DEFINITION_CONSTRUCT : Blockly.Msg.CLASS_DEFINITION_CONSTRUCT_PARAM.replace('%1', paramString), 'CONSTRUCTOR');
+    } finally {
+      Blockly.Events.enable();
+    }
+  },
+  onchange: function (event) {
+    if (!workspace || this.isInFlyout) {
+      return;
+    }
+
+    if (this.arguments_.length > 0) {
+      this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', this.arguments_.join('\n')));
+    } else {
+      this.setTooltip(Blockly.Msg.CLASS_DEFINITION_TOOLTIP.replace('%1', this.getFieldValue('NAME')).replace('%2', ''));
+    }
+  }
+};
+
+
 Blockly.Blocks['class_mutatorcontainer'] = {
   /**
    * Mutator block for procedure container.
@@ -629,7 +798,7 @@ Blockly.Blocks['get_member_this'] = {
     //This block can only exist if a parent is a class_definition
     let block = this;
     do {
-      if (block.type == 'class_definition') {
+      if (block.type.startsWith('class_definition')) {
         legal = true;
         inClass = true;
         break;
