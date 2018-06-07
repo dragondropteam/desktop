@@ -3249,6 +3249,28 @@ Blockly.Blocks['revive'] = {
     this.setHelpUrl(Blockly.Msg.REVIVE_HELP_URL);
   }
 };
+
+Blockly.Blocks['move_by'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .setCheck(null)
+      .appendField(Blockly.Msg.MOVE_BY);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.BY);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GAMEOBJECT_COLOUR);
+    this.setTooltip(Blockly.Msg.MOVE_BY_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.MOVE_BY_HELP_URL);
+  }
+};
 //endregion
 
 Blockly.Blocks['send_to_back'] = {

@@ -5497,3 +5497,8 @@ Blockly.Msg.DEBUG_TEXT_HELP_URL = '';
 
 Blockly.Msg.HEIGHT = 'height';
 Blockly.Msg.WIDTH = 'width';
+
+Blockly.Msg.MOVE_BY = 'move position of object';
+Blockly.Msg.BY = 'by';
+Blockly.Msg.MOVE_BY_TOOLTIP = 'Add (x,y) to the position of the object';
+Blockly.Msg.MOVE_BY_HELP_URL = '';

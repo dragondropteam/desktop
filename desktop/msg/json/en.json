@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-07 11:10:04.938000",
+		"lastupdated": "2018-06-07 14:56:58.674000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2622,5 +2622,9 @@
 	"DEBUG_TEXT_TOOLTIP": "",
 	"DEBUG_TEXT_HELP_URL": "",
 	"HEIGHT": "height",
-	"WIDTH": "width"
+	"WIDTH": "width",
+	"MOVE_BY": "move position of object",
+	"BY": "by",
+	"MOVE_BY_TOOLTIP": "Add (x,y) to the position of the object",
+	"MOVE_BY_HELP_URL": ""
 }

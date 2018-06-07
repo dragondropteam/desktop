@@ -2616,5 +2616,9 @@
 	"DEBUG_TEXT_TOOLTIP": "",
 	"DEBUG_TEXT_HELP_URL": "",
 	"HEIGHT": "",
-	"WIDTH": ""
+	"WIDTH": "",
+	"MOVE_BY": "",
+	"BY": "",
+	"MOVE_BY_TOOLTIP": "",
+	"MOVE_BY_HELP_URL": ""
 }

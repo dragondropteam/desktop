@@ -1256,6 +1256,13 @@ Blockly.JavaScript['create_bitmapFont'] = function (block) {
     return `game.load.bitmapFont(${tag}, ${source}, ${xml});\n`;
 };
 
+Blockly.JavaScript['move_by'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `${object}.position = (new Phaser.Point(${object}.x + ${x}, ${object}.y + ${y}));\n`;
+};
 //endregion
 //region DRAW CIRCLE
 Blockly.JavaScript['drawcircle'] = function (block) {
