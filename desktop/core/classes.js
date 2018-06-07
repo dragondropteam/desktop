@@ -20,6 +20,10 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
     classDefinition.setAttribute('type', 'class_definition');
     xmlList.push(classDefinition);
 
+      let classDefinitionSimple = goog.dom.createDom('block');
+      classDefinitionSimple.setAttribute('type', 'class_definition_simple');
+      xmlList.push(classDefinitionSimple);
+
     let methodDefinition = goog.dom.createDom('block');
     methodDefinition.setAttribute('type', 'method_defnoreturn');
     xmlList.push(methodDefinition);
