@@ -18,7 +18,7 @@ function disableIfNotInClassBlock (root) {
 
   let block = root;
   do {
-    if (block.type == 'class_definition') {
+    if (block.type.startsWith('class_definition')) {
       legal = true;
       inClass = true;
       break;
@@ -44,7 +44,7 @@ function disableIfNotInClassBlock (root) {
 function getClassForBlock (root) {
   let block = root;
   do {
-    if (block.type == 'class_definition') {
+    if (block.type.contains('class_definition')) {
       return block;
     }
     block = block.getSurroundParent();
@@ -798,7 +798,7 @@ Blockly.Blocks['get_member_this'] = {
     //This block can only exist if a parent is a class_definition
     let block = this;
     do {
-      if (block.type == 'class_definition') {
+      if (block.type.startsWith('class_definition')) {
         legal = true;
         inClass = true;
         break;
