@@ -2616,5 +2616,8 @@
 	"DEBUG_TEXT_TOOLTIP": "",
 	"DEBUG_TEXT_HELP_URL": "",
 	"HEIGHT": "",
-	"WIDTH": ""
+	"WIDTH": "",
+	"SUPER": "",
+	"GET_SUPER_TOOLTIP": "",
+	"GET_SUPER_HELPURL": ""
 }

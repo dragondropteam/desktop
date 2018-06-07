@@ -200,3 +200,7 @@ Blockly.JavaScript['method_return'] = function (block) {
         return 'return;\n';
     }
 };
+
+Blockly.JavaScript['get_super'] = function(){
+    return ['super', Blockly.JavaScript.ORDER_ATOMIC];
+};
