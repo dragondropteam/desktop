@@ -4714,6 +4714,363 @@ Blockly.Blocks['debug_sprite'] = {
   }
 };
 
+Blockly.Blocks['debug_body_info'] = {
+  init: function() {
+    this.appendValueInput('OBJECT')
+      .setCheck(null)
+      .appendField(Blockly.Msg.DEBUG_BODY_INFO);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.AT_POSITION);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_BODY_INFO_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_BODY_INFO_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_camera'] = {
+  init: function () {
+    this.appendValueInput('CAMERA')
+      .appendField(Blockly.Msg.DEBUG_CAMERA);
+    this.appendValueInput('COLOUR')
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip(Blockly.Msg.DEBUG_CAMERA_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_CAMERA_HELP_URL);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+  }
+};
+
+Blockly.Blocks['debug_camera_info'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEBUG_CAMERA_INFO);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_CAMERA_INFO_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_CAMERA_INFO_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_input_info'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEBUG_INPUT_INFO);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_INPUT_INFO_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_INPUT_INFO_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_key'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEBUG_KEY)
+      .appendField(new Blockly.FieldDropdown([
+        ['A', 'A'],
+        ['B', 'B'],
+        ['C', 'C'],
+        ['D', 'D'],
+        ['E', 'E'],
+        ['F', 'F'],
+        ['G', 'G'],
+        ['H', 'H'],
+        ['I', 'I'],
+        ['J', 'J'],
+        ['K', 'K'],
+        ['L', 'L'],
+        ['M', 'M'],
+        ['N', 'N'],
+        ['O', 'O'],
+        ['P', 'P'],
+        ['Q', 'Q'],
+        ['R', 'R'],
+        ['S', 'S'],
+        ['T', 'T'],
+        ['U', 'U'],
+        ['V', 'V'],
+        ['W', 'W'],
+        ['X', 'X'],
+        ['Y', 'Y'],
+        ['Z', 'Z'],
+        ['UP', 'UP'],
+        ['DOWN', 'DOWN'],
+        ['LEFT', 'LEFT'],
+        ['RIGHT', 'RIGHT'],
+        ['ONE', 'ONE'],
+        ['TWO', 'TWO'],
+        ['THREE', 'THREE'],
+        ['FOUR', 'FOUR'],
+        ['FIVE', 'FIVE'],
+        ['SIX', 'SIX'],
+        ['SEVEN', 'SEVEN'],
+        ['EIGHT', 'EIGHT'],
+        ['NINE', 'NINE'],
+        ['ZERO', 'ZERO'],
+        ['NUMPAD_1', 'NUMPAD_1'],
+        ['NUMPAD_2', 'NUMPAD_2'],
+        ['NUMPAD_3', 'NUMPAD_3'],
+        ['NUMPAD_4', 'NUMPAD_4'],
+        ['NUMPAD_5', 'NUMPAD_5'],
+        ['NUMPAD_6', 'NUMPAD_6'],
+        ['NUMPAD_7', 'NUMPAD_7'],
+        ['NUMPAD_8', 'NUMPAD_8'],
+        ['NUMPAD_9', 'NUMPAD_9'],
+        ['NUMPAD_ADD', 'NUMPAD_ADD'],
+        ['NUMPAD_DECIMAL', 'NUMPAD_DECIMAL'],
+        ['NUMPAD_DIVIDE', 'NUMPAD_DIVIDE'],
+        ['NUMPAD_ENTER', 'NUMPAD_ENTER'],
+        ['NUMPAD_MULTIPLY', 'NUMPAD_MULTIPLY'],
+        ['NUMPAD_SUBTRACT', 'NUMPAD_SUBTRACT'],
+        ['[', 'OPEN_BRACKET'],
+        [']', 'CLOSE_BRACKET'],
+        ['F1', 'F1'],
+        ['F2', 'F2'],
+        ['F3', 'F3'],
+        ['F4', 'F4'],
+        ['F5', 'F5'],
+        ['F6', 'F6'],
+        ['F7', 'F7'],
+        ['F8', 'F8'],
+        ['F9', 'F9'],
+        ['F10', 'F10'],
+        ['F11', 'F11'],
+        ['F12', 'F12'],
+        ['ALT', 'ALT'],
+        [':', 'COLON'],
+        [',', 'COMMA'],
+        ['CONTROL', 'CTRL'],
+        ['DELETE', 'DELETE'],
+        ['END', 'END'],
+        ['ENTER', 'ENTER'],
+        ['ESC', 'ESC'],
+        ['INSERT', 'INSERT'],
+        ['-', 'MINUS'],
+        ['NUM_LOCK', 'NUM_LOCK'],
+        ['PAGE_DOWN', 'PAGE_DOWN'],
+        ['PAGE_UP', 'PAGE_UP'],
+        ['.', 'PERIOD'],
+        ['+', 'PLUS'],
+        ['EQUALS', 'EQUALS'],
+        ['?', 'QUESTION_MARK'],
+        ['"', 'QUOTES'],
+        ['TAB', 'TAB'],
+        ['~', 'TILDE'],
+        ['_', 'UNDERSCORE'],
+        ['BACKSPACE', 'BACKSPACE'],
+        ['\\', 'BACKWARD_SLASH'],
+        ['SPACEBAR', 'SPACEBAR'],
+        ['CLEAR', 'CLEAR'],
+        ['CAPS LOCK', 'CAPS_LOCK']]), 'KEY')
+      .appendField(Blockly.Msg.AT_POSITION);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_KEY_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_KEY_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_physics_group'] = {
+  init: function () {
+    this.appendValueInput('GROUP')
+      .setCheck(null)
+      .appendField(Blockly.Msg.DEBUG_PHSYICS_GROUP);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEBUG_PHYSICS_GROUP_CHECK)
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'CHECK_EXISTS');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_GROUPS_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_PHYSICS_GROUP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_PHYSICS_GROUP_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_rectangle'] = {
+  init: function() {
+    this.appendValueInput('RECT')
+      .setCheck(null)
+      .appendField(Blockly.Msg.DEBUG_RECTANGLE);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_RECTANGLE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_RECTANGLE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_sound'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEBUG_SOUND);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_SOUND_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_SOUND_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_sound_info'] = {
+  init: function() {
+    this.appendValueInput('SOUND')
+      .setCheck(null)
+      .appendField(Blockly.Msg.DEBUG_SOUND_INFO);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.AT_POSITION);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_SOUND_INFO_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_SOUND_INFO_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_sprite_coords'] = {
+  init: function() {
+    this.appendValueInput('SPRITE')
+      .setCheck(null)
+      .appendField(Blockly.Msg.DEBUG_SPRITE_COORDS);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.AT_POSITION);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_SPRITE_COORDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_SPRITE_COORDS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_sprite_info'] = {
+  init: function() {
+    this.appendValueInput('SPRITE')
+      .setCheck(null)
+      .appendField(Blockly.Msg.DEBUG_SPRITE_INFO);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.AT_POSITION);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_SPRITE_INFO_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_SPRITE_INFO_HELP_URL);
+  }
+};
+
+Blockly.Blocks['debug_text'] = {
+  init: function() {
+    this.appendValueInput('TEXT')
+      .setCheck('String')
+      .appendField(Blockly.Msg.DEBUG_TEXT);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.AT_POSITION);
+    this.appendValueInput('X')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('COLOUR')
+      .setCheck(null)
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+    this.setTooltip(Blockly.Msg.DEBUG_TEXT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_TEXT_HELP_URL);
+  }
+};
 //endregion
 
 //region LIST.METHODS
