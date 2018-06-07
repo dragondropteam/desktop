@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-06 10:47:53.254000",
+		"lastupdated": "2018-06-07 11:10:04.938000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2603,7 +2603,7 @@
 	"DEBUG_PHYSICS_GROUP_CHECK": "only for alive members",
 	"DEBUG_PHYSICS_GROUP_TOOLTIP": "Render each physics body in a group.",
 	"DEBUG_PHYSICS_GROUP_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#physicsGroup",
-	"DEBUG_RECTANGLE": "render rectangle on object",
+	"DEBUG_RECTANGLE": "render rectangle",
 	"DEBUG_RECTANGLE_TOOLTIP": "Renders a Rectangle.",
 	"DEBUG_RECTANGLE_HELP_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#rectangle",
 	"DEBUG_SOUND": "render debug info for sound manager at position",
@@ -2620,5 +2620,7 @@
 	"DEBUG_SPRITE_INFO_HELP_URL": "",
 	"DEBUG_TEXT": "render",
 	"DEBUG_TEXT_TOOLTIP": "",
-	"DEBUG_TEXT_HELP_URL": ""
+	"DEBUG_TEXT_HELP_URL": "",
+	"HEIGHT": "height",
+	"WIDTH": "width"
 }

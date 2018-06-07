@@ -2077,7 +2077,16 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="debug_camera"></block>
+                <block type="debug_camera">
+                    <value name="CAMERA">
+                        <shadow type="game_camera"></shadow>
+                    </value>
+                    <value name="COLOUR">
+                        <shadow type="colour_picker">
+                            <field name="COLOUR">#ff0000</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="debug_camera_info">
                     <value name="X">
                         <shadow type="math_number">
@@ -2130,9 +2139,28 @@
                     </value>
                 </block>
                 <block type="debug_rectangle">
-                    <value name="OBJECT">
-                        <shadow type="variables_get">
-                            <field name="VAR">defaultObject</field>
+                    <value name="RECT">
+                        <shadow type="rectangle_create">
+                            <value name="WIDTH">
+                                <shadow type="math_number">
+                                    <field name="NUM">50</field>
+                                </shadow>
+                            </value>
+                            <value name="HEIGHT">
+                                <shadow type="math_number">
+                                    <field name="NUM">50</field>
+                                </shadow>
+                            </value>
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
                         </shadow>
                     </value>
                     <value name="COLOUR">
