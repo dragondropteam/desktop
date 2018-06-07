@@ -5471,7 +5471,7 @@ Blockly.Msg.DEBUG_PHYSICS_GROUP_CHECK = 'only for alive members';
 Blockly.Msg.DEBUG_PHYSICS_GROUP_TOOLTIP = 'Render each physics body in a group.';
 Blockly.Msg.DEBUG_PHYSICS_GROUP_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#physicsGroup';
 
-Blockly.Msg.DEBUG_RECTANGLE = 'render rectangle on object';
+Blockly.Msg.DEBUG_RECTANGLE = 'render rectangle';
 Blockly.Msg.DEBUG_RECTANGLE_TOOLTIP = 'Renders a Rectangle.';
 Blockly.Msg.DEBUG_RECTANGLE_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#rectangle';
 
@@ -5494,3 +5494,6 @@ Blockly.Msg.DEBUG_SPRITE_INFO_HELP_URL = '';
 Blockly.Msg.DEBUG_TEXT = 'render';
 Blockly.Msg.DEBUG_TEXT_TOOLTIP = '';
 Blockly.Msg.DEBUG_TEXT_HELP_URL = '';
+
+Blockly.Msg.HEIGHT = 'height';
+Blockly.Msg.WIDTH = 'width';

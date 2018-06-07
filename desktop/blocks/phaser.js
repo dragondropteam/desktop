@@ -4740,8 +4740,11 @@ Blockly.Blocks['debug_body_info'] = {
 
 Blockly.Blocks['debug_camera'] = {
   init: function () {
-    this.appendDummyInput()
+    this.appendValueInput('CAMERA')
       .appendField(Blockly.Msg.DEBUG_CAMERA);
+    this.appendValueInput('COLOUR')
+      .appendField(Blockly.Msg.COLOUR);
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.DEBUG_CAMERA_TOOLTIP);
@@ -4932,7 +4935,7 @@ Blockly.Blocks['debug_physics_group'] = {
 
 Blockly.Blocks['debug_rectangle'] = {
   init: function() {
-    this.appendValueInput('OBJECT')
+    this.appendValueInput('RECT')
       .setCheck(null)
       .appendField(Blockly.Msg.DEBUG_RECTANGLE);
     this.appendValueInput('COLOUR')

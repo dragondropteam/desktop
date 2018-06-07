@@ -1459,7 +1459,9 @@ Blockly.JavaScript['debug_body_info'] = function(block) {
 };
 
 Blockly.JavaScript['debug_camera'] = function (block) {
-  return `game.debug.camera(${`game.camera`},${'"#ff1712"'});\n`;
+  const camera = Blockly.JavaScript.valueToCode(block, 'CAMERA', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.debug.camera(${camera},${colour});\n`;
 };
 
 Blockly.JavaScript['debug_camera_info'] = function(block) {
@@ -1495,10 +1497,10 @@ Blockly.JavaScript['debug_physics_group'] = function (block) {
 };
 
 Blockly.JavaScript['debug_rectangle'] = function(block) {
-  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const rect = Blockly.JavaScript.valueToCode(block, 'RECT', Blockly.JavaScript.ORDER_ATOMIC);
   const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
 
-  return `game.debug.rectangle(${object},${colour});\n`;
+  return `game.debug.rectangle(${rect},${colour});\n`;
 };
 
 Blockly.JavaScript['debug_sound'] = function(block) {
