@@ -1256,6 +1256,13 @@ Blockly.JavaScript['create_bitmapFont'] = function (block) {
     return `game.load.bitmapFont(${tag}, ${source}, ${xml});\n`;
 };
 
+Blockly.JavaScript['move_by'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `${object}.position.add(${x}, ${y});\n`;
+};
 //endregion
 //region DRAW CIRCLE
 Blockly.JavaScript['drawcircle'] = function (block) {
@@ -1443,6 +1450,108 @@ Blockly.JavaScript['debug_sprite'] = function (block) {
     const value_y = Blockly.JavaScript.valueToCode(block, 'Y_VAL', Blockly.JavaScript.ORDER_ATOMIC);
 
     return `game.debug.spriteInfo(${object}, ${value_x}, ${value_y});\n`;
+};
+
+/*Blockly.JavaScript['debug_body_info'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.debug.bodyInfo(${object},${0},${20});\n`;
+};*/
+Blockly.JavaScript['debug_body_info'] = function(block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.spriteInfo(${object}, ${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_camera'] = function (block) {
+  const camera = Blockly.JavaScript.valueToCode(block, 'CAMERA', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  return `game.debug.camera(${camera},${colour});\n`;
+};
+
+Blockly.JavaScript['debug_camera_info'] = function(block) {
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.cameraInfo(${`game.camera`}, ${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_input_info'] = function(block) {
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.inputInfo(${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_key'] = function(block) {
+  const dropdown_key = block.getFieldValue('KEY');
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.key(game.input.keyboard.addKey(Phaser.Keyboard.${dropdown_key}), ${x_pos}, ${y_pos});\n`;//, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_physics_group'] = function (block) {
+  const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const check_exists = block.getFieldValue('CHECK_EXISTS') == 'TRUE';
+  //return `${group}.destroy(${check_exists});\n`;
+  return `game.debug.physicsGroup(${group});\n`;//, ${"'#73ff5c'"}, ${true}, ${check_exists});\n`;
+};
+
+Blockly.JavaScript['debug_rectangle'] = function(block) {
+  const rect = Blockly.JavaScript.valueToCode(block, 'RECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.rectangle(${rect},${colour});\n`;
+};
+
+Blockly.JavaScript['debug_sound'] = function(block) {
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.sound(${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_sound_info'] = function(block) {
+  const sound = Blockly.JavaScript.valueToCode(block, 'SOUND', Blockly.JavaScript.ORDER_ATOMIC);
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.soundInfo(${sound}, ${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_sprite_coords'] = function(block) {
+  const sprite = Blockly.JavaScript.valueToCode(block, 'SPRITE', Blockly.JavaScript.ORDER_ATOMIC);
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.spriteCoords(${sprite}, ${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_sprite_info'] = function(block) {
+  const sprite = Blockly.JavaScript.valueToCode(block, 'SPRITE', Blockly.JavaScript.ORDER_ATOMIC);
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.spriteInfo(${sprite}, ${x_pos}, ${y_pos}, ${colour});\n`;
+};
+
+Blockly.JavaScript['debug_text'] = function(block) {
+  const text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
+  const x_pos = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y_pos = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.debug.text(${text}, ${x_pos}, ${y_pos}, ${colour});\n`;
 };
 //endregion
 
@@ -1703,7 +1812,7 @@ Blockly.JavaScript['camera_flash'] = function (block) {
     const toHexColorFunc = Blockly.JavaScript.provideFunction_(
         'toHexColor',
         ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
-        '(color) {',
+            '(color) {',
             'return color.replace("#", "0x");',
             '}']);
 
