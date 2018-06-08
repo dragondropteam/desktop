@@ -12,143 +12,6 @@ goog.require('goog.string');
 
 DragonDrop.Classes.NAME_TYPE ='CLASSES';
 
-DragonDrop.Classes.flyoutCategory = function(workspace){
-    // let classInstances = workspace.classList;
-    let xmlList = [];
-
-    let classDefinition = goog.dom.createDom('block');
-    classDefinition.setAttribute('type', 'class_definition');
-    xmlList.push(classDefinition);
-
-    let methodDefinition = goog.dom.createDom('block');
-    methodDefinition.setAttribute('type', 'method_defnoreturn');
-    xmlList.push(methodDefinition);
-
-    let methodDefinitionReturn = goog.dom.createDom('block');
-    methodDefinitionReturn.setAttribute('type', 'method_defreturn');
-    xmlList.push(methodDefinitionReturn);
-
-    let ifReturn = goog.dom.createDom('block');
-    ifReturn.setAttribute('type', 'method_ifreturn');
-    xmlList.push(ifReturn);
-
-    let returnBlock = goog.dom.createDom('block');
-    returnBlock.setAttribute('type', 'method_return');
-    xmlList.push(returnBlock);
-
-
-    let memberDefinition = goog.dom.createDom('block');
-    memberDefinition.setAttribute('type', 'member_definition');
-    xmlList.push(memberDefinition);
-
-    let thisReference = goog.dom.createDom('block');
-    thisReference.setAttribute('type', 'this_reference');
-    xmlList.push(thisReference);
-
-    let superConstructor = goog.dom.createDom('block');
-    superConstructor.setAttribute('type', 'super_constructor');
-    xmlList.push(superConstructor);
-
-    // let thisGet = goog.dom.createDom('block');
-    // thisGet.setAttribute('type', 'get_member_this');
-    // xmlList.push(thisGet);
-
-    let classes = DragonDrop.Classes.allClasses(workspace);
-
-    for (let i = 0; i < classes.length; ++i) {
-        let className = classes[i].getFieldValue('NAME');
-        let classTypeBlock = goog.dom.createDom('block');
-        classTypeBlock.setAttribute('type', 'class_type');
-        let mutation = goog.dom.createDom('mutation');
-        mutation.setAttribute('name', className);
-        classTypeBlock.appendChild(mutation);
-        xmlList.push(classTypeBlock);
-    }
-
-    for(let i = 0; i < classes.length; ++i){
-        let className = classes[i].getFieldValue('NAME');
-        let members = DragonDrop.Classes.getMembersOf(workspace, className);
-        members.forEach((member) =>
-        {
-            let getMemberBlock = goog.dom.createDom('block');
-            let setMemberBlock = goog.dom.createDom('block');
-
-            let getMutation = goog.dom.createDom('mutation');
-            let setMutation = goog.dom.createDom('mutation');
-
-            getMutation.setAttribute('name', className);
-            getMutation.setAttribute('member_name', member.getFieldValue('NAME'));
-
-            setMutation.setAttribute('name', className);
-            setMutation.setAttribute('member_name', member.getFieldValue('NAME'));
-
-            getMemberBlock.setAttribute('type', 'get_member_in_class');
-            getMemberBlock.appendChild(getMutation);
-
-            setMemberBlock.setAttribute('type', 'set_member_in_class');
-            setMemberBlock.appendChild(setMutation);
-
-            xmlList.push(getMemberBlock);
-            xmlList.push(setMemberBlock);
-        });
-    }
-
-    //region CREATE_CONSTRUCTORS
-    for(let i = 0; i < classes.length; ++i){
-        // console.log(classes[i]);
-        let createInstanceOfClass = goog.dom.createDom('block');
-        let mutation = goog.dom.createDom('mutation');
-        mutation.setAttribute('name', classes[i].getFieldValue('NAME'));
-        createInstanceOfClass.setAttribute('type', 'create_instance_of_class');
-        createInstanceOfClass.appendChild(mutation);
-        for (let j = 0; j < classes[i].arguments_.length; ++j) {
-            let arg = goog.dom.createDom('arg');
-            arg.setAttribute('name', classes[i].arguments_[j]);
-            mutation.appendChild(arg);
-        }
-        xmlList.push(createInstanceOfClass);
-    }
-    //endregion
-
-    //region METHODS
-    function populateMethods(procedureList, templateName) {
-        for (let i = 0; i < procedureList.length; i++) {
-
-            if(!procedureList[i][3]){
-                continue;
-            }
-            
-            let name = procedureList[i][0];
-            let args = procedureList[i][1];
-            // <block type="method_callnoreturn" gap="16">
-            //   <mutation name="do something">
-            //     <arg name="x"></arg>
-            //   </mutation>
-            // </block>
-            let block = goog.dom.createDom('block');
-            block.setAttribute('type', templateName);
-            block.setAttribute('gap', 16);
-            let mutation = goog.dom.createDom('mutation');
-            mutation.setAttribute('name', name);
-            mutation.setAttribute('class', procedureList[i][3].getFieldValue('NAME'));
-            block.appendChild(mutation);
-            for (let j = 0; j < args.length; j++) {
-                let arg = goog.dom.createDom('arg');
-                arg.setAttribute('name', args[j]);
-                mutation.appendChild(arg);
-            }
-            xmlList.push(block);
-        }
-    }
-
-    let tuple = DragonDrop.Classes.allMethods(workspace);
-    populateMethods(tuple[0], 'method_callnoreturn');
-    populateMethods(tuple[1], 'method_callreturn');
-    //endregion
-
-    return xmlList;
-};
-
 DragonDrop.Classes.allClasses = function(root){
     let blocks = root.getAllBlocks();
     let classes = [];
@@ -158,6 +21,151 @@ DragonDrop.Classes.allClasses = function(root){
         }
     }
     return classes;
+};
+
+DragonDrop.Classes.flyoutCategory = function(workspace){
+  // let classInstances = workspace.classList;
+  let xmlList = [];
+
+  let classDefinition = goog.dom.createDom('block');
+  classDefinition.setAttribute('type', 'class_definition');
+  xmlList.push(classDefinition);
+
+  let classDefinitionSimple = goog.dom.createDom('block');
+  classDefinitionSimple.setAttribute('type', 'class_definition_simple');
+  xmlList.push(classDefinitionSimple);
+
+  let methodDefinition = goog.dom.createDom('block');
+  methodDefinition.setAttribute('type', 'method_defnoreturn');
+  xmlList.push(methodDefinition);
+
+  let methodDefinitionReturn = goog.dom.createDom('block');
+  methodDefinitionReturn.setAttribute('type', 'method_defreturn');
+  xmlList.push(methodDefinitionReturn);
+
+  let ifReturn = goog.dom.createDom('block');
+  ifReturn.setAttribute('type', 'method_ifreturn');
+  xmlList.push(ifReturn);
+
+  let returnBlock = goog.dom.createDom('block');
+  returnBlock.setAttribute('type', 'method_return');
+  xmlList.push(returnBlock);
+
+
+  let memberDefinition = goog.dom.createDom('block');
+  memberDefinition.setAttribute('type', 'member_definition');
+  xmlList.push(memberDefinition);
+
+  let thisReference = goog.dom.createDom('block');
+  thisReference.setAttribute('type', 'this_reference');
+  xmlList.push(thisReference);
+
+  let superConstructor = goog.dom.createDom('block');
+  superConstructor.setAttribute('type', 'super_constructor');
+  xmlList.push(superConstructor);
+
+  let getSuper = goog.dom.createDom('block');
+  getSuper.setAttribute('type', 'get_super');
+  xmlList.push(getSuper);
+
+  // let thisGet = goog.dom.createDom('block');
+  // thisGet.setAttribute('type', 'get_member_this');
+  // xmlList.push(thisGet);
+
+  let classes = DragonDrop.Classes.allClasses(workspace);
+
+  for (let i = 0; i < classes.length; ++i) {
+    let className = classes[i].getFieldValue('NAME');
+    let classTypeBlock = goog.dom.createDom('block');
+    classTypeBlock.setAttribute('type', 'class_type');
+    let mutation = goog.dom.createDom('mutation');
+    mutation.setAttribute('name', className);
+    classTypeBlock.appendChild(mutation);
+    xmlList.push(classTypeBlock);
+  }
+
+  for(let i = 0; i < classes.length; ++i){
+    let className = classes[i].getFieldValue('NAME');
+    let members = DragonDrop.Classes.getMembersOf(workspace, className);
+    members.forEach((member) =>
+    {
+      let getMemberBlock = goog.dom.createDom('block');
+      let setMemberBlock = goog.dom.createDom('block');
+
+      let getMutation = goog.dom.createDom('mutation');
+      let setMutation = goog.dom.createDom('mutation');
+
+      getMutation.setAttribute('name', className);
+      getMutation.setAttribute('member_name', member.getFieldValue('NAME'));
+
+      setMutation.setAttribute('name', className);
+      setMutation.setAttribute('member_name', member.getFieldValue('NAME'));
+
+      getMemberBlock.setAttribute('type', 'get_member_in_class');
+      getMemberBlock.appendChild(getMutation);
+
+      setMemberBlock.setAttribute('type', 'set_member_in_class');
+      setMemberBlock.appendChild(setMutation);
+
+      xmlList.push(getMemberBlock);
+      xmlList.push(setMemberBlock);
+    });
+  }
+
+  //region CREATE_CONSTRUCTORS
+  for(let i = 0; i < classes.length; ++i){
+    // console.log(classes[i]);
+    let createInstanceOfClass = goog.dom.createDom('block');
+    let mutation = goog.dom.createDom('mutation');
+    mutation.setAttribute('name', classes[i].getFieldValue('NAME'));
+    createInstanceOfClass.setAttribute('type', 'create_instance_of_class');
+    createInstanceOfClass.appendChild(mutation);
+    for (let j = 0; j < classes[i].arguments_.length; ++j) {
+      let arg = goog.dom.createDom('arg');
+      arg.setAttribute('name', classes[i].arguments_[j]);
+      mutation.appendChild(arg);
+    }
+    xmlList.push(createInstanceOfClass);
+  }
+  //endregion
+
+  //region METHODS
+  function populateMethods(procedureList, templateName) {
+    for (let i = 0; i < procedureList.length; i++) {
+
+      if(!procedureList[i][3]){
+        continue;
+      }
+
+      let name = procedureList[i][0];
+      let args = procedureList[i][1];
+      // <block type="method_callnoreturn" gap="16">
+      //   <mutation name="do something">
+      //     <arg name="x"></arg>
+      //   </mutation>
+      // </block>
+      let block = goog.dom.createDom('block');
+      block.setAttribute('type', templateName);
+      block.setAttribute('gap', 16);
+      let mutation = goog.dom.createDom('mutation');
+      mutation.setAttribute('name', name);
+      mutation.setAttribute('class', procedureList[i][3].getFieldValue('NAME'));
+      block.appendChild(mutation);
+      for (let j = 0; j < args.length; j++) {
+        let arg = goog.dom.createDom('arg');
+        arg.setAttribute('name', args[j]);
+        mutation.appendChild(arg);
+      }
+      xmlList.push(block);
+    }
+  }
+
+  let tuple = DragonDrop.Classes.allMethods(workspace);
+  populateMethods(tuple[0], 'method_callnoreturn');
+  populateMethods(tuple[1], 'method_callreturn');
+  //endregion
+
+  return xmlList;
 };
 
 

@@ -2621,4 +2621,7 @@
 	"BY": "",
 	"MOVE_BY_TOOLTIP": "",
 	"MOVE_BY_HELP_URL": ""
+	"SUPER": "",
+	"GET_SUPER_TOOLTIP": "",
+	"GET_SUPER_HELPURL": ""
 }
