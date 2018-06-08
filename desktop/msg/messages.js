@@ -4570,3 +4570,6 @@ Blockly.Msg.IN_ARRAY = 'in array';
 Blockly.Msg.CENTER_RIGHT = 'center right';
 Blockly.Msg.CENTER_LEFT = 'center left';
 Blockly.Msg.PLATFORMER = 'platformer';
+Blockly.Msg.IS_BODY_TOUCHING = 'is body touching';
+Blockly.Msg.FUNCTIONNAME = 'function name';
+Blockly.Msg.RESTART = 'restart';

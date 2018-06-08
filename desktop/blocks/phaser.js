@@ -3730,7 +3730,7 @@ Blockly.Blocks['set_body_boolean_field_vi'] = {
 Blockly.Blocks['get_body_boolean_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_BODY_BOOLEAN_FIELD)
+      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(BODY_BOOLEAN_FIELDS.all), 'ELEMENT')
       .appendField(Blockly.Msg.FOR);
     this.appendValueInput('OBJECT');
@@ -5975,7 +5975,7 @@ Blockly.Blocks['sound_play'] = {
       .appendField(Blockly.Msg.LOOP)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_PLAY_RESTART)
+      .appendField(Blockly.Msg.RESTART)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'RESTART');
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);

@@ -2192,5 +2192,8 @@
 	"IN_ARRAY": "",
 	"CENTER_RIGHT": "",
 	"CENTER_LEFT": "",
-	"PLATFORMER": ""
+	"PLATFORMER": "",
+	"IS_BODY_TOUCHING": "",
+	"FUNCTIONNAME": "",
+	"RESTART": ""
 }
