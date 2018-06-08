@@ -654,7 +654,7 @@ Blockly.Blocks['statemanager_restart_state'] = {
 
 Blockly.Blocks['statemanager_check_state'] = {
   init: function() {
-    this.appendValueInput("NAME")
+    this.appendValueInput("KEY")
       .setCheck("String")
       .appendField(Blockly.Msg.STATEMANAGER_CHECK_STATE);
     this.setInputsInline(true);
