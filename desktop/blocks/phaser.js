@@ -3484,14 +3484,12 @@ Blockly.Blocks['animation_get_animation'] = {
 
 //region PHASER_PHYSICS
 const PHYSICS_BOOLEAN_WRITABLE = ['isPaused'];
-const PHYSICS_BOOLEAN_READABLE = [''];
+const PHYSICS_BOOLEAN_READABLE = [];
 const PHYSICS_BOOLEAN_FIELDS = createDropDownField(PHYSICS_BOOLEAN_WRITABLE, PHYSICS_BOOLEAN_READABLE);
 
 const PHYSICS_POINT_WRITABLE = ['gravity'];
-const PHYSICS_POINT_READABLE = [''];
+const PHYSICS_POINT_READABLE = [];
 const PHYSICS_POINT_FIELDS = createDropDownField(PHYSICS_POINT_WRITABLE, PHYSICS_POINT_READABLE);
-
-const PHYSICS_COLLISION_DIRECTIONS =
 
 //region PHYSICS_STARTUP
 Blockly.Blocks['start_physics'] = {
