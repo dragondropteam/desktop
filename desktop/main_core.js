@@ -806,7 +806,7 @@ function showSplashScreen (err, onShow) {
 
   if (mainWindow) {
     mainWindow.destroy();
-  }
+  }meee
 
   // Create the browser window.
   mainWindow = newWindow;
