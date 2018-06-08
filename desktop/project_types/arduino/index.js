@@ -50,7 +50,10 @@ class ArduinoProjectManager extends BaseProjectManager {
             let checked = project.loadedProject.meta.board ? project.loadedProject.meta.board == board : start;
             start = false;
             boards.push({
-                label: board, type: 'radio', checked: checked, click(){
+                label: board,
+              type: 'radio',
+              checked: checked,
+              click: () => {
                     global.selectedBoard = Boards[board];
                     project.loadedProject.meta.board = board;
                     this.saveProject(project);
