@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-05 14:49:28.319000",
+		"lastupdated": "2018-06-08 13:55:01.936000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2198,5 +2198,8 @@
 	"IN_ARRAY": "in array",
 	"CENTER_RIGHT": "center right",
 	"CENTER_LEFT": "center left",
-	"PLATFORMER": "platformer"
+	"PLATFORMER": "platformer",
+	"IS_BODY_TOUCHING": "is body touching",
+	"FUNCTIONNAME": "function name",
+	"RESTART": "restart"
 }
