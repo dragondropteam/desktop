@@ -363,7 +363,7 @@
                 <block type="statemanager_get_current_state"/>
                 <block type="statemanager_restart_state"/>
                 <block type="statemanager_check_state">
-                    <value name="NAME">
+                    <value name="KEY">
                         <shadow type="text">
                             <field name="TEXT">tag</field>
                         </shadow>
