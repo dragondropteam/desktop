@@ -1261,7 +1261,7 @@ Blockly.JavaScript['move_by'] = function (block) {
   const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
   const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
 
-  return `${object}.position = (new Phaser.Point(${object}.x + ${x}, ${object}.y + ${y}));\n`;
+  return `${object}.position.add(${x}, ${y});\n`;
 };
 //endregion
 //region DRAW CIRCLE
