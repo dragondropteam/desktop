@@ -20,6 +20,19 @@ Blockly.JavaScript['class_definition'] = function(block) {
     return `class ${text_name} ${value_extends}{\nconstructor(${args.join(',')}){\n${statements_members}}\n${statements_methods}\n};\n`;
 };
 
+Blockly.JavaScript['class_definition_simple'] = function(block) {
+  let text_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+
+  let statements_methods = Blockly.JavaScript.statementToCode(block, 'METHODS');
+  let statements_members = Blockly.JavaScript.statementToCode(block, 'CONSTRUCTOR');
+  let args = [];
+  for (let i = 0; i < block.arguments_.length; i++) {
+    args[i] = Blockly.JavaScript.variableDB_.getName(block.arguments_[i],
+      Blockly.Variables.NAME_TYPE);
+  }
+  return `class ${text_name} {\nconstructor(${args.join(',')}){\n${statements_members}}\n${statements_methods}\n};\n`;
+};
+
 Blockly.JavaScript['method_definition'] = function(block) {
     let text_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
     let statements_method_statements = Blockly.JavaScript.statementToCode(block, 'METHOD_STATEMENTS');
@@ -186,4 +199,8 @@ Blockly.JavaScript['method_return'] = function (block) {
     } else {
         return 'return;\n';
     }
+};
+
+Blockly.JavaScript['get_super'] = function(){
+    return ['super', Blockly.JavaScript.ORDER_ATOMIC];
 };
