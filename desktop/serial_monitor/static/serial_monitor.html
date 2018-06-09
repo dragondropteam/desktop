@@ -208,6 +208,12 @@
 
         ipcRenderer.on('model', (event, model) => {
             portId = model.port;
+
+            if(!portId){
+              SerialMonitor.showErrorNoConnect();
+              return;
+            }
+
             port = new SerialPort(model.port, {
                 baudRate: $scope.baudRate
             }, (err) => {
