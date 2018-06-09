@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-08 13:34:33.277000",
+		"lastupdated": "2018-06-08 17:49:58.090000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2629,5 +2629,11 @@
 	"MOVE_BY_HELP_URL": "",
 	"SUPER": "super",
 	"GET_SUPER_TOOLTIP": "Get a reference to the super class",
-	"GET_SUPER_HELPURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super"
+	"GET_SUPER_HELPURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super",
+	"SET_GAME_PAUSE": "set game paused to",
+	"SET_GAME_PAUSE_TOOLTIP": "Gets and sets the paused state of the Game.",
+	"SET_GAME_PAUSE_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused",
+	"GET_GAME_PAUSE": "get game paused value",
+	"GET_GAME_PAUSE_TOOLTIP": "Returns the value of the paused state of the Game.",
+	"GET_GAME_PAUSE_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused"
 }

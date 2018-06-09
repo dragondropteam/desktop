@@ -5506,3 +5506,11 @@ Blockly.Msg.MOVE_BY_HELP_URL = '';
 Blockly.Msg.SUPER = 'super';
 Blockly.Msg.GET_SUPER_TOOLTIP = 'Get a reference to the super class';
 Blockly.Msg.GET_SUPER_HELPURL = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super';
+
+Blockly.Msg.SET_GAME_PAUSE = 'set game paused to';
+Blockly.Msg.SET_GAME_PAUSE_TOOLTIP = 'Gets and sets the paused state of the Game.';
+Blockly.Msg.SET_GAME_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused';
+
+Blockly.Msg.GET_GAME_PAUSE = 'get game paused value';
+Blockly.Msg.GET_GAME_PAUSE_TOOLTIP = 'Returns the value of the paused state of the Game.';
+Blockly.Msg.GET_GAME_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused';

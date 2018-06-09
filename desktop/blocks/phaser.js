@@ -732,6 +732,30 @@ Blockly.Blocks['get_world_reference'] = {
     this.setHelpUrl(Blockly.Msg.GET_WORLD_REFERENCE_HELP_URL);
   }
 };
+
+Blockly.Blocks['set_game_pause'] = {
+  init: function() {
+    this.appendValueInput('PAUSED')
+      .setCheck('Boolean')
+      .appendField(Blockly.Msg.SET_GAME_PAUSE);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_WORLD_COLOUR);
+    this.setTooltip(Blockly.Msg.SET_GAME_PAUSE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.SET_GAME_PAUSE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['get_game_pause'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_GAME_PAUSE);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_WORLD_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_GAME_PAUSE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_GAME_PAUSE_HELP_URL);
+  }
+};
 //endregion
 
 //region TIME / TIMER
