@@ -1031,10 +1031,6 @@ Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input
 /// this variable.\n\nParameters:\n* %1 - the name of the variable.
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
 /// block text
-Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1 = 'set';
-/// block text
-Blockly.Msg.VARIABLE_SET_TYPED_FIELD_2 = 'to';
-/// default variable name
 Blockly.Msg.VARIABLE_SET_TYPED_DEFAULT_VAR = 'item';
 /// tooltip
 Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP = '';
@@ -1245,29 +1241,21 @@ Blockly.Msg.CLASS_CONTEXT_CREATE_THIS = 'create \'this\'';
 
 //typed arrays
 /// block text
-Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1 = 'create array of';
+Blockly.Msg.TYPED_ARRAYS_CREATE_WITH = 'create array of';
 /// block text
-Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2 = 'with';
+Blockly.Msg.TYPED_ARRAYS_SETINDEX = 'set index #';
 /// block text
-Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1 = 'in array';
-/// block text
-Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2 = 'set index #';
-/// block text
-Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_3 = 'to';
-/// tooltip
 Blockly.Msg.TYPED_ARRAYS_SETINDEX_TOOLTIP = '';
 /// url
 Blockly.Msg.TYPED_ARRAYS_SETINDEX_HELP_URL = '';
 /// block text
-Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_1 = 'in array';
-/// block text
-Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2 = 'get index #';
+Blockly.Msg.TYPED_ARRAYS_GETINDEX = 'get index #';
 /// tooltip
 Blockly.Msg.TYPED_ARRAYS_GETINDEX_TOOLTIP = '';
 /// url
 Blockly.Msg.TYPED_ARRAYS_GETINDEX_HELP_URL = '';
 /// block text
-Blockly.Msg.TYPED_ARRAYS_DELETE_TITLE = 'delete array';
+Blockly.Msg.TYPED_ARRAYS_DELETE = 'delete array';
 /// warning text
 Blockly.Msg.TYPED_ARRAYS_NOT_ARRAY_WARNING = '%1 is not an array!';
 /// tooltip
@@ -1287,51 +1275,43 @@ Blockly.Msg.LOG_CONSOLE_HELP_URL = 'https://en.wikipedia.org/wiki/System_console
 
 //phaser
 /// auto generated
-Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_1 = 'run phaser';
+Blockly.Msg.PHASER_SIMPLE_INIT = 'run phaser';
 /// auto generated
-Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_2 = 'width';
+Blockly.Msg.PHASER_SIMPLE_INIT_PRELOAD = 'on preload do';
 /// auto generated
-Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_3 = 'height';
+Blockly.Msg.PHASER_SIMPLE_INIT_CREATE = 'on create do';
 /// auto generated
-Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_4 = 'on preload do';
-/// auto generated
-Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_5 = 'on create do';
-/// auto generated
-Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_6 = 'on update do';
+Blockly.Msg.PHASER_SIMPLE_INIT_UPDATE = 'on update do';
 /// auto generated
 Blockly.Msg.PHASER_SIMPLE_INIT_TOOLTIP = 'Create a Phaser Game with given width and height.';
 /// auto generated
 Blockly.Msg.PHASER_SIMPLE_INIT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html';
 /// auto generated
-Blockly.Msg.START_PHASER_FOR_STATES_FIELD_1 = 'start phaser for states with';
-/// auto generated
-Blockly.Msg.START_PHASER_FOR_STATES_FIELD_2 = 'width';
-/// auto generated
-Blockly.Msg.START_PHASER_FOR_STATES_FIELD_3 = 'height';
+Blockly.Msg.START_PHASER_FOR_STATES = 'start phaser for states with';
 /// auto generated
 Blockly.Msg.START_PHASER_FOR_STATES_TOOLTIP = 'Create a Phaser game using explicit states.';
 /// auto generated
 Blockly.Msg.START_PHASER_FOR_STATES_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html';
 /// auto generated
-Blockly.Msg.CENTER_AND_STRETCH_FIELD_1 = 'center and stretch phaser';
+Blockly.Msg.CENTER_AND_STRETCH = 'center and stretch phaser';
 /// auto generated
 Blockly.Msg.CENTER_AND_STRETCH_TOOLTIP = 'Tells Phaser to center and stretch the game view to fit its window.';
 /// auto generated
 Blockly.Msg.CENTER_AND_STRETCH_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ScaleManager.html#scaleMode';
 /// auto generated
-Blockly.Msg.ENABLE_STEP_FIELD_1 = 'enable stepping';
+Blockly.Msg.ENABLE_STEP = 'enable stepping';
 /// auto generated
 Blockly.Msg.ENABLE_STEP_TOOLTIP = 'Enables manually stepping through game frames. Usually for debugging purposes.';
 /// auto generated
 Blockly.Msg.ENABLE_STEP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html#enableStep';
 /// auto generated
-Blockly.Msg.DISABLE_STEP_FIELD_1 = 'disable stepping';
+Blockly.Msg.DISABLE_STEP = 'disable stepping';
 /// auto generated
 Blockly.Msg.DISABLE_STEP_TOOLTIP = 'Disables manually stepping into the next game loop. This is the default behavior.';
 /// auto generated
 Blockly.Msg.DISABLE_STEP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html#disableStep';
 /// auto generated
-Blockly.Msg.STEP_FIELD_1 = 'Step';
+Blockly.Msg.STEP = 'Step';
 /// auto generated
 Blockly.Msg.STEP_TOOLTIP = 'Manually steps to the next game loop. Stepping should be enabled before using this.';
 /// auto generated
@@ -1339,697 +1319,453 @@ Blockly.Msg.STEP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html
 /// default variale name
 Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME = 'graphics';
 /// auto generated
-Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_1 = 'create graphics object with offsets';
-/// auto generated
-Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_2 = 'x:';
-/// auto generated
-Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_3 = 'y:';
+Blockly.Msg.CREATE_GRAPHICS_OBJECT = 'create graphics object with offsets';
 /// auto generated
 Blockly.Msg.CREATE_GRAPHICS_OBJECT_TOOLTIP = 'Returns an object that can draw shapes in the world.';
 /// auto generated
 Blockly.Msg.CREATE_GRAPHICS_OBJECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Graphics.html';
 /// auto generated
-Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_1 = 'fill shapes with ';
-/// auto generated
-Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_2 = 'colour';
-/// auto generated
-Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_3 = 'using';
+Blockly.Msg.DRAW_SHAPES_WITH_COLOUR = 'fill shapes with ';
 /// auto generated
 Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_TOOLTIP = 'Start drawing shapes in the world using a given graphics object. Use the shape drawing blocks inside this one.';
 /// auto generated
 Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Graphics.html#beginFill';
 /// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_1 = 'draw rectangle at position';
-/// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_2 = 'x:';
-/// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_3 = 'y:';
-/// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_4 = 'with';
-/// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_5 = 'width:';
-/// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_6 = 'height:';
-/// auto generated
-Blockly.Msg.DRAW_RECTANGLE_FIELD_7 = 'using';
+Blockly.Msg.DRAW_RECTANGLE = 'draw rectangle at position';
 /// auto generated
 Blockly.Msg.DRAW_RECTANGLE_TOOLTIP = 'Draws a rectangle at a given position in the world. Doesn\'t work on its own. Put it inside the \'fill shapes with\' block.';
 /// auto generated
 Blockly.Msg.DRAW_RECTANGLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Graphics.html#drawRect';
 /// auto generated
-Blockly.Msg.STOP_ANIMATION_FIELD_1 = 'stop animation on';
+Blockly.Msg.STOP_ANIMATION = 'stop animation on';
 /// auto generated
 Blockly.Msg.STOP_ANIMATION_TOOLTIP = 'Stops any animation from playing on the given sprite.';
 /// auto generated
 Blockly.Msg.STOP_ANIMATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#stop';
 /// auto generated
-Blockly.Msg.PLAY_ANIMATION_FIELD_1 = 'play animation';
+Blockly.Msg.PLAY_ANIMATION = 'play animation';
 /// auto generated
-Blockly.Msg.PLAY_ANIMATION_FIELD_2 = 'on';
-/// auto generated
-Blockly.Msg.PLAY_ANIMATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#play';
+Blockly.Msg.PLAY_ANIMATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#play';
 /// auto generated
 Blockly.Msg.PLAY_ANIMATION_TOOLTIP = 'Starts playing an animation on the given sprite.';
 /// auto generated
-Blockly.Msg.SET_FRAME_FIELD_1 = 'Set Current Frame # For';
+Blockly.Msg.SET_FRAME = 'Set Current Frame # For';
 /// auto generated
 Blockly.Msg.SET_FRAME_TOOLTIP = 'Jumps to a given animation frame.';
 /// auto generated
 Blockly.Msg.SET_FRAME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#frame';
 /// auto generated
-Blockly.Msg.ADD_ANIMATION_FIELD_1 = 'add animation to';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_FIELD_2 = 'tagged';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_NAME_TEXT_DEFAULT = 'name';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_FIELD_3 = 'with frames';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_FIELD_4 = 'displayed at';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_FIELD_5 = 'FPS';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_FIELD_6 = 'loop';
+Blockly.Msg.ADD_ANIMATION = 'add animation to';
 /// auto generated
 Blockly.Msg.ADD_ANIMATION_TOOLTIP = 'Add an animation to an object based on a list of frames';
 /// auto generated
 Blockly.Msg.ADD_ANIMATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#add';
 /// auto generated
-Blockly.Msg.ADD_CHILD_FIELD_1 = 'add child object';
-/// auto generated
-Blockly.Msg.ADD_CHILD_FIELD_2 = 'to';
+Blockly.Msg.ADD_CHILD = 'add child object';
 /// auto generated
 Blockly.Msg.ADD_CHILD_TOOLTIP = 'Add a child to a sprite. This will make them move together.';
 /// auto generated
 Blockly.Msg.ADD_CHILD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#addChild';
 /// auto generated
-Blockly.Msg.RESET_FRAME_FIELD_1 = 'reset the frame dimensions of';
+Blockly.Msg.RESET_FRAME = 'reset the frame dimensions of';
 /// auto generated
 Blockly.Msg.RESET_FRAME_TOOLTIP = 'Resets the texture frame dimensions that the sprite uses for rendering.';
 /// auto generated
 Blockly.Msg.RESET_FRAME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#resetFrame';
 /// auto generated
-Blockly.Msg.RESIZE_FRAME_FIELD_1 = 'resize the frame of';
+Blockly.Msg.RESIZE_FRAME = 'resize the frame of';
 /// auto generated
-Blockly.Msg.RESIZE_FRAME_FIELD_2 = 'to accomodate';
-/// auto generated
-Blockly.Msg.RESIZE_FRAME_FIELD_3 = 'Width';
-/// auto generated
-Blockly.Msg.RESIZE_FRAME_FIELD_4 = 'Height';
+Blockly.Msg.RESIZE_FRAME_ACCOMODATE = 'to accomodate';
 /// auto generated
 Blockly.Msg.RESIZE_FRAME_TOOLTIP = 'Resizes the Frame dimensions that the Game Object uses for rendering. You shouldn\'t normally need to ever call this, but in the case of special texture types such as Video or BitmapData it can be useful to adjust the dimensions directly in this way.';
 /// auto generated
 Blockly.Msg.RESIZE_FRAME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#resizeFrame';
 /// auto generated
-Blockly.Msg.CREATE_IMAGE_FIELD_1 = 'create image';
-/// auto generated
-Blockly.Msg.CREATE_IMAGE_FIELD_2 = 'tag';
-/// auto generated
-Blockly.Msg.CREATE_IMAGE_FIELD_3 = 'source';
+Blockly.Msg.CREATE_IMAGE = 'create image';
 /// auto generated
 Blockly.Msg.CREATE_IMAGE_TOOLTIP = 'Loads an image into the game so it can be used.';
 /// auto generated
 Blockly.Msg.CREATE_IMAGE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Loader.html#image';
 /// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_1 = 'create sprite sheet';
+Blockly.Msg.CREATE_SPRITE_SHEET = 'create sprite sheet';
 /// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_2 = 'tag';
+Blockly.Msg.CREATE_SPRITE_SHEET_FRAME_WIDTH = 'frame width';
 /// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_3 = 'source';
-/// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_4 = 'frame width';
-/// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_5 = 'pixels';
-/// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_6 = 'frame height';
-/// auto generated
-Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_7 = 'pixels';
+Blockly.Msg.CREATE_SPRITE_SHEET_FRAME_HEIGHT = 'frame height';
 /// auto generated
 Blockly.Msg.CREATE_SPRITE_SHEET_TOOLTIP = 'Loads a sprite sheet, which is a collection of animation frames in a single image. See the help for more info.';
 /// auto generated
 Blockly.Msg.CREATE_SPRITE_SHEET_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Loader.html#spritesheet';
 /// auto generated
-Blockly.Msg.ADD_IMAGE_FIELD_1 = 'add image to game at';
-/// auto generated
-Blockly.Msg.ADD_IMAGE_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.ADD_IMAGE_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.ADD_IMAGE_FIELD_4 = 'tagged';
+Blockly.Msg.ADD_IMAGE = 'add image to game at';
 /// auto generated
 Blockly.Msg.ADD_IMAGE_TOOLTIP = 'Creates a sprite with the image specified in the tag. The tag needs to be set up with the \'create image\' or \'create sprite sheet\' blocks.';
 /// auto generated
 Blockly.Msg.ADD_IMAGE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.GameObjectFactory.html#sprite';
 /// auto generated
-Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_1 = 'load atlas image';
+Blockly.Msg.ADDSPRITEWITHATLAS = 'load atlas image';
 /// auto generated
-Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_2 = 'tag';
+Blockly.Msg.ADDSPRITEWITHATLAS_SOURCE = 'spritesheet source';
 /// auto generated
-Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_3 = 'spritesheet source';
-/// auto generated
-Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_4 = 'texture atlas xml';
+Blockly.Msg.XML = 'texture atlas xml';
 /// auto generated
 Blockly.Msg.ADDSPRITEWITHATLAS_TOOLTIP = 'Loads a texture atlas into the game. These take more effort to set up, but can contain every animation you want for a single character. See the help for more info.';
 /// auto generated
 Blockly.Msg.ADDSPRITEWITHATLAS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Loader.html#atlasXML';
 /// auto generated
-Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_1 = 'add sprite to game from atlas at';
+Blockly.Msg.IMAGESUBTEXTUREATLAS = 'add sprite to game from atlas at';
 /// auto generated
-Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_4 = 'tagged ';
-/// auto generated
-Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_5 = 'subtexture id';
+Blockly.Msg.IMAGESUBTEXTUREATLAS_ID = 'subtexture id';
 /// auto generated
 Blockly.Msg.IMAGESUBTEXTUREATLAS_TOOLTIP = 'Adds a sprite to the game using data from a texture atlas.';
 /// auto generated
 Blockly.Msg.IMAGESUBTEXTUREATLAS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Loader.html#atlasXML';
 /// auto generated
-Blockly.Msg.ADD_CHILD_VI_FIELD_1 = 'add child object';
-/// auto generated
-Blockly.Msg.ADD_CHILD_VI_FIELD_2 = 'to';
+Blockly.Msg.ADD_CHILD_VI = 'add child object';
 /// auto generated
 Blockly.Msg.ADD_CHILD_VI_TOOLTIP = 'Add a child to a sprite. This will make them move together.';
 /// auto generated
 Blockly.Msg.ADD_CHILD_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#addChild';
 /// auto generated
-Blockly.Msg.ADD_CHILD_AT_FIELD_1 = 'add child';
-/// auto generated
-Blockly.Msg.ADD_CHILD_AT_FIELD_2 = 'to';
-/// auto generated
-Blockly.Msg.ADD_CHILD_AT_FIELD_3 = 'at index';
+Blockly.Msg.ADD_CHILD_AT = 'add child';
 /// auto generated
 Blockly.Msg.ADD_CHILD_AT_TOOLTIP = 'Add a child to a sprite at a specific index so you can find it later. This will make them move together.';
 /// auto generated
 Blockly.Msg.ADD_CHILD_AT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#addChildAt';
 /// auto generated
-Blockly.Msg.ADD_CHILD_AT_VI_FIELD_1 = 'add child';
-/// auto generated
-Blockly.Msg.ADD_CHILD_AT_VI_FIELD_2 = 'to';
-/// auto generated
-Blockly.Msg.ADD_CHILD_AT_VI_FIELD_3 = 'at index';
+Blockly.Msg.ADD_CHILD_AT_VI = 'add child';
 /// auto generated
 Blockly.Msg.ADD_CHILD_AT_VI_TOOLTIP = 'Add a child to a sprite at a specific index so you can find it later. This will make them move together.';
 /// auto generated
 Blockly.Msg.ADD_CHILD_AT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#addChildAt';
 /// auto generated
-Blockly.Msg.ALIGN_IN_FIELD_1 = 'align';
+Blockly.Msg.ALIGN_IN_OFFSET_X = 'offset x pixels';
 /// auto generated
-Blockly.Msg.ALIGN_IN_FIELD_2 = 'inside';
-/// auto generated
-Blockly.Msg.ALIGN_IN_FIELD_3 = 'at the';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_1 = 'top left';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_2 = 'top center';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_3 = 'top right';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_4 = 'left center';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_5 = 'center';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_6 = 'right center';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_7 = 'bottom left';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_8 = 'bottom center';
-/// auto generated
-Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_9 = 'bottom right';
-/// auto generated
-Blockly.Msg.ALIGN_IN_FIELD_4 = 'offset x pixels';
-/// auto generated
-Blockly.Msg.ALIGN_IN_FIELD_5 = 'offset y pixels';
+Blockly.Msg.ALIGN_IN_OFFSET_Y = 'offset y pixels';
 /// auto generated
 Blockly.Msg.ALIGN_IN_TOOLTIP = 'Aligns this Game Object within another Game Object, or Rectangle, to one of 9 possible positions.';
 /// auto generated
 Blockly.Msg.ALIGN_IN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#alignIn';
 /// auto generated
-Blockly.Msg.ALIGN_TO_FIELD_1 = 'align';
+Blockly.Msg.ALIGN_TO_OFFSET_X = 'offset x pixels';
 /// auto generated
-Blockly.Msg.ALIGN_TO_FIELD_2 = 'to';
-/// auto generated
-Blockly.Msg.ALIGN_TO_FIELD_3 = 'at the';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_1 = 'top left';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_2 = 'top center';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_3 = 'top right';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_4 = 'left top';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_5 = 'left center';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_6 = 'left bottom';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_7 = 'right top';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_8 = 'right center';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_9 = 'right bottom';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_10 = 'bottom left';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_11 = 'bottom center';
-/// auto generated
-Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_12 = 'bottom right';
-/// auto generated
-Blockly.Msg.ALIGN_TO_FIELD_4 = 'offset x pixels';
-/// auto generated
-Blockly.Msg.ALIGN_TO_FIELD_5 = 'offset y pixels';
+Blockly.Msg.OFFSET_Y = 'offset y pixels';
 /// auto generated
 Blockly.Msg.ALIGN_TO_TOOLTIP = 'Aligns this Game Object to the side of another Game Object, or Rectangle, in one of 12 possible positions.';
 /// auto generated
 Blockly.Msg.ALIGN_TO_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#alignTo';
 /// auto generated
-Blockly.Msg.BRING_TO_TOP_FIELD_1 = 'bring';
+Blockly.Msg.BRING_TO_TOP = 'bring';
 /// auto generated
-Blockly.Msg.BRING_TO_TOP_FIELD_2 = 'to the front';
+Blockly.Msg.BRING_TO_TOP_FRONT = 'to the front';
 /// auto generated
 Blockly.Msg.BRING_TO_TOP_TOOLTIP = 'Brings this sprite/image to the front of the display order. In case of overlapping sprites, this one will draw on top of everything else.';
 /// auto generated
 Blockly.Msg.BRING_TO_TOP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#bringToTop';
 /// auto generated
-Blockly.Msg.CHECK_WORLD_BOUNDS_FIELD_1 = 'make';
-/// auto generated
-Blockly.Msg.CHECK_WORLD_BOUNDS_FIELD_2 = 'check to see if it\'s inside the world?';
+Blockly.Msg.CHECK_WORLD_BOUNDS = 'check to see if it\'s inside the world?';
 /// auto generated
 Blockly.Msg.CHECK_WORLD_BOUNDS_TOOLTIP = 'This object will start checking if it\'s inside the world every frame. This takes time, so it\'s disabled by default.';
 /// auto generated
 Blockly.Msg.CHECK_WORLD_BOUNDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#checkWorldBounds';
 /// auto generated
-Blockly.Msg.CONTAINS_FIELD_1 = 'is';
-/// auto generated
-Blockly.Msg.CONTAINS_FIELD_2 = 'a child of';
-/// auto generated
-Blockly.Msg.CONTAINS_FIELD_3 = '?';
-/// auto generated
 Blockly.Msg.CONTAINS_TOOLTIP = 'Checks to see if one sprite is the child of another.';
 /// auto generated
 Blockly.Msg.CONTAINS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#contains';
-/// auto generated
-Blockly.Msg.CONTAINS_VI_FIELD_1 = 'is';
-/// auto generated
-Blockly.Msg.CONTAINS_VI_FIELD_2 = 'a child of';
-/// auto generated
-Blockly.Msg.CONTAINS_VI_FIELD_3 = '?';
 /// auto generated
 Blockly.Msg.CONTAINS_VI_TOOLTIP = 'Checks to see if one sprite is the child of another.';
 /// auto generated
 Blockly.Msg.CONTAINS_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#contains';
 /// auto generated
-Blockly.Msg.CROP_FIELD_1 = 'crop';
-/// auto generated
-Blockly.Msg.CROP_FIELD_2 = 'to';
+Blockly.Msg.CROP = 'crop';
 /// auto generated
 Blockly.Msg.CROP_TOOLTIP = 'crop a sprite to an area defined by a rectangle or other object';
 /// auto generated
 Blockly.Msg.CROP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#crop';
 /// auto generated
-Blockly.Msg.CLEAR_CROPPING_FIELD_1 = 'stop cropping';
+Blockly.Msg.CLEAR_CROPPING = 'stop cropping';
 /// auto generated
 Blockly.Msg.CLEAR_CROPPING_TOOLTIP = 'Removes any cropping from a sprite.';
 /// auto generated
 Blockly.Msg.CLEAR_CROPPING_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#crop';
 /// auto generated
-Blockly.Msg.DESTROY_SPRITE_FIELD_1 = 'destroy';
-/// auto generated
-Blockly.Msg.DESTROY_SPRITE_FIELD_2 = 'children too?';
+Blockly.Msg.DESTROY_SPRITE = 'children too?';
 /// auto generated
 Blockly.Msg.DESTROY_SPRITE_TOOLTIP = 'Deletes a sprite from the game, with an option to delete its children too.';
 /// auto generated
 Blockly.Msg.DESTROY_SPRITE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#destroy';
 /// auto generated
-Blockly.Msg.GET_CHILD_AT_VI_FIELD_1 = 'get child of';
-/// auto generated
-Blockly.Msg.GET_CHILD_AT_VI_FIELD_2 = 'at index';
+Blockly.Msg.GET_CHILD_AT_VI = 'get child of';
 /// auto generated
 Blockly.Msg.GET_CHILD_AT_VI_TOOLTIP = 'Finds a specific child on this sprite/image by its index.';
 /// auto generated
 Blockly.Msg.GET_CHILD_AT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#getChildAt';
 /// auto generated
-Blockly.Msg.GET_CHILD_INDEX_FIELD_1 = 'Get index of Child';
-/// auto generated
-Blockly.Msg.GET_CHILD_INDEX_FIELD_2 = 'on ';
+Blockly.Msg.GET_CHILD_INDEX = 'Get index of Child';
 /// auto generated
 Blockly.Msg.GET_CHILD_INDEX_TOOLTIP = 'Finds an index that describes where on the parent this object is. ';
 /// auto generated
 Blockly.Msg.GET_CHILD_INDEX_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#getChildIndex';
 /// auto generated
-Blockly.Msg.GET_CHILD_INDEX_VI_FIELD_1 = 'get index of child';
-/// auto generated
-Blockly.Msg.GET_CHILD_INDEX_VI_FIELD_2 = 'on ';
+Blockly.Msg.GET_CHILD_INDEX_VI = 'get index of child';
 /// auto generated
 Blockly.Msg.GET_CHILD_INDEX_VI_TOOLTIP = 'Finds an index that describes where on the parent this object is. ';
 /// auto generated
 Blockly.Msg.GET_CHILD_INDEX_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#getChildIndex';
 /// auto generated
-Blockly.Msg.LOAD_TEXTURE_FIELD_1 = 'change texture of';
+Blockly.Msg.LOAD_TEXTURE = 'change texture of';
 /// auto generated
-Blockly.Msg.LOAD_TEXTURE_FIELD_2 = 'to tag';
+Blockly.Msg.LOAD_TEXTURE_TAG = 'to tag';
 /// auto generated
 Blockly.Msg.LOAD_TEXTURE_TOOLTIP = 'This changes the texture of this sprite/image entirely. If it is part of a sprite sheet. Warning: slow.';
 /// auto generated
 Blockly.Msg.LOAD_TEXTURE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#loadTexture';
 /// auto generated
-Blockly.Msg.MOVE_DOWN_FIELD_1 = 'move';
-/// auto generated
-Blockly.Msg.MOVE_DOWN_FIELD_2 = 'down';
+Blockly.Msg.MOVE_DOWN = 'down';
 /// auto generated
 Blockly.Msg.MOVE_DOWN_TOOLTIP = 'Moves this sprite/image down one place in the display order. If sprites overlap, it will be more likely to display underneath others.';
 /// auto generated
 Blockly.Msg.MOVE_DOWN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#moveDown';
 /// auto generated
-Blockly.Msg.MOVE_UP_FIELD_1 = 'move';
-/// auto generated
-Blockly.Msg.MOVE_UP_FIELD_2 = 'up';
-/// auto generated
 Blockly.Msg.MOVE_UP_TOOLTIP = 'Moves this sprite up one place in the display order. If sprites overlap, it will be more likely to display on top of others.';
 /// auto generated
 Blockly.Msg.MOVE_UP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#moveUp';
 /// auto generated
-Blockly.Msg.SPRITE_OVERLAP_FIELD_1 = 'does';
-/// auto generated
-Blockly.Msg.SPRITE_OVERLAP_FIELD_2 = 'overlap with';
-/// auto generated
-Blockly.Msg.SPRITE_OVERLAP_FIELD_3 = '?';
+Blockly.Msg.SPRITE_OVERLAP = 'overlap with';
 /// auto generated
 Blockly.Msg.SPRITE_OVERLAP_TOOLTIP = 'Checks to see if the rectangular bounds of the two given sprites overlap. Not a good substitute for the physics engine, but fine for something like UI.';
 /// auto generated
 Blockly.Msg.SPRITE_OVERLAP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#overlap';
 /// auto generated
-Blockly.Msg.OUT_OF_BOUNDS_KILL_FIELD_1 = 'make';
-/// auto generated
-Blockly.Msg.OUT_OF_BOUNDS_KILL_FIELD_2 = 'get deleted if it leaves the world?';
+Blockly.Msg.OUT_OF_BOUNDS_KILL = 'get deleted if it leaves the world?';
 /// auto generated
 Blockly.Msg.OUT_OF_BOUNDS_KILL_TOOLTIP = 'Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.';
 /// auto generated
 Blockly.Msg.OUT_OF_BOUNDS_KILL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#outOfBoundsKill';
 /// auto generated
-Blockly.Msg.OUT_OF_BOUNDS_FAINT_FIELD_1 = 'make';
-/// auto generated
-Blockly.Msg.OUT_OF_BOUNDS_FAINT_FIELD_2 = 'get deleted if it leaves the world?';
+Blockly.Msg.OUT_OF_BOUNDS_FAINT = 'get deleted if it leaves the world?';
 /// auto generated
 Blockly.Msg.OUT_OF_BOUNDS_FAINT_TOOLTIP = 'Will automatically destroy this object if it goes outside the world bounds. Warning: this will not work on objects that are not checking to see if they are inside the world.';
 /// auto generated
 Blockly.Msg.OUT_OF_BOUNDS_FAINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#outOfBoundsKill';
 /// auto generated
-Blockly.Msg.REMOVE_CHILD_FIELD_1 = 'remove child';
-/// auto generated
-Blockly.Msg.REMOVE_CHILD_FIELD_2 = 'from';
+Blockly.Msg.REMOVE_CHILD = 'remove child';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_TOOLTIP = 'Makes this sprite/image stop being a child and moving with its parent.';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#removeChild';
 /// auto generated
-Blockly.Msg.REMOVE_CHILD_VI_FIELD_1 = 'remove child';
-/// auto generated
-Blockly.Msg.REMOVE_CHILD_VI_FIELD_2 = 'from';
+Blockly.Msg.REMOVE_CHILD_VI = 'remove child';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_VI_TOOLTIP = 'Makes this sprite/image stop being a child and moving with its parent.';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#removeChild';
 /// auto generated
-Blockly.Msg.REMOVE_CHILD_AT_VI_FIELD_1 = 'remove the child at index';
-/// auto generated
-Blockly.Msg.REMOVE_CHILD_AT_VI_FIELD_2 = 'from';
+Blockly.Msg.REMOVE_CHILD_AT_VI = 'remove the child at index';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_AT_VI_TOOLTIP = 'Finds the child at the given index and removes it from its parent. It will no longer move with the parent.';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_AT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#removeChildAt';
 /// auto generated
-Blockly.Msg.REMOVE_CHILD_AT_FIELD_1 = 'remove the child at index';
-/// auto generated
-Blockly.Msg.REMOVE_CHILD_AT_FIELD_2 = 'from';
+Blockly.Msg.REMOVE_CHILD_AT = 'remove the child at index';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_AT_TOOLTIP = 'Finds the child at the given index and removes it from its parent. It will no longer move with the parent.';
 /// auto generated
 Blockly.Msg.REMOVE_CHILD_AT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#removeChildAt';
 /// auto generated
-Blockly.Msg.REMOVE_CHILDREN_FIELD_1 = 'remove all children from';
+Blockly.Msg.REMOVE_CHILDREN = 'remove all children from';
 /// auto generated
 Blockly.Msg.REMOVE_CHILDREN_TOOLTIP = 'Removes all children from the parent. They will all stop moving together.';
 /// auto generated
 Blockly.Msg.REMOVE_CHILDREN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#removeChildren';
 /// auto generated
-Blockly.Msg.REMOVE_CHILDREN_VI_FIELD_1 = 'remove all children from';
+Blockly.Msg.REMOVE_CHILDREN_VI = 'remove all children from';
 /// auto generated
 Blockly.Msg.REMOVE_CHILDREN_VI_TOOLTIP = 'Removes all children from the parent. They will all stop moving together.';
 /// auto generated
 Blockly.Msg.REMOVE_CHILDREN_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#removeChildren';
 /// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_FIELD_1 = 'add animation to';
+Blockly.Msg.ADD_ANIMATION_VI = 'add animation to';
 /// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_FIELD_2 = 'tagged';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_NAME_TEXT_DEFAULT = 'name';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_FIELD_3 = 'with frames';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_FIELD_4 = 'displayed at';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_FIELD_5 = 'FPS';
-/// auto generated
-Blockly.Msg.ADD_ANIMATION_VI_FIELD_6 = 'loop';
+Blockly.Msg.DISPLAYED_AT = 'displayed at';
 /// auto generated
 Blockly.Msg.ADD_ANIMATION_VI_TOOLTIP = 'Add an animation to an object based on a list of frames';
 /// auto generated
 Blockly.Msg.ADD_ANIMATION_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#add';
 /// auto generated
-Blockly.Msg.PLAY_ANIMATION_VI_FIELD_1 = 'play animation';
-/// auto generated
-Blockly.Msg.PLAY_ANIMATION_VI_FIELD_2 = 'on';
+Blockly.Msg.PLAY_ANIMATION_VI = 'play animation';
 /// auto generated
 Blockly.Msg.PLAY_ANIMATION_VI_TOOLTIP = 'Plays an animation on the given sprite.';
 /// auto generated
 Blockly.Msg.PLAY_ANIMATION_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#play';
 /// auto generated
-Blockly.Msg.ANIMATION_NEXT_FIELD_1 = 'increment current animation by';
-/// auto generated
-Blockly.Msg.ANIMATION_NEXT_FIELD_2 = 'on ';
+Blockly.Msg.ANIMATION_NEXT = 'increment current animation by';
 /// auto generated
 Blockly.Msg.ANIMATION_NEXT_TOOLTIP = 'Increment the current animation by a given amount of frames.';
 /// auto generated
 Blockly.Msg.ANIMATION_NEXT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#next';
 /// auto generated
-Blockly.Msg.ANIMATION_PREVIOUS_FIELD_1 = 'decrement current animation by';
-/// auto generated
-Blockly.Msg.ANIMATION_PREVIOUS_FIELD_2 = 'on ';
+Blockly.Msg.ANIMATION_PREVIOUS = 'decrement current animation by';
 /// auto generated
 Blockly.Msg.ANIMATION_PREVIOUS_TOOLTIP = 'Decrement the current animation by a given amount of frames.';
 /// auto generated
 Blockly.Msg.ANIMATION_PREVIOUS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#previous';
 /// auto generated
-Blockly.Msg.ANIMATION_NEXT_VI_FIELD_1 = 'increment current animation by';
-/// auto generated
-Blockly.Msg.ANIMATION_NEXT_VI_FIELD_2 = 'frames';
-/// auto generated
-Blockly.Msg.ANIMATION_NEXT_VI_FIELD_3 = 'for';
+Blockly.Msg.ANIMATION_NEXT_VI = 'increment current animation by';
 /// auto generated
 Blockly.Msg.ANIMATION_NEXT_VI_TOOLTIP = 'Increment the current animation by a given amount of frames.';
 /// auto generated
 Blockly.Msg.ANIMATION_NEXT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#next';
 /// auto generated
-Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_1 = 'decrement current animation by';
-/// auto generated
-Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_2 = 'frames';
-/// auto generated
-Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_3 = 'for';
+Blockly.Msg.ANIMATION_PREVIOUS_VI = 'decrement current animation by';
 /// auto generated
 Blockly.Msg.ANIMATION_PREVIOUS_VI_TOOLTIP = 'Decrement the current animation by a given amount of frames.';
 /// auto generated
 Blockly.Msg.ANIMATION_PREVIOUS_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#previous';
 /// auto generated
-Blockly.Msg.REFRESH_FRAME_FIELD_1 = 'refresh frame of ';
+Blockly.Msg.REFRESH_FRAME = 'refresh frame of ';
 /// auto generated
 Blockly.Msg.REFRESH_FRAME_TOOLTIP = 'Refreshes the current frame data back to the parent Sprite and also resets the texture data.';
 /// auto generated
 Blockly.Msg.REFRESH_FRAME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#refreshFrame';
 /// auto generated
-Blockly.Msg.ANIMATION_UPDATE_FIELD_1 = 'frame update of ';
+Blockly.Msg.ANIMATION_UPDATE = 'frame update of ';
 /// auto generated
 Blockly.Msg.ANIMATION_UPDATE_TOOLTIP = 'Internal method do not call';
 /// auto generated
 Blockly.Msg.ANIMATION_UPDATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#update';
 /// auto generated
-Blockly.Msg.VALIDATE_FRAMES_FIELD_1 = 'validate animation frames of ';
+Blockly.Msg.VALIDATE_FRAMES = 'validate animation frames of ';
 /// auto generated
-Blockly.Msg.VALIDATE_FRAMES_FIELD_2 = 'array of frames';
+Blockly.Msg.VALIDATE_FRAMES_ARRAY = 'array of frames';
 /// auto generated
 Blockly.Msg.VALIDATE_FRAMES_TOOLTIP = 'Validates the frames on the given Sprite.';
 /// auto generated
 Blockly.Msg.VALIDATE_FRAMES_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames';
 /// auto generated
-Blockly.Msg.VALIDATE_FRAMES_VI_FIELD_1 = 'validate animation frames of ';
+Blockly.Msg.VALIDATE_FRAMES_VI = 'validate animation frames of ';
 /// auto generated
-Blockly.Msg.VALIDATE_FRAMES_VI_FIELD_2 = 'array of frames';
+Blockly.Msg.VALIDATE_FRAMES_VI_ARRAY = 'array of frames';
 /// auto generated
 Blockly.Msg.VALIDATE_FRAMES_VI_TOOLTIP = 'Validates the frames on the given Sprite.';
 /// auto generated
 Blockly.Msg.VALIDATE_FRAMES_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames';
 /// auto generated
-Blockly.Msg.ANIMATION_DESTROY_FIELD_1 = 'destroy all animations in animation manager of ';
+Blockly.Msg.ANIMATION_DESTROY = 'destroy all animations in animation manager of ';
 /// auto generated
 Blockly.Msg.ANIMATION_DESTROY_TOOLTIP = 'Destroy all animations on the object.';
 /// auto generated
 Blockly.Msg.ANIMATION_DESTROY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames';
 /// auto generated
-Blockly.Msg.ANIMATION_DESTROY_VI_FIELD_1 = 'destroy all animations in animation manager of ';
+Blockly.Msg.ANIMATION_DESTROY_VI = 'destroy all animations in animation manager of ';
 /// auto generated
 Blockly.Msg.ANIMATION_DESTROY_VI_TOOLTIP = 'Destroy all animations on the object.';
 /// auto generated
 Blockly.Msg.ANIMATION_DESTROY_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#destroy';
 /// auto generated
-Blockly.Msg.STOP_ANIMATION_VI_FIELD_1 = 'stop animation on';
+Blockly.Msg.STOP_ANIMATION_VI = 'stop animation on';
 /// auto generated
 Blockly.Msg.STOP_ANIMATION_VI_TOOLTIP = 'Stops the current animation on the specified Sprite';
 /// auto generated
 Blockly.Msg.STOP_ANIMATION_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Animation.html#stop';
 /// auto generated
-Blockly.Msg.SET_FRAME_VI_FIELD_1 = 'set current frame # to';
-/// auto generated
-Blockly.Msg.SET_FRAME_VI_FIELD_2 = 'for';
+Blockly.Msg.SET_FRAME_VI = 'set current frame # to';
 /// auto generated
 Blockly.Msg.SET_FRAME_VI_TOOLTIP = 'Sets the current frame number on the specified object';
 /// auto generated
 Blockly.Msg.SET_FRAME_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Animation.html#frame';
 /// auto generated
-Blockly.Msg.SEND_TO_BACK_FIELD_1 = 'send';
-/// auto generated
-Blockly.Msg.SEND_TO_BACK_FIELD_2 = 'to the back';
+Blockly.Msg.SEND_TO_BACK = 'to the back';
 /// auto generated
 Blockly.Msg.SEND_TO_BACK_TOOLTIP = 'Sends this sprite/image to the back of the display order. In case of overlapping sprites, it will draw behind everything else.';
 /// auto generated
 Blockly.Msg.SEND_TO_BACK_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#sendToBack';
 /// auto generated
-Blockly.Msg.SET_CHILD_INDEX_FIELD_1 = 'move the child';
+Blockly.Msg.SET_CHILD_INDEX_CHILD = 'move the child';
 /// auto generated
-Blockly.Msg.SET_CHILD_INDEX_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_CHILD_INDEX_FIELD_3 = 'to index';
+Blockly.Msg.SET_CHILD_INDEX = 'to index';
 /// auto generated
 Blockly.Msg.SET_CHILD_INDEX_TOOLTIP = 'Moves the child to a specific index on its parent. This will affect how you find it in the future.';
 /// auto generated
 Blockly.Msg.SET_CHILD_INDEX_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#setChildIndex';
 /// auto generated
-Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_1 = 'move the child';
-/// auto generated
-Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_3 = 'to index';
+Blockly.Msg.SET_CHILD_INDEX_CHILD = 'move the child';
 /// auto generated
 Blockly.Msg.SET_CHILD_INDEX_VI_TOOLTIP = 'Moves the child to a specific index on its parent. This will affect how you find it in the future.';
 /// auto generated
 Blockly.Msg.SET_CHILD_INDEX_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#setChildIndex';
 /// auto generated
-Blockly.Msg.SET_SPRITE_FRAME_FIELD_1 = 'Set texture frame of';
-/// auto generated
-Blockly.Msg.SET_SPRITE_FRAME_FIELD_2 = 'to';
+Blockly.Msg.SET_SPRITE_FRAME = 'Set texture frame of';
 /// auto generated
 Blockly.Msg.SET_SPRITE_FRAME_TOOLTIP = 'Sets the Texture frame the Sprite uses for rendering. This is primarily an internal method used by Sprite.loadTexture, although you may call it directly.';
 /// auto generated
 Blockly.Msg.SET_SPRITE_FRAME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#setFrame';
 /// auto generated
-Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_1 = 'set scale constraints on';
-/// auto generated
-Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_2 = 'min X';
-/// auto generated
-Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_3 = 'min Y';
-/// auto generated
-Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_4 = 'max X';
-/// auto generated
-Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_5 = 'max Y';
+Blockly.Msg.SET_SCALE_MIN_MAX = 'set scale constraints on';
 /// auto generated
 Blockly.Msg.SET_SCALE_MIN_MAX_TOOLTIP = 'Limits how far this sprite will scale based on its parent.';
 /// auto generated
 Blockly.Msg.SET_SCALE_MIN_MAX_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#setScaleMinMax';
 /// auto generated
-Blockly.Msg.CLEAR_SCALE_MIN_MAX_FIELD_1 = 'clear scale constraints on';
+Blockly.Msg.CLEAR_SCALE_MIN_MAX = 'clear scale constraints on';
 /// auto generated
 Blockly.Msg.CLEAR_SCALE_MIN_MAX_TOOLTIP = 'If scaling constraints were set on a sprite, this removes them.';
 /// auto generated
 Blockly.Msg.CLEAR_SCALE_MIN_MAX_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#setScaleMinMax';
 /// auto generated
-Blockly.Msg.SET_TEXTURE_FIELD_1 = 'Set texture of';
-/// auto generated
-Blockly.Msg.SET_TEXTURE_FIELD_2 = 'to';
+Blockly.Msg.SET_TEXTURE = 'Set texture of';
 /// auto generated
 Blockly.Msg.SET_TEXTURE_TOOLTIP = 'Sets the texture of the sprite. Be warned that this doesn\'t remove or destroy the previous texture this Sprite was using. Note that this takes a specific texture, not a tag.';
 /// auto generated
 Blockly.Msg.SET_TEXTURE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#setTexture';
 /// auto generated
-Blockly.Msg.SWAP_CHILDREN_FIELD_1 = 'swap children of';
+Blockly.Msg.SWAP_CHILDREN = 'swap children of';
 /// auto generated
-Blockly.Msg.SWAP_CHILDREN_FIELD_2 = 'child 1';
+Blockly.Msg.SWAP_CHILDREN_1 = 'child 1';
 /// auto generated
-Blockly.Msg.SWAP_CHILDREN_FIELD_3 = 'child 2';
+Blockly.Msg.SWAP_CHILDREN_2 = 'child 2';
 /// auto generated
 Blockly.Msg.SWAP_CHILDREN_TOOLTIP = 'Swaps the indices of the given children. They must both be on the same parent.';
 /// auto generated
 Blockly.Msg.SWAP_CHILDREN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#swapChildren';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_1 = 'on gameobject';
+Blockly.Msg.GET_ANIMATION_PROPERTY = 'get animation.';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_2 = 'get animation.';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_CURRENTANIM = 'currentAnim';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_1 = 'currentAnim';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_CURRENTFRAME = 'currentFrame';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_2 = 'currentFrame';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_FRAMEDATA = 'frameData';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_3 = 'frame';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_FRAMENAME = 'frameName';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_4 = 'frameData';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_FRAMETOTAL = 'frameTotal';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_5 = 'frameName';
+Blockly.Msg.GAME = 'game';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_6 = 'frameTotal';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_ISLOADED = 'isLoaded';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_7 = 'game';
+Blockly.Msg.PAUSED = 'paused';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_8 = 'isLoaded';
+Blockly.Msg.SPRITE = 'sprite';
 /// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_9 = 'name';
-/// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_10 = 'paused';
-/// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_11 = 'sprite';
-/// auto generated
-Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_12 = 'updateIfVisible';
+Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_UPDATE = 'updateIfVisible';
 /// auto generated
 Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP = 'Get a property on from the animaton manager on the object';
 /// auto generated
 Blockly.Msg.GET_ANIMATION_PROPERTY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#destroy';
 /// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_1 = 'set animation.';
+Blockly.Msg.SET_ANIMATION_PROPERTY = 'set animation.';
 /// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_1 = 'frame';
+Blockly.Msg.FRAME = 'frame';
 /// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_2 = 'frameName';
+Blockly.Msg.SET_ANIMATION_PROPERTY_DROPDOWN_FRAMENAME = 'frameName';
 /// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_3 = 'paused';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_4 = 'updateIfVisible';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_2 = 'on ';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_3 = 'to';
+Blockly.Msg.SET_ANIMATION_PROPERTY_DROPDOWN_UPDATE = 'updateIfVisible';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_TOOLTIP = 'Set a property from the animation manager on the object';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#destroy';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_1 = 'set animation.';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_1 = 'paused';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_2 = 'updateIfVisible';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_2 = 'on ';
-/// auto generated
-Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_3 = 'to';
 /// auto generated
 Blockly.Msg.SET_ANIMATION_PROPERTY_VI_TOOLTIP = 'Set a property from the animation manager on the object';
 /// auto generated
@@ -2053,337 +1789,199 @@ Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.ed
 Blockly.Msg.GET_ANIMATION_STRING_FIELD_TOOLTIP = 'Gets the string selected from the specified object.';
 Blockly.Msg.GET_ANIMATION_STRING_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Animation.html';
 /// auto generated
-Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_1 = 'on gameobject';
+Blockly.Msg.ANIMATION_GET_ANIMATION = 'on gameobject';
 /// auto generated
-Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_2 = 'get animation by name';
-/// auto generated
-Blockly.Msg.ANIMATION_GET_ANIMATION_NAME_TEXT_DEFAULT = 'default';
+Blockly.Msg.ANIMATION_GET_ANIMATION_NAME = 'get animation by name';
 /// auto generated
 Blockly.Msg.ANIMATION_GET_ANIMATION_TOOLTIP = 'Returns an animation that was previously added by name.';
 /// auto generated
 Blockly.Msg.ANIMATION_GET_ANIMATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#getAnimation';
 /// auto generated
-Blockly.Msg.CREATE_GROUP_FIELD_1 = 'create group';
+Blockly.Msg.CREATE_GROUP = 'create group';
 /// auto generated
 Blockly.Msg.CREATE_GROUP_TOOLTIP = 'Create a new group of display objects';
 /// auto generated
 Blockly.Msg.CREATE_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.GameObjectFactory.html#group';
 /// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_1 = 'create object at';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_4 = 'from tag';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_TAG_TEXT_DEFAULT = 'default';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_5 = 'in the';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_6 = 'group';
+Blockly.Msg.CREATE_OBJECT_IN_GROUP = 'create object at';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_TOOLTIP = 'Create a new sprite in the group';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#create';
 /// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_1 = 'create object at';
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME = 'create object at';
 /// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_4 = 'from tag';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_TAG_TEXT_DEFAULT = 'default';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_5 = 'in the';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_6 = 'group';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_7 = 'displaying frame #';
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_NUMBER = 'displaying frame #';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_TOOLTIP = 'Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#create';
 /// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_1 = 'create object at';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_4 = 'from tag';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_5 = 'in group';
-/// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_TOOLTIP = 'Create a new sprite in the group';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#create';
 /// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_1 = 'create object at';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_4 = 'from tag';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_5 = 'in group';
-/// auto generated
-Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_6 = 'displaying frame';
+Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI = 'displaying frame';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_TOOLTIP = 'Creates a sprite in the new group using the specified frame from a sprite sheet or texture atlas';
 /// auto generated
 Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#create';
 /// auto generated
-Blockly.Msg.ADD_TO_GROUP_FIELD_1 = 'add';
-/// auto generated
-Blockly.Msg.ADD_TO_GROUP_FIELD_2 = 'to group';
+Blockly.Msg.ADD_TO_GROUP = 'to group';
 /// auto generated
 Blockly.Msg.ADD_TO_GROUP_TOOLTIP = 'Adds an existing object to a group.';
 /// auto generated
 Blockly.Msg.ADD_TO_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#add';
 /// auto generated
-Blockly.Msg.REMOVE_FROM_GROUP_FIELD_1 = 'remove';
+Blockly.Msg.REMOVE_FROM_GROUP = 'from group';
 /// auto generated
-Blockly.Msg.REMOVE_FROM_GROUP_FIELD_2 = 'from group';
-/// auto generated
-Blockly.Msg.REMOVE_FROM_GROUP_FIELD_3 = 'destroy it too';
+Blockly.Msg.REMOVE_FROM_GROUP_DESTROY = 'destroy it too';
 /// auto generated
 Blockly.Msg.REMOVE_FROM_GROUP_TOOLTIP = 'Removes an object from a group. Optionally, destroy it as well.';
 /// auto generated
 Blockly.Msg.REMOVE_FROM_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#remove';
 /// auto generated
-Blockly.Msg.GROUP_CONTAINS_FIELD_1 = 'group';
-/// auto generated
-Blockly.Msg.GROUP_CONTAINS_FIELD_2 = 'contains';
-/// auto generated
-Blockly.Msg.GROUP_CONTAINS_FIELD_3 = '?';
-/// auto generated
 Blockly.Msg.GROUP_CONTAINS_TOOLTIP = 'Returns true if a group contains a specified sprite.';
 /// auto generated
 Blockly.Msg.GROUP_CONTAINS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#contains';
 /// auto generated
-Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_FIELD_1 = 'number of';
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD = 'number of';
 /// auto generated
-Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_STATE_DROPDOWN_1 = 'alive';
-/// auto generated
-Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_STATE_DROPDOWN_2 = 'fainted';
-/// auto generated
-Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_FIELD_2 = 'objects in group';
+Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_OBJECTS = 'objects in group';
 /// auto generated
 Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_TOOLTIP = 'Returns the number of alive/dead objects in a group.';
 /// auto generated
 Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#countLiving';
 /// auto generated
-Blockly.Msg.DESTROY_GROUP_FIELD_1 = 'destroy group';
+Blockly.Msg.DESTROY_GROUP = 'destroy group';
 /// auto generated
-Blockly.Msg.DESTROY_GROUP_FIELD_2 = 'destroy members too';
+Blockly.Msg.DESTROY_GROUP_MEMBERS = 'destroy members too';
 /// auto generated
 Blockly.Msg.DESTROY_GROUP_TOOLTIP = 'Destroys a group. Can either leave the members where they are, or destroy them too.';
 /// auto generated
 Blockly.Msg.DESTROY_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#destroy';
 /// auto generated
-Blockly.Msg.GROUP_GET_ALL_FIELD_1 = 'get all members of group';
+Blockly.Msg.GROUP_GET_ALL = 'get all members of group';
 /// auto generated
 Blockly.Msg.GROUP_GET_ALL_TOOLTIP = 'Returns a list of all members in the specified group.';
 /// auto generated
 Blockly.Msg.GROUP_GET_ALL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getAll';
 /// auto generated
-Blockly.Msg.GROUP_GET_AT_FIELD_1 = 'get member of group';
-/// auto generated
-Blockly.Msg.GROUP_GET_AT_FIELD_2 = 'at index';
+Blockly.Msg.GROUP_GET_AT = 'get member of group';
 /// auto generated
 Blockly.Msg.GROUP_GET_AT_TOOLTIP = 'Returns a group member at a specified index. Indices start at 0 and go in creation order by default. Returns -1 if it fails.';
 /// auto generated
 Blockly.Msg.GROUP_GET_AT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getAt';
 /// auto generated
-Blockly.Msg.GROUP_GET_CLOSEST_TO_FIELD_1 = 'get member of group';
+Blockly.Msg.GROUP_GET_CLOSEST_TO_MEMBER = 'get member of group';
 /// auto generated
-Blockly.Msg.GROUP_GET_CLOSEST_TO_FIELD_2 = 'closest to';
+Blockly.Msg.GROUP_GET_CLOSEST_TO = 'closest to';
 /// auto generated
 Blockly.Msg.GROUP_GET_CLOSEST_TO_TOOLTIP = 'Returns the object in the group whose position is closest to the specified object.';
 /// auto generated
 Blockly.Msg.GROUP_GET_CLOSEST_TO_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getClosestTo';
 /// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_FIELD_1 = 'get first';
-/// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_MODE_DROPDOWN_1 = 'alive';
-/// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_MODE_DROPDOWN_2 = 'dead';
-/// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_FIELD_2 = 'member of group';
-/// auto generated
 Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_TOOLTIP = 'Gets the first group member that has the given value of its \'alive\' field. Returns null if no matching member is found.';
 /// auto generated
 Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getFirstAlive';
 /// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_FIELD_1 = 'get first';
-/// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_MODE_DROPDOWN_1 = 'alive';
-/// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_MODE_DROPDOWN_2 = 'fainted';
-/// auto generated
-Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_FIELD_2 = 'member of group';
+Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED = 'get first';
 /// auto generated
 Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_TOOLTIP = 'Gets the first group member that has the given value of its \'alive\' field. Returns null if no matching member is found.';
 /// auto generated
 Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getFirstAlive';
 /// auto generated
-Blockly.Msg.GROUP_GET_RANDOM_FIELD_1 = 'get random member of group';
+Blockly.Msg.GROUP_GET_RANDOM = 'get random member of group';
 /// auto generated
 Blockly.Msg.GROUP_GET_RANDOM_TOOLTIP = 'Returns a member of the group at random with no bias.';
 /// auto generated
 Blockly.Msg.GROUP_GET_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getRandom';
 /// auto generated
-Blockly.Msg.GROUP_GET_RANDOM_EXISTS_FIELD_1 = 'get a random member of group';
+Blockly.Msg.GROUP_GET_RANDOM_EXISTS_GROUP = 'get a random member of group';
 /// auto generated
-Blockly.Msg.GROUP_GET_RANDOM_EXISTS_FIELD_2 = 'that exists';
+Blockly.Msg.GROUP_GET_RANDOM_EXISTS = 'that exists';
 /// auto generated
 Blockly.Msg.GROUP_GET_RANDOM_EXISTS_TOOLTIP = 'Returns a random member of the given group, picking from those whose \'exists\' field is set to true.';
 /// auto generated
 Blockly.Msg.GROUP_GET_RANDOM_EXISTS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#getRandomExists';
 /// auto generated
-Blockly.Msg.GROUP_REMOVE_ALL_FIELD_1 = 'remove all members of group';
+Blockly.Msg.GROUP_REMOVE_ALL = 'remove all members of group';
 /// auto generated
-Blockly.Msg.GROUP_REMOVE_ALL_FIELD_2 = 'destroy them too';
+Blockly.Msg.GROUP_REMOVE_ALL_DESTROY = 'destroy them too';
 /// auto generated
 Blockly.Msg.GROUP_REMOVE_ALL_TOOLTIP = 'Empties the specified group. Can either do this by releasing its members or deleting them.';
 /// auto generated
 Blockly.Msg.GROUP_REMOVE_ALL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#removeAll';
 /// auto generated
-Blockly.Msg.ADD_TO_WORLD_FIELD_1 = 'add';
-/// auto generated
-Blockly.Msg.ADD_TO_WORLD_FIELD_2 = 'to the world';
-/// auto generated
 Blockly.Msg.ADD_TO_WORLD_TOOLTIP = 'Adds an existing object to the world group. Necessary for making an object that has been previously removed from a  group visible again.';
 /// auto generated
 Blockly.Msg.ADD_TO_WORLD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.World.html#add';
 /// auto generated
-Blockly.Msg.START_PHYSICS_FIELD_1 = 'start';
+Blockly.Msg.START_PHYSICS = 'start';
 /// auto generated
-Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_1 = 'Arcade';
+Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_ARCADE = 'Arcade';
 /// auto generated
-Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_2 = 'P2JS';
+Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_P2JS = 'P2JS';
 /// auto generated
-Blockly.Msg.START_PHYSICS_FIELD_2 = 'physics system';
+Blockly.Msg.START_PHYSICS_SYSTEM = 'physics system';
 /// auto generated
 Blockly.Msg.START_PHYSICS_TOOLTIP = 'Start physics with the specified system';
 /// auto generated
 Blockly.Msg.START_PHYSICS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.html#startSystem';
 /// auto generated
-Blockly.Msg.START_ARCADE_PHYSICS_FIELD_1 = 'start arcade physics system';
+Blockly.Msg.START_ARCADE_PHYSICS = 'start arcade physics system';
 /// auto generated
 Blockly.Msg.START_ARCADE_PHYSICS_TOOLTIP = 'Start the specified arcade physics system';
 /// auto generated
 Blockly.Msg.START_ARCADE_PHYSICS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.html#startSystem';
 /// auto generated
-Blockly.Msg.ENABLE_BODY_GROUP_FIELD_1 = 'Enable Body for';
-/// auto generated
-Blockly.Msg.ENABLE_BODY_GROUP_FIELD_2 = 'Group';
+Blockly.Msg.ENABLE_BODY_GROUP = 'Enable Body for';
 /// auto generated
 Blockly.Msg.ENABLE_BODY_GROUP_TOOLTIP = 'Enable physics body on all sprites in or added to this group.';
 /// auto generated
 Blockly.Msg.ENABLE_BODY_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#enableBody';
 /// auto generated
-Blockly.Msg.ENABLE_BODY_GROUP_VI_FIELD_1 = 'enable body for group';
+Blockly.Msg.ENABLE_BODY_GROUP_VI = 'enable body for group';
 /// auto generated
 Blockly.Msg.ENABLE_BODY_GROUP_VI_TOOLTIP = 'Enable physics body on all sprites in or added to this group.';
 /// auto generated
 Blockly.Msg.ENABLE_BODY_GROUP_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#enableBody';
 /// auto generated
-Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_FIELD_1 = 'enable arcade physics for';
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT = 'enable arcade physics for';
 /// auto generated
 Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_TOOLTIP = 'Enable physics for this object';
 /// auto generated
 Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#enable';
 /// auto generated
-Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_FIELD_1 = 'enable arcade physics for sprite';
+Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI = 'enable arcade physics for sprite';
 /// auto generated
 Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_TOOLTIP = 'Enable physics for this sprite';
 /// auto generated
 Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#enable';
 /// auto generated
-Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_1 = 'collide';
-/// auto generated
-Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_2 = 'with';
-/// auto generated
-Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_3 = 'if collided do';
+Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION = 'if collided do';
 /// auto generated
 Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_TOOLTIP = 'Collide two objects, if they are collide do the statements in the block';
 /// auto generated
 Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#collide';
 /// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_1 = 'Set';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_1 = 'bounce';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_2 = 'gravity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_3 = 'velocity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_4 = 'acceleration';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_5 = 'drag';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_6 = 'friction';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_7 = 'maxVelocity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_8 = 'worldBounce';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_ELEMENT_DROPDOWN_1 = 'x';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_ELEMENT_DROPDOWN_2 = 'y';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_2 = 'for';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_3 = 'to';
-/// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_TOOLTIP = 'Set the x or y value of the specified field';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1 = 'set point field';
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1_5 = 'in the';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI = 'set point field';
 /// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_1 = 'bounce';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_DROPDOWN_DELTA = 'deltaMax';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_DROPDOWN_OFFSET = 'offset';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_DROPDOWN_TILE = 'tilePadding';
 /// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_2 = 'gravity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_3 = 'velocity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_4 = 'acceleration';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_5 = 'drag';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_6 = 'friction';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_7 = 'maxVelocity';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_8 = 'worldBounce';
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_9 = 'deltaMax';
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_10 = 'offset';
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_DROPDOWN_11 = 'tilePadding';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_1 = 'x';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_2 = 'y';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_2 = 'direction for';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_3 = 'to';
+Blockly.Msg.SET_BODY_FIELD_POINT_VI_DIRECTION = 'direction for';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_TOOLTIP = 'Set the x or y value of the specified field';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_1 = 'set point field';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2 = 'for';
-/// auto generated
-Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3 = 'to';
+Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI = 'set point field';
 /// auto generated
 Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_TOOLTIP = 'Set the value of the body point field';
 /// auto generated
@@ -2401,1481 +1999,1015 @@ Blockly.Msg.DEBUG_BODY_TOOLTIP = 'Enable debug information for the game object';
 Blockly.Msg.DEBUG_BODY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Utils.Debug.html#body';
 
 /// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_1 = 'get point field';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_1 = 'bounce';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_2 = 'gravity';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_3 = 'velocity';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_4 = 'acceleration';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_5 = 'drag';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_6 = 'friction';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_7 = 'maxVelocity';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_DROPDOWN_8 = 'worldBounce';
-/// auto generated
-Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_2 = 'for';
+Blockly.Msg.GET_BODY_FIELD_POINT_CLASS = 'get point field';
 /// auto generated
 Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_TOOLTIP = 'Gets the value of the specified point as a point object';
 /// auto generated
 Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1 = 'set boolean field';
-/// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2 = 'for';
-/// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_3 = 'to';
-/// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1 = 'allowRotation';
-/// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2 = 'allowGravity';
-/// auto generated
-Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3 = 'immovable';
+Blockly.Msg.SET_BODY_BOOLEAN_FIELD = 'set boolean field';
 /// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_TOOLTIP = 'Set the value of the specified boolean field';
 /// auto generated
 Blockly.Msg.SET_BODY_BOOLEAN_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_1 = 'get boolean field';
-/// auto generated
-Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1 = 'allowRotation';
-/// auto generated
-Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2 = 'allowGravity';
-/// auto generated
-Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3 = 'immovable';
-/// auto generated
-Blockly.Msg.GET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_4 = 'isMoving';
-/// auto generated
-Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_2 = 'for';
+Blockly.Msg.GET_BODY_BOOLEAN_DROPDOWN_MOVING = 'isMoving';
 /// auto generated
 Blockly.Msg.GET_BODY_BOOLEAN_FIELD_TOOLTIP = 'Set the value of the specified boolean field';
 /// auto generated
 Blockly.Msg.GET_BODY_BOOLEAN_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_1 = 'set numeric field';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_1 = 'mass';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_2 = 'rotation (degrees)';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_3 = 'angularAcceleration';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_4 = 'angularVelocity';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_5 = 'maxAngularVelocity';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_6 = 'angularDrag';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_2 = 'for';
-/// auto generated
-Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_3 = 'to';
+Blockly.Msg.SET_BODY_NUMERIC_FIELD = 'set numeric field';
 /// auto generated
 Blockly.Msg.SET_BODY_NUMERIC_FIELD_TOOLTIP = 'Set the value of the specified numeric field';
 /// auto generated
 Blockly.Msg.SET_BODY_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_1 = 'get numeric field';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_1 = 'speed';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_2 = 'mass';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_3 = 'rotation (degrees)';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_4 = 'maxVelocity';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_5 = 'angularAcceleration';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_6 = 'angularVelocity';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_7 = 'maxAngularVelocity';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_ELEMENT_DROPDOWN_8 = 'angularDrag';
-/// auto generated
-Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_2 = 'for';
+Blockly.Msg.GET_BODY_NUMERIC_FIELD = 'get numeric field';
 /// auto generated
 Blockly.Msg.GET_BODY_NUMERIC_FIELD_TOOLTIP = 'Get the value of the specified numeric field';
 /// auto generated
 Blockly.Msg.GET_BODY_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html';
 /// auto generated
-Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_1 = 'Call function';
+Blockly.Msg.CALL_FUNCTION_ON_GROUP = 'Call function';
 /// auto generated
-Blockly.Msg.CALL_FUNCTION_ON_GROUP_FUNCTION_TEXT_DEFAULT = 'functionName';
-/// auto generated
-Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_2 = 'on all children in group';
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_CHILDREN = 'on all children in group';
 /// auto generated
 Blockly.Msg.CALL_FUNCTION_ON_GROUP_TOOLTIP = 'Calls the specified function once for each group member, giving that child as the input.';
 /// auto generated
 Blockly.Msg.CALL_FUNCTION_ON_GROUP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Group.html#forEachAlive';
 /// auto generated
-Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_1 = 'get forward acceleration from rotation';
+Blockly.Msg.ACCELERATION_FROM_ROTATION = 'get forward acceleration from rotation';
 /// auto generated
-Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_2 = 'at';
-/// auto generated
-Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_3 = 'pixels/second^2';
+Blockly.Msg.ACCELERATION_FROM_ROTATION_SPEED = 'pixels/second^2';
 /// auto generated
 Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP = 'Creates an (x, y) acceleration that goes forward from the given rotation. Returns it as a point.';
 /// auto generated
 Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#accelerationFromRotation';
 /// auto generated
-Blockly.Msg.SET_IMMOVABLE_FIELD_1 = 'Set Immovable for Object';
+Blockly.Msg.SET_IMMOVABLE = 'Set Immovable for Object';
 /// auto generated
 Blockly.Msg.SET_IMMOVABLE_TOOLTIP = 'Immovable bodies don\'t recoil from impacts at all. If two immovable bodies overlap or collide, it is ignored. Yes, we\'re sidestepping the question of unstoppable force versus immovable object.';
 /// auto generated
 Blockly.Msg.SET_IMMOVABLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html#immovable';
 /// auto generated
-Blockly.Msg.COLLIDE_FIELD_1 = 'Collide';
-/// auto generated
-Blockly.Msg.COLLIDE_FIELD_2 = 'with';
-/// auto generated
 Blockly.Msg.COLLIDE_TOOLTIP = 'Collide the first group/object with the second group/object';
 /// auto generated
 Blockly.Msg.COLLIDE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#collide';
-/// auto generated
-Blockly.Msg.COLLIDE_VI_FIELD_1 = 'collide';
-/// auto generated
-Blockly.Msg.COLLIDE_VI_FIELD_2 = 'with';
 /// auto generated
 Blockly.Msg.COLLIDE_VI_TOOLTIP = 'Collide the first group/object with the second group/object';
 /// auto generated
 Blockly.Msg.COLLIDE_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#collide';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_FIELD_1 = 'touching';
-/// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_FIELD_2 = '?';
-/// auto generated
 Blockly.Msg.IS_BODY_TOUCHING_TOOLTIP = 'Check to see if the object is being touched in the given direction.';
 /// auto generated
 Blockly.Msg.IS_BODY_TOUCHING_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html#touching';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_FIELD_1 = 'is touching';
+Blockly.Msg.IS_BODY_TOUCHING_VI = 'is touching';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_1 = 'Up';
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_UP = 'Up';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_2 = 'Down';
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_DOWN = 'Down';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_3 = 'Left';
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_LEFT = 'Left';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_4 = 'Right';
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_RIGHT = 'Right';
 /// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_5 = 'None';
-/// auto generated
-Blockly.Msg.IS_BODY_TOUCHING_VI_FIELD_2 = '?';
+Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_NONE = 'None';
 /// auto generated
 Blockly.Msg.IS_BODY_TOUCHING_VI_TOOLTIP = 'Check to see if the object is being touched in the given direction.';
 /// auto generated
 Blockly.Msg.IS_BODY_TOUCHING_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html#touching';
 /// auto generated
-Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_FIELD_1 = 'Collide';
-/// auto generated
-Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_FIELD_2 = 'with world bounds';
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS = 'with world bounds';
 /// auto generated
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_TOOLTIP = 'Make this object collide with the world bounds.';
 /// auto generated
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Ninja.Body.html#collideWorldBounds';
 /// auto generated
-Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_FIELD_1 = 'make';
-/// auto generated
-Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_FIELD_2 = 'collide with world bounds';
+Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI = 'collide with world bounds';
 /// auto generated
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_TOOLTIP = 'Make this object collide with the world bounds.';
 /// auto generated
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Ninja.Body.html#collideWorldBounds';
 /// auto generated
-Blockly.Msg.CHECK_OVERLAP_VI_FIELD_1 = 'check overlap between';
+Blockly.Msg.CHECK_OVERLAP_VI = 'check overlap between';
 /// auto generated
-Blockly.Msg.CHECK_OVERLAP_VI_FIELD_2 = 'and';
-/// auto generated
-Blockly.Msg.CHECK_OVERLAP_VI_FIELD_3 = 'calling';
-/// auto generated
-Blockly.Msg.CHECK_OVERLAP_VI_NAME_TEXT_DEFAULT = 'functionName';
-/// auto generated
-Blockly.Msg.CHECK_OVERLAP_VI_FIELD_4 = 'if overlapping';
+Blockly.Msg.CHECK_OVERLAP_VI_IF = 'if overlapping';
 /// auto generated
 Blockly.Msg.CHECK_OVERLAP_VI_TOOLTIP = 'Checks for an overlap between objectA and objectB.';
 /// auto generated
 Blockly.Msg.CHECK_OVERLAP_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#overlap';
 /// auto generated
-Blockly.Msg.CHECK_OVERLAP_FIELD_1 = 'Check Overlap Between';
+Blockly.Msg.CHECK_OVERLAP = 'Check Overlap Between';
 /// auto generated
-Blockly.Msg.CHECK_OVERLAP_FIELD_2 = 'and';
-/// auto generated
-Blockly.Msg.CHECK_OVERLAP_FIELD_3 = 'calling';
-/// auto generated
-Blockly.Msg.CHECK_OVERLAP_NAME_TEXT_DEFAULT = 'functionName';
-/// auto generated
-Blockly.Msg.CHECK_OVERLAP_FIELD_4 = 'if overlapping';
+Blockly.Msg.CHECK_OVERLAP_IF = 'if overlapping';
 /// auto generated
 Blockly.Msg.CHECK_OVERLAP_TOOLTIP = 'Checks for an overlap between objectA and objectB.';
 /// auto generated
 Blockly.Msg.CHECK_OVERLAP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#overlap';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_FIELD_1 = 'move game object';
+Blockly.Msg.MOVE_TO_POINTER = 'move game object';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_FIELD_2 = 'to mouse pointer at';
+Blockly.Msg.MOVE_TO_POINTER_LOCATION = 'to mouse pointer at';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_FIELD_3 = 'pixels per second';
+Blockly.Msg.MOVE_TO_POINTER_SPEED = 'pixels per second';
 /// auto generated
 Blockly.Msg.MOVE_TO_POINTER_TOOLTIP = 'Move the object to the pointer at the given speed';
 /// auto generated
 Blockly.Msg.MOVE_TO_POINTER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToPointer';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_1 = 'move game object';
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED = 'move game object';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_2 = 'to mouse pointer at';
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_LOCATION = 'to mouse pointer at';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_3 = 'pixels per second.';
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_SPEED = 'pixels per second.';
 /// auto generated
-Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_4 = 'Max time (ms)';
+Blockly.Msg.MOVE_TO_POINTER_EXTENDED_TIME = 'Max time (ms)';
 /// auto generated
 Blockly.Msg.MOVE_TO_POINTER_EXTENDED_TOOLTIP = 'Move the object to the pointer at the given speed';
 /// auto generated
 Blockly.Msg.MOVE_TO_POINTER_EXTENDED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToPointer';
 /// auto generated
-Blockly.Msg.MOVE_TO_OBJECT_FIELD_1 = 'move game object';
+Blockly.Msg.MOVE_TO_OBJECT = 'move game object';
 /// auto generated
-Blockly.Msg.MOVE_TO_OBJECT_FIELD_2 = 'to object';
+Blockly.Msg.MOVE_TO_OBJECT_2 = 'to object';
 /// auto generated
-Blockly.Msg.MOVE_TO_OBJECT_FIELD_3 = 'at';
+Blockly.Msg.MOVE_TO_OBJECT_SPEED = 'pixels per second';
 /// auto generated
-Blockly.Msg.MOVE_TO_OBJECT_FIELD_4 = 'pixels per second';
-/// auto generated
-Blockly.Msg.MOVE_TO_OBJECT_FIELD_5 = 'max time (ms)';
+Blockly.Msg.MOVE_TO_OBJECT_TIME = 'max time (ms)';
 /// auto generated
 Blockly.Msg.MOVE_TO_OBJECT_TOOLTIP = 'Move the object to the given object at the given speed';
 /// auto generated
 Blockly.Msg.MOVE_TO_OBJECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToObject';
 /// auto generated
-Blockly.Msg.GET_CURRENT_MOUSE_POSITION_FIELD_1 = 'get mouse position';
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION = 'get mouse position';
 /// auto generated
-Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_1 = 'x';
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_WORLDX = 'worldX';
 /// auto generated
-Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_2 = 'y';
-/// auto generated
-Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_3 = 'worldX';
-/// auto generated
-Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_4 = 'worldY';
+Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_WORLDY = 'worldY';
 /// auto generated
 Blockly.Msg.GET_CURRENT_MOUSE_POSITION_TOOLTIP = 'Get the position of the mouse, or last active pointer for touch screen interfaces';
 /// auto generated
 Blockly.Msg.GET_CURRENT_MOUSE_POSITION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Pointer.html#x';
 /// auto generated
-Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_1 = 'left';
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED = 'mouse button is clicked?';
 /// auto generated
-Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_2 = 'right';
-/// auto generated
-Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_3 = 'middle';
-/// auto generated
-Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_FIELD_1 = 'mouse button is clicked?';
-/// auto generated
-Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Pointer.html#isDown';
+Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#isDown';
 /// auto generated
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP = 'Is the specified button clicked';
 /// auto generated
-Blockly.Msg.CREATE_CURSOR_KEYS_FIELD_1 = 'Create Cursor Keys';
+Blockly.Msg.CREATE_CURSOR_KEYS = 'Create Cursor Keys';
 /// auto generated
 Blockly.Msg.CREATE_CURSOR_KEYS_TOOLTIP = 'Create a cursor allowing access to the UP/DOWN/LEFT/RIGHT keys';
 /// auto generated
 Blockly.Msg.CREATE_CURSOR_KEYS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Keyboard.html#createCursorKeys';
 /// auto generated
-Blockly.Msg.IS_KEY_DOWN_FIELD_1 = 'key';
+Blockly.Msg.KEY = 'key';
 /// auto generated
-Blockly.Msg.IS_KEY_DOWN_FIELD_2 = 'is down?';
+Blockly.Msg.IS_KEY_DOWN = 'is down?';
 /// auto generated
 Blockly.Msg.IS_KEY_DOWN_TOOLTIP = 'Checks if the given key is down';
 /// auto generated
 Blockly.Msg.IS_KEY_DOWN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Keyboard.html#isDown';
 /// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_FIELD_1 = 'get';
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_CENTERX = 'center x';
 /// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_1 = 'height';
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_CENTERY = 'center y';
 /// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_2 = 'width';
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_RANDOMX = 'random x';
 /// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_3 = 'center x';
+Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_RANDOMY = 'random y';
 /// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_4 = 'center y';
-/// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_5 = 'random x';
-/// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_6 = 'random y';
-/// auto generated
-Blockly.Msg.GET_WORLD_PROPERTY_FIELD_2 = 'of the world';
+Blockly.Msg.GET_WORLD_PROPERTY = 'of the world';
 /// auto generated
 Blockly.Msg.GET_WORLD_PROPERTY_TOOLTIP = 'Get a property of the world';
 /// auto generated
 Blockly.Msg.GET_WORLD_PROPERTY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.World.html';
 /// auto generated
-Blockly.Msg.SET_WORLD_BOUNDS_FIELD_1 = 'set world bounds';
+Blockly.Msg.SET_WORLD_BOUNDS = 'set world bounds';
 /// auto generated
-Blockly.Msg.SET_WORLD_BOUNDS_FIELD_2 = 'x:';
+Blockly.Msg.SET_WORLD_BOUNDS_WIDTH = 'width:';
 /// auto generated
-Blockly.Msg.SET_WORLD_BOUNDS_FIELD_3 = 'y:';
-/// auto generated
-Blockly.Msg.SET_WORLD_BOUNDS_FIELD_4 = 'width:';
-/// auto generated
-Blockly.Msg.SET_WORLD_BOUNDS_FIELD_5 = 'height:';
+Blockly.Msg.SET_WORLD_BOUNDS_HEIGHT = 'height:';
 /// auto generated
 Blockly.Msg.SET_WORLD_BOUNDS_TOOLTIP = 'Updates the size of the world and sets the leftmost corner';
 /// auto generated
 Blockly.Msg.SET_WORLD_BOUNDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.World.html#setBounds';
 /// auto generated
-Blockly.Msg.CREATE_POINT_FIELD_1 = 'Create Point';
-/// auto generated
-Blockly.Msg.CREATE_POINT_FIELD_2 = 'X';
-/// auto generated
-Blockly.Msg.CREATE_POINT_FIELD_3 = 'Y';
+Blockly.Msg.CREATE_POINT = 'Create Point';
 /// auto generated
 Blockly.Msg.CREATE_POINT_TOOLTIP = 'Makes a point type. This is a combination of an x and y value which is used to represent either a position, or a combination of width and height.';
 /// auto generated
 Blockly.Msg.CREATE_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html';
 /// auto generated
-Blockly.Msg.GET_WORLD_REFERENCE_FIELD_1 = 'world';
+Blockly.Msg.GET_WORLD_REFERENCE = 'world';
 /// auto generated
 Blockly.Msg.GET_WORLD_REFERENCE_TOOLTIP = 'Returns a reference to the game world. It functions as a group.';
 /// auto generated
 Blockly.Msg.GET_WORLD_REFERENCE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.World.html';
 /// auto generated
-Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_1 = 'set point field';
-/// auto generated
-Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_3 = 'to';
+Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD = 'set point field';
 /// auto generated
 Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_TOOLTIP = 'Set a point property on the object';
 /// auto generated
 Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html';
 /// auto generated
-Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_FIELD_1 = 'get point field';
-/// auto generated
-Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_FIELD_2 = 'of';
+Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD = 'get point field';
 /// auto generated
 Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_TOOLTIP = 'Get a point property on the object';
 /// auto generated
 Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html';
 /// auto generated
-Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_1 = 'set numeric field';
-/// auto generated
-Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_3 = 'to';
+Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD = 'set numeric field';
 /// auto generated
 Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_TOOLTIP = 'Set a numeric property on the object';
 /// auto generated
 Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html';
 /// auto generated
-Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_FIELD_1 = 'get numeric field';
-/// auto generated
-Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_FIELD_2 = 'of';
+Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD = 'get numeric field';
 /// auto generated
 Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_TOOLTIP = 'Get a numeric property on the object';
 /// auto generated
 Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html';
 /// auto generated
-Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1 = 'set boolean field';
-/// auto generated
-Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_3 = 'to';
+Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD = 'set boolean field';
 /// auto generated
 Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_TOOLTIP = 'Set a boolean property on the object';
 /// auto generated
 Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html';
 /// auto generated
-Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1 = 'get boolean field';
-/// auto generated
-Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2 = 'of';
+Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD = 'get boolean field';
 /// auto generated
 Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_TOOLTIP = 'Get a boolean property on the object';
 /// auto generated
 Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html';
 /// auto generated
-Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_1 = 'set anchor for';
-/// auto generated
-Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_2 = 'to';
-/// auto generated
-Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_3 = 'x';
-/// auto generated
-Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_4 = 'y';
+Blockly.Msg.SET_OBJECT_ANCHOR = 'set anchor for';
 /// auto generated
 Blockly.Msg.SET_OBJECT_ANCHOR_TOOLTIP = 'Sets an object\'s anchor.';
 /// auto generated
 Blockly.Msg.SET_OBJECT_ANCHOR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#anchor';
 /// auto generated
-Blockly.Msg.KILL_OBJECT_FIELD_1 = 'kill';
+Blockly.Msg.KILL_OBJECT = 'kill';
 /// auto generated
 Blockly.Msg.KILL_OBJECT_TOOLTIP = 'Will kill the object setting making it non-existent. Reverse with revive.';
 /// auto generated
 Blockly.Msg.KILL_OBJECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#kill';
 /// auto generated
-Blockly.Msg.FAINT_OBJECT_FIELD_1 = 'faint';
+Blockly.Msg.FAINT_OBJECT = 'faint';
 /// auto generated
 Blockly.Msg.FAINT_OBJECT_TOOLTIP = 'Will faint the object setting making it non-existent. Reverse with revive.';
 /// auto generated
 Blockly.Msg.FAINT_OBJECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#kill';
 /// auto generated
-Blockly.Msg.DESTROY_OBJECT_FIELD_1 = 'destroy';
-/// auto generated
 Blockly.Msg.DESTROY_OBJECT_TOOLTIP = 'Will remove the object from the game and memory, after which it can no longer be accessed.';
 /// auto generated
 Blockly.Msg.DESTROY_OBJECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Component.Destroy.html';
 /// auto generated
-Blockly.Msg.SET_SCALE_FIELD_1 = 'Scale';
-/// auto generated
-Blockly.Msg.SET_SCALE_FIELD_2 = 'by';
-/// auto generated
-Blockly.Msg.SET_SCALE_FIELD_3 = 'X';
-/// auto generated
-Blockly.Msg.SET_SCALE_FIELD_4 = 'Y';
+Blockly.Msg.SET_SCALE = 'Scale';
 /// auto generated
 Blockly.Msg.SET_SCALE_TOOLTIP = 'Sets the given object\'s width and height.';
 /// auto generated
 Blockly.Msg.SET_SCALE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#scale';
 /// auto generated
-Blockly.Msg.SET_SCALE_VI_FIELD_1 = 'scale';
-/// auto generated
-Blockly.Msg.SET_SCALE_VI_FIELD_2 = 'by';
-/// auto generated
-Blockly.Msg.SET_SCALE_VI_FIELD_3 = 'x';
-/// auto generated
-Blockly.Msg.SET_SCALE_VI_FIELD_4 = 'y';
+Blockly.Msg.SET_SCALE_VI = 'scale';
 /// auto generated
 Blockly.Msg.SET_SCALE_VI_TOOLTIP = 'Sets the given object\'s width and height.';
 /// auto generated
 Blockly.Msg.SET_SCALE_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#scale';
 /// auto generated
-Blockly.Msg.SET_POS_FIELD_1 = 'Set';
-/// auto generated
-Blockly.Msg.SET_POS_PARAM_DROPDOWN_1 = 'x';
-/// auto generated
-Blockly.Msg.SET_POS_PARAM_DROPDOWN_2 = 'y';
-/// auto generated
-Blockly.Msg.SET_POS_FIELD_2 = 'on';
-/// auto generated
-Blockly.Msg.SET_POS_FIELD_3 = 'to';
-/// auto generated
 Blockly.Msg.SET_POS_TOOLTIP = 'Sets the individual x or y coordinate of an object.';
 /// auto generated
 Blockly.Msg.SET_POS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#position';
 /// auto generated
-Blockly.Msg.OBJECT_SET_TO_FIELD_1 = 'for';
+Blockly.Msg.OBJECT_SET_TO_SETX = 'set x to';
 /// auto generated
-Blockly.Msg.OBJECT_SET_TO_FIELD_2 = 'set x to';
-/// auto generated
-Blockly.Msg.OBJECT_SET_TO_FIELD_3 = 'set y to';
+Blockly.Msg.OBJECT_SET_TO_SETY = 'set y to';
 /// auto generated
 Blockly.Msg.OBJECT_SET_TO_TOOLTIP = 'Sets the x and y fields of an object.';
 /// auto generated
 Blockly.Msg.OBJECT_SET_TO_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#setTo';
 /// auto generated
-Blockly.Msg.SET_VELOCITY_FIELD_1 = 'Set Velocity';
-/// auto generated
-Blockly.Msg.SET_VELOCITY_FIELD_2 = 'on';
-/// auto generated
-Blockly.Msg.SET_VELOCITY_FIELD_3 = 'to';
+Blockly.Msg.SET_VELOCITY = 'Set Velocity';
 /// auto generated
 Blockly.Msg.SET_VELOCITY_TOOLTIP = 'Sets an objects velocity. This is a combination of speed and direction.';
 /// auto generated
 Blockly.Msg.SET_VELOCITY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.Body.html#velocity';
 /// auto generated
-Blockly.Msg.GET_PARAM_FIELD_1 = 'get';
-/// auto generated
-Blockly.Msg.GET_PARAM_FIELD_2 = 'from object';
+Blockly.Msg.GET_PARAM = 'from object';
 /// auto generated
 Blockly.Msg.GET_PARAM_TOOLTIP = 'Gets a given numeric field from an object.';
 /// auto generated
 Blockly.Msg.GET_PARAM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#toc-4';
 /// auto generated
-Blockly.Msg.OBJECT_INCAMERA_FIELD_1 = 'is';
-/// auto generated
-Blockly.Msg.OBJECT_INCAMERA_FIELD_2 = 'in camera?';
+Blockly.Msg.OBJECT_INCAMERA = 'in camera?';
 /// auto generated
 Blockly.Msg.OBJECT_INCAMERA_TOOLTIP = 'Checks if an object is inside the boundaries of the camera.';
 /// auto generated
 Blockly.Msg.OBJECT_INCAMERA_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Component.InCamera.html';
 /// auto generated
-Blockly.Msg.GET_CAMERA_FIELD_1 = 'get camera';
+Blockly.Msg.GET_CAMERA = 'get camera';
 /// auto generated
 Blockly.Msg.GET_CAMERA_TOOLTIP = 'Returns a reference to the camera.';
 /// auto generated
 Blockly.Msg.GET_CAMERA_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html';
 /// auto generated
-Blockly.Msg.CAMERA_FOLLOW_FIELD_1 = 'make camera follow';
+Blockly.Msg.CAMERA_FOLLOW = 'make camera follow';
 /// auto generated
 Blockly.Msg.CAMERA_FOLLOW_TOOLTIP = 'Make the camera follow the specified game object';
 /// auto generated
 Blockly.Msg.CAMERA_FOLLOW_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#follow';
 /// auto generated
-Blockly.Msg.GET_BOUNDS_FIELD_1 = 'Get bounds of';
+Blockly.Msg.GET_BOUNDS = 'Get bounds of';
 /// auto generated
 Blockly.Msg.GET_BOUNDS_TOOLTIP = 'Gets the rectangular bounds of most objects in the game.';
 /// auto generated
 Blockly.Msg.GET_BOUNDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#getBounds';
 /// auto generated
-Blockly.Msg.GET_ROTATION_FIELD_1 = 'get rotation';
+Blockly.Msg.GET_ROTATION = 'get rotation';
 /// auto generated
 Blockly.Msg.GET_ROTATION_TOOLTIP = 'Finds the rotation (in degrees) of a Game Object.';
 /// auto generated
-Blockly.Msg.GET_ROTATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#angle';
-/// auto generated
-Blockly.Msg.ROTATE_FIELD_1 = 'rotate';
-/// auto generated
-Blockly.Msg.ROTATE_FIELD_2 = 'by';
-/// auto generated
-Blockly.Msg.ROTATE_FIELD_3 = 'degrees';
+Blockly.Msg.GET_ROTATION_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#angle';
+/// auto gen
+Blockly.Msg.ROTATE = 'rotate';
 /// auto generated
 Blockly.Msg.ROTATE_TOOLTIP = 'Rotates a game object by the given angle in degrees. Negative numbers will rotate it the opposite direction.';
 /// auto generated
 Blockly.Msg.ROTATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#angle';
 /// auto generated
-Blockly.Msg.SET_ROTATION_FIELD_1 = 'set the rotation of';
-/// auto generated
-Blockly.Msg.SET_ROTATION_FIELD_2 = 'to';
-/// auto generated
-Blockly.Msg.SET_ROTATION_FIELD_3 = 'degrees';
+Blockly.Msg.SET_ROTATION = 'set the rotation of';
 /// auto generated
 Blockly.Msg.SET_ROTATION_TOOLTIP = 'Directly sets the rotation (in degrees) of this game object to the given value.';
 /// auto generated
 Blockly.Msg.SET_ROTATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#angle';
 /// auto generated
-Blockly.Msg.GET_LOCAL_BOUNDS_FIELD_1 = 'get local bounds of';
+Blockly.Msg.GET_LOCAL_BOUNDS = 'get local bounds of';
 /// auto generated
 Blockly.Msg.GET_LOCAL_BOUNDS_TOOLTIP = 'Gets the rectangular bounds of an object. Bounds are relative to the object itself instead of the world.';
 /// auto generated
 Blockly.Msg.GET_LOCAL_BOUNDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#getLocalBounds';
 /// auto generated
-Blockly.Msg.RESET_FIELD_1 = 'reset object';
-/// auto generated
-Blockly.Msg.RESET_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.RESET_FIELD_3 = 'y';
+Blockly.Msg.RESET = 'reset object';
 /// auto generated
 Blockly.Msg.RESET_TOOLTIP = 'Gets most objects ready to play again in various ways and treats it like new. Specifically, moves it to a new position then makes sure it is visible, rendering, alive, and actually exists in the game world.';
 /// auto generated
 Blockly.Msg.RESET_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#reset';
 /// auto generated
-Blockly.Msg.REVIVE_FIELD_1 = 'revive';
+Blockly.Msg.REVIVE = 'revive';
 /// auto generated
 Blockly.Msg.REVIVE_TOOLTIP = 'Brings a \'dead\' Game Object back to life. Makes sure it counts as alive, existing, and visible. Will send an event named onRevived.';
 /// auto generated
 Blockly.Msg.REVIVE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#revive';
 /// auto generated
-Blockly.Msg.ADD_TEXT_FIELD_1 = 'add text at';
+Blockly.Msg.ADD_TEXT = 'add text at';
 /// auto generated
-Blockly.Msg.ADD_TEXT_FIELD_2 = 'x';
+Blockly.Msg.ADD_TEXT_INITIAL = 'initial text';
 /// auto generated
-Blockly.Msg.ADD_TEXT_FIELD_3 = 'y';
+Blockly.Msg.ADD_TEXT_FONT_SIZE = 'font size';
 /// auto generated
-Blockly.Msg.ADD_TEXT_FIELD_4 = 'initial text';
-/// auto generated
-Blockly.Msg.ADD_TEXT_FIELD_5 = 'font size';
-/// auto generated
-Blockly.Msg.ADD_TEXT_FIELD_6 = 'font colour';
+Blockly.Msg.ADD_TEXT_FONT_COLOUR = 'font colour';
 /// auto generated
 Blockly.Msg.ADD_TEXT_TOOLTIP = 'Add text to the screen at the specified location';
 /// auto generated
 Blockly.Msg.ADD_TEXT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.GameObjectFactory.html#text';
 /// auto generated
-Blockly.Msg.SET_TEXT_FIELD_1 = 'set text for';
-/// auto generated
-Blockly.Msg.SET_TEXT_FIELD_2 = 'to';
+Blockly.Msg.SET_TEXT = 'set text for';
 /// auto generated
 Blockly.Msg.SET_TEXT_TOOLTIP = 'Sets what phaser text will display on the screen.';
 /// auto generated
 Blockly.Msg.SET_TEXT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Text.html#setText';
 /// auto generated
-Blockly.Msg.SET_TEXT_VI_FIELD_1 = 'set text for';
-/// auto generated
-Blockly.Msg.SET_TEXT_VI_FIELD_2 = 'to';
+Blockly.Msg.SET_TEXT_VI = 'set text for';
 /// auto generated
 Blockly.Msg.SET_TEXT_VI_TOOLTIP = 'Sets what phaser text will display on the screen.';
 /// auto generated
 Blockly.Msg.SET_TEXT_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Text.html#setText';
 /// auto generated
-Blockly.Msg.CREATE_BITMAPFONT_FIELD_1 = 'Create Font';
+Blockly.Msg.CREATE_BITMAPFONT = 'Create Font';
 /// auto generated
-Blockly.Msg.CREATE_BITMAPFONT_FIELD_2 = 'Tag';
-/// auto generated
-Blockly.Msg.CREATE_BITMAPFONT_FIELD_3 = 'Source';
-/// auto generated
-Blockly.Msg.CREATE_BITMAPFONT_FIELD_4 = 'XML';
+Blockly.Msg.CREATE_BITMAPFONT_XML = 'XML';
 /// auto generated
 Blockly.Msg.CREATE_BITMAPFONT_TOOLTIP = 'Loads a font into the game. These don\'t work like normal fonts. See the help for more info.';
 /// auto generated
 Blockly.Msg.CREATE_BITMAPFONT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Loader.html#bitmapFont';
 /// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_1 = 'draw circle at position';
+Blockly.Msg.DRAWCIRCLE = 'draw circle at position';
 /// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_2 = 'x:';
-/// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_3 = 'y:';
-/// auto generated
-Blockly.Msg.DRAWCIRCLE_FIELD_4 = 'with diameter:';
+Blockly.Msg.DRAWCIRCLE_DIAMETER = 'with diameter:';
 /// auto generated
 Blockly.Msg.DRAWCIRCLE_TOOLTIP = 'Draws a circle at a given position in the world. Doesn\'t work on its own. Put it inside the \'fill shapes with\' block.';
 /// auto generated
 Blockly.Msg.DRAWCIRCLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Graphics.html#drawCircle';
 /// auto generated
-Blockly.Msg.GET_OBJECT_WIDTH_FIELD_1 = 'get width of ';
+Blockly.Msg.GET_OBJECT_WIDTH = 'get width of ';
 /// auto generated
 Blockly.Msg.GET_OBJECT_WIDTH_TOOLTIP = 'Gets the width of an object.';
 /// auto generated
 Blockly.Msg.GET_OBJECT_WIDTH_HELP_URL = 'http://dragondrop.digipen.edu/docs/PIXI.Sprite.html#width';
 /// auto generated
-Blockly.Msg.SET_OBJECT_WIDTH_FIELD_1 = 'set width of ';
+Blockly.Msg.SET_OBJECT_WIDTH = 'set width of ';
 /// auto generated
 Blockly.Msg.SET_OBJECT_WIDTH_TOOLTIP = 'Sets the width of an object.';
 /// auto generated
 Blockly.Msg.SET_OBJECT_WIDTH_HELP_URL = 'http://dragondrop.digipen.edu/docs/PIXI.Sprite.html#width';
 /// auto generated
-Blockly.Msg.ADDEMITTER_FIELD_1 = 'add emitter';
+Blockly.Msg.ADDEMITTER = 'add emitter';
 /// auto generated
-Blockly.Msg.ADDEMITTER_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.ADDEMITTER_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.ADDEMITTER_FIELD_4 = 'maxParticles';
+Blockly.Msg.ADDEMITTER_MAXPARTICLES = 'maxParticles';
 /// auto generated
 Blockly.Msg.ADDEMITTER_TOOLTIP = 'Create a particle emitter';
 /// auto generated
 Blockly.Msg.ADDEMITTER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html';
 /// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_1 = 'on emitter';
+Blockly.Msg.EMITTER_MAKE_PARTICLES_EMITTER = 'on emitter';
 /// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_2 = 'make particles';
+Blockly.Msg.EMITTER_MAKE_PARTICLES = 'make particles';
 /// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_3 = 'keys';
+Blockly.Msg.KEYS = 'keys';
 /// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_4 = 'frames';
+Blockly.Msg.EMITTER_MAKE_PARTICLES_QAUNTITY = 'quantity';
 /// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_5 = 'quantity';
+Blockly.Msg.EMITTER_MAKE_PARTICLES_COLLIDE_WORLD = 'collide world';
 /// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_6 = 'collide';
-/// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_7 = 'collide world';
-/// auto generated
-Blockly.Msg.EMITTER_MAKE_PARTICLES_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#makeParticles';
+Blockly.Msg.EMITTER_MAKE_PARTICLES_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html#makeParticles';
 /// auto generated
 Blockly.Msg.EMITTER_MAKE_PARTICLES_TOOLTIP = 'Generate a new set of particles for this emitter';
 /// auto generated
-Blockly.Msg.EMITTERS_MAKE_PARTICLES_FIELD_1 = 'on emitter';
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_EMITTER = 'on emitter';
 /// auto generated
-Blockly.Msg.EMITTERS_MAKE_PARTICLES_FIELD_2 = 'make particles from';
+Blockly.Msg.EMITTERS_MAKE_PARTICLES = 'make particles from';
 /// auto generated
-Blockly.Msg.EMITTERS_MAKE_PARTICLES_TAG_TEXT_DEFAULT = 'image tag';
+Blockly.Msg.EMITTERS_MAKE_PARTICLES_TAG = 'image tag';
 /// auto generated
 Blockly.Msg.EMITTERS_MAKE_PARTICLES_TOOLTIP = 'Generate a new set of particles for this emitter';
 /// auto generated
 Blockly.Msg.EMITTERS_MAKE_PARTICLES_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#makeParticles';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_1 = 'on emitter,';
+Blockly.Msg.EMITTERS_SET_ROTATION_EMITTER = 'on emitter,';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_2 = 'set rotation:';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_3 = 'min';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_4 = 'max';
+Blockly.Msg.EMITTERS_SET_ROTATION = 'set rotation:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ROTATION_TOOLTIP = 'Set the angular velocity constraints of the particles';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ROTATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#setRotation';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_1 = 'on emitter';
+Blockly.Msg.EMITTERS_SET_ROTATION_VI_EMITTER = 'on emitter';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_2 = 'set min/max angular velocity';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_3 = 'min';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_4 = 'max';
+Blockly.Msg.EMITTERS_SET_ROTATION_VI = 'set min/max angular velocity';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ROTATION_VI_TOOLTIP = 'Set the angular velocity constraints of the particles.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ROTATION_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#setRotation';
 /// auto generated
-Blockly.Msg.EMITTERS_START_FIELD_1 = 'on emitter,';
+Blockly.Msg.EMITTERS_START = 'start:';
 /// auto generated
-Blockly.Msg.EMITTERS_START_FIELD_2 = 'start:';
+Blockly.Msg.EMITTERS_START_BURST = 'Should Burst?';
 /// auto generated
-Blockly.Msg.EMITTERS_START_FIELD_3 = 'Should Burst?';
+Blockly.Msg.EMITTERS_START_LIEFSPAN = 'Lifespan';
 /// auto generated
-Blockly.Msg.EMITTERS_START_FIELD_4 = 'Lifespan';
+Blockly.Msg.EMITTERS_START_FREQUENCY = 'Frequency';
 /// auto generated
-Blockly.Msg.EMITTERS_START_FIELD_5 = 'Frequency';
-/// auto generated
-Blockly.Msg.EMITTERS_START_FIELD_6 = 'Quantity';
+Blockly.Msg.EMITTERS_START_QUANTITY = 'Quantity';
 /// auto generated
 Blockly.Msg.EMITTERS_START_TOOLTIP = 'Start emitting particles.';
 /// auto generated
 Blockly.Msg.EMITTERS_START_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#start';
 /// auto generated
-Blockly.Msg.EMITTERS_START_VI_FIELD_1 = 'start emitter,';
+Blockly.Msg.EMITTERS_START_VI = 'start emitter,';
 /// auto generated
-Blockly.Msg.EMITTERS_START_VI_FIELD_2 = 'explode';
+Blockly.Msg.EMITTERS_START_VI_EXPLODE = 'explode';
 /// auto generated
-Blockly.Msg.EMITTERS_START_VI_FIELD_3 = 'lifespan (ms)';
+Blockly.Msg.EMITTERS_START_VI_LIFESPAN = 'lifespan (ms)';
 /// auto generated
-Blockly.Msg.EMITTERS_START_VI_FIELD_4 = 'frequency (ms)';
+Blockly.Msg.EMITTERS_START_VI_FREQUENCY = 'frequency (ms)';
 /// auto generated
-Blockly.Msg.EMITTERS_START_VI_FIELD_5 = 'quantity';
+Blockly.Msg.EMITTERS_START_VI_QUANTITY = 'quantity';
 /// auto generated
 Blockly.Msg.EMITTERS_START_VI_TOOLTIP = 'Start emitting particles.';
 /// auto generated
 Blockly.Msg.EMITTERS_START_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#start';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_2 = 'set Alpha:';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_3 = 'min';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_4 = 'max';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_5 = 'rate';
+Blockly.Msg.EMITTERS_SET_ALPHA = 'set Alpha:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ALPHA_TOOLTIP = 'Set the min and max alpha values for this emitter.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ALPHA_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#setAlpha';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_2 = 'set alpha';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_3 = 'min';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_4 = 'max';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_5 = 'rate';
+Blockly.Msg.EMITTERS_SET_ALPHA_VI = 'set alpha';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ALPHA_VI_TOOLTIP = 'Set the min and max alpha values for this emitter.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_ALPHA_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#setAlpha';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_2 = 'set Scale:';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_3 = 'min X';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_4 = 'max X';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_5 = 'min Y';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_6 = 'max Y';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_FIELD_7 = 'rate';
+Blockly.Msg.EMITTERS_SET_SCALE = 'set Scale:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SCALE_TOOLTIP = 'Set the minimum/maximum scale for particles and the rate to go between.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SCALE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#setScale';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_2 = 'set scale';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_3 = 'min x';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_4 = 'max x';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_5 = 'min y';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_6 = 'max y';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_7 = 'rate';
+Blockly.Msg.EMITTERS_SET_SCALE_VI = 'set scale';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SCALE_VI_TOOLTIP = 'Set the minimum/maximum scale for particles and the rate to go between.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SCALE_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#setScale';
 /// auto generated
-Blockly.Msg.SET_EMIT_FROM_FIELD_1 = 'on';
-/// auto generated
-Blockly.Msg.SET_EMIT_FROM_FIELD_2 = 'set emit from';
-/// auto generated
-Blockly.Msg.SET_EMIT_FROM_CORD_DROPDOWN_1 = 'X';
-/// auto generated
-Blockly.Msg.SET_EMIT_FROM_CORD_DROPDOWN_2 = 'Y';
-/// auto generated
-Blockly.Msg.SET_EMIT_FROM_FIELD_3 = 'to';
+Blockly.Msg.SET_EMIT_FROM = 'set emit from';
 /// auto generated
 Blockly.Msg.SET_EMIT_FROM_TOOLTIP = 'Set where the particles emit from, by individual coordinate.';
 /// auto generated
 Blockly.Msg.SET_EMIT_FROM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#emitX';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_FIELD_2 = 'set Speed:';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_FIELD_3 = 'min X';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_FIELD_4 = 'max X';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_FIELD_5 = 'min Y';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_FIELD_6 = 'max Y';
+Blockly.Msg.EMITTERS_SET_SPEED = 'set Speed:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SPEED_TOOLTIP = 'Sets the minimum and maximum speeds that an emitted particle will go.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SPEED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#minParticleSpeed';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_1 = 'on emitter';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_2 = 'set speed';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_3 = 'min x';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_4 = 'max x';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_5 = 'min y';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_6 = 'max y';
+Blockly.Msg.EMITTERS_SET_SPEED_VI = 'set speed';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SPEED_VI_TOOLTIP = 'Sets the minimum and maximum speeds that an emitted particle will go.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_SPEED_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#minParticleSpeed';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_GRAVITY_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_GRAVITY_FIELD_2 = 'set Gravity:';
+Blockly.Msg.EMITTERS_SET_GRAVITY = 'set Gravity:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_GRAVITY_TOOLTIP = 'Set the gravity of generated particles.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_GRAVITY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#gravity';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_GRAVITY_VI_FIELD_1 = 'on emitter';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_GRAVITY_VI_FIELD_2 = 'set gravity:';
+Blockly.Msg.EMITTERS_SET_GRAVITY_VI = 'set gravity:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_GRAVITY_VI_TOOLTIP = 'Set the gravity of generated particles';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_GRAVITY_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#gravity';
 /// auto generated
-Blockly.Msg.EMITTERS_SET_WIDTH_FIELD_1 = 'on emitter,';
-/// auto generated
-Blockly.Msg.EMITTERS_SET_WIDTH_FIELD_2 = 'set width:';
+Blockly.Msg.EMITTERS_SET_WIDTH = 'set width:';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_WIDTH_TOOLTIP = 'Sets the width of the area in which particles will be emitted.';
 /// auto generated
 Blockly.Msg.EMITTERS_SET_WIDTH_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html#width';
 /// auto generated
-Blockly.Msg.DEBUG_SPRITE_FIELD_1 = 'write debug for sprite';
+Blockly.Msg.DEBUG_SPRITE = 'write debug for sprite';
 /// auto generated
-Blockly.Msg.DEBUG_SPRITE_FIELD_2 = 'at x';
-/// auto generated
-Blockly.Msg.DEBUG_SPRITE_FIELD_3 = 'y';
+Blockly.Msg.DEBUG_SPRITE_AT_X = 'at x';
 /// auto generated
 Blockly.Msg.DEBUG_SPRITE_TOOLTIP = 'Draws various information useful for debugging about the specified sprite at the given world coordinates.';
 /// auto generated
 Blockly.Msg.DEBUG_SPRITE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Utils.Debug.html#spriteInfo';
 /// auto generated
-Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_1 = 'add state';
+Blockly.Msg.STATEMANAGER_ADD_STATE = 'add state';
 /// auto generated
-Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_2 = 'tagged';
-/// auto generated
-Blockly.Msg.STATEMANAGER_ADD_STATE_KEY_TEXT_DEFAULT = 'tag';
-/// auto generated
-Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_3 = 'to state manager';
+Blockly.Msg.STATEMANAGER_ADD_STATE_TO_MANAGER = 'to state manager';
 /// auto generated
 Blockly.Msg.STATEMANAGER_ADD_STATE_TOOLTIP = 'Adds a state to the game engine, this should be an instance of a state class.';
 /// auto generated
-Blockly.Msg.STATEMANAGER_START_STATE_FIELD_1 = 'start state with tag';
-/// auto generated
-Blockly.Msg.STATEMANAGER_START_STATE_TAG_TEXT_DEFAULT = 'tag';
+Blockly.Msg.STATEMANAGER_START_STATE = 'start state with tag';
 /// auto generated
 Blockly.Msg.STATEMANAGER_START_STATE_TOOLTIP = 'Start the specified state, this should be a state that has been added to the game engine';
 /// auto generated
 Blockly.Msg.STATEMANAGER_START_STATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.StateManager.html#start';
 /// auto generated
-Blockly.Msg.RECTANGLE_CREATE_FIELD_1 = 'make rectangle';
-/// auto generated
-Blockly.Msg.RECTANGLE_CREATE_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.RECTANGLE_CREATE_FIELD_3 = 'y';
-/// auto generated
-Blockly.Msg.RECTANGLE_CREATE_FIELD_4 = 'width';
-/// auto generated
-Blockly.Msg.RECTANGLE_CREATE_FIELD_5 = 'height';
+Blockly.Msg.RECTANGLE_CREATE = 'make rectangle';
 /// auto generated
 Blockly.Msg.RECTANGLE_CREATE_TOOLTIP = 'Defines a rectangle, can be used for cropping, alignment and other tasks';
 /// auto generated
 Blockly.Msg.RECTANGLE_CREATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html';
 /// auto generated
-Blockly.Msg.POINT_CREATE_FIELD_1 = 'make point';
-/// auto generated
-Blockly.Msg.POINT_CREATE_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.POINT_CREATE_FIELD_3 = 'y';
+Blockly.Msg.POINT_CREATE = 'make point';
 /// auto generated
 Blockly.Msg.POINT_CREATE_TOOLTIP = 'Defines a point which represents a location in 2D';
 /// auto generated
 Blockly.Msg.POINT_CREATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html';
 /// auto generated
-Blockly.Msg.POINT_GET_ELEMENT_FIELD_1 = 'get point.';
-/// auto generated
-Blockly.Msg.POINT_GET_ELEMENT_ELEMENT_DROPDOWN_1 = 'x';
-/// auto generated
-Blockly.Msg.POINT_GET_ELEMENT_ELEMENT_DROPDOWN_2 = 'y';
-/// auto generated
-Blockly.Msg.POINT_GET_ELEMENT_FIELD_2 = 'of';
+Blockly.Msg.POINT_GET_ELEMENT = 'get point';
 /// auto generated
 Blockly.Msg.POINT_GET_ELEMENT_TOOLTIP = 'Defines a point which represents a location in 2D';
 /// auto generated
 Blockly.Msg.POINT_GET_ELEMENT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html';
 /// auto generated
-Blockly.Msg.POINT_SET_ELEMENT_FIELD_1 = 'set point.';
-/// auto generated
-Blockly.Msg.POINT_SET_ELEMENT_ELEMENT_DROPDOWN_1 = 'x';
-/// auto generated
-Blockly.Msg.POINT_SET_ELEMENT_ELEMENT_DROPDOWN_2 = 'y';
-/// auto generated
-Blockly.Msg.POINT_SET_ELEMENT_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.POINT_SET_ELEMENT_FIELD_3 = 'to';
+Blockly.Msg.POINT_SET_ELEMENT = 'set point';
 /// auto generated
 Blockly.Msg.POINT_SET_ELEMENT_TOOLTIP = 'Defines a point which represents a location in 2D';
 /// auto generated
 Blockly.Msg.POINT_SET_ELEMENT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html';
 /// auto generated
-Blockly.Msg.POINT_SET_MAGNITUDE_FIELD_1 = 'set magnitude for';
-/// auto generated
-Blockly.Msg.POINT_SET_MAGNITUDE_FIELD_2 = 'to';
+Blockly.Msg.POINT_SET_MAGNITUDE = 'set magnitude for';
 /// auto generated
 Blockly.Msg.POINT_SET_MAGNITUDE_TOOLTIP = 'Sets the magnitude of the point';
 /// auto generated
 Blockly.Msg.POINT_SET_MAGNITUDE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#setMagnitude';
 /// auto generated
-Blockly.Msg.POINTS_ADD_FIELD_1 = 'add points';
+Blockly.Msg.POINTS_ADD = 'add points';
 /// auto generated
-Blockly.Msg.POINTS_ADD_FIELD_2 = 'and';
-/// auto generated
-Blockly.Msg.POINTS_ADD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.add';
+Blockly.Msg.POINTS_ADD_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.add';
 /// auto generated
 Blockly.Msg.POINTS_ADD_TOOLTIP = 'Adds the two points and returns the result';
 /// auto generated
-Blockly.Msg.POINTS_SUBTRACT_FIELD_1 = 'subtract points';
+Blockly.Msg.POINTS_SUBTRACT = 'subtract points';
 /// auto generated
-Blockly.Msg.POINTS_SUBTRACT_FIELD_2 = 'and';
-/// auto generated
-Blockly.Msg.POINTS_SUBTRACT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.subtract';
+Blockly.Msg.POINTS_SUBTRACT_HELP_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Point.html#.subtract';
 /// auto generated
 Blockly.Msg.POINTS_SUBTRACT_TOOLTIP = 'Adds the two points and returns the result';
 /// auto generated
-Blockly.Msg.POINTS_ANGLE_BETWEEN_FIELD_1 = 'angle between';
-/// auto generated
-Blockly.Msg.POINTS_ANGLE_BETWEEN_FIELD_2 = 'and';
+Blockly.Msg.POINTS_ANGLE_BETWEEN = 'angle between';
 /// auto generated
 Blockly.Msg.POINTS_ANGLE_BETWEEN_TOOLTIP = 'Returns the angle in radians between the two point objects';
 /// auto generated
 Blockly.Msg.POINTS_ANGLE_BETWEEN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.angle';
 /// auto generated
-Blockly.Msg.POINTS_DISTANCE_FIELD_1 = 'distance between';
-/// auto generated
-Blockly.Msg.POINTS_DISTANCE_FIELD_2 = 'and';
+Blockly.Msg.POINTS_DISTANCE = 'distance between';
 /// auto generated
 Blockly.Msg.POINTS_DISTANCE_TOOLTIP = 'Returns the distance between the two point objects';
 /// auto generated
 Blockly.Msg.POINTS_DISTANCE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.distance';
 /// auto generated
-Blockly.Msg.POINTS_DIVIDE_FIELD_1 = 'divide';
-/// auto generated
-Blockly.Msg.POINTS_DIVIDE_FIELD_2 = 'and';
+Blockly.Msg.POINTS_DIVIDE = 'divide';
 /// auto generated
 Blockly.Msg.POINTS_DIVIDE_TOOLTIP = 'Returns a new point p = [a.x / b.x, a.y / b.y]';
 /// auto generated
 Blockly.Msg.POINTS_DIVIDE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.divide';
 /// auto generated
-Blockly.Msg.POINTS_EQUALS_FIELD_1 = 'is equal to';
-/// auto generated
-Blockly.Msg.POINTS_EQUALS_FIELD_2 = '?';
+Blockly.Msg.POINTS_EQUALS = 'is equal to';
 /// auto generated
 Blockly.Msg.POINTS_EQUALS_TOOLTIP = 'Determines if two points are equal';
 /// auto generated
 Blockly.Msg.POINTS_EQUALS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.equals';
 /// auto generated
-Blockly.Msg.POINTS_INTERPOLATE_FIELD_1 = 'interpolate between A';
+Blockly.Msg.POINTS_INTERPOLATE = 'interpolate between A';
 /// auto generated
-Blockly.Msg.POINTS_INTERPOLATE_FIELD_2 = 'and B';
+Blockly.Msg.POINTS_INTERPOLATE_B = 'and B';
 /// auto generated
-Blockly.Msg.POINTS_INTERPOLATE_FIELD_3 = 'percent to B';
+Blockly.Msg.POINTS_INTERPOLATE_PERCENT = 'percent to B';
 /// auto generated
 Blockly.Msg.POINTS_INTERPOLATE_TOOLTIP = 'Interpolate between two points, the percent (0.0 - 1.0) determines how far towards the second point (1 - F) * A + F * B';
 /// auto generated
 Blockly.Msg.POINTS_INTERPOLATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.interpolate';
 /// auto generated
-Blockly.Msg.POINTS_MULTIPLY_FIELD_1 = 'multiply';
-/// auto generated
-Blockly.Msg.POINTS_MULTIPLY_FIELD_2 = 'and';
+Blockly.Msg.POINTS_MULTIPLY = 'multiply';
 /// auto generated
 Blockly.Msg.POINTS_MULTIPLY_TOOLTIP = 'Multiply two points';
 /// auto generated
 Blockly.Msg.POINTS_MULTIPLY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.multiply';
 /// auto generated
-Blockly.Msg.POINTS_NEGATE_FIELD_1 = 'negate';
+Blockly.Msg.POINTS_NEGATE = 'negate';
 /// auto generated
 Blockly.Msg.POINTS_NEGATE_TOOLTIP = 'Negate the point';
 /// auto generated
 Blockly.Msg.POINTS_NEGATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.negative';
 /// auto generated
-Blockly.Msg.POINTS_NORMALIZE_FIELD_1 = 'normalize';
+Blockly.Msg.POINTS_NORMALIZE = 'normalize';
 /// auto generated
 Blockly.Msg.POINTS_NORMALIZE_TOOLTIP = 'Normalize the point (make unit length)';
 /// auto generated
 Blockly.Msg.POINTS_NORMALIZE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.normalize';
 /// auto generated
-Blockly.Msg.POINTS_PERPENDICULAR_FIELD_1 = 'find pependicular vector to';
+Blockly.Msg.POINTS_PERPENDICULAR = 'find pependicular vector to';
 /// auto generated
 Blockly.Msg.POINTS_PERPENDICULAR_TOOLTIP = 'Find a perpendicular vector to this point';
 /// auto generated
 Blockly.Msg.POINTS_PERPENDICULAR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#.perp';
 /// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1 = 'make camera follow';
+Blockly.Msg.CAMERA_FOLLOW_VI = 'make camera follow';
 /// auto generated
 Blockly.Msg.CAMERA_FOLLOW_VI_TOOLTIP = 'Make the camera follow the specified game object';
 /// auto generated
 Blockly.Msg.CAMERA_FOLLOW_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#follow';
 /// auto generated
-Blockly.Msg.CAMERA_FADE_FIELD_1 = 'fade screen to';
-/// auto generated
-Blockly.Msg.CAMERA_FADE_FIELD_2 = 'over';
-/// auto generated
-Blockly.Msg.CAMERA_FADE_FIELD_3 = 'milliseconds';
+Blockly.Msg.CAMERA_FADE = 'fade screen to';
 /// auto generated
 Blockly.Msg.CAMERA_FADE_TOOLTIP = 'Fades the screen to the specified colour over time. Ends with the screen completely obscured.';
 /// auto generated
 Blockly.Msg.CAMERA_FADE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#fade';
 /// auto generated
-Blockly.Msg.CAMERA_FLASH_FIELD_1 = 'flash screen to';
+Blockly.Msg.CAMERA_FLASH = 'flash screen to';
 /// auto generated
-Blockly.Msg.CAMERA_FLASH_FIELD_2 = 'then fade in over';
-/// auto generated
-Blockly.Msg.CAMERA_FLASH_FIELD_3 = 'milliseconds';
+Blockly.Msg.CAMERA_FLASH_FADE = 'then fade in over';
 /// auto generated
 Blockly.Msg.CAMERA_FLASH_TOOLTIP = 'Immediately covers the camera with the specified colour. Then fades back in over a given time. Useful for fading back in after fading out, or as a big hit effect.';
 /// auto generated
 Blockly.Msg.CAMERA_FLASH_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#flash';
 /// auto generated
-Blockly.Msg.CAMERA_FOCUS_ON_FIELD_1 = 'focus camera on';
+Blockly.Msg.CAMERA_FOCUS_ON = 'focus camera on';
 /// auto generated
 Blockly.Msg.CAMERA_FOCUS_ON_TOOLTIP = 'Immediately centers the camera on the specified game object.';
 /// auto generated
 Blockly.Msg.CAMERA_FOCUS_ON_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#focusOn';
 /// auto generated
-Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_1 = 'focus camera on position at';
-/// auto generated
-Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_3 = 'y';
+Blockly.Msg.CAMERA_FOCUS_ON_XY = 'focus camera on position at';
 /// auto generated
 Blockly.Msg.CAMERA_FOCUS_ON_XY_TOOLTIP = 'Immediately centers the camera on a given position.';
 /// auto generated
 Blockly.Msg.CAMERA_FOCUS_ON_XY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#focusOnXY';
 /// auto generated
-Blockly.Msg.CAMERA_RESET_FIELD_1 = 'reset camera';
+Blockly.Msg.CAMERA_RESET = 'reset camera';
 /// auto generated
 Blockly.Msg.CAMERA_RESET_TOOLTIP = 'Completely resets the camera. It goes back to (0, 0), stops following anything, and removes all effects such as shake or flash.';
 /// auto generated
 Blockly.Msg.CAMERA_RESET_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#reset';
 /// auto generated
-Blockly.Msg.CAMERA_RESET_FX_FIELD_1 = 'reset camera effects';
+Blockly.Msg.CAMERA_RESET_FX = 'reset camera effects';
 /// auto generated
 Blockly.Msg.CAMERA_RESET_FX_TOOLTIP = 'Removes visual effects from the camera such as fading in/out. Does not affect the position, follow target, or screen shake.';
 /// auto generated
 Blockly.Msg.CAMERA_RESET_FX_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#resetFX';
 /// auto generated
-Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_FIELD_1 = 'set camera bounds to world bounds';
+Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD = 'set camera bounds to world bounds';
 /// auto generated
 Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_TOOLTIP = 'The camera bounds are not the size of what it shows, but the space it can move around in. This sets those bounds so that the camera can view the entire world, but nothing more.';
 /// auto generated
 Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#setBoundsToWorld';
 /// auto generated
-Blockly.Msg.CAMERA_SET_POSITION_FIELD_1 = 'set camera position to';
-/// auto generated
-Blockly.Msg.CAMERA_SET_POSITION_FIELD_2 = 'x';
-/// auto generated
-Blockly.Msg.CAMERA_SET_POSITION_FIELD_3 = 'y';
+Blockly.Msg.CAMERA_SET_POSITION = 'set camera position to';
 /// auto generated
 Blockly.Msg.CAMERA_SET_POSITION_TOOLTIP = 'Jumps the camera immediately to the given position. Note that the camera\'s position is its upper left corner, not its center.';
 /// auto generated
 Blockly.Msg.CAMERA_SET_POSITION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#setPosition';
 /// auto generated
-Blockly.Msg.CAMERA_SET_SIZE_FIELD_1 = 'set camera size';
-/// auto generated
-Blockly.Msg.CAMERA_SET_SIZE_FIELD_2 = 'width';
-/// auto generated
-Blockly.Msg.CAMERA_SET_SIZE_FIELD_3 = 'height';
+Blockly.Msg.CAMERA_SET_SIZE = 'set camera size';
 /// auto generated
 Blockly.Msg.CAMERA_SET_SIZE_TOOLTIP = 'Sets the size of the camera\'s view window.';
 /// auto generated
 Blockly.Msg.CAMERA_SET_SIZE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#setSize';
 /// auto generated
-Blockly.Msg.CAMERA_SHAKE_FIELD_1 = 'shake the camera';
+Blockly.Msg.CAMERA_SHAKE = 'shake the camera';
 /// auto generated
-Blockly.Msg.CAMERA_SHAKE_FIELD_2 = '% intensity';
+Blockly.Msg.CAMERA_SHAKE_INTENSITY = '% intensity';
 /// auto generated
-Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_1 = 'horizontal and vertical';
+Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_BOTH = 'horizontal and vertical';
 /// auto generated
-Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_2 = 'vertically';
+Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_VERTICAL = 'vertically';
 /// auto generated
-Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_3 = 'horizontally';
-/// auto generated
-Blockly.Msg.CAMERA_SHAKE_FIELD_3 = 'for';
-/// auto generated
-Blockly.Msg.CAMERA_SHAKE_FIELD_4 = 'milliseconds';
+Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_HORIZONTAL = 'horizontally';
 /// auto generated
 Blockly.Msg.CAMERA_SHAKE_TOOLTIP = 'Screen shake. Great for impact effects, or just a little extra umph, but don\'t go overboard. The intensity goes from 0 to 1. % of bounds it can move';
 /// auto generated
 Blockly.Msg.CAMERA_SHAKE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#shake';
 /// auto generated
-Blockly.Msg.CAMERA_UNFOLLOW_FIELD_1 = 'stop camera follow';
+Blockly.Msg.CAMERA_UNFOLLOW = 'stop camera follow';
 /// auto generated
 Blockly.Msg.CAMERA_UNFOLLOW_TOOLTIP = 'Makes the camera stop following anything. Equivalent to making the camera follow null.';
 /// auto generated
 Blockly.Msg.CAMERA_UNFOLLOW_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#unfollow';
 /// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_1 = 'make camera follow';
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED = 'make camera follow';
 /// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_2 = 'with style';
-/// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_1 = 'lockon';
-/// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_2 = 'platformer';
-/// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_3 = 'topdown';
-/// auto generated
-Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_4 = 'topdown tight';
+Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_SELECTION = 'with style';
 /// auto generated
 Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_TOOLTIP = 'Make the camera follow the specified game object';
 /// auto generated
 Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Camera.html#follow';
 /// auto generated
-Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_1 = 'set';
-/// auto generated
-Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_3 = 'to';
-/// auto generated
 Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_TOOLTIP = 'Set the selected member on the Sound';
 /// auto generated
 Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html';
-/// auto generated
-Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_FIELD_1 = 'get';
-/// auto generated
-Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_FIELD_2 = 'of';
 /// auto generated
 Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_TOOLTIP = 'Get the selected member from the Sound';
 /// auto generated
 Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html';
 /// auto generated
-Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_1 = 'set';
-/// auto generated
-Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_2 = 'of';
-/// auto generated
-Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_3 = 'to';
-/// auto generated
 Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_TOOLTIP = 'Set the selected member on the Sound';
 /// auto generated
 Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html';
-/// auto generated
-Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_FIELD_1 = 'get';
-/// auto generated
-Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_FIELD_2 = 'of';
 /// auto generated
 Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_TOOLTIP = 'Get the selected member from the Sound';
 /// auto generated
 Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html';
 /// auto generated
-Blockly.Msg.GET_SOUND_STRING_MEMBER_FIELD_1 = 'get';
-/// auto generated
-Blockly.Msg.GET_SOUND_STRING_MEMBER_FIELD_2 = 'of';
-/// auto generated
 Blockly.Msg.GET_SOUND_STRING_MEMBER_TOOLTIP = 'Get the selected member from the Sound';
 /// auto generated
 Blockly.Msg.GET_SOUND_STRING_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html';
 /// auto generated
-Blockly.Msg.LOAD_SOUND_FIELD_1 = 'create sound';
-/// auto generated
-Blockly.Msg.LOAD_SOUND_FIELD_2 = 'tag';
-/// auto generated
-Blockly.Msg.LOAD_SOUND_FIELD_3 = 'source';
+Blockly.Msg.LOAD_SOUND = 'create sound';
 /// auto generated
 Blockly.Msg.LOAD_SOUND_TOOLTIP = 'Loads an audio file so you can use it later. The tag is a name you use to access it later. The source is a file path. URLs work as a source too, but this is not recommended.';
 /// auto generated
 Blockly.Msg.LOAD_SOUND_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Loader.html#audio';
 /// auto generated
-Blockly.Msg.ADD_SOUND_FIELD_1 = 'add sound';
-/// auto generated
-Blockly.Msg.ADD_SOUND_FIELD_2 = 'at volume';
-/// auto generated
-Blockly.Msg.ADD_SOUND_FIELD_3 = 'looping';
+Blockly.Msg.ADD_SOUND = 'add sound';
 /// auto generated
 Blockly.Msg.ADD_SOUND_TOOLTIP = 'Add a Sound to the game';
 /// auto generated
 Blockly.Msg.ADD_SOUND_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.GameObjectFactory.html#audio';
 /// auto generated
-Blockly.Msg.PLAY_SOUND_FIELD_1 = 'play sound';
-/// auto generated
-Blockly.Msg.PLAY_SOUND_FIELD_2 = 'at volume';
-/// auto generated
-Blockly.Msg.PLAY_SOUND_FIELD_3 = 'looping';
+Blockly.Msg.PLAY_SOUND = 'play sound';
 /// auto generated
 Blockly.Msg.PLAY_SOUND_TOOLTIP = 'Plays a sound that has been created. The volume goes from 0 to 1.';
 /// auto generated
 Blockly.Msg.PLAY_SOUND_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.SoundManager.html#play';
 /// auto generated
-Blockly.Msg.REMOVE_SOUND_FIELD_1 = 'stop all sounds tagged';
+Blockly.Msg.REMOVE_SOUND = 'stop all sounds tagged';
 /// auto generated
 Blockly.Msg.REMOVE_SOUND_TOOLTIP = 'Stops all sounds with the given tag.';
 /// auto generated
 Blockly.Msg.REMOVE_SOUND_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.SoundManager.html#removeByKey';
 /// auto generated
-Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_1 = 'stop';
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_STOP = 'stop';
 /// auto generated
-Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_2 = 'pause';
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_PAUSE = 'pause';
 /// auto generated
-Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_3 = 'resume';
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_RESUME = 'resume';
 /// auto generated
-Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_FIELD_1 = 'all sounds';
+Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS = 'all sounds';
 /// auto generated
 Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_TOOLTIP = 'Stop - Stop everything dead. Pause - Stop everything, but remember where you were. Resume - Start playing paused sounds from where they left off.';
 /// auto generated
 Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.SoundManager.html#stopAll';
 /// auto generated
-Blockly.Msg.SOUND_FADE_IN_FIELD_1 = 'fade in sound';
+Blockly.Msg.SOUND_FADE_IN = 'fade in sound';
 /// auto generated
-Blockly.Msg.SOUND_FADE_IN_FIELD_2 = 'over';
-/// auto generated
-Blockly.Msg.SOUND_FADE_IN_FIELD_3 = 'milliseconds loop';
+Blockly.Msg.SOUND_FADE_IN_LOOP = 'milliseconds loop';
 /// auto generated
 Blockly.Msg.SOUND_FADE_IN_TOOLTIP = 'Starts/Restarts the sound sets the volume to zero and increases from 0 to 1 over duration';
 /// auto generated
 Blockly.Msg.SOUND_FADE_IN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#fadeIn';
 /// auto generated
-Blockly.Msg.SOUND_FADE_OUT_FIELD_1 = 'fade out sound';
-/// auto generated
-Blockly.Msg.SOUND_FADE_OUT_FIELD_2 = 'over';
-/// auto generated
-Blockly.Msg.SOUND_FADE_OUT_FIELD_3 = 'milliseconds';
+Blockly.Msg.SOUND_FADE_OUT = 'fade out sound';
 /// auto generated
 Blockly.Msg.SOUND_FADE_OUT_TOOLTIP = 'Fades the sounds volume to 0 over the given duration';
 /// auto generated
 Blockly.Msg.SOUND_FADE_OUT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#fadeOut';
 /// auto generated
-Blockly.Msg.SOUND_FADE_TO_FIELD_1 = 'fade sound';
+Blockly.Msg.SOUND_FADE_TO = 'fade sound';
 /// auto generated
-Blockly.Msg.SOUND_FADE_TO_FIELD_2 = 'over';
-/// auto generated
-Blockly.Msg.SOUND_FADE_TO_FIELD_3 = 'milliseconds';
-/// auto generated
-Blockly.Msg.SOUND_FADE_TO_FIELD_4 = 'to volume';
+Blockly.Msg.SOUND_FADE_TO_VOLUME = 'to volume';
 /// auto generated
 Blockly.Msg.SOUND_FADE_TO_TOOLTIP = 'Fades the sounds volume to a given volume over the given duration';
 /// auto generated
 Blockly.Msg.SOUND_FADE_TO_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#fadeTo';
 /// auto generated
-Blockly.Msg.SOUND_LOOP_FULL_FIELD_1 = 'loop sound';
-/// auto generated
-Blockly.Msg.SOUND_LOOP_FULL_FIELD_2 = 'at volume';
+Blockly.Msg.SOUND_LOOP_FULL = 'loop sound';
 /// auto generated
 Blockly.Msg.SOUND_LOOP_FULL_TOOLTIP = 'Loops the entire sound';
 /// auto generated
 Blockly.Msg.SOUND_LOOP_FULL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#loopFull';
 /// auto generated
-Blockly.Msg.SOUND_PAUSE_FIELD_1 = 'pause sound';
+Blockly.Msg.SOUND_PAUSE = 'pause sound';
 /// auto generated
 Blockly.Msg.SOUND_PAUSE_TOOLTIP = 'Pause the sound';
 /// auto generated
 Blockly.Msg.SOUND_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#pause';
 /// auto generated
-Blockly.Msg.SOUND_RESUME_FIELD_1 = 'resume sound';
+Blockly.Msg.SOUND_RESUME = 'resume sound';
 /// auto generated
 Blockly.Msg.SOUND_RESUME_TOOLTIP = 'Resumes the sound';
 /// auto generated
 Blockly.Msg.SOUND_RESUME_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#resume';
 /// auto generated
-Blockly.Msg.SOUND_STOP_FIELD_1 = 'stop sound';
+Blockly.Msg.SOUND_STOP = 'stop sound';
 /// auto generated
 Blockly.Msg.SOUND_STOP_TOOLTIP = 'Stops the sound';
 /// auto generated
 Blockly.Msg.SOUND_STOP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#stop';
 /// auto generated
-Blockly.Msg.SOUND_PLAY_FIELD_1 = 'play sound';
+Blockly.Msg.SOUND_PLAY = 'play sound';
 /// auto generated
-Blockly.Msg.SOUND_PLAY_FIELD_2 = 'starting at position';
-/// auto generated
-Blockly.Msg.SOUND_PLAY_FIELD_3 = 'at volume';
-/// auto generated
-Blockly.Msg.SOUND_PLAY_FIELD_4 = 'loop';
-/// auto generated
-Blockly.Msg.SOUND_PLAY_FIELD_5 = 'force restart';
+Blockly.Msg.SOUND_PLAY_POSITION = 'starting at position';
 /// auto generated
 Blockly.Msg.SOUND_PLAY_TOOLTIP = 'Play the sound';
 /// auto generated
 Blockly.Msg.SOUND_PLAY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#play';
 /// auto generated
-Blockly.Msg.SOUND_RESTART_FIELD_1 = 'restart sound';
+Blockly.Msg.SOUND_RESTART = 'restart sound';
 /// auto generated
-Blockly.Msg.SOUND_RESTART_FIELD_2 = 'starting at position';
-/// auto generated
-Blockly.Msg.SOUND_RESTART_FIELD_3 = 'at volume';
-/// auto generated
-Blockly.Msg.SOUND_RESTART_FIELD_4 = 'loop';
+Blockly.Msg.SOUND_RESTART_POSITION = 'starting at position';
 /// auto generated
 Blockly.Msg.SOUND_RESTART_TOOLTIP = 'Restart the entire sound';
 /// auto generated
 Blockly.Msg.SOUND_RESTART_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Sound.html#restart';
 /// auto generated
-Blockly.Msg.LIST_FIND_CLOSEST_FIELD_1 = 'find the number closest to';
+Blockly.Msg.LIST_FIND_CLOSEST_NUMBER = 'find the number closest to';
 /// auto generated
-Blockly.Msg.LIST_FIND_CLOSEST_FIELD_2 = 'in the list';
+Blockly.Msg.LIST_FIND_CLOSEST = 'in the list';
 /// auto generated
 Blockly.Msg.LIST_FIND_CLOSEST_TOOLTIP = 'Returns the value closest to the given number in a sorted, numeric list. If two values are equally close, it returns the higher one.';
 /// auto generated
 Blockly.Msg.LIST_FIND_CLOSEST_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ArrayUtils.html#_findClosest';
 /// auto generated
-Blockly.Msg.LIST_GET_RANDOM_FIELD_1 = 'get a random item from';
+Blockly.Msg.LIST_GET_RANDOM = 'get a random item from';
 /// auto generated
 Blockly.Msg.LIST_GET_RANDOM_TOOLTIP = 'Returns a random item from the given list.';
 /// auto generated
 Blockly.Msg.LIST_GET_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ArrayUtils.html#_getRandomItem';
 /// auto generated
-Blockly.Msg.NUMBER_LIST_FIELD_1 = 'create a list with every number from';
-/// auto generated
-Blockly.Msg.NUMBER_LIST_FIELD_2 = 'to';
+Blockly.Msg.NUMBER_LIST = 'create a list with every number from';
 /// auto generated
 Blockly.Msg.NUMBER_LIST_TOOLTIP = 'Creates a list of numbers, in order within the specified range, including the start and end.';
 /// auto generated
 Blockly.Msg.NUMBER_LIST_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ArrayUtils.html#_numberArray';
 /// auto generated
-Blockly.Msg.NUMBER_LIST_STEP_FIELD_1 = 'create a list from';
+Blockly.Msg.NUMBER_LIST_STEP = 'create a list from';
 /// auto generated
-Blockly.Msg.NUMBER_LIST_STEP_FIELD_2 = 'to';
-/// auto generated
-Blockly.Msg.NUMBER_LIST_STEP_FIELD_3 = 'stepping by';
+Blockly.Msg.NUMBER_LIST_STEP_AMOUNT = 'stepping by';
 /// auto generated
 Blockly.Msg.NUMBER_LIST_STEP_TOOLTIP = 'Creates a list in the given range, counting up by a specified value. Does NOT include the end of the range.';
 /// auto generated
 Blockly.Msg.NUMBER_LIST_STEP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ArrayUtils.html#_numberArrayStep';
 /// auto generated
-Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_FIELD_1 = 'get and remove a random item from';
+Blockly.Msg.LIST_REMOVE_RANDOM_ITEM = 'get and remove a random item from';
 /// auto generated
 Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_TOOLTIP = 'Removes a random item from a list and returns it. Note that this modifies the list.';
 /// auto generated
 Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ArrayUtils.html#_removeRandomItem';
 /// auto generated
-Blockly.Msg.LIST_SHUFFLE_FIELD_1 = 'shuffle';
+Blockly.Msg.LIST_SHUFFLE = 'shuffle';
 /// auto generated
 Blockly.Msg.LIST_SHUFFLE_TOOLTIP = 'Randomly rearranges the order of items in a list. Works for more than just cards.';
 /// auto generated
 Blockly.Msg.LIST_SHUFFLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.ArrayUtils.html#_shuffle';
 /// auto generated
-Blockly.Msg.RANDOM_ANGLE_FIELD_1 = 'get random angle';
+Blockly.Msg.RANDOM_ANGLE = 'get random angle';
 /// auto generated
 Blockly.Msg.RANDOM_ANGLE_TOOLTIP = 'Returns a random angle between -180 and 180.';
 /// auto generated
 Blockly.Msg.RANDOM_ANGLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#angle';
 /// auto generated
-Blockly.Msg.RANDOM_PICK_FIELD_1 = 'get random item from list';
+Blockly.Msg.RANDOM_PICK = 'get random item from list';
 /// auto generated
 Blockly.Msg.RANDOM_PICK_TOOLTIP = 'Returns a random member in a given list.';
 /// auto generated
 Blockly.Msg.RANDOM_PICK_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#pick';
 /// auto generated
-Blockly.Msg.RANDOM_PICK_WEIGHTED_FIELD_1 = 'get random item from list (weighted)';
+Blockly.Msg.RANDOM_PICK_WEIGHTED = 'get random item from list (weighted)';
 /// auto generated
 Blockly.Msg.RANDOM_PICK_WEIGHTED_TOOLTIP = 'Returns a random member in a given list. This version chooses items close to the start of the list more frequently.';
 /// auto generated
 Blockly.Msg.RANDOM_PICK_WEIGHTED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#weightedPick';
 /// auto generated
-Blockly.Msg.RANDOM_REAL_FIELD_1 = 'get random number';
+Blockly.Msg.RANDOM_REAL = 'get random number';
 /// auto generated
 Blockly.Msg.RANDOM_REAL_TOOLTIP = 'Returns a random real number. This can be anywhere between 0 and 2^32 (about 4 billion).';
 /// auto generated
 Blockly.Msg.RANDOM_REAL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#real';
 /// auto generated
-Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_1 = 'get random number between';
-/// auto generated
-Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_2 = 'and';
+Blockly.Msg.RANDOM_REAL_IN_RANGE = 'get random number between';
 /// auto generated
 Blockly.Msg.RANDOM_REAL_IN_RANGE_TOOLTIP = 'Returns a random real number in the specified range.';
 /// auto generated
 Blockly.Msg.RANDOM_REAL_IN_RANGE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#realInRange';
 /// auto generated
-Blockly.Msg.RANDOM_SIGN_FIELD_1 = 'get random sign';
+Blockly.Msg.RANDOM_SIGN = 'get random sign';
 /// auto generated
 Blockly.Msg.RANDOM_SIGN_TOOLTIP = 'Returns either +1 or -1. For deciding if something needs to be positive or negative.';
 /// auto generated
 Blockly.Msg.RANDOM_SIGN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#sign';
 /// auto generated
-Blockly.Msg.MATH_DEG_TO_RAD_FIELD_1 = 'convert degrees';
+Blockly.Msg.MATH_DEG_TO_RAD = 'convert degrees';
 /// auto generated
-Blockly.Msg.MATH_DEG_TO_RAD_FIELD_2 = 'to radians';
+Blockly.Msg.MATH_DEG_TO_RAD_RESULT = 'to radians';
 /// auto generated
 Blockly.Msg.MATH_DEG_TO_RAD_TOOLTIP = 'Converts a value in degrees to an equivalent in radians.';
 /// auto generated
 Blockly.Msg.MATH_DEG_TO_RAD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Math.html#degToRad';
 /// auto generated
-Blockly.Msg.MATH_RAD_TO_DEG_FIELD_1 = 'convert radians';
+Blockly.Msg.MATH_RAD_TO_DEG = 'convert radians';
 /// auto generated
-Blockly.Msg.MATH_RAD_TO_DEG_FIELD_2 = 'to degrees';
+Blockly.Msg.MATH_RAD_TO_DEG_RESULT = 'to degrees';
 /// auto generated
 Blockly.Msg.MATH_RAD_TO_DEG_TOOLTIP = 'Converts an angle in degrees to an equivalent in radians.';
 /// auto generated
 Blockly.Msg.MATH_RAD_TO_DEG_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Math.html#radToDeg';
 /// auto generated
-Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1 = 'setup';
-/// auto generated
 Blockly.Msg.HARDWARESTARTUP_ARDUINO_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_ARDUINO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.PININPUT_FIELD_1 = 'set pin # ';
+Blockly.Msg.PININPUT = 'set pin # ';
 /// auto generated
-Blockly.Msg.PININPUT_FIELD_2 = 'to';
+Blockly.Msg.PININPUT_MODE_DROPDOWN_INPUT = 'input';
 /// auto generated
-Blockly.Msg.PININPUT_MODE_DROPDOWN_1 = 'input';
+Blockly.Msg.PININPUT_MODE_DROPDOWN_OUTPUT = 'output';
 /// auto generated
-Blockly.Msg.PININPUT_MODE_DROPDOWN_2 = 'output';
-/// auto generated
-Blockly.Msg.PININPUT_MODE_DROPDOWN_3 = 'input_pullup';
+Blockly.Msg.PININPUT_MODE_DROPDOWN_INPUT_PULLUP = 'input_pullup';
 /// auto generated
 Blockly.Msg.PININPUT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.PININPUT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.DIGITALWRITE_FIELD_1 = 'digital write';
+Blockly.Msg.DIGITALWRITE = 'digital write';
 /// auto generated
-Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_1 = 'HIGH';
-/// auto generated
-Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_2 = 'LOW';
-/// auto generated
-Blockly.Msg.DIGITALWRITE_FIELD_2 = 'to pin #';
+Blockly.Msg.DIGITALWRITE_NUMBER = 'to pin #';
 /// auto generated
 Blockly.Msg.DIGITALWRITE_TOOLTIP = 'Writes either HIGH or LOW to the given pin';
 /// auto generated
 Blockly.Msg.DIGITALWRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalWrite';
 /// auto generated
-Blockly.Msg.DIGITAL_READ_FIELD_1 = 'digital read pin #';
+Blockly.Msg.DIGITAL_READ = 'digital read pin #';
 /// auto generated
 Blockly.Msg.DIGITAL_READ_TOOLTIP = 'Reads either HIGH or LOW from a digital pin';
 /// auto generated
 Blockly.Msg.DIGITAL_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/DigitalRead';
 /// auto generated
-Blockly.Msg.HIGH_FIELD_1 = 'HIGH';
-/// auto generated
 Blockly.Msg.HIGH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HIGH_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
-/// auto generated
-Blockly.Msg.LOW_FIELD_1 = 'LOW';
 /// auto generated
 Blockly.Msg.LOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.LOW_HELP_URL = 'https://www.arduino.cc/en/Reference/Constants';
 /// auto generated
-Blockly.Msg.LED_BUILTIN_FIELD_1 = 'LED_BUILTIN';
+Blockly.Msg.LED_BUILTIN = 'LED_BUILTIN';
 /// auto generated
 Blockly.Msg.LED_BUILTIN_TOOLTIP = '';
 /// auto generated
@@ -3883,117 +3015,111 @@ Blockly.Msg.LED_BUILTIN_HELP_URL = 'https://www.arduino.cc/en/Reference/Constant
 
 //arduino
 /// auto generated
-Blockly.Msg.ANALOG_REFERENCE_FIELD_1 = 'set analog reference to';
+Blockly.Msg.ANALOG_REFERENCE = 'set analog reference to';
 /// auto generated
-Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1 = 'DEFAULT';
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_DEFAULT = 'DEFAULT';
 /// auto generated
-Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_2 = 'EXTERNAL';
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_EXTERNAL = 'EXTERNAL';
 /// auto generated
-Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_3 = 'INTERNAL (Not Available on Mega)';
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_INTERNAL1 = 'INTERNAL (Not Available on Mega)';
+// auto generated
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_INTERAL2 = 'INTERNAL1V1 (Mega Only)';
 /// auto generated
-Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_4 = 'INTERNAL1V1 (Mega Only)';
-/// auto generated
-Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_5 = 'INTERNAL2V56 (Mega Only)';
+Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_INTERAL3 = 'INTERNAL2V56 (Mega Only)';
 /// auto generated
 Blockly.Msg.ANALOG_REFERENCE_TOOLTIP = 'Set the reference voltage for analog input';
 /// auto generated
 Blockly.Msg.ANALOG_REFERENCE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogReference';
 /// auto generated
-Blockly.Msg.ANALOG_READ_FIELD_1 = 'analog read pin #';
+Blockly.Msg.ANALOG_READ = 'analog read pin #';
 /// auto generated
 Blockly.Msg.ANALOG_READ_TOOLTIP = 'Read the value from the given analog pin';
 /// auto generated
 Blockly.Msg.ANALOG_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogRead';
 /// auto generated
-Blockly.Msg.ANALOG_WRITE_FIELD_1 = 'analog write ';
+Blockly.Msg.ANALOG_WRITE = 'analog write ';
 /// auto generated
-Blockly.Msg.ANALOG_WRITE_FIELD_2 = 'to pin #';
+Blockly.Msg.ANALOG_WRITE_NUMBER = 'to pin #';
 /// auto generated
 Blockly.Msg.ANALOG_WRITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.ANALOG_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/AnalogWrite';
 /// auto generated
-Blockly.Msg.RANDOM_SEED_FIELD_1 = 'Randomize seed with value';
+Blockly.Msg.RANDOM_SEED = 'Randomize seed with value';
 /// auto generated
 Blockly.Msg.RANDOM_SEED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.RANDOM_SEED_HELP_URL = 'https://www.arduino.cc/en/Reference/RandomSeed';
 /// auto generated
-Blockly.Msg.RANDOM_FIELD_1 = 'Random value between';
-/// auto generated
-Blockly.Msg.RANDOM_FIELD_2 = 'and';
+Blockly.Msg.RANDOM = 'Random value between';
 /// auto generated
 Blockly.Msg.RANDOM_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.RANDOM_HELP_URL = 'https://www.arduino.cc/en/Reference/Random';
 /// auto generated
-Blockly.Msg.BIT_FIELD_1 = 'Value of bit';
+Blockly.Msg.BIT = 'Value of bit';
 /// auto generated
 Blockly.Msg.BIT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.BIT_HELP_URL = 'https://www.arduino.cc/en/Reference/Bit';
 /// auto generated
-Blockly.Msg.BIT_CLEAR_FIELD_1 = 'Clear bit';
+Blockly.Msg.BIT_CLEAR = 'Clear bit';
 /// auto generated
-Blockly.Msg.BIT_CLEAR_FIELD_2 = 'from Number';
+Blockly.Msg.BIT_CLEAR_NUMBER = 'from Number';
 /// auto generated
 Blockly.Msg.BIT_CLEAR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.BIT_CLEAR_HELP_URL = 'https://www.arduino.cc/en/Reference/BitClear';
 /// auto generated
-Blockly.Msg.BIT_SET_FIELD_1 = 'Set bit';
+Blockly.Msg.BIT_SET = 'Set bit';
 /// auto generated
-Blockly.Msg.BIT_SET_FIELD_2 = 'in Number';
+Blockly.Msg.BIT_SET_NUMBER = 'in Number';
 /// auto generated
 Blockly.Msg.BIT_SET_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.BIT_SET_HELP_URL = 'https://www.arduino.cc/en/Reference/BitSet';
 /// auto generated
-Blockly.Msg.BIT_WRITE_FIELD_1 = 'Set Number';
+Blockly.Msg.BIT_WRITE = 'Set Number';
 /// auto generated
-Blockly.Msg.BIT_WRITE_FIELD_2 = 'at Position';
+Blockly.Msg.BIT_WRITE_POSITION = 'at Position';
 /// auto generated
-Blockly.Msg.BIT_WRITE_FIELD_3 = 'with Value';
+Blockly.Msg.BIT_WRITE_VALUE = 'with Value';
 /// auto generated
 Blockly.Msg.BIT_WRITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.BIT_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/BitWrite';
 /// auto generated
-Blockly.Msg.BIT_READ_FIELD_1 = 'Read Number';
+Blockly.Msg.BIT_READ = 'Read Number';
 /// auto generated
-Blockly.Msg.BIT_READ_FIELD_2 = 'at Position';
+Blockly.Msg.BIT_READ_POSITION = 'at Position';
 /// auto generated
 Blockly.Msg.BIT_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.BIT_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/BitRead';
 /// auto generated
-Blockly.Msg.HIGH_BYTE_FIELD_1 = 'Get high-byte from Number';
+Blockly.Msg.HIGH_BYTE = 'Get high-byte from Number';
 /// auto generated
 Blockly.Msg.HIGH_BYTE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HIGH_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/HighByte';
 /// auto generated
-Blockly.Msg.LOW_BYTE_FIELD_1 = 'Get low-byte from Number';
+Blockly.Msg.LOW_BYTE = 'Get low-byte from Number';
 /// auto generated
 Blockly.Msg.LOW_BYTE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.LOW_BYTE_HELP_URL = 'https://www.arduino.cc/en/Reference/LowByte';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_FIELD_1 = 'play frequency';
+Blockly.Msg.TONE_PIN_FREQ = 'play frequency';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_FIELD_2 = 'on pin #';
+Blockly.Msg.TONE_PIN_FREQ_PIN = 'on pin #';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_HELP_URL = 'https://www.arduino.cc/en/Reference/Tone';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1 = 'play frequency';
+Blockly.Msg.TONE_PIN_FREQ_DURATION = 'play frequency';
 /// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2 = 'on pin #';
-/// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_3 = 'for ';
-/// auto generated
-Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4 = 'milliseconds';
+Blockly.Msg.TONE_PIN_FREQ_DURATION_PIN = 'on pin #';
 /// auto generated
 Blockly.Msg.TONE_PIN_FREQ_DURATION_TOOLTIP = '';
 /// auto generated
@@ -4041,33 +3167,33 @@ Blockly.Msg.EEPROM_PUT_HELP_URL = 'https://www.arduino.cc/en/Reference/EEPROMPut
 
 //arduino_serial
 /// auto generated
-Blockly.Msg.SERIAL_READ_FIELD_1 = 'serial read first byte';
+Blockly.Msg.SERIAL_READ = 'serial read first byte';
 /// auto generated
 Blockly.Msg.SERIAL_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_READ_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1 = 'serial print line';
+Blockly.Msg.SERIAL_PRINT_LINE = 'serial print line';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_LINE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_LINE_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_PRINT_FIELD_1 = 'serial print';
+Blockly.Msg.SERIAL_PRINT = 'serial print';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_PRINT_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_END_FIELD_1 = 'serial end';
+Blockly.Msg.SERIAL_END = 'serial end';
 /// auto generated
 Blockly.Msg.SERIAL_END_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERIAL_END_HELP_URL = '';
 /// auto generated
-Blockly.Msg.SERIAL_BEGIN_FIELD_1 = 'serial begin at ';
+Blockly.Msg.SERIAL_BEGIN = 'serial begin at ';
 /// auto generated
-Blockly.Msg.SERIAL_BEGIN_FIELD_2 = 'bits per second (baud)';
+Blockly.Msg.SERIAL_BEGIN_SPEED = 'bits per second (baud)';
 /// auto generated
 Blockly.Msg.SERIAL_BEGIN_TOOLTIP = '';
 /// auto generated
@@ -4075,43 +3201,43 @@ Blockly.Msg.SERIAL_BEGIN_HELP_URL = '';
 
 //arduino_servo
 /// auto generated
-Blockly.Msg.SERVO_ATTACH_FIELD_1 = 'attach pin';
+Blockly.Msg.SERVO_ATTACH_PIN = 'attach pin';
 /// auto generated
-Blockly.Msg.SERVO_ATTACH_FIELD_2 = 'to servo';
+Blockly.Msg.SERVO_ATTACH_SERVO = 'to servo';
 /// auto generated
 Blockly.Msg.SERVO_ATTACH_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_ATTACH_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttach';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_FIELD_1 = 'set angle to';
+Blockly.Msg.SERVO_WRITE_ANGLE = 'set angle to';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_FIELD_2 = 'on servo';
+Blockly.Msg.SERVO_WRITE_SERVO = 'on servo';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWrite';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1 = 'set microseconds to';
+Blockly.Msg.SERVO_WRITE_MICROSECONDS = 'set microseconds to';
 /// auto generated
-Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_2 = 'on servo';
+Blockly.Msg.SERVO_WRITE_MICROSECONDS_SERVO = 'on servo';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_MICROSECONDS_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_WRITE_MICROSECONDS_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoWriteMicroseconds';
 /// auto generated
-Blockly.Msg.SERVO_READ_FIELD_1 = 'read from servo';
+Blockly.Msg.SERVO_READ = 'read from servo';
 /// auto generated
 Blockly.Msg.SERVO_READ_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_READ_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoRead';
 /// auto generated
-Blockly.Msg.SERVO_ATTACHED_FIELD_1 = 'servo attached?';
+Blockly.Msg.SERVO_ATTACHED = 'servo attached?';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SERVO_ATTACHED_HELP_URL = 'https://www.arduino.cc/en/Reference/ServoAttached';
 /// auto generated
-Blockly.Msg.SERVO_DETACH_FIELD_1 = 'detach servo';
+Blockly.Msg.SERVO_DETACH = 'detach servo';
 /// auto generated
 Blockly.Msg.SERVO_DETACH_TOOLTIP = '';
 /// auto generated
@@ -4261,743 +3387,643 @@ Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL = 'developer.mozilla.org/en-US/docs/
 
 //ringo
 /// auto generated
-Blockly.Msg.HARDWARESTARTUP_RINGO_FIELD_1 = 'setup';
+Blockly.Msg.HARDWARESTARTUP_RINGO_SETUP = 'setup';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_RINGO_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_RINGO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_FIELD_1 = 'get gyro calibration multiplier';
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER = 'Get Gyro Calibration Multiplier';
 /// auto generated
 Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.BEGIN_NAVIGATION_FIELD_1 = 'begin navigation';
+Blockly.Msg.BEGIN_NAVIGATION = 'Begin Navigation';
 /// auto generated
 Blockly.Msg.BEGIN_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SIMPLE_GYRO_NAVIGATION_FIELD_1 = 'simple gyro navigation';
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION = 'Simple Gyro Navigation';
 /// auto generated
 Blockly.Msg.SIMPLE_GYRO_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SIMPLE_NAVIGATION_FIELD_1 = 'simple navigation';
+Blockly.Msg.SIMPLE_NAVIGATION = 'Simple Navigation';
 /// auto generated
 Blockly.Msg.SIMPLE_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_FIELD_1 = 'navigation xy with';
+Blockly.Msg.NAVIGATION_XY = 'Navigation XY with';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_FIELD_2 = 'gyro sensitivity';
+Blockly.Msg.NAVIGATION_XY_GYRO = 'Gyro Sensitivity';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_FIELD_3 = 'acceleration sensitivity';
+Blockly.Msg.NAVIGATION_XY_ACCELERATION = 'Acceleration Sensitivity';
 /// auto generated
 Blockly.Msg.NAVIGATION_XY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_FIELD_1 = 'calibrate navigation sensors';
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS = 'Calibrate Navigation Sensors';
 /// auto generated
 Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.ZERO_NAVIGATION_FIELD_1 = 'reset navigation';
+Blockly.Msg.ZERO_NAVIGATION = 'Reset Navigation';
 /// auto generated
 Blockly.Msg.ZERO_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PAUSE_NAVIGATION_FIELD_1 = 'pause navigation';
+Blockly.Msg.PAUSE_NAVIGATION = 'Pause Navigation';
 /// auto generated
 Blockly.Msg.PAUSE_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.RESUME_NAVIGATION_FIELD_1 = 'resume navigation';
+Blockly.Msg.RESUME_NAVIGATION = 'Resume Navigation';
 /// auto generated
 Blockly.Msg.RESUME_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NAVIGATION_PAUSED_FIELD_1 = 'is navigation paused';
+Blockly.Msg.NAVIGATION_PAUSED = 'Is Navigation Paused';
 /// auto generated
 Blockly.Msg.NAVIGATION_PAUSED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = 'delay with navigation for ';
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS = 'Delay With Navigation for ';
 /// auto generated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_2 = 'milliseconds';
-/// auto generated
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = 'delay with simple navigation for';
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = 'Delay With Simple Navigation for';
 /// auto generated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_2 = 'milliseconds';
-/// auto generated
-Blockly.Msg.PRESENT_HEADING_FIELD_1 = 'get present heading';
+Blockly.Msg.PRESENT_HEADING = 'Get Present Heading';
 /// auto generated
 Blockly.Msg.PRESENT_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_X_FIELD_1 = 'get degrees x';
+Blockly.Msg.GET_DEGREES_X = 'Get Degrees X';
 /// auto generated
 Blockly.Msg.GET_DEGREES_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Z_FIELD_1 = 'get degrees per second z';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z = 'Get Degrees Per Second Z';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_X_FIELD_1 = 'get degrees per second x';
+Blockly.Msg.GET_DEGREES_PER_SECOND_X = 'Get Degrees Per Second X';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Y_FIELD_1 = 'get degrees per second y';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y = 'Get Degrees Per Second Y';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_TO_STOP_FIELD_1 = 'get degrees to stop';
+Blockly.Msg.GET_DEGREES_TO_STOP = 'Get Degrees To Stop';
 /// auto generated
 Blockly.Msg.GET_DEGREES_TO_STOP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_X_FIELD_1 = 'get x acceleration';
+Blockly.Msg.GET_ACCEL_X = 'Get X Acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Y_FIELD_1 = 'get y acceleration';
+Blockly.Msg.GET_ACCEL_Y = 'Get Y Acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Z_FIELD_1 = 'get z acceleration';
+Blockly.Msg.GET_ACCEL_Z = 'Get Z Acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Y_UNZEROED_FIELD_1 = 'get y acceleration unzeroed';
+Blockly.Msg.GET_ACCEL_Y_UNZEROED = 'Get Y Acceleration Unzeroed';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Y_UNZEROED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_VEL_X_FIELD_1 = 'get x velocity';
+Blockly.Msg.GET_VEL_X = 'Get X Velocity';
 /// auto generated
 Blockly.Msg.GET_VEL_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_VEL_Y_FIELD_1 = 'get y velocity';
+Blockly.Msg.GET_VEL_Y = 'Get Y Velocity';
 /// auto generated
 Blockly.Msg.GET_VEL_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_POS_X_FIELD_1 = 'get x position';
+Blockly.Msg.GET_POS_X = 'Get X Position';
 /// auto generated
 Blockly.Msg.GET_POS_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_POS_Y_FIELD_1 = 'get y position';
+Blockly.Msg.GET_POS_Y = 'Get Y Position';
 /// auto generated
 Blockly.Msg.GET_POS_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.IS_STATIONARY_FIELD_1 = 'is ringo stationary';
+Blockly.Msg.IS_STATIONARY = 'Is Ringo Stationary';
 /// auto generated
 Blockly.Msg.IS_STATIONARY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NON_STATIONARY_VALUE_FIELD_1 = 'get non-stationary value';
+Blockly.Msg.NON_STATIONARY_VALUE = 'Get Non-Stationary Value';
 /// auto generated
 Blockly.Msg.NON_STATIONARY_VALUE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NON_STATIONARY_AXIS_FIELD_1 = 'get non-stationary axis';
+Blockly.Msg.NON_STATIONARY_AXIS = 'Get Non-Stationary Axis';
 /// auto generated
 Blockly.Msg.NON_STATIONARY_AXIS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MIN_TURN_FIELD_1 = 'minimum turn';
-/// auto generated
-Blockly.Msg.MIN_TURN_FIELD_2 = 'degrees';
+Blockly.Msg.MIN_TURN = 'Minimum Turn';
 /// auto generated
 Blockly.Msg.MIN_TURN_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MIN_TURN_TO_HEADING_FIELD_1 = 'minimum turn to heading';
+Blockly.Msg.MIN_TURN_TO_HEADING = 'Minimum Turn to Heading';
 /// auto generated
 Blockly.Msg.MIN_TURN_TO_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_FIELD_1 = 'vector to degrees';
+Blockly.Msg.VECTOR_TO_DEGREES = 'Vector To Degrees';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_FIELD_2 = 'x component';
+Blockly.Msg.VECTOR_TO_DEGREES_X = 'X Component';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_FIELD_3 = 'y component';
+Blockly.Msg.VECTOR_TO_DEGREES_Y = 'Y Component';
 /// auto generated
 Blockly.Msg.VECTOR_TO_DEGREES_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_SET_RANGE_FIELD_1 = 'set gyro range';
+Blockly.Msg.GYRO_SET_RANGE = 'Set Gyro Range';
 /// auto generated
 Blockly.Msg.GYRO_SET_RANGE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_BUFFER_SIZE_FIELD_1 = 'get gyro buffer size';
+Blockly.Msg.GYRO_BUFFER_SIZE = 'Get Gyro Buffer Size';
 /// auto generated
 Blockly.Msg.GYRO_BUFFER_SIZE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_GET_AXIS_FIELD_1 = 'get gyro axis';
+Blockly.Msg.GYRO_GET_AXIS = 'Get Gyro Axis';
 /// auto generated
 Blockly.Msg.GYRO_GET_AXIS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_SET_FREQUENCY_FIELD_1 = 'set gyro frequency';
+Blockly.Msg.GYRO_SET_FREQUENCY = 'Set Gyro Frequency';
 /// auto generated
 Blockly.Msg.GYRO_SET_FREQUENCY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_FIELD_1 = 'get gyro range from chip';
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP = 'Get Gyro Range From Chip';
 /// auto generated
 Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_1 = 'set';
+Blockly.Msg.SET_PIXEL_RGB = 'Set';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_1 = 'left eye';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_2 = 'right eye';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_3 = 'body top';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_4 = 'body bottom';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_5 = 'tail top';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL_DROPDOWN_6 = 'tail bottom';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_2 = 'pixel';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_3 = 'red';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_4 = 'green';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_FIELD_5 = 'blue';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL = 'Pixel';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_1 = 'set';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_1 = 'left eye';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_2 = 'right eye';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_3 = 'body top';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_4 = 'body bottom';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_5 = 'tail top';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_6 = 'tail bottom';
-/// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_2 = 'to';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR = 'Set';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_COLOUR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_1 = 'set all pixels to';
-/// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_2 = 'red';
-/// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_3 = 'green';
-/// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_FIELD_4 = 'blue';
+Blockly.Msg.SET_ALL_PIXEL_RGB = 'Set All Pixels to';
 /// auto generated
 Blockly.Msg.SET_ALL_PIXEL_RGB_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.REFRESH_PIXELS_FIELD_1 = 'refresh pixels';
+Blockly.Msg.REFRESH_PIXELS = 'Refresh Pixels';
 /// auto generated
 Blockly.Msg.REFRESH_PIXELS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_FIELD_1 = 'set all pixels to';
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR = 'Set All Pixels to';
 /// auto generated
 Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_MOTOR_MAX_FIELD_1 = 'get motor max';
+Blockly.Msg.GET_MOTOR_MA = 'Get Motor Max';
 /// auto generated
 Blockly.Msg.GET_MOTOR_MAX_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_LEFT_MOTOR_FIELD_1 = 'get current left motor speed';
+Blockly.Msg.GET_LEFT_MOTOR = 'Get Current Left Motor Speed';
 /// auto generated
 Blockly.Msg.GET_LEFT_MOTOR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_RIGHT_MOTOR_FIELD_1 = 'get current right motor speed';
+Blockly.Msg.GET_RIGHT_MOTOR = 'Get Current Right Motor Speed';
 /// auto generated
 Blockly.Msg.GET_RIGHT_MOTOR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MOTORS_BEGIN_FIELD_1 = 'begin motors';
+Blockly.Msg.MOTORS_BEGIN = 'Begin Motors';
 /// auto generated
 Blockly.Msg.MOTORS_BEGIN_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1 = 'reset maintain heading';
+Blockly.Msg.MAINTAIN_HEADING_RESET = 'Reset Maintain Heading';
 /// auto generated
 Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_1 = 'maintain heading with ';
+Blockly.Msg.MAINTAIN_HEADING = 'Maintain Heading with ';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_2 = 'direction';
+Blockly.Msg.MAINTAIN_HEADING_DIRECTION = 'Direction';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_3 = 'and speed';
+Blockly.Msg.MAINTAIN_HEADING_SPEED = 'and Speed';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_FIELD_4 = 'and wiggle';
+Blockly.Msg.MAINTAIN_HEADING_WIGGLE = 'and Wiggle';
 /// auto generated
 Blockly.Msg.MAINTAIN_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_1 = 'drive in an arc';
+Blockly.Msg.DRIVE_ARC = 'Drive in An Arc';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_2 = 'turning (degrees)';
+Blockly.Msg.DRIVE_ARC_DEGREES = 'Turning (degrees)';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_3 = 'with left motor at';
+Blockly.Msg.DRIVE_ARC_LEFT = 'With Left Motor At';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_4 = 'with right motor at';
+Blockly.Msg.DRIVE_ARC_RIGHT = 'With Right Motor At';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_5 = 'with max expected turn time (milliseconds)';
+Blockly.Msg.DRIVE_ARC_TURN_TIME = 'With Max Expected Turn Time (milliseconds)';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_FIELD_6 = 'with max expected skid time (milliseconds)';
+Blockly.Msg.DRIVE_ARC_SKID_TIME = 'With Max Expected Skid Time (milliseconds)';
 /// auto generated
 Blockly.Msg.DRIVE_ARC_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_START_CHIRP_FIELD_1 = 'play start chirp';
+Blockly.Msg.PLAY_START_CHIRP = 'Play Start Chirp';
 /// auto generated
 Blockly.Msg.PLAY_START_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_ACK_FIELD_1 = 'play acknowledgment chirp';
+Blockly.Msg.PLAY_ACK = 'Play Acknowledgment Chirp';
 /// auto generated
 Blockly.Msg.PLAY_ACK_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_NON_ACK_FIELD_1 = 'play non-acknowledgment chirp';
+Blockly.Msg.PLAY_NON_ACK = 'Play Non-Acknowledgment Chirp';
 /// auto generated
 Blockly.Msg.PLAY_NON_ACK_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_ANGER_FIELD_1 = 'play anger';
+Blockly.Msg.PLAY_ANGER = 'Player Anger';
 /// auto generated
 Blockly.Msg.PLAY_ANGER_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_BOREDOM_FIELD_1 = 'play boredom';
+Blockly.Msg.PLAY_BOREDOM = 'Play Boredom';
 /// auto generated
 Blockly.Msg.PLAY_BOREDOM_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_EXCITED_FIELD_1 = 'play excited';
+Blockly.Msg.PLAY_EXCITED = 'Play Excited';
 /// auto generated
 Blockly.Msg.PLAY_EXCITED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FIELD_1 = 'play chirp';
+Blockly.Msg.PLAY_CHIRP = 'Play Chirp';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FIELD_2 = 'with frequency';
+Blockly.Msg.PLAY_CHIRP_FREQUENCY = 'With Frequency';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FIELD_3 = 'with amplitude';
+Blockly.Msg.AMPLITUDE = 'With Amplitude';
 /// auto generated
 Blockly.Msg.PLAY_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_CHIRP_FIELD_1 = 'turn chirp off';
+Blockly.Msg.OFF_CHIRP = 'Turn Chirp Off';
 /// auto generated
 Blockly.Msg.OFF_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_PIXELS_FIELD_1 = 'turn all pixels off';
+Blockly.Msg.OFF_PIXELS = 'Turn All Pixels Off';
 /// auto generated
 Blockly.Msg.OFF_PIXELS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_PIXEL_FIELD_1 = 'turn';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_1 = 'left eye';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_2 = 'right eye';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_3 = 'body top';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_4 = 'body bottom';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_5 = 'tail top';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_PIXEL_DROPDOWN_6 = 'tail bottom';
-/// auto generated
-Blockly.Msg.OFF_PIXEL_FIELD_2 = 'off';
+Blockly.Msg.OFF_PIXEL = 'Turn';
 /// auto generated
 Blockly.Msg.OFF_PIXEL_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.RANDOM_EYES_FIELD_1 = 'set eyes to a random colour';
+Blockly.Msg.RANDOM_EYES = 'Set Eyes To A Random Colour';
 /// auto generated
 Blockly.Msg.RANDOM_EYES_TOOLTIP = '';
 
 //wink
 /// auto generated
-Blockly.Msg.SETEYESRED_FIELD_1 = 'set eyes red';
+Blockly.Msg.SETEYESRED = 'set eyes red';
 /// auto generated
 Blockly.Msg.SETEYESRED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESGREEN_FIELD_1 = 'set eyes green';
+Blockly.Msg.SETEYESGREEN = 'set eyes green';
 /// auto generated
 Blockly.Msg.SETEYESGREEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESBLUE_FIELD_1 = 'set eyes blue';
+Blockly.Msg.SETEYESBLUE = 'set eyes blue';
 /// auto generated
 Blockly.Msg.SETEYESBLUE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESPURPLE_FIELD_1 = 'set eyes purple';
+Blockly.Msg.SETEYESPURPLE = 'set eyes purple';
 /// auto generated
 Blockly.Msg.SETEYESPURPLE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESPINK_FIELD_1 = 'set eyes pink';
+Blockly.Msg.SETEYESPINK = 'set eyes pink';
 /// auto generated
 Blockly.Msg.SETEYESPINK_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESYELLOW_FIELD_1 = 'set eyes yellow';
+Blockly.Msg.SETEYESYELLOW = 'set eyes yellow';
 /// auto generated
 Blockly.Msg.SETEYESYELLOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESCYAN_FIELD_1 = 'set eyes cyan';
+Blockly.Msg.SETEYESCYAN = 'set eyes cyan';
 /// auto generated
 Blockly.Msg.SETEYESCYAN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESORANGE_FIELD_1 = 'set eyes orange';
+Blockly.Msg.SETEYESORANGE = 'set eyes orange';
 /// auto generated
 Blockly.Msg.SETEYESORANGE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESWHITE_FIELD_1 = 'set eyes white';
+Blockly.Msg.SETEYESWHITE = 'set eyes white';
 /// auto generated
 Blockly.Msg.SETEYESWHITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTRED_FIELD_1 = 'set left red';
+Blockly.Msg.SETLEFTRED = 'set left red';
 /// auto generated
 Blockly.Msg.SETLEFTRED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTGREEN_FIELD_1 = 'set left green';
+Blockly.Msg.SETLEFTGREEN = 'set left green';
 /// auto generated
 Blockly.Msg.SETLEFTGREEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTBLUE_FIELD_1 = 'set left blue';
+Blockly.Msg.SETLEFTBLUE = 'set left blue';
 /// auto generated
 Blockly.Msg.SETLEFTBLUE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTPURPLE_FIELD_1 = 'set left purple';
+Blockly.Msg.SETLEFTPURPLE = 'set left purple';
 /// auto generated
 Blockly.Msg.SETLEFTPURPLE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTPINK_FIELD_1 = 'set left pink';
+Blockly.Msg.SETLEFTPINK = 'set left pink';
 /// auto generated
 Blockly.Msg.SETLEFTPINK_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTYELLOW_FIELD_1 = 'set left yellow';
+Blockly.Msg.SETLEFTYELLOW = 'set left yellow';
 /// auto generated
 Blockly.Msg.SETLEFTYELLOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTCYAN_FIELD_1 = 'set left cyan';
+Blockly.Msg.SETLEFTCYAN = 'set left cyan';
 /// auto generated
 Blockly.Msg.SETLEFTCYAN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTORANGE_FIELD_1 = 'set left orange';
+Blockly.Msg.SETLEFTORANGE = 'set left orange';
 /// auto generated
 Blockly.Msg.SETLEFTORANGE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTWHITE_FIELD_1 = 'set left white';
+Blockly.Msg.SETLEFTWHITE = 'set left white';
 /// auto generated
 Blockly.Msg.SETLEFTWHITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTRED_FIELD_1 = 'set right red';
+Blockly.Msg.SETRIGHTRED = 'set right red';
 /// auto generated
 Blockly.Msg.SETRIGHTRED_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTRED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTGREEN_FIELD_1 = 'set right green';
+Blockly.Msg.SETRIGHTGREEN = 'set right green';
 /// auto generated
 Blockly.Msg.SETRIGHTGREEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTGREEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTBLUE_FIELD_1 = 'set right blue';
+Blockly.Msg.SETRIGHTBLUE = 'set right blue';
 /// auto generated
 Blockly.Msg.SETRIGHTBLUE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTBLUE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTPURPLE_FIELD_1 = 'set right purple';
+Blockly.Msg.SETRIGHTPURPLE = 'set right purple';
 /// auto generated
 Blockly.Msg.SETRIGHTPURPLE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTPURPLE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTPINK_FIELD_1 = 'set right pink';
+Blockly.Msg.SETRIGHTPINK = 'set right pink';
 /// auto generated
 Blockly.Msg.SETRIGHTPINK_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTPINK_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTYELLOW_FIELD_1 = 'set right yellow';
+Blockly.Msg.SETRIGHTYELLOW = 'set right yellow';
 /// auto generated
 Blockly.Msg.SETRIGHTYELLOW_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTYELLOW_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTCYAN_FIELD_1 = 'set right cyan';
+Blockly.Msg.SETRIGHTCYAN = 'set right cyan';
 /// auto generated
 Blockly.Msg.SETRIGHTCYAN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTCYAN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTORANGE_FIELD_1 = 'set right orange';
+Blockly.Msg.SETRIGHTORANGE = 'set right orange';
 /// auto generated
 Blockly.Msg.SETRIGHTORANGE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTORANGE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTWHITE_FIELD_1 = 'set right white';
+Blockly.Msg.SETRIGHTWHITE = 'set right white';
 /// auto generated
 Blockly.Msg.SETRIGHTWHITE_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTWHITE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETEYESRGB_FIELD_1 = 'set eyes color';
+Blockly.Msg.SETEYESRGB = 'set eyes color';
 /// auto generated
 Blockly.Msg.SETEYESRGB_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETEYESRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETLEFTRGB_FIELD_1 = 'set left color';
+Blockly.Msg.SETLEFTRGB = 'set left color';
 /// auto generated
 Blockly.Msg.SETLEFTRGB_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETLEFTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETRIGHTRGB_FIELD_1 = 'set right color';
+Blockly.Msg.SETRIGHTRGB = 'set right color';
 /// auto generated
 Blockly.Msg.SETRIGHTRGB_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETRIGHTRGB_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURNEYESOFF_FIELD_1 = 'turn eyes off';
+Blockly.Msg.TURNEYESOFF = 'turn eyes off';
 /// auto generated
 Blockly.Msg.TURNEYESOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURNEYESOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURNLEFTEYEOFF_FIELD_1 = 'turn left eye off';
+Blockly.Msg.TURNLEFTEYEOFF = 'turn left eye off';
 /// auto generated
 Blockly.Msg.TURNLEFTEYEOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURNLEFTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1 = 'turn right eye off';
+Blockly.Msg.TURNRIGHTEYEOFF = 'turn right eye off';
 /// auto generated
 Blockly.Msg.TURNRIGHTEYEOFF_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.TURNRIGHTEYEOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.EYESPREVCOLOUR_FIELD_1 = 'eyes previous color';
+Blockly.Msg.EYESPREVCOLOUR = 'eyes previous color';
 /// auto generated
 Blockly.Msg.EYESPREVCOLOUR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.EYESPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.LEFTPREVCOLOUR_FIELD_1 = 'left previous color';
+Blockly.Msg.LEFTPREVCOLOUR = 'left previous color';
 /// auto generated
 Blockly.Msg.LEFTPREVCOLOUR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.LEFTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1 = 'right previous color';
+Blockly.Msg.RIGHTPREVCOLOUR = 'right previous color';
 /// auto generated
 Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.HARDWARESTARTUP_FIELD_1 = 'setup';
+Blockly.Msg.HARDWARESTARTUP = 'setup';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_TOOLTIP = 'This code is run once when the device is first turned on';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.LOOP_FIELD_1 = 'loop';
-/// auto generated
 Blockly.Msg.LOOP_TOOLTIP = 'This code is run continuously once the device is turned on';
 /// auto generated
 Blockly.Msg.LOOP_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.ACCELERATEMOTORS_FIELD_1 = 'accelerate motors';
+Blockly.Msg.ACCELERATEMOTORS = 'accelerate motors';
 /// auto generated
-Blockly.Msg.ACCELERATEMOTORS_FIELD_2 = 'start speed';
+Blockly.Msg.ACCELERATEMOTORS_START = 'start speed';
 /// auto generated
-Blockly.Msg.ACCELERATEMOTORS_FIELD_3 = 'end speed';
-/// auto generated
-Blockly.Msg.ACCELERATEMOTORS_FIELD_4 = 'duration';
+Blockly.Msg.ACCELERATEMOTORS_END = 'end speed';
 /// auto generated
 Blockly.Msg.ACCELERATEMOTORS_TOOLTIP = 'Accelerates from the start to the end speed over the specified duration';
 /// auto generated
 Blockly.Msg.ACCELERATEMOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.MOTORS_FIELD_1 = 'set motor speed';
+Blockly.Msg.MOTORS = 'set motor speed';
 /// auto generated
-Blockly.Msg.MOTORS_FIELD_2 = 'left speed';
+Blockly.Msg.MOTORS_LEFT = 'left speed';
 /// auto generated
-Blockly.Msg.MOTORS_FIELD_3 = 'right speed';
+Blockly.Msg.MOTORS_RIGHT = 'right speed';
 /// auto generated
 Blockly.Msg.MOTORS_TOOLTIP = 'Sets the motor speed to something positive or negative for both the left and right motor';
 /// auto generated
 Blockly.Msg.MOTORS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SPINLEFT_FIELD_1 = 'spin left';
+Blockly.Msg.SPINLEFT = 'spin left';
 /// auto generated
 Blockly.Msg.SPINLEFT_TOOLTIP = 'Spins the wink robot to the left';
 /// auto generated
 Blockly.Msg.SPINLEFT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SPINRIGHT_FIELD_1 = 'spin right';
+Blockly.Msg.SPINRIGHT = 'spin right';
 /// auto generated
 Blockly.Msg.SPINRIGHT_TOOLTIP = 'Spins the wink robot to the right';
 /// auto generated
 Blockly.Msg.SPINRIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.BESTILL_FIELD_1 = 'be still';
+Blockly.Msg.BESTILL = 'be still';
 /// auto generated
 Blockly.Msg.BESTILL_TOOLTIP = 'Stops the wink robot from moving';
 /// auto generated
 Blockly.Msg.BESTILL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.BUTTONWAIT_FIELD_1 = 'wait for button press';
+Blockly.Msg.BUTTONWAIT = 'wait for button press';
 /// auto generated
 Blockly.Msg.BUTTONWAIT_TOOLTIP = 'Waits until a remote button is pressed to continue.';
 /// auto generated
 Blockly.Msg.BUTTONWAIT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.BEEPMS_FIELD_1 = 'beep';
-/// auto generated
-Blockly.Msg.BEEPMS_FIELD_2 = 'milliseconds';
+Blockly.Msg.BEEPMS = 'beep';
 /// auto generated
 Blockly.Msg.BEEPMS_TOOLTIP = 'beeps for a specified duration';
 /// auto generated
 Blockly.Msg.BEEPMS_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.BEEPON_FIELD_1 = 'turn beep on';
+Blockly.Msg.BEEPON = 'turn beep on';
 /// auto generated
 Blockly.Msg.BEEPON_TOOLTIP = 'Turns on the beep until it\'s told to stop;';
 /// auto generated
 Blockly.Msg.BEEPON_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.BEEPOFF_FIELD_1 = 'turn beep off';
+Blockly.Msg.BEEPOFF = 'turn beep off';
 /// auto generated
 Blockly.Msg.BEEPOFF_TOOLTIP = 'Turns off the beep. Phew.';
 /// auto generated
 Blockly.Msg.BEEPOFF_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SETIRLIGHT_FIELD_1 = 'turn';
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_HEAD = 'head light';
 /// auto generated
-Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_1 = 'head light';
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_LEFT_OUTER = 'line left outer';
 /// auto generated
-Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_2 = 'line left outer';
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_LEFT_INNER = 'line left inner';
 /// auto generated
-Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_3 = 'line left inner';
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_RIGHT_OUTER = 'line right outer';
 /// auto generated
-Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_4 = 'line right outer';
-/// auto generated
-Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_5 = 'line right inner';
-/// auto generated
-Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_1 = 'on';
-/// auto generated
-Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_2 = 'off';
+Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_RIGHT_INNER = 'line right inner';
 /// auto generated
 Blockly.Msg.SETIRLIGHT_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.SETIRLIGHT_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.READSENSOR_FIELD_1 = 'read';
+Blockly.Msg.READSENSOR = 'read';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1 = 'line sensor left';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_LEFT = 'line sensor left';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2 = 'line sensor right';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_RIGHT = 'line sensor right';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3 = 'ambient sensor left';
+Blockly.Msg.AMBIENT_LEFT = 'ambient sensor left';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4 = 'ambient sensor center';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_AMBIENT_CENTER = 'ambient sensor center';
 /// auto generated
-Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5 = 'ambient sensor right';
+Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_AMBIENT_RIGHT = 'ambient sensor right';
 /// auto generated
 Blockly.Msg.READSENSOR_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.READSENSOR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_1 = 'set left eye';
-/// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_2 = 'red';
-/// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_3 = 'green';
-/// auto generated
-Blockly.Msg.SET_LEFT_EYE_FIELD_4 = 'blue';
+Blockly.Msg.SET_LEFT_EYE = 'set left eye';
 /// auto generated
 Blockly.Msg.SET_LEFT_EYE_TOOLTIP = 'Sets the color of the left eye.';
 /// auto generated
 Blockly.Msg.SET_LEFT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_1 = 'set right eye';
-/// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_2 = 'red';
-/// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_3 = 'green';
-/// auto generated
-Blockly.Msg.SET_RIGHT_EYE_FIELD_4 = 'blue';
+Blockly.Msg.SET_RIGHT_EYE = 'set right eye';
 /// auto generated
 Blockly.Msg.SET_RIGHT_EYE_TOOLTIP = 'Sets the color of the right eye.';
 /// auto generated
 Blockly.Msg.SET_RIGHT_EYE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.SET_EYES_FIELD_1 = 'set eyes';
-/// auto generated
-Blockly.Msg.SET_EYES_FIELD_2 = 'red';
-/// auto generated
-Blockly.Msg.SET_EYES_FIELD_3 = 'green';
-/// auto generated
-Blockly.Msg.SET_EYES_FIELD_4 = 'blue';
+Blockly.Msg.SET_EYES = 'set eyes';
 /// auto generated
 Blockly.Msg.SET_EYES_TOOLTIP = 'Sets the color of both eyes.';
 /// auto generated
 Blockly.Msg.SET_EYES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.BUTTON_PRESSED_FIELD_1 = 'button pressed';
+Blockly.Msg.BUTTON_PRESSED = 'button pressed';
 /// auto generated
 Blockly.Msg.BUTTON_PRESSED_TOOLTIP = 'Gets the remote button that was pressed.';
 /// auto generated
 Blockly.Msg.BUTTON_PRESSED_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.TURN_BY_VALUES_FIELD_1 = 'turn';
-/// auto generated
-Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_1 = 'left';
-/// auto generated
-Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_2 = 'right';
-/// auto generated
-Blockly.Msg.TURN_BY_VALUES_FIELD_2 = 'speed';
-/// auto generated
-Blockly.Msg.TURN_BY_VALUES_FIELD_3 = 'delay';
-/// auto generated
-Blockly.Msg.TURN_BY_VALUES_FIELD_4 = 'milliseconds';
-/// auto generated
 Blockly.Msg.TURN_BY_VALUES_TOOLTIP = 'Turns the robot at the specified speed for the specified duration in the specified direction - either left or right. Negative values are accepted.';
 /// auto generated
 Blockly.Msg.TURN_BY_VALUES_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.RESTART_IR_FIELD_1 = 'restart IR';
+Blockly.Msg.RESTART_IR = 'restart IR';
 /// auto generated
 Blockly.Msg.RESTART_IR_TOOLTIP = 'Start listening for IR should be setup and in loop after processing an input';
 /// auto generated
 Blockly.Msg.RESTART_IR_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IS_IR_DONE_FIELD_1 = 'is IR done?';
+Blockly.Msg.IS_IR_DONE = 'is IR done?';
 /// auto generated
 Blockly.Msg.IS_IR_DONE_TOOLTIP = 'Checks to see if we received an IR input to process';
 /// auto generated
 Blockly.Msg.IS_IR_DONE_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IR_CONTROL_FIELD_1 = 'When ';
+Blockly.Msg.IR_CONTROL = 'When ';
 /// auto generated
 Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_1 = '1';
 /// auto generated
@@ -5019,65 +4045,61 @@ Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_9 = '9';
 /// auto generated
 Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_10 = '10';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_11 = 'Forward';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_FORWARD = 'Forward';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_12 = 'Left';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_LEFT = 'Left';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_13 = 'Right';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_RIGHT = 'Right';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_14 = 'Backward';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_BACKWARD = 'Backward';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_15 = 'Power';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_POWER = 'Power';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_16 = 'Plum Logo';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_LOGO = 'Plum Logo';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_17 = 'Menu';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_MENU = 'Menu';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_18 = 'A';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_A = 'A';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_19 = 'B';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_B = 'B';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_20 = 'X';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_X = 'X';
 /// auto generated
-Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_21 = 'Play';
+Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_PLAY = 'Play';
 /// auto generated
-Blockly.Msg.IR_CONTROL_FIELD_2 = 'is pressed';
+Blockly.Msg.IR_CONTROL_PRESSED = 'is pressed';
 /// auto generated
 Blockly.Msg.IR_CONTROL_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.IR_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IR_CONTROL_CONTAINER_FIELD_1 = 'when IR is done';
-/// auto generated
 Blockly.Msg.IR_CONTROL_CONTAINER_TOOLTIP = 'Code starts running from here when IR data is done being recieved.';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTAINER_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IR_CONTROL_CONTROL_FIELD_1 = 'check key for press';
+Blockly.Msg.IR_CONTROL_CONTROL = 'check key for press';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTROL_TOOLTIP = 'Check to see what key was pressed';
 /// auto generated
 Blockly.Msg.IR_CONTROL_CONTROL_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IR_WHEN_FIELD_1 = 'when IR is done';
-/// auto generated
 Blockly.Msg.IR_WHEN_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.IR_WHEN_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.IR_WHEN_FIELD_2 = 'if ';
+Blockly.Msg.IR_WHEN = 'if ';
 /// auto generated
-Blockly.Msg.IR_WHEN_FIELD_3 = 'button';
+Blockly.Msg.IR_WHEN_BUTTON = 'button';
 /// auto generated
-Blockly.Msg.IR_WHEN_FIELD_4 = 'is pressed';
+Blockly.Msg.IR_WHEN_PRESSED = 'is pressed';
 /// auto generated
-Blockly.Msg.IR_BUTTON_FIELD_1 = 'wink IR button:';
+Blockly.Msg.IR_BUTTON = 'wink IR button:';
 /// auto generated
 Blockly.Msg.IR_BUTTON_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.IR_BUTTON_HELP_URL = '';
 /// auto generated
-Blockly.Msg.GET_PRESSED_IR_BUTTON_FIELD_1 = 'get pressed IR button';
+Blockly.Msg.GET_PRESSED_IR_BUTTON = 'get pressed IR button';
 /// auto generated
 Blockly.Msg.GET_PRESSED_IR_BUTTON_TOOLTIP = '';
 /// auto generated
@@ -5085,9 +4107,9 @@ Blockly.Msg.GET_PRESSED_IR_BUTTON_HELP_URL = '';
 
 //procedures_typed
 /// auto generated
-Blockly.Msg.CAST_BLOCK_FIELD_1 = 'make';
+Blockly.Msg.MAKE = 'make';
 /// auto generated
-Blockly.Msg.CAST_BLOCK_FIELD_2 = 'a';
+Blockly.Msg.A = 'a';
 /// auto generated
 Blockly.Msg.CAST_BLOCK_TOOLTIP = '';
 /// auto generated
@@ -5417,6 +4439,9 @@ Blockly.Msg.FOLLOW_LOCKON = 'lockon';
 Blockly.Msg.FOLLOW_PLATFORMER = 'platformer';
 Blockly.Msg.FOLLOW_TOPDOWN = 'topdown';
 Blockly.Msg.FOLLOW_TOPDOWN_TIGHT = 'topdown tight';
+Blockly.Msg.LOCKON = 'lockon';
+Blockly.Msg.TOPDOWN = 'topdown';
+Blockly.Msg.TOPDOWN_TIGHT = 'topdown tight';
 
 Blockly.Msg.LERP_X = 'lerp x';
 Blockly.Msg.LERP_Y = 'lerp y';
@@ -5514,3 +4539,127 @@ Blockly.Msg.SET_GAME_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser
 Blockly.Msg.GET_GAME_PAUSE = 'get game paused value';
 Blockly.Msg.GET_GAME_PAUSE_TOOLTIP = 'Returns the value of the paused state of the Game.';
 Blockly.Msg.GET_GAME_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused';
+
+Blockly.Msg.GAME_CAMERA_URL = 'https://photonstorm.github.io/phaser-ce/Phaser.Camera.html';
+Blockly.Msg.WIDTH = 'width';
+Blockly.Msg.HEIGHT = 'height';
+Blockly.Msg.USING = 'using';
+Blockly.Msg.COLOUR = 'colour';
+Blockly.Msg.WITH = 'with';
+Blockly.Msg.TO = 'to';
+Blockly.Msg.ON = 'on';
+Blockly.Msg.NAME = 'name';
+Blockly.Msg.FPS = 'fps';
+Blockly.Msg.LOOP = 'loop';
+Blockly.Msg.WITH_FRAMES = 'with frames';
+Blockly.Msg.DISPLAYED_AT = 'displayed at';
+Blockly.Msg.TAG = 'tag';
+Blockly.Msg.SOURCE = 'source';
+Blockly.Msg.PIXELS = 'pixels';
+Blockly.Msg.X = 'x';
+Blockly.Msg.Y = 'y';
+Blockly.Msg.TAGGED = 'tagged';
+Blockly.Msg.AT_INDEX = 'at index';
+Blockly.Msg.ALIGN = 'align';
+Blockly.Msg.INSIDE = 'inside';
+Blockly.Msg.AT_THE = 'at the';
+Blockly.Msg.TOP_LEFT = 'top left';
+Blockly.Msg.TOP_CENTER = 'top center';
+Blockly.Msg.TOP_RIGHT = 'top right';
+Blockly.Msg.LEFT_CENTER = 'left center';
+Blockly.Msg.CENTER = 'center';
+Blockly.Msg.RIGHT_CENTER = 'right center';
+Blockly.Msg.BOTTOM_LEFT = 'bottom left';
+Blockly.Msg.BOTTOM_CENTER = 'bottom center';
+Blockly.Msg.BOTTOM_RIGHT = 'bottom right';
+Blockly.Msg.IS = 'is';
+Blockly.Msg.QUESTION = '?';
+Blockly.Msg.MAKE = 'make';
+Blockly.Msg.A_CHILD_OF = 'a child of';
+Blockly.Msg.DESTROY = 'destroy';
+Blockly.Msg.MOVE = 'move';
+Blockly.Msg.DOES = 'does';
+Blockly.Msg.FRAMES = 'frames';
+Blockly.Msg.SEND = 'send';
+Blockly.Msg.MIN_X = 'min x';
+Blockly.Msg.MIN_Y = 'min y';
+Blockly.Msg.MAX_X = 'max x';
+Blockly.Msg.MAX_Y = 'max y';
+Blockly.Msg.ON_GAMEOBJECT = 'on gameobject';
+Blockly.Msg.DEFAULT = 'default';
+Blockly.Msg.FROM_TAG = 'from tag';
+Blockly.Msg.IN_THE = 'in the';
+Blockly.Msg.IN_GROUP = 'in group';
+Blockly.Msg.ADD = 'add';
+Blockly.Msg.REMOVE = 'remove';
+Blockly.Msg.GROUP = 'group';
+Blockly.Msg.CONTAINS = 'contains';
+Blockly.Msg.ALIVE = 'alive';
+Blockly.Msg.FAINTED = 'fainted';
+Blockly.Msg.GET_FIRST = 'get first';
+Blockly.Msg.MEMBER_OF_GROUP = 'member of group';
+Blockly.Msg.DEAD = 'dead';
+Blockly.Msg.COLLIDE = 'collide';
+Blockly.Msg.SET = 'set';
+Blockly.Msg.BOUNCE = 'bounce';
+Blockly.Msg.GRAVITY = 'gravity';
+Blockly.Msg.VELOCITY = 'velocity';
+Blockly.Msg.ACCELERATION = 'acceleration';
+Blockly.Msg.DRAG = 'drag';
+Blockly.Msg.FRICTION = 'friction';
+Blockly.Msg.MAXVELOCITY = 'maxVelocity';
+Blockly.Msg.WORLDBOUNCE = 'worldBounce';
+Blockly.Msg.ALLOWROTATION = 'allowRotation';
+Blockly.Msg.ALLOWGRAVITY = 'allowGravity';
+Blockly.Msg.IMMOVABLE = 'immovable';
+Blockly.Msg.MASS = 'mass';
+Blockly.Msg.ROTATIONDEGREES = 'rotation (degrees)';
+Blockly.Msg.ANGULARACCELERATION = 'angularAcceleration';
+Blockly.Msg.ANGULARVELOCITY = 'angularVelocity';
+Blockly.Msg.MAXANGULARVELOCITY = 'maxAngularVelocity';
+Blockly.Msg.ANGULARDRAG = 'angularDrag';
+Blockly.Msg.SPEED = 'speed';
+Blockly.Msg.CALLING = 'calling';
+Blockly.Msg.LEFT = 'left';
+Blockly.Msg.RIGHT = 'right';
+Blockly.Msg.DOWN = 'down';
+Blockly.Msg.UP = 'up';
+Blockly.Msg.MIDDLE = 'middle';
+Blockly.Msg.GET = 'get';
+Blockly.Msg.XCOLON = 'x:';
+Blockly.Msg.YCOLON = 'y:';
+Blockly.Msg.BY = 'by';
+Blockly.Msg.DEGREES = 'degrees';
+Blockly.Msg.MIN = 'min';
+Blockly.Msg.MAX = 'max';
+Blockly.Msg.ON_EMITTER = 'on emitter,';
+Blockly.Msg.RATE = 'rate';
+Blockly.Msg.OVER = 'over';
+Blockly.Msg.MILLISECONDS = 'milliseconds';  
+Blockly.Msg.AT_VOLUME = 'at volume';
+Blockly.Msg.LOOPING = 'looping';
+Blockly.Msg.SETUP = 'setup';
+Blockly.Msg.EMPTY = 'empty';
+Blockly.Msg.LEFT_EYE = 'Left Eye';
+Blockly.Msg.RIGHT_EYE = 'Right Eye';
+Blockly.Msg.BODY_TOP = 'Body Top';
+Blockly.Msg.BODY_BOTTOM = 'Body Bottom';
+Blockly.Msg.TAIL_TOP = 'Tail Top';
+Blockly.Msg.TAIL_BOTTOM = 'Tail Bottom';
+Blockly.Msg.RED = 'Red';
+Blockly.Msg.GREEN = 'Green';
+Blockly.Msg.BLUE = 'Blue';
+Blockly.Msg.OFF = 'off';
+Blockly.Msg.DURATION = 'duration';
+Blockly.Msg.TURN = 'turn';
+Blockly.Msg.WHEN_IR_DONE = 'when IR is done';
+Blockly.Msg.IN_ARRAY = 'in array';
+Blockly.Msg.CENTER_RIGHT = 'center right';
+Blockly.Msg.CENTER_LEFT = 'center left';
+Blockly.Msg.PLATFORMER = 'platformer';
+Blockly.Msg.IS_BODY_TOUCHING = 'is body touching';
+Blockly.Msg.FUNCTIONNAME = 'function name';
+Blockly.Msg.RESTART = 'restart';
+Blockly.Msg.FOR = 'for';
+Blockly.Msg.ADD_TO_WORLD = 'to the world';
+Blockly.Msg.UP = 'up';

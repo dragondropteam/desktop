@@ -367,7 +367,7 @@ function createGetterContextMenu (type, shadowGenerator, {objectTag = 'OBJECT', 
 Blockly.Blocks['stop_animation'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.STOP_ANIMATION_FIELD_1)
+      .appendField(Blockly.Msg.STOP_ANIMATION)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -384,10 +384,10 @@ Blockly.Blocks['stop_animation'] = {
 Blockly.Blocks['play_animation'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PLAY_ANIMATION_FIELD_1);
+      .appendField(Blockly.Msg.PLAY_ANIMATION);
     this.appendValueInput('ANIMATION');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PLAY_ANIMATION_FIELD_2)
+      .appendField(Blockly.Msg.ON)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -404,7 +404,7 @@ Blockly.Blocks['play_animation'] = {
 Blockly.Blocks['set_frame'] = {
   init: function () {
     this.appendValueInput('FRAME_NUMBER')
-      .appendField(Blockly.Msg.SET_FRAME_FIELD_1)
+      .appendField(Blockly.Msg.SET_FRAME)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -421,20 +421,20 @@ Blockly.Blocks['set_frame'] = {
 Blockly.Blocks['add_animation'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_FIELD_1)
+      .appendField(Blockly.Msg.ADD_ANIMATION)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'object');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_FIELD_2)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.ADD_ANIMATION_NAME_TEXT_DEFAULT), 'NAME');
+      .appendField(Blockly.Msg.TAGGED)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.NAME), 'NAME');
     this.appendValueInput('FRAMES')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_ANIMATION_FIELD_3);
+      .appendField(Blockly.Msg.WITH_FRAMES);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_FIELD_4)
+      .appendField(Blockly.Msg.DISPLAYED_AT)
       .appendField(new Blockly.FieldNumber(60), 'FPS')
-      .appendField(Blockly.Msg.ADD_ANIMATION_FIELD_5);
+      .appendField(Blockly.Msg.FPS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_FIELD_6)
+      .appendField(Blockly.Msg.LOOP)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -454,9 +454,9 @@ Blockly.Blocks['add_child'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_CHILD_FIELD_1);
+      .appendField(Blockly.Msg.ADD_CHILD);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_CHILD_FIELD_2)
+      .appendField(Blockly.Msg.TO)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, null);
@@ -475,7 +475,7 @@ Blockly.Blocks['reset_frame'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.RESET_FRAME_FIELD_1);
+      .appendField(Blockly.Msg.RESET_FRAME);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -493,16 +493,16 @@ Blockly.Blocks['resize_frame'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.RESIZE_FRAME_FIELD_1);
+      .appendField(Blockly.Msg.RESIZE_FRAME);
     this.appendValueInput('PARENT')
       .setCheck(null)
-      .appendField(Blockly.Msg.RESIZE_FRAME_FIELD_2);
+      .appendField(Blockly.Msg.RESIZE_FRAME_ACCOMODATE);
     this.appendValueInput('WIDTH')
       .setCheck('Number')
-      .appendField(Blockly.Msg.RESIZE_FRAME_FIELD_3);
+      .appendField(Blockly.Msg.WIDTH);
     this.appendValueInput('HEIGHT')
       .setCheck('Number')
-      .appendField(Blockly.Msg.RESIZE_FRAME_FIELD_4);
+      .appendField(Blockly.Msg.HEIGHT);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -520,7 +520,7 @@ Blockly.Blocks['resize_frame'] = {
 Blockly.Blocks['get_object_width'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_OBJECT_WIDTH_FIELD_1)
+      .appendField(Blockly.Msg.GET_OBJECT_WIDTH)
       .appendField(new Blockly.FieldVariable('item'), 'NAME');
     this.setInputsInline(true);
     this.setOutput(true, null);
@@ -537,7 +537,7 @@ Blockly.Blocks['get_object_width'] = {
 Blockly.Blocks['set_object_width'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_OBJECT_WIDTH_FIELD_1)
+      .appendField(Blockly.Msg.SET_OBJECT_WIDTH)
       .appendField(new Blockly.FieldVariable('item'), 'NAME');
     this.appendValueInput('NAME')
       .setCheck('Number');
@@ -557,21 +557,21 @@ Blockly.Blocks['set_object_width'] = {
 Blockly.Blocks['phaser_simple_init'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_1);
+      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_2)
+      .appendField(Blockly.Msg.WIDTH)
       .appendField(new Blockly.FieldNumber(800), 'WIDTH')
-      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_3)
+      .appendField(Blockly.Msg.HEIGHT)
       .appendField(new Blockly.FieldNumber(600), 'HEIGHT');
     this.appendStatementInput('PRELOAD')
       .setCheck(null)
-      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_4);
+      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_PRELOAD);
     this.appendStatementInput('CREATE')
       .setCheck(null)
-      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_5);
+      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_CREATE);
     this.appendStatementInput('UPDATE')
       .setCheck(null)
-      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_FIELD_6);
+      .appendField(Blockly.Msg.PHASER_SIMPLE_INIT_UPDATE);
     this.setColour(PHASER_STARTUP_COLOUR);
     this.setTooltip(Blockly.Msg.PHASER_SIMPLE_INIT_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHASER_SIMPLE_INIT_HELP_URL);
@@ -581,12 +581,12 @@ Blockly.Blocks['phaser_simple_init'] = {
 Blockly.Blocks['start_phaser_for_states'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.START_PHASER_FOR_STATES_FIELD_1);
+      .appendField(Blockly.Msg.START_PHASER_FOR_STATES);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.START_PHASER_FOR_STATES_FIELD_2)
+      .appendField(Blockly.Msg.WIDTH)
       .appendField(new Blockly.FieldNumber(800, 0), 'WIDTH');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.START_PHASER_FOR_STATES_FIELD_3)
+      .appendField(Blockly.Msg.HEIGHT)
       .appendField(new Blockly.FieldNumber(600, 0), 'HEIGHT');
     this.setInputsInline(true);
     this.setNextStatement(true, null);
@@ -602,11 +602,11 @@ Blockly.Blocks['statemanager_add_state'] = {
   init: function () {
     this.appendValueInput('NAME')
       .setCheck(null)
-      .appendField(Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_1);
+      .appendField(Blockly.Msg.STATEMANAGER_ADD_STATE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_2)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.STATEMANAGER_ADD_STATE_KEY_TEXT_DEFAULT), 'KEY')
-      .appendField(Blockly.Msg.STATEMANAGER_ADD_STATE_FIELD_3);
+      .appendField(Blockly.Msg.TAGGED)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.TAG), 'KEY')
+      .appendField(Blockly.Msg.STATEMANAGER_ADD_STATE_TO_MANAGER);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_STATES_COLOUR);
@@ -619,8 +619,8 @@ Blockly.Blocks['statemanager_add_state'] = {
 Blockly.Blocks['statemanager_start_state'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.STATEMANAGER_START_STATE_FIELD_1)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.STATEMANAGER_START_STATE_TAG_TEXT_DEFAULT), 'TAG');
+      .appendField(Blockly.Msg.STATEMANAGER_START_STATE)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.TAG), 'TAG');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_STATES_COLOUR);
@@ -670,9 +670,9 @@ Blockly.Blocks['statemanager_check_state'] = {
 Blockly.Blocks['get_world_property'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_WORLD_PROPERTY_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_1, 'height'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_2, 'width'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_3, 'centerX'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_4, 'centerY'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_5, 'randomX'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_6, 'randomY']]), 'NAME')
-      .appendField(Blockly.Msg.GET_WORLD_PROPERTY_FIELD_2);
+      .appendField(Blockly.Msg.GET)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HEIGHT, 'height'], [Blockly.Msg.WIDTH, 'width'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_CENTERX, 'centerX'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_CENTERY, 'centerY'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_RANDOMX, 'randomX'], [Blockly.Msg.GET_WORLD_PROPERTY_NAME_DROPDOWN_RANDOMY, 'randomY']]), 'NAME')
+      .appendField(Blockly.Msg.GET_WORLD_PROPERTY);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.GET_WORLD_PROPERTY_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.GET_WORLD_PROPERTY_HELP_URL);
@@ -683,19 +683,19 @@ Blockly.Blocks['get_world_property'] = {
 Blockly.Blocks['set_world_bounds'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_FIELD_1);
+      .appendField(Blockly.Msg.SET_WORLD_BOUNDS);
     this.appendValueInput('X_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_FIELD_2);
+      .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_FIELD_3);
+      .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('WIDTH')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_FIELD_4);
+      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_WIDTH);
     this.appendValueInput('HEIGHT')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_FIELD_5);
+      .appendField(Blockly.Msg.SET_WORLD_BOUNDS_HEIGHT);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.SET_WORLD_BOUNDS_TOOLTIP);
@@ -708,13 +708,13 @@ Blockly.Blocks['set_world_bounds'] = {
 Blockly.Blocks['create_point'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_POINT_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_POINT);
     this.appendValueInput('X_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CREATE_POINT_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CREATE_POINT_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_POINT_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_POINT_HELP_URL);
@@ -725,7 +725,7 @@ Blockly.Blocks['create_point'] = {
 Blockly.Blocks['get_world_reference'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_WORLD_REFERENCE_FIELD_1);
+      .appendField(Blockly.Msg.GET_WORLD_REFERENCE);
     this.setOutput(true, null);
     this.setColour(PHASER_WORLD_COLOUR);
     this.setTooltip(Blockly.Msg.GET_WORLD_REFERENCE_TOOLTIP);
@@ -1027,13 +1027,13 @@ Blockly.Blocks['timer_set_on_complete_callback'] = {
 Blockly.Blocks['create_image'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_IMAGE_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_IMAGE);
     this.setColour(PHASER_COLOUR);
     this.appendValueInput('TAG')
-      .appendField(Blockly.Msg.CREATE_IMAGE_FIELD_2)
+      .appendField(Blockly.Msg.TAG)
       .setCheck('String');
     this.appendValueInput('SRC')
-      .appendField(Blockly.Msg.CREATE_IMAGE_FIELD_3)
+      .appendField(Blockly.Msg.SOURCE)
       .setCheck('String');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1047,21 +1047,21 @@ Blockly.Blocks['create_image'] = {
 Blockly.Blocks['create_sprite_sheet'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET);
     this.appendValueInput('TAG')
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_2)
+      .appendField(Blockly.Msg.TAG)
       .setCheck('String');
     this.appendValueInput('SRC')
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_3)
+      .appendField(Blockly.Msg.SOURCE)
       .setCheck('String');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_4)
+      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FRAME_WIDTH)
       .appendField(new Blockly.FieldNumber(0), 'FRAME_WIDTH')
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_5);
+      .appendField(Blockly.Msg.PIXELS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_6)
+      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FRAME_HEIGHT)
       .appendField(new Blockly.FieldNumber(0), 'FRAME_HEIGHT')
-      .appendField(Blockly.Msg.CREATE_SPRITE_SHEET_FIELD_7);
+      .appendField(Blockly.Msg.PIXELS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1073,15 +1073,15 @@ Blockly.Blocks['create_sprite_sheet'] = {
 Blockly.Blocks['add_image'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_IMAGE_FIELD_1);
+      .appendField(Blockly.Msg.ADD_IMAGE);
     this.appendValueInput('X_POS')
-      .appendField(Blockly.Msg.ADD_IMAGE_FIELD_2)
+      .appendField(Blockly.Msg.X)
       .setCheck('Number');
     this.appendValueInput('Y_POS')
-      .appendField(Blockly.Msg.ADD_IMAGE_FIELD_3)
+      .appendField(Blockly.Msg.Y)
       .setCheck('Number');
     this.appendValueInput('TAG')
-      .appendField(Blockly.Msg.ADD_IMAGE_FIELD_4)
+      .appendField(Blockly.Msg.TAGGED)
       .setCheck('String');
     this.setOutput(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1093,16 +1093,16 @@ Blockly.Blocks['add_image'] = {
 Blockly.Blocks['addspritewithatlas'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_1);
+      .appendField(Blockly.Msg.ADDSPRITEWITHATLAS);
     this.appendValueInput('tag')
       .setCheck('String')
-      .appendField(Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_2);
+      .appendField(Blockly.Msg.TAG);
     this.appendValueInput('text_source')
       .setCheck('String')
-      .appendField(Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_3);
+      .appendField(Blockly.Msg.ADDSPRITEWITHATLAS_SOURCE);
     this.appendValueInput('text_xmlsource')
       .setCheck('String')
-      .appendField(Blockly.Msg.ADDSPRITEWITHATLAS_FIELD_4);
+      .appendField(Blockly.Msg.XML);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1114,19 +1114,19 @@ Blockly.Blocks['addspritewithatlas'] = {
 Blockly.Blocks['imagesubtextureatlas'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_1);
+      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS);
     this.appendValueInput('x')
       .setCheck('Number')
-      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('y')
       .setCheck('Number')
-      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendValueInput('spritesource')
       .setCheck('String')
-      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_4);
+      .appendField(Blockly.Msg.TAGGED);
     this.appendValueInput('xmlsubtexture')
       .setCheck('String')
-      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_5);
+      .appendField(Blockly.Msg.IMAGESUBTEXTUREATLAS_ID);
     this.setOutput(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
     this.setTooltip(Blockly.Msg.IMAGESUBTEXTUREATLAS_TOOLTIP);
@@ -1138,9 +1138,9 @@ Blockly.Blocks['add_child_vi'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_CHILD_VI_FIELD_1);
+      .appendField(Blockly.Msg.ADD_CHILD_VI);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ADD_CHILD_VI_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
     this.setTooltip(Blockly.Msg.ADD_CHILD_VI_TOOLTIP);
@@ -1154,12 +1154,12 @@ Blockly.Blocks['add_child_at'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_CHILD_AT_FIELD_1);
+      .appendField(Blockly.Msg.ADD_CHILD_AT);
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADD_CHILD_AT_FIELD_2)
+      .appendField(Blockly.Msg.TO)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT')
-      .appendField(Blockly.Msg.ADD_CHILD_AT_FIELD_3);
+      .appendField(Blockly.Msg.AT_INDEX);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1172,12 +1172,12 @@ Blockly.Blocks['add_child_at_vi'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_CHILD_AT_VI_FIELD_1);
+      .appendField(Blockly.Msg.ADD_CHILD_AT_VI);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ADD_CHILD_AT_VI_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADD_CHILD_AT_VI_FIELD_3);
+      .appendField(Blockly.Msg.AT_INDEX);
     this.setInputsInline(true);
     this.setNextStatement(true, null);
     this.setPreviousStatement(true, null);
@@ -1191,19 +1191,19 @@ Blockly.Blocks['align_in'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.ALIGN_IN_FIELD_1);
+      .appendField(Blockly.Msg.ALIGN);
     this.appendValueInput('CONTAINER')
       .setCheck(null)
-      .appendField(Blockly.Msg.ALIGN_IN_FIELD_2);
+      .appendField(Blockly.Msg.INSIDE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ALIGN_IN_FIELD_3)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_1, 'TOP_LEFT'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_2, 'TOP_CENTER'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_3, 'TOP_RIGHT'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_4, 'LEFT_CENTER'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_5, 'CENTER'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_6, 'RIGHT_CENTER'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_7, 'BOTTOM_LEFT'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_8, 'BOTTOM_CENTER'], [Blockly.Msg.ALIGN_IN_POSITION_DROPDOWN_9, 'BOTTOM_RIGHT']]), 'POSITION');
+      .appendField(Blockly.Msg.AT_THE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.TOP_LEFT, 'TOP_LEFT'], [Blockly.Msg.TOP_CENTER, 'TOP_CENTER'], [Blockly.Msg.TOP_RIGHT, 'TOP_RIGHT'], [Blockly.Msg.LEFT_CENTER, 'LEFT_CENTER'], [Blockly.Msg.CENTER, 'CENTER'], [Blockly.Msg.RIGHT_CENTER, 'RIGHT_CENTER'], [Blockly.Msg.BOTTOM_LEFT, 'BOTTOM_LEFT'], [Blockly.Msg.BOTTOM_CENTER, 'BOTTOM_CENTER'], [Blockly.Msg.BOTTOM_RIGHT, 'BOTTOM_RIGHT']]), 'POSITION');
     this.appendValueInput('OFFSETX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ALIGN_IN_FIELD_4);
+      .appendField(Blockly.Msg.ALIGN_IN_OFFSET_X);
     this.appendValueInput('OFFSETY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ALIGN_IN_FIELD_5);
+      .appendField(Blockly.Msg.ALIGN_IN_OFFSET_Y);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1217,19 +1217,19 @@ Blockly.Blocks['align_to'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.ALIGN_TO_FIELD_1);
+      .appendField(Blockly.Msg.ALIGN);
     this.appendValueInput('CONTAINER')
       .setCheck(null)
-      .appendField(Blockly.Msg.ALIGN_TO_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ALIGN_TO_FIELD_3)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_1, 'TOP_LEFT'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_2, 'TOP_CENTER'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_3, 'TOP_RIGHT'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_4, 'LEFT_TOP'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_5, 'LEFT_CENTER'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_6, 'LEFT_BOTTOM'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_7, 'RIGHT_TOP'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_8, 'RIGHT_CENTER'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_9, 'RIGHT_BOTTOM'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_10, 'BOTTOM_LEFT'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_11, 'BOTTOM_CENTER'], [Blockly.Msg.ALIGN_TO_POSITION_DROPDOWN_12, 'BOTTOM_RIGHT']]), 'POSITION');
+      .appendField(Blockly.Msg.AT_THE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.TOP_LEFT, 'TOP_LEFT'], [Blockly.Msg.TOP_CENTER, 'TOP_CENTER'], [Blockly.Msg.TOP_RIGHT, 'TOP_RIGHT'], [Blockly.Msg.TOP_LEFT, 'LEFT_TOP'], [Blockly.Msg.CENTER_LEFT, 'LEFT_CENTER'], [Blockly.Msg.BOTTOM_LEFT, 'LEFT_BOTTOM'], [Blockly.Msg.TOP_RIGHT, 'RIGHT_TOP'], [Blockly.Msg.CENTER_RIGHT, 'RIGHT_CENTER'], [Blockly.Msg.BOTTOM_RIGHT, 'RIGHT_BOTTOM'], [Blockly.Msg.BOTTOM_LEFT, 'BOTTOM_LEFT'], [Blockly.Msg.BOTTOM_CENTER, 'BOTTOM_CENTER'], [Blockly.Msg.BOTTOM_RIGHT, 'BOTTOM_RIGHT']]), 'POSITION');
     this.appendValueInput('OFFSETX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ALIGN_TO_FIELD_4);
+      .appendField(Blockly.Msg.ALIGN_TO_OFFSET_X);
     this.appendValueInput('OFFSETY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ALIGN_TO_FIELD_5);
+      .appendField(Blockly.Msg.OFFSET_Y);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1243,9 +1243,9 @@ Blockly.Blocks['bring_to_top'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.BRING_TO_TOP_FIELD_1);
+      .appendField(Blockly.Msg.BRING_TO_TOP);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.BRING_TO_TOP_FIELD_2);
+      .appendField(Blockly.Msg.BRING_TO_TOP_FRONT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1259,10 +1259,10 @@ Blockly.Blocks['check_world_bounds'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.CHECK_WORLD_BOUNDS_FIELD_1);
+      .appendField(Blockly.Msg.MAKE);
     this.appendValueInput('BOOL')
       .setCheck('Boolean')
-      .appendField(Blockly.Msg.CHECK_WORLD_BOUNDS_FIELD_2);
+      .appendField(Blockly.Msg.CHECK_WORLD_BOUNDS);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1280,11 +1280,11 @@ Blockly.Blocks['contains'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.CONTAINS_FIELD_1);
+      .appendField(Blockly.Msg.IS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CONTAINS_FIELD_2)
+      .appendField(Blockly.Msg.A_CHILD_OF)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT')
-      .appendField(Blockly.Msg.CONTAINS_FIELD_3);
+      .appendField(Blockly.Msg.QUESTION);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1297,10 +1297,10 @@ Blockly.Blocks['contains_vi'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.CONTAINS_VI_FIELD_1);
+      .appendField(Blockly.Msg.IS);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.CONTAINS_VI_FIELD_2)
-      .appendField(Blockly.Msg.CONTAINS_VI_FIELD_3);
+      .appendField(Blockly.Msg.A_CHILD_OF)
+      .appendField(Blockly.Msg.QUESTION);
     this.setInputsInline(true);
     this.setOutput(true, 'Boolean');
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1313,10 +1313,10 @@ Blockly.Blocks['crop'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.CROP_FIELD_1);
+      .appendField(Blockly.Msg.CROP);
     this.appendValueInput('RECTANGLE')
       .setCheck(null)
-      .appendField(Blockly.Msg.CROP_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1330,7 +1330,7 @@ Blockly.Blocks['clear_cropping'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.CLEAR_CROPPING_FIELD_1);
+      .appendField(Blockly.Msg.CLEAR_CROPPING);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1343,10 +1343,10 @@ Blockly.Blocks['destroy_sprite'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.DESTROY_SPRITE_FIELD_1);
+      .appendField(Blockly.Msg.DESTROY);
     this.appendValueInput('BOOL')
       .setCheck('Boolean')
-      .appendField(Blockly.Msg.DESTROY_SPRITE_FIELD_2);
+      .appendField(Blockly.Msg.DESTROY_SPRITE);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1359,10 +1359,10 @@ Blockly.Blocks['destroy_sprite'] = {
 Blockly.Blocks['get_child_at_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_CHILD_AT_VI_FIELD_1);
+      .appendField(Blockly.Msg.GET_CHILD_AT_VI);
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.GET_CHILD_AT_VI_FIELD_2);
+      .appendField(Blockly.Msg.AT_INDEX);
     this.setOutput(true, null);
     this.setInputsInline(true);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1375,9 +1375,9 @@ Blockly.Blocks['get_child_index'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.GET_CHILD_INDEX_FIELD_1);
+      .appendField(Blockly.Msg.GET_CHILD_INDEX);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_CHILD_INDEX_FIELD_2)
+      .appendField(Blockly.Msg.ON)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, null);
@@ -1391,9 +1391,9 @@ Blockly.Blocks['get_child_index_vi'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.GET_CHILD_INDEX_VI_FIELD_1);
+      .appendField(Blockly.Msg.GET_CHILD_INDEX_VI);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_CHILD_INDEX_VI_FIELD_2);
+      .appendField(Blockly.Msg.ON);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1406,10 +1406,10 @@ Blockly.Blocks['load_texture'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.LOAD_TEXTURE_FIELD_1);
+      .appendField(Blockly.Msg.LOAD_TEXTURE);
     this.appendValueInput('TEXTURE')
       .setCheck('String')
-      .appendField(Blockly.Msg.LOAD_TEXTURE_FIELD_2);
+      .appendField(Blockly.Msg.LOAD_TEXTURE_TAG);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1423,9 +1423,9 @@ Blockly.Blocks['move_down'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE_DOWN_FIELD_1);
+      .appendField(Blockly.Msg.MOVE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MOVE_DOWN_FIELD_2);
+      .appendField(Blockly.Msg.MOVE_DOWN);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1439,9 +1439,9 @@ Blockly.Blocks['move_up'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE_UP_FIELD_1);
+      .appendField(Blockly.Msg.MOVE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MOVE_UP_FIELD_2);
+      .appendField(Blockly.Msg.UP);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1455,12 +1455,12 @@ Blockly.Blocks['sprite_overlap'] = {
   init: function () {
     this.appendValueInput('SPRITEA')
       .setCheck(null)
-      .appendField(Blockly.Msg.SPRITE_OVERLAP_FIELD_1);
+      .appendField(Blockly.Msg.DOES);
     this.appendValueInput('SPRITEB')
       .setCheck(null)
-      .appendField(Blockly.Msg.SPRITE_OVERLAP_FIELD_2);
+      .appendField(Blockly.Msg.SPRITE_OVERLAP);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SPRITE_OVERLAP_FIELD_3);
+      .appendField(Blockly.Msg.QUESTION);
     this.setOutput(true, 'Boolean');
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
     this.setTooltip(Blockly.Msg.SPRITE_OVERLAP_TOOLTIP);
@@ -1476,10 +1476,10 @@ Blockly.Blocks['out_of_bounds_kill'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.OUT_OF_BOUNDS_KILL_FIELD_1);
+      .appendField(Blockly.Msg.MAKE);
     this.appendValueInput('BOOL')
       .setCheck('Boolean')
-      .appendField(Blockly.Msg.OUT_OF_BOUNDS_KILL_FIELD_2);
+      .appendField(Blockly.Msg.OUT_OF_BOUNDS_KILL);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1493,10 +1493,10 @@ Blockly.Blocks['out_of_bounds_faint'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.OUT_OF_BOUNDS_FAINT_FIELD_1);
+      .appendField(Blockly.Msg.MAKE);
     this.appendValueInput('BOOL')
       .setCheck('Boolean')
-      .appendField(Blockly.Msg.OUT_OF_BOUNDS_FAINT_FIELD_2);
+      .appendField(Blockly.Msg.OUT_OF_BOUNDS_FAINT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1514,9 +1514,9 @@ Blockly.Blocks['remove_child'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.REMOVE_CHILD_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE_CHILD);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.REMOVE_CHILD_FIELD_2)
+      .appendField(Blockly.Msg.FROM)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -1531,9 +1531,9 @@ Blockly.Blocks['remove_child_vi'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.REMOVE_CHILD_VI_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE_CHILD_VI);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.REMOVE_CHILD_VI_FIELD_2);
+      .appendField(Blockly.Msg.FROM);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1547,9 +1547,9 @@ Blockly.Blocks['remove_child_at_vi'] = {
   init: function () {
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.REMOVE_CHILD_AT_VI_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE_CHILD_AT_VI);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.REMOVE_CHILD_AT_VI_FIELD_2);
+      .appendField(Blockly.Msg.FROM);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1567,9 +1567,9 @@ Blockly.Blocks['remove_child_at'] = {
   init: function () {
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.REMOVE_CHILD_AT_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE_CHILD_AT);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.REMOVE_CHILD_AT_FIELD_2)
+      .appendField(Blockly.Msg.FROM)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -1587,7 +1587,7 @@ Blockly.Blocks['remove_child_at'] = {
 Blockly.Blocks['remove_children'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.REMOVE_CHILDREN_FIELD_1)
+      .appendField(Blockly.Msg.REMOVE_CHILDREN)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1600,7 +1600,7 @@ Blockly.Blocks['remove_children'] = {
 Blockly.Blocks['remove_children_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.REMOVE_CHILDREN_VI_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE_CHILDREN_VI);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -1614,7 +1614,7 @@ Blockly.Blocks['remove_children_vi'] = {
 Blockly.Blocks['create_group'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_GROUP_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_GROUP);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_GROUP_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_GROUP_HELP_URL);
@@ -1629,17 +1629,17 @@ Blockly.Blocks['create_group'] = {
 Blockly.Blocks['create_object_in_group'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP);
     this.appendValueInput('X_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_4)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CREATE_OBJECT_IN_GROUP_TAG_TEXT_DEFAULT), 'TAG')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_5)
+      .appendField(Blockly.Msg.FROM_TAG)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.DEFAULT), 'TAG')
+      .appendField(Blockly.Msg.IN_THE)
       .appendField(new Blockly.FieldVariable('defaultGroup'), 'GROUP')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_FIELD_6);
+      .appendField(Blockly.Msg.GROUP);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_OBJECT_IN_GROUP_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_OBJECT_IN_GROUP_HELP_URL);
@@ -1654,19 +1654,19 @@ Blockly.Blocks['create_object_in_group'] = {
 Blockly.Blocks['create_object_in_group_with_frame'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME);
     this.appendValueInput('X_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_4)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_TAG_TEXT_DEFAULT), 'TAG')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_5)
+      .appendField(Blockly.Msg.FROM_TAG)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.DEFAULT), 'TAG')
+      .appendField(Blockly.Msg.IN_THE)
       .appendField(new Blockly.FieldVariable('defaultGroup'), 'GROUP')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_6);
+      .appendField(Blockly.Msg.GROUP);
     this.appendValueInput('FRAME')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_FIELD_7);
+      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_NUMBER);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_HELP_URL);
@@ -1677,15 +1677,15 @@ Blockly.Blocks['create_object_in_group_with_frame'] = {
 Blockly.Blocks['create_object_in_group_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP);
     this.appendValueInput('X_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendValueInput('TAG')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_4);
+      .appendField(Blockly.Msg.FROM_TAG);
     this.appendValueInput('GROUP')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_FIELD_5);
+      .appendField(Blockly.Msg.IN_GROUP);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_OBJECT_IN_GROUP_VI_HELP_URL);
@@ -1696,17 +1696,17 @@ Blockly.Blocks['create_object_in_group_vi'] = {
 Blockly.Blocks['create_object_in_group_with_frame_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME);
     this.appendValueInput('X_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendValueInput('TAG')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_4);
+      .appendField(Blockly.Msg.FROM_TAG);
     this.appendValueInput('GROUP')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_5);
+      .appendField(Blockly.Msg.IN_GROUP);
     this.appendValueInput('FRAME')
-      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_FIELD_6);
+      .appendField(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_OBJECT_IN_GROUP_WITH_FRAME_VI_HELP_URL);
@@ -1718,10 +1718,10 @@ Blockly.Blocks['add_to_group'] = {
   init: function () {
     this.appendValueInput('NEW_ITEM')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_TO_GROUP_FIELD_1);
+      .appendField(Blockly.Msg.ADD);
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_TO_GROUP_FIELD_2);
+      .appendField(Blockly.Msg.ADD_TO_GROUP);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1735,12 +1735,12 @@ Blockly.Blocks['remove_from_group'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.REMOVE_FROM_GROUP_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE);
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.REMOVE_FROM_GROUP_FIELD_2);
+      .appendField(Blockly.Msg.REMOVE_FROM_GROUP);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.REMOVE_FROM_GROUP_FIELD_3)
+      .appendField(Blockly.Msg.REMOVE_FROM_GROUP_DESTROY)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'DESTROY');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -1755,12 +1755,12 @@ Blockly.Blocks['group_contains'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_CONTAINS_FIELD_1);
+      .appendField(Blockly.Msg.GROUP);
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_CONTAINS_FIELD_2);
+      .appendField(Blockly.Msg.CONTAINS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GROUP_CONTAINS_FIELD_3);
+      .appendField(Blockly.Msg.QUESTION);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
@@ -1773,9 +1773,9 @@ Blockly.Blocks['group_count_alive_dead'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_STATE_DROPDOWN_1, 'Living'], [Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_STATE_DROPDOWN_2, 'Fainted']]), 'STATE')
-      .appendField(Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_FIELD_2);
+      .appendField(Blockly.Msg.GROUP_COUNT_ALIVE_DEAD)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ALIVE, 'Living'], [Blockly.Msg.FAINTED, 'Fainted']]), 'STATE')
+      .appendField(Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_OBJECTS);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
     this.setTooltip(Blockly.Msg.GROUP_COUNT_ALIVE_DEAD_TOOLTIP);
@@ -1787,9 +1787,9 @@ Blockly.Blocks['destroy_group'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.DESTROY_GROUP_FIELD_1);
+      .appendField(Blockly.Msg.DESTROY_GROUP);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DESTROY_GROUP_FIELD_2)
+      .appendField(Blockly.Msg.DESTROY_GROUP_MEMBERS)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'HANDLE_CHILDREN');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -1804,7 +1804,7 @@ Blockly.Blocks['group_get_all'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_ALL_FIELD_1);
+      .appendField(Blockly.Msg.GROUP_GET_ALL);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
     this.setTooltip(Blockly.Msg.GROUP_GET_ALL_TOOLTIP);
@@ -1816,10 +1816,10 @@ Blockly.Blocks['group_get_at'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_AT_FIELD_1);
+      .appendField(Blockly.Msg.GROUP_GET_AT);
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.GROUP_GET_AT_FIELD_2);
+      .appendField(Blockly.Msg.AT_INDEX);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
@@ -1832,10 +1832,10 @@ Blockly.Blocks['group_get_closest_to'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_CLOSEST_TO_FIELD_1);
+      .appendField(Blockly.Msg.GROUP_GET_CLOSEST_TO_MEMBER);
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_CLOSEST_TO_FIELD_2);
+      .appendField(Blockly.Msg.GROUP_GET_CLOSEST_TO);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
@@ -1848,9 +1848,9 @@ Blockly.Blocks['group_get_first_alive_dead'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_MODE_DROPDOWN_1, 'Alive'], [Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_MODE_DROPDOWN_2, 'Dead']]), 'MODE')
-      .appendField(Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_FIELD_2);
+      .appendField(Blockly.Msg.GET_FIRST)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ALIVE, 'Alive'], [Blockly.Msg.DEAD, 'Dead']]), 'MODE')
+      .appendField(Blockly.Msg.MEMBER_OF_GROUP);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
     this.setTooltip(Blockly.Msg.GROUP_GET_FIRST_ALIVE_DEAD_TOOLTIP);
@@ -1862,9 +1862,9 @@ Blockly.Blocks['group_get_first_alive_fainted'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_MODE_DROPDOWN_1, 'Alive'], [Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_MODE_DROPDOWN_2, 'Fainted']]), 'MODE')
-      .appendField(Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_FIELD_2);
+      .appendField(Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ALIVE, 'Alive'], [Blockly.Msg.FAINTED, 'Fainted']]), 'MODE')
+      .appendField(Blockly.Msg.MEMBER_OF_GROUP);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
     this.setTooltip(Blockly.Msg.GROUP_GET_FIRST_ALIVE_FAINTED_TOOLTIP);
@@ -1876,7 +1876,7 @@ Blockly.Blocks['group_get_random'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_RANDOM_FIELD_1);
+      .appendField(Blockly.Msg.GROUP_GET_RANDOM);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
     this.setTooltip(Blockly.Msg.GROUP_GET_RANDOM_TOOLTIP);
@@ -1888,9 +1888,9 @@ Blockly.Blocks['group_get_random_exists'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_GET_RANDOM_EXISTS_FIELD_1);
+      .appendField(Blockly.Msg.GROUP_GET_RANDOM_EXISTS_GROUP);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GROUP_GET_RANDOM_EXISTS_FIELD_2);
+      .appendField(Blockly.Msg.GROUP_GET_RANDOM_EXISTS);
     this.setOutput(true, null);
     this.setColour(PHASER_GROUPS_COLOUR);
     this.setTooltip(Blockly.Msg.GROUP_GET_RANDOM_EXISTS_TOOLTIP);
@@ -1902,9 +1902,9 @@ Blockly.Blocks['group_remove_all'] = {
   init: function () {
     this.appendValueInput('GROUP')
       .setCheck(null)
-      .appendField(Blockly.Msg.GROUP_REMOVE_ALL_FIELD_1);
+      .appendField(Blockly.Msg.GROUP_REMOVE_ALL);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GROUP_REMOVE_ALL_FIELD_2)
+      .appendField(Blockly.Msg.GROUP_REMOVE_ALL_DESTROY)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'DESTROY_CHILDREN');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -1919,9 +1919,9 @@ Blockly.Blocks['add_to_world'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_TO_WORLD_FIELD_1);
+      .appendField(Blockly.Msg.ADD);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_TO_WORLD_FIELD_2);
+      .appendField(Blockly.Msg.ADD_TO_WORLD);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1936,19 +1936,19 @@ Blockly.Blocks['add_to_world'] = {
 Blockly.Blocks['add_animation_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ADD_ANIMATION_VI_FIELD_1);
+      .appendField(Blockly.Msg.ADD_ANIMATION_VI);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_VI_FIELD_2)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.ADD_ANIMATION_VI_NAME_TEXT_DEFAULT), 'NAME');
+      .appendField(Blockly.Msg.TAGGED)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.NAME), 'NAME');
     this.appendValueInput('FRAMES')
       .setCheck(null)
-      .appendField(Blockly.Msg.ADD_ANIMATION_VI_FIELD_3);
+      .appendField(Blockly.Msg.WITH_FRAMES);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_VI_FIELD_4)
+      .appendField(Blockly.Msg.DISPLAYED_AT)
       .appendField(new Blockly.FieldNumber(60), 'FPS')
-      .appendField(Blockly.Msg.ADD_ANIMATION_VI_FIELD_5);
+      .appendField(Blockly.Msg.FPS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_ANIMATION_VI_FIELD_6)
+      .appendField(Blockly.Msg.LOOP)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1961,10 +1961,10 @@ Blockly.Blocks['add_animation_vi'] = {
 Blockly.Blocks['play_animation_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PLAY_ANIMATION_VI_FIELD_1);
+      .appendField(Blockly.Msg.PLAY_ANIMATION_VI);
     this.appendValueInput('ANIMATION');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.PLAY_ANIMATION_VI_FIELD_2);
+      .appendField(Blockly.Msg.ON);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -1981,9 +1981,9 @@ Blockly.Blocks['play_animation_vi'] = {
 Blockly.Blocks['animation_next'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_NEXT_FIELD_1)
+      .appendField(Blockly.Msg.ANIMATION_NEXT)
       .appendField(new Blockly.FieldNumber(1, 1), 'FRAMECOUNT')
-      .appendField(Blockly.Msg.ANIMATION_NEXT_FIELD_2)
+      .appendField(Blockly.Msg.ON)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2000,9 +2000,9 @@ Blockly.Blocks['animation_next'] = {
 Blockly.Blocks['animation_previous'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_PREVIOUS_FIELD_1)
+      .appendField(Blockly.Msg.ANIMATION_PREVIOUS)
       .appendField(new Blockly.FieldNumber(1, 1), 'FRAMECOUNT')
-      .appendField(Blockly.Msg.ANIMATION_PREVIOUS_FIELD_2)
+      .appendField(Blockly.Msg.ON)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2015,11 +2015,11 @@ Blockly.Blocks['animation_previous'] = {
 Blockly.Blocks['animation_next_vi'] = {
   init: function () {
     this.appendValueInput('FRAMECOUNT')
-      .appendField(Blockly.Msg.ANIMATION_NEXT_VI_FIELD_1);
+      .appendField(Blockly.Msg.ANIMATION_NEXT_VI);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_NEXT_VI_FIELD_2);
+      .appendField(Blockly.Msg.FRAMES);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ANIMATION_NEXT_VI_FIELD_3);
+      .appendField(Blockly.Msg.FOR);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -2031,11 +2031,11 @@ Blockly.Blocks['animation_next_vi'] = {
 Blockly.Blocks['animation_previous_vi'] = {
   init: function () {
     this.appendValueInput('FRAMECOUNT')
-      .appendField(Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_1);
+      .appendField(Blockly.Msg.ANIMATION_PREVIOUS_VI);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_2);
+      .appendField(Blockly.Msg.FRAMES);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ANIMATION_PREVIOUS_VI_FIELD_3);
+      .appendField(Blockly.Msg.FOR);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -2047,7 +2047,7 @@ Blockly.Blocks['animation_previous_vi'] = {
 Blockly.Blocks['refresh_frame'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.REFRESH_FRAME_FIELD_1)
+      .appendField(Blockly.Msg.REFRESH_FRAME)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2064,7 +2064,7 @@ Blockly.Blocks['refresh_frame'] = {
 Blockly.Blocks['animation_update'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_UPDATE_FIELD_1)
+      .appendField(Blockly.Msg.ANIMATION_UPDATE)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setOutput(true, 'Boolean');
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -2080,11 +2080,11 @@ Blockly.Blocks['animation_update'] = {
 Blockly.Blocks['validate_frames'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.VALIDATE_FRAMES_FIELD_1)
+      .appendField(Blockly.Msg.VALIDATE_FRAMES)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'Object');
     this.appendValueInput('FRAMES')
       .setCheck('Array')
-      .appendField(Blockly.Msg.VALIDATE_FRAMES_FIELD_2);
+      .appendField(Blockly.Msg.VALIDATE_FRAMES_ARRAY);
     this.setOutput(true, 'Boolean');
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
     this.setTooltip(Blockly.Msg.VALIDATE_FRAMES_TOOLTIP);
@@ -2095,10 +2095,10 @@ Blockly.Blocks['validate_frames'] = {
 Blockly.Blocks['validate_frames_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.VALIDATE_FRAMES_VI_FIELD_1);
+      .appendField(Blockly.Msg.VALIDATE_FRAMES_VI);
     this.appendValueInput('FRAMES')
       .setCheck('Array')
-      .appendField(Blockly.Msg.VALIDATE_FRAMES_VI_FIELD_2);
+      .appendField(Blockly.Msg.VALIDATE_FRAMES_VI_ARRAY);
     this.setOutput(true, 'Boolean');
     this.setColour(PHASER_ANIMATION_COLOUR);
     this.setTooltip(Blockly.Msg.VALIDATE_FRAMES_VI_TOOLTIP);
@@ -2113,7 +2113,7 @@ Blockly.Blocks['validate_frames_vi'] = {
 Blockly.Blocks['animation_destroy'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_DESTROY_FIELD_1)
+      .appendField(Blockly.Msg.ANIMATION_DESTROY)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2126,7 +2126,7 @@ Blockly.Blocks['animation_destroy'] = {
 Blockly.Blocks['animation_destroy_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ANIMATION_DESTROY_VI_FIELD_1);
+      .appendField(Blockly.Msg.ANIMATION_DESTROY_VI);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -2138,7 +2138,7 @@ Blockly.Blocks['animation_destroy_vi'] = {
 Blockly.Blocks['stop_animation_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.STOP_ANIMATION_VI_FIELD_1);
+      .appendField(Blockly.Msg.STOP_ANIMATION_VI);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -2150,9 +2150,9 @@ Blockly.Blocks['stop_animation_vi'] = {
 Blockly.Blocks['set_frame_vi'] = {
   init: function () {
     this.appendValueInput('FRAME_NUMBER')
-      .appendField(Blockly.Msg.SET_FRAME_VI_FIELD_1);
+      .appendField(Blockly.Msg.SET_FRAME_VI);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_FRAME_VI_FIELD_2);
+      .appendField(Blockly.Msg.FOR);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setInputsInline(true);
@@ -2289,21 +2289,21 @@ Blockly.Blocks['get_animation_string_field'] = {
 Blockly.Blocks['add_text'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_TEXT_FIELD_1);
+      .appendField(Blockly.Msg.ADD_TEXT);
     this.appendValueInput('X_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADD_TEXT_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADD_TEXT_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendValueInput('INITIAL_TEXT')
       .setCheck('String')
-      .appendField(Blockly.Msg.ADD_TEXT_FIELD_4);
+      .appendField(Blockly.Msg.ADD_TEXT_INITIAL);
     this.appendValueInput('FONT_SIZE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADD_TEXT_FIELD_5);
+      .appendField(Blockly.Msg.ADD_TEXT_FONT_SIZE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_TEXT_FIELD_6)
+      .appendField(Blockly.Msg.ADD_TEXT_FONT_COLOUR)
       .appendField(new Blockly.FieldColour('#ff0000'), 'FILL');
     this.setOutput(true, null);
     this.setInputsInline(false);
@@ -2320,11 +2320,11 @@ Blockly.Blocks['add_text'] = {
 Blockly.Blocks['set_text'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_TEXT_FIELD_1)
+      .appendField(Blockly.Msg.SET_TEXT)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT');
     this.appendValueInput('TEXT')
       .setCheck('String')
-      .appendField(Blockly.Msg.SET_TEXT_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2337,10 +2337,10 @@ Blockly.Blocks['set_text'] = {
 Blockly.Blocks['set_text_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_TEXT_VI_FIELD_1);
+      .appendField(Blockly.Msg.SET_TEXT_VI);
     this.appendValueInput('TEXT')
       .setCheck('String')
-      .appendField(Blockly.Msg.SET_TEXT_VI_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2353,15 +2353,15 @@ Blockly.Blocks['set_text_vi'] = {
 Blockly.Blocks['create_bitmapFont'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_BITMAPFONT_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_BITMAPFONT);
     this.appendValueInput('TAG')
-      .appendField(Blockly.Msg.CREATE_BITMAPFONT_FIELD_2)
+      .appendField(Blockly.Msg.TAG)
       .setCheck('String');
     this.appendValueInput('SRC')
-      .appendField(Blockly.Msg.CREATE_BITMAPFONT_FIELD_3)
+      .appendField(Blockly.Msg.SOURCE)
       .setCheck('String');
     this.appendValueInput('XML')
-      .appendField(Blockly.Msg.CREATE_BITMAPFONT_FIELD_4)
+      .appendField(Blockly.Msg.CREATE_BITMAPFONT_XML)
       .setCheck('String');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2376,16 +2376,16 @@ Blockly.Blocks['create_bitmapFont'] = {
 Blockly.Blocks['addemitter'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADDEMITTER_FIELD_1);
+      .appendField(Blockly.Msg.ADDEMITTER);
     this.appendValueInput('X')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADDEMITTER_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADDEMITTER_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendValueInput('maxParticles')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADDEMITTER_FIELD_4);
+      .appendField(Blockly.Msg.ADDEMITTER_MAXPARTICLES);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_PARTICLES_COLOUR);
@@ -2397,23 +2397,23 @@ Blockly.Blocks['addemitter'] = {
 Blockly.Blocks['emitter_make_particles'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_1);
+      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_EMITTER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_2);
+      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES);
     this.appendValueInput('KEYS')
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_3)
+      .appendField(Blockly.Msg.KEYS)
       .setCheck(['Array', 'String']);
     this.appendValueInput('FRAMES')
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_4)
+      .appendField(Blockly.Msg.FRAMES)
       .setCheck(['Array', 'Number']);
     this.appendValueInput('QUANTITY')
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_5)
+      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_QAUNTITY)
       .setCheck('Number');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_6)
+      .appendField(Blockly.Msg.COLLIDE)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'COLLIDE');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_FIELD_7)
+      .appendField(Blockly.Msg.EMITTER_MAKE_PARTICLES_COLLIDE_WORLD)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'COLLIDEWORLDBOUNDS');
     this.setNextStatement(true, null);
     this.setPreviousStatement(true, null);
@@ -2431,10 +2431,10 @@ Blockly.Blocks['emitter_make_particles'] = {
 Blockly.Blocks['emitters_make_particles'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_MAKE_PARTICLES_FIELD_1)
+      .appendField(Blockly.Msg.EMITTERS_MAKE_PARTICLES_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_MAKE_PARTICLES_FIELD_2)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.EMITTERS_MAKE_PARTICLES_TAG_TEXT_DEFAULT), 'TAG');
+      .appendField(Blockly.Msg.EMITTERS_MAKE_PARTICLES)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.EMITTERS_MAKE_PARTICLES_TAG), 'TAG');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2451,15 +2451,15 @@ Blockly.Blocks['emitters_make_particles'] = {
 Blockly.Blocks['emitters_set_rotation'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_1)
+      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION);
     this.appendValueInput('NAME')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_3);
+      .appendField(Blockly.Msg.MIN);
     this.appendValueInput('NAME')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_FIELD_4);
+      .appendField(Blockly.Msg.MAX);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2472,15 +2472,15 @@ Blockly.Blocks['emitters_set_rotation'] = {
 Blockly.Blocks['emitters_set_rotation_vi'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_1);
+      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_VI_EMITTER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_VI);
     this.appendValueInput('MIN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_3);
+      .appendField(Blockly.Msg.MIN);
     this.appendValueInput('MAX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ROTATION_VI_FIELD_4);
+      .appendField(Blockly.Msg.MAX);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2497,21 +2497,21 @@ Blockly.Blocks['emitters_set_rotation_vi'] = {
 Blockly.Blocks['emitters_start'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_START_FIELD_1)
+      .appendField(Blockly.Msg.ON_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_START_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_START);
     this.appendValueInput('EXPLODE')
       .setCheck('Boolean')
-      .appendField(Blockly.Msg.EMITTERS_START_FIELD_3);
+      .appendField(Blockly.Msg.EMITTERS_START_BURST);
     this.appendValueInput('LIFESPAN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_START_FIELD_4);
+      .appendField(Blockly.Msg.EMITTERS_START_LIEFSPAN);
     this.appendValueInput('FREQUENCY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_START_FIELD_5);
+      .appendField(Blockly.Msg.EMITTERS_START_FREQUENCY);
     this.appendValueInput('QUANTITY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_START_FIELD_6);
+      .appendField(Blockly.Msg.EMITTERS_START_QUANTITY);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2524,19 +2524,19 @@ Blockly.Blocks['emitters_start'] = {
 Blockly.Blocks['emitters_start_vi'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_1);
+      .appendField(Blockly.Msg.EMITTERS_START_VI);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_2)
+      .appendField(Blockly.Msg.EMITTERS_START_VI_EXPLODE)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'EXPLODE');
     this.appendValueInput('LIFESPAN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_3);
+      .appendField(Blockly.Msg.EMITTERS_START_VI_LIFESPAN);
     this.appendValueInput('FREQUENCY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_4);
+      .appendField(Blockly.Msg.EMITTERS_START_VI_FREQUENCY);
     this.appendValueInput('QUANTITY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_START_VI_FIELD_5);
+      .appendField(Blockly.Msg.EMITTERS_START_VI_QUANTITY);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2553,18 +2553,18 @@ Blockly.Blocks['emitters_start_vi'] = {
 Blockly.Blocks['emitters_set_alpha'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_1)
+      .appendField(Blockly.Msg.ON_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA);
     this.appendValueInput('MIN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_3);
+      .appendField(Blockly.Msg.MIN);
     this.appendValueInput('MAX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_4);
+      .appendField(Blockly.Msg.MAX);
     this.appendValueInput('RATE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_FIELD_5);
+      .appendField(Blockly.Msg.RATE);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2577,18 +2577,18 @@ Blockly.Blocks['emitters_set_alpha'] = {
 Blockly.Blocks['emitters_set_alpha_vi'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_1);
+      .appendField(Blockly.Msg.ON_EMITTER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_VI);
     this.appendValueInput('MIN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_3);
+      .appendField(Blockly.Msg.MIN);
     this.appendValueInput('MAX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_4);
+      .appendField(Blockly.Msg.MAX);
     this.appendValueInput('RATE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_ALPHA_VI_FIELD_5);
+      .appendField(Blockly.Msg.RATE);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2605,24 +2605,24 @@ Blockly.Blocks['emitters_set_alpha_vi'] = {
 Blockly.Blocks['emitters_set_scale'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_1)
+      .appendField(Blockly.Msg.ON_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_SCALE);
     this.appendValueInput('MINX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_3);
+      .appendField(Blockly.Msg.MIN_X);
     this.appendValueInput('MAXX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_4);
+      .appendField(Blockly.Msg.MAX_X);
     this.appendValueInput('MINY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_5);
+      .appendField(Blockly.Msg.MIN_Y);
     this.appendValueInput('MAXY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_6);
+      .appendField(Blockly.Msg.MAX_X);
     this.appendValueInput('RATE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_FIELD_7);
+      .appendField(Blockly.Msg.RATE);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2635,24 +2635,24 @@ Blockly.Blocks['emitters_set_scale'] = {
 Blockly.Blocks['emitters_set_scale_vi'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_1);
+      .appendField(Blockly.Msg.ON_EMITTER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI);
     this.appendValueInput('MINX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_3);
+      .appendField(Blockly.Msg.MIN_X);
     this.appendValueInput('MAXX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_4);
+      .appendField(Blockly.Msg.MAX_X);
     this.appendValueInput('MINY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_5);
+      .appendField(Blockly.Msg.MIN_Y);
     this.appendValueInput('MAXY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_6);
+      .appendField(Blockly.Msg.MAX_Y);
     this.appendValueInput('RATE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SCALE_VI_FIELD_7);
+      .appendField(Blockly.Msg.RATE);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2666,11 +2666,11 @@ Blockly.Blocks['set_emit_from'] = {
   init: function () {
     this.appendValueInput('Object')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_EMIT_FROM_FIELD_1);
+      .appendField(Blockly.Msg.ON);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_EMIT_FROM_FIELD_2)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_EMIT_FROM_CORD_DROPDOWN_1, 'X'], [Blockly.Msg.SET_EMIT_FROM_CORD_DROPDOWN_2, 'Y']]), 'cord')
-      .appendField(Blockly.Msg.SET_EMIT_FROM_FIELD_3);
+      .appendField(Blockly.Msg.SET_EMIT_FROM)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'X'], [Blockly.Msg.Y, 'Y']]), 'cord')
+      .appendField(Blockly.Msg.TO);
     this.appendValueInput('emit_loc')
       .setCheck(null);
     this.setInputsInline(true);
@@ -2689,21 +2689,21 @@ Blockly.Blocks['set_emit_from'] = {
 Blockly.Blocks['emitters_set_speed'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_FIELD_1)
+      .appendField(Blockly.Msg.ON_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_SPEED);
     this.appendValueInput('MINX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_FIELD_3);
+      .appendField(Blockly.Msg.MIN_X);
     this.appendValueInput('MAXX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_FIELD_4);
+      .appendField(Blockly.Msg.MAX_X);
     this.appendValueInput('MINY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_FIELD_5);
+      .appendField(Blockly.Msg.MIN_Y);
     this.appendValueInput('MAXY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_FIELD_6);
+      .appendField(Blockly.Msg.MAX_Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2716,21 +2716,21 @@ Blockly.Blocks['emitters_set_speed'] = {
 Blockly.Blocks['emitters_set_speed_vi'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_1);
+      .appendField(Blockly.Msg.ON_EMITTER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI);
     this.appendValueInput('MINX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_3);
+      .appendField(Blockly.Msg.MIN_X);
     this.appendValueInput('MAXX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_4);
+      .appendField(Blockly.Msg.MAX_X);
     this.appendValueInput('MINY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_5);
+      .appendField(Blockly.Msg.MIN_Y);
     this.appendValueInput('MAXY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.EMITTERS_SET_SPEED_VI_FIELD_6);
+      .appendField(Blockly.Msg.MAX_Y);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2747,9 +2747,9 @@ Blockly.Blocks['emitters_set_speed_vi'] = {
 Blockly.Blocks['emitters_set_gravity'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_GRAVITY_FIELD_1)
+      .appendField(Blockly.Msg.ON_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_GRAVITY_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_GRAVITY);
     this.appendValueInput('GRAVITY')
       .setCheck('Number');
     this.setInputsInline(true);
@@ -2764,9 +2764,9 @@ Blockly.Blocks['emitters_set_gravity'] = {
 Blockly.Blocks['emitters_set_gravity_vi'] = {
   init: function () {
     this.appendValueInput('EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_GRAVITY_VI_FIELD_1);
+      .appendField(Blockly.Msg.ON_EMITTER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_GRAVITY_VI_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_GRAVITY_VI);
     this.appendValueInput('GRAVITY')
       .setCheck('Number');
     this.setInputsInline(true);
@@ -2781,9 +2781,9 @@ Blockly.Blocks['emitters_set_gravity_vi'] = {
 Blockly.Blocks['emitters_set_width'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.EMITTERS_SET_WIDTH_FIELD_1)
+      .appendField(Blockly.Msg.ON_EMITTER)
       .appendField(new Blockly.FieldVariable('emitter'), 'EMITTER')
-      .appendField(Blockly.Msg.EMITTERS_SET_WIDTH_FIELD_2);
+      .appendField(Blockly.Msg.EMITTERS_SET_WIDTH);
     this.appendValueInput('WIDTH')
       .setCheck('Number');
     this.setInputsInline(true);
@@ -2814,12 +2814,12 @@ const GAME_OBJECT_NUMERIC_FIELDS = createDropDownField(GAME_OBJECT_NUMERIC_WRITA
 Blockly.Blocks['set_game_object_point_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_POINT_FIELDS.writable), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('POINT')
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_POINT_FIELD_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setNextStatement(true, null);
     this.setPreviousStatement(true, null);
@@ -2833,10 +2833,10 @@ Blockly.Blocks['set_game_object_point_field'] = {
 Blockly.Blocks['get_game_object_point_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_POINT_FIELDS.all), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.GET_GAME_OBJECT_POINT_FIELD_TOOLTIP);
@@ -2849,12 +2849,12 @@ Blockly.Blocks['get_game_object_point_field'] = {
 Blockly.Blocks['set_game_object_numeric_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_NUMERIC_FIELDS.writable), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setNextStatement(true, null);
     this.setPreviousStatement(true, null);
@@ -2868,10 +2868,10 @@ Blockly.Blocks['set_game_object_numeric_field'] = {
 Blockly.Blocks['get_game_object_numeric_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_NUMERIC_FIELDS.all), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_TOOLTIP);
@@ -2884,12 +2884,12 @@ Blockly.Blocks['get_game_object_numeric_field'] = {
 Blockly.Blocks['set_game_object_boolean_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_BOOLEAN_FIELDS.writable), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'BOOLEAN');
     this.setInputsInline(true);
     this.setNextStatement(true, null);
@@ -2904,12 +2904,12 @@ Blockly.Blocks['set_game_object_boolean_field'] = {
 Blockly.Blocks['set_game_object_boolean_field_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_BOOLEAN_FIELDS.writable), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('VALUE')  // Value input
-      .appendField(Blockly.Msg.SET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Boolean');
     this.setInputsInline(true);
     this.setNextStatement(true, null);
@@ -2924,10 +2924,10 @@ Blockly.Blocks['set_game_object_boolean_field_vi'] = {
 Blockly.Blocks['get_game_object_boolean_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(GAME_OBJECT_BOOLEAN_FIELDS.all), 'PROPERTY');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.GET_GAME_OBJECT_BOOLEAN_FIELD_TOOLTIP);
@@ -2944,15 +2944,15 @@ Blockly.Blocks['get_game_object_boolean_field'] = {
 Blockly.Blocks['set_object_anchor'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_1);
+      .appendField(Blockly.Msg.SET_OBJECT_ANCHOR);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('X_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_3);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_OBJECT_ANCHOR_FIELD_4);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2969,7 +2969,7 @@ Blockly.Blocks['set_object_anchor'] = {
 Blockly.Blocks['kill_object'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.KILL_OBJECT_FIELD_1);
+      .appendField(Blockly.Msg.KILL_OBJECT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2987,7 +2987,7 @@ Blockly.Blocks['kill_object'] = {
 Blockly.Blocks['faint_object'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.FAINT_OBJECT_FIELD_1);
+      .appendField(Blockly.Msg.FAINT_OBJECT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3004,7 +3004,7 @@ Blockly.Blocks['faint_object'] = {
 Blockly.Blocks['destroy_object'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.DESTROY_OBJECT_FIELD_1);
+      .appendField(Blockly.Msg.DESTROY);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3021,13 +3021,13 @@ Blockly.Blocks['destroy_object'] = {
 Blockly.Blocks['set_scale'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_SCALE_FIELD_1)
+      .appendField(Blockly.Msg.SET_SCALE)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT')
-      .appendField(Blockly.Msg.SET_SCALE_FIELD_2);
+      .appendField(Blockly.Msg.BY);
     this.appendValueInput('SCALE_X')
-      .appendField(Blockly.Msg.SET_SCALE_FIELD_3);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('SCALE_Y')
-      .appendField(Blockly.Msg.SET_SCALE_FIELD_4);
+      .appendField(Blockly.Msg.Y);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
@@ -3039,13 +3039,13 @@ Blockly.Blocks['set_scale'] = {
 Blockly.Blocks['set_scale_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_SCALE_VI_FIELD_1);
+      .appendField(Blockly.Msg.SET_SCALE_VI);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_SCALE_VI_FIELD_2);
+      .appendField(Blockly.Msg.BY);
     this.appendValueInput('SCALE_X')
-      .appendField(Blockly.Msg.SET_SCALE_VI_FIELD_3);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('SCALE_Y')
-      .appendField(Blockly.Msg.SET_SCALE_VI_FIELD_4);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3058,11 +3058,11 @@ Blockly.Blocks['set_scale_vi'] = {
 Blockly.Blocks['set_pos'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_POS_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_POS_PARAM_DROPDOWN_1, 'x'], [Blockly.Msg.SET_POS_PARAM_DROPDOWN_2, 'y']]), 'PARAM')
-      .appendField(Blockly.Msg.SET_POS_FIELD_2);
+      .appendField(Blockly.Msg.SET)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y']]), 'PARAM')
+      .appendField(Blockly.Msg.ON);
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_POS_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
@@ -3074,14 +3074,14 @@ Blockly.Blocks['set_pos'] = {
 Blockly.Blocks['object_set_to'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.OBJECT_SET_TO_FIELD_1)
+      .appendField(Blockly.Msg.FOR)
       .appendField(new Blockly.FieldVariable('object'), 'OBJECT');
     this.appendValueInput('setx')
       .setCheck('Number')
-      .appendField(Blockly.Msg.OBJECT_SET_TO_FIELD_2);
+      .appendField(Blockly.Msg.OBJECT_SET_TO_SETX);
     this.appendValueInput('sety')
       .setCheck('Number')
-      .appendField(Blockly.Msg.OBJECT_SET_TO_FIELD_3);
+      .appendField(Blockly.Msg.OBJECT_SET_TO_SETY);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
@@ -3093,13 +3093,13 @@ Blockly.Blocks['object_set_to'] = {
 Blockly.Blocks['set_velocity'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_VELOCITY_FIELD_1)
+      .appendField(Blockly.Msg.SET_VELOCITY)
       .appendField(new Blockly.FieldDropdown([['x', 'body.velocity.x'],
         ['y', 'body.velocity.y'],
         ['Angular', 'body.angularVelocity']]), 'PARAM')
-      .appendField(Blockly.Msg.SET_VELOCITY_FIELD_2);
+      .appendField(Blockly.Msg.ON);
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_VELOCITY_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
@@ -3111,7 +3111,7 @@ Blockly.Blocks['set_velocity'] = {
 Blockly.Blocks['get_param'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_PARAM_FIELD_1)
+      .appendField(Blockly.Msg.GET)
       .appendField(new Blockly.FieldDropdown([['x', 'x'],
         ['y', 'y'],
         ['Width', 'width'],
@@ -3119,7 +3119,7 @@ Blockly.Blocks['get_param'] = {
         ['Velocity x', 'body.velocity.x'],
         ['Velocity y', 'body.velocity.y'],
         ['Angular Velocity', 'body.angularVelocity']]), 'PARAM')
-      .appendField(Blockly.Msg.GET_PARAM_FIELD_2);
+      .appendField(Blockly.Msg.GET_PARAM);
     this.setOutput(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_PARAM_TOOLTIP);
@@ -3130,9 +3130,9 @@ Blockly.Blocks['get_param'] = {
 Blockly.Blocks['object_inCamera'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.OBJECT_INCAMERA_FIELD_1);
+      .appendField(Blockly.Msg.IS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.OBJECT_INCAMERA_FIELD_2);
+      .appendField(Blockly.Msg.OBJECT_INCAMERA);
     this.setOutput(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
     this.setTooltip(Blockly.Msg.OBJECT_INCAMERA_TOOLTIP);
@@ -3142,7 +3142,7 @@ Blockly.Blocks['object_inCamera'] = {
 Blockly.Blocks['get_camera'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_CAMERA_FIELD_1);
+      .appendField(Blockly.Msg.GET_CAMERA);
     this.setOutput(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_CAMERA_TOOLTIP);
@@ -3157,7 +3157,7 @@ Blockly.Blocks['get_camera'] = {
 Blockly.Blocks['camera_follow'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_FOLLOW_FIELD_1)
+      .appendField(Blockly.Msg.CAMERA_FOLLOW)
       .appendField(new Blockly.FieldVariable('object'), 'OBJECT');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3172,7 +3172,7 @@ Blockly.Blocks['get_bounds'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.GET_BOUNDS_FIELD_1);
+      .appendField(Blockly.Msg.GET_BOUNDS);
     this.setOutput(true, null);
     this.setColour(GAME_OBJECT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_BOUNDS_TOOLTIP);
@@ -3183,7 +3183,7 @@ Blockly.Blocks['get_bounds'] = {
 Blockly.Blocks['get_rotation'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.GET_ROTATION_FIELD_1);
+      .appendField(Blockly.Msg.GET_ROTATION);
     this.setOutput(true, 'Number');
     this.setColour(PHASER_GAMEOBJECT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_ROTATION_TOOLTIP);
@@ -3195,12 +3195,12 @@ Blockly.Blocks['rotate'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.ROTATE_FIELD_1);
+      .appendField(Blockly.Msg.ROTATE);
     this.appendValueInput('ANGLE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ROTATE_FIELD_2);
+      .appendField(Blockly.Msg.BY);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ROTATE_FIELD_3);
+      .appendField(Blockly.Msg.DEGREES);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3214,12 +3214,12 @@ Blockly.Blocks['set_rotation'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_ROTATION_FIELD_1);
+      .appendField(Blockly.Msg.SET_ROTATION);
     this.appendValueInput('ROTATION')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_ROTATION_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_ROTATION_FIELD_3);
+      .appendField(Blockly.Msg.DEGREES);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3233,7 +3233,7 @@ Blockly.Blocks['get_local_bounds'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.GET_LOCAL_BOUNDS_FIELD_1);
+      .appendField(Blockly.Msg.GET_LOCAL_BOUNDS);
     this.setOutput(true, null);
     this.setColour(PHASER_GAMEOBJECT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_LOCAL_BOUNDS_TOOLTIP);
@@ -3245,13 +3245,13 @@ Blockly.Blocks['reset'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.RESET_FIELD_1);
+      .appendField(Blockly.Msg.RESET);
     this.appendValueInput('X_POS')
       .setCheck(null)
-      .appendField(Blockly.Msg.RESET_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y_POS')
       .setCheck(null)
-      .appendField(Blockly.Msg.RESET_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3265,7 +3265,7 @@ Blockly.Blocks['revive'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.REVIVE_FIELD_1);
+      .appendField(Blockly.Msg.REVIVE);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_GAMEOBJECT_COLOUR);
@@ -3301,9 +3301,9 @@ Blockly.Blocks['send_to_back'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.SEND_TO_BACK_FIELD_1);
+      .appendField(Blockly.Msg.SEND);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SEND_TO_BACK_FIELD_2);
+      .appendField(Blockly.Msg.SEND_TO_BACK);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3317,12 +3317,12 @@ Blockly.Blocks['set_child_index'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_CHILD_INDEX_FIELD_1);
+      .appendField(Blockly.Msg.SET_CHILD_INDEX_CHILD);
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_CHILD_INDEX_FIELD_2)
+      .appendField(Blockly.Msg.OF)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'PARENT')
-      .appendField(Blockly.Msg.SET_CHILD_INDEX_FIELD_3);
+      .appendField(Blockly.Msg.SET_CHILD_INDEX);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3336,12 +3336,12 @@ Blockly.Blocks['set_child_index_vi'] = {
   init: function () {
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_1);
+      .appendField(Blockly.Msg.SET_CHILD_INDEX_CHILD);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('INDEX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_CHILD_INDEX_VI_FIELD_3);
+      .appendField(Blockly.Msg.SET_CHILD_INDEX);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3355,11 +3355,11 @@ Blockly.Blocks['set_sprite_frame'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_SPRITE_FRAME_FIELD_1);
+      .appendField(Blockly.Msg.SET_SPRITE_FRAME);
     this.appendValueInput('FRAME')
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(Blockly.Msg.SET_SPRITE_FRAME_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3373,19 +3373,19 @@ Blockly.Blocks['set_scale_min_max'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_1);
+      .appendField(Blockly.Msg.SET_SCALE_MIN_MAX);
     this.appendValueInput('MINX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_2);
+      .appendField(Blockly.Msg.MIN_X);
     this.appendValueInput('MINY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_3);
+      .appendField(Blockly.Msg.MIN_Y);
     this.appendValueInput('MAXX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_4);
+      .appendField(Blockly.Msg.MAX_X);
     this.appendValueInput('MAXY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_SCALE_MIN_MAX_FIELD_5);
+      .appendField(Blockly.Msg.MAX_Y);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -3398,7 +3398,7 @@ Blockly.Blocks['clear_scale_min_max'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.CLEAR_SCALE_MIN_MAX_FIELD_1);
+      .appendField(Blockly.Msg.CLEAR_SCALE_MIN_MAX);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -3411,10 +3411,10 @@ Blockly.Blocks['set_texture'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_TEXTURE_FIELD_1);
+      .appendField(Blockly.Msg.SET_TEXTURE);
     this.appendValueInput('TEXTURE')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_TEXTURE_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3428,13 +3428,13 @@ Blockly.Blocks['swap_children'] = {
   init: function () {
     this.appendValueInput('PARENT')
       .setCheck(null)
-      .appendField(Blockly.Msg.SWAP_CHILDREN_FIELD_1);
+      .appendField(Blockly.Msg.SWAP_CHILDREN);
     this.appendValueInput('CHILD')
       .setCheck(null)
-      .appendField(Blockly.Msg.SWAP_CHILDREN_FIELD_2);
+      .appendField(Blockly.Msg.SWAP_CHILDREN_1);
     this.appendValueInput('CHILD2')
       .setCheck(null)
-      .appendField(Blockly.Msg.SWAP_CHILDREN_FIELD_3);
+      .appendField(Blockly.Msg.SWAP_CHILDREN_2);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
@@ -3452,10 +3452,10 @@ Blockly.Blocks['get_animation_property'] = {
   init: function () {
     this.appendValueInput('SPRITE')
       .setCheck(null)
-      .appendField(Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_1);
+      .appendField(Blockly.Msg.ON_GAMEOBJECT);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_2)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_1, 'currentAnim'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_2, 'currentFrame'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_3, 'frame'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_4, 'frameData'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_5, 'frameName'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_6, 'frameTotal'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_7, 'game'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_8, 'isLoaded'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_9, 'name'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_10, 'paused'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_11, 'sprite'], [Blockly.Msg.GET_ANIMATION_PROPERTY_FIELD_DROPDOWN_12, 'updateIfVisible']]), 'FIELD');
+      .appendField(Blockly.Msg.GET_ANIMATION_PROPERTY)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_CURRENTANIM, 'currentAnim'], [Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_CURRENTFRAME, 'currentFrame'], [Blockly.Msg.FRAME, 'frame'], [Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_FRAMEDATA, 'frameData'], [Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_FRAMENAME, 'frameName'], [Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_FRAMETOTAL, 'frameTotal'], [Blockly.Msg.GAME, 'game'], [Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_ISLOADED, 'isLoaded'], [Blockly.Msg.NAME, 'name'], [Blockly.Msg.PAUSED, 'paused'], [Blockly.Msg.SPRITE, 'sprite'], [Blockly.Msg.GET_ANIMATION_PROPERTY_DROPDOWN_UPDATE, 'updateIfVisible']]), 'FIELD');
     this.setOutput(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
     this.setTooltip(Blockly.Msg.GET_ANIMATION_PROPERTY_TOOLTIP);
@@ -3471,11 +3471,11 @@ Blockly.Blocks['set_animation_property'] = {
   init: function () {
     this.appendValueInput('NEWPROPERTY')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_1, 'frame'], [Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_2, 'frameName'], [Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_3, 'paused'], [Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_DROPDOWN_4, 'updateIfVisible']]), 'FIELD')
-      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_2)
+      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.FRAME, 'frame'], [Blockly.Msg.SET_ANIMATION_PROPERTY_DROPDOWN_FRAMENAME, 'frameName'], [Blockly.Msg.PAUSED, 'paused'], [Blockly.Msg.SET_ANIMATION_PROPERTY_DROPDOWN_UPDATE, 'updateIfVisible']]), 'FIELD')
+      .appendField(Blockly.Msg.ON)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'OBJECT')
-      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_ANIMATION_COLOUR);
@@ -3491,12 +3491,12 @@ Blockly.Blocks['set_animation_property'] = {
 Blockly.Blocks['set_animation_property_vi'] = {
   init: function () {
     this.appendDummyInput('NEWPROPERTY')
-      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_1, 'paused'], [Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_DROPDOWN_2, 'updateIfVisible']]), 'FIELD');
+      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PAUSED, 'paused'], [Blockly.Msg.SET_ANIMATION_PROPERTY_DROPDOWN_UPDATE, 'updateIfVisible']]), 'FIELD');
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_2);
+      .appendField(Blockly.Msg.ON);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_ANIMATION_PROPERTY_VI_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'VALUE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3514,10 +3514,10 @@ Blockly.Blocks['animation_get_animation'] = {
   init: function () {
     this.appendValueInput('Sprite')
       .setCheck(null)
-      .appendField(Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_1);
+      .appendField(Blockly.Msg.ANIMATION_GET_ANIMATION);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ANIMATION_GET_ANIMATION_FIELD_2)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.ANIMATION_GET_ANIMATION_NAME_TEXT_DEFAULT), 'NAME');
+      .appendField(Blockly.Msg.ANIMATION_GET_ANIMATION_NAME)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.DEFAULT), 'NAME');
     this.setOutput(true, null);
     this.setColour(PHASER_SPRITE_AND_IMAGES_COLOUR);
     this.setTooltip(Blockly.Msg.ANIMATION_GET_ANIMATION_TOOLTIP);
@@ -3533,9 +3533,9 @@ Blockly.Blocks['animation_get_animation'] = {
 Blockly.Blocks['start_physics'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.START_PHYSICS_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_1, 'ARCADE'], [Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_2, 'P2JS']]), 'SYSTEM')
-      .appendField(Blockly.Msg.START_PHYSICS_FIELD_2);
+      .appendField(Blockly.Msg.START_PHYSICS)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_ARCADE, 'ARCADE'], [Blockly.Msg.START_PHYSICS_SYSTEM_DROPDOWN_P2JS, 'P2JS']]), 'SYSTEM')
+      .appendField(Blockly.Msg.START_PHYSICS_SYSTEM);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.START_PHYSICS_TOOLTIP);
@@ -3552,7 +3552,7 @@ Blockly.Blocks['start_physics'] = {
 Blockly.Blocks['start_arcade_physics'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.START_ARCADE_PHYSICS_FIELD_1);
+      .appendField(Blockly.Msg.START_ARCADE_PHYSICS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.START_ARCADE_PHYSICS_TOOLTIP);
@@ -3568,9 +3568,9 @@ Blockly.Blocks['start_arcade_physics'] = {
 Blockly.Blocks['enable_body_group'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ENABLE_BODY_GROUP_FIELD_1)
+      .appendField(Blockly.Msg.ENABLE_BODY_GROUP)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'object')
-      .appendField(Blockly.Msg.ENABLE_BODY_GROUP_FIELD_2);
+      .appendField(Blockly.Msg.GROUP);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_PHYSICS_STARTUP_COLOUR);
@@ -3582,7 +3582,7 @@ Blockly.Blocks['enable_body_group'] = {
 Blockly.Blocks['enable_body_group_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ENABLE_BODY_GROUP_VI_FIELD_1);
+      .appendField(Blockly.Msg.ENABLE_BODY_GROUP_VI);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_PHYSICS_STARTUP_COLOUR);
@@ -3594,7 +3594,7 @@ Blockly.Blocks['enable_body_group_vi'] = {
 Blockly.Blocks['enable_arcade_physics_for_object'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_FIELD_1)
+      .appendField(Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'object');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3607,7 +3607,7 @@ Blockly.Blocks['enable_arcade_physics_for_object'] = {
 Blockly.Blocks['enable_arcade_physics_for_object_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI_FIELD_1);
+      .appendField(Blockly.Msg.ENABLE_ARCADE_PHYSICS_FOR_OBJECT_VI);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_PHYSICS_STARTUP_COLOUR);
@@ -3622,13 +3622,13 @@ Blockly.Blocks['collide_with_arrow_function'] = {
   init: function () {
     this.appendValueInput('OBJECTA')
       .setCheck(null)
-      .appendField(Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_1);
+      .appendField(Blockly.Msg.COLLIDE);
     this.appendValueInput('OBJECTB')
       .setCheck(null)
-      .appendField(Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_2);
+      .appendField(Blockly.Msg.WITH);
     this.appendStatementInput('CALLBACK')
       .setCheck(null)
-      .appendField(Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_FIELD_3);
+      .appendField(Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION);
     this.setInputsInline(true);
     this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
     this.setTooltip(Blockly.Msg.COLLIDE_WITH_ARROW_FUNCTION_TOOLTIP);
@@ -3689,14 +3689,14 @@ const BODY_NUMERIC_FIELDS = createDropDownField(BODY_NUMERIC_WRITABLE, BODY_NUME
 Blockly.Blocks['set_body_field_point'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_1, 'bounce'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_2, 'gravity'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_3, 'velocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_4, 'acceleration'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_5, 'drag'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_6, 'friction'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_7, 'maxVelocity'], [Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_DROPDOWN_8, 'worldBounce']]), 'FIELD')
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_ELEMENT_DROPDOWN_1, 'x'], [Blockly.Msg.SET_BODY_FIELD_POINT_ELEMENT_DROPDOWN_2, 'y']]), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_2)
+      .appendField(Blockly.Msg.SET)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.BOUNCE, 'bounce'], [Blockly.Msg.GRAVITY, 'gravity'], [Blockly.Msg.VELOCITY, 'velocity'], [Blockly.Msg.ACCELERATION, 'acceleration'], [Blockly.Msg.DRAG, 'drag'], [Blockly.Msg.FRICTION, 'friction'], [Blockly.Msg.MAXVELOCITY, 'maxVelocity'], [Blockly.Msg.WORLDBOUNCE, 'worldBounce']]), 'FIELD')
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y']]), 'ELEMENT')
+      .appendField(Blockly.Msg.FOR)
       .appendField(new Blockly.FieldVariable('item'), 'OBJECT');
     this.appendValueInput('VALUE')
       .setCheck(null)
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3712,15 +3712,16 @@ Blockly.Blocks['set_body_field_point'] = {
 Blockly.Blocks['set_body_field_point_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1)
+      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI)
       .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS.writable), 'FIELD')
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_1_5)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_1, 'x'], [Blockly.Msg.SET_BODY_FIELD_POINT_VI_ELEMENT_DROPDOWN_2, 'y']]), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_2);
-    this.appendValueInput('OBJECT');
+      .appendField(Blockly.Msg.IN_THE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y']]), 'ELEMENT')
+      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_DIRECTION);
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('VALUE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3734,12 +3735,12 @@ Blockly.Blocks['set_body_field_point_vi'] = {
 Blockly.Blocks['set_body_field_point_class_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_1)
-      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), 'FIELD')
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_2);
-    this.appendValueInput('OBJECT');
+      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI)
+      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('POINT')
-      .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI_FIELD_3);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3753,10 +3754,10 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
 Blockly.Blocks['get_body_field_point_class'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_1)
-      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.all), 'FIELD')
-      .appendField(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_FIELD_2);
-    this.appendValueInput('OBJECT');
+      .appendField(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS)
+      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.FOR);
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_TOOLTIP);
@@ -3773,9 +3774,9 @@ Blockly.Blocks['get_body_field_point_class'] = {
 Blockly.Blocks['set_body_boolean_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_1, 'allowRotation'], [Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_2, 'allowGravity'], [Blockly.Msg.SET_BODY_BOOLEAN_FIELD_ELEMENT_DROPDOWN_3, 'immovable']]), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ALLOWROTATION, 'allowRotation'], [Blockly.Msg.ALLOWGRAVITY, 'allowGravity'], [Blockly.Msg.IMMOVABLE, 'immovable']]), 'ELEMENT')
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('OBJECT');
     this.appendDummyInput()
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'VALUE');
@@ -3792,12 +3793,12 @@ Blockly.Blocks['set_body_boolean_field'] = {
 Blockly.Blocks['set_body_boolean_field_vi'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(BODY_BOOLEAN_FIELDS.writable), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('OBJECT');
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_BODY_BOOLEAN_FIELD_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Boolean');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3812,9 +3813,9 @@ Blockly.Blocks['set_body_boolean_field_vi'] = {
 Blockly.Blocks['get_body_boolean_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(BODY_BOOLEAN_FIELDS.all), 'ELEMENT')
-      .appendField(Blockly.Msg.GET_BODY_BOOLEAN_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, 'Boolean');
@@ -3828,12 +3829,12 @@ Blockly.Blocks['get_body_boolean_field'] = {
 Blockly.Blocks['set_body_numeric_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.SET_BODY_NUMERIC_FIELD)
       .appendField(new Blockly.FieldDropdown(BODY_NUMERIC_FIELDS.writable), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('OBJECT');
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_BODY_NUMERIC_FIELD_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Number');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3848,9 +3849,9 @@ Blockly.Blocks['set_body_numeric_field'] = {
 Blockly.Blocks['get_body_numeric_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_1)
+      .appendField(Blockly.Msg.GET_BODY_NUMERIC_FIELD)
       .appendField(new Blockly.FieldDropdown(BODY_NUMERIC_FIELDS.all), 'ELEMENT')
-      .appendField(Blockly.Msg.GET_BODY_NUMERIC_FIELD_FIELD_2);
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, 'Number');
@@ -3900,10 +3901,10 @@ Blockly.Blocks['stop_body'] = {
 Blockly.Blocks['call_function_on_group'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_1)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CALL_FUNCTION_ON_GROUP_FUNCTION_TEXT_DEFAULT), 'FUNCTION');
+      .appendField(Blockly.Msg.CALL_FUNCTION_ON_GROUP)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.FUNCTIONNAME), 'FUNCTION');
     this.appendValueInput('GROUP')
-      .appendField(Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_2);
+      .appendField(Blockly.Msg.CALL_FUNCTION_ON_GROUP_CHILDREN);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.CALL_FUNCTION_ON_GROUP_TOOLTIP);
@@ -3916,12 +3917,12 @@ Blockly.Blocks['acceleration_from_rotation'] = { //TODO: add to toolbox(?)
   init: function () {
     this.appendValueInput('ROTATION')
       .setCheck(null)
-      .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_1);
+      .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION);
     this.appendValueInput('SPEED')
       .setCheck(null)
-      .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_2);
+      .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_3);
+      .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION_SPEED);
     this.setOutput(true, null);
     this.setColour(PHYSICS_COLOUR);
     this.setTooltip(Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP);
@@ -3932,7 +3933,7 @@ Blockly.Blocks['acceleration_from_rotation'] = { //TODO: add to toolbox(?)
 Blockly.Blocks['set_immovable'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_IMMOVABLE_FIELD_1)
+      .appendField(Blockly.Msg.SET_IMMOVABLE)
       .appendField(new Blockly.FieldVariable('defaultGroup'), 'BODY')
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'IMMOVABLE');
     this.setPreviousStatement(true, null);
@@ -3950,9 +3951,9 @@ Blockly.Blocks['set_immovable'] = {
 Blockly.Blocks['collide'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.COLLIDE_FIELD_1)
+      .appendField(Blockly.Msg.COLLIDE)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'LHS')
-      .appendField(Blockly.Msg.COLLIDE_FIELD_2)
+      .appendField(Blockly.Msg.WITH)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'RHS');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3965,9 +3966,9 @@ Blockly.Blocks['collide'] = {
 Blockly.Blocks['collide_vi'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.COLLIDE_VI_FIELD_1);
+      .appendField(Blockly.Msg.COLLIDE);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.COLLIDE_VI_FIELD_2);
+      .appendField(Blockly.Msg.WITH);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.COLLIDE_VI_TOOLTIP);
@@ -4000,10 +4001,10 @@ Blockly.Blocks['is_body_touching'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(new Blockly.FieldVariable('defaultObject'), 'BODY')
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_1, 'up'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_2, 'down'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_3, 'left'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_4, 'Right'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_5, 'none']]), 'DIRECTION')
-      .appendField(Blockly.Msg.IS_BODY_TOUCHING_FIELD_1)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_UP, 'up'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_DOWN, 'down'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_LEFT, 'left'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_RIGHT, 'Right'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_NONE, 'none']]), 'DIRECTION')
+      .appendField(Blockly.Msg.IS_BODY_TOUCHING)
 
-      .appendField(Blockly.Msg.IS_BODY_TOUCHING_FIELD_2);
+      .appendField(Blockly.Msg.QUESTION);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.IS_BODY_TOUCHING_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.IS_BODY_TOUCHING_HELP_URL);
@@ -4015,9 +4016,9 @@ Blockly.Blocks['is_body_touching_vi'] = {
   init: function () {
     this.appendValueInput('BODY');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.IS_BODY_TOUCHING_VI_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_1, 'up'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_2, 'down'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_3, 'left'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_4, 'Right'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_5, 'none']]), 'DIRECTION')
-      .appendField(Blockly.Msg.IS_BODY_TOUCHING_VI_FIELD_2);
+      .appendField(Blockly.Msg.IS_BODY_TOUCHING_VI)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_UP, 'up'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_DOWN, 'down'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_LEFT, 'left'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_RIGHT, 'Right'], [Blockly.Msg.IS_BODY_TOUCHING_VI_DIRECTION_DROPDOWN_NONE, 'none']]), 'DIRECTION')
+      .appendField(Blockly.Msg.QUESTION);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.IS_BODY_TOUCHING_VI_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.IS_BODY_TOUCHING_VI_HELP_URL);
@@ -4032,9 +4033,9 @@ Blockly.Blocks['is_body_touching_vi'] = {
 Blockly.Blocks['collide_with_world_bounds'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_FIELD_1)
+      .appendField(Blockly.Msg.COLLIDE)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'BODY')
-      .appendField(Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_FIELD_2)
+      .appendField(Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'COLLIDE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -4047,9 +4048,9 @@ Blockly.Blocks['collide_with_world_bounds'] = {
 Blockly.Blocks['collide_with_world_bounds_vi'] = {
   init: function () {
     this.appendValueInput('BODY')
-      .appendField(Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_FIELD_1);
+      .appendField(Blockly.Msg.MAKE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_FIELD_2);
+      .appendField(Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI);
     this.appendDummyInput()
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'COLLIDE');
     this.setPreviousStatement(true, null);
@@ -4064,13 +4065,13 @@ Blockly.Blocks['collide_with_world_bounds_vi'] = {
 Blockly.Blocks['check_overlap_vi'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.CHECK_OVERLAP_VI_FIELD_1);
+      .appendField(Blockly.Msg.CHECK_OVERLAP_VI);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.CHECK_OVERLAP_VI_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CHECK_OVERLAP_VI_FIELD_3)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CHECK_OVERLAP_VI_NAME_TEXT_DEFAULT), 'NAME')
-      .appendField(Blockly.Msg.CHECK_OVERLAP_VI_FIELD_4);
+      .appendField(Blockly.Msg.CALLING)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.FUNCTIONNAME), 'NAME')
+      .appendField(Blockly.Msg.CHECK_OVERLAP_VI_IF);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.CHECK_OVERLAP_VI_TOOLTIP);
@@ -4109,13 +4110,13 @@ Blockly.Blocks['check_overlap_vi_procedure_field'] = {
 Blockly.Blocks['check_overlap'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CHECK_OVERLAP_FIELD_1)
+      .appendField(Blockly.Msg.CHECK_OVERLAP)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'LHS')
-      .appendField(Blockly.Msg.CHECK_OVERLAP_FIELD_2)
+      .appendField(Blockly.Msg.AND)
       .appendField(new Blockly.FieldVariable('defaultObject'), 'RHS')
-      .appendField(Blockly.Msg.CHECK_OVERLAP_FIELD_3)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.CHECK_OVERLAP_NAME_TEXT_DEFAULT), 'NAME')
-      .appendField(Blockly.Msg.CHECK_OVERLAP_FIELD_4);
+      .appendField(Blockly.Msg.CALLING)
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.FUNCTIONNAME), 'NAME')
+      .appendField(Blockly.Msg.CHECK_OVERLAP_IF);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.CHECK_OVERLAP_TOOLTIP);
@@ -4132,12 +4133,12 @@ Blockly.Blocks['move_to_pointer'] = {
   init: function () {
     this.appendValueInput('GAMEOBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_FIELD_1);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER);
     this.appendValueInput('SPEED')
       .setCheck('Number')
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_FIELD_2);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_LOCATION);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_FIELD_3);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_SPEED);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -4151,14 +4152,14 @@ Blockly.Blocks['move_to_pointer_extended'] = {
   init: function () {
     this.appendValueInput('GAMEOBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_1);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED);
     this.appendValueInput('SPEED')
       .setCheck('Number')
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_2);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_LOCATION);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_3);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_SPEED);
     this.appendValueInput('MAXIMUM_TIME')
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_FIELD_4);
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_TIME);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -4172,16 +4173,16 @@ Blockly.Blocks['move_to_object'] = {
   init: function () {
     this.appendValueInput('GAMEOBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE_TO_OBJECT_FIELD_1);
+      .appendField(Blockly.Msg.MOVE_TO_OBJECT);
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.MOVE_TO_OBJECT_FIELD_2);
+      .appendField(Blockly.Msg.MOVE_TO_OBJECT_2);
     this.appendValueInput('SPEED')
       .setCheck('Number')
-      .appendField(Blockly.Msg.MOVE_TO_OBJECT_FIELD_3);
+      .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MOVE_TO_OBJECT_FIELD_4);
+      .appendField(Blockly.Msg.MOVE_TO_OBJECT_SPEED);
     this.appendValueInput('MAXIMUM_TIME')
-      .appendField(Blockly.Msg.MOVE_TO_OBJECT_FIELD_5);
+      .appendField(Blockly.Msg.MOVE_TO_OBJECT_TIME);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -4198,15 +4199,15 @@ Blockly.Blocks['move_to_object'] = {
 Blockly.Blocks['rectangle_create'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.RECTANGLE_CREATE_FIELD_1);
+      .appendField(Blockly.Msg.RECTANGLE_CREATE);
     this.appendValueInput('X')
-      .appendField(Blockly.Msg.RECTANGLE_CREATE_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y')
-      .appendField(Blockly.Msg.RECTANGLE_CREATE_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.appendValueInput('WIDTH')
-      .appendField(Blockly.Msg.RECTANGLE_CREATE_FIELD_4);
+      .appendField(Blockly.Msg.WIDTH);
     this.appendValueInput('HEIGHT')
-      .appendField(Blockly.Msg.RECTANGLE_CREATE_FIELD_5);
+      .appendField(Blockly.Msg.HEIGHT);
     this.setInputsInline(true);
     this.setColour(PHASER_RECTANGLE_COLOUR);
     this.setTooltip(Blockly.Msg.RECTANGLE_CREATE_TOOLTIP);
@@ -4243,11 +4244,11 @@ Blockly.Blocks['rectangle_intersects'] = {
 Blockly.Blocks['point_create'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.POINT_CREATE_FIELD_1);
+      .appendField(Blockly.Msg.POINT_CREATE);
     this.appendValueInput('X')
-      .appendField(Blockly.Msg.POINT_CREATE_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('Y')
-      .appendField(Blockly.Msg.POINT_CREATE_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setColour(PHASER_POINT_COLOUR);
     this.setTooltip(Blockly.Msg.POINT_CREATE_TOOLTIP);
@@ -4259,11 +4260,11 @@ Blockly.Blocks['point_create'] = {
 Blockly.Blocks['point_get_element'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.POINT_GET_ELEMENT_FIELD_1);
+      .appendField(Blockly.Msg.POINT_GET_ELEMENT);
     this.appendDummyInput()
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.POINT_GET_ELEMENT_ELEMENT_DROPDOWN_1, 'x'], [Blockly.Msg.POINT_GET_ELEMENT_ELEMENT_DROPDOWN_2, 'y']]), 'ELEMENT');
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y']]), 'ELEMENT');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.POINT_GET_ELEMENT_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('POINT');
     this.setInputsInline(true);
     this.setColour(PHASER_POINT_COLOUR);
@@ -4277,14 +4278,14 @@ Blockly.Blocks['point_get_element'] = {
 Blockly.Blocks['point_set_element'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.POINT_SET_ELEMENT_FIELD_1);
+      .appendField(Blockly.Msg.POINT_SET_ELEMENT);
     this.appendDummyInput()
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.POINT_SET_ELEMENT_ELEMENT_DROPDOWN_1, 'x'], [Blockly.Msg.POINT_SET_ELEMENT_ELEMENT_DROPDOWN_2, 'y']]), 'ELEMENT');
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y']]), 'ELEMENT');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.POINT_SET_ELEMENT_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('POINT');
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.POINT_SET_ELEMENT_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Number');
     this.setInputsInline(true);
     this.setColour(PHASER_POINT_COLOUR);
@@ -4304,9 +4305,9 @@ Blockly.Blocks['point_set_element'] = {
 Blockly.Blocks['point_set_magnitude'] = {
   init: function () {
     this.appendValueInput('POINT')
-      .appendField(Blockly.Msg.POINT_SET_MAGNITUDE_FIELD_1);
+      .appendField(Blockly.Msg.POINT_SET_MAGNITUDE);
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.POINT_SET_MAGNITUDE_FIELD_2)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Number');
     this.setInputsInline(true);
     this.setColour(PHASER_POINT_COLOUR);
@@ -4325,9 +4326,9 @@ Blockly.Blocks['point_set_magnitude'] = {
 Blockly.Blocks['points_add'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_ADD_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_ADD);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_ADD_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setOutput(true, null);
     this.setInputsInline(true);
     this.setHelpUrl(Blockly.Msg.POINTS_ADD_HELP_URL);
@@ -4344,9 +4345,9 @@ Blockly.Blocks['points_add'] = {
 Blockly.Blocks['points_subtract'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_SUBTRACT_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_SUBTRACT);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_SUBTRACT_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setOutput(true, null);
     this.setInputsInline(true);
     this.setHelpUrl(Blockly.Msg.POINTS_SUBTRACT_HELP_URL);
@@ -4363,9 +4364,9 @@ Blockly.Blocks['points_subtract'] = {
 Blockly.Blocks['points_angle_between'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_ANGLE_BETWEEN_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_ANGLE_BETWEEN);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_ANGLE_BETWEEN_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, 'Number');
     this.setInputsInline(true);
@@ -4383,9 +4384,9 @@ Blockly.Blocks['points_angle_between'] = {
 Blockly.Blocks['points_distance'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_DISTANCE_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_DISTANCE);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_DISTANCE_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, 'Number');
     this.setInputsInline(true);
@@ -4403,9 +4404,9 @@ Blockly.Blocks['points_distance'] = {
 Blockly.Blocks['points_divide'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_DIVIDE_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_DIVIDE);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_DIVIDE_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, 'Number');
     this.setInputsInline(true);
@@ -4424,9 +4425,9 @@ Blockly.Blocks['points_equals'] = {
   init: function () {
     this.appendValueInput('LHS');
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_EQUALS_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_EQUALS);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.POINTS_EQUALS_FIELD_2);
+      .appendField(Blockly.Msg.QUESTION);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, 'Boolean');
     this.setInputsInline(true);
@@ -4444,11 +4445,11 @@ Blockly.Blocks['points_equals'] = {
 Blockly.Blocks['points_interpolate'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_INTERPOLATE_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_INTERPOLATE);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_INTERPOLATE_FIELD_2);
+      .appendField(Blockly.Msg.POINTS_INTERPOLATE_B);
     this.appendValueInput('F')
-      .appendField(Blockly.Msg.POINTS_INTERPOLATE_FIELD_3);
+      .appendField(Blockly.Msg.POINTS_INTERPOLATE_PERCENT);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, null);
     this.setInputsInline(true);
@@ -4466,9 +4467,9 @@ Blockly.Blocks['points_interpolate'] = {
 Blockly.Blocks['points_multiply'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_MULTIPLY_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_MULTIPLY);
     this.appendValueInput('RHS')
-      .appendField(Blockly.Msg.POINTS_MULTIPLY_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, null);
     this.setInputsInline(true);
@@ -4486,7 +4487,7 @@ Blockly.Blocks['points_multiply'] = {
 Blockly.Blocks['points_negate'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_NEGATE_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_NEGATE);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, null);
     this.setInputsInline(true);
@@ -4504,7 +4505,7 @@ Blockly.Blocks['points_negate'] = {
 Blockly.Blocks['points_normalize'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_NORMALIZE_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_NORMALIZE);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, null);
     this.setInputsInline(true);
@@ -4521,7 +4522,7 @@ Blockly.Blocks['points_normalize'] = {
 Blockly.Blocks['points_perpendicular'] = {
   init: function () {
     this.appendValueInput('LHS')
-      .appendField(Blockly.Msg.POINTS_PERPENDICULAR_FIELD_1);
+      .appendField(Blockly.Msg.POINTS_PERPENDICULAR);
     this.setColour(PHASER_POINT_COLOUR);
     this.setOutput(true, null);
     this.setInputsInline(true);
@@ -4540,8 +4541,8 @@ Blockly.Blocks['points_perpendicular'] = {
 Blockly.Blocks['get_current_mouse_position'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_CURRENT_MOUSE_POSITION_FIELD_1)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_1, 'x'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_2, 'y'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_3, 'worldX'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_4, 'worldY']]), 'DIRECTION');
+      .appendField(Blockly.Msg.GET_CURRENT_MOUSE_POSITION)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_WORLDX, 'worldX'], [Blockly.Msg.GET_CURRENT_MOUSE_POSITION_DIRECTION_DROPDOWN_WORLDY, 'worldY']]), 'DIRECTION');
     this.setColour(PHASER_MOUSE_INPUT);
     this.setTooltip(Blockly.Msg.GET_CURRENT_MOUSE_POSITION_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.GET_CURRENT_MOUSE_POSITION_HELP_URL);
@@ -4552,8 +4553,8 @@ Blockly.Blocks['get_current_mouse_position'] = {
 Blockly.Blocks['is_mouse_button_clicked'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_1, 'leftButton'], [Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_2, 'rightButton'], [Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_BUTTON_DROPDOWN_3, 'middleButton']]), 'BUTTON')
-      .appendField(Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_FIELD_1);
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LEFT, 'leftButton'], [Blockly.Msg.RIGHT, 'rightButton'], [Blockly.Msg.MIDDLE, 'middleButton']]), 'BUTTON')
+      .appendField(Blockly.Msg.IS_MOUSE_BUTTON_CLICKED);
     this.setOutput(true, 'Boolean');
     this.setHelpUrl(Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL);
     this.setTooltip(Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP);
@@ -4566,7 +4567,7 @@ Blockly.Blocks['is_mouse_button_clicked'] = {
 Blockly.Blocks['create_cursor_keys'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_CURSOR_KEYS_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_CURSOR_KEYS);
     this.setOutput(true, null);
     this.setTooltip(Blockly.Msg.CREATE_CURSOR_KEYS_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.CREATE_CURSOR_KEYS_HELP_URL);
@@ -4577,7 +4578,7 @@ Blockly.Blocks['create_cursor_keys'] = {
 Blockly.Blocks['is_key_down'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.IS_KEY_DOWN_FIELD_1)
+      .appendField(Blockly.Msg.KEY)
       .appendField(new Blockly.FieldDropdown([
         ['A', 'A'],
         ['B', 'B'],
@@ -4674,7 +4675,7 @@ Blockly.Blocks['is_key_down'] = {
         ['SPACEBAR', 'SPACEBAR'],
         ['CLEAR', 'CLEAR'],
         ['CAPS LOCK', 'CAPS_LOCK']]), 'KEY')
-      .appendField(Blockly.Msg.IS_KEY_DOWN_FIELD_2);
+      .appendField(Blockly.Msg.IS_KEY_DOWN);
     this.setOutput(true, 'Boolean');
     this.setTooltip(Blockly.Msg.IS_KEY_DOWN_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.IS_KEY_DOWN_HELP_URL);
@@ -4691,7 +4692,7 @@ Blockly.Blocks['is_key_down'] = {
 Blockly.Blocks['center_and_stretch'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CENTER_AND_STRETCH_FIELD_1);
+      .appendField(Blockly.Msg.CENTER_AND_STRETCH);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -4708,7 +4709,7 @@ Blockly.Blocks['center_and_stretch'] = {
 Blockly.Blocks['enable_step'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ENABLE_STEP_FIELD_1);
+      .appendField(Blockly.Msg.ENABLE_STEP);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.ENABLE_STEP_TOOLTIP);
@@ -4720,7 +4721,7 @@ Blockly.Blocks['enable_step'] = {
 Blockly.Blocks['disable_step'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DISABLE_STEP_FIELD_1);
+      .appendField(Blockly.Msg.DISABLE_STEP);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.DISABLE_STEP_TOOLTIP);
@@ -4732,7 +4733,7 @@ Blockly.Blocks['disable_step'] = {
 Blockly.Blocks['step'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.STEP_FIELD_1);
+      .appendField(Blockly.Msg.STEP);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.STEP_TOOLTIP);
@@ -4744,13 +4745,13 @@ Blockly.Blocks['step'] = {
 Blockly.Blocks['debug_sprite'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.DEBUG_SPRITE_FIELD_1);
+      .appendField(Blockly.Msg.DEBUG_SPRITE);
     this.appendValueInput('X_VAL')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DEBUG_SPRITE_FIELD_2);
+      .appendField(Blockly.Msg.DEBUG_SPRITE_AT_X);
     this.appendValueInput('Y_VAL')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DEBUG_SPRITE_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -5124,10 +5125,10 @@ Blockly.Blocks['list_find_closest'] = {
   init: function () {
     this.appendValueInput('VALUE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.LIST_FIND_CLOSEST_FIELD_1);
+      .appendField(Blockly.Msg.LIST_FIND_CLOSEST_NUMBER);
     this.appendValueInput('ARRAY')
       .setCheck('Array')
-      .appendField(Blockly.Msg.LIST_FIND_CLOSEST_FIELD_2);
+      .appendField(Blockly.Msg.LIST_FIND_CLOSEST);
     this.setInputsInline(true);
     this.setOutput(true, 'Number');
     this.setColour(PHASER_UTIL_LIST_COLOUR);
@@ -5140,7 +5141,7 @@ Blockly.Blocks['list_get_random'] = {
   init: function () {
     this.appendValueInput('ARRAY')
       .setCheck('Array')
-      .appendField(Blockly.Msg.LIST_GET_RANDOM_FIELD_1);
+      .appendField(Blockly.Msg.LIST_GET_RANDOM);
     this.setOutput(true, null);
     this.setColour(PHASER_UTIL_LIST_COLOUR);
     this.setTooltip(Blockly.Msg.LIST_GET_RANDOM_TOOLTIP);
@@ -5152,10 +5153,10 @@ Blockly.Blocks['number_list'] = {
   init: function () {
     this.appendValueInput('START')
       .setCheck('Number')
-      .appendField(Blockly.Msg.NUMBER_LIST_FIELD_1);
+      .appendField(Blockly.Msg.NUMBER_LIST);
     this.appendValueInput('END')
       .setCheck('Number')
-      .appendField(Blockly.Msg.NUMBER_LIST_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setOutput(true, 'Array');
     this.setColour(PHASER_UTIL_LIST_COLOUR);
@@ -5168,13 +5169,13 @@ Blockly.Blocks['number_list_step'] = {
   init: function () {
     this.appendValueInput('START')
       .setCheck('Number')
-      .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_1);
+      .appendField(Blockly.Msg.NUMBER_LIST_STEP);
     this.appendValueInput('END')
       .setCheck('Number')
-      .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_2);
+      .appendField(Blockly.Msg.TO);
     this.appendValueInput('STEP')
       .setCheck('Number')
-      .appendField(Blockly.Msg.NUMBER_LIST_STEP_FIELD_3);
+      .appendField(Blockly.Msg.NUMBER_LIST_STEP_AMOUNT);
     this.setInputsInline(true);
     this.setOutput(true, 'Array');
     this.setColour(PHASER_UTIL_LIST_COLOUR);
@@ -5187,7 +5188,7 @@ Blockly.Blocks['list_remove_random_item'] = {
   init: function () {
     this.appendValueInput('ARRAY')
       .setCheck('Array')
-      .appendField(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_FIELD_1);
+      .appendField(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM);
     this.setOutput(true, null);
     this.setColour(PHASER_UTIL_LIST_COLOUR);
     this.setTooltip(Blockly.Msg.LIST_REMOVE_RANDOM_ITEM_TOOLTIP);
@@ -5199,7 +5200,7 @@ Blockly.Blocks['list_shuffle'] = {
   init: function () {
     this.appendValueInput('ARRAY')
       .setCheck('Array')
-      .appendField(Blockly.Msg.LIST_SHUFFLE_FIELD_1);
+      .appendField(Blockly.Msg.LIST_SHUFFLE);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_UTIL_LIST_COLOUR);
@@ -5237,7 +5238,7 @@ Blockly.Blocks['list_shuffle'] = {
 Blockly.Blocks['random_angle'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.RANDOM_ANGLE_FIELD_1);
+      .appendField(Blockly.Msg.RANDOM_ANGLE);
     this.setOutput(true, 'Number');
     this.setColour(PHASER_RANDOM_COLOUR);
     this.setTooltip(Blockly.Msg.RANDOM_ANGLE_TOOLTIP);
@@ -5249,7 +5250,7 @@ Blockly.Blocks['random_pick'] = {
   init: function () {
     this.appendValueInput('ARRAY')
       .setCheck('Array')
-      .appendField(Blockly.Msg.RANDOM_PICK_FIELD_1);
+      .appendField(Blockly.Msg.RANDOM_PICK);
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
     this.setTooltip(Blockly.Msg.RANDOM_PICK_TOOLTIP);
@@ -5261,7 +5262,7 @@ Blockly.Blocks['random_pick_weighted'] = {
   init: function () {
     this.appendValueInput('ARRAY')
       .setCheck('Array')
-      .appendField(Blockly.Msg.RANDOM_PICK_WEIGHTED_FIELD_1);
+      .appendField(Blockly.Msg.RANDOM_PICK_WEIGHTED);
     this.setOutput(true, null);
     this.setColour(PHASER_RANDOM_COLOUR);
     this.setTooltip(Blockly.Msg.RANDOM_PICK_WEIGHTED_TOOLTIP);
@@ -5272,7 +5273,7 @@ Blockly.Blocks['random_pick_weighted'] = {
 Blockly.Blocks['random_real'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.RANDOM_REAL_FIELD_1);
+      .appendField(Blockly.Msg.RANDOM_REAL);
     this.setOutput(true, 'Number');
     this.setColour(PHASER_RANDOM_COLOUR);
     this.setTooltip(Blockly.Msg.RANDOM_REAL_TOOLTIP);
@@ -5284,10 +5285,10 @@ Blockly.Blocks['random_real_in_range'] = {
   init: function () {
     this.appendValueInput('MIN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_1);
+      .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE);
     this.appendValueInput('MAX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.RANDOM_REAL_IN_RANGE_FIELD_2);
+      .appendField(Blockly.Msg.AND);
     this.setInputsInline(true);
     this.setOutput(true, 'Number');
     this.setColour(PHASER_RANDOM_COLOUR);
@@ -5299,7 +5300,7 @@ Blockly.Blocks['random_real_in_range'] = {
 Blockly.Blocks['random_sign'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.RANDOM_SIGN_FIELD_1);
+      .appendField(Blockly.Msg.RANDOM_SIGN);
     this.setOutput(true, 'Number');
     this.setColour(PHASER_RANDOM_COLOUR);
     this.setTooltip(Blockly.Msg.RANDOM_SIGN_TOOLTIP);
@@ -5325,9 +5326,9 @@ Blockly.Blocks['math_deg_to_rad'] = {
   init: function () {
     this.appendValueInput('DEGREES')
       .setCheck('Number')
-      .appendField(Blockly.Msg.MATH_DEG_TO_RAD_FIELD_1);
+      .appendField(Blockly.Msg.MATH_DEG_TO_RAD);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MATH_DEG_TO_RAD_FIELD_2);
+      .appendField(Blockly.Msg.MATH_DEG_TO_RAD_RESULT);
     this.setOutput(true, null);
     this.setColour(PHASER_MATH_COLOUR);
     this.setTooltip(Blockly.Msg.MATH_DEG_TO_RAD_TOOLTIP);
@@ -5339,9 +5340,9 @@ Blockly.Blocks['math_rad_to_deg'] = {
   init: function () {
     this.appendValueInput('RADIANS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.MATH_RAD_TO_DEG_FIELD_1);
+      .appendField(Blockly.Msg.MATH_RAD_TO_DEG);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MATH_RAD_TO_DEG_FIELD_2);
+      .appendField(Blockly.Msg.MATH_RAD_TO_DEG_RESULT);
     this.setOutput(true, null);
     this.setColour(PHASER_MATH_COLOUR);
     this.setTooltip(Blockly.Msg.MATH_RAD_TO_DEG_TOOLTIP);
@@ -5748,13 +5749,13 @@ Blockly.Blocks['phaser_easing_linear'] = {
 Blockly.Blocks['create_graphics_object'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_1);
+      .appendField(Blockly.Msg.CREATE_GRAPHICS_OBJECT);
     this.appendValueInput('x')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_2);
+      .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('y')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CREATE_GRAPHICS_OBJECT_FIELD_3);
+      .appendField(Blockly.Msg.YCOLON);
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(PHASER_GRAPHICS_COLOUR);
@@ -5766,12 +5767,12 @@ Blockly.Blocks['create_graphics_object'] = {
 Blockly.Blocks['draw_shapes_with_colour'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_1);
+      .appendField(Blockly.Msg.DRAW_SHAPES_WITH_COLOUR);
     this.appendValueInput('colour')
       .setCheck(null)
-      .appendField(Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_2);
+      .appendField(Blockly.Msg.COLOUR);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAW_SHAPES_WITH_COLOUR_FIELD_3);
+      .appendField(Blockly.Msg.USING);
     this.appendDummyInput()
       .appendField(new Blockly.FieldVariable(Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME), 'graphics_object_name');
     this.appendStatementInput('shape draw functions')
@@ -5788,23 +5789,23 @@ Blockly.Blocks['draw_shapes_with_colour'] = {
 Blockly.Blocks['draw_rectangle'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_1);
+      .appendField(Blockly.Msg.DRAW_RECTANGLE);
     this.appendValueInput('x')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_2);
+      .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('y')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_3);
+      .appendField(Blockly.Msg.YCOLON);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_4);
+      .appendField(Blockly.Msg.WITH);
     this.appendValueInput('w')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_5);
+      .appendField(Blockly.Msg.WIDTH);
     this.appendValueInput('h')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_6);
+      .appendField(Blockly.Msg.HEIGHT);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_7)
+      .appendField(Blockly.Msg.USING)
       .appendField(new Blockly.FieldVariable(Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME), 'graphics_object_name');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -5818,18 +5819,18 @@ Blockly.Blocks['draw_rectangle'] = {
 Blockly.Blocks['draw_circle'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAWCIRCLE_FIELD_1);
+      .appendField(Blockly.Msg.DRAWCIRCLE);
     this.appendValueInput('x')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAWCIRCLE_FIELD_2);
+      .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('y')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAWCIRCLE_FIELD_3);
+      .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('DIAMETER')
       .setCheck('Number')
-      .appendField(Blockly.Msg.DRAWCIRCLE_FIELD_4);
+      .appendField(Blockly.Msg.DRAWCIRCLE_DIAMETER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.DRAW_RECTANGLE_FIELD_7)
+      .appendField(Blockly.Msg.USING)
       .appendField(new Blockly.FieldVariable(Blockly.Msg.DEFAULT_GRAPHICS_OBJECT_NAME), 'graphics_object_name');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -5862,7 +5863,7 @@ Blockly.Blocks['game_camera'] = {
 Blockly.Blocks['camera_follow_vi'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -5875,7 +5876,7 @@ Blockly.Blocks['camera_follow_vi'] = {
 Blockly.Blocks['camera_follow_vi_complex'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI);
     this.appendDummyInput()
       .appendField(Blockly.Msg.FOLLOW_STYLE)
       .appendField(new Blockly.FieldDropdown([
@@ -5902,12 +5903,12 @@ Blockly.Blocks['camera_fade'] = {
   init: function () {
     this.appendValueInput('COLOUR')
       .setCheck('Colour')
-      .appendField(Blockly.Msg.CAMERA_FADE_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FADE);
     this.appendValueInput('TIME')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_FADE_FIELD_2);
+      .appendField(Blockly.Msg.OVER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_FADE_FIELD_3);
+      .appendField(Blockly.Msg.MILLISECONDS);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -5921,12 +5922,12 @@ Blockly.Blocks['camera_flash'] = {
   init: function () {
     this.appendValueInput('COLOUR')
       .setCheck('Colour')
-      .appendField(Blockly.Msg.CAMERA_FLASH_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FLASH);
     this.appendValueInput('TIME')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_FLASH_FIELD_2);
+      .appendField(Blockly.Msg.CAMERA_FLASH_FADE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_FLASH_FIELD_3);
+      .appendField(Blockly.Msg.MILLISECONDS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -5938,7 +5939,7 @@ Blockly.Blocks['camera_flash'] = {
 Blockly.Blocks['camera_focus_on'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.CAMERA_FOCUS_ON_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FOCUS_ON);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -5950,13 +5951,13 @@ Blockly.Blocks['camera_focus_on'] = {
 Blockly.Blocks['camera_focus_on_xy'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FOCUS_ON_XY);
     this.appendValueInput('POSX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('POSY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_FOCUS_ON_XY_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -5969,7 +5970,7 @@ Blockly.Blocks['camera_focus_on_xy'] = {
 Blockly.Blocks['camera_reset'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_RESET_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_RESET);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -5981,7 +5982,7 @@ Blockly.Blocks['camera_reset'] = {
 Blockly.Blocks['camera_reset_fx'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_RESET_FX_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_RESET_FX);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -5993,7 +5994,7 @@ Blockly.Blocks['camera_reset_fx'] = {
 Blockly.Blocks['camera_set_bounds_to_world'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_SET_BOUNDS_TO_WORLD);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -6005,13 +6006,13 @@ Blockly.Blocks['camera_set_bounds_to_world'] = {
 Blockly.Blocks['camera_set_position'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_SET_POSITION_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_SET_POSITION);
     this.appendValueInput('POSX')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_SET_POSITION_FIELD_2);
+      .appendField(Blockly.Msg.X);
     this.appendValueInput('POSY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_SET_POSITION_FIELD_3);
+      .appendField(Blockly.Msg.Y);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6024,13 +6025,13 @@ Blockly.Blocks['camera_set_position'] = {
 Blockly.Blocks['camera_set_size'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_SET_SIZE_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_SET_SIZE);
     this.appendValueInput('WIDTH')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_SET_SIZE_FIELD_2);
+      .appendField(Blockly.Msg.WIDTH);
     this.appendValueInput('HEIGHT')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_SET_SIZE_FIELD_3);
+      .appendField(Blockly.Msg.HEIGHT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6044,15 +6045,15 @@ Blockly.Blocks['camera_shake'] = {
   init: function () {
     this.appendValueInput('INTENSITY')
       .setCheck('Number')
-      .appendField(Blockly.Msg.CAMERA_SHAKE_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_SHAKE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_SHAKE_FIELD_2);
+      .appendField(Blockly.Msg.CAMERA_SHAKE_INTENSITY);
     this.appendValueInput('DURATION')
       .setCheck('Number')
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_1, 'SHAKE_BOTH'], [Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_2, 'SHAKE_VERTICAL'], [Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_3, 'SHAKE_HORIZONTAL']]), 'DIRECTION')
-      .appendField(Blockly.Msg.CAMERA_SHAKE_FIELD_3);
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_BOTH, 'SHAKE_BOTH'], [Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_VERTICAL, 'SHAKE_VERTICAL'], [Blockly.Msg.CAMERA_SHAKE_DIRECTION_DROPDOWN_HORIZONTAL, 'SHAKE_HORIZONTAL']]), 'DIRECTION')
+      .appendField(Blockly.Msg.FOR);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_SHAKE_FIELD_4);
+      .appendField(Blockly.Msg.MILLISECONDS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -6064,7 +6065,7 @@ Blockly.Blocks['camera_shake'] = {
 Blockly.Blocks['camera_unfollow'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_UNFOLLOW_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_UNFOLLOW);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_CAMERA_COLOUR);
@@ -6076,10 +6077,10 @@ Blockly.Blocks['camera_unfollow'] = {
 Blockly.Blocks['camera_follow_vi_styled'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_1);
+      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_STYLED);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_FIELD_2)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_1, 'FOLLOW_LOCKON'], [Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_2, 'FOLLOW_PLATFORMER'], [Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_3, 'FOLLOW_TOPDOWN'], [Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_STYLE_DROPDOWN_4, 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
+      .appendField(Blockly.Msg.CAMERA_FOLLOW_VI_STYLED_SELECTION)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LOCKON, 'FOLLOW_LOCKON'], [Blockly.Msg.PLATFORMER, 'FOLLOW_PLATFORMER'], [Blockly.Msg.TOPDOWN, 'FOLLOW_TOPDOWN'], [Blockly.Msg.TOPDOWN_TIGHT, 'FOLLOW_TOPDOWN_TIGHT']]), 'STYLE');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6102,12 +6103,12 @@ const SOUND_FIELDS_BOOLEAN = createDropDownField(SOUND_FIELDS_BOOLEAN_WRITABLE, 
 Blockly.Blocks['set_sound_boolean_member'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_1)
+      .appendField(Blockly.Msg.SET)
       .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_BOOLEAN.writable), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('OBJECT');
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_SOUND_BOOLEAN_MEMBER_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Boolean');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -6122,9 +6123,9 @@ Blockly.Blocks['set_sound_boolean_member'] = {
 Blockly.Blocks['get_sound_boolean_member'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_FIELD_1)
+      .appendField(Blockly.Msg.GET)
       .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_BOOLEAN.all), 'ELEMENT')
-      .appendField(Blockly.Msg.GET_SOUND_BOOLEAN_MEMBER_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, 'Boolean');
@@ -6142,12 +6143,12 @@ const SOUND_FIELDS_NUMERIC = createDropDownField(SOUND_FIELDS_NUMERIC_WRITABLE, 
 Blockly.Blocks['set_sound_numeric_member'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_1)
+      .appendField(Blockly.Msg.SET)
       .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_NUMERIC.writable), 'ELEMENT')
-      .appendField(Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('OBJECT');
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.SET_SOUND_NUMERIC_MEMBER_FIELD_3)
+      .appendField(Blockly.Msg.TO)
       .setCheck('Number');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -6162,9 +6163,9 @@ Blockly.Blocks['set_sound_numeric_member'] = {
 Blockly.Blocks['get_sound_numeric_member'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_FIELD_1)
+      .appendField(Blockly.Msg.GET)
       .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_NUMERIC.all), 'ELEMENT')
-      .appendField(Blockly.Msg.GET_SOUND_NUMERIC_MEMBER_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, 'Number');
@@ -6181,9 +6182,9 @@ const SOUND_FIELDS_STRING = createDropDownField([], SOUND_FIELDS_STRING_RO);
 Blockly.Blocks['get_sound_string_member'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_SOUND_STRING_MEMBER_FIELD_1)
+      .appendField(Blockly.Msg.GET)
       .appendField(new Blockly.FieldDropdown(SOUND_FIELDS_STRING.all), 'ELEMENT')
-      .appendField(Blockly.Msg.GET_SOUND_STRING_MEMBER_FIELD_2);
+      .appendField(Blockly.Msg.OF);
     this.appendValueInput('OBJECT');
     this.setInputsInline(true);
     this.setOutput(true, 'String');
@@ -6198,13 +6199,13 @@ Blockly.Blocks['get_sound_string_member'] = {
 Blockly.Blocks['load_sound'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.LOAD_SOUND_FIELD_1);
+      .appendField(Blockly.Msg.LOAD_SOUND);
     this.appendValueInput('TAG')
       .setCheck('String')
-      .appendField(Blockly.Msg.LOAD_SOUND_FIELD_2);
+      .appendField(Blockly.Msg.TAG);
     this.appendValueInput('SOURCE')
       .setCheck('String')
-      .appendField(Blockly.Msg.LOAD_SOUND_FIELD_3);
+      .appendField(Blockly.Msg.SOURCE);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6217,15 +6218,15 @@ Blockly.Blocks['load_sound'] = {
 Blockly.Blocks['add_sound'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_SOUND_FIELD_1);
+      .appendField(Blockly.Msg.ADD_SOUND);
     this.appendValueInput('TAG')
       .setCheck('from tag')
       .setCheck('String');
     this.appendValueInput('VOLUME')
       .setCheck('Number')
-      .appendField(Blockly.Msg.ADD_SOUND_FIELD_2);
+      .appendField(Blockly.Msg.AT_VOLUME);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ADD_SOUND_FIELD_3)
+      .appendField(Blockly.Msg.LOOPING)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'LOOPING');
     this.setInputsInline(true);
     this.setOutput(true);
@@ -6239,12 +6240,12 @@ Blockly.Blocks['play_sound'] = {
   init: function () {
     this.appendValueInput('TAG')
       .setCheck(null)
-      .appendField(Blockly.Msg.PLAY_SOUND_FIELD_1);
+      .appendField(Blockly.Msg.PLAY_SOUND);
     this.appendValueInput('VOLUME')
       .setCheck(null)
-      .appendField(Blockly.Msg.PLAY_SOUND_FIELD_2);
+      .appendField(Blockly.Msg.AT_VOLUME);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PLAY_SOUND_FIELD_3)
+      .appendField(Blockly.Msg.LOOPING)
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'LOOPING');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -6265,7 +6266,7 @@ Blockly.Blocks['remove_sound'] = {
   init: function () {
     this.appendValueInput('TAG')
       .setCheck(null)
-      .appendField(Blockly.Msg.REMOVE_SOUND_FIELD_1);
+      .appendField(Blockly.Msg.REMOVE_SOUND);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SOUND_COLOUR);
@@ -6277,8 +6278,8 @@ Blockly.Blocks['remove_sound'] = {
 Blockly.Blocks['stop_pause_resume_sounds'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_1, 'stop'], [Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_2, 'pause'], [Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_3, 'resume']]), 'OPTION')
-      .appendField(Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_FIELD_1);
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_STOP, 'stop'], [Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_PAUSE, 'pause'], [Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS_OPTION_DROPDOWN_RESUME, 'resume']]), 'OPTION')
+      .appendField(Blockly.Msg.STOP_PAUSE_RESUME_SOUNDS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_SOUND_COLOUR);
@@ -6290,12 +6291,12 @@ Blockly.Blocks['stop_pause_resume_sounds'] = {
 Blockly.Blocks['sound_fade_in'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_FADE_IN_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_FADE_IN);
     this.appendValueInput('DURATION')
-      .appendField(Blockly.Msg.SOUND_FADE_IN_FIELD_2)
+      .appendField(Blockly.Msg.OVER)
       .setCheck('Number');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_FADE_IN_FIELD_3)
+      .appendField(Blockly.Msg.SOUND_FADE_IN_LOOP)
       .appendField(new Blockly.FieldCheckbox(), 'LOOP');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -6309,12 +6310,12 @@ Blockly.Blocks['sound_fade_in'] = {
 Blockly.Blocks['sound_fade_out'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_FADE_OUT_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_FADE_OUT);
     this.appendValueInput('DURATION')
-      .appendField(Blockly.Msg.SOUND_FADE_OUT_FIELD_2)
+      .appendField(Blockly.Msg.OVER)
       .setCheck('Number');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_FADE_OUT_FIELD_3);
+      .appendField(Blockly.Msg.MILLISECONDS);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6327,14 +6328,14 @@ Blockly.Blocks['sound_fade_out'] = {
 Blockly.Blocks['sound_fade_to'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_FADE_TO_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_FADE_TO);
     this.appendValueInput('DURATION')
-      .appendField(Blockly.Msg.SOUND_FADE_TO_FIELD_2)
+      .appendField(Blockly.Msg.OVER)
       .setCheck('Number');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_FADE_TO_FIELD_3);
+      .appendField(Blockly.Msg.MILLISECONDS);
     this.appendValueInput('VOLUME')
-      .appendField(Blockly.Msg.SOUND_FADE_TO_FIELD_4)
+      .appendField(Blockly.Msg.SOUND_FADE_TO_VOLUME)
       .setCheck('Number');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -6348,9 +6349,9 @@ Blockly.Blocks['sound_fade_to'] = {
 Blockly.Blocks['sound_loop_full'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_LOOP_FULL_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_LOOP_FULL);
     this.appendValueInput('VOLUME')
-      .appendField(Blockly.Msg.SOUND_LOOP_FULL_FIELD_2)
+      .appendField(Blockly.Msg.AT_VOLUME)
       .setCheck('Number');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -6364,7 +6365,7 @@ Blockly.Blocks['sound_loop_full'] = {
 Blockly.Blocks['sound_pause'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_PAUSE_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_PAUSE);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6377,7 +6378,7 @@ Blockly.Blocks['sound_pause'] = {
 Blockly.Blocks['sound_resume'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_RESUME_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_RESUME);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6390,7 +6391,7 @@ Blockly.Blocks['sound_resume'] = {
 Blockly.Blocks['sound_stop'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_STOP_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_STOP);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -6403,18 +6404,18 @@ Blockly.Blocks['sound_stop'] = {
 Blockly.Blocks['sound_play'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_PLAY_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_PLAY);
     this.appendValueInput('POSITION')
-      .appendField(Blockly.Msg.SOUND_PLAY_FIELD_2)
+      .appendField(Blockly.Msg.SOUND_PLAY_POSITION)
       .setCheck('Number');
     this.appendValueInput('VOLUME')
-      .appendField(Blockly.Msg.SOUND_PLAY_FIELD_3)
+      .appendField(Blockly.Msg.AT_VOLUME)
       .setCheck('Number');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_PLAY_FIELD_4)
+      .appendField(Blockly.Msg.LOOP)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_PLAY_FIELD_5)
+      .appendField(Blockly.Msg.RESTART)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'RESTART');
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
@@ -6428,15 +6429,15 @@ Blockly.Blocks['sound_play'] = {
 Blockly.Blocks['sound_restart'] = {
   init: function () {
     this.appendValueInput('OBJECT')
-      .appendField(Blockly.Msg.SOUND_RESTART_FIELD_1);
+      .appendField(Blockly.Msg.SOUND_RESTART);
     this.appendValueInput('POSITION')
-      .appendField(Blockly.Msg.SOUND_RESTART_FIELD_2)
+      .appendField(Blockly.Msg.SOUND_RESTART_POSITION)
       .setCheck('Number');
     this.appendValueInput('VOLUME')
-      .appendField(Blockly.Msg.SOUND_RESTART_FIELD_3)
+      .appendField(Blockly.Msg.AT_VOLUME)
       .setCheck('Number');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.SOUND_RESTART_FIELD_4)
+      .appendField(Blockly.Msg.LOOP)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'LOOP');
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
