@@ -1381,7 +1381,7 @@ Blockly.Blocks['move_up'] = {
       .setCheck(null)
       .appendField(Blockly.Msg.MOVE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.MOVE_UP);
+      .appendField(Blockly.Msg.UP);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -3635,7 +3635,8 @@ Blockly.Blocks['set_body_field_point_vi'] = {
       .appendField(Blockly.Msg.IN_THE)
       .appendField(new Blockly.FieldDropdown([[Blockly.Msg.X, 'x'], [Blockly.Msg.Y, 'y']]), 'ELEMENT')
       .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_VI_DIRECTION);
-    this.appendValueInput('OBJECT');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.FOR);
     this.appendValueInput('VALUE')
       .setCheck('Number')
       .appendField(Blockly.Msg.TO);
@@ -3653,9 +3654,9 @@ Blockly.Blocks['set_body_field_point_class_vi'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.SET_BODY_FIELD_POINT_CLASS_VI)
-      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), 'FIELD')
+      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
       .appendField(Blockly.Msg.FOR);
-    this.appendValueInput('OBJECT');
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
@@ -3672,9 +3673,9 @@ Blockly.Blocks['get_body_field_point_class'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS)
-      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.all), 'FIELD')
+      .appendField(new Blockly.FieldDropdown(BODY_POINT_FIELDS_CLASS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
       .appendField(Blockly.Msg.FOR);
-    this.appendValueInput('OBJECT');
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.GET_BODY_FIELD_POINT_CLASS_TOOLTIP);
