@@ -173,7 +173,7 @@ Blockly.C['arduino_random_seed'] = function(block) {
 Blockly.C['arduino_random'] = function(block) {
   var min = Blockly.C.valueToCode(block, 'MIN', Blockly.C.ORDER_ATOMIC);
   var max = Blockly.C.valueToCode(block, 'MAX', Blockly.C.ORDER_ATOMIC);
-  return [`random(${min}, ${max});\n`, Blockly.C.ORDER_ATOMIC];
+  return [`random(${min}, ${max})`, Blockly.C.ORDER_ATOMIC];
 };
 
 //endregion
