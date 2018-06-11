@@ -211,9 +211,9 @@ Blockly.Blocks['typed_arrays_create_with'] = {
                     input.setCheck('String');
                 }
                 if (i == 0) {
-                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_1);
+                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH);
                     input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.TYPE_INT, "INTEGER"], [Blockly.Msg.TYPE_FLOAT, "FLOAT"], [Blockly.Msg.TYPE_BOOL, "BOOLEAN"], [Blockly.Msg.TYPE_CHAR, "CHARACTER"], [Blockly.Msg.TYPE_STRING, "STRING"]]), "TYPE");
-                    input.appendField(Blockly.Msg.TYPED_ARRAYS_CREATE_WITH_FIELD_2);
+                    input.appendField(Blockly.Msg.WITH);
                 }
             } else {
                 const input = this.getInput(`ADD${i}`);
@@ -270,14 +270,14 @@ Blockly.Blocks['arrays_create_with_item'] = {
 Blockly.Blocks['typed_arrays_setIndex'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_1)
+            .appendField(Blockly.Msg.IN_ARRAY)
             .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.appendValueInput("INDEX")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_2);
+            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX);
         this.appendValueInput("VALUE")
             .setCheck(null)
-            .appendField(Blockly.Msg.TYPED_ARRAYS_SETINDEX_FIELD_3);
+            .appendField(Blockly.Msg.TO);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -310,11 +310,11 @@ Blockly.Blocks['typed_arrays_setIndex'] = {
 Blockly.Blocks['typed_arrays_getIndex'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_1)
+            .appendField(Blockly.Msg.IN_ARRAY)
             .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.appendValueInput("INDEX")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX_FIELD_2);
+            .appendField(Blockly.Msg.TYPED_ARRAYS_GETINDEX);
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(Blockly.Blocks.arrays.HUE);
@@ -346,7 +346,7 @@ Blockly.Blocks['typed_arrays_getIndex'] = {
 Blockly.Blocks['typed_arrays_delete'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TYPED_ARRAYS_DELETE_TITLE)
+            .appendField(Blockly.Msg.TYPED_ARRAYS_DELETE)
             .appendField(new Blockly.FieldVariable('array'), "ARRAY");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);

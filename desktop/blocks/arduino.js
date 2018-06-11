@@ -31,7 +31,7 @@ const ARDUINO_MATH_COLOUR = 240;//'#00695c';
 Blockly.Blocks['hardwarestartup_arduino'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.HARDWARESTARTUP_ARDUINO_FIELD_1);
+            .appendField(Blockly.Msg.SETUP);
         this.appendStatementInput("do")
             .setCheck(null);
         this.setColour(ARDUINO_REQUIRED_BLOCKS_COLOUR);
@@ -131,12 +131,12 @@ Blockly.Blocks['microseconds'] = {
 Blockly.Blocks['pininput'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.PININPUT_FIELD_1);
+            .appendField(Blockly.Msg.PININPUT);
         this.appendValueInput("PIN")
             .setCheck("Number");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.PININPUT_FIELD_2)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PININPUT_MODE_DROPDOWN_1, "INPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_2, "OUTPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_3, "INPUT_PULLUP"]]), "MODE");
+            .appendField(Blockly.Msg.TO)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PININPUT_MODE_DROPDOWN_INPUT, "INPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_OUTPUT, "OUTPUT"], [Blockly.Msg.PININPUT_MODE_DROPDOWN_INPUT_PULLUP, "INPUT_PULLUP"]]), "MODE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_PINS_COLOUR);
@@ -149,12 +149,12 @@ Blockly.Blocks['pininput'] = {
 Blockly.Blocks['digitalwrite'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DIGITALWRITE_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_1, "HIGH"], [Blockly.Msg.DIGITALWRITE_VALUE_DROPDOWN_2, "LOW"]]), "VALUE");
+            .appendField(Blockly.Msg.DIGITALWRITE)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.HIGH, "HIGH"], [Blockly.Msg.LOW, "LOW"]]), "VALUE");
         this.appendValueInput("PIN")
             .setCheck(null)
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField(Blockly.Msg.DIGITALWRITE_FIELD_2);
+            .appendField(Blockly.Msg.DIGITALWRITE_NUMBER);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -167,7 +167,7 @@ Blockly.Blocks['digitalwrite'] = {
 Blockly.Blocks['digital_read'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.DIGITAL_READ_FIELD_1);
+            .appendField(Blockly.Msg.DIGITAL_READ);
         this.appendValueInput("PIN")
             .setCheck("Number");
         this.setInputsInline(true);
@@ -183,7 +183,7 @@ Blockly.Blocks['digital_read'] = {
 Blockly.Blocks['high'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.HIGH_FIELD_1);
+            .appendField(Blockly.Msg.HIGH);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_CONSTANTS_COLOUR);
         this.setTooltip(Blockly.Msg.HIGH_TOOLTIP);
@@ -195,7 +195,7 @@ Blockly.Blocks['high'] = {
 Blockly.Blocks['low'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.LOW_FIELD_1);
+            .appendField(Blockly.Msg.LOW);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_CONSTANTS_COLOUR);
         this.setTooltip(Blockly.Msg.LOW_TOOLTIP);
@@ -206,7 +206,7 @@ Blockly.Blocks['low'] = {
 Blockly.Blocks['led_builtin'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.LED_BUILTIN_FIELD_1);
+            .appendField(Blockly.Msg.LED_BUILTIN);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_CONSTANTS_COLOUR);
         this.setTooltip(Blockly.Msg.LED_BUILTIN_TOOLTIP);
@@ -220,8 +220,8 @@ Blockly.Blocks['led_builtin'] = {
 Blockly.Blocks['analog_reference'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.ANALOG_REFERENCE_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_1, "DEFAULT"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_2, "EXTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_3, "INTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_4, "INTERNAL1V1"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_5, "INTERNAL2V56"]]), "TYPE");
+            .appendField(Blockly.Msg.ANALOG_REFERENCE)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_DEFAULT, "DEFAULT"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_EXTERNAL, "EXTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_INTERNAL1, "INTERNAL"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_INTERAL2, "INTERNAL1V1"], [Blockly.Msg.ANALOG_REFERENCE_TYPE_DROPDOWN_INTERAL3, "INTERNAL2V56"]]), "TYPE");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -235,7 +235,7 @@ Blockly.Blocks['analog_read'] = {
     init: function () {
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.ANALOG_READ_FIELD_1);
+            .appendField(Blockly.Msg.ANALOG_READ);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_ANALOG_IO_COLOUR);
@@ -248,10 +248,10 @@ Blockly.Blocks['analog_write'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.ANALOG_WRITE_FIELD_1);
+            .appendField(Blockly.Msg.ANALOG_WRITE);
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.ANALOG_WRITE_FIELD_2);
+            .appendField(Blockly.Msg.ANALOG_WRITE_NUMBER);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -268,7 +268,7 @@ Blockly.Blocks['random_seed'] = {
     init: function () {
         this.appendValueInput("SEED")
             .setCheck("Number")
-            .appendField(Blockly.Msg.RANDOM_SEED_FIELD_1);
+            .appendField(Blockly.Msg.RANDOM_SEED);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -282,10 +282,10 @@ Blockly.Blocks['random'] = {
     init: function () {
         this.appendValueInput("MIN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.RANDOM_FIELD_1);
+            .appendField(Blockly.Msg.RANDOM);
         this.appendValueInput("MAX")
             .setCheck("Number")
-            .appendField(Blockly.Msg.RANDOM_FIELD_2);
+            .appendField(Blockly.Msg.AND);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_RANDOM_NUMBER_COLOUR);
@@ -302,7 +302,7 @@ Blockly.Blocks['bit'] = {
     init: function () {
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_FIELD_1);
+            .appendField(Blockly.Msg.BIT);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
@@ -315,10 +315,10 @@ Blockly.Blocks['bit_clear'] = {
     init: function () {
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_CLEAR_FIELD_1);
+            .appendField(Blockly.Msg.BIT_CLEAR);
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_CLEAR_FIELD_2);
+            .appendField(Blockly.Msg.BIT_CLEAR_NUMBER);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -332,10 +332,10 @@ Blockly.Blocks['bit_set'] = {
     init: function () {
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_SET_FIELD_1);
+            .appendField(Blockly.Msg.BIT_SET);
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_SET_FIELD_2);
+            .appendField(Blockly.Msg.BIT_SET_NUMBER);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -349,13 +349,13 @@ Blockly.Blocks['bit_write'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_WRITE_FIELD_1);
+            .appendField(Blockly.Msg.BIT_WRITE);
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_WRITE_FIELD_2);
+            .appendField(Blockly.Msg.BIT_WRITE_POSITION);
         this.appendValueInput("VALUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_WRITE_FIELD_3);
+            .appendField(Blockly.Msg.BIT_WRITE_VALUE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -369,10 +369,10 @@ Blockly.Blocks['bit_read'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_READ_FIELD_1);
+            .appendField(Blockly.Msg.BIT_READ);
         this.appendValueInput("POSITION")
             .setCheck("Number")
-            .appendField(Blockly.Msg.BIT_READ_FIELD_2);
+            .appendField(Blockly.Msg.BIT_READ_POSITION);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
@@ -385,7 +385,7 @@ Blockly.Blocks['high_byte'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField(Blockly.Msg.HIGH_BYTE_FIELD_1);
+            .appendField(Blockly.Msg.HIGH_BYTE);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
@@ -398,7 +398,7 @@ Blockly.Blocks['low_byte'] = {
     init: function () {
         this.appendValueInput("NUMBER")
             .setCheck("Number")
-            .appendField(Blockly.Msg.LOW_BYTE_FIELD_1);
+            .appendField(Blockly.Msg.LOW_BYTE);
         this.setInputsInline(true);
         this.setOutput(true, "Number");
         this.setColour(ARDUINO_BITS_AND_BYTES_COLOUR);
@@ -418,10 +418,10 @@ Blockly.Blocks['tone_pin_freq'] = {
     init: function () {
         this.appendValueInput("FREQUENCY")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TONE_PIN_FREQ_FIELD_1);
+            .appendField(Blockly.Msg.TONE_PIN_FREQ);
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TONE_PIN_FREQ_FIELD_2);
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_PIN);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -435,15 +435,15 @@ Blockly.Blocks['tone_pin_freq_duration'] = {
     init: function () {
         this.appendValueInput("FREQUENCY")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_1);
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION);
         this.appendValueInput("PIN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_2);
+            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_PIN);
         this.appendValueInput("DURATION")
             .setCheck("Number")
-            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_3);
+            .appendField(Blockly.Msg.FOR);
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TONE_PIN_FREQ_DURATION_FIELD_4);
+            .appendField(Blockly.Msg.MILLISECONDS);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
