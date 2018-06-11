@@ -401,6 +401,14 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="set_game_pause">
+                    <value name="PAUSED">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_game_pause"></block>
                 <!--Not necessary at the moment 0 functions take this-->
                 <!--<block type="get_world_reference"/>-->
             </category>
