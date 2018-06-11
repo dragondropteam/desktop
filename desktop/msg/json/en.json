@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-08 13:55:01.936000",
+		"lastupdated": "2018-06-11 13:43:17.538000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2124,10 +2124,10 @@
 	"DOES": "does",
 	"FRAMES": "frames",
 	"SEND": "send",
-	"MIN_X": "min X",
-	"MIN_Y": "min Y",
-	"MAX_X": "max X",
-	"MAX_Y": "max Y",
+	"MIN_X": "min x",
+	"MIN_Y": "min y",
+	"MAX_X": "max x",
+	"MAX_Y": "max y",
 	"ON_GAMEOBJECT": "on gameobject",
 	"DEFAULT": "default",
 	"FROM_TAG": "from tag",
@@ -2201,5 +2201,8 @@
 	"PLATFORMER": "platformer",
 	"IS_BODY_TOUCHING": "is body touching",
 	"FUNCTIONNAME": "function name",
-	"RESTART": "restart"
+	"RESTART": "restart",
+	"FOR": "for",
+	"ADD_TO_WORLD": "to the world",
+	"UP": "up"
 }

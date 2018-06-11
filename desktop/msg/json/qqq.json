@@ -2195,5 +2195,8 @@
 	"PLATFORMER": "",
 	"IS_BODY_TOUCHING": "",
 	"FUNCTIONNAME": "",
-	"RESTART": ""
+	"RESTART": "",
+	"FOR": "",
+	"ADD_TO_WORLD": "",
+	"UP": ""
 }
