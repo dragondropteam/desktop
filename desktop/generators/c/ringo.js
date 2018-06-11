@@ -360,3 +360,26 @@ Blockly.C['switch_edge_to_ambient'] = function(block) {
   return `SwitchEdgeToAmbient();\n`;
 };
 //endregion
+
+//region INPUT
+Blockly.C['switch_button_to_pixels'] = function(block) {
+  return `SwitchButtonToPixels();\n`;
+};
+
+Blockly.C['switch_pixels_to_button'] = function(block) {
+  return `SwitchPixelsToButton();\n`;
+};
+
+Blockly.C['switch_motors_to_serial'] = function(block) {
+  return `SwitchMotorsToSerial();\n`;
+};
+
+Blockly.C['ringo_button_pressed'] = function(block) {
+  return [`ButtonPressed()`, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['heading_with_shortest_distance'] = function(block) {
+  const heading = Blockly.C.valueToCode(block, 'HEADING', Blockly.C.ORDER_ATOMIC) || '0';
+  return [`HeadingWithShortestDistance(${heading})`, Blockly.C.ORDER_ATOMIC];
+};
+//endregion

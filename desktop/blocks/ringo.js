@@ -1074,3 +1074,66 @@ Blockly.Blocks['switch_edge_to_ambient'] = {
   }
 };
 //endregion
+
+//region INPUT
+Blockly.Blocks['switch_button_to_pixels'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SWITCH_BUTTON_TO_PIXELS);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.SWITCH_BUTTON_TO_PIXELS_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['switch_pixels_to_button'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SWITCH_PIXELS_TO_BUTTON);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.SWITCH_PIXELS_TO_BUTTON_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['switch_motors_to_serial'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SWITCH_MOTORS_TO_SERIAL);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.SWITCH_MOTORS_TO_SERIAL_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['ringo_button_pressed'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.BUTTON_PRESSED);
+    this.setOutput(true, 'Number');
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.BUTTON_PRESSED_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['heading_with_shortest_distance'] = {
+  init: function() {
+    this.appendValueInput('HEADING')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEGREES);
+    this.setOutput(true, 'Number');
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+//endregion
