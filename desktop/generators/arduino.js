@@ -49,25 +49,38 @@ Blockly.C.addReservedWords(
 
 /**
  * Order of operation ENUMs.
- * https://www.dartlang.org/docs/dart-up-and-running/ch02.html#operator_table
+ * http://en.cppreference.com/w/cpp/language/operator_precedence
  */
-Blockly.C.ORDER_ATOMIC = 0;         // 0 "" ...
-Blockly.C.ORDER_UNARY_POSTFIX = 1;  // expr++ expr-- () [] .
-Blockly.C.ORDER_UNARY_PREFIX = 2;   // -expr !expr ~expr ++expr --expr
-Blockly.C.ORDER_MULTIPLICATIVE = 3; // * / % ~/
-Blockly.C.ORDER_ADDITIVE = 4;       // + -
-Blockly.C.ORDER_SHIFT = 5;          // << >>
-Blockly.C.ORDER_BITWISE_AND = 6;    // &
-Blockly.C.ORDER_BITWISE_XOR = 7;    // ^
-Blockly.C.ORDER_BITWISE_OR = 8;     // |
-Blockly.C.ORDER_RELATIONAL = 9;     // >= > <= < as is is!
-Blockly.C.ORDER_EQUALITY = 10;      // == !=
-Blockly.C.ORDER_LOGICAL_AND = 11;   // &&
-Blockly.C.ORDER_LOGICAL_OR = 12;    // ||
-Blockly.C.ORDER_CONDITIONAL = 13;   // expr ? expr : expr
-Blockly.C.ORDER_CASCADE = 14;       // ..
-Blockly.C.ORDER_ASSIGNMENT = 15;    // = *= /= ~/= %= += -= <<= >>= &= ^= |=
-Blockly.C.ORDER_NONE = 99;          // (...)
+Blockly.C.ORDER_ATOMIC = 0;            // 0 "" ...
+Blockly.C.ORDER_UNARY_POSTFIX = 1;     // expr++ expr-- () [] .
+Blockly.C.ORDER_FUNCTION_CALL = 1;     // f()
+Blockly.C.ORDER_FUNCTIONAL_CAST = 1;   // type() type{}
+Blockly.C.ORDER_SUBSCRIPT = 1;         // []
+Blockly.C.ORDER_MEMBER_ACCESS = 1;     // . ->
+Blockly.C.ORDER_UNARY_PREFIX = 2;      // -expr !expr ~expr ++expr --expr
+Blockly.C.ORDER_NOT = 2;               // ! ~
+Blockly.C.ORDER_C_STYLE_CAST = 2;      // (int)a
+Blockly.C.ORDER_INDIRECTION = 2;       // *a
+Blockly.C.ORDER_ADDRESS_OF = 2;        // &a
+Blockly.C.ORDER_SIZEOF = 2;            // sizeof
+Blockly.C.ORDER_NEW = 2;               // new new[]
+Blockly.C.ORDER_DELETE = 2;            // delete delete[]
+Blockly.C.ORDER_POINTER_TO_MEMBER = 3; // .* ->*
+Blockly.C.ORDER_MULTIPLICATIVE = 4;    // * / %
+Blockly.C.ORDER_ADDITIVE = 5;          // + -
+Blockly.C.ORDER_SHIFT = 6;             // << >>
+Blockly.C.ORDER_RELATIONAL  = 7;       // >= > <= <
+Blockly.C.ORDER_EQUALITY = 8;          // == !=
+Blockly.C.ORDER_BITWISE_AND = 9;       // &
+Blockly.C.ORDER_BITWISE_XOR = 10;      // ^
+Blockly.C.ORDER_BITWISE_OR = 11;       // |
+Blockly.C.ORDER_LOGICAL_AND = 12;      // &&
+Blockly.C.ORDER_LOGICAL_OR = 13;       // ||
+Blockly.C.ORDER_CONDITIONAL = 14;      // expr ? expr : expr
+Blockly.C.ORDER_THROW = 14;            // throw
+Blockly.C.ORDER_ASSIGNMENT = 14;       // = *= /= ~/= %= += -= <<= >>= &= ^= |=
+Blockly.C.ORDER_COMMA = 15;            // ,
+Blockly.C.ORDER_NONE = 99;             // (...)
 
 Blockly.C.TYPE_CONVERSION = [];
 Blockly.C.TYPE_CONVERSION['INTEGER'] = ['int', Blockly.Msg.TYPE_INT];
