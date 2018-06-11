@@ -2143,7 +2143,6 @@
 	"GET_GAME_PAUSE": "",
 	"GET_GAME_PAUSE_TOOLTIP": "",
 	"GET_GAME_PAUSE_HELP_URL": "",
-<<<<<<< HEAD
 	"GAME_CAMERA_URL": "",
 	"WIDTH": "",
 	"HEIGHT": "",
@@ -2265,8 +2264,7 @@
 	"RESTART": "",
 	"FOR": "",
 	"ADD_TO_WORLD": "",
-	"UP": ""
-=======
+	"UP": "",
 	"ARDUINO_RANDOM_SEED": "",
 	"ARDUINO_RANDOM_SEED_TOOLTIP": "",
 	"ARDUINO_RANDOM_SEED_HELP_URL": "",
@@ -2274,5 +2272,4 @@
 	"ARDUINO_RANDOM_TOOLTIP": "",
 	"ARDUINO_RANDOM_HELP_URL": "",
 	"AND": ""
->>>>>>> DRAG-571
 }

@@ -111,15 +111,11 @@ Blockly.Msg.ANALOG_WRITE = "analog write ";  // untranslated
 Blockly.Msg.ANALOG_WRITE_HELP_URL = "https://www.arduino.cc/en/Reference/AnalogWrite";  // untranslated
 Blockly.Msg.ANALOG_WRITE_NUMBER = "to pin #";  // untranslated
 Blockly.Msg.ANALOG_WRITE_TOOLTIP = "";  // untranslated
-<<<<<<< HEAD
+Blockly.Msg.AND = "and";  // untranslated
 Blockly.Msg.ANGULARACCELERATION = "angularAcceleration";  // untranslated
 Blockly.Msg.ANGULARDRAG = "angularDrag";  // untranslated
 Blockly.Msg.ANGULARVELOCITY = "angularVelocity";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY = "destroy all animations in animation manager of ";  // untranslated
-=======
-Blockly.Msg.AND = "and";  // untranslated
-Blockly.Msg.ANIMATION_DESTROY_FIELD_1 = "destroy all animations in animation manager of ";  // untranslated
->>>>>>> DRAG-571
 Blockly.Msg.ANIMATION_DESTROY_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_TOOLTIP = "Destroy all animations on the object.";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_VI = "destroy all animations in animation manager of ";  // untranslated
