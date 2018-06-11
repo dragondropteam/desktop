@@ -484,3 +484,4 @@ Blockly.C['math_random_float'] = function(block) {
       '#include <math.h>';
   return ['new Math.Random().nextDouble()', Blockly.C.ORDER_UNARY_POSTFIX];
 };
+

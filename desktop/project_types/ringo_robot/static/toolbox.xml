@@ -120,6 +120,29 @@
                 </shadow>
             </value>
         </block>
+        <block type="arduino_random_seed">
+            <value name="SEED">
+                <shadow type="analog_read">
+                    <value name="PIN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_random">
+            <value name="MIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="MAX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
     </category>
     <sep/>
     <category name="Time" colour="120" enabled="false">
