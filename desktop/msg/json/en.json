@@ -1,11 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-<<<<<<< HEAD
-		"lastupdated": "2018-06-11 15:34:46.078448",
-=======
-		"lastupdated": "2018-06-11 16:37:58.980000",
->>>>>>> DRAG-571
+		"lastupdated": "2018-06-11 16:56:46.378401",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2153,7 +2149,6 @@
 	"GET_GAME_PAUSE": "get game paused value",
 	"GET_GAME_PAUSE_TOOLTIP": "Returns the value of the paused state of the Game.",
 	"GET_GAME_PAUSE_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused",
-<<<<<<< HEAD
 	"GAME_CAMERA_URL": "https://photonstorm.github.io/phaser-ce/Phaser.Camera.html",
 	"WIDTH": "width",
 	"HEIGHT": "height",
@@ -2275,8 +2270,7 @@
 	"RESTART": "restart",
 	"FOR": "for",
 	"ADD_TO_WORLD": "to the world",
-	"UP": "up"
-=======
+	"UP": "up",
 	"ARDUINO_RANDOM_SEED": "generate random seed from",
 	"ARDUINO_RANDOM_SEED_TOOLTIP": "Shuffles the random function.",
 	"ARDUINO_RANDOM_SEED_HELP_URL": "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/",
@@ -2284,5 +2278,4 @@
 	"ARDUINO_RANDOM_TOOLTIP": "The random function generates pseudo-random numbers.",
 	"ARDUINO_RANDOM_HELP_URL": "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/",
 	"AND": "and"
->>>>>>> DRAG-571
 }
