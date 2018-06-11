@@ -232,6 +232,13 @@ Blockly.C['drive_arc'] = function(block) {
     return `DriveArc(${value_heading}, ${value_left_speed}, ${value_right_speed}, ${value_max_expected_turn_time}, ${value_max_expected_skid_time});\n`;
 };
 
+Blockly.C['rotate_accurate'] = function(block) {
+  const heading = Blockly.C.valueToCode(block, 'HEADING', Blockly.C.ORDER_ATOMIC) || '0';
+  const max_expected_turn_time = Blockly.C.valueToCode(block, 'MAX_EXPECTED_TURN_TIME', Blockly.C.ORDER_ATOMIC) || '0';
+
+  return `RotateAccurate(${heading}, ${max_expected_turn_time});\n`;
+};
+
 // Blockly.C['heading_with_shortest_distance'] = function (block) {
 //     const heading = Blockly.C.valueToCode(block, 'HEADING', Blockly.C.ORDER_ATOMIC) || '0';
 //     return [`HeadingWithShortestDistance(${heading})`, Blockly.C.ORDER_ATOMIC];
@@ -288,5 +295,57 @@ Blockly.C['off_pixel'] = function (block) {
 
 Blockly.C['random_eyes'] = function (block) {
     return 'RandomEyes();\n';
+};
+//endregion
+
+//region SENSORS
+Blockly.C['read_side_sensors'] = function(block) {
+  return `ReadSideSensors();\n`;
+};
+
+Blockly.C['read_left_light_sensor'] = function(block) {
+  return [`ReadLeftLightSensor()`, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['edge_lights_on'] = function(block) {
+  return `EdgeLightsOn();\n`;
+};
+
+Blockly.C['edge_lights_off'] = function(block) {
+  return `EdgeLightsOff();\n`;
+};
+
+Blockly.C['read_right_light_sensor'] = function(block) {
+  return [`ReadRightLightSensor()`, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['reset_look_at_edge'] = function(block) {
+  return `ResetLookAtEdge();\n`;
+};
+
+Blockly.C['look_at_edge'] = function(block) {
+  return `LookAtEdge();\n`;
+};
+
+Blockly.C['look_for_edge'] = function(block) {
+  return [`LookForEdge()`, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['read_edge_light_sensors'] = function(block) {
+  const average = Blockly.C.valueToCode(block, 'AVERAGE', Blockly.C.ORDER_ATOMIC) || '0';
+
+  return `ReadEdgeLightSensors(${average});\n`;
+};
+
+Blockly.C['is_over_edge'] = function(block) {
+  return [`IsOverEdge()`, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['switch_ambient_to_edge'] = function(block) {
+  return `SwitchAmbientToEdge();\n`;
+};
+
+Blockly.C['switch_edge_to_ambient'] = function(block) {
+  return `SwitchEdgeToAmbient();\n`;
 };
 //endregion

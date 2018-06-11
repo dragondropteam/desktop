@@ -639,11 +639,11 @@ Blockly.Blocks['motors_begin'] = {
 Blockly.Blocks['maintain_heading_reset'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1);
+            .appendField(Blockly.Msg.MAINTAIN_HEADING_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(RINGO_COLOUR);
-        this.setTooltip(Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP);
+        this.setTooltip(Blockly.Msg.MAINTAIN_HEADING_TOOLTIP);
         this.setHelpUrl(HELP_URL);
 
     }
@@ -698,6 +698,29 @@ Blockly.Blocks['drive_arc'] = {
         this.setHelpUrl(HELP_URL);
     }
 };
+
+Blockly.Blocks['rotate_accurate'] = {
+  init: function() {
+    this.appendValueInput('HEADING')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.ROTATE);
+    this.appendValueInput('MAX_EXPECTED_TURN_TIME')
+      .setCheck("Number")
+      .appendField(Blockly.Msg.DEGREES)
+      .appendField(Blockly.Msg.WITH);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MAX_EXPECTED_TURN_TIME);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip(Blockly.Msg.ROTATE_ACCURATE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+
+
 // This is function only exists in the header not in the actual implementation
 // if it does come into existence it can just be uncommented
 // Blockly.Blocks['heading_with_shortest_distance'] = {
@@ -869,5 +892,148 @@ Blockly.Blocks['random_eyes'] = {
         this.setHelpUrl(HELP_URL);
 
     }
+};
+//endregion
+
+//region SENSORS
+Blockly.Blocks['read_side_sensors'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.READ_SIDE_SENSORS);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.READ_SIDE_SENSORS_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['read_left_light_sensor'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.READ_LEFT_LIGHT_SENSOR);
+    this.setOutput(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.READ_LEFT_LIGHT_SENSOR_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['edge_lights_on'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.EDGE_LIGHTS_ON);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.EDGE_LIGHTS_ON_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['edge_lights_off'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.EDGE_LIGHTS_OFF);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.EDGE_LIGHTS_OFF_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['read_right_light_sensor'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.READ_RIGHT_LIGHT_SENSOR);
+    this.setOutput(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.READ_RIGHT_LIGHT_SENSOR_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['reset_look_at_edge'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.RESET_LOOK_AT_EDGE);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.RESET_LOOK_AT_EDGE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['look_at_edge'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.LOOK_AT_EDGE);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.LOOK_AT_EDGE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['look_for_edge'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.LOOK_FOR_EDGE);
+    this.setOutput(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['read_edge_light_sensors'] = {
+  init: function() {
+    this.appendValueInput('AVERAGE')
+      .setCheck(null)
+      .appendField(Blockly.Msg.READ_EDGE_LIGHT_SENSORS);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.READ_EDGE_LIGHT_SENSORS_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['is_over_edge'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.IS_OVER_EDGE);
+    this.setOutput(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.IS_OVER_EDGE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['switch_ambient_to_edge'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SWITCH_AMBIENT_TO_EDGE);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.SWITCH_AMBIENT_TO_EDGE_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
+};
+
+Blockly.Blocks['switch_edge_to_ambient'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SWITCH_EDGE_TO_AMBIENT);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.SWITCH_EDGE_TO_AMBIENT_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+  }
 };
 //endregion
