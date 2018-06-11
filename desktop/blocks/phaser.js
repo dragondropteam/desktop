@@ -3655,7 +3655,8 @@ Blockly.Blocks['physics_distance_to_pointer'] = {
     this.appendValueInput('SOURCE')
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_DISTANCE_BETWEEN);
-    this.appendDummyInput()
+    this.appendValueInput('POINTER')
+      .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER);
     this.setInputsInline(true);
     this.setOutput(true, "Number");
@@ -3708,7 +3709,8 @@ Blockly.Blocks['get_objects_under_pointer'] = {
     this.appendValueInput('GROUP')
       .setCheck(null)
       .appendField(Blockly.Msg.GET_OBJECTS_UNDER_POINTER);
-    this.appendDummyInput()
+    this.appendValueInput('POINTER')
+      .setCheck(null)
       .appendField(Blockly.Msg.GET_OBJECTS_UNDER_POINTER_OVERLAP);
     this.setInputsInline(true);
     this.setOutput(true, null);
@@ -3854,12 +3856,13 @@ Blockly.Blocks['physics_move_to_pointer'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE);
-    this.appendDummyInput()
-      .appendField(Blockly.Msg.PHYSICS_MOVE_TO_POINTER)
-      .appendField(Blockly.Msg.AT);
+      .appendField(Blockly.Msg.MOVE)
+    this.appendValueInput('POINTER')
+      .setCheck(null)
+      .appendField(Blockly.Msg.TO);
     this.appendValueInput('SPEED')
-      .setCheck("Number");
+      .setCheck("Number")
+      .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PIXELS_PER_SECOND);
     this.appendValueInput('TIME')
@@ -3872,7 +3875,7 @@ Blockly.Blocks['physics_move_to_pointer'] = {
     this.setTooltip(Blockly.Msg.PHYSICS_MOVE_TO_POINTER_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_MOVE_TO_POINTER_HELP_URL);
   }
-}
+};
 
 Blockly.Blocks['physics_accelerate_to_location'] = {
   init: function () {
@@ -3912,8 +3915,9 @@ Blockly.Blocks['physics_accelerate_to_pointer'] = {
     this.appendValueInput('OBJECT')
       .setCheck(null)
       .appendField(Blockly.Msg.ACCELERATE);
-    this.appendDummyInput()
-      .appendField('to mouse pointer')
+    this.appendValueInput('POINTER')
+      .setCheck(null)
+      .appendField(Blockly.Msg.TO);
     this.appendValueInput('SPEED')
       .setCheck("Number")
       .appendField(Blockly.Msg.AT);
@@ -4490,7 +4494,7 @@ Blockly.Blocks['check_overlap'] = {
  * @deprecated use extended version
  * @type {{init: Blockly.Blocks.move_to_pointer.init}}
  */
-Blockly.Blocks['move_to_pointer'] = {
+/*Blockly.Blocks['move_to_pointer'] = {
   init: function () {
     this.appendValueInput('GAMEOBJECT')
       .setCheck(null)
@@ -4507,9 +4511,9 @@ Blockly.Blocks['move_to_pointer'] = {
     this.setTooltip(Blockly.Msg.MOVE_TO_POINTER_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.MOVE_TO_POINTER_HELP_URL);
   }
-};
+};*/
 
-Blockly.Blocks['move_to_pointer_extended'] = {
+/*Blockly.Blocks['move_to_pointer_extended'] = {
   init: function () {
     this.appendValueInput('GAMEOBJECT')
       .setCheck(null)
@@ -4528,7 +4532,7 @@ Blockly.Blocks['move_to_pointer_extended'] = {
     this.setTooltip(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_HELP_URL);
   }
-};
+};*/
 
 Blockly.Blocks['move_to_object'] = {
   init: function () {
@@ -4920,6 +4924,17 @@ Blockly.Blocks['is_mouse_button_clicked'] = {
     this.setHelpUrl(Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL);
     this.setTooltip(Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP);
     this.setColour(PHASER_MOUSE_INPUT);
+  }
+};
+
+Blockly.Blocks['get_active_pointer'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_ACTIVE_POINTER);
+    this.setOutput(true, null);
+    this.setColour(PHASER_MOUSE_INPUT);
+    this.setTooltip(Blockly.Msg.GET_ACTIVE_POINTER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_ACTIVE_POINTER_HELP_URL);
   }
 };
 //endregion
