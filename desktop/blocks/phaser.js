@@ -4155,12 +4155,11 @@ Blockly.Blocks['move_to_pointer_extended'] = {
       .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED);
     this.appendValueInput('SPEED')
       .setCheck('Number')
-      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_LOCATION);
-    this.appendDummyInput()
+      .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_LOCATION)
       .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_SPEED);
     this.appendValueInput('MAXIMUM_TIME')
       .appendField(Blockly.Msg.MOVE_TO_POINTER_EXTENDED_TIME);
-    this.setInputsInline(true);
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_PHYSICS_DYNAMICS_COLOUR);
@@ -4178,12 +4177,11 @@ Blockly.Blocks['move_to_object'] = {
       .appendField(Blockly.Msg.MOVE_TO_OBJECT_2);
     this.appendValueInput('SPEED')
       .setCheck('Number')
-      .appendField(Blockly.Msg.AT);
-    this.appendDummyInput()
+      .appendField(Blockly.Msg.AT)
       .appendField(Blockly.Msg.MOVE_TO_OBJECT_SPEED);
     this.appendValueInput('MAXIMUM_TIME')
       .appendField(Blockly.Msg.MOVE_TO_OBJECT_TIME);
-    this.setInputsInline(true);
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(PHASER_PHYSICS_DYNAMICS_COLOUR);
