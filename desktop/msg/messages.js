@@ -5514,3 +5514,12 @@ Blockly.Msg.SET_GAME_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser
 Blockly.Msg.GET_GAME_PAUSE = 'get game paused value';
 Blockly.Msg.GET_GAME_PAUSE_TOOLTIP = 'Returns the value of the paused state of the Game.';
 Blockly.Msg.GET_GAME_PAUSE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused';
+
+Blockly.Msg.ARDUINO_RANDOM_SEED = 'generate random seed from';
+Blockly.Msg.ARDUINO_RANDOM_SEED_TOOLTIP = 'Shuffles the random function.';
+Blockly.Msg.ARDUINO_RANDOM_SEED_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/random-numbers/random/';
+
+Blockly.Msg.ARDUINO_RANDOM = 'generate random number between';
+Blockly.Msg.ARDUINO_RANDOM_TOOLTIP = 'The random function generates pseudo-random numbers.';
+Blockly.Msg.ARDUINO_RANDOM_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/random-numbers/random/';
+Blockly.Msg.AND = 'and';
