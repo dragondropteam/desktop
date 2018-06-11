@@ -377,6 +377,41 @@ Blockly.Blocks['non_stationary_axis'] = {
     }
 };
 
+Blockly.Blocks['delay_with_navigation_seconds'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS);
+    this.appendValueInput('SECONDS')
+      .setCheck("Number");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SECONDS);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+    this.setColour(RINGO_COLOUR);
+  }
+};
+
+Blockly.Blocks['delay_with_simple_navigation_seconds'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS);
+    this.appendValueInput('SECONDS')
+      .setCheck("Number");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SECONDS);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(RINGO_COLOUR);
+    this.setTooltip(Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP);
+    this.setHelpUrl(HELP_URL);
+    this.setColour(RINGO_COLOUR);
+  }
+};
+
+
 //endregion
 
 //region COMPUTATION
@@ -639,7 +674,7 @@ Blockly.Blocks['motors_begin'] = {
 Blockly.Blocks['maintain_heading_reset'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MAINTAIN_HEADING_FIELD_1);
+            .appendField(Blockly.Msg.MAINTAIN_HEADING_RESET_FIELD_1);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(RINGO_COLOUR);
@@ -912,7 +947,7 @@ Blockly.Blocks['read_left_light_sensor'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(Blockly.Msg.READ_LEFT_LIGHT_SENSOR);
-    this.setOutput(true, null);
+    this.setOutput(true, 'Number');
     this.setColour(RINGO_COLOUR);
     this.setTooltip(Blockly.Msg.READ_LEFT_LIGHT_SENSOR_TOOLTIP);
     this.setHelpUrl(HELP_URL);
@@ -947,7 +982,7 @@ Blockly.Blocks['read_right_light_sensor'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(Blockly.Msg.READ_RIGHT_LIGHT_SENSOR);
-    this.setOutput(true, null);
+    this.setOutput(true, 'Number');
     this.setColour(RINGO_COLOUR);
     this.setTooltip(Blockly.Msg.READ_RIGHT_LIGHT_SENSOR_TOOLTIP);
     this.setHelpUrl(HELP_URL);
@@ -982,7 +1017,7 @@ Blockly.Blocks['look_for_edge'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(Blockly.Msg.LOOK_FOR_EDGE);
-    this.setOutput(true, null);
+    this.setOutput(true, 'Number');
     this.setColour(RINGO_COLOUR);
     this.setTooltip(Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP);
     this.setHelpUrl(HELP_URL);
@@ -994,6 +1029,8 @@ Blockly.Blocks['read_edge_light_sensors'] = {
     this.appendValueInput('AVERAGE')
       .setCheck(null)
       .appendField(Blockly.Msg.READ_EDGE_LIGHT_SENSORS);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.READ_EDGE_LIGHT_SENSORS_AVERAGE)
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(RINGO_COLOUR);
@@ -1006,7 +1043,7 @@ Blockly.Blocks['is_over_edge'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(Blockly.Msg.IS_OVER_EDGE);
-    this.setOutput(true, null);
+    this.setOutput(true, 'Number');
     this.setColour(RINGO_COLOUR);
     this.setTooltip(Blockly.Msg.IS_OVER_EDGE_TOOLTIP);
     this.setHelpUrl(HELP_URL);

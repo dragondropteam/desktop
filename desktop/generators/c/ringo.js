@@ -134,6 +134,16 @@ Blockly.C['non_stationary_value'] = function(block) {
 Blockly.C['non_stationary_axis'] = function (block) {
     return ['NonStationaryAxis', Blockly.C.ORDER_ATOMIC];
 };
+
+Blockly.C['delay_with_navigation_seconds'] = function (block) {
+  let seconds = Blockly.C.valueToCode(block, 'SECONDS', Blockly.C.ORDER_ATOMIC);
+  return 'DelayWithNavigation( ' + (seconds * 1000) + ' );\n';
+};
+
+Blockly.C['delay_with_simple_navigation_seconds'] = function (block) {
+  let seconds = Blockly.C.valueToCode(block, 'SECONDS', Blockly.C.ORDER_ATOMIC);
+  return 'DelayWithSimpleNavigation( ' + (seconds * 1000) + ' );\n';
+};
 //endregion
 
 //region COMPUTATION
@@ -153,6 +163,7 @@ Blockly.C['vector_to_degrees'] = function (block) {
 
     return [`VectorToDegrees(${xComponent}, ${yComponent})`, Blockly.C.ORDER_ATOMIC];
 };
+
 //endregion
 
 //region PIXELS
