@@ -579,32 +579,3 @@ Blockly.Blocks['math_random_float'] = {
     });
   }
 };
-
-Blockly.Blocks['arduino_random_seed'] = {
-  init: function() {
-    this.appendValueInput('SEED')
-      .setCheck('Number')
-      .appendField(Blockly.Msg.ARDUINO_RANDOM_SEED);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.Blocks.math.HUE);
-    this.setTooltip(Blockly.Msg.ARDUINO_RANDOM_SEED_TOOLTIP);
-    this.setHelpUrl(Blockly.Msg.ARDUINO_RANDOM_SEED_HELP_URL);
-  }
-};
-
-Blockly.Blocks['arduino_random'] = {
-  init: function() {
-    this.appendValueInput('MIN')
-      .setCheck('Number')
-      .appendField(Blockly.Msg.ARDUINO_RANDOM);
-    this.appendValueInput('MAX')
-      .setCheck('Number')
-      .appendField(Blockly.Msg.AND);
-    this.setInputsInline(true);
-    this.setOutput(true, 'Number');
-    this.setColour(Blockly.Blocks.math.HUE);
-    this.setTooltip(Blockly.Msg.ARDUINO_RANDOM_TOOLTIP);
-    this.setHelpUrl(Blockly.Msg.ARDUINO_RANDOM_HELP_URL);
-  }
-};
