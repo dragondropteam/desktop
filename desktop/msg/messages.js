@@ -4663,3 +4663,11 @@ Blockly.Msg.RESTART = 'restart';
 Blockly.Msg.FOR = 'for';
 Blockly.Msg.ADD_TO_WORLD = 'to the world';
 Blockly.Msg.UP = 'up';
+Blockly.Msg.ARDUINO_RANDOM_SEED = 'generate random seed from';
+Blockly.Msg.ARDUINO_RANDOM_SEED_TOOLTIP = 'Shuffles the random function.';
+Blockly.Msg.ARDUINO_RANDOM_SEED_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/random-numbers/random/';
+
+Blockly.Msg.ARDUINO_RANDOM = 'generate random number between';
+Blockly.Msg.ARDUINO_RANDOM_TOOLTIP = 'The random function generates pseudo-random numbers.';
+Blockly.Msg.ARDUINO_RANDOM_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/random-numbers/random/';
+Blockly.Msg.AND = 'and';

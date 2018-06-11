@@ -111,10 +111,15 @@ Blockly.Msg.ANALOG_WRITE = "analog write ";  // untranslated
 Blockly.Msg.ANALOG_WRITE_HELP_URL = "https://www.arduino.cc/en/Reference/AnalogWrite";  // untranslated
 Blockly.Msg.ANALOG_WRITE_NUMBER = "to pin #";  // untranslated
 Blockly.Msg.ANALOG_WRITE_TOOLTIP = "";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.ANGULARACCELERATION = "angularAcceleration";  // untranslated
 Blockly.Msg.ANGULARDRAG = "angularDrag";  // untranslated
 Blockly.Msg.ANGULARVELOCITY = "angularVelocity";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY = "destroy all animations in animation manager of ";  // untranslated
+=======
+Blockly.Msg.AND = "and";  // untranslated
+Blockly.Msg.ANIMATION_DESTROY_FIELD_1 = "destroy all animations in animation manager of ";  // untranslated
+>>>>>>> DRAG-571
 Blockly.Msg.ANIMATION_DESTROY_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_TOOLTIP = "Destroy all animations on the object.";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_VI = "destroy all animations in animation manager of ";  // untranslated
@@ -145,6 +150,12 @@ Blockly.Msg.ARDUINO_MATH_MAP_FROM_LOW = "from low";  // untranslated
 Blockly.Msg.ARDUINO_MATH_MAP_TO_HIGH = "to high";  // untranslated
 Blockly.Msg.ARDUINO_MATH_MAP_TO_LOW = "to low";  // untranslated
 Blockly.Msg.ARDUINO_MATH_MAP_VALUE = "value";  // untranslated
+Blockly.Msg.ARDUINO_RANDOM = "generate random number between";  // untranslated
+Blockly.Msg.ARDUINO_RANDOM_HELP_URL = "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/";  // untranslated
+Blockly.Msg.ARDUINO_RANDOM_SEED = "generate random seed from";  // untranslated
+Blockly.Msg.ARDUINO_RANDOM_SEED_HELP_URL = "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/";  // untranslated
+Blockly.Msg.ARDUINO_RANDOM_SEED_TOOLTIP = "Shuffles the random function.";  // untranslated
+Blockly.Msg.ARDUINO_RANDOM_TOOLTIP = "The random function generates pseudo-random numbers.";  // untranslated
 Blockly.Msg.ARDUINO_SERIAL_AVAILABLE = "serial available";  // untranslated
 Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE = "serial available for write";  // untranslated
 Blockly.Msg.ARDUINO_SERIAL_AVAILABLE_FOR_WRITE_HELP_URL = "https://www.arduino.cc/reference/en/language/functions/communication/serial/availableforwrite/";  // untranslated
