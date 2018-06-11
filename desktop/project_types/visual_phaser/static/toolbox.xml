@@ -1746,6 +1746,9 @@
                             <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer"></shadow>
+                    </value>
                 </block>
                 <block type="physics_distance_to_location">
                     <value name="OBJECT">
@@ -1799,9 +1802,12 @@
                             <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer"></shadow>
+                    </value>
                     <value name="SPEED">
                         <shadow type="math_number">
-                            <field name="NUM">0</field>
+                            <field name="NUM">60</field>
                         </shadow>
                     </value>
                     <value name="TIME">
@@ -1848,6 +1854,10 @@
                             <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer">
+                        </shadow>
+                    </value>
                     <value name="SPEED">
                         <shadow type="math_number">
                             <field name="NUM">60</field>
@@ -1891,7 +1901,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="move_to_pointer_extended">
+                <!--<block type="move_to_pointer_extended">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1907,7 +1917,7 @@
                             <field name="NUM">0</field>
                         </shadow>
                     </value>
-                </block>
+                </block>-->
                 <block type="move_to_object">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
@@ -1964,6 +1974,9 @@
                         <shadow type="variables_get">
                             <field name="VAR">defaultGroup</field>
                         </shadow>
+                    </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer"></shadow>
                     </value>
                 </block>
                 <block type="collide_vi">
@@ -2269,6 +2282,7 @@
             <category name="Mouse" colour="#2C85DB">
                 <block type="get_current_mouse_position"/>
                 <block type="is_mouse_button_clicked"/>
+                <block type="get_active_pointer"/>
             </category>
             <!--TODO: Gamepad support-->
             <!--<category name="Gamepad" colour="#42A5F5"></category>-->

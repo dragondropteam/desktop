@@ -5488,7 +5488,7 @@ Blockly.Msg.MAX_TIME_MS = 'max time (ms):';
 Blockly.Msg.PHYSICS_MOVE_TO_LOCATION_TOOLTIP = 'Move the given display object towards the x/y coordinates at a steady velocity.';
 Blockly.Msg.PHYSICS_MOVE_TO_LOCATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToXY';
 Blockly.Msg.GET_OBJECTS_UNDER_POINTER = 'objects from group';
-Blockly.Msg.GET_OBJECTS_UNDER_POINTER_OVERLAP = 'that overlap with the mouse';
+Blockly.Msg.GET_OBJECTS_UNDER_POINTER_OVERLAP = 'that overlap with';
 Blockly.Msg.GET_OBJECTS_UNDER_POINTER_TOOLTIP = 'Given a Group and a Pointer this will check to see which Group children overlap with the Pointer coordinates.';
 Blockly.Msg.GET_OBJECTS_UNDER_POINTER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#getObjectsUnderPointer';
 Blockly.Msg.PHYSICS_CLOSEST = 'object closest to';
@@ -5509,3 +5509,7 @@ Blockly.Msg.RIGHT = 'right';
 Blockly.Msg.CHECK_COLLISION = 'allow world collisions in direction';
 Blockly.Msg.CHECK_COLLISION_TOOLTIP = 'Which edges of the World bounds Bodies can collide against when collideWorldBounds is true. For example checkCollision.down = false means Bodies cannot collide with the World.bounds.bottom.';
 Blockly.Msg.CHECK_COLLISION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#checkCollision';
+
+Blockly.Msg.GET_ACTIVE_POINTER = 'active game pointer';
+Blockly.Msg.GET_ACTIVE_POINTER_TOOLTIP = '';
+Blockly.Msg.GET_ACTIVE_POINTER_HELP_URL = '';

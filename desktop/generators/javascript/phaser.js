@@ -583,8 +583,9 @@ Blockly.JavaScript['physics_move_to_pointer'] = function(block) {
   const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
   const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
   const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
 
-  return `game.physics.arcade.moveToPointer(${object}, ${speed}, game.input.mousePointer, ${time});\n`;
+  return `game.physics.arcade.moveToPointer(${object}, ${speed}, ${pointer}, ${time});\n`;
 };
 
 Blockly.JavaScript['physics_accelerate_to_location'] = function(block) {
@@ -600,11 +601,12 @@ Blockly.JavaScript['physics_accelerate_to_location'] = function(block) {
 
 Blockly.JavaScript['physics_accelerate_to_pointer'] = function(block) {
   const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
   const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
   const x_max = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
   const y_max = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
 
-  return `game.physics.arcade.accelerateToPointer(${object}, game.input.mousePointer, ${speed}, ${x_max}, ${y_max});\n`;
+  return `game.physics.arcade.accelerateToPointer(${object}, ${pointer}, ${speed}, ${x_max}, ${y_max});\n`;
 };
 
 Blockly.JavaScript['physics_accelerate_to_object'] = function(block) {
@@ -644,8 +646,9 @@ Blockly.JavaScript['check_collision'] = function(block) {
 
 Blockly.JavaScript['get_objects_under_pointer'] = function (block) {
   const group = Blockly.JavaScript.valueToCode(block, 'GROUP', Blockly.JavaScript.ORDER_ATOMIC);
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
 
-  return [`game.physics.arcade.getObjectsUnderPointer(game.input.mousePointer, ${group})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+  return [`game.physics.arcade.getObjectsUnderPointer(${pointer}, ${group})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 Blockly.JavaScript['collide_with_arrow_function'] = function (block) {
@@ -729,7 +732,8 @@ Blockly.JavaScript['physics_distance_between'] = function(block) {
 
 Blockly.JavaScript['physics_distance_to_pointer'] = function(block) {
   const source = Blockly.JavaScript.valueToCode(block, 'SOURCE', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`game.physics.arcade.distanceToPointer(${source})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.physics.arcade.distanceToPointer(${source}, ${pointer})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 Blockly.JavaScript['physics_distance_to_location'] = function(block) {
@@ -917,19 +921,20 @@ Blockly.JavaScript['collide_function_field'] = function (block) {
     return `game.physics.arcade.collide(${lhs}, ${rhs}, ${functionName});\n`;
 };
 
-Blockly.JavaScript['move_to_pointer'] = function (block) {
+/*Blockly.JavaScript['move_to_pointer'] = function (block) {
     const value_gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const value_speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
-    return `game.physics.arcade.moveToPointer(${value_gameobject}, ${value_speed});\n`;
-};
+    const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
 
+  return `game.physics.arcade.moveToPointer(${value_gameobject}, ${value_speed}, ${pointer});\n`;
+};*/
 
-Blockly.JavaScript['move_to_pointer_extended'] = function (block) {
+/*Blockly.JavaScript['move_to_pointer_extended'] = function (block) {
     const gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
     const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
     const maximumTime = Blockly.JavaScript.valueToCode(block, 'MAXIMUM_TIME', Blockly.JavaScript.ORDER_ATOMIC);
     return `game.physics.arcade.moveToPointer(${gameobject}, ${speed}, game.input.mousePointer, ${maximumTime});\n`;
-};
+};*/
 
 Blockly.JavaScript['move_to_object'] = function (block) {
     const gameobject = Blockly.JavaScript.valueToCode(block, 'GAMEOBJECT', Blockly.JavaScript.ORDER_ATOMIC);
@@ -1119,6 +1124,10 @@ Blockly.JavaScript['get_current_mouse_position'] = function (block) {
 
 Blockly.JavaScript['is_mouse_button_clicked'] = function (block) {
     return [`game.input.mousePointer.${block.getFieldValue('BUTTON')}.isDown`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['get_active_pointer'] = function(block) {
+  return [`game.input.activePointer`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 //endregion
 

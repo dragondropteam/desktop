@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-08 15:38:26.794000",
+		"lastupdated": "2018-06-11 11:40:31.217000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2627,7 +2627,7 @@
 	"PHYSICS_MOVE_TO_LOCATION_TOOLTIP": "Move the given display object towards the x/y coordinates at a steady velocity.",
 	"PHYSICS_MOVE_TO_LOCATION_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToXY",
 	"GET_OBJECTS_UNDER_POINTER": "objects from group",
-	"GET_OBJECTS_UNDER_POINTER_OVERLAP": "that overlap with the mouse",
+	"GET_OBJECTS_UNDER_POINTER_OVERLAP": "that overlap with",
 	"GET_OBJECTS_UNDER_POINTER_TOOLTIP": "Given a Group and a Pointer this will check to see which Group children overlap with the Pointer coordinates.",
 	"GET_OBJECTS_UNDER_POINTER_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#getObjectsUnderPointer",
 	"PHYSICS_CLOSEST": "object closest to",
@@ -2647,5 +2647,8 @@
 	"RIGHT": "right",
 	"CHECK_COLLISION": "allow world collisions in direction",
 	"CHECK_COLLISION_TOOLTIP": "Which edges of the World bounds Bodies can collide against when collideWorldBounds is true. For example checkCollision.down = false means Bodies cannot collide with the World.bounds.bottom.",
-	"CHECK_COLLISION_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#checkCollision"
+	"CHECK_COLLISION_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#checkCollision",
+	"GET_ACTIVE_POINTER": "active game pointer",
+	"GET_ACTIVE_POINTER_TOOLTIP": "",
+	"GET_ACTIVE_POINTER_HELP_URL": ""
 }
