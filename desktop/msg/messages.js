@@ -5537,7 +5537,8 @@ Blockly.Msg.LOOK_AT_EDGE_TOOLTIP = 'It looks at each edge sensor with the light 
 Blockly.Msg.LOOK_FOR_EDGE = 'look for edge';
 Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP = 'LookForEdge()calls LookAtEdge(). After calling LookAtEdge(), the rest of the LookForEdge()function determines if an edge was seen for each of the 3 sensors, andfurthermore, determines if a bright edge was seen or a dark edge is seen. LookForEdge() returns a byte which includes 8 “bits”. Each “bit” is flipped to a 1depending on which edge was seen and whether it was bright or dark.';
 
-Blockly.Msg.READ_EDGE_LIGHT_SENSORS = 'read edge light sensors using average values from';
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS = 'read edge light sensors using';
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS_AVERAGE = 'average values';
 Blockly.Msg.READ_EDGE_LIGHT_SENSORS_TOOLTIP = 'Averages several reads and outputs to LeftEdgeSensorValue, etc.';
 
 Blockly.Msg.IS_OVER_EDGE = 'is over edge';
@@ -5548,3 +5549,12 @@ Blockly.Msg.SWITCH_AMBIENT_TO_EDGE_TOOLTIP = '';
 
 Blockly.Msg.SWITCH_EDGE_TO_AMBIENT = 'switch ambient to edge';
 Blockly.Msg.SWITCH_EDGE_TO_AMBIENT_TOOLTIP = '';
+
+Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS = 'delay with navigation for';
+Blockly.Msg.SECONDS = 'seconds';
+Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP = '';
+
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS = 'delay with simple navigation for';
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP = '';
+
+Blockly.Msg.DELAY_SECONDS_TOOLTIP = 'Delay a given number of seconds.';

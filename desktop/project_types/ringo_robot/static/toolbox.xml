@@ -123,6 +123,13 @@
     </category>
     <sep/>
     <category name="Time" colour="120" enabled="false">
+        <block type="delayseconds">
+            <value name="SECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
         <block type="delayms">
             <value name="MILLISECONDS">
                 <shadow type="math_number">
@@ -411,6 +418,20 @@
             </block>
             <block type="delay_with_simple_navigation_ms">
                 <value name="milliseconds">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delay_with_navigation_seconds">
+                <value name="SECONDS">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delay_with_simple_navigation_seconds">
+                <value name="SECONDS">
                     <shadow type="math_number">
                         <field name="NUM">0</field>
                     </shadow>
