@@ -5506,3 +5506,45 @@ Blockly.Msg.MOVE_BY_HELP_URL = '';
 Blockly.Msg.SUPER = 'super';
 Blockly.Msg.GET_SUPER_TOOLTIP = 'Get a reference to the super class';
 Blockly.Msg.GET_SUPER_HELPURL = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super';
+
+Blockly.Msg.ROTATE = 'rotate';
+Blockly.Msg.DEGREES = 'degrees';
+Blockly.Msg.MAX_EXPECTED_TURN_TIME = 'with max expected turn time (milliseconds)';
+Blockly.Msg.WITH = 'with';
+Blockly.Msg.ROTATE_ACCURATE_TOOLTIP = 'Rotate ringo the given degrees within the maximum time.';
+
+Blockly.Msg.READ_SIDE_SENSORS = 'read side sensors';
+Blockly.Msg.READ_SIDE_SENSORS_TOOLTIP = 'Single relative & ambient reading from each of the 3 side sensors (pauses and/or repeats if IRReceiving).';
+
+Blockly.Msg.READ_LEFT_LIGHT_SENSOR = 'read left light sensor';
+Blockly.Msg.READ_LEFT_LIGHT_SENSOR_TOOLTIP = 'Return the reading of the left light sensor';
+
+Blockly.Msg.EDGE_LIGHTS_ON = 'turn edge lights on';
+Blockly.Msg.EDGE_LIGHTS_ON_TOOLTIP = '';
+
+Blockly.Msg.EDGE_LIGHTS_OFF = 'turn edge lights off';
+Blockly.Msg.EDGE_LIGHTS_OFF_TOOLTIP = '';
+
+Blockly.Msg.READ_RIGHT_LIGHT_SENSOR = 'read right light sensor';
+Blockly.Msg.READ_RIGHT_LIGHT_SENSOR_TOOLTIP = 'Return the reading of the right light sensor';
+
+Blockly.Msg.RESET_LOOK_AT_EDGE = 'reset look at edge';
+Blockly.Msg.RESET_LOOK_AT_EDGE_TOOLTIP = 'Zeros the LookAtEdge() running average';
+
+Blockly.Msg.LOOK_AT_EDGE = 'look at edge';
+Blockly.Msg.LOOK_AT_EDGE_TOOLTIP = 'It looks at each edge sensor with the light off and then on. It also updates a running average for each sensor, and updates global variables.';
+
+Blockly.Msg.LOOK_FOR_EDGE = 'look for edge';
+Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP = 'LookForEdge()calls LookAtEdge(). After calling LookAtEdge(), the rest of the LookForEdge()function determines if an edge was seen for each of the 3 sensors, andfurthermore, determines if a bright edge was seen or a dark edge is seen. LookForEdge() returns a byte which includes 8 “bits”. Each “bit” is flipped to a 1depending on which edge was seen and whether it was bright or dark.';
+
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS = 'read edge light sensors using average values from';
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS_TOOLTIP = 'Averages several reads and outputs to LeftEdgeSensorValue, etc.';
+
+Blockly.Msg.IS_OVER_EDGE = 'is over edge';
+Blockly.Msg.IS_OVER_EDGE_TOOLTIP = '';
+
+Blockly.Msg.SWITCH_AMBIENT_TO_EDGE = 'switch ambient to edge';
+Blockly.Msg.SWITCH_AMBIENT_TO_EDGE_TOOLTIP = '';
+
+Blockly.Msg.SWITCH_EDGE_TO_AMBIENT = 'switch ambient to edge';
+Blockly.Msg.SWITCH_EDGE_TO_AMBIENT_TOOLTIP = '';

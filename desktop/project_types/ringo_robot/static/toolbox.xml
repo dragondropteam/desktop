@@ -333,6 +333,18 @@
                     </shadow>
                 </value>
             </block>
+            <block type="rotate_accurate">
+                <value name="HEADING">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="MAX_EXPECTED_TURN_TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
             <!--<block type="heading_with_shortest_distance">-->
             <!--<value name="HEADING">-->
             <!--<shadow type="math_number">-->
@@ -345,6 +357,26 @@
             <block type="restart_ir"/>
             <block type="is_ir_done"/>
             <block type="ir_when"/>
+        </category>
+        <category name="Ringo Sensors" colour="290">
+            <block type="read_side_sensors"></block>
+            <block type="read_left_light_sensor"></block>
+            <block type="read_right_light_sensor"></block>
+            <block type="edge_lights_on"></block>
+            <block type="edge_lights_off"></block>
+            <block type="reset_look_at_edge"></block>
+            <block type="look_at_edge"></block>
+            <block type="look_for_edge"></block>
+            <block type="read_edge_light_sensors">
+                <value name="AVERAGE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="is_over_edge"></block>
+            <block type="switch_ambient_to_edge"></block>
+            <block type="switch_edge_to_ambient"></block>
         </category>
     </category>
     <category name="Ringo Navigation" colour="290">
