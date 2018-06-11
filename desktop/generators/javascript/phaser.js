@@ -1064,6 +1064,16 @@ Blockly.JavaScript['get_param'] = function (block) {
 Blockly.JavaScript['get_world_reference'] = function (block) {
     return [`game.world`, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['set_game_pause'] = function(block) {
+  var paused = Blockly.JavaScript.valueToCode(block, 'PAUSED', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `game.paused = ${paused};\n`;
+};
+
+Blockly.JavaScript['get_game_pause'] = function(block) {
+  return [`game.paused`, Blockly.JavaScript.ORDER_ATOMIC];
+};
 //endregion
 
 //region GAMEOBJECT
