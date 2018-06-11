@@ -5558,3 +5558,18 @@ Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS = 'delay with simple navigation
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP = '';
 
 Blockly.Msg.DELAY_SECONDS_TOOLTIP = 'Delay a given number of seconds.';
+
+Blockly.Msg.SWITCH_BUTTON_TO_PIXELS = 'switch button to pixels';
+Blockly.Msg.SWITCH_BUTTON_TO_PIXELS_TOOLTIP = 'Sets shared line to control NeoPixel lights';
+
+Blockly.Msg.SWITCH_PIXELS_TO_BUTTON = 'switch pixels to button';
+Blockly.Msg.SWITCH_PIXELS_TO_BUTTON_TOOLTIP = 'Sets shared line to control NeoPixel lights';
+
+Blockly.Msg.SWITCH_MOTORS_TO_SERIAL = 'switch motors to serial';
+Blockly.Msg.SWITCH_MOTORS_TO_SERIAL_TOOLTIP = '';
+
+Blockly.Msg.BUTTON_PRESSED = 'button pressed';
+Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
+
+Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = 'heading with shortest distance from';
+Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = '';
