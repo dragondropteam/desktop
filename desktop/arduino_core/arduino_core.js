@@ -269,12 +269,12 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
 
                 child.stdout.on('data', (data) => {
                     runningOutput += data;
-                    console.log(`stdout: ${data}`);
+                    log.debug(`stdout: ${data}`);
                 });
 
                 child.stderr.on('data', (data) => {
                     runningOutput += data;
-                    console.error(`stderr: ${data}`);
+                    log.error(`stderr: ${data}`);
                 });
 
                 child.on('close', (code) => {
@@ -283,7 +283,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                         return;
                     }
                     uploadComplete(code, runningOutput);
-                    console.log(`child process exited with code ${code}`);
+                    log.debug(`Arduino exited with code ${code}`);
                 });
             } catch (e) {
                 invalidArduinoPath(e);
