@@ -2,12 +2,21 @@
 'use strict';
 goog.provide('Blockly.Msg.et');
 goog.require('Blockly.Msg');
+<<<<<<< HEAD
 Blockly.Msg.A = "a";  // untranslated
 Blockly.Msg.ACCELERATEMOTORS = "accelerate motors";  // untranslated
 Blockly.Msg.ACCELERATEMOTORS_END = "end speed";  // untranslated
+=======
+Blockly.Msg.ACCELERATE = "accelerate";  // untranslated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_1 = "accelerate motors";  // untranslated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_2 = "start speed";  // untranslated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_3 = "end speed";  // untranslated
+Blockly.Msg.ACCELERATEMOTORS_FIELD_4 = "duration";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.ACCELERATEMOTORS_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
 Blockly.Msg.ACCELERATEMOTORS_START = "start speed";  // untranslated
 Blockly.Msg.ACCELERATEMOTORS_TOOLTIP = "Accelerates from the start to the end speed over the specified duration";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.ACCELERATION = "acceleration";  // untranslated
 Blockly.Msg.ACCELERATION_FROM_ROTATION = "get forward acceleration from rotation";  // untranslated
 Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#accelerationFromRotation";  // untranslated
@@ -17,6 +26,19 @@ Blockly.Msg.ADD = "add";  // untranslated
 Blockly.Msg.ADDEMITTER = "add emitter";  // untranslated
 Blockly.Msg.ADDEMITTER_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Particles.Arcade.Emitter.html";  // untranslated
 Blockly.Msg.ADDEMITTER_MAXPARTICLES = "maxParticles";  // untranslated
+=======
+Blockly.Msg.ACCELERATION_FROM_ROTATION = "get forward acceleration from rotation";  // untranslated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_1 = "get forward acceleration from rotation";  // untranslated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_2 = "at";  // untranslated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_FIELD_3 = "pixels/second^2";  // untranslated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#accelerationFromRotation";  // untranslated
+Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP = "Given the rotation (in radians) and speed, calculate the acceleration and return it as a Point object.";  // untranslated
+Blockly.Msg.ADDEMITTER_FIELD_1 = "add emitter";  // untranslated
+Blockly.Msg.ADDEMITTER_FIELD_2 = "x";  // untranslated
+Blockly.Msg.ADDEMITTER_FIELD_3 = "y";  // untranslated
+Blockly.Msg.ADDEMITTER_FIELD_4 = "maxParticles";  // untranslated
+Blockly.Msg.ADDEMITTER_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Particles.Arcade.Emitter.html";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.ADDEMITTER_TOOLTIP = "Create a particle emitter";  // untranslated
 Blockly.Msg.ADDSPRITEWITHATLAS = "load atlas image";  // untranslated
 Blockly.Msg.ADDSPRITEWITHATLAS_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Loader.html#atlasXML";  // untranslated
@@ -112,11 +134,16 @@ Blockly.Msg.ANALOG_WRITE_HELP_URL = "https://www.arduino.cc/en/Reference/AnalogW
 Blockly.Msg.ANALOG_WRITE_NUMBER = "to pin #";  // untranslated
 Blockly.Msg.ANALOG_WRITE_TOOLTIP = "";  // untranslated
 Blockly.Msg.AND = "and";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.ANGULARACCELERATION = "angularAcceleration";  // untranslated
 Blockly.Msg.ANGULARDRAG = "angularDrag";  // untranslated
 Blockly.Msg.ANGULARVELOCITY = "angularVelocity";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY = "destroy all animations in animation manager of ";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames";  // untranslated
+=======
+Blockly.Msg.ANIMATION_DESTROY_FIELD_1 = "destroy all animations in animation manager of ";  // untranslated
+Blockly.Msg.ANIMATION_DESTROY_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.ANIMATION_DESTROY_TOOLTIP = "Destroy all animations on the object.";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_VI = "destroy all animations in animation manager of ";  // untranslated
 Blockly.Msg.ANIMATION_DESTROY_VI_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#destroy";  // untranslated
@@ -188,10 +215,14 @@ Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT = "serial set timeout to";  // untranslat
 Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT_HELP_URL = "https://www.arduino.cc/reference/en/language/functions/communication/serial/settimeout/";  // untranslated
 Blockly.Msg.ARDUINO_SERIAL_SET_TIMEOUT_TOOLTIP = "sets the max milliseconds to wait for serial data, defaults to 1000 milliseconds";  // untranslated
 Blockly.Msg.ARDUINO_SERIAL_UNTIL = "until";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.AT_INDEX = "at index";  // untranslated
 Blockly.Msg.AT_POSITION = "at position";  // untranslated
 Blockly.Msg.AT_THE = "at the";  // untranslated
 Blockly.Msg.AT_VOLUME = "at volume";  // untranslated
+=======
+Blockly.Msg.AT = "at";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.AUTO_DESTROY = "auto destroy";  // untranslated
 Blockly.Msg.A_CHILD_OF = "a child of";  // untranslated
 Blockly.Msg.BEEPMS = "beep";  // untranslated
@@ -250,9 +281,16 @@ Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS = "Calibrate Navigation Sensors";  // u
 Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = "";  // untranslated
 Blockly.Msg.CALL = "call";  // untranslated
 Blockly.Msg.CALLING = "calling";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.CALL_FUNCTION_ON_GROUP = "Call function";  // untranslated
 Blockly.Msg.CALL_FUNCTION_ON_GROUP_CHILDREN = "on all children in group";  // untranslated
 Blockly.Msg.CALL_FUNCTION_ON_GROUP_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Group.html#forEachAlive";  // untranslated
+=======
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_1 = "Call function";  // untranslated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_FIELD_2 = "on all children in group";  // untranslated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_FUNCTION_TEXT_DEFAULT = "functionName";  // untranslated
+Blockly.Msg.CALL_FUNCTION_ON_GROUP_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Group.html#forEachAlive";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.CALL_FUNCTION_ON_GROUP_TOOLTIP = "Calls the specified function once for each group member, giving that child as the input.";  // untranslated
 Blockly.Msg.CAMERA_FADE = "fade screen to";  // untranslated
 Blockly.Msg.CAMERA_FADE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Camera.html#fade";  // untranslated
@@ -312,9 +350,21 @@ Blockly.Msg.CENTER_AND_STRETCH_TOOLTIP = "Tells Phaser to center and stretch the
 Blockly.Msg.CENTER_LEFT = "center left";  // untranslated
 Blockly.Msg.CENTER_RIGHT = "center right";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Muuda väärtust:";
+<<<<<<< HEAD
 Blockly.Msg.CHECK_OVERLAP = "Check Overlap Between";  // untranslated
 Blockly.Msg.CHECK_OVERLAP_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#overlap";  // untranslated
 Blockly.Msg.CHECK_OVERLAP_IF = "if overlapping";  // untranslated
+=======
+Blockly.Msg.CHECK_COLLISION = "allow world collisions in direction";  // untranslated
+Blockly.Msg.CHECK_COLLISION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#checkCollision";  // untranslated
+Blockly.Msg.CHECK_COLLISION_TOOLTIP = "Which edges of the World bounds Bodies can collide against when collideWorldBounds is true. For example checkCollision.down = false means Bodies cannot collide with the World.bounds.bottom.";  // untranslated
+Blockly.Msg.CHECK_OVERLAP_FIELD_1 = "Check Overlap Between";  // untranslated
+Blockly.Msg.CHECK_OVERLAP_FIELD_2 = "and";  // untranslated
+Blockly.Msg.CHECK_OVERLAP_FIELD_3 = "calling";  // untranslated
+Blockly.Msg.CHECK_OVERLAP_FIELD_4 = "if overlapping";  // untranslated
+Blockly.Msg.CHECK_OVERLAP_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Physics.Arcade.html#overlap";  // untranslated
+Blockly.Msg.CHECK_OVERLAP_NAME_TEXT_DEFAULT = "functionName";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.CHECK_OVERLAP_TOOLTIP = "Checks for an overlap between objectA and objectB.";  // untranslated
 Blockly.Msg.CHECK_OVERLAP_VI = "check overlap between";  // untranslated
 Blockly.Msg.CHECK_OVERLAP_VI_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#overlap";  // untranslated
@@ -361,7 +411,13 @@ Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_TOOLTIP = "Make this object collide with t
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI = "collide with world bounds";  // untranslated
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Ninja.Body.html#collideWorldBounds";  // untranslated
 Blockly.Msg.COLLIDE_WITH_WORLD_BOUNDS_VI_TOOLTIP = "Make this object collide with the world bounds.";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.COLOUR = "colour";  // untranslated
+=======
+Blockly.Msg.COLLISION_GET_OBJECTS_AT_LOCATION_FUNCTION = "check overlap between objects from group";  // untranslated
+Blockly.Msg.COLLISION_GET_OBJECTS_AT_LOCATION_FUNCTION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#getObjectsAtLocation";  // untranslated
+Blockly.Msg.COLLISION_GET_OBJECTS_AT_LOCATION_FUNCTION_TOOLTIP = "Given a Group and a location this will check to see which Group children overlap with the coordinates.";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.COLOUR_BLEND_COLOUR1 = "1. värvist";
 Blockly.Msg.COLOUR_BLEND_COLOUR2 = "2. värvist";
 Blockly.Msg.COLOUR_BLEND_HELPURL = "http://meyerweb.com/eric/tools/color-blend/";  // untranslated
@@ -568,10 +624,18 @@ Blockly.Msg.DOES = "does";  // untranslated
 Blockly.Msg.DOM_GETCONTEXT_CONTEXT = "get context";  // untranslated
 Blockly.Msg.DOM_GETCONTEXT_DOM = "for dom";  // untranslated
 Blockly.Msg.DOWN = "down";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.DRAG = "drag";  // untranslated
 Blockly.Msg.DRAWCIRCLE = "draw circle at position";  // untranslated
 Blockly.Msg.DRAWCIRCLE_DIAMETER = "with diameter:";  // untranslated
 Blockly.Msg.DRAWCIRCLE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Graphics.html#drawCircle";  // untranslated
+=======
+Blockly.Msg.DRAWCIRCLE_FIELD_1 = "draw circle at position";  // untranslated
+Blockly.Msg.DRAWCIRCLE_FIELD_2 = "x:";  // untranslated
+Blockly.Msg.DRAWCIRCLE_FIELD_3 = "y:";  // untranslated
+Blockly.Msg.DRAWCIRCLE_FIELD_4 = "with diameter:";  // untranslated
+Blockly.Msg.DRAWCIRCLE_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Graphics.html#drawCircle";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.DRAWCIRCLE_TOOLTIP = "Draws a circle at a given position in the world. Doesn't work on its own. Put it inside the 'fill shapes with' block.";  // untranslated
 Blockly.Msg.DRAW_RECTANGLE = "draw rectangle at position";  // untranslated
 Blockly.Msg.DRAW_RECTANGLE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Graphics.html#drawRect";  // untranslated
@@ -724,7 +788,14 @@ Blockly.Msg.GET_ACCEL_Y_UNZEROED = "Get Y Acceleration Unzeroed";  // untranslat
 Blockly.Msg.GET_ACCEL_Y_UNZEROED_TOOLTIP = "";  // untranslated
 Blockly.Msg.GET_ACCEL_Z = "Get Z Acceleration";  // untranslated
 Blockly.Msg.GET_ACCEL_Z_TOOLTIP = "";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Animation.html";  // untranslated
+=======
+Blockly.Msg.GET_ACTIVE_POINTER = "active game pointer";  // untranslated
+Blockly.Msg.GET_ACTIVE_POINTER_HELP_URL = "";  // untranslated
+Blockly.Msg.GET_ACTIVE_POINTER_TOOLTIP = "";  // untranslated
+Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Animation.html";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.GET_ANIMATION_BOOLEAN_FIELD_VI_TOOLTIP = "Gets the boolean selected from the specified object.";  // untranslated
 Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Animation.html";  // untranslated
 Blockly.Msg.GET_ANIMATION_NUMERIC_FIELD_TOOLTIP = "Gets the number selected from the specified object.";  // untranslated
@@ -809,12 +880,29 @@ Blockly.Msg.GET_MEMBER_IN_CLASS_TOOLTIP = "Access the calling instance";  // unt
 Blockly.Msg.GET_MOTOR_MA = "Get Motor Max";  // untranslated
 Blockly.Msg.GET_MOTOR_MAX_TOOLTIP = "";  // untranslated
 Blockly.Msg.GET_NUMERIC_FIELD = "get numeric field";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.GET_OBJECT_WIDTH = "get width of ";  // untranslated
 Blockly.Msg.GET_OBJECT_WIDTH_HELP_URL = "http://dragondrop.digipen.edu/docs/PIXI.Sprite.html#width";  // untranslated
+=======
+Blockly.Msg.GET_OBJECTS_AT_LOCATION = "objects from group";  // untranslated
+Blockly.Msg.GET_OBJECTS_AT_LOCATION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#getObjectsAtLocation";  // untranslated
+Blockly.Msg.GET_OBJECTS_AT_LOCATION_OVERLAP = "that overlap with";  // untranslated
+Blockly.Msg.GET_OBJECTS_AT_LOCATION_TOOLTIP = "Given a Group and a location this will check to see which Group children overlap with the coordinates.";  // untranslated
+Blockly.Msg.GET_OBJECTS_UNDER_POINTER = "objects from group";  // untranslated
+Blockly.Msg.GET_OBJECTS_UNDER_POINTER_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#getObjectsUnderPointer";  // untranslated
+Blockly.Msg.GET_OBJECTS_UNDER_POINTER_OVERLAP = "that overlap with";  // untranslated
+Blockly.Msg.GET_OBJECTS_UNDER_POINTER_TOOLTIP = "Given a Group and a Pointer this will check to see which Group children overlap with the Pointer coordinates.";  // untranslated
+Blockly.Msg.GET_OBJECT_WIDTH_FIELD_1 = "get width of ";  // untranslated
+Blockly.Msg.GET_OBJECT_WIDTH_HELP_URL = "https://photonstorm.github.io/phaser-ce/PIXI.Sprite.html#width";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.GET_OBJECT_WIDTH_TOOLTIP = "Gets the width of an object.";  // untranslated
 Blockly.Msg.GET_PARAM = "from object";  // untranslated
 Blockly.Msg.GET_PARAM_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#toc-4";  // untranslated
 Blockly.Msg.GET_PARAM_TOOLTIP = "Gets a given numeric field from an object.";  // untranslated
+Blockly.Msg.GET_PHYSICS_BOOLEAN_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html";  // untranslated
+Blockly.Msg.GET_PHYSICS_BOOLEAN_FIELD_TOOLTIP = "Gets the boolean value for the selected physics property";  // untranslated
+Blockly.Msg.GET_PHYSICS_POINT_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html";  // untranslated
+Blockly.Msg.GET_PHYSICS_POINT_FIELD_TOOLTIP = "Gets the point value for the selected physics property";  // untranslated
 Blockly.Msg.GET_POINT_FIELD = "get point field";  // untranslated
 Blockly.Msg.GET_POS_X = "Get X Position";  // untranslated
 Blockly.Msg.GET_POS_X_TOOLTIP = "";  // untranslated
@@ -918,9 +1006,19 @@ Blockly.Msg.HIGH_HELP_URL = "https://www.arduino.cc/en/Reference/Constants";  //
 Blockly.Msg.HIGH_TOOLTIP = "";  // untranslated
 Blockly.Msg.ICON_LOOP = "loop always";  // untranslated
 Blockly.Msg.ICON_SETUP = "once at start";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.IMAGESUBTEXTUREATLAS = "add sprite to game from atlas at";  // untranslated
 Blockly.Msg.IMAGESUBTEXTUREATLAS_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Loader.html#atlasXML";  // untranslated
 Blockly.Msg.IMAGESUBTEXTUREATLAS_ID = "subtexture id";  // untranslated
+=======
+Blockly.Msg.IF_OVERLAPPING = "if overlapping";  // untranslated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_1 = "add sprite to game from atlas at";  // untranslated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_2 = "x";  // untranslated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_3 = "y";  // untranslated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_4 = "tagged ";  // untranslated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_FIELD_5 = "subtexture id";  // untranslated
+Blockly.Msg.IMAGESUBTEXTUREATLAS_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#atlasXML";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.IMAGESUBTEXTUREATLAS_TOOLTIP = "Adds a sprite to the game using data from a texture atlas.";  // untranslated
 Blockly.Msg.IMMOVABLE = "immovable";  // untranslated
 Blockly.Msg.IN = "in";  // untranslated
@@ -1007,7 +1105,11 @@ Blockly.Msg.LED_BUILTIN = "LED_BUILTIN";  // untranslated
 Blockly.Msg.LED_BUILTIN_HELP_URL = "https://www.arduino.cc/en/Reference/Constants";  // untranslated
 Blockly.Msg.LED_BUILTIN_TOOLTIP = "";  // untranslated
 Blockly.Msg.LEFT = "left";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.LEFTPREVCOLOUR = "left previous color";  // untranslated
+=======
+Blockly.Msg.LEFTPREVCOLOUR_FIELD_1 = "left previous color";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.LEFTPREVCOLOUR_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
 Blockly.Msg.LEFTPREVCOLOUR_TOOLTIP = "";  // untranslated
 Blockly.Msg.LEFT_CENTER = "left center";  // untranslated
@@ -1167,9 +1269,13 @@ Blockly.Msg.MAINTAIN_HEADING_RESET = "Reset Maintain Heading";  // untranslated
 Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP = "";  // untranslated
 Blockly.Msg.MAINTAIN_HEADING_SPEED = "and Speed";  // untranslated
 Blockly.Msg.MAINTAIN_HEADING_TOOLTIP = "";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.MAINTAIN_HEADING_WIGGLE = "and Wiggle";  // untranslated
 Blockly.Msg.MAKE = "make";  // untranslated
 Blockly.Msg.MASS = "mass";  // untranslated
+=======
+Blockly.Msg.MAKE = "make";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.MATH_ADDITION_SYMBOL = "+";  // untranslated
 Blockly.Msg.MATH_ARITHMETIC_HELPURL = "https://et.wikipedia.org/wiki/Aritmeetika";
 Blockly.Msg.MATH_ARITHMETIC_TOOLTIP_ADD = "Tagastab kahe arvu summa.";
@@ -1262,11 +1368,15 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Tagastab arvu arkustangensi.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Tagastab arvu (kraadid) kosiinuse.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Tagastab arvu (kraadid) siinuse.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Tagastab arvu (kraadid) tangensi.";
+<<<<<<< HEAD
 Blockly.Msg.MAX = "max";  // untranslated
 Blockly.Msg.MAXANGULARVELOCITY = "maxAngularVelocity";  // untranslated
 Blockly.Msg.MAXVELOCITY = "maxVelocity";  // untranslated
 Blockly.Msg.MAX_X = "max x";  // untranslated
 Blockly.Msg.MAX_Y = "max y";  // untranslated
+=======
+Blockly.Msg.MAX_TIME_MS = "max time (ms):";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.MEMBER_DEFINITION_CREATE = "create";  // untranslated
 Blockly.Msg.MEMBER_DEFINITION_DEFAULT_TEXT = "name";  // untranslated
 Blockly.Msg.MEMBER_DEFINITION_HELP_URL = "";  // untranslated
@@ -1300,11 +1410,17 @@ Blockly.Msg.MOTORS_LEFT = "left speed";  // untranslated
 Blockly.Msg.MOTORS_RIGHT = "right speed";  // untranslated
 Blockly.Msg.MOTORS_TOOLTIP = "Sets the motor speed to something positive or negative for both the left and right motor";  // untranslated
 Blockly.Msg.MOVE = "move";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.MOVE_BY = "move position of object";  // untranslated
 Blockly.Msg.MOVE_BY_HELP_URL = "";  // untranslated
 Blockly.Msg.MOVE_BY_TOOLTIP = "Add (x,y) to the position of the object";  // untranslated
 Blockly.Msg.MOVE_DOWN = "down";  // untranslated
 Blockly.Msg.MOVE_DOWN_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#moveDown";  // untranslated
+=======
+Blockly.Msg.MOVE_DOWN_FIELD_1 = "move";  // untranslated
+Blockly.Msg.MOVE_DOWN_FIELD_2 = "down";  // untranslated
+Blockly.Msg.MOVE_DOWN_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Sprite.html#moveDown";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.MOVE_DOWN_TOOLTIP = "Moves this sprite/image down one place in the display order. If sprites overlap, it will be more likely to display underneath others.";  // untranslated
 Blockly.Msg.MOVE_TO_OBJECT = "move game object";  // untranslated
 Blockly.Msg.MOVE_TO_OBJECT_2 = "to object";  // untranslated
@@ -1421,7 +1537,37 @@ Blockly.Msg.PHASER_YOYO_CHILD_TWEEN_INDEX = "child index";  // untranslated
 Blockly.Msg.PHASER_YOYO_TWEEN = "yoyo tween";  // untranslated
 Blockly.Msg.PHASER_YOYO_TWEEN_DELAY = "delay";  // untranslated
 Blockly.Msg.PHASER_YOYO_TWEEN_TOOLTIP = "enable or disable yoyoing for this tween";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.PHASER_YOYO_TWEEN_URL = "http://dragondrop.digipen.edu/docs/Phaser.Tween.html#yoyo";  // untranslated
+=======
+Blockly.Msg.PHASER_YOYO_TWEEN_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Tween.html#yoyo";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_LOCATION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#accelerateToXY";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_LOCATION_TOOLTIP = "Sets the acceleration.x/y property on the object so it will move towards the x/y coordinates at the given speed. The object will not continuously track the target, or stop moving when it reaches the destination.";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_OBJECT = "pixels/second with max velocity";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_OBJECT_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#accelerateToObject";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_OBJECT_TOOLTIP = "Sets the acceleration.x/y property on the object so it will move towards the target at the given speed. The object will not continuously track the target, or stop moving when it reaches the destination.";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_POINTER_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#accelerateToPointer";  // untranslated
+Blockly.Msg.PHYSICS_ACCELERATE_TO_POINTER_TOOLTIP = "Sets the acceleration.x/y property on the object so it will move towards the pointer at the given speed. The object will not continuously track the target, or stop moving when it reaches the destination.";  // untranslated
+Blockly.Msg.PHYSICS_CLOSEST = "object closest to";  // untranslated
+Blockly.Msg.PHYSICS_CLOSEST_HELP_URL = "";  // untranslated
+Blockly.Msg.PHYSICS_CLOSEST_TOOLTIP = "";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_BETWEEN = "distance between";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_BETWEEN_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#distanceBetween";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_BETWEEN_TOOLTIP = "Find the distance between two display objects (like Sprites).";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_TO_LOCATION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#distanceToXY";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_TO_LOCATION_TOOLTIP = "Find the distance between the object and an (x,y) location.";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER = "and pointer";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#distanceToPointer";  // untranslated
+Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER_TOOLTIP = "Find the distance between the object and a Pointer.";  // untranslated
+Blockly.Msg.PHYSICS_FARTHEST = "object farthest from";  // untranslated
+Blockly.Msg.PHYSICS_FARTHEST_HELP_URL = "";  // untranslated
+Blockly.Msg.PHYSICS_FARTHEST_TOOLTIP = "";  // untranslated
+Blockly.Msg.PHYSICS_MOVE_TO_LOCATION_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToXY";  // untranslated
+Blockly.Msg.PHYSICS_MOVE_TO_LOCATION_TOOLTIP = "Move the given display object towards the x/y coordinates at a steady velocity.";  // untranslated
+Blockly.Msg.PHYSICS_MOVE_TO_POINTER = "to pointer";  // untranslated
+Blockly.Msg.PHYSICS_MOVE_TO_POINTER_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#moveToPointer";  // untranslated
+Blockly.Msg.PHYSICS_MOVE_TO_POINTER_TOOLTIP = "Move the given display object towards the pointer at a steady velocity.";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.PIN = "pin";  // untranslated
 Blockly.Msg.PININPUT = "set pin # ";  // untranslated
 Blockly.Msg.PININPUT_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
@@ -1429,9 +1575,15 @@ Blockly.Msg.PININPUT_MODE_DROPDOWN_INPUT = "input";  // untranslated
 Blockly.Msg.PININPUT_MODE_DROPDOWN_INPUT_PULLUP = "input_pullup";  // untranslated
 Blockly.Msg.PININPUT_MODE_DROPDOWN_OUTPUT = "output";  // untranslated
 Blockly.Msg.PININPUT_TOOLTIP = "";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.PIXELS = "pixels";  // untranslated
 Blockly.Msg.PLATFORMER = "platformer";  // untranslated
 Blockly.Msg.PLAY_ACK = "Play Acknowledgment Chirp";  // untranslated
+=======
+Blockly.Msg.PIXELS_PER_SECOND = "pixels per second";  // untranslated
+Blockly.Msg.PIXELS_PER_SECOND_SQUARED = "pixels per second squared";  // untranslated
+Blockly.Msg.PLAY_ACK_FIELD_1 = "play acknowledgment chirp";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.PLAY_ACK_TOOLTIP = "";  // untranslated
 Blockly.Msg.PLAY_ANGER = "Player Anger";  // untranslated
 Blockly.Msg.PLAY_ANGER_TOOLTIP = "";  // untranslated
@@ -1531,10 +1683,16 @@ Blockly.Msg.PROCEDURES_MUTATORARG_TOOLTIP = "Lisab funktsioonile sisendi.";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "sisendid";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Funktsiooni sisendite lisamine, eemaldamine või järjestuse muutmine.";
 Blockly.Msg.QUARTER = "quarter of a second";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.QUESTION = "?";  // untranslated
 Blockly.Msg.RANDOM = "Random value between";  // untranslated
 Blockly.Msg.RANDOM_ANGLE = "get random angle";  // untranslated
 Blockly.Msg.RANDOM_ANGLE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.RandomDataGenerator.html#angle";  // untranslated
+=======
+Blockly.Msg.RADIANS = "radians";  // untranslated
+Blockly.Msg.RANDOM_ANGLE_FIELD_1 = "get random angle";  // untranslated
+Blockly.Msg.RANDOM_ANGLE_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.RandomDataGenerator.html#angle";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.RANDOM_ANGLE_TOOLTIP = "Returns a random angle between -180 and 180.";  // untranslated
 Blockly.Msg.RANDOM_BOOLEAN = "random boolean";  // untranslated
 Blockly.Msg.RANDOM_BOOLEAN_TOOLTIP = "generates either true or false";  // untranslated
@@ -1630,7 +1788,11 @@ Blockly.Msg.REVIVE = "revive";  // untranslated
 Blockly.Msg.REVIVE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#revive";  // untranslated
 Blockly.Msg.REVIVE_TOOLTIP = "Brings a 'dead' Game Object back to life. Makes sure it counts as alive, existing, and visible. Will send an event named onRevived.";  // untranslated
 Blockly.Msg.RIGHT = "right";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.RIGHTPREVCOLOUR = "right previous color";  // untranslated
+=======
+Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1 = "right previous color";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
 Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = "";  // untranslated
 Blockly.Msg.RIGHT_CENTER = "right center";  // untranslated
@@ -1879,8 +2041,23 @@ Blockly.Msg.SET_OBJECT_ANCHOR_TOOLTIP = "Sets an object's anchor.";  // untransl
 Blockly.Msg.SET_OBJECT_WIDTH = "set width of ";  // untranslated
 Blockly.Msg.SET_OBJECT_WIDTH_HELP_URL = "http://dragondrop.digipen.edu/docs/PIXI.Sprite.html#width";  // untranslated
 Blockly.Msg.SET_OBJECT_WIDTH_TOOLTIP = "Sets the width of an object.";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.SET_PIXEL_RGB = "Set";  // untranslated
 Blockly.Msg.SET_PIXEL_RGB_COLOUR = "Set";  // untranslated
+=======
+Blockly.Msg.SET_PHYSICS_BOOLEAN_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html";  // untranslated
+Blockly.Msg.SET_PHYSICS_BOOLEAN_FIELD_TOOLTIP = "Sets the boolean value for the selected physics property";  // untranslated
+Blockly.Msg.SET_PHYSICS_POINT_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html";  // untranslated
+Blockly.Msg.SET_PHYSICS_POINT_FIELD_TOOLTIP = "Sets the point value for the selected physics property";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_1 = "set";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_FIELD_2 = "to";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_1 = "left eye";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_2 = "right eye";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_3 = "body top";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_4 = "body bottom";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_5 = "tail top";  // untranslated
+Blockly.Msg.SET_PIXEL_RGB_COLOUR_PIXEL_DROPDOWN_6 = "tail bottom";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.SET_PIXEL_RGB_COLOUR_TOOLTIP = "";  // untranslated
 Blockly.Msg.SET_PIXEL_RGB_PIXEL = "Pixel";  // untranslated
 Blockly.Msg.SET_PIXEL_RGB_TOOLTIP = "";  // untranslated
@@ -2175,10 +2352,16 @@ Blockly.Msg.TYPE_STRING = "String";  // untranslated
 Blockly.Msg.TYPE_STRING_ARR = "Array of Strings";  // untranslated
 Blockly.Msg.UNDO = "Võta tagasi";
 Blockly.Msg.UP = "up";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.USING = "using";  // untranslated
 Blockly.Msg.VALIDATE_FRAMES = "validate animation frames of ";  // untranslated
 Blockly.Msg.VALIDATE_FRAMES_ARRAY = "array of frames";  // untranslated
 Blockly.Msg.VALIDATE_FRAMES_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#validateFrames";  // untranslated
+=======
+Blockly.Msg.VALIDATE_FRAMES_FIELD_1 = "validate animation frames of ";  // untranslated
+Blockly.Msg.VALIDATE_FRAMES_FIELD_2 = "array of frames";  // untranslated
+Blockly.Msg.VALIDATE_FRAMES_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.AnimationManager.html#validateFrames";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.VALIDATE_FRAMES_TOOLTIP = "Validates the frames on the given Sprite.";  // untranslated
 Blockly.Msg.VALIDATE_FRAMES_VI = "validate animation frames of ";  // untranslated
 Blockly.Msg.VALIDATE_FRAMES_VI_ARRAY = "array of frames";  // untranslated
@@ -2252,6 +2435,7 @@ Blockly.Msg.WINK_MOVEMENT_FORWARD_MODERATE = "Moves the wink robot forward at a 
 Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = "Moves the wink robot forward at a slow(30) speed.";  // untranslated
 Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = "Rotates the wink robot left by roughly the specified number of degrees.";  // untranslated
 Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = "Rotates the wink robot right by roughly the specified number of degrees.";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.WITH = "with";  // untranslated
 Blockly.Msg.WITH_FRAMES = "with frames";  // untranslated
 Blockly.Msg.WORLDBOUNCE = "worldBounce";  // untranslated
@@ -2261,6 +2445,11 @@ Blockly.Msg.XML = "texture atlas xml";  // untranslated
 Blockly.Msg.Y = "y";  // untranslated
 Blockly.Msg.YCOLON = "y:";  // untranslated
 Blockly.Msg.ZERO_NAVIGATION = "Reset Navigation";  // untranslated
+=======
+Blockly.Msg.XCOLON = "x:";  // untranslated
+Blockly.Msg.YCOLON = "y:";  // untranslated
+Blockly.Msg.ZERO_NAVIGATION_FIELD_1 = "reset navigation";  // untranslated
+>>>>>>> DRAG-484
 Blockly.Msg.ZERO_NAVIGATION_TOOLTIP = "";  // untranslated
 Blockly.Msg.CONTROLS_DOWHILE_INPUT_DO = Blockly.Msg.CONTROLS_REPEAT_INPUT_DO;
 Blockly.Msg.CONTROLS_IF_IF_TITLE_IF = Blockly.Msg.CONTROLS_IF_MSG_IF;

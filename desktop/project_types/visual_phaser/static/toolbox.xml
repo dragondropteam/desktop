@@ -1740,8 +1740,193 @@
                     </value>
                 </block>
             </category>
+            <category name="Util" colour="#da95e2">
+                <block type="acceleration_from_rotation">
+                    <value name="ROTATION">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_distance_between">
+                    <value name="SOURCE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_distance_to_pointer">
+                    <value name="SOURCE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer"></shadow>
+                    </value>
+                </block>
+                <block type="physics_distance_to_location">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
             <category name="Dynamics" colour="#A142CA">
-                <block type="move_to_pointer_extended">
+                <block type="physics_move_to_location">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="TIME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_move_to_pointer">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer"></shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="TIME">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_accelerate_to_location">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="X_LOCATION">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y_LOCATION">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">500</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">500</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_accelerate_to_pointer">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer">
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">500</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">500</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_accelerate_to_object">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">destinationObject</field>
+                        </shadow>
+                    </value>
+                    <value name="SPEED">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">500</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">500</field>
+                        </shadow>
+                    </value>
+                </block>
+                <!--<block type="move_to_pointer_extended">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
                             <field name="VAR">defaultObject</field>
@@ -1757,7 +1942,7 @@
                             <field name="NUM">0</field>
                         </shadow>
                     </value>
-                </block>
+                </block>-->
                 <block type="move_to_object">
                     <value name="GAMEOBJECT">
                         <shadow type="variables_get">
@@ -1780,9 +1965,45 @@
                         </shadow>
                     </value>
                 </block>
-
+                <block type="set_physics_boolean_field">
+                    <value name="VALUE">
+                        <shadow type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_physics_boolean_field"></block>
+                <block type="set_physics_point_field">
+                    <value name="VALUE">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_physics_point_field"></block>
             </category>
             <category name="Collision" colour="#BD56E2">
+                <block type="check_collision">
+                </block>
+                <block type="get_objects_under_pointer">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="POINTER">
+                        <shadow type="get_active_pointer"></shadow>
+                    </value>
+                </block>
                 <block type="collide_vi">
                     <value name="LHS">
                         <shadow type="variables_get">
@@ -1830,6 +2051,40 @@
                     <value name="RHS">
                         <shadow type="variables_get">
                             <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_objects_at_location">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="collision_get_objects_at_location_function">
+                    <value name="GROUP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultGroup</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
                         </shadow>
                     </value>
                 </block>
@@ -2052,6 +2307,7 @@
             <category name="Mouse" colour="#2C85DB">
                 <block type="get_current_mouse_position"/>
                 <block type="is_mouse_button_clicked"/>
+                <block type="get_active_pointer"/>
             </category>
             <!--TODO: Gamepad support-->
             <!--<category name="Gamepad" colour="#42A5F5"></category>-->
