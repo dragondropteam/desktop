@@ -26,6 +26,7 @@ function disableIfNotInClassBlock (root) {
     block = block.getSurroundParent();
   } while (block);
 
+  Blockly.Events.disable();
   if (legal) {
     //If we are coming from a illegal state we need to make sure this block is reenabled and the warning text
     //is cleared. If we are coming from a legal state this will do nothing
@@ -37,8 +38,7 @@ function disableIfNotInClassBlock (root) {
       root.setWarningText(Blockly.Msg.INSIDE_CLASS_ONLY_WARNING);
     }
   }
-
-  return block;
+  Blockly.Events.enable();
 }
 
 function getClassForBlock (root) {
@@ -868,7 +868,7 @@ Blockly.Blocks['class_type'] = {
       this.name = legalName;
       this.updateClassName();
     }
-  },
+  }
 };
 
 Blockly.Blocks['get_member_in_class'] = {
