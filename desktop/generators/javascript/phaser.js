@@ -583,8 +583,9 @@ Blockly.JavaScript['physics_move_to_pointer'] = function(block) {
   const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
   const speed = Blockly.JavaScript.valueToCode(block, 'SPEED', Blockly.JavaScript.ORDER_ATOMIC);
   const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
 
-  return `game.physics.arcade.moveToPointer(${object}, ${speed}, game.input.mousePointer, ${time});\n`;
+  return `game.physics.arcade.moveToPointer(${object}, ${speed}, ${pointer}, ${time});\n`;
 };
 
 Blockly.JavaScript['physics_accelerate_to_location'] = function(block) {
