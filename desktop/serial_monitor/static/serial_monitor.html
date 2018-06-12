@@ -151,7 +151,7 @@
     const SerialMonitor = remote.require('./serial_monitor/serial_monitor');
     const WindowManager = remote.require('./window_manager/window_manager');
     const SerialPort = require('serialport');
-
+    const log = require('electron-log');
     const app = angular.module('DragonDrop', ['ngMaterial', 'ngSanitize']);
     let portId = '';
     let port;
@@ -218,7 +218,7 @@
                 baudRate: $scope.baudRate
             }, (err) => {
                 if (err) {
-                    console.error(err);
+                    log.error(err);
                     SerialMonitor.showErrorNoConnect();
                     return;
                 }
