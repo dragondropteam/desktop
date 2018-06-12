@@ -512,6 +512,6 @@
         <block type="comment_oneline"/>
     </category>
     <sep/>
-    <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
+    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
 </xml>
