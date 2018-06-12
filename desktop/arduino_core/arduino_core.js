@@ -261,6 +261,8 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 let runningOutput = '';
                 let error = false;
 
+                log.info(`Port: ${metadata.port} Board: ${metadata.board} optParams: ${metadata.optParams}`);
+
                 let progress = new ProgressWindow(uploadingLabel || uploadLabel);
                 child.on('error', (err) => {
                     invalidArduinoPath(err);
@@ -269,7 +271,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
 
                 child.stdout.on('data', (data) => {
                     runningOutput += data;
-                    log.debug(`stdout: ${data}`);
+                    log.info(`stdout: ${data}`);
                 });
 
                 child.stderr.on('data', (data) => {
@@ -283,7 +285,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                         return;
                     }
                     uploadComplete(code, runningOutput);
-                    log.debug(`Arduino exited with code ${code}`);
+                    log.info(`Arduino exited with code ${code}`);
                 });
             } catch (e) {
                 invalidArduinoPath(e);
