@@ -245,8 +245,12 @@ Blockly.Msg.BUTTONWAIT = "wait for button press";  // untranslated
 Blockly.Msg.BUTTONWAIT_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
 Blockly.Msg.BUTTONWAIT_TOOLTIP = "Waits until a remote button is pressed to continue.";  // untranslated
 Blockly.Msg.BUTTON_PRESSED = "button pressed";  // untranslated
+<<<<<<< HEAD
+=======
+Blockly.Msg.BUTTON_PRESSED_FIELD_1 = "button pressed";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.BUTTON_PRESSED_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
-Blockly.Msg.BUTTON_PRESSED_TOOLTIP = "Gets the remote button that was pressed.";  // untranslated
+Blockly.Msg.BUTTON_PRESSED_TOOLTIP = "";  // untranslated
 Blockly.Msg.BY = "by";  // untranslated
 Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS = "Calibrate Navigation Sensors";  // untranslated
 Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = "";  // untranslated
@@ -531,11 +535,24 @@ Blockly.Msg.DELAY_MICROSECONDS_HELP_URL = "https://www.arduino.cc/en/Reference/D
 Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = "Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.";  // untranslated
 Blockly.Msg.DELAY_MILLISECONDS_HELP_URL = "https://www.arduino.cc/en/Reference/Delay";  // untranslated
 Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP = "Wait the specified number of milliseconds before continuing. There are 1,000 milliseconds in a second.";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.DELAY_SECONDS_TOOLTIP = "Wait the specified number of seconds before continuing with the program.";  // untranslated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS = "Delay With Navigation for ";  // untranslated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = "";  // untranslated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = "Delay With Simple Navigation for";  // untranslated
+=======
+Blockly.Msg.DELAY_SECONDS_TOOLTIP = "Delay a given number of seconds.";  // untranslated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = "delay with navigation for ";  // untranslated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_2 = "milliseconds";  // untranslated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = "";  // untranslated
+Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS = "delay with navigation for";  // untranslated
+Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP = "";  // untranslated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = "delay with simple navigation for";  // untranslated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_2 = "milliseconds";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = "";  // untranslated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS = "delay with simple navigation for";  // untranslated
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP = "";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Diverkañ an holl vloc'hoù %1 ?";
 Blockly.Msg.DELETE_BLOCK = "Dilemel ar bloc'h";
 Blockly.Msg.DELETE_VARIABLE = "Lemel an argemm '%1'";
@@ -600,7 +617,14 @@ Blockly.Msg.DRIVE_ARC_SKID_TIME = "With Max Expected Skid Time (milliseconds)"; 
 Blockly.Msg.DRIVE_ARC_TOOLTIP = "";  // untranslated
 Blockly.Msg.DRIVE_ARC_TURN_TIME = "With Max Expected Turn Time (milliseconds)";  // untranslated
 Blockly.Msg.DUPLICATE_BLOCK = "Eiladuriñ";
+<<<<<<< HEAD
 Blockly.Msg.DURATION = "duration";  // untranslated
+=======
+Blockly.Msg.EDGE_LIGHTS_OFF = "turn edge lights off";  // untranslated
+Blockly.Msg.EDGE_LIGHTS_OFF_TOOLTIP = "";  // untranslated
+Blockly.Msg.EDGE_LIGHTS_ON = "turn edge lights on";  // untranslated
+Blockly.Msg.EDGE_LIGHTS_ON_TOOLTIP = "";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.EEPROM_GET_ADDRESS = "EEPROM get data from address";  // untranslated
 Blockly.Msg.EEPROM_GET_HELP_URL = "https://www.arduino.cc/en/Reference/EEPROMGet";  // untranslated
 Blockly.Msg.EEPROM_GET_TOOLTIP = "";  // untranslated
@@ -941,6 +965,8 @@ Blockly.Msg.HARDWARESTARTUP_RINGO_HELP_URL = "http://www.plumgeek.com/learn-to-c
 Blockly.Msg.HARDWARESTARTUP_RINGO_SETUP = "setup";  // untranslated
 Blockly.Msg.HARDWARESTARTUP_RINGO_TOOLTIP = "";  // untranslated
 Blockly.Msg.HARDWARESTARTUP_TOOLTIP = "This code is run once when the device is first turned on";  // untranslated
+Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = "heading with shortest distance from";  // untranslated
+Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = "";  // untranslated
 Blockly.Msg.HEIGHT = "height";  // untranslated
 Blockly.Msg.HELP = "Skoazell";
 Blockly.Msg.HIGH = "HIGH";  // untranslated
@@ -1024,7 +1050,13 @@ Blockly.Msg.IS_KEY_DOWN_TOOLTIP = "Checks if the given key is down";  // untrans
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED = "mouse button is clicked?";  // untranslated
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#isDown";  // untranslated
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP = "Is the specified button clicked";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.IS_STATIONARY = "Is Ringo Stationary";  // untranslated
+=======
+Blockly.Msg.IS_OVER_EDGE = "is over edge";  // untranslated
+Blockly.Msg.IS_OVER_EDGE_TOOLTIP = "";  // untranslated
+Blockly.Msg.IS_STATIONARY_FIELD_1 = "is ringo stationary";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.IS_STATIONARY_TOOLTIP = "";  // untranslated
 Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = "developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval";  // untranslated
 Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL = "developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval";  // untranslated
@@ -1187,8 +1219,16 @@ Blockly.Msg.LOGIC_TERNARY_TOOLTIP = "Gwiriañ an amplegad e 'prouad'. M'eo gwir 
 Blockly.Msg.LOG_CONSOLE_HELP_URL = "https://en.wikipedia.org/wiki/System_console";  // untranslated
 Blockly.Msg.LOG_CONSOLE_TITLE = "log to console";  // untranslated
 Blockly.Msg.LOG_CONSOLE_TOOLTIP = "Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.LOOP = "loop";  // untranslated
 Blockly.Msg.LOOPING = "looping";  // untranslated
+=======
+Blockly.Msg.LOOK_AT_EDGE = "look at edge";  // untranslated
+Blockly.Msg.LOOK_AT_EDGE_TOOLTIP = "It looks at each edge sensor with the light off and then on. It also updates a running average for each sensor, and updates global variables.";  // untranslated
+Blockly.Msg.LOOK_FOR_EDGE = "look for edge";  // untranslated
+Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP = "LookForEdge()calls LookAtEdge(). After calling LookAtEdge(), the rest of the LookForEdge()function determines if an edge was seen for each of the 3 sensors, andfurthermore, determines if a bright edge was seen or a dark edge is seen. LookForEdge() returns a byte which includes 8 “bits”. Each “bit” is flipped to a 1depending on which edge was seen and whether it was bright or dark.";  // untranslated
+Blockly.Msg.LOOP_FIELD_1 = "loop";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.LOOP_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
 Blockly.Msg.LOOP_TOOLTIP = "This code is run continuously once the device is turned on";  // untranslated
 Blockly.Msg.LOW = "LOW";  // untranslated
@@ -1298,12 +1338,16 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Distreiñ ark tangent un niver";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Distreiñ kosinuz ur c'horn (ket e radianoù)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Distreiñ sinuz ur c'horn (ket e radianoù)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Distreiñ tangent ur c'horn (ket e radianoù).";
+<<<<<<< HEAD
 Blockly.Msg.MAX = "max";  // untranslated
 Blockly.Msg.MAXANGULARVELOCITY = "maxAngularVelocity";  // untranslated
 Blockly.Msg.MAXVELOCITY = "maxVelocity";  // untranslated
 Blockly.Msg.MAX_TIME_MS = "max time (ms):";  // untranslated
 Blockly.Msg.MAX_X = "max x";  // untranslated
 Blockly.Msg.MAX_Y = "max y";  // untranslated
+=======
+Blockly.Msg.MAX_EXPECTED_TURN_TIME = "with max expected turn time (milliseconds)";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.MEMBER_DEFINITION_CREATE = "create";  // untranslated
 Blockly.Msg.MEMBER_DEFINITION_DEFAULT_TEXT = "name";  // untranslated
 Blockly.Msg.MEMBER_DEFINITION_HELP_URL = "";  // untranslated
@@ -1634,7 +1678,24 @@ Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_AMBIENT_RIGHT = "ambient sensor right";  /
 Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_LEFT = "line sensor left";  // untranslated
 Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_RIGHT = "line sensor right";  // untranslated
 Blockly.Msg.READSENSOR_TOOLTIP = "";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.RECTANGLE_CREATE = "make rectangle";  // untranslated
+=======
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS = "read edge light sensors using";  // untranslated
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS_AVERAGE = "average values";  // untranslated
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS_TOOLTIP = "Averages several reads and outputs to LeftEdgeSensorValue, etc.";  // untranslated
+Blockly.Msg.READ_LEFT_LIGHT_SENSOR = "read left light sensor";  // untranslated
+Blockly.Msg.READ_LEFT_LIGHT_SENSOR_TOOLTIP = "Return the reading of the left light sensor";  // untranslated
+Blockly.Msg.READ_RIGHT_LIGHT_SENSOR = "read right light sensor";  // untranslated
+Blockly.Msg.READ_RIGHT_LIGHT_SENSOR_TOOLTIP = "Return the reading of the right light sensor";  // untranslated
+Blockly.Msg.READ_SIDE_SENSORS = "read side sensors";  // untranslated
+Blockly.Msg.READ_SIDE_SENSORS_TOOLTIP = "Single relative & ambient reading from each of the 3 side sensors (pauses and/or repeats if IRReceiving).";  // untranslated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_1 = "make rectangle";  // untranslated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_2 = "x";  // untranslated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_3 = "y";  // untranslated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_4 = "width";  // untranslated
+Blockly.Msg.RECTANGLE_CREATE_FIELD_5 = "height";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.RECTANGLE_CREATE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html";  // untranslated
 Blockly.Msg.RECTANGLE_CREATE_TOOLTIP = "Defines a rectangle, can be used for cropping, alignment and other tasks";  // untranslated
 Blockly.Msg.RED = "Red";  // untranslated
@@ -1678,6 +1739,8 @@ Blockly.Msg.RESET_FRAME = "reset the frame dimensions of";  // untranslated
 Blockly.Msg.RESET_FRAME_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#resetFrame";  // untranslated
 Blockly.Msg.RESET_FRAME_TOOLTIP = "Resets the texture frame dimensions that the sprite uses for rendering.";  // untranslated
 Blockly.Msg.RESET_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#reset";  // untranslated
+Blockly.Msg.RESET_LOOK_AT_EDGE = "reset look at edge";  // untranslated
+Blockly.Msg.RESET_LOOK_AT_EDGE_TOOLTIP = "Zeros the LookAtEdge() running average";  // untranslated
 Blockly.Msg.RESET_TOOLTIP = "Gets most objects ready to play again in various ways and treats it like new. Specifically, moves it to a new position then makes sure it is visible, rendering, alive, and actually exists in the game world.";  // untranslated
 Blockly.Msg.RESIZE_FRAME = "resize the frame of";  // untranslated
 Blockly.Msg.RESIZE_FRAME_ACCOMODATE = "to accomodate";  // untranslated
@@ -1699,9 +1762,17 @@ Blockly.Msg.RIGHT = "right";  // untranslated
 Blockly.Msg.RIGHTPREVCOLOUR = "right previous color";  // untranslated
 Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";  // untranslated
 Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = "";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.RIGHT_CENTER = "right center";  // untranslated
 Blockly.Msg.RIGHT_EYE = "Right Eye";  // untranslated
 Blockly.Msg.ROTATE = "rotate";  // untranslated
+=======
+Blockly.Msg.ROTATE = "rotate";  // untranslated
+Blockly.Msg.ROTATE_ACCURATE_TOOLTIP = "Rotate ringo the given degrees within the maximum time.";  // untranslated
+Blockly.Msg.ROTATE_FIELD_1 = "rotate";  // untranslated
+Blockly.Msg.ROTATE_FIELD_2 = "by";  // untranslated
+Blockly.Msg.ROTATE_FIELD_3 = "degrees";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.ROTATE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#angle";  // untranslated
 Blockly.Msg.ROTATE_TOOLTIP = "Rotates a game object by the given angle in degrees. Negative numbers will rotate it the opposite direction.";  // untranslated
 Blockly.Msg.ROTATIONDEGREES = "rotation (degrees)";  // untranslated
@@ -2111,10 +2182,23 @@ Blockly.Msg.SWAP_CHILDREN_1 = "child 1";  // untranslated
 Blockly.Msg.SWAP_CHILDREN_2 = "child 2";  // untranslated
 Blockly.Msg.SWAP_CHILDREN_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#swapChildren";  // untranslated
 Blockly.Msg.SWAP_CHILDREN_TOOLTIP = "Swaps the indices of the given children. They must both be on the same parent.";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.TAG = "tag";  // untranslated
 Blockly.Msg.TAGGED = "tagged";  // untranslated
 Blockly.Msg.TAIL_BOTTOM = "Tail Bottom";  // untranslated
 Blockly.Msg.TAIL_TOP = "Tail Top";  // untranslated
+=======
+Blockly.Msg.SWITCH_AMBIENT_TO_EDGE = "switch ambient to edge";  // untranslated
+Blockly.Msg.SWITCH_AMBIENT_TO_EDGE_TOOLTIP = "";  // untranslated
+Blockly.Msg.SWITCH_BUTTON_TO_PIXELS = "switch button to pixels";  // untranslated
+Blockly.Msg.SWITCH_BUTTON_TO_PIXELS_TOOLTIP = "Sets shared line to control NeoPixel lights";  // untranslated
+Blockly.Msg.SWITCH_EDGE_TO_AMBIENT = "switch ambient to edge";  // untranslated
+Blockly.Msg.SWITCH_EDGE_TO_AMBIENT_TOOLTIP = "";  // untranslated
+Blockly.Msg.SWITCH_MOTORS_TO_SERIAL = "switch motors to serial";  // untranslated
+Blockly.Msg.SWITCH_MOTORS_TO_SERIAL_TOOLTIP = "";  // untranslated
+Blockly.Msg.SWITCH_PIXELS_TO_BUTTON = "switch pixels to button";  // untranslated
+Blockly.Msg.SWITCH_PIXELS_TO_BUTTON_TOOLTIP = "Sets shared line to control NeoPixel lights";  // untranslated
+>>>>>>> DRAG-551
 Blockly.Msg.TEXT_APPEND_APPENDTEXT = "ouzhpennañ an destenn";
 Blockly.Msg.TEXT_APPEND_HELPURL = "https://github.com/google/blockly/wiki/Text#text-modification";  // untranslated
 Blockly.Msg.TEXT_APPEND_TO = "da";
@@ -2323,9 +2407,12 @@ Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = "Moves the wink robot forward at a slow
 Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = "Rotates the wink robot left by roughly the specified number of degrees.";  // untranslated
 Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = "Rotates the wink robot right by roughly the specified number of degrees.";  // untranslated
 Blockly.Msg.WITH = "with";  // untranslated
+<<<<<<< HEAD
 Blockly.Msg.WITH_FRAMES = "with frames";  // untranslated
 Blockly.Msg.WORLDBOUNCE = "worldBounce";  // untranslated
 Blockly.Msg.X = "x";  // untranslated
+=======
+>>>>>>> DRAG-551
 Blockly.Msg.XCOLON = "x:";  // untranslated
 Blockly.Msg.XML = "texture atlas xml";  // untranslated
 Blockly.Msg.Y = "y";  // untranslated

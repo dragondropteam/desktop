@@ -1,7 +1,11 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
+<<<<<<< HEAD
 		"lastupdated": "2018-06-13 12:59:07.533755",
+=======
+		"lastupdated": "2018-06-13 13:08:33.308581",
+>>>>>>> DRAG-551
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2215,6 +2219,7 @@
 	"SUPER": "super",
 	"GET_SUPER_TOOLTIP": "Get a reference to the super class",
 	"GET_SUPER_HELPURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super",
+<<<<<<< HEAD
 	"SET_GAME_PAUSE": "set game paused to",
 	"SET_GAME_PAUSE_TOOLTIP": "Gets and sets the paused state of the Game.",
 	"SET_GAME_PAUSE_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused",
@@ -2361,4 +2366,52 @@
 	"DEVICE_BUTTON_JUST_RELEASED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justReleased",
 	"DEVICE_BUTTON_JUST_PRESSED_TOOLTIP": "True if the device button was pressed within 250ms",
 	"DEVICE_BUTTON_JUST_PRESSED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justPressed"
+=======
+	"ROTATE": "rotate",
+	"DEGREES": "degrees",
+	"MAX_EXPECTED_TURN_TIME": "with max expected turn time (milliseconds)",
+	"WITH": "with",
+	"ROTATE_ACCURATE_TOOLTIP": "Rotate ringo the given degrees within the maximum time.",
+	"READ_SIDE_SENSORS": "read side sensors",
+	"READ_SIDE_SENSORS_TOOLTIP": "Single relative & ambient reading from each of the 3 side sensors (pauses and/or repeats if IRReceiving).",
+	"READ_LEFT_LIGHT_SENSOR": "read left light sensor",
+	"READ_LEFT_LIGHT_SENSOR_TOOLTIP": "Return the reading of the left light sensor",
+	"EDGE_LIGHTS_ON": "turn edge lights on",
+	"EDGE_LIGHTS_ON_TOOLTIP": "",
+	"EDGE_LIGHTS_OFF": "turn edge lights off",
+	"EDGE_LIGHTS_OFF_TOOLTIP": "",
+	"READ_RIGHT_LIGHT_SENSOR": "read right light sensor",
+	"READ_RIGHT_LIGHT_SENSOR_TOOLTIP": "Return the reading of the right light sensor",
+	"RESET_LOOK_AT_EDGE": "reset look at edge",
+	"RESET_LOOK_AT_EDGE_TOOLTIP": "Zeros the LookAtEdge() running average",
+	"LOOK_AT_EDGE": "look at edge",
+	"LOOK_AT_EDGE_TOOLTIP": "It looks at each edge sensor with the light off and then on. It also updates a running average for each sensor, and updates global variables.",
+	"LOOK_FOR_EDGE": "look for edge",
+	"LOOK_FOR_EDGE_TOOLTIP": "LookForEdge()calls LookAtEdge(). After calling LookAtEdge(), the rest of the LookForEdge()function determines if an edge was seen for each of the 3 sensors, andfurthermore, determines if a bright edge was seen or a dark edge is seen. LookForEdge() returns a byte which includes 8 “bits”. Each “bit” is flipped to a 1depending on which edge was seen and whether it was bright or dark.",
+	"READ_EDGE_LIGHT_SENSORS": "read edge light sensors using",
+	"READ_EDGE_LIGHT_SENSORS_AVERAGE": "average values",
+	"READ_EDGE_LIGHT_SENSORS_TOOLTIP": "Averages several reads and outputs to LeftEdgeSensorValue, etc.",
+	"IS_OVER_EDGE": "is over edge",
+	"IS_OVER_EDGE_TOOLTIP": "",
+	"SWITCH_AMBIENT_TO_EDGE": "switch ambient to edge",
+	"SWITCH_AMBIENT_TO_EDGE_TOOLTIP": "",
+	"SWITCH_EDGE_TO_AMBIENT": "switch ambient to edge",
+	"SWITCH_EDGE_TO_AMBIENT_TOOLTIP": "",
+	"DELAY_WITH_NAVIGATION_SECONDS": "delay with navigation for",
+	"SECONDS": "seconds",
+	"DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP": "",
+	"DELAY_WITH_SIMPLE_NAVIGATION_SECONDS": "delay with simple navigation for",
+	"DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP": "",
+	"DELAY_SECONDS_TOOLTIP": "Delay a given number of seconds.",
+	"SWITCH_BUTTON_TO_PIXELS": "switch button to pixels",
+	"SWITCH_BUTTON_TO_PIXELS_TOOLTIP": "Sets shared line to control NeoPixel lights",
+	"SWITCH_PIXELS_TO_BUTTON": "switch pixels to button",
+	"SWITCH_PIXELS_TO_BUTTON_TOOLTIP": "Sets shared line to control NeoPixel lights",
+	"SWITCH_MOTORS_TO_SERIAL": "switch motors to serial",
+	"SWITCH_MOTORS_TO_SERIAL_TOOLTIP": "",
+	"BUTTON_PRESSED": "button pressed",
+	"BUTTON_PRESSED_TOOLTIP": "",
+	"HEADING_WITH_SHORTEST_DISTANCE": "heading with shortest distance from",
+	"HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP": ""
+>>>>>>> DRAG-551
 }
