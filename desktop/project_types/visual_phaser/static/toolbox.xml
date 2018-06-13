@@ -2295,6 +2295,246 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="points_centroid">
+                    <value name="ARRAY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultList</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_clamp">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_clamp_x">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_clamp_y">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="MIN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_clone">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_copy_from">
+                    <value name="SOURCE">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="TARGET">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_cross">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_dot">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">pointB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_add_member">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_subtract_member">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_divide_member">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_multiply_member">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_ceil">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_floor">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_get_magnitude">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_get_magnitude_squared">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_invert">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_is_zero">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_limit">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="MAX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="points_set_to_polar">
+                    <value name="POINT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultPoint</field>
+                        </shadow>
+                    </value>
+                    <value name="DEGREES">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="RADIUS">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
         </category>
         <category name="Input" colour="#1565C0">
@@ -3194,7 +3434,6 @@
             </block>
             <block type="stop_pause_resume_sounds"/>
         </category>
-    </category>
     <sep/>
     <category name="Class" colour="230" custom="CLASSES"/>
     <category name="Variables" colour="#381ECC" custom="VARIABLE"/>
