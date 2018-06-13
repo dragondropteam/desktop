@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-11 15:34:46.078448",
+		"lastupdated": "2018-06-13 12:57:28.065000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2270,5 +2270,28 @@
 	"RESTART": "restart",
 	"FOR": "for",
 	"ADD_TO_WORLD": "to the world",
-	"UP": "up"
+	"UP": "up",
+	"ADD_KEY": "add key from keycode",
+	"ADD_KEY_TOOLTIP": "Create a new Phaser.Key that can be polled, have events attached to it, etc.",
+	"ADD_KEY_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Keyboard.html#addKey",
+	"GET_KEY_BOOLEAN_FIELD_TOOLTIP": "Read the boolean values of the given key.",
+	"GET_KEY_BOOLEAN_FIELD_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html",
+	"GET_KEY_NUMERIC_FIELD_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html",
+	"GET_KEY_NUMERIC_FIELD_TOOLTIP": "Read the numeric values of the given key.",
+	"KEY_JUST_PRESSED": "just pressed?",
+	"KEY_JUST_PRESSED_TOOLTIP": "Returns true if the Key was just pressed down this update tick, or false if it either isn't down, or was pressed down on a previous update tick.",
+	"KEY_JUST_PRESSED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html#justPressed",
+	"KEY_JUST_RELEASED": "just released?",
+	"KEY_JUST_RELEASED_TOOLTIP": "Returns true if the Key was just pressed down this update tick, or false if it either isn't down, or was pressed down on a previous update tick.",
+	"KEY_JUST_RELEASED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html#justReleased",
+	"RESET": "reset",
+	"KEY_RESET_TOOLTIP": "Resets the state of this Key.",
+	"KEY_RESET_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html#reset",
+	"HARD": "hard?",
+	"KEY_UP_DURATION": "has been up for",
+	"KEY_UP_DURATION_TOOLTIP": "Returns true if the Key was pressed down within the duration value given, or false if it either isn't down, or was pressed down longer ago than then given duration.",
+	"KEY_UP_DURATION_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html#upDuration",
+	"KEY_DOWN_DURATION": "has been down for",
+	"KEY_DOWN_DURATION_TOOLTIP": "Returns true if the Key was pressed down within the duration value given, or false if it either isn't down, or was pressed down longer ago than then given duration.",
+	"KEY_DOWN_DURATION_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Key.html#downDuration"
 }
