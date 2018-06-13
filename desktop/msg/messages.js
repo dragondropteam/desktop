@@ -4760,3 +4760,70 @@ Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_HELP_URL = 'http://dragondrop.digipen.ed
 
 Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_TOOLTIP = 'True if the device button was pressed within 250ms';
 Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justPressed';
+
+Blockly.Msg.ROTATE = 'rotate';
+Blockly.Msg.DEGREES = 'degrees';
+Blockly.Msg.MAX_EXPECTED_TURN_TIME = 'with max expected turn time (milliseconds)';
+Blockly.Msg.WITH = 'with';
+Blockly.Msg.ROTATE_ACCURATE_TOOLTIP = 'Rotate ringo the given degrees within the maximum time.';
+
+Blockly.Msg.READ_SIDE_SENSORS = 'read side sensors';
+Blockly.Msg.READ_SIDE_SENSORS_TOOLTIP = 'Single relative & ambient reading from each of the 3 side sensors (pauses and/or repeats if IRReceiving).';
+
+Blockly.Msg.READ_LEFT_LIGHT_SENSOR = 'read left light sensor';
+Blockly.Msg.READ_LEFT_LIGHT_SENSOR_TOOLTIP = 'Return the reading of the left light sensor';
+
+Blockly.Msg.EDGE_LIGHTS_ON = 'turn edge lights on';
+Blockly.Msg.EDGE_LIGHTS_ON_TOOLTIP = '';
+
+Blockly.Msg.EDGE_LIGHTS_OFF = 'turn edge lights off';
+Blockly.Msg.EDGE_LIGHTS_OFF_TOOLTIP = '';
+
+Blockly.Msg.READ_RIGHT_LIGHT_SENSOR = 'read right light sensor';
+Blockly.Msg.READ_RIGHT_LIGHT_SENSOR_TOOLTIP = 'Return the reading of the right light sensor';
+
+Blockly.Msg.RESET_LOOK_AT_EDGE = 'reset look at edge';
+Blockly.Msg.RESET_LOOK_AT_EDGE_TOOLTIP = 'Zeros the LookAtEdge() running average';
+
+Blockly.Msg.LOOK_AT_EDGE = 'look at edge';
+Blockly.Msg.LOOK_AT_EDGE_TOOLTIP = 'It looks at each edge sensor with the light off and then on. It also updates a running average for each sensor, and updates global variables.';
+
+Blockly.Msg.LOOK_FOR_EDGE = 'look for edge';
+Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP = 'LookForEdge()calls LookAtEdge(). After calling LookAtEdge(), the rest of the LookForEdge()function determines if an edge was seen for each of the 3 sensors, andfurthermore, determines if a bright edge was seen or a dark edge is seen. LookForEdge() returns a byte which includes 8 “bits”. Each “bit” is flipped to a 1depending on which edge was seen and whether it was bright or dark.';
+
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS = 'read edge light sensors using';
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS_AVERAGE = 'average values';
+Blockly.Msg.READ_EDGE_LIGHT_SENSORS_TOOLTIP = 'Averages several reads and outputs to LeftEdgeSensorValue, etc.';
+
+Blockly.Msg.IS_OVER_EDGE = 'is over edge';
+Blockly.Msg.IS_OVER_EDGE_TOOLTIP = '';
+
+Blockly.Msg.SWITCH_AMBIENT_TO_EDGE = 'switch ambient to edge';
+Blockly.Msg.SWITCH_AMBIENT_TO_EDGE_TOOLTIP = '';
+
+Blockly.Msg.SWITCH_EDGE_TO_AMBIENT = 'switch ambient to edge';
+Blockly.Msg.SWITCH_EDGE_TO_AMBIENT_TOOLTIP = '';
+
+Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS = 'delay with navigation for';
+Blockly.Msg.SECONDS = 'seconds';
+Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP = '';
+
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS = 'delay with simple navigation for';
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP = '';
+
+Blockly.Msg.DELAY_SECONDS_TOOLTIP = 'Delay a given number of seconds.';
+
+Blockly.Msg.SWITCH_BUTTON_TO_PIXELS = 'switch button to pixels';
+Blockly.Msg.SWITCH_BUTTON_TO_PIXELS_TOOLTIP = 'Sets shared line to control NeoPixel lights';
+
+Blockly.Msg.SWITCH_PIXELS_TO_BUTTON = 'switch pixels to button';
+Blockly.Msg.SWITCH_PIXELS_TO_BUTTON_TOOLTIP = 'Sets shared line to control NeoPixel lights';
+
+Blockly.Msg.SWITCH_MOTORS_TO_SERIAL = 'switch motors to serial';
+Blockly.Msg.SWITCH_MOTORS_TO_SERIAL_TOOLTIP = '';
+
+Blockly.Msg.BUTTON_PRESSED = 'button pressed';
+Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
+
+Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = 'heading with shortest distance from';
+Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = '';
