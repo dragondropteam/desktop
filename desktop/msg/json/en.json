@@ -1,11 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-<<<<<<< HEAD
-		"lastupdated": "2018-06-13 12:59:07.533755",
-=======
-		"lastupdated": "2018-06-13 13:08:33.308581",
->>>>>>> DRAG-551
+		"lastupdated": "2018-06-13 13:19:12.096751",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2219,7 +2215,6 @@
 	"SUPER": "super",
 	"GET_SUPER_TOOLTIP": "Get a reference to the super class",
 	"GET_SUPER_HELPURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super",
-<<<<<<< HEAD
 	"SET_GAME_PAUSE": "set game paused to",
 	"SET_GAME_PAUSE_TOOLTIP": "Gets and sets the paused state of the Game.",
 	"SET_GAME_PAUSE_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Game.html#paused",
@@ -2365,8 +2360,7 @@
 	"DEVICE_BUTTON_JUST_RELEASED_TOOLTIP": "True if the device button was released within 250ms",
 	"DEVICE_BUTTON_JUST_RELEASED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justReleased",
 	"DEVICE_BUTTON_JUST_PRESSED_TOOLTIP": "True if the device button was pressed within 250ms",
-	"DEVICE_BUTTON_JUST_PRESSED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justPressed"
-=======
+	"DEVICE_BUTTON_JUST_PRESSED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justPressed",
 	"ROTATE": "rotate",
 	"DEGREES": "degrees",
 	"MAX_EXPECTED_TURN_TIME": "with max expected turn time (milliseconds)",
@@ -2413,5 +2407,4 @@
 	"BUTTON_PRESSED_TOOLTIP": "",
 	"HEADING_WITH_SHORTEST_DISTANCE": "heading with shortest distance from",
 	"HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP": ""
->>>>>>> DRAG-551
 }

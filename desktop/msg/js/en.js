@@ -245,10 +245,6 @@ Blockly.Msg.BUTTONWAIT = "wait for button press";
 Blockly.Msg.BUTTONWAIT_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";
 Blockly.Msg.BUTTONWAIT_TOOLTIP = "Waits until a remote button is pressed to continue.";
 Blockly.Msg.BUTTON_PRESSED = "button pressed";
-<<<<<<< HEAD
-=======
-Blockly.Msg.BUTTON_PRESSED_FIELD_1 = "button pressed";
->>>>>>> DRAG-551
 Blockly.Msg.BUTTON_PRESSED_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";
 Blockly.Msg.BUTTON_PRESSED_TOOLTIP = "";
 Blockly.Msg.BY = "by";
@@ -535,21 +531,12 @@ Blockly.Msg.DELAY_MICROSECONDS_HELP_URL = "https://www.arduino.cc/en/Reference/D
 Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = "Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.";
 Blockly.Msg.DELAY_MILLISECONDS_HELP_URL = "https://www.arduino.cc/en/Reference/Delay";
 Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP = "Wait the specified number of milliseconds before continuing. There are 1,000 milliseconds in a second.";
-<<<<<<< HEAD
-Blockly.Msg.DELAY_SECONDS_TOOLTIP = "Wait the specified number of seconds before continuing with the program.";
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS = "Delay With Navigation for ";
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = "";
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = "Delay With Simple Navigation for";
-=======
 Blockly.Msg.DELAY_SECONDS_TOOLTIP = "Delay a given number of seconds.";
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_1 = "delay with navigation for ";
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_FIELD_2 = "milliseconds";
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS = "Delay With Navigation for ";
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = "";
 Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS = "delay with navigation for";
 Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP = "";
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_1 = "delay with simple navigation for";
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_FIELD_2 = "milliseconds";
->>>>>>> DRAG-551
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = "Delay With Simple Navigation for";
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = "";
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS = "delay with simple navigation for";
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP = "";
@@ -617,14 +604,11 @@ Blockly.Msg.DRIVE_ARC_SKID_TIME = "With Max Expected Skid Time (milliseconds)";
 Blockly.Msg.DRIVE_ARC_TOOLTIP = "";
 Blockly.Msg.DRIVE_ARC_TURN_TIME = "With Max Expected Turn Time (milliseconds)";
 Blockly.Msg.DUPLICATE_BLOCK = "Duplicate";
-<<<<<<< HEAD
 Blockly.Msg.DURATION = "duration";
-=======
 Blockly.Msg.EDGE_LIGHTS_OFF = "turn edge lights off";
 Blockly.Msg.EDGE_LIGHTS_OFF_TOOLTIP = "";
 Blockly.Msg.EDGE_LIGHTS_ON = "turn edge lights on";
 Blockly.Msg.EDGE_LIGHTS_ON_TOOLTIP = "";
->>>>>>> DRAG-551
 Blockly.Msg.EEPROM_GET_ADDRESS = "EEPROM get data from address";
 Blockly.Msg.EEPROM_GET_HELP_URL = "https://www.arduino.cc/en/Reference/EEPROMGet";
 Blockly.Msg.EEPROM_GET_TOOLTIP = "";
@@ -1050,13 +1034,9 @@ Blockly.Msg.IS_KEY_DOWN_TOOLTIP = "Checks if the given key is down";
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED = "mouse button is clicked?";
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#isDown";
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP = "Is the specified button clicked";
-<<<<<<< HEAD
-Blockly.Msg.IS_STATIONARY = "Is Ringo Stationary";
-=======
 Blockly.Msg.IS_OVER_EDGE = "is over edge";
 Blockly.Msg.IS_OVER_EDGE_TOOLTIP = "";
-Blockly.Msg.IS_STATIONARY_FIELD_1 = "is ringo stationary";
->>>>>>> DRAG-551
+Blockly.Msg.IS_STATIONARY = "Is Ringo Stationary";
 Blockly.Msg.IS_STATIONARY_TOOLTIP = "";
 Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = "developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval";
 Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL = "developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval";
@@ -1219,16 +1199,12 @@ Blockly.Msg.LOGIC_TERNARY_TOOLTIP = "Check the condition in 'test'. If the condi
 Blockly.Msg.LOG_CONSOLE_HELP_URL = "https://en.wikipedia.org/wiki/System_console";
 Blockly.Msg.LOG_CONSOLE_TITLE = "log to console";
 Blockly.Msg.LOG_CONSOLE_TOOLTIP = "Logs a message to the debug console. Used correctly, this is a very powerful debugging tool.";
-<<<<<<< HEAD
-Blockly.Msg.LOOP = "loop";
-Blockly.Msg.LOOPING = "looping";
-=======
 Blockly.Msg.LOOK_AT_EDGE = "look at edge";
 Blockly.Msg.LOOK_AT_EDGE_TOOLTIP = "It looks at each edge sensor with the light off and then on. It also updates a running average for each sensor, and updates global variables.";
 Blockly.Msg.LOOK_FOR_EDGE = "look for edge";
 Blockly.Msg.LOOK_FOR_EDGE_TOOLTIP = "LookForEdge()calls LookAtEdge(). After calling LookAtEdge(), the rest of the LookForEdge()function determines if an edge was seen for each of the 3 sensors, andfurthermore, determines if a bright edge was seen or a dark edge is seen. LookForEdge() returns a byte which includes 8 “bits”. Each “bit” is flipped to a 1depending on which edge was seen and whether it was bright or dark.";
-Blockly.Msg.LOOP_FIELD_1 = "loop";
->>>>>>> DRAG-551
+Blockly.Msg.LOOP = "loop";
+Blockly.Msg.LOOPING = "looping";
 Blockly.Msg.LOOP_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";
 Blockly.Msg.LOOP_TOOLTIP = "This code is run continuously once the device is turned on";
 Blockly.Msg.LOW = "LOW";
@@ -1338,16 +1314,13 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Return the arctangent of a number.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Return the cosine of a degree (not radian).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Return the sine of a degree (not radian).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Return the tangent of a degree (not radian).";
-<<<<<<< HEAD
 Blockly.Msg.MAX = "max";
 Blockly.Msg.MAXANGULARVELOCITY = "maxAngularVelocity";
 Blockly.Msg.MAXVELOCITY = "maxVelocity";
+Blockly.Msg.MAX_EXPECTED_TURN_TIME = "with max expected turn time (milliseconds)";
 Blockly.Msg.MAX_TIME_MS = "max time (ms):";
 Blockly.Msg.MAX_X = "max x";
 Blockly.Msg.MAX_Y = "max y";
-=======
-Blockly.Msg.MAX_EXPECTED_TURN_TIME = "with max expected turn time (milliseconds)";
->>>>>>> DRAG-551
 Blockly.Msg.MEMBER_DEFINITION_CREATE = "create";
 Blockly.Msg.MEMBER_DEFINITION_DEFAULT_TEXT = "name";
 Blockly.Msg.MEMBER_DEFINITION_HELP_URL = "";
@@ -1678,9 +1651,6 @@ Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_AMBIENT_RIGHT = "ambient sensor right";
 Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_LEFT = "line sensor left";
 Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_RIGHT = "line sensor right";
 Blockly.Msg.READSENSOR_TOOLTIP = "";
-<<<<<<< HEAD
-Blockly.Msg.RECTANGLE_CREATE = "make rectangle";
-=======
 Blockly.Msg.READ_EDGE_LIGHT_SENSORS = "read edge light sensors using";
 Blockly.Msg.READ_EDGE_LIGHT_SENSORS_AVERAGE = "average values";
 Blockly.Msg.READ_EDGE_LIGHT_SENSORS_TOOLTIP = "Averages several reads and outputs to LeftEdgeSensorValue, etc.";
@@ -1690,12 +1660,7 @@ Blockly.Msg.READ_RIGHT_LIGHT_SENSOR = "read right light sensor";
 Blockly.Msg.READ_RIGHT_LIGHT_SENSOR_TOOLTIP = "Return the reading of the right light sensor";
 Blockly.Msg.READ_SIDE_SENSORS = "read side sensors";
 Blockly.Msg.READ_SIDE_SENSORS_TOOLTIP = "Single relative & ambient reading from each of the 3 side sensors (pauses and/or repeats if IRReceiving).";
-Blockly.Msg.RECTANGLE_CREATE_FIELD_1 = "make rectangle";
-Blockly.Msg.RECTANGLE_CREATE_FIELD_2 = "x";
-Blockly.Msg.RECTANGLE_CREATE_FIELD_3 = "y";
-Blockly.Msg.RECTANGLE_CREATE_FIELD_4 = "width";
-Blockly.Msg.RECTANGLE_CREATE_FIELD_5 = "height";
->>>>>>> DRAG-551
+Blockly.Msg.RECTANGLE_CREATE = "make rectangle";
 Blockly.Msg.RECTANGLE_CREATE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html";
 Blockly.Msg.RECTANGLE_CREATE_TOOLTIP = "Defines a rectangle, can be used for cropping, alignment and other tasks";
 Blockly.Msg.RED = "Red";
@@ -1762,17 +1727,10 @@ Blockly.Msg.RIGHT = "right";
 Blockly.Msg.RIGHTPREVCOLOUR = "right previous color";
 Blockly.Msg.RIGHTPREVCOLOUR_HELP_URL = "http://www.plumgeek.com/learn-to-code.html/";
 Blockly.Msg.RIGHTPREVCOLOUR_TOOLTIP = "";
-<<<<<<< HEAD
 Blockly.Msg.RIGHT_CENTER = "right center";
 Blockly.Msg.RIGHT_EYE = "Right Eye";
 Blockly.Msg.ROTATE = "rotate";
-=======
-Blockly.Msg.ROTATE = "rotate";
 Blockly.Msg.ROTATE_ACCURATE_TOOLTIP = "Rotate ringo the given degrees within the maximum time.";
-Blockly.Msg.ROTATE_FIELD_1 = "rotate";
-Blockly.Msg.ROTATE_FIELD_2 = "by";
-Blockly.Msg.ROTATE_FIELD_3 = "degrees";
->>>>>>> DRAG-551
 Blockly.Msg.ROTATE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#angle";
 Blockly.Msg.ROTATE_TOOLTIP = "Rotates a game object by the given angle in degrees. Negative numbers will rotate it the opposite direction.";
 Blockly.Msg.ROTATIONDEGREES = "rotation (degrees)";
@@ -2182,12 +2140,6 @@ Blockly.Msg.SWAP_CHILDREN_1 = "child 1";
 Blockly.Msg.SWAP_CHILDREN_2 = "child 2";
 Blockly.Msg.SWAP_CHILDREN_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#swapChildren";
 Blockly.Msg.SWAP_CHILDREN_TOOLTIP = "Swaps the indices of the given children. They must both be on the same parent.";
-<<<<<<< HEAD
-Blockly.Msg.TAG = "tag";
-Blockly.Msg.TAGGED = "tagged";
-Blockly.Msg.TAIL_BOTTOM = "Tail Bottom";
-Blockly.Msg.TAIL_TOP = "Tail Top";
-=======
 Blockly.Msg.SWITCH_AMBIENT_TO_EDGE = "switch ambient to edge";
 Blockly.Msg.SWITCH_AMBIENT_TO_EDGE_TOOLTIP = "";
 Blockly.Msg.SWITCH_BUTTON_TO_PIXELS = "switch button to pixels";
@@ -2198,7 +2150,10 @@ Blockly.Msg.SWITCH_MOTORS_TO_SERIAL = "switch motors to serial";
 Blockly.Msg.SWITCH_MOTORS_TO_SERIAL_TOOLTIP = "";
 Blockly.Msg.SWITCH_PIXELS_TO_BUTTON = "switch pixels to button";
 Blockly.Msg.SWITCH_PIXELS_TO_BUTTON_TOOLTIP = "Sets shared line to control NeoPixel lights";
->>>>>>> DRAG-551
+Blockly.Msg.TAG = "tag";
+Blockly.Msg.TAGGED = "tagged";
+Blockly.Msg.TAIL_BOTTOM = "Tail Bottom";
+Blockly.Msg.TAIL_TOP = "Tail Top";
 Blockly.Msg.TEXT_APPEND_APPENDTEXT = "append text";
 Blockly.Msg.TEXT_APPEND_HELPURL = "https://github.com/google/blockly/wiki/Text#text-modification";
 Blockly.Msg.TEXT_APPEND_TO = "to";
@@ -2407,12 +2362,9 @@ Blockly.Msg.WINK_MOVEMENT_FORWARD_SLOW = "Moves the wink robot forward at a slow
 Blockly.Msg.WINK_MOVEMENT_ROTATION_LEFT = "Rotates the wink robot left by roughly the specified number of degrees.";
 Blockly.Msg.WINK_MOVEMENT_ROTATION_RIGHT = "Rotates the wink robot right by roughly the specified number of degrees.";
 Blockly.Msg.WITH = "with";
-<<<<<<< HEAD
 Blockly.Msg.WITH_FRAMES = "with frames";
 Blockly.Msg.WORLDBOUNCE = "worldBounce";
 Blockly.Msg.X = "x";
-=======
->>>>>>> DRAG-551
 Blockly.Msg.XCOLON = "x:";
 Blockly.Msg.XML = "texture atlas xml";
 Blockly.Msg.Y = "y";
