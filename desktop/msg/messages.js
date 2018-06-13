@@ -4320,6 +4320,7 @@ Blockly.Msg.SET_POINT_FIELD = 'set point field';
 Blockly.Msg.SET_BOOLEAN_FIELD = 'set boolean field';
 Blockly.Msg.SET_NUMERIC_FIELD = 'set numeric field';
 Blockly.Msg.SET_STRING_FIELD = 'set string field';
+Blockly.Msg.GET_DEVICE_BUTTON_FIELD = 'get device button field';
 
 // Prepositions
 Blockly.Msg.OF = 'of';
@@ -4744,3 +4745,11 @@ Blockly.Msg.ARDUINO_RANDOM = 'generate random number between';
 Blockly.Msg.ARDUINO_RANDOM_TOOLTIP = 'The random function generates pseudo-random numbers.';
 Blockly.Msg.ARDUINO_RANDOM_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/random-numbers/random/';
 Blockly.Msg.AND = 'and';
+
+Blockly.Msg.GET_DEVICE_BUTTON_BOOLEAN_FIELD_VI_TOOLTIP = 'Get the boolean field for the selected DeviceButton';
+Blockly.Msg.GET_DEVICE_BUTTON_NUMERIC_FIELD_VI_TOOLTIP = 'Get the numeric field for the selected DeviceButton';
+Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html';
+
+Blockly.Msg.GET_POINTER_BOOLEAN_FIELD_VI_TOOLTIP = 'Get the boolean field for the selected Pointer';
+Blockly.Msg.GET_POINTER_NUMERIC_FIELD_VI_TOOLTIP = 'Get the numeric field for the selected Pointer';
+Blockly.Msg.GET_POINTER_FIELD_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html';
