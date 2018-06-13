@@ -16,6 +16,12 @@ function getMember(block) {
     return [`${object}.${element}`, Blockly.JavaScript.ORDER_ATOMIC];
 }
 
+function getField(block) {
+    const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+    const field = block.getFieldValue('FIELD');
+    return [`${object}.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+}
+
 /**
  * Generic method to translate a block for a get_<object>_<type>_member block
  * @param block A block containing a value input OBJECT representing the object the member is on and a field ELEMENT to determine the member
@@ -2250,5 +2256,23 @@ Blockly.JavaScript['phaser_yoyo_tween'] = function (block) {
     const delay = Blockly.JavaScript.valueToCode(block, 'DELAY', Blockly.JavaScript.ORDER_ATOMIC);
     const index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC);
     return `${tween}.yoyo(${enable}, ${delay}, ${index});\n`;
+};
+//endregion
+
+//region POINTER
+Blockly.JavaScript['pointer_get_device_buttons_field'] = getField;
+//endregion
+
+//region DEVICE_BUTTON
+Blockly.JavaScript['device_button_get_boolean_field'] = Blockly.JavaScript['device_button_get_numeric_field'] = getField;
+
+Blockly.JavaScript['device_button_just_released'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.justReleased()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.JavaScript['device_button_just_pressed'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.justPressed()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 //endregion
