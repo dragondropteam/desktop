@@ -16,7 +16,7 @@ DragonDrop.Classes.allClasses = function(root){
     let blocks = root.getAllBlocks();
     let classes = [];
     for(let i = 0; i < blocks.length; ++i){
-        if(blocks[i].type == 'class_definition'){
+        if(blocks[i].type.startsWith('class_definition')){
             classes.push(blocks[i]);
         }
     }
@@ -51,7 +51,6 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
   returnBlock.setAttribute('type', 'method_return');
   xmlList.push(returnBlock);
 
-
   let memberDefinition = goog.dom.createDom('block');
   memberDefinition.setAttribute('type', 'member_definition');
   xmlList.push(memberDefinition);
@@ -73,6 +72,8 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
   // xmlList.push(thisGet);
 
   let classes = DragonDrop.Classes.allClasses(workspace);
+
+  console.log('Classes: ', classes);
 
   for (let i = 0; i < classes.length; ++i) {
     let className = classes[i].getFieldValue('NAME');
@@ -184,9 +185,11 @@ DragonDrop.Classes.createClass = function(workspace){
 };
 
 DragonDrop.Classes.getMembersOf = function(root, className){
+  console.log('getMembersOf');
     let blocks = root.getAllBlocks();
     let members = [];
     for(let i = 0; i < blocks.length; ++i){
+      console.log(blocks[i]);
         if(blocks[i].type == 'member_definition' && blocks[i].name == className){
             members.push(blocks[i]);
         }
