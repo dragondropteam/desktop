@@ -39,6 +39,8 @@ function disableIfNotInClassBlock (root) {
     }
   }
   Blockly.Events.enable();
+
+  return block;
 }
 
 function getClassForBlock (root) {
