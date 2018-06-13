@@ -18,7 +18,6 @@ testMacOS:
   tags:
     - macOS
     
-    
 testWindows:
   stage: test
   before_script:
@@ -31,7 +30,7 @@ testWindows:
     - cd ..
   tags:
     - windows
-    
+
 buildMacOS:
   stage: build
   before_script:
@@ -40,7 +39,7 @@ buildMacOS:
     - cd ..
   script:
     - cd desktop
-    - gulp publishCurrentPlatform
+    - gulp buildCurrentPlatform
     - cd ..
   artifacts:
     paths:
@@ -50,8 +49,73 @@ buildMacOS:
    - develop
   tags:
     - macOS
+  except:
+    - tags
 
 buildWindows:
+  stage: build
+  before_script:
+    - cd desktop
+    - call yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - call gulp buildCurrentPlatform
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  only:
+    - master
+    - develop
+  tags:
+    - windows
+  except:
+    - tags
+    
+buildLinux:
+  stage: build
+  before_script:
+    - cd desktop
+    - yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - gulp buildCurrentPlatform
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  only:
+   - master
+   - develop
+  tags:
+    - linux
+  except:
+    - tags
+
+publishMacOS:
+  stage: build
+  before_script:
+    - cd desktop
+    - yarn install
+    - cd ..
+  script:
+    - cd desktop
+    - gulp buildCurrentPlatform
+    - cd ..
+  artifacts:
+    paths:
+    - dist
+  only:
+   - master
+   - develop
+  tags:
+    - macOS
+  only:
+    - tags
+    
+publishWindows:
   stage: build
   before_script:
     - cd desktop
@@ -69,8 +133,10 @@ buildWindows:
     - develop
   tags:
     - windows
+  only:
+    - tags
     
-buildLinux:
+publishLinux:
   stage: build
   before_script:
     - cd desktop
@@ -88,3 +154,6 @@ buildLinux:
    - develop
   tags:
     - linux
+  only:
+    - tags
+    

@@ -13,7 +13,8 @@ Blockly.C['hardwarestartup_arduino'] = function (block) {
 
 Blockly.C['delayseconds'] = function (block) {
     var value_seconds = Blockly.C.valueToCode(block, 'SECONDS', Blockly.C.ORDER_ATOMIC) || '0';
-    return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' second(s)\n';
+    //return 'delay( ' + (value_seconds * 1000) + ' ); // Delay ' + value_seconds + ' second(s)\n';
+  return `delay(${value_seconds} * 1000);\n`;
 };
 Blockly.C['delayms'] = function (block) {
     var value_milliseconds = Blockly.C.valueToCode(block, 'MILLISECONDS', Blockly.C.ORDER_ATOMIC) || '0';
@@ -163,6 +164,17 @@ Blockly.C['random'] = function (block) {
     var min = Blockly.C.valueToCode(block, 'MIN', Blockly.C.ORDER_ATOMIC) || '0';
     var max = Blockly.C.valueToCode(block, 'MAX', Blockly.C.ORDER_ATOMIC);
     return [`random(${min}, ${max})`, Blockly.C.ORDER_ATOMIC];
+};
+
+Blockly.C['arduino_random_seed'] = function(block) {
+  var seed = Blockly.C.valueToCode(block, 'SEED', Blockly.C.ORDER_ATOMIC);
+  return `randomSeed(${seed});\n`;
+};
+
+Blockly.C['arduino_random'] = function(block) {
+  var min = Blockly.C.valueToCode(block, 'MIN', Blockly.C.ORDER_ATOMIC);
+  var max = Blockly.C.valueToCode(block, 'MAX', Blockly.C.ORDER_ATOMIC);
+  return [`random(${min}, ${max})`, Blockly.C.ORDER_ATOMIC];
 };
 
 //endregion

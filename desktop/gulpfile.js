@@ -14,6 +14,8 @@ const exec = require('child_process').exec;
 
 const options = {mangle: {reserved: ['require']}};
 
+const buildDeps = ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager', 'serial_monitor'];
+
 process.env.ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY = 'true';
 
 /**
@@ -28,7 +30,7 @@ gulp.task('clean', () => {
  * Install dependencies, in most cases we will really need to update
  * or something else as npm install is a prereq to running this project
  */
-gulp.task('install', ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager'], () => {
+gulp.task('install', buildDeps, () => {
     return gulp.src('package.json')
         .pipe(install());
 });
@@ -44,11 +46,11 @@ gulp.task('mainProcess', () => {
  * Automatically uses package.json in cwd and the current platform
  */
 
-gulp.task('buildCurrentPlatform',  ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager'], () => {
+gulp.task('buildCurrentPlatform', buildDeps, () => {
     return builder.build();
 });
 
-gulp.task('publishCurrentPlatform',  ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager'], () => {
+gulp.task('publishCurrentPlatform',  buildDeps, () => {
     return builder.build({
       publish: 'always'
     });

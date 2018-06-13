@@ -120,9 +120,39 @@
                 </shadow>
             </value>
         </block>
+        <block type="arduino_random_seed">
+            <value name="SEED">
+                <shadow type="analog_read">
+                    <value name="PIN">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_random">
+            <value name="MIN">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="MAX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
     </category>
     <sep/>
     <category name="Time" colour="120" enabled="false">
+        <block type="delayseconds">
+            <value name="SECONDS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
         <block type="delayms">
             <value name="MILLISECONDS">
                 <shadow type="math_number">
@@ -231,6 +261,12 @@
     </category>
     <sep/>
     <category name="Ringo Hardware" colour="290">
+        <category name="Input" colour="290">
+            <block type="switch_button_to_pixels"></block>
+            <block type="switch_pixels_to_button"></block>
+            <block type="switch_motors_to_serial"></block>
+            <block type="ringo_button_pressed"></block>
+        </category>
         <category name="Pixels" colour="290">
             <block type="set_pixel_rgb">
                 <value name="RED">
@@ -333,6 +369,25 @@
                     </shadow>
                 </value>
             </block>
+            <block type="rotate_accurate">
+                <value name="HEADING">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="MAX_EXPECTED_TURN_TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="heading_with_shortest_distance">
+                <value name="HEADING">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
             <!--<block type="heading_with_shortest_distance">-->
             <!--<value name="HEADING">-->
             <!--<shadow type="math_number">-->
@@ -345,6 +400,26 @@
             <block type="restart_ir"/>
             <block type="is_ir_done"/>
             <block type="ir_when"/>
+        </category>
+        <category name="Ringo Sensors" colour="290">
+            <block type="read_side_sensors"></block>
+            <block type="read_left_light_sensor"></block>
+            <block type="read_right_light_sensor"></block>
+            <block type="edge_lights_on"></block>
+            <block type="edge_lights_off"></block>
+            <block type="reset_look_at_edge"></block>
+            <block type="look_at_edge"></block>
+            <block type="look_for_edge"></block>
+            <block type="read_edge_light_sensors">
+                <value name="AVERAGE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="is_over_edge"></block>
+            <block type="switch_ambient_to_edge"></block>
+            <block type="switch_edge_to_ambient"></block>
         </category>
     </category>
     <category name="Ringo Navigation" colour="290">
@@ -379,6 +454,20 @@
             </block>
             <block type="delay_with_simple_navigation_ms">
                 <value name="milliseconds">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delay_with_navigation_seconds">
+                <value name="SECONDS">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="delay_with_simple_navigation_seconds">
+                <value name="SECONDS">
                     <shadow type="math_number">
                         <field name="NUM">0</field>
                     </shadow>
@@ -470,6 +559,6 @@
         <!--<block type="readsensor"/>-->
     <!--</category>-->
     <sep/>
-    <category name="Variables" colour="330" custom="VARIABLES_TYPED"/>
+    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
 </xml>

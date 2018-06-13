@@ -118,7 +118,6 @@ Blockly.Blocks['variables_set'] = {
     customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
 };
 
-
 Blockly.Blocks['variables_get_typed'] = {
     /**
      * Block for variable getter.
@@ -226,13 +225,13 @@ Blockly.Blocks['variable_set_typed'] = {
     init: function () {
         this.appendValueInput("VALUE")
         //.setCheck("Number")
-            .appendField(Blockly.Msg.VARIABLE_SET_TYPED_FIELD_1)
+            .appendField(Blockly.Msg.SET)
             .appendField(new Blockly.FieldDropdown(types), "TYPE")
             .appendField(new Blockly.FieldVariable(Blockly.Msg.VARIABLE_SET_TYPED_DEFAULT_VAR), "VAR")
-            .appendField(Blockly.Msg.VARIABLE_SET_TYPED_FIELD_2);
+            .appendField(Blockly.Msg.TO);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(330);
+        this.setColour(Blockly.Blocks.variables.HUE);
         this.setTooltip(Blockly.Msg.VARIABLE_SET_TYPED_TOOLTIP);
         this.setHelpUrl(Blockly.Msg.VARIABLE_SET_TYPED_HELP_URL);
         this.type_ = 'Number';

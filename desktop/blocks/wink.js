@@ -26,7 +26,7 @@ const WINK_SETUP_AND_LOOP_COLOR = '#558B2F';
 Blockly.Blocks['seteyesred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESRED_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESRED)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -39,7 +39,7 @@ Blockly.Blocks['seteyesred'] = {
 Blockly.Blocks['seteyesgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESGREEN_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESGREEN)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -52,7 +52,7 @@ Blockly.Blocks['seteyesgreen'] = {
 Blockly.Blocks['seteyesblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESBLUE_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESBLUE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -65,7 +65,7 @@ Blockly.Blocks['seteyesblue'] = {
 Blockly.Blocks['seteyespurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESPURPLE_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESPURPLE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -78,7 +78,7 @@ Blockly.Blocks['seteyespurple'] = {
 Blockly.Blocks['seteyespink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESPINK_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESPINK)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -91,7 +91,7 @@ Blockly.Blocks['seteyespink'] = {
 Blockly.Blocks['seteyesyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESYELLOW_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESYELLOW)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -104,7 +104,7 @@ Blockly.Blocks['seteyesyellow'] = {
 Blockly.Blocks['seteyescyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESCYAN_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESCYAN)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -117,7 +117,7 @@ Blockly.Blocks['seteyescyan'] = {
 Blockly.Blocks['seteyesorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESORANGE_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESORANGE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -130,7 +130,7 @@ Blockly.Blocks['seteyesorange'] = {
 Blockly.Blocks['seteyeswhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETEYESWHITE_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESWHITE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -143,7 +143,7 @@ Blockly.Blocks['seteyeswhite'] = {
 Blockly.Blocks['seteyesrgb'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SETEYESRGB_FIELD_1)
+            .appendField(Blockly.Msg.SETEYESRGB)
             .appendField(new Blockly.FieldColour(WINK_EYES_DEFAULT_FIELD_COLOUR), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -156,7 +156,7 @@ Blockly.Blocks['seteyesrgb'] = {
 Blockly.Blocks['turneyesoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURNEYESOFF_FIELD_1);
+            .appendField(Blockly.Msg.TURNEYESOFF);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_EYES_BOTH_COLOUR);
@@ -168,7 +168,7 @@ Blockly.Blocks['turneyesoff'] = {
 Blockly.Blocks['eyesprevcolour'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.EYESPREVCOLOUR_FIELD_1);
+            .appendField(Blockly.Msg.EYESPREVCOLOUR);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_EYES_BOTH_COLOUR);
@@ -180,16 +180,16 @@ Blockly.Blocks['eyesprevcolour'] = {
 Blockly.Blocks['set_eyes'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_EYES_FIELD_1);
+            .appendField(Blockly.Msg.SET_EYES);
         this.appendValueInput("RED")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_EYES_FIELD_2);
+            .appendField(Blockly.Msg.RED);
         this.appendValueInput("GREEN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_EYES_FIELD_3);
+            .appendField(Blockly.Msg.GREEN);
         this.appendValueInput("BLUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_EYES_FIELD_4);
+            .appendField(Blockly.Msg.BLUE);
         this.setInputsInline(true);
         this.setColour(WINK_EYES_BOTH_COLOUR);
         this.setTooltip(Blockly.Msg.SET_EYES_TOOLTIP);
@@ -206,7 +206,7 @@ Blockly.Blocks['set_eyes'] = {
 Blockly.Blocks['setleftred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTRED_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTRED)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -219,7 +219,7 @@ Blockly.Blocks['setleftred'] = {
 Blockly.Blocks['setleftgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTGREEN_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTGREEN)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -232,7 +232,7 @@ Blockly.Blocks['setleftgreen'] = {
 Blockly.Blocks['setleftblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTBLUE_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTBLUE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -245,7 +245,7 @@ Blockly.Blocks['setleftblue'] = {
 Blockly.Blocks['setleftpurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTPURPLE_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTPURPLE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -258,7 +258,7 @@ Blockly.Blocks['setleftpurple'] = {
 Blockly.Blocks['setleftpink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTPINK_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTPINK)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -271,7 +271,7 @@ Blockly.Blocks['setleftpink'] = {
 Blockly.Blocks['setleftyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTYELLOW_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTYELLOW)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -284,7 +284,7 @@ Blockly.Blocks['setleftyellow'] = {
 Blockly.Blocks['setleftcyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTCYAN_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTCYAN)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -297,7 +297,7 @@ Blockly.Blocks['setleftcyan'] = {
 Blockly.Blocks['setleftorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTORANGE_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTORANGE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -310,7 +310,7 @@ Blockly.Blocks['setleftorange'] = {
 Blockly.Blocks['setleftwhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETLEFTWHITE_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTWHITE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -323,7 +323,7 @@ Blockly.Blocks['setleftwhite'] = {
 Blockly.Blocks['setleftrgb'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SETLEFTRGB_FIELD_1)
+            .appendField(Blockly.Msg.SETLEFTRGB)
             .appendField(new Blockly.FieldColour(WINK_EYES_DEFAULT_FIELD_COLOUR), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -336,7 +336,7 @@ Blockly.Blocks['setleftrgb'] = {
 Blockly.Blocks['turnlefteyeoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURNLEFTEYEOFF_FIELD_1);
+            .appendField(Blockly.Msg.TURNLEFTEYEOFF);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_EYE_LEFT_COLOUR);
@@ -348,7 +348,7 @@ Blockly.Blocks['turnlefteyeoff'] = {
 Blockly.Blocks['leftprevcolour'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.LEFTPREVCOLOUR_FIELD_1);
+            .appendField(Blockly.Msg.LEFTPREVCOLOUR);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_EYE_LEFT_COLOUR);
@@ -360,16 +360,16 @@ Blockly.Blocks['leftprevcolour'] = {
 Blockly.Blocks['set_left_eye'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_1);
+            .appendField(Blockly.Msg.SET_LEFT_EYE);
         this.appendValueInput("RED")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_2);
+            .appendField(Blockly.Msg.RED);
         this.appendValueInput("GREEN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_3);
+            .appendField(Blockly.Msg.GREEN);
         this.appendValueInput("BLUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_LEFT_EYE_FIELD_4);
+            .appendField(Blockly.Msg.BLUE);
         this.setInputsInline(true);
         this.setColour(WINK_EYE_LEFT_COLOUR);
         this.setTooltip(Blockly.Msg.SET_LEFT_EYE_TOOLTIP);
@@ -386,7 +386,7 @@ Blockly.Blocks['set_left_eye'] = {
 Blockly.Blocks['setrightred'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTRED_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTRED)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -399,7 +399,7 @@ Blockly.Blocks['setrightred'] = {
 Blockly.Blocks['setrightgreen'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTGREEN_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTGREEN)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -412,7 +412,7 @@ Blockly.Blocks['setrightgreen'] = {
 Blockly.Blocks['setrightblue'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTBLUE_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTBLUE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -425,7 +425,7 @@ Blockly.Blocks['setrightblue'] = {
 Blockly.Blocks['setrightpurple'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTPURPLE_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTPURPLE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -438,7 +438,7 @@ Blockly.Blocks['setrightpurple'] = {
 Blockly.Blocks['setrightpink'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTPINK_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTPINK)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -451,7 +451,7 @@ Blockly.Blocks['setrightpink'] = {
 Blockly.Blocks['setrightyellow'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTYELLOW_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTYELLOW)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -464,7 +464,7 @@ Blockly.Blocks['setrightyellow'] = {
 Blockly.Blocks['setrightcyan'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTCYAN_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTCYAN)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -477,7 +477,7 @@ Blockly.Blocks['setrightcyan'] = {
 Blockly.Blocks['setrightorange'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTORANGE_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTORANGE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -490,7 +490,7 @@ Blockly.Blocks['setrightorange'] = {
 Blockly.Blocks['setrightwhite'] = {
     init: function () {
         this.appendValueInput("INTENSITY")
-            .appendField(Blockly.Msg.SETRIGHTWHITE_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTWHITE)
             .setCheck("Number");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -503,7 +503,7 @@ Blockly.Blocks['setrightwhite'] = {
 Blockly.Blocks['setrightrgb'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SETRIGHTRGB_FIELD_1)
+            .appendField(Blockly.Msg.SETRIGHTRGB)
             .appendField(new Blockly.FieldColour(WINK_EYES_DEFAULT_FIELD_COLOUR), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -516,7 +516,7 @@ Blockly.Blocks['setrightrgb'] = {
 Blockly.Blocks['turnrighteyeoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURNRIGHTEYEOFF_FIELD_1);
+            .appendField(Blockly.Msg.TURNRIGHTEYEOFF);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_EYE_RIGHT_COLOUR);
@@ -528,7 +528,7 @@ Blockly.Blocks['turnrighteyeoff'] = {
 Blockly.Blocks['rightprevcolour'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.RIGHTPREVCOLOUR_FIELD_1);
+            .appendField(Blockly.Msg.RIGHTPREVCOLOUR);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_EYE_RIGHT_COLOUR);
@@ -540,16 +540,16 @@ Blockly.Blocks['rightprevcolour'] = {
 Blockly.Blocks['set_right_eye'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_1);
+            .appendField(Blockly.Msg.SET_RIGHT_EYE);
         this.appendValueInput("RED")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_2);
+            .appendField(Blockly.Msg.RED);
         this.appendValueInput("GREEN")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_3);
+            .appendField(Blockly.Msg.GREEN);
         this.appendValueInput("BLUE")
             .setCheck("Number")
-            .appendField(Blockly.Msg.SET_RIGHT_EYE_FIELD_4);
+            .appendField(Blockly.Msg.BLUE);
         this.setInputsInline(true);
         this.setColour(WINK_EYE_RIGHT_COLOUR);
         this.setTooltip(Blockly.Msg.SET_RIGHT_EYE_TOOLTIP);
@@ -566,7 +566,7 @@ Blockly.Blocks['set_right_eye'] = {
 Blockly.Blocks['hardwarestartup'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.HARDWARESTARTUP_FIELD_1);
+            .appendField(Blockly.Msg.HARDWARESTARTUP);
         this.appendStatementInput("do")
             .setCheck(null);
         this.setColour(WINK_SETUP_AND_LOOP_COLOR);
@@ -578,7 +578,7 @@ Blockly.Blocks['hardwarestartup'] = {
 Blockly.Blocks['loop'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.LOOP_FIELD_1);
+            .appendField(Blockly.Msg.LOOP);
         this.appendStatementInput("do")
             .setCheck(null);
         this.setColour(WINK_SETUP_AND_LOOP_COLOR);
@@ -594,19 +594,19 @@ Blockly.Blocks['loop'] = {
 Blockly.Blocks['acceleratemotors'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_1);
+            .appendField(Blockly.Msg.ACCELERATEMOTORS);
         this.appendValueInput("startspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_2);
+            .appendField(Blockly.Msg.ACCELERATEMOTORS_START);
         this.appendValueInput("endspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_3);
+            .appendField(Blockly.Msg.ACCELERATEMOTORS_END);
         this.appendValueInput("duration")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.ACCELERATEMOTORS_FIELD_4);
+            .appendField(Blockly.Msg.DURATION);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_MOTORS_COLOUR);
@@ -618,15 +618,15 @@ Blockly.Blocks['acceleratemotors'] = {
 Blockly.Blocks['motors'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.MOTORS_FIELD_1);
+            .appendField(Blockly.Msg.MOTORS);
         this.appendValueInput("leftspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.MOTORS_FIELD_2);
+            .appendField(Blockly.Msg.MOTORS_LEFT);
         this.appendValueInput("rightspeed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.MOTORS_FIELD_3);
+            .appendField(Blockly.Msg.MOTORS_RIGHT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_MOTORS_COLOUR);
@@ -640,7 +640,7 @@ Blockly.Blocks['spinleft'] = {
         this.appendValueInput("speed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.SPINLEFT_FIELD_1);
+            .appendField(Blockly.Msg.SPINLEFT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_MOTORS_COLOUR);
@@ -654,7 +654,7 @@ Blockly.Blocks['spinright'] = {
         this.appendValueInput("speed")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.SPINRIGHT_FIELD_1);
+            .appendField(Blockly.Msg.SPINRIGHT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_MOTORS_COLOUR);
@@ -666,16 +666,16 @@ Blockly.Blocks['spinright'] = {
 Blockly.Blocks['turn_by_values'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_1, "left"], [Blockly.Msg.TURN_BY_VALUES_DIRECTION_DROPDOWN_2, "right"]]), "direction");
+            .appendField(Blockly.Msg.TURN)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LEFT, "left"], [Blockly.Msg.RIGHT, "right"]]), "direction");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_2)
+            .appendField(Blockly.Msg.SPEED)
             .appendField(new Blockly.FieldNumber(50, 0, 255), "speed");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_3)
+            .appendField(Blockly.Msg.DELAY)
             .appendField(new Blockly.FieldNumber(370, 0), "duration");
         this.appendDummyInput()
-            .appendField(Blockly.Msg.TURN_BY_VALUES_FIELD_4);
+            .appendField(Blockly.Msg.MILLISECONDS);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -688,7 +688,7 @@ Blockly.Blocks['turn_by_values'] = {
 Blockly.Blocks['bestill'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BESTILL_FIELD_1);
+            .appendField(Blockly.Msg.BESTILL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_MOTORS_COLOUR);
@@ -704,7 +704,7 @@ Blockly.Blocks['bestill'] = {
 Blockly.Blocks['buttonwait'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BUTTONWAIT_FIELD_1);
+            .appendField(Blockly.Msg.BUTTONWAIT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_INPUT_COLOUR);
@@ -716,7 +716,7 @@ Blockly.Blocks['buttonwait'] = {
 Blockly.Blocks['button_pressed'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BUTTON_PRESSED_FIELD_1);
+            .appendField(Blockly.Msg.BUTTON_PRESSED);
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(WINK_INPUT_COLOUR);
@@ -732,12 +732,12 @@ Blockly.Blocks['button_pressed'] = {
 Blockly.Blocks['beepms'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BEEPMS_FIELD_1);
+            .appendField(Blockly.Msg.BEEPMS);
         this.appendValueInput("beepms")
             .setCheck("Number")
             .setAlign(Blockly.ALIGN_RIGHT);
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BEEPMS_FIELD_2);
+            .appendField(Blockly.Msg.MILLISECONDS);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_SPEAKER_COLOUR);
@@ -749,7 +749,7 @@ Blockly.Blocks['beepms'] = {
 Blockly.Blocks['beepon'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BEEPON_FIELD_1);
+            .appendField(Blockly.Msg.BEEPON);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_SPEAKER_COLOUR);
@@ -761,7 +761,7 @@ Blockly.Blocks['beepon'] = {
 Blockly.Blocks['beepoff'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.BEEPOFF_FIELD_1);
+            .appendField(Blockly.Msg.BEEPOFF);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_SPEAKER_COLOUR);
@@ -777,9 +777,9 @@ Blockly.Blocks['beepoff'] = {
 Blockly.Blocks['setirlight'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SETIRLIGHT_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_1, "HEADLIGHT"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_2, "LINELEFTOUTER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_3, "LINELEFTINNER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_4, "LINERIGHTOUTER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_5, "LINERIGHTINNER"]]), "LIGHT")
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_1, "ON"], [Blockly.Msg.SETIRLIGHT_STATE_DROPDOWN_2, "OFF"]]), "STATE");
+            .appendField(Blockly.Msg.TURN)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_HEAD, "HEADLIGHT"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_LEFT_OUTER, "LINELEFTOUTER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_LEFT_INNER, "LINELEFTINNER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_RIGHT_OUTER, "LINERIGHTOUTER"], [Blockly.Msg.SETIRLIGHT_LIGHT_DROPDOWN_RIGHT_INNER, "LINERIGHTINNER"]]), "LIGHT")
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ON, "ON"], [Blockly.Msg.OFF, "OFF"]]), "STATE");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_SENSORS_COLOUR);
@@ -791,8 +791,8 @@ Blockly.Blocks['setirlight'] = {
 Blockly.Blocks['readsensor'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.READSENSOR_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_1, "LINESENSELEFT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_2, "LINESENSERIGHT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_3, "AMBIENTSENSORLEFT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_4, "AMBIENTSENSORCENTER"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_5, "AMBIENTSENSORRIGHT"]]), "LIGHT");
+            .appendField(Blockly.Msg.READSENSOR)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_LEFT, "LINESENSELEFT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_LINE_RIGHT, "LINESENSERIGHT"], [Blockly.Msg.AMBIENT_LEFT, "AMBIENTSENSORLEFT"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_AMBIENT_CENTER, "AMBIENTSENSORCENTER"], [Blockly.Msg.READSENSOR_LIGHT_DROPDOWN_AMBIENT_RIGHT, "AMBIENTSENSORRIGHT"]]), "LIGHT");
         this.setOutput(true, "Number");
         this.setColour(WINK_SENSORS_COLOUR);
         this.setTooltip(Blockly.Msg.READSENSOR_TOOLTIP);
@@ -808,7 +808,7 @@ Blockly.Blocks['readsensor'] = {
 Blockly.Blocks['restart_ir'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.RESTART_IR_FIELD_1);
+            .appendField(Blockly.Msg.RESTART_IR);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_IR_COMMUNICATION_COLOUR);
@@ -820,7 +820,7 @@ Blockly.Blocks['restart_ir'] = {
 Blockly.Blocks['is_ir_done'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.IS_IR_DONE_FIELD_1);
+            .appendField(Blockly.Msg.IS_IR_DONE);
         this.setOutput(true, null);
         this.setColour(WINK_IR_COMMUNICATION_COLOUR);
         this.setTooltip(Blockly.Msg.IS_IR_DONE_TOOLTIP);
@@ -937,9 +937,9 @@ Blockly.Blocks['is_ir_done'] = {
 Blockly.Blocks['ir_control'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.IR_CONTROL_FIELD_1)
-            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_1, "IR_1"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_2, "IR_2"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_3, "IR_3"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_4, "IR_4"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_5, "IR_5"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_6, "IR_6"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_7, "IR_7"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_8, "IR_8"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_9, "IR_9"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_10, "IR_10"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_11, "IR_Forward"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_12, "IR_Left"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_13, "IR_Right"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_14, "IR_Backward"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_15, "IR_Power"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_16, "IR_PlumLogo"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_17, "IR_Menu"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_18, "IR_A"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_19, "IR_B"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_20, "IR_X"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_21, "IR_Play"]]), "BUTTON")
-            .appendField(Blockly.Msg.IR_CONTROL_FIELD_2);
+            .appendField(Blockly.Msg.IR_CONTROL)
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_1, "IR_1"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_2, "IR_2"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_3, "IR_3"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_4, "IR_4"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_5, "IR_5"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_6, "IR_6"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_7, "IR_7"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_8, "IR_8"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_9, "IR_9"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_10, "IR_10"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_FORWARD, "IR_Forward"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_LEFT, "IR_Left"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_RIGHT, "IR_Right"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_BACKWARD, "IR_Backward"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_POWER, "IR_Power"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_LOGO, "IR_PlumLogo"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_MENU, "IR_Menu"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_A, "IR_A"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_B, "IR_B"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_X, "IR_X"], [Blockly.Msg.IR_CONTROL_BUTTON_DROPDOWN_PLAY, "IR_Play"]]), "BUTTON")
+            .appendField(Blockly.Msg.IR_CONTROL_PRESSED);
         this.appendStatementInput("NAME")
             .setCheck(null);
         this.setInputsInline(true);
@@ -954,7 +954,7 @@ Blockly.Blocks['ir_control'] = {
 Blockly.Blocks['ir_control_container'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.IR_CONTROL_CONTAINER_FIELD_1);
+            .appendField(Blockly.Msg.WHEN_IR_DONE);
         this.setInputsInline(true);
         this.setNextStatement(true, null);
         this.setColour(WINK_IR_COMMUNICATION_COLOUR);
@@ -966,7 +966,7 @@ Blockly.Blocks['ir_control_container'] = {
 Blockly.Blocks['ir_control_control'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.IR_CONTROL_CONTROL_FIELD_1);
+            .appendField(Blockly.Msg.IR_CONTROL_CONTROL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(WINK_IR_COMMUNICATION_COLOUR);
@@ -980,7 +980,7 @@ const WINK_IR_BUTTONS = [["1", "IR_1"], ["2", "IR_2"], ["3", "IR_3"], ["4", "IR_
 Blockly.Blocks['ir_when'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.IR_WHEN_FIELD_1);
+            .appendField(Blockly.Msg.WHEN_IR_DONE);
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -1069,9 +1069,9 @@ Blockly.Blocks['ir_when'] = {
                 field.setValue(values[i]);
             }
             this.appendStatementInput('CHECK' + i)
-                .appendField(Blockly.Msg.IR_WHEN_FIELD_2)
-                .appendField(field, Blockly.Msg.IR_WHEN_FIELD_3 + i)
-                .appendField(Blockly.Msg.IR_WHEN_FIELD_4);
+                .appendField(Blockly.Msg.IR_WHEN)
+                .appendField(field, Blockly.Msg.IR_WHEN_BUTTON + i)
+                .appendField(Blockly.Msg.IR_WHEN_PRESSED);
         }
     },
 
@@ -1091,7 +1091,7 @@ Blockly.Blocks['ir_when'] = {
 Blockly.Blocks['ir_button'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.IR_BUTTON_FIELD_1)
+            .appendField(Blockly.Msg.IR_BUTTON)
             .appendField(new Blockly.FieldDropdown(WINK_IR_BUTTONS), "BUTTONS");
         this.setOutput(true, "Number");
         this.setColour(WINK_IR_COMMUNICATION_COLOUR);
@@ -1103,7 +1103,7 @@ Blockly.Blocks['ir_button'] = {
 Blockly.Blocks['get_pressed_ir_button'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.GET_PRESSED_IR_BUTTON_FIELD_1);
+            .appendField(Blockly.Msg.GET_PRESSED_IR_BUTTON);
         this.setOutput(true, "Number");
         this.setColour(WINK_IR_COMMUNICATION_COLOUR);
         this.setTooltip(Blockly.Msg.GET_PRESSED_IR_BUTTON_TOOLTIP);
