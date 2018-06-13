@@ -9,10 +9,10 @@ Blockly.Blocks['servo_attach'] = {
   init: function () {
     this.appendValueInput('PIN')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SERVO_ATTACH_FIELD_1);
+      .appendField(Blockly.Msg.SERVO_ATTACH_PIN);
     this.appendValueInput('SERVO')
       .setCheck('SERVO')
-      .appendField(Blockly.Msg.SERVO_ATTACH_FIELD_2);
+      .appendField(Blockly.Msg.SERVO_ATTACH_SERVO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -34,10 +34,10 @@ Blockly.Blocks['servo_write'] = {
   init: function () {
     this.appendValueInput('ANGLE')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SERVO_WRITE_FIELD_1);
+      .appendField(Blockly.Msg.SERVO_WRITE_ANGLE);
     this.appendValueInput('SERVO')
       .setCheck('SERVO')
-      .appendField(Blockly.Msg.SERVO_WRITE_FIELD_2);
+      .appendField(Blockly.Msg.SERVO_WRITE_SERVO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -59,10 +59,10 @@ Blockly.Blocks['servo_write_microseconds'] = {
   init: function () {
     this.appendValueInput('MICROS')
       .setCheck('Number')
-      .appendField(Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_1);
+      .appendField(Blockly.Msg.SERVO_WRITE_MICROSECONDS);
     this.appendValueInput('SERVO')
       .setCheck('SERVO')
-      .appendField(Blockly.Msg.SERVO_WRITE_MICROSECONDS_FIELD_2);
+      .appendField(Blockly.Msg.SERVO_WRITE_MICROSECONDS_SERVO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -84,7 +84,7 @@ Blockly.Blocks['servo_read'] = {
   init: function () {
     this.appendValueInput('SERVO')
       .setCheck('SERVO')
-      .appendField(Blockly.Msg.SERVO_READ_FIELD_1);
+      .appendField(Blockly.Msg.SERVO_READ);
     this.setInputsInline(true);
     this.setOutput(true, 'Number');
     // this.setPreviousStatement(true, null);
@@ -107,7 +107,7 @@ Blockly.Blocks['servo_attached'] = {
   init: function () {
     this.appendValueInput('SERVO')
       .setCheck('SERVO')
-      .appendField(Blockly.Msg.SERVO_ATTACHED_FIELD_1);
+      .appendField(Blockly.Msg.SERVO_ATTACHED);
     this.setInputsInline(true);
     this.setOutput(true, 'Boolean');
     this.setColour(ARDUINO_SERVO_COLOUR);
@@ -128,7 +128,7 @@ Blockly.Blocks['servo_detach'] = {
   init: function () {
     this.appendValueInput('SERVO')
       .setCheck('SERVO')
-      .appendField(Blockly.Msg.SERVO_DETACH_FIELD_1);
+      .appendField(Blockly.Msg.SERVO_DETACH);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

@@ -1038,9 +1038,9 @@ Blockly.Blocks['cast_block'] = {
   init: function() {
       this.appendValueInput("VALUE")
         .setCheck(null)
-        .appendField(Blockly.Msg.CAST_BLOCK_FIELD_1);
+        .appendField(Blockly.Msg.MAKE);
       this.appendDummyInput()
-        .appendField(Blockly.Msg.CAST_BLOCK_FIELD_2)
+        .appendField(Blockly.Msg.A)
         .appendField(new Blockly.FieldDropdown(functionTypes), "TYPE");
       this.setInputsInline(true);
       this.setOutput(true, 'Number');

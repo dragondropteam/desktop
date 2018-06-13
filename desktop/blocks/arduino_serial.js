@@ -6,7 +6,7 @@
 Blockly.Blocks['serial_read'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SERIAL_READ_FIELD_1);
+            .appendField(Blockly.Msg.SERIAL_READ);
         this.setOutput(true, null);
         this.setColour(ARDUINO_SERIAL_COLOUR);
         this.setTooltip(Blockly.Msg.SERIAL_READ_TOOLTIP);
@@ -18,7 +18,7 @@ Blockly.Blocks['serial_print_line'] = {
     init: function () {
         this.appendValueInput("OUTPUT")
             .setCheck(null)
-            .appendField(Blockly.Msg.SERIAL_PRINT_LINE_FIELD_1);
+            .appendField(Blockly.Msg.SERIAL_PRINT_LINE);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_SERIAL_COLOUR);
@@ -31,7 +31,7 @@ Blockly.Blocks['serial_print'] = {
     init: function () {
         this.appendValueInput("OUTPUT")
             .setCheck(null)
-            .appendField(Blockly.Msg.SERIAL_PRINT_FIELD_1);
+            .appendField(Blockly.Msg.SERIAL_PRINT);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_SERIAL_COLOUR);
@@ -43,7 +43,7 @@ Blockly.Blocks['serial_print'] = {
 Blockly.Blocks['serial_end'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SERIAL_END_FIELD_1);
+            .appendField(Blockly.Msg.SERIAL_END);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_SERIAL_COLOUR);
@@ -56,9 +56,9 @@ Blockly.Blocks['serial_begin'] = {
     init: function () {
         this.appendValueInput("SPEED")
             .setCheck(null)
-            .appendField(Blockly.Msg.SERIAL_BEGIN_FIELD_1);
+            .appendField(Blockly.Msg.SERIAL_BEGIN);
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SERIAL_BEGIN_FIELD_2);
+            .appendField(Blockly.Msg.SERIAL_BEGIN_SPEED);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(ARDUINO_SERIAL_COLOUR);

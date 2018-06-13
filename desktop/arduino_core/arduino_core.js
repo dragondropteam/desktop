@@ -178,14 +178,27 @@ function invalidArduinoPath(err) {
 
 
 exports.addPort = function (menu, project, success, failure, refresh, saveProject) {
-    let start = true;
+    let portSelected = false;
     const SerialPort = require('serialport');
-    let portMenus = [];
+    let portMenus = [{
+        label: 'No port selected',
+        type: 'radio', checked: false,
+        click: function() {
+            global.selectedPort = null;
+            project.loadedProject.meta.port = null;
+            saveProject(project);
+        }
+    }];
+
     SerialPort.list((err, ports) => {
         ports.forEach((port) => {
             let portLabel = port.manufacturer ? `${port.comName} | ${port.manufacturer}` : port.comName;
-            let checked = project.loadedProject.meta.port ? project.loadedProject.meta.port == port.comName : start;
-            start = false;
+            let checked = project.loadedProject.meta.port ? project.loadedProject.meta.port == port.comName : false;
+
+            //If we checked a port store this value, if portSelected is not set "No Port Selected" will be defaulted
+            if(checked){
+                portSelected = true;
+            }
 
             portMenus.push({
                 label: portLabel,
@@ -197,17 +210,19 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
                 }
             });
         });
-        log.verbose(ports);
+        
         menu['Project'].push({
             label: 'Ports',
             submenu: portMenus
         });
+
         menu['Project'].push({
             label: 'Refresh Ports',
             click: () => {
                 refresh(project);
             }
         });
+
         menu['Project'].push({
             label: 'Serial Monitor',
             click() {
@@ -216,6 +231,9 @@ exports.addPort = function (menu, project, success, failure, refresh, saveProjec
                 showSerialMonitor(project.loadedProject.meta.port);
             }
         });
+
+        portMenus[0].checked = !portSelected;
+
         success();
     });
 };
@@ -261,6 +279,8 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                 let runningOutput = '';
                 let error = false;
 
+                log.info(`Port: ${metadata.port} Board: ${metadata.board} optParams: ${metadata.optParams}`);
+
                 let progress = new ProgressWindow(uploadingLabel || uploadLabel);
                 child.on('error', (err) => {
                     invalidArduinoPath(err);
@@ -269,12 +289,12 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
 
                 child.stdout.on('data', (data) => {
                     runningOutput += data;
-                    console.log(`stdout: ${data}`);
+                    log.info(`stdout: ${data}`);
                 });
 
                 child.stderr.on('data', (data) => {
                     runningOutput += data;
-                    console.error(`stderr: ${data}`);
+                    log.error(`stderr: ${data}`);
                 });
 
                 child.on('close', (code) => {
@@ -283,7 +303,7 @@ exports.addCoreArduinoMenuOptions = function (menu, project, uploadComplete, ver
                         return;
                     }
                     uploadComplete(code, runningOutput);
-                    console.log(`child process exited with code ${code}`);
+                    log.info(`Arduino exited with code ${code}`);
                 });
             } catch (e) {
                 invalidArduinoPath(e);
