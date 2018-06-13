@@ -2048,32 +2048,44 @@
                 <block type="add_key"></block>
                 <block type="get_key_boolean_field">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                 </block>
                 <block type="get_key_numeric_field">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                 </block>
                 <block type="key_just_pressed">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                 </block>
                 <block type="key_just_released">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                 </block>
                 <block type="key_reset">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                 </block>
                 <block type="key_up_duration">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                     <value name="DURATION">
                         <shadow type="math_number">
@@ -2083,7 +2095,9 @@
                 </block>
                 <block type="key_down_duration">
                     <value name="KEY">
-                        <shadow type="add_key"></shadow>
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
                     </value>
                     <value name="DURATION">
                         <shadow type="math_number">
