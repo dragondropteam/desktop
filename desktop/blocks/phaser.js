@@ -51,7 +51,8 @@ const PHASER_POINT_COLOUR = '#757575';     // (no change)
 const PHASER_KEYBOARD_INPUT = '#1565C0'; // (no change)
 const PHASER_MOUSE_INPUT = '#2479D1';    //'#42A5F5' // ?2175CE 277DD5 2C85DB
 const PHASER_GAMEPAD_INPUT = '#328DE2';  // UNUSED // ?328DE2
-const PHASER_POINTER_INPUT_COLOUR = '#328DE2';
+const PHASER_POINTER_INPUT_COLOUR = '#42a5f5';
+const PHASER_DEVICE_BUTTON_COLOUR = '#64b5f6';
 
 const PHASER_UTILITY_COLOUR = '#E03400';      //'#ff6d00'; UNUSED
 const PHASER_UTIL_GENERAL_COLOUR = '#E03400'; //'#ff3d00';
@@ -4978,7 +4979,7 @@ Blockly.Blocks['get_active_pointer'] = {
     this.appendDummyInput()
       .appendField(Blockly.Msg.GET_ACTIVE_POINTER);
     this.setOutput(true, null);
-    this.setColour(PHASER_MOUSE_INPUT);
+    this.setColour(PHASER_POINTER_INPUT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_ACTIVE_POINTER_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.GET_ACTIVE_POINTER_HELP_URL);
   }
@@ -6874,43 +6875,44 @@ Blockly.Blocks['sound_restart'] = {
 //endregion
 
 //region POINTER
-const POINTER_DEVICE_BUTTONS = ['backButton', 'leftButton', 'rightButton', 'middleButton'];
+const POINTER_DEVICE_BUTTONS = ['leftButton', 'rightButton', 'middleButton', 'backButton'];
 const POINTER_DEVICE_BUTTONS_DROPDOWN = createDropDownField([], POINTER_DEVICE_BUTTONS);
 
 Blockly.Blocks['pointer_get_device_buttons_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
+      .appendField(Blockly.Msg.GET_DEVICE_BUTTON_FIELD)
       .appendField(new Blockly.FieldDropdown(POINTER_DEVICE_BUTTONS_DROPDOWN.all), 'FIELD');
     this.appendValueInput('OBJECT')
       .appendField(Blockly.Msg.OF);
     this.setInputsInline(true);
     this.setOutput(true, 'DeviceButton');
     this.setColour(PHASER_POINTER_INPUT_COLOUR);
-    this.setTooltip(Blockly.Msg.GET_POINTER_FIELD)
+    this.setTooltip(Blockly.Msg.GET_POINTER_FIELD_VI_TOOLTIP.replace('%1', 'device button'));
+    this.setHelpUrl(Blockly.Msg.GET_POINTER_FIELD_VI_HELP_URL);
   }
 };
 //endregion
 
 //region DEVICE_BUTTON
 //http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html
-const DEVICE_BUTTON_READ_ONLY_BOOLEAN_FIELDS = ['isDown', 'isUp', 'ctrlKey', 'altKey', 'shiftKey'];
-const DEVICE_BUTTON_READ_ONLY_NUMERIC_FIELDS = ['buttonCode', 'duration', 'repeats', 'timeDown', 'timeUp', 'value'];
+const DEVICE_BUTTON_BOOLEAN_FIELDS_RO = ['isDown', 'isUp', 'ctrlKey', 'altKey', 'shiftKey'];
+const DEVICE_BUTTON_NUMERIC_FIELDS_RO = ['buttonCode', 'duration', 'repeats', 'timeDown', 'timeUp', 'value'];
 
-const DEVICE_BUTTON_BOOLEAN_FIELDS = createDropDownField([], DEVICE_BUTTON_READ_ONLY_BOOLEAN_FIELDS);
-const DEVICE_BUTTON_NUMERIC_FIELDS = createDropDownField([], DEVICE_BUTTON_READ_ONLY_NUMERIC_FIELDS);
+const DEVICE_BUTTON_BOOLEAN_FIELDS = createDropDownField([], DEVICE_BUTTON_BOOLEAN_FIELDS_RO);
+const DEVICE_BUTTON_NUMERIC_FIELDS = createDropDownField([], DEVICE_BUTTON_NUMERIC_FIELDS_RO);
 
 Blockly.Blocks['device_button_get_boolean_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_DEVICE_BUTTON_FIELD)
+      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
       .appendField(new Blockly.FieldDropdown(DEVICE_BUTTON_BOOLEAN_FIELDS.all), 'FIELD');
     this.appendValueInput('OBJECT')
       .appendField(Blockly.Msg.OF);
     this.setInputsInline(true);
     this.setOutput(true, 'Boolean');
-    this.setColour(PHASER_ANIMATION_COLOUR);
-    this.setTooltip(Blockly.Msg.GET_DEVICE_BUTTON_BOOLEAN_FIELD_VI_TOOLTIP);
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_TOOLTIP.replace('%1', 'boolean'));
     this.setHelpUrl(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL);
   }
 };
@@ -6918,15 +6920,38 @@ Blockly.Blocks['device_button_get_boolean_field'] = {
 Blockly.Blocks['device_button_get_numeric_field'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField(Blockly.Msg.GET_DEVICE_BUTTON_FIELD)
+      .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
       .appendField(new Blockly.FieldDropdown(DEVICE_BUTTON_NUMERIC_FIELDS.all), 'FIELD');
     this.appendValueInput('OBJECT')
       .appendField(Blockly.Msg.OF);
     this.setInputsInline(true);
     this.setOutput(true, 'Number');
-    this.setColour(PHASER_ANIMATION_COLOUR);
-    this.setTooltip(Blockly.Msg.GET_DEVICE_BUTTON_NUMERIC_FIELD_VI_TOOLTIP);
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_TOOLTIP.replace('%1', 'numeric'));
     this.setHelpUrl(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL);
+  }
+};
+
+
+Blockly.Blocks['device_button_just_pressed'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.JUST_PRESSED);
+    this.setOutput('true', 'Boolean');
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_HELP_URL);
+  }
+};
+
+Blockly.Blocks['device_button_just_released'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.JUST_RELEASED);
+    this.setOutput('true', 'Boolean');
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_HELP_URL);
   }
 };
 //endregion
