@@ -51,6 +51,8 @@ const PHASER_POINT_COLOUR = '#757575';     // (no change)
 const PHASER_KEYBOARD_INPUT = '#1565C0'; // (no change)
 const PHASER_MOUSE_INPUT = '#2479D1';    //'#42A5F5' // ?2175CE 277DD5 2C85DB
 const PHASER_GAMEPAD_INPUT = '#328DE2';  // UNUSED // ?328DE2
+const PHASER_POINTER_INPUT_COLOUR = '#42a5f5';
+const PHASER_DEVICE_BUTTON_COLOUR = '#64b5f6';
 
 const PHASER_UTILITY_COLOUR = '#E03400';      //'#ff6d00'; UNUSED
 const PHASER_UTIL_GENERAL_COLOUR = '#E03400'; //'#ff3d00';
@@ -631,7 +633,7 @@ Blockly.Blocks['statemanager_start_state'] = {
 };
 
 Blockly.Blocks['statemanager_get_current_state'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.STATEMANAGER_GET_CURRENT_STATE);
     this.setOutput(true, null);
@@ -642,7 +644,7 @@ Blockly.Blocks['statemanager_get_current_state'] = {
 };
 
 Blockly.Blocks['statemanager_restart_state'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.STATEMANAGER_RESTART_STATE);
     this.setPreviousStatement(true, null);
@@ -654,9 +656,9 @@ Blockly.Blocks['statemanager_restart_state'] = {
 };
 
 Blockly.Blocks['statemanager_check_state'] = {
-  init: function() {
-    this.appendValueInput("KEY")
-      .setCheck("String")
+  init: function () {
+    this.appendValueInput('KEY')
+      .setCheck('String')
       .appendField(Blockly.Msg.STATEMANAGER_CHECK_STATE);
     this.setInputsInline(true);
     this.setOutput(true, null);
@@ -735,7 +737,7 @@ Blockly.Blocks['get_world_reference'] = {
 };
 
 Blockly.Blocks['set_game_pause'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('PAUSED')
       .setCheck('Boolean')
       .appendField(Blockly.Msg.SET_GAME_PAUSE);
@@ -748,7 +750,7 @@ Blockly.Blocks['set_game_pause'] = {
 };
 
 Blockly.Blocks['get_game_pause'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.GET_GAME_PAUSE);
     this.setOutput(true, 'Boolean');
@@ -3283,10 +3285,10 @@ Blockly.Blocks['move_by'] = {
     this.appendDummyInput()
       .appendField(Blockly.Msg.BY);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3628,12 +3630,12 @@ Blockly.Blocks['enable_arcade_physics_for_object_vi'] = {
 
 //region UTIL
 Blockly.Blocks['acceleration_from_rotation'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('RADIANS')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION);
     this.appendValueInput('SPEED')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.RADIANS)
       .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
@@ -3644,10 +3646,10 @@ Blockly.Blocks['acceleration_from_rotation'] = {
     this.setTooltip(Blockly.Msg.ACCELERATION_FROM_ROTATION_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.ACCELERATION_FROM_ROTATION_HELP_URL);
   }
-}
+};
 
 Blockly.Blocks['physics_farthest'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SOURCE')
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_FARTHEST);
@@ -3656,7 +3658,7 @@ Blockly.Blocks['physics_farthest'] = {
       .appendField(Blockly.Msg.FROM);
     this.setInputsInline(true);
 
-    this.setOutput(true, "Number");
+    this.setOutput(true, 'Number');
     this.setColour(PHASER_PHYSICS_UTIL_COLOUR);
     this.setTooltip(Blockly.Msg.PHYSICS_FARTHEST_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_FARTHEST_HELP_URL);
@@ -3664,7 +3666,7 @@ Blockly.Blocks['physics_farthest'] = {
 };
 
 Blockly.Blocks['physics_closest'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SOURCE')
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_CLOSEST);
@@ -3673,7 +3675,7 @@ Blockly.Blocks['physics_closest'] = {
       .appendField(Blockly.Msg.FROM);
     this.setInputsInline(true);
 
-    this.setOutput(true, "Number");
+    this.setOutput(true, 'Number');
     this.setColour(PHASER_PHYSICS_UTIL_COLOUR);
     this.setTooltip(Blockly.Msg.PHYSICS_CLOSEST_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_CLOSEST_HELP_URL);
@@ -3681,7 +3683,7 @@ Blockly.Blocks['physics_closest'] = {
 };
 
 Blockly.Blocks['physics_distance_between'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SOURCE')
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_DISTANCE_BETWEEN);
@@ -3689,7 +3691,7 @@ Blockly.Blocks['physics_distance_between'] = {
       .setCheck(null)
       .appendField(Blockly.Msg.AND);
     this.setInputsInline(true);
-    this.setOutput(true, "Number");
+    this.setOutput(true, 'Number');
     this.setColour(PHASER_PHYSICS_UTIL_COLOUR);
     this.setTooltip(Blockly.Msg.PHYSICS_DISTANCE_BETWEEN_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_DISTANCE_BETWEEN_HELP_URL);
@@ -3697,7 +3699,7 @@ Blockly.Blocks['physics_distance_between'] = {
 };
 
 Blockly.Blocks['physics_distance_to_pointer'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SOURCE')
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_DISTANCE_BETWEEN);
@@ -3705,7 +3707,7 @@ Blockly.Blocks['physics_distance_to_pointer'] = {
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER);
     this.setInputsInline(true);
-    this.setOutput(true, "Number");
+    this.setOutput(true, 'Number');
     this.setColour(PHASER_PHYSICS_UTIL_COLOUR);
     this.setTooltip(Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_DISTANCE_TO_POINTER_HELP_URL);
@@ -3713,20 +3715,20 @@ Blockly.Blocks['physics_distance_to_pointer'] = {
 };
 
 Blockly.Blocks['physics_distance_to_location'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
       .appendField(Blockly.Msg.PHYSICS_DISTANCE_BETWEEN);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AND);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.setInputsInline(true);
-    this.setOutput(true, "Number");
+    this.setOutput(true, 'Number');
     this.setColour(PHASER_PHYSICS_UTIL_COLOUR);
     this.setTooltip(Blockly.Msg.PHYSICS_DISTANCE_TO_LOCATION_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_DISTANCE_TO_LOCATION_HELP_URL);
@@ -3736,10 +3738,10 @@ Blockly.Blocks['physics_distance_to_location'] = {
 
 //region COLLISION
 Blockly.Blocks['check_collision'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.CHECK_COLLISION)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.UP,'up'], [Blockly.Msg.DOWN,'down'], [Blockly.Msg.LEFT,'left'], [Blockly.Msg.RIGHT,'right']]), 'DIRECTION')
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.UP, 'up'], [Blockly.Msg.DOWN, 'down'], [Blockly.Msg.LEFT, 'left'], [Blockly.Msg.RIGHT, 'right']]), 'DIRECTION')
       .appendField(new Blockly.FieldCheckbox('FALSE'), 'COLLIDE');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3805,10 +3807,10 @@ Blockly.Blocks['get_objects_at_location'] = {
     this.appendDummyInput()
       .appendField(Blockly.Msg.GET_OBJECTS_AT_LOCATION_OVERLAP);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.setInputsInline(true);
     this.setOutput(true);
@@ -3875,19 +3877,19 @@ Blockly.Blocks['physics_move_to_location'] = {
     this.appendDummyInput()
       .appendField(Blockly.Msg.TO);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AT);
     this.appendValueInput('SPEED')
-      .setCheck("Number");
+      .setCheck('Number');
     this.appendDummyInput()
       .appendField(Blockly.Msg.PIXELS_PER_SECOND);
     this.appendValueInput('TIME')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.MAX_TIME_MS);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3896,23 +3898,23 @@ Blockly.Blocks['physics_move_to_location'] = {
     this.setTooltip(Blockly.Msg.PHYSICS_MOVE_TO_LOCATION_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.PHYSICS_MOVE_TO_LOCATION_HELP_URL);
   }
-}
+};
 
 Blockly.Blocks['physics_move_to_pointer'] = {
   init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
-      .appendField(Blockly.Msg.MOVE)
+      .appendField(Blockly.Msg.MOVE);
     this.appendValueInput('POINTER')
       .setCheck(null)
       .appendField(Blockly.Msg.TO);
     this.appendValueInput('SPEED')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PIXELS_PER_SECOND);
     this.appendValueInput('TIME')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.MAX_TIME_MS);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3931,21 +3933,21 @@ Blockly.Blocks['physics_accelerate_to_location'] = {
     this.appendDummyInput()
       .appendField(Blockly.Msg.TO);
     this.appendValueInput('X_LOCATION')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y_LOCATION')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('SPEED')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PHYSICS_ACCELERATE_TO_OBJECT);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3965,15 +3967,15 @@ Blockly.Blocks['physics_accelerate_to_pointer'] = {
       .setCheck(null)
       .appendField(Blockly.Msg.TO);
     this.appendValueInput('SPEED')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PHYSICS_ACCELERATE_TO_OBJECT);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -3993,15 +3995,15 @@ Blockly.Blocks['physics_accelerate_to_object'] = {
       .setCheck(null)
       .appendField(Blockly.Msg.TO);
     this.appendValueInput('SPEED')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PHYSICS_ACCELERATE_TO_OBJECT);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -4050,7 +4052,7 @@ Blockly.Blocks['set_physics_point_field'] = {
       .appendField(Blockly.Msg.SET_POINT_FIELD)
       .appendField(new Blockly.FieldDropdown(PHYSICS_POINT_FIELDS.writable), 'FIELD');
     this.appendValueInput('VALUE')
-      .appendField(Blockly.Msg.TO)
+      .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -4327,10 +4329,10 @@ Blockly.Blocks['call_function_on_group'] = {
 Blockly.Blocks['acceleration_from_rotation'] = {
   init: function () {
     this.appendValueInput('ROTATION')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.ACCELERATION_FROM_ROTATION);
     this.appendValueInput('SPEED')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.RADIANS)
       .appendField(Blockly.Msg.AT);
     this.appendDummyInput()
@@ -4634,7 +4636,7 @@ Blockly.Blocks['rectangle_create'] = {
 // };
 
 Blockly.Blocks['rectangle_intersects'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('RECT_A');
     this.appendDummyInput()
       .appendField('intersects');
@@ -4973,11 +4975,11 @@ Blockly.Blocks['is_mouse_button_clicked'] = {
 };
 
 Blockly.Blocks['get_active_pointer'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.GET_ACTIVE_POINTER);
     this.setOutput(true, null);
-    this.setColour(PHASER_MOUSE_INPUT);
+    this.setColour(PHASER_POINTER_INPUT_COLOUR);
     this.setTooltip(Blockly.Msg.GET_ACTIVE_POINTER_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.GET_ACTIVE_POINTER_HELP_URL);
   }
@@ -5183,17 +5185,17 @@ Blockly.Blocks['debug_sprite'] = {
 };
 
 Blockly.Blocks['debug_body_info'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('OBJECT')
       .setCheck(null)
       .appendField(Blockly.Msg.DEBUG_BODY_INFO);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5222,14 +5224,14 @@ Blockly.Blocks['debug_camera'] = {
 };
 
 Blockly.Blocks['debug_camera_info'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.DEBUG_CAMERA_INFO);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5244,14 +5246,14 @@ Blockly.Blocks['debug_camera_info'] = {
 };
 
 Blockly.Blocks['debug_input_info'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.DEBUG_INPUT_INFO);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5266,7 +5268,7 @@ Blockly.Blocks['debug_input_info'] = {
 };
 
 Blockly.Blocks['debug_key'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.DEBUG_KEY)
       .appendField(new Blockly.FieldDropdown([
@@ -5367,10 +5369,10 @@ Blockly.Blocks['debug_key'] = {
         ['CAPS LOCK', 'CAPS_LOCK']]), 'KEY')
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5402,7 +5404,7 @@ Blockly.Blocks['debug_physics_group'] = {
 };
 
 Blockly.Blocks['debug_rectangle'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('RECT')
       .setCheck(null)
       .appendField(Blockly.Msg.DEBUG_RECTANGLE);
@@ -5419,14 +5421,14 @@ Blockly.Blocks['debug_rectangle'] = {
 };
 
 Blockly.Blocks['debug_sound'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.DEBUG_SOUND);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5441,17 +5443,17 @@ Blockly.Blocks['debug_sound'] = {
 };
 
 Blockly.Blocks['debug_sound_info'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SOUND')
       .setCheck(null)
       .appendField(Blockly.Msg.DEBUG_SOUND_INFO);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5466,17 +5468,17 @@ Blockly.Blocks['debug_sound_info'] = {
 };
 
 Blockly.Blocks['debug_sprite_coords'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SPRITE')
       .setCheck(null)
       .appendField(Blockly.Msg.DEBUG_SPRITE_COORDS);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5491,17 +5493,17 @@ Blockly.Blocks['debug_sprite_coords'] = {
 };
 
 Blockly.Blocks['debug_sprite_info'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SPRITE')
       .setCheck(null)
       .appendField(Blockly.Msg.DEBUG_SPRITE_INFO);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5516,17 +5518,17 @@ Blockly.Blocks['debug_sprite_info'] = {
 };
 
 Blockly.Blocks['debug_text'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('TEXT')
       .setCheck('String')
       .appendField(Blockly.Msg.DEBUG_TEXT);
     this.appendDummyInput()
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.XCOLON);
     this.appendValueInput('Y')
-      .setCheck("Number")
+      .setCheck('Number')
       .appendField(Blockly.Msg.YCOLON);
     this.appendValueInput('COLOUR')
       .setCheck(null)
@@ -5730,7 +5732,7 @@ Blockly.Blocks['random_sign'] = {
 };
 
 Blockly.Blocks['random_boolean'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.RANDOM_BOOLEAN);
     this.setOutput(true, 'Boolean');
@@ -6271,7 +6273,7 @@ Blockly.Blocks['draw_circle'] = {
 //region CAMERA.METHODS
 
 Blockly.Blocks['game_camera'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.GAME_CAMERA);
     this.setOutput(true);
@@ -6872,16 +6874,84 @@ Blockly.Blocks['sound_restart'] = {
 
 //endregion
 
+//region POINTER
+const POINTER_DEVICE_BUTTONS = ['leftButton', 'rightButton', 'middleButton', 'backButton'];
+const POINTER_DEVICE_BUTTONS_DROPDOWN = createDropDownField([], POINTER_DEVICE_BUTTONS);
+
+Blockly.Blocks['pointer_get_device_buttons_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_DEVICE_BUTTON_FIELD)
+      .appendField(new Blockly.FieldDropdown(POINTER_DEVICE_BUTTONS_DROPDOWN.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'DeviceButton');
+    this.setColour(PHASER_POINTER_INPUT_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_POINTER_FIELD_VI_TOOLTIP.replace('%1', 'device button'));
+    this.setHelpUrl(Blockly.Msg.GET_POINTER_FIELD_VI_HELP_URL);
+  }
+};
+//endregion
+
+//region DEVICE_BUTTON
+//http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html
+const DEVICE_BUTTON_BOOLEAN_FIELDS_RO = ['isDown', 'isUp', 'ctrlKey', 'altKey', 'shiftKey'];
+const DEVICE_BUTTON_NUMERIC_FIELDS_RO = ['buttonCode', 'duration', 'repeats', 'timeDown', 'timeUp', 'value'];
+
+const DEVICE_BUTTON_BOOLEAN_FIELDS = createDropDownField([], DEVICE_BUTTON_BOOLEAN_FIELDS_RO);
+const DEVICE_BUTTON_NUMERIC_FIELDS = createDropDownField([], DEVICE_BUTTON_NUMERIC_FIELDS_RO);
+
+Blockly.Blocks['device_button_get_boolean_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
+      .appendField(new Blockly.FieldDropdown(DEVICE_BUTTON_BOOLEAN_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_TOOLTIP.replace('%1', 'boolean'));
+    this.setHelpUrl(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL);
+  }
+};
+
+Blockly.Blocks['device_button_get_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(DEVICE_BUTTON_NUMERIC_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_TOOLTIP.replace('%1', 'numeric'));
+    this.setHelpUrl(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL);
+  }
+};
 
 
+Blockly.Blocks['device_button_just_pressed'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.JUST_PRESSED);
+    this.setOutput('true', 'Boolean');
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_HELP_URL);
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
+Blockly.Blocks['device_button_just_released'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.JUST_RELEASED);
+    this.setOutput('true', 'Boolean');
+    this.setColour(PHASER_DEVICE_BUTTON_COLOUR);
+    this.setTooltip(Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_HELP_URL);
+  }
+};
+//endregion

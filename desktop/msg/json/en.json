@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-12 16:43:47.356608",
+		"lastupdated": "2018-06-13 12:59:07.533755",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1987,6 +1987,7 @@
 	"SET_BOOLEAN_FIELD": "set boolean field",
 	"SET_NUMERIC_FIELD": "set numeric field",
 	"SET_STRING_FIELD": "set string field",
+	"GET_DEVICE_BUTTON_FIELD": "get device button field",
 	"OF": "of",
 	"TO": "to",
 	"FROM": "from",
@@ -2348,5 +2349,16 @@
 	"ARDUINO_RANDOM": "generate random number between",
 	"ARDUINO_RANDOM_TOOLTIP": "The random function generates pseudo-random numbers.",
 	"ARDUINO_RANDOM_HELP_URL": "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/",
-	"AND": "and"
+	"AND": "and",
+	"GET_DEVICE_BUTTON_FIELD_VI_TOOLTIP": "Get teh %1 field for the selected DeviceButton",
+	"GET_DEVICE_BUTTON_FIELD_VI_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html",
+	"GET_POINTER_FIELD_VI_TOOLTIP": "Get the %1 field for the selected Pointer",
+	"GET_POINTER_FIELD_VI_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Pointer.html",
+	"DEVICE_BUTTON": "device button",
+	"JUST_PRESSED": "just pressed?",
+	"JUST_RELEASED": "just released?",
+	"DEVICE_BUTTON_JUST_RELEASED_TOOLTIP": "True if the device button was released within 250ms",
+	"DEVICE_BUTTON_JUST_RELEASED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justReleased",
+	"DEVICE_BUTTON_JUST_PRESSED_TOOLTIP": "True if the device button was pressed within 250ms",
+	"DEVICE_BUTTON_JUST_PRESSED_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justPressed"
 }

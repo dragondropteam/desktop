@@ -4320,6 +4320,7 @@ Blockly.Msg.SET_POINT_FIELD = 'set point field';
 Blockly.Msg.SET_BOOLEAN_FIELD = 'set boolean field';
 Blockly.Msg.SET_NUMERIC_FIELD = 'set numeric field';
 Blockly.Msg.SET_STRING_FIELD = 'set string field';
+Blockly.Msg.GET_DEVICE_BUTTON_FIELD = 'get device button field';
 
 // Prepositions
 Blockly.Msg.OF = 'of';
@@ -4744,3 +4745,18 @@ Blockly.Msg.ARDUINO_RANDOM = 'generate random number between';
 Blockly.Msg.ARDUINO_RANDOM_TOOLTIP = 'The random function generates pseudo-random numbers.';
 Blockly.Msg.ARDUINO_RANDOM_HELP_URL = 'https://www.arduino.cc/reference/en/language/functions/random-numbers/random/';
 Blockly.Msg.AND = 'and';
+
+Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_TOOLTIP = 'Get teh %1 field for the selected DeviceButton';
+Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html';
+
+Blockly.Msg.GET_POINTER_FIELD_VI_TOOLTIP = 'Get the %1 field for the selected Pointer';
+Blockly.Msg.GET_POINTER_FIELD_VI_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Pointer.html';
+
+Blockly.Msg.DEVICE_BUTTON = 'device button';
+Blockly.Msg.JUST_PRESSED = 'just pressed?';
+Blockly.Msg.JUST_RELEASED = 'just released?';
+Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_TOOLTIP = 'True if the device button was released within 250ms';
+Blockly.Msg.DEVICE_BUTTON_JUST_RELEASED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justReleased';
+
+Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_TOOLTIP = 'True if the device button was pressed within 250ms';
+Blockly.Msg.DEVICE_BUTTON_JUST_PRESSED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.DeviceButton.html#justPressed';

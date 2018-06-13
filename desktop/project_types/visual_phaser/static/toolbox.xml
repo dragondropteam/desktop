@@ -2309,6 +2309,68 @@
                 <block type="is_mouse_button_clicked"/>
                 <block type="get_active_pointer"/>
             </category>
+            <category name="Pointer" colour="#42a5f5">
+                <block type="get_active_pointer"/>
+                <block type="pointer_get_device_buttons_field">
+                    <value name="OBJECT">
+                        <shadow type="get_active_pointer">
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Device Buttons" colour="#64b5f6">
+                <block type="device_button_get_boolean_field">
+                    <value name="OBJECT">
+                        <shadow type="pointer_get_device_buttons_field">
+                            <value name="OBJECT">
+                                <shadow type="get_active_pointer">
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="device_button_get_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="pointer_get_device_buttons_field">
+                            <value name="OBJECT">
+                                <shadow type="get_active_pointer">
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="device_button_just_released">
+                    <value name="OBJECT">
+                        <shadow type="pointer_get_device_buttons_field">
+                            <value name="OBJECT">
+                                <shadow type="get_active_pointer">
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="device_button_just_pressed">
+                    <value name="OBJECT">
+                        <shadow type="pointer_get_device_buttons_field">
+                            <value name="OBJECT">
+                                <shadow type="get_active_pointer">
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <block type="device_button_just_pressed">
+                    <value name="OBJECT">
+                        <shadow type="pointer_get_device_buttons_field">
+                            <value name="OBJECT">
+                                <shadow type="get_active_pointer">
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
             <!--TODO: Gamepad support-->
             <!--<category name="Gamepad" colour="#42A5F5"></category>-->
         </category>
