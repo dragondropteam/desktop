@@ -382,12 +382,11 @@ Blockly.Blocks['delay_with_navigation_seconds'] = {
     this.appendDummyInput()
       .appendField(Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS);
     this.appendValueInput('SECONDS')
-      .setCheck("Number");
+      .setCheck('Number');
     this.appendDummyInput()
       .appendField(Blockly.Msg.SECONDS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(RINGO_COLOUR);
     this.setTooltip(Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP);
     this.setHelpUrl(HELP_URL);
     this.setColour(RINGO_COLOUR);
@@ -1116,7 +1115,7 @@ Blockly.Blocks['ringo_button_pressed'] = {
   init: function() {
     this.appendDummyInput()
       .appendField(Blockly.Msg.BUTTON_PRESSED);
-    this.setOutput(true, 'Number');
+    this.setOutput(true, 'Boolean');
     this.setColour(RINGO_COLOUR);
     this.setTooltip(Blockly.Msg.BUTTON_PRESSED_TOOLTIP);
     this.setHelpUrl(HELP_URL);
