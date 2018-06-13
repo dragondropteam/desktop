@@ -3393,273 +3393,273 @@ Blockly.Msg.HARDWARESTARTUP_RINGO_TOOLTIP = '';
 /// auto generated
 Blockly.Msg.HARDWARESTARTUP_RINGO_HELP_URL = 'http://www.plumgeek.com/learn-to-code.html/';
 /// auto generated
-Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER = 'Get Gyro Calibration Multiplier';
+Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER = 'get gyro calibration multiplier';
 /// auto generated
 Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.BEGIN_NAVIGATION = 'Begin Navigation';
+Blockly.Msg.BEGIN_NAVIGATION = 'begin navigation';
 /// auto generated
 Blockly.Msg.BEGIN_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SIMPLE_GYRO_NAVIGATION = 'Simple Gyro Navigation';
+Blockly.Msg.SIMPLE_GYRO_NAVIGATION = 'simple gyro navigation';
 /// auto generated
 Blockly.Msg.SIMPLE_GYRO_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SIMPLE_NAVIGATION = 'Simple Navigation';
+Blockly.Msg.SIMPLE_NAVIGATION = 'simple navigation';
 /// auto generated
 Blockly.Msg.SIMPLE_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY = 'Navigation XY with';
+Blockly.Msg.NAVIGATION_XY = 'navigation xy with';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_GYRO = 'Gyro Sensitivity';
+Blockly.Msg.NAVIGATION_XY_GYRO = 'gyro sensitivity';
 /// auto generated
-Blockly.Msg.NAVIGATION_XY_ACCELERATION = 'Acceleration Sensitivity';
+Blockly.Msg.NAVIGATION_XY_ACCELERATION = 'acceleration sensitivity';
 /// auto generated
 Blockly.Msg.NAVIGATION_XY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS = 'Calibrate Navigation Sensors';
+Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS = 'calibrate navigation sensors';
 /// auto generated
 Blockly.Msg.CALIBRATE_NAVIGATION_SENSORS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.ZERO_NAVIGATION = 'Reset Navigation';
+Blockly.Msg.ZERO_NAVIGATION = 'reset navigation';
 /// auto generated
 Blockly.Msg.ZERO_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PAUSE_NAVIGATION = 'Pause Navigation';
+Blockly.Msg.PAUSE_NAVIGATION = 'pause navigation';
 /// auto generated
 Blockly.Msg.PAUSE_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.RESUME_NAVIGATION = 'Resume Navigation';
+Blockly.Msg.RESUME_NAVIGATION = 'resume navigation';
 /// auto generated
 Blockly.Msg.RESUME_NAVIGATION_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NAVIGATION_PAUSED = 'Is Navigation Paused';
+Blockly.Msg.NAVIGATION_PAUSED = 'is navigation paused';
 /// auto generated
 Blockly.Msg.NAVIGATION_PAUSED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS = 'Delay With Navigation for ';
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS = 'delay with navigation for ';
 /// auto generated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = 'Delay With Simple Navigation for';
+Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = 'delay with simple navigation for';
 /// auto generated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PRESENT_HEADING = 'Get Present Heading';
+Blockly.Msg.PRESENT_HEADING = 'get present heading';
 /// auto generated
 Blockly.Msg.PRESENT_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_X = 'Get Degrees X';
+Blockly.Msg.GET_DEGREES_X = 'get degrees x';
 /// auto generated
 Blockly.Msg.GET_DEGREES_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Z = 'Get Degrees Per Second Z';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Z = 'get degrees per second z';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_X = 'Get Degrees Per Second X';
+Blockly.Msg.GET_DEGREES_PER_SECOND_X = 'get degrees per second x';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_PER_SECOND_Y = 'Get Degrees Per Second Y';
+Blockly.Msg.GET_DEGREES_PER_SECOND_Y = 'get degrees per second y';
 /// auto generated
 Blockly.Msg.GET_DEGREES_PER_SECOND_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_DEGREES_TO_STOP = 'Get Degrees To Stop';
+Blockly.Msg.GET_DEGREES_TO_STOP = 'get degrees to stop';
 /// auto generated
 Blockly.Msg.GET_DEGREES_TO_STOP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_X = 'Get X Acceleration';
+Blockly.Msg.GET_ACCEL_X = 'get x acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Y = 'Get Y Acceleration';
+Blockly.Msg.GET_ACCEL_Y = 'get y acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Z = 'Get Z Acceleration';
+Blockly.Msg.GET_ACCEL_Z = 'get z acceleration';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Z_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_ACCEL_Y_UNZEROED = 'Get Y Acceleration Unzeroed';
+Blockly.Msg.GET_ACCEL_Y_UNZEROED = 'get y acceleration unzeroed';
 /// auto generated
 Blockly.Msg.GET_ACCEL_Y_UNZEROED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_VEL_X = 'Get X Velocity';
+Blockly.Msg.GET_VEL_X = 'get x velocity';
 /// auto generated
 Blockly.Msg.GET_VEL_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_VEL_Y = 'Get Y Velocity';
+Blockly.Msg.GET_VEL_Y = 'get y velocity';
 /// auto generated
 Blockly.Msg.GET_VEL_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_POS_X = 'Get X Position';
+Blockly.Msg.GET_POS_X = 'get x position';
 /// auto generated
 Blockly.Msg.GET_POS_X_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_POS_Y = 'Get Y Position';
+Blockly.Msg.GET_POS_Y = 'get y position';
 /// auto generated
 Blockly.Msg.GET_POS_Y_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.IS_STATIONARY = 'Is Ringo Stationary';
+Blockly.Msg.IS_STATIONARY = 'is ringo stationary';
 /// auto generated
 Blockly.Msg.IS_STATIONARY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NON_STATIONARY_VALUE = 'Get Non-Stationary Value';
+Blockly.Msg.NON_STATIONARY_VALUE = 'get non-stationary value';
 /// auto generated
 Blockly.Msg.NON_STATIONARY_VALUE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.NON_STATIONARY_AXIS = 'Get Non-Stationary Axis';
+Blockly.Msg.NON_STATIONARY_AXIS = 'get non-stationary axis';
 /// auto generated
 Blockly.Msg.NON_STATIONARY_AXIS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MIN_TURN = 'Minimum Turn';
+Blockly.Msg.MIN_TURN = 'minimum turn';
 /// auto generated
 Blockly.Msg.MIN_TURN_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MIN_TURN_TO_HEADING = 'Minimum Turn to Heading';
+Blockly.Msg.MIN_TURN_TO_HEADING = 'minimum turn to heading';
 /// auto generated
 Blockly.Msg.MIN_TURN_TO_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES = 'Vector To Degrees';
+Blockly.Msg.VECTOR_TO_DEGREES = 'vector to degrees';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_X = 'X Component';
+Blockly.Msg.VECTOR_TO_DEGREES_X = 'x component';
 /// auto generated
-Blockly.Msg.VECTOR_TO_DEGREES_Y = 'Y Component';
+Blockly.Msg.VECTOR_TO_DEGREES_Y = 'y component';
 /// auto generated
 Blockly.Msg.VECTOR_TO_DEGREES_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_SET_RANGE = 'Set Gyro Range';
+Blockly.Msg.GYRO_SET_RANGE = 'set gyro range';
 /// auto generated
 Blockly.Msg.GYRO_SET_RANGE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_BUFFER_SIZE = 'Get Gyro Buffer Size';
+Blockly.Msg.GYRO_BUFFER_SIZE = 'get gyro buffer size';
 /// auto generated
 Blockly.Msg.GYRO_BUFFER_SIZE_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_GET_AXIS = 'Get Gyro Axis';
+Blockly.Msg.GYRO_GET_AXIS = 'get gyro axis';
 /// auto generated
 Blockly.Msg.GYRO_GET_AXIS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_SET_FREQUENCY = 'Set Gyro Frequency';
+Blockly.Msg.GYRO_SET_FREQUENCY = 'set gyro frequency';
 /// auto generated
 Blockly.Msg.GYRO_SET_FREQUENCY_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP = 'Get Gyro Range From Chip';
+Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP = 'get gyro range from chip';
 /// auto generated
 Blockly.Msg.GYRO_GET_RANGE_FROM_CHIP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB = 'Set';
+Blockly.Msg.SET_PIXEL_RGB = 'set';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_PIXEL = 'Pixel';
+Blockly.Msg.SET_PIXEL_RGB_PIXEL = 'pixel';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_PIXEL_RGB_COLOUR = 'Set';
+Blockly.Msg.SET_PIXEL_RGB_COLOUR = 'set';
 /// auto generated
 Blockly.Msg.SET_PIXEL_RGB_COLOUR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB = 'Set All Pixels to';
+Blockly.Msg.SET_ALL_PIXEL_RGB = 'set all pixels to';
 /// auto generated
 Blockly.Msg.SET_ALL_PIXEL_RGB_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.REFRESH_PIXELS = 'Refresh Pixels';
+Blockly.Msg.REFRESH_PIXELS = 'refresh pixels';
 /// auto generated
 Blockly.Msg.REFRESH_PIXELS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR = 'Set All Pixels to';
+Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR = 'set all pixels to';
 /// auto generated
 Blockly.Msg.SET_ALL_PIXEL_RGB_COLOUR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_MOTOR_MA = 'Get Motor Max';
+Blockly.Msg.GET_MOTOR_MA = 'get motor max';
 /// auto generated
 Blockly.Msg.GET_MOTOR_MAX_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_LEFT_MOTOR = 'Get Current Left Motor Speed';
+Blockly.Msg.GET_LEFT_MOTOR = 'get current left motor speed';
 /// auto generated
 Blockly.Msg.GET_LEFT_MOTOR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.GET_RIGHT_MOTOR = 'Get Current Right Motor Speed';
+Blockly.Msg.GET_RIGHT_MOTOR = 'get current right motor speed';
 /// auto generated
 Blockly.Msg.GET_RIGHT_MOTOR_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MOTORS_BEGIN = 'Begin Motors';
+Blockly.Msg.MOTORS_BEGIN = 'begin motors';
 /// auto generated
 Blockly.Msg.MOTORS_BEGIN_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_RESET = 'Reset Maintain Heading';
+Blockly.Msg.MAINTAIN_HEADING_RESET = 'reset maintain heading';
 /// auto generated
 Blockly.Msg.MAINTAIN_HEADING_RESET_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING = 'Maintain Heading with ';
+Blockly.Msg.MAINTAIN_HEADING = 'maintain heading with ';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_DIRECTION = 'Direction';
+Blockly.Msg.MAINTAIN_HEADING_DIRECTION = 'direction';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_SPEED = 'and Speed';
+Blockly.Msg.MAINTAIN_HEADING_SPEED = 'and speed';
 /// auto generated
-Blockly.Msg.MAINTAIN_HEADING_WIGGLE = 'and Wiggle';
+Blockly.Msg.MAINTAIN_HEADING_WIGGLE = 'and wiggle';
 /// auto generated
 Blockly.Msg.MAINTAIN_HEADING_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.DRIVE_ARC = 'Drive in An Arc';
+Blockly.Msg.DRIVE_ARC = 'drive in an arc';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_DEGREES = 'Turning (degrees)';
+Blockly.Msg.DRIVE_ARC_DEGREES = 'turning (degrees)';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_LEFT = 'With Left Motor At';
+Blockly.Msg.DRIVE_ARC_LEFT = 'with left motor at';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_RIGHT = 'With Right Motor At';
+Blockly.Msg.DRIVE_ARC_RIGHT = 'with right motor at';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_TURN_TIME = 'With Max Expected Turn Time (milliseconds)';
+Blockly.Msg.DRIVE_ARC_TURN_TIME = 'with max expected turn time (milliseconds)';
 /// auto generated
-Blockly.Msg.DRIVE_ARC_SKID_TIME = 'With Max Expected Skid Time (milliseconds)';
+Blockly.Msg.DRIVE_ARC_SKID_TIME = 'with max expected skid time (milliseconds)';
 /// auto generated
 Blockly.Msg.DRIVE_ARC_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_START_CHIRP = 'Play Start Chirp';
+Blockly.Msg.PLAY_START_CHIRP = 'play start chirp';
 /// auto generated
 Blockly.Msg.PLAY_START_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_ACK = 'Play Acknowledgment Chirp';
+Blockly.Msg.PLAY_ACK = 'play acknowledgment chirp';
 /// auto generated
 Blockly.Msg.PLAY_ACK_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_NON_ACK = 'Play Non-Acknowledgment Chirp';
+Blockly.Msg.PLAY_NON_ACK = 'play non-acknowledgment chirp';
 /// auto generated
 Blockly.Msg.PLAY_NON_ACK_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_ANGER = 'Player Anger';
+Blockly.Msg.PLAY_ANGER = 'player anger';
 /// auto generated
 Blockly.Msg.PLAY_ANGER_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_BOREDOM = 'Play Boredom';
+Blockly.Msg.PLAY_BOREDOM = 'play boredom';
 /// auto generated
 Blockly.Msg.PLAY_BOREDOM_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_EXCITED = 'Play Excited';
+Blockly.Msg.PLAY_EXCITED = 'play excited';
 /// auto generated
 Blockly.Msg.PLAY_EXCITED_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP = 'Play Chirp';
+Blockly.Msg.PLAY_CHIRP = 'play chirp';
 /// auto generated
-Blockly.Msg.PLAY_CHIRP_FREQUENCY = 'With Frequency';
+Blockly.Msg.PLAY_CHIRP_FREQUENCY = 'with frequency';
 /// auto generated
-Blockly.Msg.AMPLITUDE = 'With Amplitude';
+Blockly.Msg.AMPLITUDE = 'with amplitude';
 /// auto generated
 Blockly.Msg.PLAY_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_CHIRP = 'Turn Chirp Off';
+Blockly.Msg.OFF_CHIRP = 'turn chirp off';
 /// auto generated
 Blockly.Msg.OFF_CHIRP_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_PIXELS = 'Turn All Pixels Off';
+Blockly.Msg.OFF_PIXELS = 'turn all pixels off';
 /// auto generated
 Blockly.Msg.OFF_PIXELS_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.OFF_PIXEL = 'Turn';
+Blockly.Msg.OFF_PIXEL = 'turn';
 /// auto generated
 Blockly.Msg.OFF_PIXEL_TOOLTIP = '';
 /// auto generated
-Blockly.Msg.RANDOM_EYES = 'Set Eyes To A Random Colour';
+Blockly.Msg.RANDOM_EYES = 'set eyes to a random colour';
 /// auto generated
 Blockly.Msg.RANDOM_EYES_TOOLTIP = '';
 
@@ -4713,15 +4713,15 @@ Blockly.Msg.AT_VOLUME = 'at volume';
 Blockly.Msg.LOOPING = 'looping';
 Blockly.Msg.SETUP = 'setup';
 Blockly.Msg.EMPTY = 'empty';
-Blockly.Msg.LEFT_EYE = 'Left Eye';
-Blockly.Msg.RIGHT_EYE = 'Right Eye';
-Blockly.Msg.BODY_TOP = 'Body Top';
-Blockly.Msg.BODY_BOTTOM = 'Body Bottom';
-Blockly.Msg.TAIL_TOP = 'Tail Top';
-Blockly.Msg.TAIL_BOTTOM = 'Tail Bottom';
-Blockly.Msg.RED = 'Red';
-Blockly.Msg.GREEN = 'Green';
-Blockly.Msg.BLUE = 'Blue';
+Blockly.Msg.LEFT_EYE = 'left eye';
+Blockly.Msg.RIGHT_EYE = 'right eye';
+Blockly.Msg.BODY_TOP = 'body top';
+Blockly.Msg.BODY_BOTTOM = 'body bottom';
+Blockly.Msg.TAIL_TOP = 'tail top';
+Blockly.Msg.TAIL_BOTTOM = 'tail bottom';
+Blockly.Msg.RED = 'red';
+Blockly.Msg.GREEN = 'green';
+Blockly.Msg.BLUE = 'blue';
 Blockly.Msg.OFF = 'off';
 Blockly.Msg.DURATION = 'duration';
 Blockly.Msg.TURN = 'turn';
