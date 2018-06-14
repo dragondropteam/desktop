@@ -323,6 +323,19 @@ Blockly.Blocks['arduino_random'] = {
   }
 };
 
+Blockly.Blocks['arduino_srand'] = {
+  init: function() {
+    this.appendValueInput('SEED')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.ARDUINO_SRAND);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(Blockly.Blocks.math.HUE);
+    this.setTooltip(Blockly.Msg.ARDUINO_SRAND_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.ARDUINO_SRAND_HELP_URL);
+  }
+};
 //endregion
 
 //region BITS AND BYTES

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-13 13:19:12.096751",
+		"lastupdated": "2018-06-14 11:02:16.665000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2406,5 +2406,8 @@
 	"BUTTON_PRESSED": "button pressed",
 	"BUTTON_PRESSED_TOOLTIP": "",
 	"HEADING_WITH_SHORTEST_DISTANCE": "heading with shortest distance from",
-	"HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP": ""
+	"HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP": "",
+	"ARDUINO_SRAND": "srand",
+	"ARDUINO_SRAND_TOOLTIP": "",
+	"ARDUINO_SRAND_HELP_URL": "http://www.cplusplus.com/reference/cstdlib/srand/"
 }
