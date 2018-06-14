@@ -39,6 +39,8 @@ function disableIfNotInClassBlock (root) {
     }
   }
   Blockly.Events.enable();
+
+  return block;
 }
 
 function getClassForBlock (root) {
@@ -698,12 +700,16 @@ Blockly.Blocks['class_mutatorarg'] = {
 };
 //endregion
 
+/**
+ * @deprecated
+ * @type {{init: Blockly.Blocks.method_definition.init, onchange: Blockly.Blocks.method_definition.onchange}}
+ */
 Blockly.Blocks['method_definition'] = {
   init: function () {
     this.appendStatementInput('METHOD_STATEMENTS')
       .setCheck(null)
       .appendField(Blockly.Msg.METHOD_DEFINITION_TITLE)
-      .appendField(new Blockly.FieldTextInput(Blockly.Msg.METHOD_DEFINITION_DEFAULT_TEXT), 'NAME');
+      .appendField(new Blockly.FieldTextInput(Blockly.Msg.METHOD_DEFINITION_DEFAULT_TEXT, DragonDrop.Classes.renameMethod), 'NAME');
     this.setPreviousStatement(true, ['METHOD_DEFINITION', 'CLASS_DEFINITION']);
     this.setNextStatement(true, 'METHOD_DEFINITION');
     this.setColour(CLASS_COLOUR);
@@ -1214,7 +1220,7 @@ Blockly.Blocks['method_defnoreturn'] = {
   init: function () {
     let nameField = new Blockly.FieldTextInput(
       Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE,
-      DragonDrop.Classes.rename);
+      DragonDrop.Classes.renameMethod);
     nameField.setSpellcheck(false);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE)
@@ -1515,7 +1521,7 @@ Blockly.Blocks['method_defreturn'] = {
   init: function () {
     let nameField = new Blockly.FieldTextInput(
       Blockly.Msg.PROCEDURES_DEFRETURN_PROCEDURE,
-      DragonDrop.Classes.rename);
+      DragonDrop.Classes.renameMethod);
     nameField.setSpellcheck(false);
     this.appendDummyInput()
       .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_TITLE)
@@ -1648,7 +1654,7 @@ Blockly.Blocks['method_callnoreturn'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
 
-    // Tooltip is set in renameProcedure.
+    // Tooltip is set in renameMethod.
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL);
     this.arguments_ = [];
     this.quarkConnections_ = {};
@@ -1672,7 +1678,7 @@ Blockly.Blocks['method_callnoreturn'] = {
    * @param {string} newName Renamed procedure.
    * @this Blockly.Block
    */
-  renameProcedure: function (oldName, newName) {
+  renameMethod: function (oldName, newName) {
     if (Blockly.Names.equals(oldName, this.getMethodCall())) {
       this.setFieldValue(newName, 'NAME');
       this.setFieldValue(CALL_IN_CLASS_MSG.replace('%1', this.class_ || 'class'), 'INSTANCE_NAME');
@@ -1844,7 +1850,7 @@ Blockly.Blocks['method_callnoreturn'] = {
   domToMutation: function (xmlElement) {
     let name = xmlElement.getAttribute('name');
     this.class_ = xmlElement.getAttribute('class');
-    this.renameProcedure(this.getMethodCall(), name);
+    this.renameMethod(this.getMethodCall(), name);
     let args = [];
     let paramIds = [];
     for (let i = 0, childNode; childNode = xmlElement.childNodes[i]; i++) {
@@ -1935,7 +1941,6 @@ Blockly.Blocks['method_callnoreturn'] = {
         Blockly.Events.setGroup(false);
       }
     } else if (event.type == Blockly.Events.CHANGE && this.id == event.blockId) {
-      console.log(this.getInput('RETURN'));
       let ret = this.getInput('RETURN');
       if (ret) {
         ret.setCheck(typeToCheckType(this.getFieldValue('TYPE')));
@@ -1959,7 +1964,16 @@ Blockly.Blocks['method_callnoreturn'] = {
     };
     options.push(option);
   },
-  defType_: 'method_defnoreturn'
+  defType_: 'method_defnoreturn',
+  updateClassName: function () {
+    this.getField('INSTANCE_NAME').setText(Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME.replace('%1', this.class_));
+  },
+  renameClass: function (oldName, legalName) {
+    if (Blockly.Names.equals(oldName, this.class_)) {
+      this.class_ = legalName;
+      this.updateClassName();
+    }
+  }
 };
 
 Blockly.Blocks['method_callreturn'] = {
@@ -1986,7 +2000,7 @@ Blockly.Blocks['method_callreturn'] = {
     this.setColour(CLASS_COLOUR);
   },
   getMethodCall: Blockly.Blocks['method_callnoreturn'].getMethodCall,
-  renameProcedure: Blockly.Blocks['method_callnoreturn'].renameProcedure,
+  renameMethod: Blockly.Blocks['method_callnoreturn'].renameMethod,
   setProcedureParameters_: Blockly.Blocks['method_callnoreturn'].setProcedureParameters_,
   updateShape_: Blockly.Blocks['method_callnoreturn'].updateShape_,
   mutationToDom: Blockly.Blocks['method_callnoreturn'].mutationToDom,
@@ -1994,6 +2008,8 @@ Blockly.Blocks['method_callreturn'] = {
   renameVar: Blockly.Blocks['method_callnoreturn'].renameVar,
   onchange: Blockly.Blocks['method_callnoreturn'].onchange,
   customContextMenu: Blockly.Blocks['method_callnoreturn'].customContextMenu,
+  updateClassName: Blockly.Blocks['method_callnoreturn'].updateClassName,
+  renameClass: Blockly.Blocks['method_callnoreturn'].renameClass,
   defType_: 'method_defreturn'
 };
 
