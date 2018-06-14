@@ -4827,3 +4827,7 @@ Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
 
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = 'heading with shortest distance from';
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = '';
+
+Blockly.Msg.ARDUINO_SRAND = 'srand';
+Blockly.Msg.ARDUINO_SRAND_TOOLTIP = '';
+Blockly.Msg.ARDUINO_SRAND_HELP_URL = 'http://www.cplusplus.com/reference/cstdlib/srand/';
