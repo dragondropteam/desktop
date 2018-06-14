@@ -1964,7 +1964,16 @@ Blockly.Blocks['method_callnoreturn'] = {
     };
     options.push(option);
   },
-  defType_: 'method_defnoreturn'
+  defType_: 'method_defnoreturn',
+  updateClassName: function () {
+    this.getField('INSTANCE_NAME').setText(Blockly.Msg.GET_MEMBER_IN_CLASS_INSTANCE_NAME.replace('%1', this.class_));
+  },
+  renameClass: function (oldName, legalName) {
+    if (Blockly.Names.equals(oldName, this.class_)) {
+      this.class_ = legalName;
+      this.updateClassName();
+    }
+  }
 };
 
 Blockly.Blocks['method_callreturn'] = {
@@ -1999,6 +2008,8 @@ Blockly.Blocks['method_callreturn'] = {
   renameVar: Blockly.Blocks['method_callnoreturn'].renameVar,
   onchange: Blockly.Blocks['method_callnoreturn'].onchange,
   customContextMenu: Blockly.Blocks['method_callnoreturn'].customContextMenu,
+  updateClassName: Blockly.Blocks['method_callnoreturn'].updateClassName,
+  renameClass: Blockly.Blocks['method_callnoreturn'].renameClass,
   defType_: 'method_defreturn'
 };
 
