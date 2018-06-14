@@ -3866,6 +3866,41 @@ Blockly.Blocks['collide_function_field'] = {
   }
 };
 
+Blockly.Blocks['collide_boolean'] = {
+  init: function () {
+    this.appendValueInput('OBJECTA');
+    this.appendValueInput('OBJECTB')
+      .appendField(Blockly.Msg.COLLIDE_BOOLEAN);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    this.setTooltip(Blockly.Msg.COLLIDE_BOOLEAN_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.COLLIDE_BOOLEAN_HELP_URL);
+  },
+  renameProcedure: function (oldName, legalName) {
+    if (this.getFieldValue('NAME') == oldName) {
+      this.setFieldValue(legalName, 'NAME');
+    }
+  }
+};
+
+Blockly.Blocks['physics_intersects'] = {
+  init: function () {
+    this.appendValueInput('LHS');
+    this.appendValueInput('RHS')
+      .appendField(Blockly.Msg.PHYSICS_INTERSECTS);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+    this.setTooltip(Blockly.Msg.PHYSICS_INTERSECTS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.PHYSICS_INTERSECTS_HELP_URL);
+  }
+};
+
 //endregion
 
 //region DYNAMICS
@@ -4517,6 +4552,25 @@ Blockly.Blocks['check_overlap_vi_procedure_field'] = {
   }
 };
 
+Blockly.Blocks['overlap_boolean'] = {
+  init: function () {
+    this.appendValueInput('LHS');
+    this.appendValueInput('RHS')
+      .appendField(Blockly.Msg.OVERLAP_BOOLEAN);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setOutput(true, 'Boolean');
+    this.setTooltip(Blockly.Msg.OVERLAP_BOOLEAN_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.OVERLAP_BOOLEAN_HELP_URL);
+    this.setColour(PHASER_PHYSICS_COLLISION_COLOUR);
+  },
+  renameProcedure: function (oldName, legalName) {
+    if (this.getFieldValue('NAME') == oldName) {
+      this.setFieldValue(legalName, 'NAME');
+    }
+  }
+};
+
 /**
  * @deprecated
  * @type {{init: Blockly.Blocks.check_overlap.init}}
@@ -4603,6 +4657,8 @@ Blockly.Blocks['move_to_object'] = {
     this.setHelpUrl(Blockly.Msg.MOVE_TO_OBJECT_HELP_URL);
   }
 };
+
+
 //endregion
 
 //region PHASER_GEOMETRY
