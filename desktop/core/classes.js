@@ -16,7 +16,7 @@ DragonDrop.Classes.allClasses = function(root){
     let blocks = root.getAllBlocks();
     let classes = [];
     for(let i = 0; i < blocks.length; ++i){
-        if(blocks[i].type == 'class_definition'){
+        if(blocks[i].type.startsWith('class_definition')){
             classes.push(blocks[i]);
         }
     }
@@ -51,7 +51,6 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
   returnBlock.setAttribute('type', 'method_return');
   xmlList.push(returnBlock);
 
-
   let memberDefinition = goog.dom.createDom('block');
   memberDefinition.setAttribute('type', 'member_definition');
   xmlList.push(memberDefinition);
@@ -73,6 +72,8 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
   // xmlList.push(thisGet);
 
   let classes = DragonDrop.Classes.allClasses(workspace);
+
+  console.log('Classes: ', classes);
 
   for (let i = 0; i < classes.length; ++i) {
     let className = classes[i].getFieldValue('NAME');
@@ -184,9 +185,11 @@ DragonDrop.Classes.createClass = function(workspace){
 };
 
 DragonDrop.Classes.getMembersOf = function(root, className){
+  console.log('getMembersOf');
     let blocks = root.getAllBlocks();
     let members = [];
     for(let i = 0; i < blocks.length; ++i){
+      console.log(blocks[i]);
         if(blocks[i].type == 'member_definition' && blocks[i].name == className){
             members.push(blocks[i]);
         }
@@ -272,6 +275,25 @@ DragonDrop.Classes.rename = function(name) {
         }
     }
     return legalName;
+};
+
+DragonDrop.Classes.renameMethod = function(name) {
+  // Strip leading and trailing whitespace.  Beyond this, all names are legal.
+  name = name.replace(/^[\s\xa0]+|[\s\xa0]+$/g, '');
+
+  // Ensure two identically-named procedures don't exist.
+  var legalName = Blockly.Procedures.findLegalName(name, this.sourceBlock_);
+  var oldName = this.text_;
+  if (oldName != name && oldName != legalName) {
+    // Rename any callers.
+    var blocks = this.sourceBlock_.workspace.getAllBlocks();
+    for (var i = 0; i < blocks.length; i++) {
+      if (blocks[i].renameMethod) {
+        blocks[i].renameMethod(oldName, legalName);
+      }
+    }
+  }
+  return legalName;
 };
 
 
