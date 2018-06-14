@@ -681,6 +681,13 @@ Blockly.JavaScript['collision_get_objects_at_location_function'] = function (blo
 
   return `game.physics.arcade.getObjectsAtLocation(${x}, ${y}, ${group}, ${functionName});\n`;
 };
+
+Blockly.JavaScript['physics_intersects'] = function (block) {
+  const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+  const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.physics.arcade.intersects(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
 //endregion
 
 //region PHYSICS_STARTUP
@@ -920,11 +927,23 @@ Blockly.JavaScript['check_overlap_vi_procedure_field'] = function (block) {
     return `game.physics.arcade.overlap(${lhs}, ${rhs}, ${functionName}, null, this);\n`;
 };
 
+Blockly.JavaScript['overlap_boolean'] = function (block) {
+  const lhs = Blockly.JavaScript.valueToCode(block, 'LHS', Blockly.JavaScript.ORDER_ATOMIC);
+  const rhs = Blockly.JavaScript.valueToCode(block, 'RHS', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.physics.arcade.overlap(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
 Blockly.JavaScript['collide_function_field'] = function (block) {
     const lhs = Blockly.JavaScript.valueToCode(block, 'OBJECTA', Blockly.JavaScript.ORDER_ATOMIC);
     const rhs = Blockly.JavaScript.valueToCode(block, 'OBJECTB', Blockly.JavaScript.ORDER_ATOMIC);
     const functionName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
     return `game.physics.arcade.collide(${lhs}, ${rhs}, ${functionName});\n`;
+};
+
+Blockly.JavaScript['collide_boolean'] = function (block) {
+  const lhs = Blockly.JavaScript.valueToCode(block, 'OBJECTA', Blockly.JavaScript.ORDER_ATOMIC);
+  const rhs = Blockly.JavaScript.valueToCode(block, 'OBJECTB', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`game.physics.arcade.collide(${lhs}, ${rhs})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 /*Blockly.JavaScript['move_to_pointer'] = function (block) {
