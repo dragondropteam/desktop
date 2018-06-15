@@ -4851,6 +4851,9 @@ Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = 'heading with shortest distance from';
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = '';
 
+Blockly.Msg.ARDUINO_SRAND = 'srand';
+Blockly.Msg.ARDUINO_SRAND_TOOLTIP = '';
+Blockly.Msg.ARDUINO_SRAND_HELP_URL = 'http://www.cplusplus.com/reference/cstdlib/srand/';
 Blockly.Msg.COLLIDE_BOOLEAN = 'is colliding with';
 Blockly.Msg.COLLIDE_BOOLEAN_TOOLTIP = 'Checks for collision between two objects, and separates them if they are colliding. Returns true or false based on if they are colliding.';
 Blockly.Msg.COLLIDE_BOOLEAN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#collide';
