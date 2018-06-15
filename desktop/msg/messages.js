@@ -4851,6 +4851,17 @@ Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = 'heading with shortest distance from';
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = '';
 
+Blockly.Msg.COLLIDE_BOOLEAN = 'is colliding with';
+Blockly.Msg.COLLIDE_BOOLEAN_TOOLTIP = 'Checks for collision between two objects, and separates them if they are colliding. Returns true or false based on if they are colliding.';
+Blockly.Msg.COLLIDE_BOOLEAN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#collide';
+
+Blockly.Msg.OVERLAP_BOOLEAN = 'is overlapping with';
+Blockly.Msg.OVERLAP_BOOLEAN_TOOLTIP = 'Checks for overlaps between two game objects, returning true if they are overlapping, and false if they are not.';
+Blockly.Msg.OVERLAP_BOOLEAN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#overlap';
+
+Blockly.Msg.PHYSICS_INTERSECTS = 'intersects with';
+Blockly.Msg.PHYSICS_INTERSECTS_TOOLTIP = 'Check for intersection against two bodies and returns true or false.';
+Blockly.Msg.PHYSICS_INTERSECTS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#intersects';
 Blockly.Msg.POINTS_CENTROID = 'get centroid of';
 Blockly.Msg.POINTS_CENTROID_TOOLTIP = 'Calculates centroid (or midpoint) from an array of points. If only one point is provided, that point is returned.';
 Blockly.Msg.POINTS_CENTROID_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#_centroid';
