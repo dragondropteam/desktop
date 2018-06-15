@@ -237,13 +237,8 @@ function openTempProjectDirectory() {
   shell.openItem(`${loadedproject.getProjectDir()}`);
 }
 
-function openMetadataFile() {
-  
-  shell.openItem(`${path.resolve(loadedproject.getProjectDir(),'..')}/${loadedproject.getName()}.digiblocks`);
-}
-
 function openBlocksFile() {
-  shell.openItem(`${path.resolve(loadedproject.getProjectDir(),'..')}/${loadedproject.getName()}.xml`);
+  shell.openItem(`${loadedproject.getBlocksPath()}`);
 }
 
 function addDevelopmentMenu(menuHash) {
@@ -265,12 +260,6 @@ function addDevelopmentMenu(menuHash) {
     label: 'Open Temp Project Directory',
     click() {
       openTempProjectDirectory();
-    }
-  });
-  menuHash['Develop'].push({
-    label: 'Open Metadata File',
-    click() {
-      openMetadataFile();
     }
   });
   menuHash['Develop'].push({
