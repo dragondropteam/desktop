@@ -197,6 +197,90 @@ function addHelpMenu (menuHash) {
   });
 }
 
+function showLogs() {
+  
+  switch(process.platform)
+  {
+    case 'win32':
+      shell.openItem(`${process.env['APPDATA']}/DragonDrop/log.log`);
+      break;
+    case 'linux':
+      //~/.config/<app name>/log.log
+      shell.openItem(`${process.env['XDG_CONFIG_HOME']}/DragonDrop/log.log`);
+      break;
+    case 'darwin':
+      //~/Library/Logs/<app name>/log.log
+      shell.openItem(`Library/Logs/DragonDrop/log.log`);
+      break;
+  }
+
+}
+
+function showPreferencesJSON() {
+  
+  switch(process.platform)
+  {
+    case 'win32':
+      shell.openItem(`${process.env['APPDATA']}/DragonDrop/Preferences`);
+      break;
+    case 'linux':
+      shell.openItem(`${process.env['XDG_CONFIG_HOME']}/DragonDrop/Preferences`);
+      break;
+    case 'darwin':
+      shell.openItem(`Library/Logs/DragonDrop/Preferences`);
+      break;
+  }
+}
+
+function openTempProjectDirectory() {
+  
+  shell.openItem(`${loadedproject.getProjectDir()}`);
+}
+
+function openMetadataFile() {
+  
+  shell.openItem(`${path.resolve(loadedproject.getProjectDir(),'..')}/${loadedproject.getName()}.digiblocks`);
+}
+
+function openBlocksFile() {
+  shell.openItem(`${path.resolve(loadedproject.getProjectDir(),'..')}/${loadedproject.getName()}.xml`);
+}
+
+function addDevelopmentMenu(menuHash) {
+  menuHash['Develop'] = [];
+
+  menuHash['Develop'].push({
+    label: 'Show Logs',
+    click() {
+      showLogs();
+    }
+  });
+  menuHash['Develop'].push({
+    label: 'Show JSON Preferences',
+    click() {
+      showPreferencesJSON();
+    }
+  });
+  menuHash['Develop'].push({
+    label: 'Open Temp Project Directory',
+    click() {
+      openTempProjectDirectory();
+    }
+  });
+  menuHash['Develop'].push({
+    label: 'Open Metadata File',
+    click() {
+      openMetadataFile();
+    }
+  });
+  menuHash['Develop'].push({
+    label: 'Open Blocks File',
+    click() {
+      openBlocksFile();
+    }
+  });
+}
+
 function createDefaultMenu () {
 
   let menuHash = Object.create(null);
@@ -399,6 +483,8 @@ function createProjectMenu (arg) {
     });
 
   }, createProjectMenu);
+
+  addDevelopmentMenu(menuHash);
 }
 
 ipcMain.on('refresh_menu', (event, project) => {
