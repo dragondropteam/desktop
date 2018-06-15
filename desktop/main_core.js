@@ -31,6 +31,8 @@ const fs = require('fs-extra');
 const projectTypes = require('./project_types/project_types');
 const arduinoCore = require('./arduino_core/arduino_core');
 const log = require('electron-log');
+const findLogPath = require('electron-log/lib/transports/file/find-log-path');
+
 let preferencesWindow;
 const JSZip = require('jszip');
 const {ProgressWindow} = require('./progress_dialog');
@@ -39,12 +41,16 @@ const buffer = require('buffer');
 const windowManager = require('./window_manager/window_manager');
 let splashScreen = false;
 let readOnlyProject = false;
+let develop = false;
 
 //region AUTO_UPDATE
 const {autoUpdater} = require('electron-updater');
 autoUpdater.autoDownload = false;
 autoUpdater.logger = require('electron-log');
 autoUpdater.logger.transports.file.level = 'info';
+
+const Store = require('electron-store');
+const store = new Store();
 
 function sendStatusToWindow (text, info) {
   log.warn('sendStatusToWindow', text, info);
@@ -197,74 +203,52 @@ function addHelpMenu (menuHash) {
   });
 }
 
-function showLogs() {
-  
-  switch(process.platform)
-  {
-    case 'win32':
-      shell.openItem(`${process.env['APPDATA']}/DragonDrop/log.log`);
-      break;
-    case 'linux':
-      //~/.config/<app name>/log.log
-      shell.openItem(`${process.env['XDG_CONFIG_HOME']}/DragonDrop/log.log`);
-      break;
-    case 'darwin':
-      //~/Library/Logs/<app name>/log.log
-      shell.openItem(`Library/Logs/DragonDrop/log.log`);
-      break;
-  }
-
+function showLogs () {
+  const path = findLogPath('DragonDrop');
+  shell.openItem(path);
 }
 
-function showPreferencesJSON() {
-  
-  switch(process.platform)
-  {
-    case 'win32':
-      shell.openItem(`${process.env['APPDATA']}/DragonDrop/Preferences`);
-      break;
-    case 'linux':
-      shell.openItem(`${process.env['XDG_CONFIG_HOME']}/DragonDrop/Preferences`);
-      break;
-    case 'darwin':
-      shell.openItem(`Library/Logs/DragonDrop/Preferences`);
-      break;
-  }
+function showPreferencesJSON () {
+  shell.openItem(store.path);
 }
 
-function openTempProjectDirectory() {
-  
-  shell.openItem(`${loadedproject.getProjectDir()}`);
+function openTempProjectDirectory () {
+  shell.openItem(`${loadedproject.loadPath}`);
 }
 
-function openBlocksFile() {
+function openBlocksFile () {
   shell.openItem(`${loadedproject.getBlocksPath()}`);
 }
 
-function addDevelopmentMenu(menuHash) {
+function addDevelopmentMenu (menuHash) {
+
+  if (!develop && !global.development) {
+    return;
+  }
+
   menuHash['Develop'] = [];
 
   menuHash['Develop'].push({
     label: 'Show Logs',
-    click() {
+    click () {
       showLogs();
     }
   });
   menuHash['Develop'].push({
     label: 'Show JSON Preferences',
-    click() {
+    click () {
       showPreferencesJSON();
     }
   });
   menuHash['Develop'].push({
     label: 'Open Temp Project Directory',
-    click() {
+    click () {
       openTempProjectDirectory();
     }
   });
   menuHash['Develop'].push({
     label: 'Open Blocks File',
-    click() {
+    click () {
       openBlocksFile();
     }
   });
@@ -463,6 +447,7 @@ function createProjectMenu (arg) {
 
   projectInterface.mutateMenu(menuHash, arg, () => {
     addHelpMenu(menuHash);
+    addDevelopmentMenu(menuHash);
     Menu.setApplicationMenu(Menu.buildFromTemplate(flattenMenu(menuHash)));
   }, () => {
     dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
@@ -472,8 +457,6 @@ function createProjectMenu (arg) {
     });
 
   }, createProjectMenu);
-
-  addDevelopmentMenu(menuHash);
 }
 
 ipcMain.on('refresh_menu', (event, project) => {
@@ -927,16 +910,27 @@ app.on('ready', function () {
   showSplashScreen(null, () => {
     //TODO: Use more of yargs, we should be able to specify hyphenated arguments --dev and the like to increase usability
     const yargs = require('yargs');
-    const args = yargs(process.argv.slice(1)).argv;
+
+    const args = yargs(process.argv.slice(1))
+      .option('dev', {
+        alias: 'development',
+        demandOption: false,
+        default: false,
+        describe: 'enabled additional debug tools/output',
+        type: 'boolean'
+      }).argv;
+
+    develop = args.dev;
+
     if (projectToLoad) {
       // This handles loading a file that was double clicked on MacOS which uses events
       loadProjectFromPath(projectToLoad);
     }
-    else if(args._.length > 0){
+    else if (args._.length > 0) {
       //If we have any unhyphenated arguments passed to our program check to see if any of them are projects to load
       //if so load the first project found
-      for(let i = 0; i < args._.length; ++i){
-        if(args._[i].endsWith('.digiblocks') || args._[i].endsWith('.drop')){
+      for (let i = 0; i < args._.length; ++i) {
+        if (args._[i].endsWith('.digiblocks') || args._[i].endsWith('.drop')) {
           loadProjectFromPath(args._[i]);
           //For assume that only a single project has been provided. If the user has provided more then a single project
           //they are not following the CLI interface currently. Just open the first one we find. This can be updated
