@@ -4872,7 +4872,7 @@ Blockly.Msg.CIRCLE_CLONE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.C
 Blockly.Msg.CIRCLE_CONTAINS_TOOLTIP = 'Return true if the given x/y coordinates are within this Circle object.';
 Blockly.Msg.CIRCLE_CONTAINS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#contains';
 
-Blockly.Msg.CIRCLE_RANDOM = 'random point from';
+Blockly.Msg.CIRCLE_RANDOM = 'random point in';
 Blockly.Msg.CIRCLE_RANDOM_TOOLTIP = 'Returns a uniformly distributed random point from anywhere within this Circle.';
 Blockly.Msg.CIRCLE_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#random';
 
@@ -4883,3 +4883,7 @@ Blockly.Msg.CIRCLE_CIRCUMFERENCE_HELP_URL = 'http://dragondrop.digipen.edu/docs/
 Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT = 'point from';
 Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_TOOLTIP = 'Returns a Point object containing the coordinates of a point on the circumference of the Circle based on the given angle.';
 Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#circumferencePoint';
+
+Blockly.Msg.RECTANGLE_RANDOM = 'random point in';
+Blockly.Msg.RECTANGLE_RANDOM_TOOLTIP = 'Returns a uniformly distributed random point from anywhere within this Rectangle.';
+Blockly.Msg.RECTANGLE_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#random';

@@ -1797,6 +1797,11 @@ Blockly.JavaScript['rectangle_clone'] = function (block) {
 //  return [`Phaser.Rectangle.clone(${rectangle})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
   return [`${rectangle}.clone()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
+
+Blockly.JavaScript['rectangle_random'] = function (block) {
+  const rectangle = Blockly.JavaScript.valueToCode(block, 'RECTANGLE', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${rectangle}.random()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
 //endregion
 //region POINT
 Blockly.JavaScript['point_create'] = function (block) {

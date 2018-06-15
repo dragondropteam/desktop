@@ -4790,6 +4790,18 @@ Blockly.Blocks['rectangle_clone'] = {
     this.setHelpUrl(Blockly.Msg.RECTANGLE_CLONE_HELP_URL);
   }
 };
+
+Blockly.Blocks['rectangle_random'] = {
+  init: function () {
+    this.appendValueInput('RECTANGLE')
+      .appendField(Blockly.Msg.RECTANGLE_RANDOM);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_RANDOM_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_RANDOM_HELP_URL);
+  }
+};
 //endregion
 
 //region POINT
@@ -5235,7 +5247,7 @@ Blockly.Blocks['circle_circumference_point'] = {
     this.appendValueInput('CIRCLE')
       .appendField(Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT);
     this.appendValueInput('DEGREES')
-      .appendField(Blockly.Msg.FROM)
+      .appendField(Blockly.Msg.AT)
       .setCheck('Number');
     this.appendDummyInput()
       .appendField(Blockly.Msg.DEGREES);
