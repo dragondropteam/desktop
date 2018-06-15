@@ -47,6 +47,7 @@ const PHASER_PHYSICS_UTIL_COLOUR = '#da95e2'; //'#8e24aa';
 const PHASER_GEOMETRY_COLOUR = '#424242';  // UNUSED
 const PHASER_RECTANGLE_COLOUR = '#5C5C5C'; //'#616161';
 const PHASER_POINT_COLOUR = '#757575';     // (no change)
+const PHASER_CIRCLE_COLOUR ='#838383';
 
 const PHASER_KEYBOARD_INPUT = '#1565C0'; // (no change)
 const PHASER_MOUSE_INPUT = '#2479D1';    //'#42A5F5' // ?2175CE 277DD5 2C85DB
@@ -4761,6 +4762,14 @@ Blockly.Blocks['move_to_object'] = {
 //region PHASER_GEOMETRY
 
 //region RECTANGLE
+const RECTANGLE_NUMERIC_WRITABLE = ['x', 'y', 'width', 'height', 'bottom', 'centerX', 'centerY', 'left', 'randomX', 'randomY', 'right', 'top'];
+const RECTANGLE_NUMERIC_READABLE = ['halfHeight', 'halfWidth', 'perimeter', 'volume'];
+const RECTANGLE_NUMERIC_FIELDS = createDropDownField(RECTANGLE_NUMERIC_WRITABLE, RECTANGLE_NUMERIC_READABLE);
+
+const RECTANGLE_POINT_WRITABLE = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'];
+const RECTANGLE_POINT_READABLE = [];
+const RECTANGLE_POINT_FIELDS = createDropDownField(RECTANGLE_POINT_WRITABLE, RECTANGLE_POINT_READABLE);
+
 Blockly.Blocks['rectangle_create'] = {
   init: function () {
     this.appendDummyInput()
@@ -4801,6 +4810,149 @@ Blockly.Blocks['rectangle_intersects'] = {
     this.setTooltip(Blockly.Msg.RECTANGLE_CREATE_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.RECTANGLE_CREATE_HELP_URL);
     this.setOutput(true, 'Boolean');
+  }
+};
+
+Blockly.Blocks['rectangle_get_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(RECTANGLE_NUMERIC_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['rectangle_get_point_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_POINT_FIELD)
+      .appendField(new Blockly.FieldDropdown(RECTANGLE_POINT_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_GET_POINT_FIELDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_GET_POINT_FIELDS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['rectangle_set_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(RECTANGLE_NUMERIC_FIELDS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.appendValueInput('VALUE')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.TO);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_SET_NUMERIC_FIELDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_HELP_URL);
+  },
+  customContextMenu: createSetterContextMenu('rectangle_get_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['rectangle_set_point_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SET_POINT_FIELD)
+      .appendField(new Blockly.FieldDropdown(RECTANGLE_POINT_FIELDS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.appendValueInput('VALUE')
+      .appendField(Blockly.Msg.TO);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_SET_POINT_FIELDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_GET_POINT_FIELDS_HELP_URL);
+  },
+  customContextMenu: createSetterContextMenu('rectangle_get_point_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['rectangle_contains_point'] = {
+  init: function () {
+    this.appendValueInput('RECTANGLE');
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.RECTANGLE_CONTAINS_POINT);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_CONTAINS_POINT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_CONTAINS_POINT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['rectangle_contains'] = {
+  init: function () {
+    this.appendValueInput('RECTANGLE');
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.CONTAINS)
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_CONTAINS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_CONTAINS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['rectangle_contains_rect'] = {
+  init: function () {
+    this.appendValueInput('RECTANGLE_A');
+    this.appendValueInput('RECTANGLE_B')
+      .appendField(Blockly.Msg.CONTAINS)
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_CONTAINS_RECT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_CONTAINS_RECT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['rectangle_clone'] = {
+  init: function () {
+    this.appendValueInput('RECTANGLE')
+      .appendField(Blockly.Msg.CLONE);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_CLONE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_CLONE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['rectangle_random'] = {
+  init: function () {
+    this.appendValueInput('RECTANGLE')
+      .appendField(Blockly.Msg.RECTANGLE_RANDOM);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(PHASER_RECTANGLE_COLOUR);
+    this.setTooltip(Blockly.Msg.RECTANGLE_RANDOM_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.RECTANGLE_RANDOM_HELP_URL);
   }
 };
 //endregion
@@ -5412,6 +5564,169 @@ Blockly.Blocks['points_set_to_polar'] = {
     this.setColour(PHASER_POINT_COLOUR);
     this.setTooltip(Blockly.Msg.POINTS_SET_TO_POLAR_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.POINTS_SET_TO_POLAR_HELP_URL);
+  }
+};
+//endregion
+//region CIRCLE
+const CIRCLE_NUMERIC_WRITABLE = ['bottom', 'diameter', 'left', 'radius', 'right', 'top', 'x', 'y'];
+const CIRCLE_NUMERIC_READABLE = ['area'];
+const CIRCLE_NUMERIC_FIELDS = createDropDownField(CIRCLE_NUMERIC_WRITABLE, CIRCLE_NUMERIC_READABLE);
+
+Blockly.Blocks['circle_create'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.CIRCLE_CREATE);
+    this.appendValueInput('X')
+      .appendField(Blockly.Msg.X);
+    this.appendValueInput('Y')
+      .appendField(Blockly.Msg.Y);
+    this.appendValueInput('DIAMETER')
+      .appendField(Blockly.Msg.DIAMETER);
+    this.setInputsInline(true);
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_CREATE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_CREATE_HELP_URL);
+    this.setOutput(true);
+  }
+};
+
+Blockly.Blocks['circle_get_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(CIRCLE_NUMERIC_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_GET_NUMERIC_FIELDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_GET_NUMERIC_FIELDS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['circle_set_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(CIRCLE_NUMERIC_FIELDS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.appendValueInput('VALUE')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.TO);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_SET_NUMERIC_FIELDS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_GET_NUMERIC_FIELDS_HELP_URL);
+  },
+  customContextMenu: createSetterContextMenu('circle_get_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['circle_intersects'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE_A');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INTERSECTS);
+    this.appendValueInput('CIRCLE_B');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_INTERSECTS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_INTERSECTS_HELP_URL);
+    this.setOutput(true, 'Boolean');
+  }
+};
+
+Blockly.Blocks['circle_intersects_rectangle'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INTERSECTS);
+    this.appendValueInput('RECTANGLE');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_INTERSECTS_RECTANGLE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_INTERSECTS_RECTANGLE_HELP_URL);
+    this.setOutput(true, 'Boolean');
+  }
+};
+
+Blockly.Blocks['circle_clone'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE')
+      .appendField(Blockly.Msg.CLONE);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_CLONE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_CLONE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['circle_contains'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE');
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.CONTAINS)
+      .appendField(Blockly.Msg.X);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.Y);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_CONTAINS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_CONTAINS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['circle_random'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE')
+      .appendField(Blockly.Msg.CIRCLE_RANDOM);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_RANDOM_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_RANDOM_HELP_URL);
+  }
+};
+
+Blockly.Blocks['circle_circumference'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE')
+      .appendField(Blockly.Msg.CIRCLE_CIRCUMFERENCE);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_CIRCUMFERENCE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_CIRCUMFERENCE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['circle_circumference_point'] = {
+  init: function () {
+    this.appendValueInput('CIRCLE')
+      .appendField(Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT);
+    this.appendValueInput('DEGREES')
+      .appendField(Blockly.Msg.AT)
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.DEGREES);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_CIRCLE_COLOUR);
+    this.setTooltip(Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_HELP_URL);
   }
 };
 //endregion

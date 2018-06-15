@@ -2163,6 +2163,117 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="rectangle_get_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_get_point_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_set_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_set_point_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_contains_point">
+                    <value name="RECTANGLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                    <value name="POINT">
+                        <shadow type="point_create">
+                            <value name="X">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="Y">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_contains">
+                    <value name="RECTANGLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_contains_rect">
+                    <value name="RECTANGLE_A">
+                        <shadow type="variables_get">
+                            <field name="VAR">rectangleA</field>
+                        </shadow>
+                    </value>
+                    <value name="RECTANGLE_B">
+                        <shadow type="variables_get">
+                            <field name="VAR">rectangleB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_clone">
+                    <value name="RECTANGLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rectangle_random">
+                    <value name="RECTANGLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
             <category name="Point" colour="#757575">
                 <block type="point_create">
@@ -2568,6 +2679,118 @@
                     <value name="RADIUS">
                         <shadow type="math_number">
                             <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Circle" colour="#838383">
+                <block type="circle_create">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="DIAMETER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_get_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_set_numeric_field">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_intersects">
+                    <value name="CIRCLE_A">
+                        <shadow type="variables_get">
+                            <field name="VAR">circleA</field>
+                        </shadow>
+                    </value>
+                    <value name="CIRCLE_B">
+                        <shadow type="variables_get">
+                            <field name="VAR">circleB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_intersects_rectangle">
+                    <value name="CIRCLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                    <value name="RECTANGLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_clone">
+                    <value name="CIRCLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_contains">
+                    <value name="CIRCLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_random">
+                    <value name="CIRCLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_circumference">
+                    <value name="CIRCLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="circle_circumference_point">
+                    <value name="CIRCLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultCircle</field>
+                        </shadow>
+                    </value>
+                    <value name="DEGREES">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
                         </shadow>
                     </value>
                 </block>

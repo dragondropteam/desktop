@@ -4944,3 +4944,62 @@ Blockly.Msg.POINTS_SET_TO_POLAR = 'to polar with';
 Blockly.Msg.POINTS_SET_TO_POLAR_TOOLTIP = 'Sets the x and y values of this Point object from a given polar coordinate.';
 Blockly.Msg.POINTS_SET_TO_POLAR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#setToPolar';
 Blockly.Msg.RADIUS = 'radius';
+Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_TOOLTIP = 'Get numeric fields of a Rectangle object.';
+Blockly.Msg.RECTANGLE_SET_NUMERIC_FIELDS_TOOLTIP = 'Set numeric fields of a Rectangle object.';
+Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#toc-3';
+
+Blockly.Msg.RECTANGLE_GET_POINT_FIELDS_TOOLTIP = 'Get point fields of a Rectangle object.';
+Blockly.Msg.RECTANGLE_SET_POINT_FIELDS_TOOLTIP = 'Set point fields of a Rectangle object.';
+Blockly.Msg.RECTANGLE_GET_POINT_FIELDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#toc-3';
+
+Blockly.Msg.RECTANGLE_CONTAINS_POINT = 'contains point';
+Blockly.Msg.RECTANGLE_CONTAINS_POINT_TOOLTIP = 'Determines whether the specified point is contained within the rectangular region defined by this Rectangle object.';
+Blockly.Msg.RECTANGLE_CONTAINS_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#_containsPoint';
+
+Blockly.Msg.RECTANGLE_CONTAINS_TOOLTIP = 'Determines whether the specified coordinates are contained within the region defined by this Rectangle object.';
+Blockly.Msg.RECTANGLE_CONTAINS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#_contains';
+
+Blockly.Msg.RECTANGLE_CONTAINS_RECT_TOOLTIP = 'Determines whether the first Rectangle object is fully contained within the second Rectangle object.';
+Blockly.Msg.RECTANGLE_CONTAINS_RECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#_containsRect';
+
+Blockly.Msg.CIRCLE_CREATE = 'make circle';
+Blockly.Msg.CIRCLE_CREATE_TOOLTIP = 'Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.';
+Blockly.Msg.CIRCLE_CREATE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#Circle';
+Blockly.Msg.DIAMETER = 'diameter';
+
+Blockly.Msg.CIRCLE_GET_NUMERIC_FIELDS_TOOLTIP = 'Get numeric fields of a Circle object.';
+Blockly.Msg.CIRCLE_SET_NUMERIC_FIELDS_TOOLTIP = 'Set numeric fields of a Circle object.';
+Blockly.Msg.CIRCLE_GET_NUMERIC_FIELDS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#toc-3';
+
+Blockly.Msg.INTERSECTS = 'intersects';
+Blockly.Msg.CIRCLE_INTERSECTS_TOOLTIP = 'Determines whether the two Circle objects intersect based on the radius distances.';
+Blockly.Msg.CIRCLE_INTERSECTS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#_intersects';
+
+Blockly.Msg.CIRCLE_INTERSECTS_RECTANGLE_TOOLTIP = 'Checks if the given Circle and Rectangle objects intersect.';
+Blockly.Msg.CIRCLE_INTERSECTS_RECTANGLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#_intersectsRectangle';
+
+Blockly.Msg.CLONE = 'clone';
+Blockly.Msg.RECTANGLE_CLONE_TOOLTIP = 'Returns a new Rectangle object with the same values for the x, y, width, and height properties as the original Rectangle object.';
+Blockly.Msg.RECTANGLE_CLONE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#clone';
+
+Blockly.Msg.CIRCLE_CLONE_TOOLTIP = 'Returns a new Circle object with the same values for the x, y, width, and height properties as this Circle object.';
+Blockly.Msg.CIRCLE_CLONE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#clone';
+
+Blockly.Msg.CIRCLE_CONTAINS_TOOLTIP = 'Return true if the given x/y coordinates are within this Circle object.';
+Blockly.Msg.CIRCLE_CONTAINS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#contains';
+
+Blockly.Msg.CIRCLE_RANDOM = 'random point in';
+Blockly.Msg.CIRCLE_RANDOM_TOOLTIP = 'Returns a uniformly distributed random point from anywhere within this Circle.';
+Blockly.Msg.CIRCLE_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#random';
+
+Blockly.Msg.CIRCLE_CIRCUMFERENCE = 'circumference of';
+Blockly.Msg.CIRCLE_CIRCUMFERENCE_TOOLTIP = 'The circumference of the circle.';
+Blockly.Msg.CIRCLE_CIRCUMFERENCE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#circumference';
+
+Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT = 'point from';
+Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_TOOLTIP = 'Returns a Point object containing the coordinates of a point on the circumference of the Circle based on the given angle.';
+Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Circle.html#circumferencePoint';
+
+Blockly.Msg.RECTANGLE_RANDOM = 'random point in';
+Blockly.Msg.RECTANGLE_RANDOM_TOOLTIP = 'Returns a uniformly distributed random point from anywhere within this Rectangle.';
+Blockly.Msg.RECTANGLE_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#random';
