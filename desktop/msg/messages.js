@@ -4850,3 +4850,83 @@ Blockly.Msg.BUTTON_PRESSED_TOOLTIP = '';
 
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE = 'heading with shortest distance from';
 Blockly.Msg.HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP = '';
+
+Blockly.Msg.POINTS_CENTROID = 'get centroid of';
+Blockly.Msg.POINTS_CENTROID_TOOLTIP = 'Calculates centroid (or midpoint) from an array of points. If only one point is provided, that point is returned.';
+Blockly.Msg.POINTS_CENTROID_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#_centroid';
+
+Blockly.Msg.POINTS_CLAMP = 'clamp';
+Blockly.Msg.POINTS_CLAMP_TOOLTIP = 'Clamps this Point object values to be between the given min and max.';
+Blockly.Msg.POINTS_CLAMP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#clamp';
+
+Blockly.Msg.POINTS_CLAMP_X = 'clamp the x value of';
+Blockly.Msg.POINTS_CLAMP_X_TOOLTIP = 'Clamps the x value of this Point to be between the given min and max.';
+Blockly.Msg.POINTS_CLAMP_X_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#clampX';
+
+Blockly.Msg.POINTS_CLAMP_Y = 'clamp the y value of';
+Blockly.Msg.POINTS_CLAMP_Y_TOOLTIP = 'Clamps the y value of this Point to be between the given min and max.';
+Blockly.Msg.POINTS_CLAMP_Y_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#clampY';
+
+Blockly.Msg.POINTS_CLONE = 'create clone of';
+Blockly.Msg.POINTS_CLONE_TOOLTIP = 'Creates a copy of the given Point.';
+Blockly.Msg.POINTS_CLONE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#clone';
+
+Blockly.Msg.POINTS_COPY_FROM = 'copy values from';
+Blockly.Msg.POINTS_COPY_FROM_TOOLTIP = 'Copies the x and y properties from one object to a Point.';
+Blockly.Msg.POINTS_COPY_FROM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#copyFrom';
+
+Blockly.Msg.POINTS_CROSS = 'cross product of';
+Blockly.Msg.POINTS_CROSS_TOOLTIP = 'he cross product of two Point objects';
+Blockly.Msg.POINTS_CROSS_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#cross';
+
+Blockly.Msg.POINTS_ADD_MEMBER_TOOLTIP = 'Adds the given x and y values to this Point.';
+Blockly.Msg.POINTS_ADD_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#add';
+
+Blockly.Msg.POINTS_DIVIDE_MEMBER_TOOLTIP = 'Divides Point.x and Point.y by the given x and y values.';
+Blockly.Msg.POINTS_DIVIDE_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#divide';
+
+Blockly.Msg.POINTS_SUBTRACT_MEMBER_TOOLTIP = 'Subtracts the given x and y values from this Point.';
+Blockly.Msg.POINTS_SUBTRACT_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#subtract';
+
+Blockly.Msg.SUBTRACT = 'subtract';
+
+Blockly.Msg.POINTS_MULTIPLY_MEMBER_TOOLTIP = 'Multiplies Point.x and Point.y by the given x and y values.';
+Blockly.Msg.POINTS_MULTIPLY_MEMBER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#multiply';
+
+Blockly.Msg.POINTS_DOT = 'dot product of';
+Blockly.Msg.POINTS_DOT_TOOLTIP = 'The dot product of two Point objects.';
+Blockly.Msg.POINTS_DOT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#dot';
+
+Blockly.Msg.POINTS_CEIL = 'ceiling';
+Blockly.Msg.POINTS_CEIL_TOOLTIP = 'Convert the x and y values to their ceiling values.';
+Blockly.Msg.POINTS_CEIL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#ceil';
+
+Blockly.Msg.POINTS_FLOOR = 'floor';
+Blockly.Msg.POINTS_FLOOR_TOOLTIP = 'Convert the x and y values to their floor values.';
+Blockly.Msg.POINTS_FLOOR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#floor';
+
+Blockly.Msg.POINTS_GET_MAGNITUDE = 'get magnitude of';
+Blockly.Msg.POINTS_GET_MAGNITUDE_TOOLTIP = 'Calculates the length of the Point object.';
+Blockly.Msg.POINTS_GET_MAGNITUDE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#getMagnitude';
+
+Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED = 'get magnitude squared of';
+Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED_TOOLTIP = 'Calculates the length squared of the Point object.';
+Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#getMagnitudeSq';
+
+Blockly.Msg.POINTS_INVERT = 'invert x and y of';
+Blockly.Msg.POINTS_INVERT_TOOLTIP = 'Inverts the x and y values of this Point.';
+Blockly.Msg.POINTS_INVERT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#invert';
+
+Blockly.Msg.POINTS_IS_ZERO = 'is at (0,0)?';
+Blockly.Msg.POINTS_IS_ZERO_TOOLTIP = 'Determine if this point is at 0,0 and return true or false.';
+Blockly.Msg.POINTS_IS_ZERO_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#isZero';
+
+Blockly.Msg.POINTS_LIMIT = 'limit magnitude of';
+Blockly.Msg.POINTS_LIMIT_TOOLTIP = 'Alters the Point object so it\'s magnitude is at most the max value.';
+Blockly.Msg.POINTS_LIMIT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#limit';
+
+Blockly.Msg.POINTS_SET_TO_POLAR_POINT = 'convert values of';
+Blockly.Msg.POINTS_SET_TO_POLAR = 'to polar with';
+Blockly.Msg.POINTS_SET_TO_POLAR_TOOLTIP = 'Sets the x and y values of this Point object from a given polar coordinate.';
+Blockly.Msg.POINTS_SET_TO_POLAR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#setToPolar';
+Blockly.Msg.RADIUS = 'radius';

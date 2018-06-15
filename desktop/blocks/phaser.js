@@ -5040,6 +5040,324 @@ Blockly.Blocks['points_perpendicular'] = {
   }
 };
 
+Blockly.Blocks['points_centroid'] = {
+  init: function() {
+    this.appendValueInput('ARRAY')
+      .setCheck('Array')
+      .appendField(Blockly.Msg.POINTS_CENTROID);
+    this.setOutput(true, null);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CENTROID_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CENTROID_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_clamp'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_CLAMP);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.TO);
+    this.appendValueInput('MIN')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.MIN);
+    this.appendValueInput('MAX')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.MAX);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CLAMP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CLAMP_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_clamp_x'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_CLAMP_X);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.TO);
+    this.appendValueInput('MIN')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.MIN);
+    this.appendValueInput('MAX')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.MAX);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CLAMP_X_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CLAMP_X_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_clamp_y'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_CLAMP_Y);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.TO);
+    this.appendValueInput('MIN')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.MIN);
+    this.appendValueInput('MAX')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.MAX);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CLAMP_Y_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CLAMP_Y_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_clone'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_CLONE);
+    this.setOutput(true, null);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CLONE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CLONE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_copy_from'] = {
+  init: function() {
+    this.appendValueInput('SOURCE')
+      .appendField(Blockly.Msg.POINTS_COPY_FROM);
+    this.appendValueInput('TARGET')
+      .appendField(Blockly.Msg.TO);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_COPY_FROM_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_COPY_FROM_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_cross'] = {
+  init: function() {
+    this.appendValueInput('LHS')
+      .appendField(Blockly.Msg.POINTS_CROSS);
+    this.appendValueInput('RHS')
+      .appendField(Blockly.Msg.AND);
+    this.setOutput(true, 'Number');
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CROSS_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CROSS_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_dot'] = {
+  init: function() {
+    this.appendValueInput('LHS')
+      .appendField(Blockly.Msg.POINTS_DOT);
+    this.appendValueInput('RHS')
+      .appendField(Blockly.Msg.AND);
+    this.setOutput(true, 'Number');
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_DOT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_DOT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_add_member'] = {
+  init: function() {
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.ADD)
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.TO);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_ADD_MEMBER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_ADD_MEMBER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_subtract_member'] = {
+  init: function() {
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.SUBTRACT)
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.YCOLON);
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.FROM);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_SUBTRACT_MEMBER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_SUBTRACT_MEMBER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_divide_member'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_DIVIDE);
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.BY)
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.YCOLON);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_DIVIDE_MEMBER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_DIVIDE_MEMBER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_multiply_member'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_MULTIPLY);
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.BY)
+      .appendField(Blockly.Msg.XCOLON);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.YCOLON);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_MULTIPLY_MEMBER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_MULTIPLY_MEMBER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_ceil'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_CEIL);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_CEIL_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_CEIL_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_floor'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_FLOOR);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_FLOOR_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_FLOOR_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_get_magnitude'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_GET_MAGNITUDE);
+    this.setOutput(true, 'Number');
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_GET_MAGNITUDE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_GET_MAGNITUDE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_get_magnitude_squared'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED);
+    this.setOutput(true, 'Number');
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_invert'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_INVERT);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_INVERT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_INVERT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_is_zero'] = {
+  init: function() {
+    this.appendValueInput('POINT');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.POINTS_IS_ZERO);
+    this.setOutput(true, 'Boolean');
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_IS_ZERO_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_IS_ZERO_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_limit'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_LIMIT);
+    this.appendValueInput('MAX')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.TO);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_LIMIT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_LIMIT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['points_set_to_polar'] = {
+  init: function() {
+    this.appendValueInput('POINT')
+      .appendField(Blockly.Msg.POINTS_SET_TO_POLAR_POINT);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.POINTS_SET_TO_POLAR);
+    this.appendValueInput('DEGREES')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.DEGREES);
+    this.appendValueInput('RADIUS')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.RADIUS);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(PHASER_POINT_COLOUR);
+    this.setTooltip(Blockly.Msg.POINTS_SET_TO_POLAR_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.POINTS_SET_TO_POLAR_HELP_URL);
+  }
+};
 //endregion
 
 //endregion
