@@ -177,6 +177,10 @@ Blockly.C['arduino_random'] = function(block) {
   return [`random(${min}, ${max})`, Blockly.C.ORDER_ATOMIC];
 };
 
+Blockly.C['arduino_srand'] = function(block) {
+  const seed = Blockly.C.valueToCode(block, 'SEED', Blockly.C.ORDER_ATOMIC);
+  return `srand(${seed});\n`;
+};
 //endregion
 
 //region BITS AND BYTES
