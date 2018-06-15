@@ -1790,9 +1790,6 @@ Blockly.Msg.RECTANGLE_CONTAINS_TOOLTIP = "Determines whether the specified coord
 Blockly.Msg.RECTANGLE_CREATE = "make rectangle";  // untranslated
 Blockly.Msg.RECTANGLE_CREATE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html";  // untranslated
 Blockly.Msg.RECTANGLE_CREATE_TOOLTIP = "Defines a rectangle, can be used for cropping, alignment and other tasks";  // untranslated
-<<<<<<< HEAD
-Blockly.Msg.RED = "red";  // untranslated
-=======
 Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#toc-3";  // untranslated
 Blockly.Msg.RECTANGLE_GET_NUMERIC_FIELDS_TOOLTIP = "Get numeric fields of a Rectangle object.";  // untranslated
 Blockly.Msg.RECTANGLE_GET_POINT_FIELDS_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#toc-3";  // untranslated
@@ -1802,8 +1799,7 @@ Blockly.Msg.RECTANGLE_RANDOM_HELP_URL = "http://dragondrop.digipen.edu/docs/Phas
 Blockly.Msg.RECTANGLE_RANDOM_TOOLTIP = "Returns a uniformly distributed random point from anywhere within this Rectangle.";  // untranslated
 Blockly.Msg.RECTANGLE_SET_NUMERIC_FIELDS_TOOLTIP = "Set numeric fields of a Rectangle object.";  // untranslated
 Blockly.Msg.RECTANGLE_SET_POINT_FIELDS_TOOLTIP = "Set point fields of a Rectangle object.";  // untranslated
-Blockly.Msg.RED = "Red";  // untranslated
->>>>>>> DRAG-573
+Blockly.Msg.RED = "red";  // untranslated
 Blockly.Msg.REDO = "Refazer";
 Blockly.Msg.REFRESH_FRAME = "refresh frame of ";  // untranslated
 Blockly.Msg.REFRESH_FRAME_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.AnimationManager.html#refreshFrame";  // untranslated
