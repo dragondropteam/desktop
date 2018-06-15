@@ -540,19 +540,12 @@ Blockly.Msg.DELAY_MICROSECONDS_HELP_URL = "https://www.arduino.cc/en/Reference/D
 Blockly.Msg.DELAY_MICROSECONDS_TOOLTIP = "Wait the specified number of microseconds before continuing. There are 1,000,000 microseconds in a second.";  // untranslated
 Blockly.Msg.DELAY_MILLISECONDS_HELP_URL = "https://www.arduino.cc/en/Reference/Delay";  // untranslated
 Blockly.Msg.DELAY_MILLISECONDS_TOOLTIP = "Wait the specified number of milliseconds before continuing. There are 1,000 milliseconds in a second.";  // untranslated
-<<<<<<< HEAD
 Blockly.Msg.DELAY_SECONDS_TOOLTIP = "Delay a given number of seconds.";  // untranslated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS = "Delay With Navigation for ";  // untranslated
+Blockly.Msg.DELAY_WITH_NAVIGATION_MS = "delay with navigation for ";  // untranslated
 Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = "";  // untranslated
 Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS = "delay with navigation for";  // untranslated
 Blockly.Msg.DELAY_WITH_NAVIGATION_SECONDS_TOOLTIP = "";  // untranslated
-Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = "Delay With Simple Navigation for";  // untranslated
-=======
-Blockly.Msg.DELAY_SECONDS_TOOLTIP = "Wait the specified number of seconds before continuing with the program.";  // untranslated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS = "delay with navigation for ";  // untranslated
-Blockly.Msg.DELAY_WITH_NAVIGATION_MS_TOOLTIP = "";  // untranslated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS = "delay with simple navigation for";  // untranslated
->>>>>>> DRAG-479-REOPEN
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_MS_TOOLTIP = "";  // untranslated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS = "delay with simple navigation for";  // untranslated
 Blockly.Msg.DELAY_WITH_SIMPLE_NAVIGATION_SECONDS_TOOLTIP = "";  // untranslated
@@ -838,15 +831,11 @@ Blockly.Msg.GET_GAME_PAUSE_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser
 Blockly.Msg.GET_GAME_PAUSE_TOOLTIP = "Returns the value of the paused state of the Game.";  // untranslated
 Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER = "get gyro calibration multiplier";  // untranslated
 Blockly.Msg.GET_GYRO_CALIBRATION_MULTIPLIER_TOOLTIP = "";  // untranslated
-<<<<<<< HEAD
 Blockly.Msg.GET_KEY_BOOLEAN_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Key.html";  // untranslated
 Blockly.Msg.GET_KEY_BOOLEAN_FIELD_TOOLTIP = "Read the boolean values of the given key.";  // untranslated
 Blockly.Msg.GET_KEY_NUMERIC_FIELD_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Key.html";  // untranslated
 Blockly.Msg.GET_KEY_NUMERIC_FIELD_TOOLTIP = "Read the numeric values of the given key.";  // untranslated
-Blockly.Msg.GET_LEFT_MOTOR = "Get Current Left Motor Speed";  // untranslated
-=======
 Blockly.Msg.GET_LEFT_MOTOR = "get current left motor speed";  // untranslated
->>>>>>> DRAG-479-REOPEN
 Blockly.Msg.GET_LEFT_MOTOR_TOOLTIP = "";  // untranslated
 Blockly.Msg.GET_LOCAL_BOUNDS = "get local bounds of";  // untranslated
 Blockly.Msg.GET_LOCAL_BOUNDS_HELP_URL = "http://dragondrop.digipen.edu/docs/Phaser.Sprite.html#getLocalBounds";  // untranslated
@@ -1059,13 +1048,9 @@ Blockly.Msg.IS_KEY_DOWN_TOOLTIP = "Checks if the given key is down";  // untrans
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED = "mouse button is clicked?";  // untranslated
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_HELP_URL = "https://photonstorm.github.io/phaser-ce/Phaser.Pointer.html#isDown";  // untranslated
 Blockly.Msg.IS_MOUSE_BUTTON_CLICKED_TOOLTIP = "Is the specified button clicked";  // untranslated
-<<<<<<< HEAD
 Blockly.Msg.IS_OVER_EDGE = "is over edge";  // untranslated
 Blockly.Msg.IS_OVER_EDGE_TOOLTIP = "";  // untranslated
-Blockly.Msg.IS_STATIONARY = "Is Ringo Stationary";  // untranslated
-=======
 Blockly.Msg.IS_STATIONARY = "is ringo stationary";  // untranslated
->>>>>>> DRAG-479-REOPEN
 Blockly.Msg.IS_STATIONARY_TOOLTIP = "";  // untranslated
 Blockly.Msg.JAVASCRIPT_EVAL_HELP_URL = "developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval";  // untranslated
 Blockly.Msg.JAVASCRIPT_EVAL_OUTPUT_HELP_URL = "developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval";  // untranslated
