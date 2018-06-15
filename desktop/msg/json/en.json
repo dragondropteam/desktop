@@ -1,11 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-<<<<<<< HEAD
-		"lastupdated": "2018-06-15 11:33:05.027281",
-=======
-		"lastupdated": "2018-06-14 11:02:16.665000",
->>>>>>> DRAG-570
+		"lastupdated": "2018-06-15 13:49:25.017786",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2434,7 +2430,9 @@
 	"BUTTON_PRESSED_TOOLTIP": "",
 	"HEADING_WITH_SHORTEST_DISTANCE": "heading with shortest distance from",
 	"HEADING_WITH_SHORTEST_DISTANCE_TOOLTIP": "",
-<<<<<<< HEAD
+	"ARDUINO_SRAND": "srand",
+	"ARDUINO_SRAND_TOOLTIP": "",
+	"ARDUINO_SRAND_HELP_URL": "http://www.cplusplus.com/reference/cstdlib/srand/",
 	"COLLIDE_BOOLEAN": "is colliding with",
 	"COLLIDE_BOOLEAN_TOOLTIP": "Checks for collision between two objects, and separates them if they are colliding. Returns true or false based on if they are colliding.",
 	"COLLIDE_BOOLEAN_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Physics.Arcade.html#collide",
@@ -2503,9 +2501,4 @@
 	"POINTS_SET_TO_POLAR_TOOLTIP": "Sets the x and y values of this Point object from a given polar coordinate.",
 	"POINTS_SET_TO_POLAR_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Point.html#setToPolar",
 	"RADIUS": "radius"
-=======
-	"ARDUINO_SRAND": "srand",
-	"ARDUINO_SRAND_TOOLTIP": "",
-	"ARDUINO_SRAND_HELP_URL": "http://www.cplusplus.com/reference/cstdlib/srand/"
->>>>>>> DRAG-570
 }
