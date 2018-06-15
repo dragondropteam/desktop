@@ -2042,7 +2042,31 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="collide_boolean">
+                    <value name="OBJECTA">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECTB">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="check_overlap_vi_procedure_field">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="overlap_boolean">
                     <value name="LHS">
                         <shadow type="variables_get">
                             <field name="VAR">objectA</field>
@@ -2085,6 +2109,18 @@
                     <value name="Y">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="physics_intersects">
+                    <value name="LHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectA</field>
+                        </shadow>
+                    </value>
+                    <value name="RHS">
+                        <shadow type="variables_get">
+                            <field name="VAR">objectB</field>
                         </shadow>
                     </value>
                 </block>
