@@ -70,6 +70,103 @@ const PHASER_SOUND_COLOUR = '#bf9023'; //'#827717'
 
 const PHYSICS_COLOUR = '#5A5C51'; // DEPRECATED ONLY, DO NOT USE
 
+const PHASER_KEYS = [
+  ['A', 'A'],
+  ['B', 'B'],
+  ['C', 'C'],
+  ['D', 'D'],
+  ['E', 'E'],
+  ['F', 'F'],
+  ['G', 'G'],
+  ['H', 'H'],
+  ['I', 'I'],
+  ['J', 'J'],
+  ['K', 'K'],
+  ['L', 'L'],
+  ['M', 'M'],
+  ['N', 'N'],
+  ['O', 'O'],
+  ['P', 'P'],
+  ['Q', 'Q'],
+  ['R', 'R'],
+  ['S', 'S'],
+  ['T', 'T'],
+  ['U', 'U'],
+  ['V', 'V'],
+  ['W', 'W'],
+  ['X', 'X'],
+  ['Y', 'Y'],
+  ['Z', 'Z'],
+  ['UP', 'UP'],
+  ['DOWN', 'DOWN'],
+  ['LEFT', 'LEFT'],
+  ['RIGHT', 'RIGHT'],
+  ['ONE', 'ONE'],
+  ['TWO', 'TWO'],
+  ['THREE', 'THREE'],
+  ['FOUR', 'FOUR'],
+  ['FIVE', 'FIVE'],
+  ['SIX', 'SIX'],
+  ['SEVEN', 'SEVEN'],
+  ['EIGHT', 'EIGHT'],
+  ['NINE', 'NINE'],
+  ['ZERO', 'ZERO'],
+  ['NUMPAD_1', 'NUMPAD_1'],
+  ['NUMPAD_2', 'NUMPAD_2'],
+  ['NUMPAD_3', 'NUMPAD_3'],
+  ['NUMPAD_4', 'NUMPAD_4'],
+  ['NUMPAD_5', 'NUMPAD_5'],
+  ['NUMPAD_6', 'NUMPAD_6'],
+  ['NUMPAD_7', 'NUMPAD_7'],
+  ['NUMPAD_8', 'NUMPAD_8'],
+  ['NUMPAD_9', 'NUMPAD_9'],
+  ['NUMPAD_ADD', 'NUMPAD_ADD'],
+  ['NUMPAD_DECIMAL', 'NUMPAD_DECIMAL'],
+  ['NUMPAD_DIVIDE', 'NUMPAD_DIVIDE'],
+  ['NUMPAD_ENTER', 'NUMPAD_ENTER'],
+  ['NUMPAD_MULTIPLY', 'NUMPAD_MULTIPLY'],
+  ['NUMPAD_SUBTRACT', 'NUMPAD_SUBTRACT'],
+  ['[', 'OPEN_BRACKET'],
+  [']', 'CLOSE_BRACKET'],
+  ['F1', 'F1'],
+  ['F2', 'F2'],
+  ['F3', 'F3'],
+  ['F4', 'F4'],
+  ['F5', 'F5'],
+  ['F6', 'F6'],
+  ['F7', 'F7'],
+  ['F8', 'F8'],
+  ['F9', 'F9'],
+  ['F10', 'F10'],
+  ['F11', 'F11'],
+  ['F12', 'F12'],
+  ['ALT', 'ALT'],
+  [':', 'COLON'],
+  [',', 'COMMA'],
+  ['CONTROL', 'CTRL'],
+  ['DELETE', 'DELETE'],
+  ['END', 'END'],
+  ['ENTER', 'ENTER'],
+  ['ESC', 'ESC'],
+  ['INSERT', 'INSERT'],
+  ['-', 'MINUS'],
+  ['NUM_LOCK', 'NUM_LOCK'],
+  ['PAGE_DOWN', 'PAGE_DOWN'],
+  ['PAGE_UP', 'PAGE_UP'],
+  ['.', 'PERIOD'],
+  ['+', 'PLUS'],
+  ['EQUALS', 'EQUALS'],
+  ['?', 'QUESTION_MARK'],
+  ['"', 'QUOTES'],
+  ['TAB', 'TAB'],
+  ['~', 'TILDE'],
+  ['_', 'UNDERSCORE'],
+  ['BACKSPACE', 'BACKSPACE'],
+  ['\\', 'BACKWARD_SLASH'],
+  ['SPACEBAR', 'SPACEBAR'],
+  ['CLEAR', 'CLEAR'],
+  ['CAPS LOCK', 'CAPS_LOCK']]
+
 //endregion colours
 
 //region DOM
@@ -2865,7 +2962,7 @@ Blockly.Blocks['set_game_object_numeric_field'] = {
     this.setHelpUrl(Blockly.Msg.SET_GAME_OBJECT_NUMERIC_FIELD_HELP_URL);
     this.setColour(PHASER_GAMEOBJECT_COLOUR);
   },
-  customContextMenu: createSetterContextMenu('get_game_object_numeric_field')
+  customContextMenu: createSetterContextMenu('set_game_object_numeric_field')
 };
 
 Blockly.Blocks['get_game_object_numeric_field'] = {
@@ -2881,7 +2978,7 @@ Blockly.Blocks['get_game_object_numeric_field'] = {
     this.setHelpUrl(Blockly.Msg.GET_GAME_OBJECT_NUMERIC_FIELD_HELP_URL);
     this.setColour(PHASER_GAMEOBJECT_COLOUR);
   },
-  customContextMenu: createNumericGetterContextMenu('set_game_object_numeric_field')
+  customContextMenu: createGetterContextMenu('get_game_object_numeric_field')
 };
 
 Blockly.Blocks['set_game_object_boolean_field'] = {
@@ -4987,6 +5084,14 @@ Blockly.Blocks['get_active_pointer'] = {
 //endregion
 
 //region KEYBOARD
+const KEY_BOOLEAN_READABLE = ['altKey', 'ctrlKey', 'enabled', 'isDown', 'justDown', 'justUp', 'shiftKey'];
+const KEY_BOOLEAN_WRITABLE = [];
+const KEY_BOOLEAN_FIELDS = createDropDownField(KEY_BOOLEAN_WRITABLE, KEY_BOOLEAN_READABLE);
+
+const KEY_NUMERIC_READABLE = ['duration', 'repeats', 'timeUp', 'timeDown'];
+const KEY_NUMERIC_WRITABLE = [];
+const KEY_NUMERIC_FIELDS = createDropDownField(KEY_NUMERIC_WRITABLE, KEY_NUMERIC_READABLE);
+
 Blockly.Blocks['create_cursor_keys'] = {
   init: function () {
     this.appendDummyInput()
@@ -5001,107 +5106,132 @@ Blockly.Blocks['create_cursor_keys'] = {
 Blockly.Blocks['is_key_down'] = {
   init: function () {
     this.appendDummyInput()
+      .appendField(new Blockly.FieldDropdown(PHASER_KEYS), 'KEY')
       .appendField(Blockly.Msg.KEY)
-      .appendField(new Blockly.FieldDropdown([
-        ['A', 'A'],
-        ['B', 'B'],
-        ['C', 'C'],
-        ['D', 'D'],
-        ['E', 'E'],
-        ['F', 'F'],
-        ['G', 'G'],
-        ['H', 'H'],
-        ['I', 'I'],
-        ['J', 'J'],
-        ['K', 'K'],
-        ['L', 'L'],
-        ['M', 'M'],
-        ['N', 'N'],
-        ['O', 'O'],
-        ['P', 'P'],
-        ['Q', 'Q'],
-        ['R', 'R'],
-        ['S', 'S'],
-        ['T', 'T'],
-        ['U', 'U'],
-        ['V', 'V'],
-        ['W', 'W'],
-        ['X', 'X'],
-        ['Y', 'Y'],
-        ['Z', 'Z'],
-        ['UP', 'UP'],
-        ['DOWN', 'DOWN'],
-        ['LEFT', 'LEFT'],
-        ['RIGHT', 'RIGHT'],
-        ['ONE', 'ONE'],
-        ['TWO', 'TWO'],
-        ['THREE', 'THREE'],
-        ['FOUR', 'FOUR'],
-        ['FIVE', 'FIVE'],
-        ['SIX', 'SIX'],
-        ['SEVEN', 'SEVEN'],
-        ['EIGHT', 'EIGHT'],
-        ['NINE', 'NINE'],
-        ['ZERO', 'ZERO'],
-        ['NUMPAD_1', 'NUMPAD_1'],
-        ['NUMPAD_2', 'NUMPAD_2'],
-        ['NUMPAD_3', 'NUMPAD_3'],
-        ['NUMPAD_4', 'NUMPAD_4'],
-        ['NUMPAD_5', 'NUMPAD_5'],
-        ['NUMPAD_6', 'NUMPAD_6'],
-        ['NUMPAD_7', 'NUMPAD_7'],
-        ['NUMPAD_8', 'NUMPAD_8'],
-        ['NUMPAD_9', 'NUMPAD_9'],
-        ['NUMPAD_ADD', 'NUMPAD_ADD'],
-        ['NUMPAD_DECIMAL', 'NUMPAD_DECIMAL'],
-        ['NUMPAD_DIVIDE', 'NUMPAD_DIVIDE'],
-        ['NUMPAD_ENTER', 'NUMPAD_ENTER'],
-        ['NUMPAD_MULTIPLY', 'NUMPAD_MULTIPLY'],
-        ['NUMPAD_SUBTRACT', 'NUMPAD_SUBTRACT'],
-        ['[', 'OPEN_BRACKET'],
-        [']', 'CLOSE_BRACKET'],
-        ['F1', 'F1'],
-        ['F2', 'F2'],
-        ['F3', 'F3'],
-        ['F4', 'F4'],
-        ['F5', 'F5'],
-        ['F6', 'F6'],
-        ['F7', 'F7'],
-        ['F8', 'F8'],
-        ['F9', 'F9'],
-        ['F10', 'F10'],
-        ['F11', 'F11'],
-        ['F12', 'F12'],
-        ['ALT', 'ALT'],
-        [':', 'COLON'],
-        [',', 'COMMA'],
-        ['CONTROL', 'CTRL'],
-        ['DELETE', 'DELETE'],
-        ['END', 'END'],
-        ['ENTER', 'ENTER'],
-        ['ESC', 'ESC'],
-        ['INSERT', 'INSERT'],
-        ['-', 'MINUS'],
-        ['NUM_LOCK', 'NUM_LOCK'],
-        ['PAGE_DOWN', 'PAGE_DOWN'],
-        ['PAGE_UP', 'PAGE_UP'],
-        ['.', 'PERIOD'],
-        ['+', 'PLUS'],
-        ['EQUALS', 'EQUALS'],
-        ['?', 'QUESTION_MARK'],
-        ['"', 'QUOTES'],
-        ['TAB', 'TAB'],
-        ['~', 'TILDE'],
-        ['_', 'UNDERSCORE'],
-        ['BACKSPACE', 'BACKSPACE'],
-        ['\\', 'BACKWARD_SLASH'],
-        ['SPACEBAR', 'SPACEBAR'],
-        ['CLEAR', 'CLEAR'],
-        ['CAPS LOCK', 'CAPS_LOCK']]), 'KEY')
       .appendField(Blockly.Msg.IS_KEY_DOWN);
     this.setOutput(true, 'Boolean');
     this.setTooltip(Blockly.Msg.IS_KEY_DOWN_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.IS_KEY_DOWN_HELP_URL);
+    this.setColour(PHASER_KEYBOARD_INPUT);
+  }
+};
+
+Blockly.Blocks['add_key'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.ADD_KEY)
+      .appendField(new Blockly.FieldDropdown(PHASER_KEYS), 'KEYCODE');
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_KEYBOARD_INPUT);
+    this.setTooltip(Blockly.Msg.ADD_KEY_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.ADD_KEY_HELP_URL);
+  }
+};
+
+Blockly.Blocks['get_key_boolean_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
+      .appendField(new Blockly.FieldDropdown(KEY_BOOLEAN_FIELDS.all), 'FIELD');
+    this.appendValueInput('KEY')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_KEYBOARD_INPUT);
+    this.setTooltip(Blockly.Msg.GET_KEY_BOOLEAN_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_KEY_BOOLEAN_FIELD_HELP_URL);
+  }
+};
+
+Blockly.Blocks['get_key_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(KEY_NUMERIC_FIELDS.all), 'FIELD');
+    this.appendValueInput('KEY')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_KEYBOARD_INPUT);
+    this.setTooltip(Blockly.Msg.GET_KEY_NUMERIC_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_KEY_NUMERIC_FIELD_HELP_URL);
+  }
+};
+
+Blockly.Blocks['key_just_pressed'] = {
+  init: function () {
+    this.appendValueInput('KEY')
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KEY_JUST_PRESSED);
+    this.setOutput(true, 'Boolean');
+    this.setTooltip(Blockly.Msg.KEY_JUST_PRESSED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.KEY_JUST_PRESSED_HELP_URL);
+    this.setColour(PHASER_KEYBOARD_INPUT);
+  }
+};
+
+Blockly.Blocks['key_just_released'] = {
+  init: function () {
+    this.appendValueInput('KEY')
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KEY_JUST_RELEASED);
+    this.setOutput(true, 'Boolean');
+    this.setTooltip(Blockly.Msg.KEY_JUST_RELEASED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.KEY_JUST_RELEASED_HELP_URL);
+    this.setColour(PHASER_KEYBOARD_INPUT);
+  }
+};
+
+Blockly.Blocks['key_reset'] = {
+  init: function () {
+    this.appendValueInput('KEY')
+      .appendField(Blockly.Msg.RESET)
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldCheckbox('TRUE'), 'HARD')
+      .appendField(Blockly.Msg.HARD);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setTooltip(Blockly.Msg.KEY_RESET_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.KEY_RESET_HELP_URL);
+    this.setColour(PHASER_KEYBOARD_INPUT);
+  }
+};
+
+Blockly.Blocks['key_up_duration'] = {
+  init: function () {
+    this.appendValueInput('KEY')
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KEY_UP_DURATION);
+    this.appendValueInput('DURATION')
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MILLISECONDS);
+    this.setOutput(true, 'Boolean');
+    this.setTooltip(Blockly.Msg.KEY_UP_DURATION_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.KEY_UP_DURATION_HELP_URL);
+    this.setColour(PHASER_KEYBOARD_INPUT);
+  }
+};
+
+Blockly.Blocks['key_down_duration'] = {
+  init: function () {
+    this.appendValueInput('KEY')
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KEY_DOWN_DURATION);
+    this.appendValueInput('DURATION')
+      .setCheck('Number');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MILLISECONDS);
+    this.setOutput(true, 'Boolean');
+    this.setTooltip(Blockly.Msg.KEY_DOWN_DURATION_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.KEY_DOWN_DURATION_HELP_URL);
     this.setColour(PHASER_KEYBOARD_INPUT);
   }
 };
@@ -5271,102 +5401,7 @@ Blockly.Blocks['debug_key'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.DEBUG_KEY)
-      .appendField(new Blockly.FieldDropdown([
-        ['A', 'A'],
-        ['B', 'B'],
-        ['C', 'C'],
-        ['D', 'D'],
-        ['E', 'E'],
-        ['F', 'F'],
-        ['G', 'G'],
-        ['H', 'H'],
-        ['I', 'I'],
-        ['J', 'J'],
-        ['K', 'K'],
-        ['L', 'L'],
-        ['M', 'M'],
-        ['N', 'N'],
-        ['O', 'O'],
-        ['P', 'P'],
-        ['Q', 'Q'],
-        ['R', 'R'],
-        ['S', 'S'],
-        ['T', 'T'],
-        ['U', 'U'],
-        ['V', 'V'],
-        ['W', 'W'],
-        ['X', 'X'],
-        ['Y', 'Y'],
-        ['Z', 'Z'],
-        ['UP', 'UP'],
-        ['DOWN', 'DOWN'],
-        ['LEFT', 'LEFT'],
-        ['RIGHT', 'RIGHT'],
-        ['ONE', 'ONE'],
-        ['TWO', 'TWO'],
-        ['THREE', 'THREE'],
-        ['FOUR', 'FOUR'],
-        ['FIVE', 'FIVE'],
-        ['SIX', 'SIX'],
-        ['SEVEN', 'SEVEN'],
-        ['EIGHT', 'EIGHT'],
-        ['NINE', 'NINE'],
-        ['ZERO', 'ZERO'],
-        ['NUMPAD_1', 'NUMPAD_1'],
-        ['NUMPAD_2', 'NUMPAD_2'],
-        ['NUMPAD_3', 'NUMPAD_3'],
-        ['NUMPAD_4', 'NUMPAD_4'],
-        ['NUMPAD_5', 'NUMPAD_5'],
-        ['NUMPAD_6', 'NUMPAD_6'],
-        ['NUMPAD_7', 'NUMPAD_7'],
-        ['NUMPAD_8', 'NUMPAD_8'],
-        ['NUMPAD_9', 'NUMPAD_9'],
-        ['NUMPAD_ADD', 'NUMPAD_ADD'],
-        ['NUMPAD_DECIMAL', 'NUMPAD_DECIMAL'],
-        ['NUMPAD_DIVIDE', 'NUMPAD_DIVIDE'],
-        ['NUMPAD_ENTER', 'NUMPAD_ENTER'],
-        ['NUMPAD_MULTIPLY', 'NUMPAD_MULTIPLY'],
-        ['NUMPAD_SUBTRACT', 'NUMPAD_SUBTRACT'],
-        ['[', 'OPEN_BRACKET'],
-        [']', 'CLOSE_BRACKET'],
-        ['F1', 'F1'],
-        ['F2', 'F2'],
-        ['F3', 'F3'],
-        ['F4', 'F4'],
-        ['F5', 'F5'],
-        ['F6', 'F6'],
-        ['F7', 'F7'],
-        ['F8', 'F8'],
-        ['F9', 'F9'],
-        ['F10', 'F10'],
-        ['F11', 'F11'],
-        ['F12', 'F12'],
-        ['ALT', 'ALT'],
-        [':', 'COLON'],
-        [',', 'COMMA'],
-        ['CONTROL', 'CTRL'],
-        ['DELETE', 'DELETE'],
-        ['END', 'END'],
-        ['ENTER', 'ENTER'],
-        ['ESC', 'ESC'],
-        ['INSERT', 'INSERT'],
-        ['-', 'MINUS'],
-        ['NUM_LOCK', 'NUM_LOCK'],
-        ['PAGE_DOWN', 'PAGE_DOWN'],
-        ['PAGE_UP', 'PAGE_UP'],
-        ['.', 'PERIOD'],
-        ['+', 'PLUS'],
-        ['EQUALS', 'EQUALS'],
-        ['?', 'QUESTION_MARK'],
-        ['"', 'QUOTES'],
-        ['TAB', 'TAB'],
-        ['~', 'TILDE'],
-        ['_', 'UNDERSCORE'],
-        ['BACKSPACE', 'BACKSPACE'],
-        ['\\', 'BACKWARD_SLASH'],
-        ['SPACEBAR', 'SPACEBAR'],
-        ['CLEAR', 'CLEAR'],
-        ['CAPS LOCK', 'CAPS_LOCK']]), 'KEY')
+      .appendField(new Blockly.FieldDropdown(PHASER_KEYS), 'KEY')
       .appendField(Blockly.Msg.AT_POSITION);
     this.appendValueInput('X')
       .setCheck('Number')
