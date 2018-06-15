@@ -2300,6 +2300,66 @@
         <category name="Input" colour="#1565C0">
             <category name="Keyboard" colour="#1565C0">
                 <block type="is_key_down"/>
+                <block type="add_key"></block>
+                <block type="get_key_boolean_field">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_key_numeric_field">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="key_just_pressed">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="key_just_released">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="key_reset">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="key_up_duration">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">50</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="key_down_duration">
+                    <value name="KEY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultKey</field>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">50</field>
+                        </shadow>
+                    </value>
+                </block>
                 <!--TODO: Cursors, Key objects, and other input methods to allow students more control -->
                 <!--<block type="create_cursor_keys"/>-->
             </category>

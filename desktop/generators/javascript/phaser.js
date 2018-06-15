@@ -1146,6 +1146,47 @@ Blockly.JavaScript['is_key_down'] = function (block) {
     const dropdown_key = block.getFieldValue('KEY');
     return [`game.input.keyboard.isDown(Phaser.Keyboard.${dropdown_key})`, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['add_key'] = function(block) {
+  const dropdown_key = block.getFieldValue('KEYCODE');
+  return [`game.input.keyboard.addKey(Phaser.Keyboard.${dropdown_key})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['get_key_boolean_field']
+  = Blockly.JavaScript['get_key_numeric_field']
+  = function (block) {
+  const field = block.getFieldValue('FIELD');
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${key}.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['key_just_pressed'] = function (block) {
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${key}.justPressed()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['key_just_released'] = function (block) {
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${key}.justReleased()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['key_reset'] = function (block) {
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  const hard = block.getFieldValue('HARD') == 'TRUE';
+  return `${key}.reset(${hard});\n`;
+};
+
+Blockly.JavaScript['key_up_duration'] = function (block) {
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${key}.upDuration(${duration})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['key_down_duration'] = function (block) {
+  const key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC);
+  const duration = Blockly.JavaScript.valueToCode(block, 'DURATION', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${key}.downDuration(${duration})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
 //endregion
 //endregion
 
