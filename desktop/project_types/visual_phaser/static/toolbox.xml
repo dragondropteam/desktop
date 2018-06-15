@@ -2231,6 +2231,13 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="rectangle_random">
+                    <value name="RECTANGLE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultRectangle</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
             <category name="Point" colour="#757575">
                 <block type="point_create">
