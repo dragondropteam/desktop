@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-15 16:42:44.055436",
+		"lastupdated": "2018-06-18 11:35:37.640000",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2544,5 +2544,8 @@
 	"CIRCLE_CIRCUMFERENCE_POINT_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Circle.html#circumferencePoint",
 	"RECTANGLE_RANDOM": "random point in",
 	"RECTANGLE_RANDOM_TOOLTIP": "Returns a uniformly distributed random point from anywhere within this Rectangle.",
-	"RECTANGLE_RANDOM_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#random"
+	"RECTANGLE_RANDOM_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#random",
+	"MOUSE_POSITION_POINT": "get current mouse position",
+	"MOUSE_POSITION_POINT_TOOLTIP": "Returns a Point with the mouse position.",
+	"MOUSE_POSITION_POINT_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Mouse.html"
 }
