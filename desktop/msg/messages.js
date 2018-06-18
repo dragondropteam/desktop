@@ -5003,3 +5003,7 @@ Blockly.Msg.CIRCLE_CIRCUMFERENCE_POINT_HELP_URL = 'http://dragondrop.digipen.edu
 Blockly.Msg.RECTANGLE_RANDOM = 'random point in';
 Blockly.Msg.RECTANGLE_RANDOM_TOOLTIP = 'Returns a uniformly distributed random point from anywhere within this Rectangle.';
 Blockly.Msg.RECTANGLE_RANDOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#random';
+
+Blockly.Msg.MOUSE_POSITION_POINT = 'get current mouse position';
+Blockly.Msg.MOUSE_POSITION_POINT_TOOLTIP = 'Returns a Point with the mouse position.';
+Blockly.Msg.MOUSE_POSITION_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Mouse.html';
