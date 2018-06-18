@@ -1207,6 +1207,209 @@ Blockly.JavaScript['key_down_duration'] = function (block) {
   return [`${key}.downDuration(${duration})`, Blockly.JavaScript.ORDER_ATOMIC];
 };
 //endregion
+
+//region INPUT_HANDLER
+Blockly.JavaScript['input_handler_enable'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.inputEnabled = true;\n`;
+};
+
+Blockly.JavaScript['set_input_handler_boolean_field']
+  = Blockly.JavaScript['set_input_handler_numeric_field']
+  = Blockly.JavaScript['set_input_handler_point_field']
+  = function (block) {
+  const field = block.getFieldValue('FIELD');
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const newProperty = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.${field} = ${newProperty};\n`;
+};
+
+Blockly.JavaScript['get_input_handler_boolean_field']
+  = Blockly.JavaScript['get_input_handler_numeric_field']
+  = Blockly.JavaScript['get_input_handler_point_field']
+  = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const field = block.getFieldValue('FIELD');
+  return [`${object}.input.${field}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_bounds_rect_set'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const rect = Blockly.JavaScript.valueToCode(block, 'RECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.boundsRect = ${rect};\n`;
+};
+
+Blockly.JavaScript['input_handler_enable_drag'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.enableDrag();\n`;
+};
+
+Blockly.JavaScript['input_handler_enable_drag_complex'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const center = block.getFieldValue('CENTER') === 'TRUE';
+  const top = block.getFieldValue('ALPHA') === 'TRUE';
+  const pixel = block.getFieldValue('PIXEL') === 'TRUE';
+  const alpha = Blockly.JavaScript.valueToCode(block, 'ALPHA', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.enableDrag(${center}, ${top}, ${pixel}, ${alpha});\n`;
+};
+
+Blockly.JavaScript['input_handler_check_pointer_down'] = function (block) {
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.checkPointerDown(${pointer})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_check_pointer_over'] = function (block) {
+  const pointer = Blockly.JavaScript.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.checkPointerOver(${pointer})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_disable_drag'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.disableDrag();\n`;
+};
+
+Blockly.JavaScript['input_handler_enable_snap'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `${object}.input.enableSnap(${x}, ${y});\n`;
+};
+
+Blockly.JavaScript['input_handler_enable_snap_complex'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const drag = block.getFieldValue('DRAG') === 'TRUE';
+  const release = block.getFieldValue('RELEASE') === 'TRUE';
+  const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const offset_x = Blockly.JavaScript.valueToCode(block, 'OFFSET_X', Blockly.JavaScript.ORDER_ATOMIC);
+  const offset_y = Blockly.JavaScript.valueToCode(block, 'OFFSET_Y', Blockly.JavaScript.ORDER_ATOMIC);
+
+  return `${object}.input.enableSnap(${x}, ${y}, ${drag}, ${release}, ${offset_x}, ${offset_y});\n`;
+};
+
+Blockly.JavaScript['input_handler_disable_snap'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.disableSnap();\n`;
+};
+
+Blockly.JavaScript['input_handler_check_pixel'] = function (block) {
+  const x = Blockly.JavaScript.valueToCode(block, 'X', Blockly.JavaScript.ORDER_ATOMIC);
+  const y = Blockly.JavaScript.valueToCode(block, 'Y', Blockly.JavaScript.ORDER_ATOMIC);
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.checkPixel(${x}, ${y})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_is_pixel_perfect'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.isPixelPerfect()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_just_pressed'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.justPressed(0, ${time})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_just_released'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.justReleased(0, ${time})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_over_duration'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.overDuration()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_over'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerOver()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_just_over'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.justOver(0, ${time})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_down_duration'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.downDuration()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_up'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerUp()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_down'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerUp()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_start'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const priority = Blockly.JavaScript.valueToCode(block, 'PRIORITY', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.start(${priority});\n`;
+};
+
+Blockly.JavaScript['input_handler_stop'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.stop();\n`;
+};
+
+Blockly.JavaScript['input_handler_just_out'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const time = Blockly.JavaScript.valueToCode(block, 'TIME', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.justOut(0, ${time})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_out'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerOut()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_x'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerX()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_y'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerY()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_pointer_position'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const position = `new Phaser.Point(${object}.input.pointerX(), ${object}.input.pointerY())`;
+  return [`${position}`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_reset'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.reset();\n`;
+};
+
+Blockly.JavaScript['input_handler_destroy'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return `${object}.input.destroy();\n`;
+};
+
+Blockly.JavaScript['input_handler_pointer_dragged'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  return [`${object}.input.pointerDragged()`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['input_handler_set_drag_lock'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const horizontal = block.getFieldValue('HORIZONTAL') === 'TRUE';
+  const vertical = block.getFieldValue('VERTICAL') === 'TRUE';
+  return `${object}.input.setDragLock(${horizontal}, ${vertical});\n`;
+};
+//endregion
 //endregion
 
 //region WORLD

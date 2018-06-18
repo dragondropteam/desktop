@@ -53,6 +53,7 @@ const PHASER_MOUSE_INPUT = '#2479D1';    //'#42A5F5' // ?2175CE 277DD5 2C85DB
 const PHASER_GAMEPAD_INPUT = '#328DE2';  // UNUSED // ?328DE2
 const PHASER_POINTER_INPUT_COLOUR = '#42a5f5';
 const PHASER_DEVICE_BUTTON_COLOUR = '#64b5f6';
+const PHASER_INPUT_HANDLER_COLOUR = '#66bcff';
 
 const PHASER_UTILITY_COLOUR = '#E03400';      //'#ff6d00'; UNUSED
 const PHASER_UTIL_GENERAL_COLOUR = '#E03400'; //'#ff3d00';
@@ -5607,6 +5608,606 @@ Blockly.Blocks['key_down_duration'] = {
     this.setTooltip(Blockly.Msg.KEY_DOWN_DURATION_TOOLTIP);
     this.setHelpUrl(Blockly.Msg.KEY_DOWN_DURATION_HELP_URL);
     this.setColour(PHASER_KEYBOARD_INPUT);
+  }
+};
+//endregion
+
+//region INPUT_HANDLER
+const INPUT_HANDLER_BOOLEAN_WRITABLE = ['allowHorizontalDrag', 'allowVerticalDrag', 'bringToTop', 'dragFromCenter', 'draggable', 'dragStopBlocksInputUp', 'enabled', 'isDragged', 'pixelPerfectClick', 'pixelPerfectOver', 'snapOnDrag', 'snapOnRelease'];
+const INPUT_HANDLER_BOOLEAN_READABLE = [];
+const INPUT_HANDLER_BOOLEAN_FIELDS = createDropDownField(INPUT_HANDLER_BOOLEAN_WRITABLE, INPUT_HANDLER_BOOLEAN_READABLE);
+
+const INPUT_HANDLER_NUMERIC_WRITABLE = ['pixelPerfectAlpha', 'priorityId', 'snapOffsetX', 'snapOffsetY', 'snapX', 'snapY', 'dragDistanceThreshold', 'dragTimeThreshold'];
+const INPUT_HANDLER_NUMERIC_READABLE = [];
+const INPUT_HANDLER_NUMERIC_FIELDS = createDropDownField(INPUT_HANDLER_NUMERIC_WRITABLE, INPUT_HANDLER_NUMERIC_READABLE);
+
+const INPUT_HANDLER_POINT_WRITABLE = ['downPoint', 'drafOffset', 'dragStartPoint', 'snapOffset', 'snapPoint'];
+const INPUT_HANDLER_POINT_READABLE = [];
+const INPUT_HANDLER_POINT_FIELDS = createDropDownField(INPUT_HANDLER_POINT_WRITABLE, INPUT_HANDLER_POINT_READABLE);
+
+Blockly.Blocks['input_handler_enable'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_ENABLE_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_ENABLE_HELP_URL);
+  }
+};
+
+Blockly.Blocks['set_input_handler_boolean_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SET_BOOLEAN_FIELD)
+      .appendField(new Blockly.FieldDropdown(INPUT_HANDLER_BOOLEAN_FIELDS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.appendValueInput('VALUE')
+      .appendField(Blockly.Msg.TO)
+      .setCheck('Boolean');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.SET_INPUT_HANDLER_BOOLEAN_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.SET_INPUT_HANDLER_BOOLEAN_FIELD_HELP_URL);
+  },
+  customContextMenu: createSetterContextMenu('get_input_handler_boolean_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['set_input_handler_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(INPUT_HANDLER_NUMERIC_FIELDS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.appendValueInput('VALUE')
+      .appendField(Blockly.Msg.TO)
+      .setCheck('Number');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.SET_INPUT_HANDLER_NUMERIC_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.SET_INPUT_HANDLER_NUMERIC_FIELD_HELP_URL);
+  },
+  customContextMenu: createSetterContextMenu('get_input_handler_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['set_input_handler_point_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.SET_POINT_FIELD)
+      .appendField(new Blockly.FieldDropdown(INPUT_HANDLER_POINT_FIELDS.writable), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.appendValueInput('VALUE')
+      .appendField(Blockly.Msg.TO);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.SET_INPUT_HANDLER_POINT_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.SET_INPUT_HANDLER_POINT_FIELD_HELP_URL);
+  },
+  customContextMenu: createSetterContextMenu('get_input_handler_point_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_input_handler_boolean_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_BOOLEAN_FIELD)
+      .appendField(new Blockly.FieldDropdown(INPUT_HANDLER_BOOLEAN_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_INPUT_HANDLER_BOOLEAN_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_INPUT_HANDLER_BOOLEAN_FIELD_HELP_URL);
+  },
+  customContextMenu: createBooleanGetterContextMenu('set_input_handler_boolean_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_input_handler_numeric_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_NUMERIC_FIELD)
+      .appendField(new Blockly.FieldDropdown(INPUT_HANDLER_NUMERIC_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_INPUT_HANDLER_NUMERIC_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_INPUT_HANDLER_NUMERIC_FIELD_HELP_URL);
+  },
+  customContextMenu: createBooleanGetterContextMenu('set_input_handler_numeric_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['get_input_handler_point_field'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.GET_POINT_FIELD)
+      .appendField(new Blockly.FieldDropdown(INPUT_HANDLER_POINT_FIELDS.all), 'FIELD');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.OF);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.GET_INPUT_HANDLER_POINT_FIELD_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.GET_INPUT_HANDLER_POINT_FIELD_HELP_URL);
+  },
+  customContextMenu: createBooleanGetterContextMenu('set_input_handler_point_field', {propertyTag: 'FIELD'})
+};
+
+Blockly.Blocks['input_handler_bounds_rect_set'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_BOUNDS_RECT);
+    this.appendValueInput('RECT')
+      .appendField(Blockly.Msg.TO);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_BOUNDS_RECT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_BOUNDS_RECT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_enable_drag'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_enable_drag_complex'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_CENTER)
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'CENTER');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_TOP)
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'TOP');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_PIXEL)
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'PIXEL');
+    this.appendValueInput('ALPHA')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_ALPHA);
+    this.setInputsInline(false);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_check_pointer_down'] = {
+  init: function () {
+    this.appendValueInput('POINTER');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_DOWN);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_DOWN_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_DOWN_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_check_pointer_over'] = {
+  init: function () {
+    this.appendValueInput('POINTER');
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_OVER);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_OVER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_OVER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_disable_drag'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_DISABLE_DRAG);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_DISABLE_DRAG_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_DISABLE_DRAG_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_enable_snap'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.SNAP);
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.TO)
+      .appendField(Blockly.Msg.X);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.Y);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_enable_snap_complex'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.SNAP);
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.X);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.Y);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_DRAG)
+      .appendField(new Blockly.FieldCheckbox('TRUE'), 'DRAG');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_RELEASE)
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'RELEASE');
+    this.appendValueInput('OFFSET_X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_OFFSET_X);
+    this.appendValueInput('OFFSET_Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_OFFSET_Y);
+    this.setInputsInline(false);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_disable_snap'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_DISABLE_SNAP);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_DISABLE_SNAP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_DISABLE_SNAP_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_check_pixel'] = {
+  init: function () {
+    this.appendValueInput('X')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL)
+      .appendField(Blockly.Msg.X);
+    this.appendValueInput('Y')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.Y);
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_MIDDLE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_END);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_is_pixel_perfect'] = {
+  init: function () {
+    this.appendValueInput('OBJECT');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_IS_PIXEL_PERFECT);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_IS_PIXEL_PERFECT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_IS_PIXEL_PERFECT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_just_pressed'] = {
+  init: function () {
+    this.appendValueInput('OBJECT');
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_JUST_PRESSED);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MILLISECONDS)
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_JUST_PRESSED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_JUST_PRESSED_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_just_released'] = {
+  init: function () {
+    this.appendValueInput('OBJECT');
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_JUST_RELEASED);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MILLISECONDS)
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_JUST_RELEASED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_JUST_RELEASED_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_over_duration'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_OVER_DURATION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_OVER_DURATION_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_OVER_DURATION_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_over'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_POINTER_OVER);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_POINTER_OVER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_POINTER_OVER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_just_over'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_JUST_OVER);
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.WITHIN);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MILLISECONDS)
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_JUST_OVER_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_JUST_OVER_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_down_duration'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_DOWN_DURATION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_DOWN_DURATION_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_DOWN_DURATION_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_up'] = {
+  init: function () {
+    this.appendValueInput('OBJECT');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_POINTER_UP);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_POINTER_UP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_POINTER_UP_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_down'] = {
+  init: function () {
+    this.appendValueInput('OBJECT');
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_POINTER_DOWN);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_POINTER_DOWN_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_POINTER_DOWN_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_start'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_START);
+    this.appendValueInput('PRIORITY')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.INPUT_HANDLER_START_PRIORITY);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_START_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_START_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_stop'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_STOP);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_STOP_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_STOP_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_just_out'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_JUST_OUT);
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField(Blockly.Msg.WITHIN);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MILLISECONDS)
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_JUST_OUT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_JUST_OUT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_out'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_POINTER_OUT);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_POINTER_OUT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_POINTER_OUT_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_x'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_POINTER_X);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_POINTER_X_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_POINTER_X_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_y'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_POINTER_Y);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_POINTER_Y_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_POINTER_Y_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_position'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_POINTER_POSITION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Number');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_POINTER_POSITION_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_POINTER_POSITION_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_reset'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_RESET);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_RESET_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_RESET_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_destroy'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_DESTROY);
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_DESTROY_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_DESTROY_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_pointer_dragged'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.INPUT_HANDLER_POINTER_DRAGGED);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.QUESTION);
+    this.setInputsInline(true);
+    this.setOutput(true, 'Boolean');
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_POINTER_DRAGGED_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_POINTER_DRAGGED_HELP_URL);
+  }
+};
+
+Blockly.Blocks['input_handler_set_drag_lock'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.ALLOW);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK)
+      .appendField(Blockly.Msg.HORIZONTAL)
+      .appendField(new Blockly.FieldCheckbox('TRUE'), 'HORIZONTAL')
+  .appendField(Blockly.Msg.VERTICAL)
+      .appendField(new Blockly.FieldCheckbox('TRUE'), 'VERTICAL');
+    this.setInputsInline(true);
+    this.setNextStatement(true, null);
+    this.setPreviousStatement(true, null);
+    this.setColour(PHASER_INPUT_HANDLER_COLOUR);
+    this.setTooltip(Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK_HELP_URL);
   }
 };
 //endregion

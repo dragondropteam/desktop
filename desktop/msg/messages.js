@@ -4944,3 +4944,158 @@ Blockly.Msg.POINTS_SET_TO_POLAR = 'to polar with';
 Blockly.Msg.POINTS_SET_TO_POLAR_TOOLTIP = 'Sets the x and y values of this Point object from a given polar coordinate.';
 Blockly.Msg.POINTS_SET_TO_POLAR_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Point.html#setToPolar';
 Blockly.Msg.RADIUS = 'radius';
+
+Blockly.Msg.SET_INPUT_HANDLER_BOOLEAN_FIELD_TOOLTIP = 'Sets the boolean fields of the input handler';
+Blockly.Msg.SET_INPUT_HANDLER_BOOLEAN_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3';
+
+Blockly.Msg.GET_INPUT_HANDLER_BOOLEAN_FIELD_TOOLTIP = 'Gets the boolean fields of the input handler';
+Blockly.Msg.GET_INPUT_HANDLER_BOOLEAN_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3';
+
+Blockly.Msg.INPUT_HANDLER_ENABLE = 'enable input handler for';
+Blockly.Msg.INPUT_HANDLER_ENABLE_TOOLTIP = 'Makes an input handler for a Sprite and is responsible for managing all Input events on that Sprite.';
+Blockly.Msg.INPUT_HANDLER_ENABLE_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html';
+
+Blockly.Msg.SET_INPUT_HANDLER_NUMERIC_FIELD_TOOLTIP = 'Sets the numeric fields of the input handler';
+Blockly.Msg.SET_INPUT_HANDLER_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3';
+
+Blockly.Msg.GET_INPUT_HANDLER_NUMERIC_FIELD_TOOLTIP = 'Gets the numeric fields of the input handler';
+Blockly.Msg.GET_INPUT_HANDLER_NUMERIC_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3';
+
+Blockly.Msg.GET_INPUT_HANDLER_POINT_FIELD_TOOLTIP = 'Gets the point fields of the input handler';
+Blockly.Msg.GET_INPUT_HANDLER_POINT_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3';
+
+Blockly.Msg.SET_INPUT_HANDLER_POINT_FIELD_TOOLTIP = 'Sets the point fields of the input handler';
+Blockly.Msg.SET_INPUT_HANDLER_POINT_FIELD_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3';
+
+Blockly.Msg.INPUT_HANDLER_BOUNDS_RECT = 'set drag bounds of';
+Blockly.Msg.INPUT_HANDLER_BOUNDS_RECT_TOOLTIP = 'A region of the game world within which the sprite is restricted during drag.';
+Blockly.Msg.INPUT_HANDLER_BOUNDS_RECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#boundsRect';
+
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG = 'enable drag for';
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_TOOLTIP = 'Allow this Sprite to be dragged by any valid pointer.';
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#enableDrag';
+
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_CENTER = 'lock to center of pointer';
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_TOP = 'bring to top';
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_PIXEL = 'pixel perfect';
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_ALPHA = 'with alpha threshold';
+Blockly.Msg.INPUT_HANDLER_ENABLE_DRAG_COMPLEX_RECT = 'within the bounds of';
+
+Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_DOWN = 'clicking on';
+Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_DOWN_TOOLTIP = 'Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.';
+Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_DOWN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#checkPointerDown';
+
+Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_OVER = 'hovering over';
+Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_OVER_TOOLTIP = 'Checks if the given pointer is over the Sprite this InputHandler belongs to.';
+Blockly.Msg.INPUT_HANDLER_CHECK_POINTER_OVER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#checkPointerOver';
+
+Blockly.Msg.INPUT_HANDLER_DISABLE_DRAG = 'disable drag for';
+Blockly.Msg.INPUT_HANDLER_DISABLE_DRAG_TOOLTIP = 'Stops this sprite from being able to be dragged. If it is currently the target of an active drag it will be stopped immediately; also disables any set callbacks.';
+Blockly.Msg.INPUT_HANDLER_DISABLE_DRAG_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#disableDrag';
+
+Blockly.Msg.SNAP = 'snap';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_TOOLTIP = 'Make this Sprite snap to the given grid either during drag or when it\'s released.';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#enableSnap';
+
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_DRAG = 'on drag';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_RELEASE = 'on release';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_OFFSET_X = 'offset x';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_OFFSET_Y = 'offset y';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_TOOLTIP = 'Make this Sprite snap to the given grid either during drag or when it\'s released.';
+Blockly.Msg.INPUT_HANDLER_ENABLE_SNAP_COMPLEX_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#enableSnap';
+
+Blockly.Msg.INPUT_HANDLER_DISABLE_SNAP = 'disable snap for';
+Blockly.Msg.INPUT_HANDLER_DISABLE_SNAP_TOOLTIP = 'Stops the sprite from snapping to a grid during drag or release.';
+Blockly.Msg.INPUT_HANDLER_DISABLE_SNAP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#disableSnap';
+
+Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL = 'pixel alpha at';
+Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_MIDDLE = 'is >=?';
+Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_END = 'pixelPerfectAlpha ?';
+Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_TOOLTIP = 'Compares the alpha value of the pixel at (x,y) and the Sprite pixelPerfectAlpha.';
+Blockly.Msg.INPUT_HANDLER_CHECK_PIXEL_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#checkPixel';
+
+Blockly.Msg.INPUT_HANDLER_IS_PIXEL_PERFECT = 'input handler is pixel perfect?';
+Blockly.Msg.INPUT_HANDLER_IS_PIXEL_PERFECT_TOOLTIP = 'Is this object using pixel perfect checking?';
+Blockly.Msg.INPUT_HANDLER_IS_PIXEL_PERFECT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#isPixelPerfect';
+
+Blockly.Msg.INPUT_HANDLER_JUST_PRESSED = 'was pressed within';
+Blockly.Msg.INPUT_HANDLER_JUST_PRESSED_TOOLTIP = 'Returns true if the pointer has touched or clicked on the Sprite within the specified delay time.';
+Blockly.Msg.INPUT_HANDLER_JUST_PRESSED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#justPressed';
+
+Blockly.Msg.INPUT_HANDLER_JUST_RELEASED = 'was released within';
+Blockly.Msg.INPUT_HANDLER_JUST_RELEASED_TOOLTIP = 'Returns true if the pointer was touching this Sprite, but has been released within the specified delay time.';
+Blockly.Msg.INPUT_HANDLER_JUST_RELEASED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#justReleased';
+
+Blockly.Msg.INPUT_HANDLER_OVER_DURATION = 'how many milliseconds pointer has hovered over';
+Blockly.Msg.INPUT_HANDLER_OVER_DURATION_TOOLTIP = 'If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.';
+Blockly.Msg.INPUT_HANDLER_OVER_DURATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#overDuration';
+
+Blockly.Msg.INPUT_POINTER_OVER = 'pointer is over';
+Blockly.Msg.INPUT_POINTER_OVER_TOOLTIP = 'Is the Pointer over this Sprite?';
+Blockly.Msg.INPUT_POINTER_OVER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerOver';
+
+Blockly.Msg.INPUT_HANDLER_JUST_OVER = 'pointer entered';
+Blockly.Msg.INPUT_HANDLER_JUST_OVER_TOOLTIP = 'Returns true if the pointer has entered the Sprite within the specified delay time.';
+Blockly.Msg.INPUT_HANDLER_JUST_OVER_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#justOver';
+Blockly.Msg.WITHIN = 'within';
+
+Blockly.Msg.INPUT_HANDLER_DOWN_DURATION = 'how many milliseconds pointer has clicked on';
+Blockly.Msg.INPUT_HANDLER_DOWN_DURATION_TOOLTIP = 'If the pointer is currently over this Sprite this returns how long it has been pressed for in milliseconds.';
+Blockly.Msg.INPUT_HANDLER_DOWN_DURATION_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#downDuration';
+
+Blockly.Msg.INPUT_HANDLER_POINTER_UP = 'pointer is up?';
+Blockly.Msg.INPUT_HANDLER_POINTER_UP_TOOLTIP = 'If the Pointer is up this returns true.';
+Blockly.Msg.INPUT_HANDLER_POINTER_UP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerUp';
+
+Blockly.Msg.INPUT_HANDLER_POINTER_DOWN = 'pointer is down?';
+Blockly.Msg.INPUT_HANDLER_POINTER_DOWN_TOOLTIP = 'If the Pointer is down this returns true.';
+Blockly.Msg.INPUT_HANDLER_POINTER_DOWN_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerDown';
+
+Blockly.Msg.INPUT_HANDLER_START = 'start input handler for';
+Blockly.Msg.INPUT_HANDLER_START_PRIORITY = 'with priority';
+Blockly.Msg.INPUT_HANDLER_START_TOOLTIP = 'Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.';
+Blockly.Msg.INPUT_HANDLER_START_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#start';
+
+Blockly.Msg.INPUT_HANDLER_STOP = 'stop input handler for';
+Blockly.Msg.INPUT_HANDLER_STOP_TOOLTIP = 'Stops the Input Handler from running.';
+Blockly.Msg.INPUT_HANDLER_STOP_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#stop';
+
+Blockly.Msg.INPUT_HANDLER_JUST_OUT = 'pointer left';
+Blockly.Msg.INPUT_HANDLER_JUST_OUT_TOOLTIP = 'Returns true if the pointer has left the Sprite within the specified delay time.';
+Blockly.Msg.INPUT_HANDLER_JUST_OUT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#justOut';
+Blockly.Msg.WITHIN = 'within';
+
+Blockly.Msg.INPUT_POINTER_OUT = 'pointer is outside of';
+Blockly.Msg.INPUT_POINTER_OUT_TOOLTIP = 'Is the Pointer out this Sprite?';
+Blockly.Msg.INPUT_POINTER_OUT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerOut';
+
+Blockly.Msg.INPUT_HANDLER_POINTER_X = 'x coordinate of pointer relative to';
+Blockly.Msg.INPUT_HANDLER_POINTER_X_TOOLTIP = 'The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.';
+Blockly.Msg.INPUT_HANDLER_POINTER_X_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerX';
+
+Blockly.Msg.INPUT_HANDLER_POINTER_Y = 'y coordinate of pointer relative to';
+Blockly.Msg.INPUT_HANDLER_POINTER_Y_TOOLTIP = 'The y coordinate of the Input pointer, relative to the top-left of the parent Sprite.';
+Blockly.Msg.INPUT_HANDLER_POINTER_Y_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerY';
+
+Blockly.Msg.INPUT_HANDLER_POINTER_POSITION = 'position of pointer relative to';
+Blockly.Msg.INPUT_HANDLER_POINTER_POSITION_TOOLTIP = 'The position of the Input pointer, relative to the top-left of the parent Sprite.';
+Blockly.Msg.INPUT_HANDLER_POINTER_POSITION_HELP_URL = '';
+
+Blockly.Msg.INPUT_HANDLER_RESET = 'reset input handler for';
+Blockly.Msg.INPUT_HANDLER_RESET_TOOLTIP = 'Resets the Input Handler and disables it.';
+Blockly.Msg.INPUT_HANDLER_RESET_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#reset';
+
+Blockly.Msg.INPUT_HANDLER_DESTROY = 'destroy input handler for';
+Blockly.Msg.INPUT_HANDLER_DESTROY_TOOLTIP = 'Clean up memory.';
+Blockly.Msg.INPUT_HANDLER_DESTROY_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#destroy';
+
+Blockly.Msg.INPUT_HANDLER_POINTER_DRAGGED = 'pointer is currently dragging';
+Blockly.Msg.INPUT_HANDLER_POINTER_DRAGGED_TOOLTIP = 'Is this sprite being dragged by the mouse or not?';
+Blockly.Msg.INPUT_HANDLER_POINTER_DRAGGED_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#pointerDragged';
+
+Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK = 'to be dragged in directions:';
+Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK_TOOLTIP = 'Restricts this sprite to drag movement only on the given axis.';
+Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#setDragLock';
+Blockly.Msg.HORIZONTAL = 'horizontal';
+Blockly.Msg.VERTICAL = 'vertical';
+Blockly.Msg.ALLOW = 'allow';
