@@ -3539,13 +3539,15 @@
                         </shadow>
                     </value>
                     <value name="ARRAY">
-                        <shadow type="logic_null">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultList</field>
                         </shadow>
                     </value>
                 </block>
                 <block type="list_get_random">
                     <value name="ARRAY">
-                        <shadow type="logic_null">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultList</field>
                         </shadow>
                     </value>
                 </block>
@@ -3580,13 +3582,15 @@
                 </block>
                 <block type="list_remove_random_item">
                     <value name="ARRAY">
-                        <shadow type="logic_null">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultList</field>
                         </shadow>
                     </value>
                 </block>
                 <block type="list_shuffle">
                     <value name="ARRAY">
-                        <shadow type="logic_null">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultList</field>
                         </shadow>
                     </value>
                 </block>
