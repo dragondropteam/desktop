@@ -2865,6 +2865,7 @@
             <!--TODO: Mouse input functions for position, key down, etc... -->
             <category name="Mouse" colour="#2C85DB">
                 <block type="get_current_mouse_position"/>
+                <block type="get_mouse_position_point"/>
                 <block type="is_mouse_button_clicked"/>
                 <block type="get_active_pointer"/>
             </category>
