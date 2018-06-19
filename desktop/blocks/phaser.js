@@ -5749,6 +5749,17 @@ Blockly.Blocks['get_current_mouse_position'] = {
   }
 };
 
+Blockly.Blocks['get_mouse_position_point'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.MOUSE_POSITION_POINT);
+    this.setColour(PHASER_MOUSE_INPUT);
+    this.setOutput(true);
+    this.setTooltip(Blockly.Msg.MOUSE_POSITION_POINT_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.MOUSE_POSITION_POINT_HELP_URL);
+  }
+};
+
 Blockly.Blocks['is_mouse_button_clicked'] = {
   init: function () {
     this.appendDummyInput()

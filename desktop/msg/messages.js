@@ -5158,3 +5158,7 @@ Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK_HELP_URL = 'http://dragondrop.digipen.ed
 Blockly.Msg.HORIZONTAL = 'horizontal';
 Blockly.Msg.VERTICAL = 'vertical';
 Blockly.Msg.ALLOW = 'allow';
+
+Blockly.Msg.MOUSE_POSITION_POINT = 'get current mouse position';
+Blockly.Msg.MOUSE_POSITION_POINT_TOOLTIP = 'Returns a Point with the mouse position.';
+Blockly.Msg.MOUSE_POSITION_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Mouse.html';

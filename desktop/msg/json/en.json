@@ -1,7 +1,11 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
+<<<<<<< HEAD
 		"lastupdated": "2018-06-19 09:48:49.932000",
+=======
+		"lastupdated": "2018-06-18 11:35:37.640000",
+>>>>>>> DRAG-633
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2545,6 +2549,7 @@
 	"RECTANGLE_RANDOM": "random point in",
 	"RECTANGLE_RANDOM_TOOLTIP": "Returns a uniformly distributed random point from anywhere within this Rectangle.",
 	"RECTANGLE_RANDOM_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Rectangle.html#random",
+<<<<<<< HEAD
 	"SET_INPUT_HANDLER_BOOLEAN_FIELD_TOOLTIP": "Sets the boolean fields of the input handler",
 	"SET_INPUT_HANDLER_BOOLEAN_FIELD_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.InputHandler.html#toc-3",
 	"GET_INPUT_HANDLER_BOOLEAN_FIELD_TOOLTIP": "Gets the boolean fields of the input handler",
@@ -2663,4 +2668,9 @@
 	"HORIZONTAL": "horizontal",
 	"VERTICAL": "vertical",
 	"ALLOW": "allow"
+=======
+	"MOUSE_POSITION_POINT": "get current mouse position",
+	"MOUSE_POSITION_POINT_TOOLTIP": "Returns a Point with the mouse position.",
+	"MOUSE_POSITION_POINT_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Mouse.html"
+>>>>>>> DRAG-633
 }
