@@ -2195,7 +2195,7 @@
                             <field name="VAR">defaultRectangle</field>
                         </shadow>
                     </value>
-                    <value name="VALUE">
+                    <value name="POINT">
                         <shadow type="point_create">
                             <value name="X">
                                 <shadow type="math_number">

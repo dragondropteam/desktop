@@ -47,7 +47,7 @@ const PHASER_PHYSICS_UTIL_COLOUR = '#da95e2'; //'#8e24aa';
 const PHASER_GEOMETRY_COLOUR = '#424242';  // UNUSED
 const PHASER_RECTANGLE_COLOUR = '#5C5C5C'; //'#616161';
 const PHASER_POINT_COLOUR = '#757575';     // (no change)
-const PHASER_CIRCLE_COLOUR ='#838383';
+const PHASER_CIRCLE_COLOUR = '#838383';
 
 const PHASER_KEYBOARD_INPUT = '#1565C0'; // (no change)
 const PHASER_MOUSE_INPUT = '#2479D1';    //'#42A5F5' // ?2175CE 277DD5 2C85DB
@@ -167,7 +167,7 @@ const PHASER_KEYS = [
   ['\\', 'BACKWARD_SLASH'],
   ['SPACEBAR', 'SPACEBAR'],
   ['CLEAR', 'CLEAR'],
-  ['CAPS LOCK', 'CAPS_LOCK']]
+  ['CAPS LOCK', 'CAPS_LOCK']];
 
 //endregion colours
 
@@ -4757,7 +4757,6 @@ Blockly.Blocks['move_to_object'] = {
   }
 };
 
-
 //endregion
 
 //region PHASER_GEOMETRY
@@ -4868,10 +4867,10 @@ Blockly.Blocks['rectangle_set_point_field'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.SET_POINT_FIELD)
-      .appendField(new Blockly.FieldDropdown(RECTANGLE_POINT_FIELDS.writable), 'FIELD');
+      .appendField(new Blockly.FieldDropdown(RECTANGLE_POINT_FIELDS.writable), 'PROPERTY');
     this.appendValueInput('OBJECT')
       .appendField(Blockly.Msg.OF);
-    this.appendValueInput('VALUE')
+    this.appendValueInput('POINT')
       .appendField(Blockly.Msg.TO);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -4922,7 +4921,7 @@ Blockly.Blocks['rectangle_contains_rect'] = {
   init: function () {
     this.appendValueInput('RECTANGLE_A');
     this.appendValueInput('RECTANGLE_B')
-      .appendField(Blockly.Msg.CONTAINS)
+      .appendField(Blockly.Msg.CONTAINS);
     this.appendDummyInput()
       .appendField(Blockly.Msg.QUESTION);
     this.setInputsInline(true);
@@ -5250,7 +5249,7 @@ Blockly.Blocks['points_perpendicular'] = {
 };
 
 Blockly.Blocks['points_centroid'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('ARRAY')
       .setCheck('Array')
       .appendField(Blockly.Msg.POINTS_CENTROID);
@@ -5262,7 +5261,7 @@ Blockly.Blocks['points_centroid'] = {
 };
 
 Blockly.Blocks['points_clamp'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_CLAMP);
     this.appendDummyInput()
@@ -5282,7 +5281,7 @@ Blockly.Blocks['points_clamp'] = {
 };
 
 Blockly.Blocks['points_clamp_x'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_CLAMP_X);
     this.appendDummyInput()
@@ -5302,7 +5301,7 @@ Blockly.Blocks['points_clamp_x'] = {
 };
 
 Blockly.Blocks['points_clamp_y'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_CLAMP_Y);
     this.appendDummyInput()
@@ -5322,7 +5321,7 @@ Blockly.Blocks['points_clamp_y'] = {
 };
 
 Blockly.Blocks['points_clone'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_CLONE);
     this.setOutput(true, null);
@@ -5333,7 +5332,7 @@ Blockly.Blocks['points_clone'] = {
 };
 
 Blockly.Blocks['points_copy_from'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('SOURCE')
       .appendField(Blockly.Msg.POINTS_COPY_FROM);
     this.appendValueInput('TARGET')
@@ -5348,7 +5347,7 @@ Blockly.Blocks['points_copy_from'] = {
 };
 
 Blockly.Blocks['points_cross'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('LHS')
       .appendField(Blockly.Msg.POINTS_CROSS);
     this.appendValueInput('RHS')
@@ -5362,7 +5361,7 @@ Blockly.Blocks['points_cross'] = {
 };
 
 Blockly.Blocks['points_dot'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('LHS')
       .appendField(Blockly.Msg.POINTS_DOT);
     this.appendValueInput('RHS')
@@ -5376,7 +5375,7 @@ Blockly.Blocks['points_dot'] = {
 };
 
 Blockly.Blocks['points_add_member'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('X')
       .setCheck('Number')
       .appendField(Blockly.Msg.ADD)
@@ -5396,7 +5395,7 @@ Blockly.Blocks['points_add_member'] = {
 };
 
 Blockly.Blocks['points_subtract_member'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('X')
       .setCheck('Number')
       .appendField(Blockly.Msg.SUBTRACT)
@@ -5416,7 +5415,7 @@ Blockly.Blocks['points_subtract_member'] = {
 };
 
 Blockly.Blocks['points_divide_member'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_DIVIDE);
     this.appendValueInput('X')
@@ -5436,7 +5435,7 @@ Blockly.Blocks['points_divide_member'] = {
 };
 
 Blockly.Blocks['points_multiply_member'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_MULTIPLY);
     this.appendValueInput('X')
@@ -5456,7 +5455,7 @@ Blockly.Blocks['points_multiply_member'] = {
 };
 
 Blockly.Blocks['points_ceil'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_CEIL);
     this.setNextStatement(true, null);
@@ -5469,7 +5468,7 @@ Blockly.Blocks['points_ceil'] = {
 };
 
 Blockly.Blocks['points_floor'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_FLOOR);
     this.setNextStatement(true, null);
@@ -5482,7 +5481,7 @@ Blockly.Blocks['points_floor'] = {
 };
 
 Blockly.Blocks['points_get_magnitude'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_GET_MAGNITUDE);
     this.setOutput(true, 'Number');
@@ -5494,7 +5493,7 @@ Blockly.Blocks['points_get_magnitude'] = {
 };
 
 Blockly.Blocks['points_get_magnitude_squared'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_GET_MAGNITUDE_SQUARED);
     this.setOutput(true, 'Number');
@@ -5506,7 +5505,7 @@ Blockly.Blocks['points_get_magnitude_squared'] = {
 };
 
 Blockly.Blocks['points_invert'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_INVERT);
     this.setNextStatement(true, null);
@@ -5519,7 +5518,7 @@ Blockly.Blocks['points_invert'] = {
 };
 
 Blockly.Blocks['points_is_zero'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT');
     this.appendDummyInput()
       .appendField(Blockly.Msg.POINTS_IS_ZERO);
@@ -5532,7 +5531,7 @@ Blockly.Blocks['points_is_zero'] = {
 };
 
 Blockly.Blocks['points_limit'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_LIMIT);
     this.appendValueInput('MAX')
@@ -5548,7 +5547,7 @@ Blockly.Blocks['points_limit'] = {
 };
 
 Blockly.Blocks['points_set_to_polar'] = {
-  init: function() {
+  init: function () {
     this.appendValueInput('POINT')
       .appendField(Blockly.Msg.POINTS_SET_TO_POLAR_POINT);
     this.appendDummyInput()
@@ -5818,7 +5817,7 @@ Blockly.Blocks['is_key_down'] = {
 };
 
 Blockly.Blocks['add_key'] = {
-  init: function() {
+  init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.ADD_KEY)
       .appendField(new Blockly.FieldDropdown(PHASER_KEYS), 'KEYCODE');
@@ -6526,7 +6525,7 @@ Blockly.Blocks['input_handler_set_drag_lock'] = {
       .appendField(Blockly.Msg.INPUT_HANDLER_SET_DRAG_LOCK)
       .appendField(Blockly.Msg.HORIZONTAL)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'HORIZONTAL')
-  .appendField(Blockly.Msg.VERTICAL)
+      .appendField(Blockly.Msg.VERTICAL)
       .appendField(new Blockly.FieldCheckbox('TRUE'), 'VERTICAL');
     this.setInputsInline(true);
     this.setNextStatement(true, null);
@@ -8267,7 +8266,6 @@ Blockly.Blocks['device_button_get_numeric_field'] = {
     this.setHelpUrl(Blockly.Msg.GET_DEVICE_BUTTON_FIELD_VI_HELP_URL);
   }
 };
-
 
 Blockly.Blocks['device_button_just_pressed'] = {
   init: function () {
