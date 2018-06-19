@@ -1876,6 +1876,14 @@ Blockly.JavaScript['set_emit_from'] = function (block) {
 //endregion EMITTERS
 
 //region DEBUG
+Blockly.JavaScript['debug_geom'] = function (block) {
+  const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
+  const colour = Blockly.JavaScript.valueToCode(block, 'COLOUR', Blockly.JavaScript.ORDER_ATOMIC);
+  const filled = block.getFieldValue('FILLED') == 'TRUE';
+
+  return `game.debug.geom(${object}, ${colour}, ${filled});\n`;
+};
+
 Blockly.JavaScript['debug_sprite'] = function (block) {
   const object = Blockly.JavaScript.valueToCode(block, 'OBJECT', Blockly.JavaScript.ORDER_ATOMIC);
   const value_x = Blockly.JavaScript.valueToCode(block, 'X_VAL', Blockly.JavaScript.ORDER_ATOMIC);
