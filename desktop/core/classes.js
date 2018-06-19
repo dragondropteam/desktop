@@ -73,8 +73,6 @@ DragonDrop.Classes.flyoutCategory = function(workspace){
 
   let classes = DragonDrop.Classes.allClasses(workspace);
 
-  console.log('Classes: ', classes);
-
   for (let i = 0; i < classes.length; ++i) {
     let className = classes[i].getFieldValue('NAME');
     let classTypeBlock = goog.dom.createDom('block');
