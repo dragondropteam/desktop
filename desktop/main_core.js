@@ -342,6 +342,11 @@ function saveAs (defaultPath, parentWindow) {
   parentWindow.send('save_project_as', project);
 }
 
+function showProjectInExplorer()
+{
+  shell.showItemInFolder( loadedproject.projectPath);
+}
+
 function createProjectMenu (arg) {
   let menuHash = Object.create(null);
   //Add MacOS X specific field if necessary
@@ -354,6 +359,13 @@ function createProjectMenu (arg) {
     accelerator: 'CmdOrCtrl+N',
     click () {
       createProject();
+    }
+  });
+
+  menuHash['File'].push({
+    label: 'Show Project in Explorer',
+    click () {
+      showProjectInExplorer();
     }
   });
 
