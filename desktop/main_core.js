@@ -874,7 +874,10 @@ function showSplashScreen (err, onShow) {
 
   mainWindow.on('ready-to-show', () => {
     sendStatusToWindow('ready');
-    autoUpdater.checkForUpdates();
+
+    if (process.platform !== 'darwin') {
+      autoUpdater.checkForUpdates();
+    }
     mainWindow.show();
     splashScreen = true;
   });
@@ -908,7 +911,6 @@ app.on('ready', function () {
   //We need to show a window in this callback otherwise the application will quit, show always show the splash screen
   //if we get a project to load it will close this window. Hopefully before ready-to-show is called preventing flickering
   showSplashScreen(null, () => {
-    //TODO: Use more of yargs, we should be able to specify hyphenated arguments --dev and the like to increase usability
     const yargs = require('yargs');
 
     const args = yargs(process.argv.slice(1))
