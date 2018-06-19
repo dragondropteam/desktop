@@ -2919,16 +2919,6 @@
                     </value>
                 </block>
             </category>
-            <block type="device_button_just_pressed">
-                <value name="OBJECT">
-                    <shadow type="pointer_get_device_buttons_field">
-                        <value name="OBJECT">
-                            <shadow type="get_active_pointer">
-                            </shadow>
-                        </value>
-                    </shadow>
-                </value>
-            </block>
             <category name="Input Handler" colour="#66bcff">
                 <block type="input_handler_enable">
                     <value name="OBJECT">
