@@ -6558,6 +6558,22 @@ Blockly.Blocks['center_and_stretch'] = {
 //endregion General
 
 //region DEBUG
+Blockly.Blocks['debug_geom'] = {
+  init: function () {
+    this.appendValueInput('OBJECT')
+      .appendField(Blockly.Msg.DEBUG_GEOM);
+    this.appendValueInput('COLOUR')
+      .appendField(Blockly.Msg.COLOUR);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.FILLED)
+      .appendField(new Blockly.FieldCheckbox('TRUE'), 'FILLED');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip(Blockly.Msg.DEBUG_GEOM_TOOLTIP);
+    this.setHelpUrl(Blockly.Msg.DEBUG_GEOM_HELP_URL);
+    this.setColour(PHASER_UTIL_DEBUG_COLOUR);
+  }
+};
 
 Blockly.Blocks['enable_step'] = {
   init: function () {
