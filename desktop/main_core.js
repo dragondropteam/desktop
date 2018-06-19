@@ -342,9 +342,8 @@ function saveAs (defaultPath, parentWindow) {
   parentWindow.send('save_project_as', project);
 }
 
-function showProjectInExplorer()
-{
-  shell.showItemInFolder( loadedproject.projectPath);
+function showProjectInExplorer () {
+  shell.showItemInFolder(loadedproject.projectPath);
 }
 
 function createProjectMenu (arg) {
