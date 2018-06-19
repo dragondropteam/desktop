@@ -38,7 +38,6 @@ const JSZip = require('jszip');
 const {ProgressWindow} = require('./progress_dialog');
 const {LoadedProject} = require('./project/projects');
 const buffer = require('buffer');
-const windowManager = require('./window_manager/window_manager');
 let splashScreen = false;
 let readOnlyProject = false;
 let develop = false;
@@ -69,7 +68,7 @@ autoUpdater.on('error', (event, error) => {
 //   sendStatusToWindow('checking-for-update');
 // });
 
-autoUpdater.on('update-available', (event, info) => {
+autoUpdater.on('update-available', () => {
   sendStatusToWindow('update-available');
 });
 
@@ -83,12 +82,12 @@ autoUpdater.on('download-progress', (event, progress) => {
 
 let downloadProgressWindow = null;
 
-autoUpdater.on('update-downloaded', (event, progress) => {
+autoUpdater.on('update-downloaded', () => {
   downloadProgressWindow.destroy();
   autoUpdater.quitAndInstall();
 });
 
-ipcMain.on('download_update', (event, version) => {
+ipcMain.on('download_update', () => {
   downloadProgressWindow = new ProgressWindow(`Downloading Update`);
   autoUpdater.downloadUpdate();
 });
@@ -162,8 +161,6 @@ function addToggleDevTools (menuHash) {
     }
   }];
 }
-
-let wikiWindow = null;
 
 function reportBug (err) {
   const errorSerialize = err ? {message: err.message, stack: err.stack} : false;
@@ -342,6 +339,10 @@ function saveAs (defaultPath, parentWindow) {
   parentWindow.send('save_project_as', project);
 }
 
+function showProjectInExplorer (project) {
+  shell.showItemInFolder(project.projectPath);
+}
+
 function createProjectMenu (arg) {
   let menuHash = Object.create(null);
   //Add MacOS X specific field if necessary
@@ -354,6 +355,24 @@ function createProjectMenu (arg) {
     accelerator: 'CmdOrCtrl+N',
     click () {
       createProject();
+    }
+  });
+
+  let label = 'File Manager';
+
+  switch (process.platform) {
+    case 'darwin':
+      label = 'Finder';
+      break;
+    case 'win32':
+      label = 'Explorer';
+      break;
+  }
+
+  menuHash['File'].push({
+    label: `Show Project in ${label}`,
+    click () {
+      showProjectInExplorer(arg);
     }
   });
 
