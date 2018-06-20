@@ -166,3 +166,5 @@ desktop/yarn-error\.log
 node_modules/
 
 yarn-error\.log
+
+desktop/app/electron_prompt\.js
