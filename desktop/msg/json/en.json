@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2018-06-19 15:41:21.352382",
+		"lastupdated": "2018-06-19 17:18:06.789603",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2665,5 +2665,9 @@
 	"ALLOW": "allow",
 	"MOUSE_POSITION_POINT": "get current mouse position",
 	"MOUSE_POSITION_POINT_TOOLTIP": "Returns a Point with the mouse position.",
-	"MOUSE_POSITION_POINT_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Mouse.html"
+	"MOUSE_POSITION_POINT_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Mouse.html",
+	"DEBUG_GEOM": "draw shape",
+	"DEBUG_GEOM_TOOLTIP": "Renders a Phaser geometry object including Rectangle, Circle, Point or Line.",
+	"DEBUG_GEOM_HELP_URL": "http://dragondrop.digipen.edu/docs/Phaser.Utils.Debug.html#geom",
+	"FILLED": "filled"
 }
