@@ -492,6 +492,7 @@ let projectInterface = require('./project_types/wink_robot');
  * name field
  */
 ipcMain.on('create_new_project', (event, project, type) => {
+  global.loadProjectReadOnly = false;
   projectInterface = require(projectTypes.getRequirePath(type));
   //TODO: Most likely want to make this into a try catch block to give back more
   //information about the cause of the issue.
@@ -841,6 +842,7 @@ function projectLoadErrorHandler (err) {
 }
 
 function loadProjectFromPath (projectPath) {
+  global.loadProjectReadOnly = false;
   let progressWindow = new ProgressWindow('Loading Project');
   const extension = path.extname(projectPath);
   const loadProject = extension === '.drop' ? loadDropFromPath(projectPath) : loadDigiblocksFromPath(projectPath);
