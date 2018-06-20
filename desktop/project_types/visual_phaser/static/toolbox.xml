@@ -3297,6 +3297,18 @@
                 <block type="center_and_stretch"/>
             </category>
             <category name="Debug" colour="#E6460D">
+                <block type="debug_geom">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="COLOUR">
+                        <shadow type="colour_picker">
+                            <field name="COLOUR">#ff0000</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="enable_step"/>
                 <block type="disable_step"/>
                 <block type="debug_sprite">

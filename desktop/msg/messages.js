@@ -5162,3 +5162,8 @@ Blockly.Msg.ALLOW = 'allow';
 Blockly.Msg.MOUSE_POSITION_POINT = 'get current mouse position';
 Blockly.Msg.MOUSE_POSITION_POINT_TOOLTIP = 'Returns a Point with the mouse position.';
 Blockly.Msg.MOUSE_POSITION_POINT_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Mouse.html';
+
+Blockly.Msg.DEBUG_GEOM = 'draw shape'
+Blockly.Msg.DEBUG_GEOM_TOOLTIP = 'Renders a Phaser geometry object including Rectangle, Circle, Point or Line.';
+Blockly.Msg.DEBUG_GEOM_HELP_URL = 'http://dragondrop.digipen.edu/docs/Phaser.Utils.Debug.html#geom';
+Blockly.Msg.FILLED = 'filled';
