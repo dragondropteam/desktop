@@ -14,7 +14,7 @@ const exec = require('child_process').exec;
 
 const options = {mangle: {reserved: ['require']}};
 
-const buildDeps = ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager', 'serial_monitor'];
+const buildDeps = ['mainProcess', 'projectTypes', 'ace-builds', 'arduino_core', 'progress_dialog', 'filesystem', 'GoldenLayout', 'images', 'media', 'msg', 'phaser_core', 'project', 'static', 'workspace', 'icon_blocks', 'base_project_manager', 'serial_monitor', 'blockly'];
 
 process.env.ALLOW_ELECTRON_BUILDER_AS_PRODUCTION_DEPENDENCY = 'true';
 
@@ -234,6 +234,11 @@ gulp.task('blocklyBuild', cb => {
         console.log(stderr);
         cb(err);
     });
+});
+
+gulp.task('blockly', () => {
+  return gulp.src('blockly/**/*')
+    .pipe(gulp.dest('app/blockly'));
 });
 
 gulp.task('default', ['buildCurrentPlatform']);

@@ -1,7 +1,6 @@
 const {BaseComponent, TYPE_COMPONENT, TIMEOUT} = require('./component');
 const assert = require('assert');
 const Rx = require('rxjs/Rx');
-const log = require('electron-log');
 const BLOCKLY_DIV_ID = 'blocklyDiv';
 const BLOCKLY_AREA_ID = 'blocklyArea';
 const {ipcRenderer} = require('electron');
@@ -28,6 +27,7 @@ class BlocklyComponent extends BaseComponent {
    * Generate an object representing the configuration of a BlocklyComponent for GoldenLayout
    * @param blocklyConfig {@link https://developers.google.com/blockly/guides/get-started/web#configuration}
    * @param workspaceToCode A function to map a workspace to {@see GeneratedCode}
+   * @param {boolean} [disableOrphans=true] Automatically disable orphaned blocks
    * @return {*} An Item Configuration for GoldenLayout {@link http://golden-layout.com/docs/ItemConfig.html}
    */
   static generateContent (blocklyConfig, workspaceToCode, disableOrphans = false) {
@@ -69,7 +69,7 @@ class BlocklyComponent extends BaseComponent {
         snap: true
       },
       maxBlocks: Infinity,
-      media: '../../../media/',
+      media: '../../../blockly/src/media/',
       readOnly: !!remote.getGlobal('loadProjectReadOnly'),
       rtl: false,
       scrollbars: true,
