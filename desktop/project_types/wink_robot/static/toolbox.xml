@@ -1,12 +1,12 @@
  <xml id="toolbox" style="display: none">
     <category name="Logic" colour="210">
-        <block type="controls_if"/>
-        <block type="logic_compare"/>
-        <block type="logic_operation"/>
-        <block type="logic_negate"/>
-        <block type="logic_boolean"/>
-        <block type="logic_null"/>
-        <block type="logic_ternary"/>
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null"></block>
+        <block type="logic_ternary"></block>
     </category>
     <category name="Loops" colour="120">
         <block type="controls_repeat_ext">
@@ -16,7 +16,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_whileUntil"/>
+        <block type="controls_whileUntil"></block>
         <block type="controls_for">
             <value name="FROM">
                 <shadow type="math_number">
@@ -34,10 +34,10 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_flow_statements"/>
+        <block type="controls_flow_statements"></block>
     </category>
     <category name="Math" colour="230">
-        <block type="math_number" gap="32"/>
+        <block type="math_number" gap="32"></block>
         <block type="math_arithmetic">
             <value name="A">
                 <shadow type="math_number">
@@ -64,7 +64,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_constant"/>
+        <block type="math_constant"></block>
         <block type="math_change">
             <value name="DELTA">
                 <shadow type="math_number">
@@ -151,7 +151,7 @@
             </value>
         </block>
     </category>
-    <sep/>
+    <sep></sep>
     <category name="Time" colour="#726dc5" enabled="false">
         <block type="delayseconds">
             <value name="SECONDS">
@@ -174,9 +174,9 @@
                 </shadow>
             </value>
         </block>
-        <block type="seconds"/>
-        <block type="microseconds"/>
-        <block type="milliseconds"/>
+        <block type="seconds"></block>
+        <block type="microseconds"></block>
+        <block type="milliseconds"></block>
     </category>
     <category name="Digital I/O" colour="#4d6bc4">
         <block type="pininput">
@@ -202,7 +202,7 @@
         </block>
     </category>
     <category name="Analog I/O" colour="#439bbc">
-        <block type="analog_reference"/>
+        <block type="analog_reference"></block>
         <block type="analog_read">
             <value name="PIN">
                 <shadow type="math_number">
@@ -255,7 +255,7 @@
         </block>
     </category>
     <category name="Serial" colour="#bfab36">
-        <block type="text"/>
+        <block type="text"></block>
         <block type="serial_begin">
             <value name="SPEED">
                 <shadow type="math_number">
@@ -263,7 +263,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="serial_end"/>
+        <block type="serial_end"></block>
         <block type="serial_print_line">
             <value name="OUTPUT">
                 <shadow type="text">
@@ -278,9 +278,9 @@
                 </shadow>
             </value>
         </block>
-        <block type="serial_read"/>
-        <block type="serial_available"/>
-        <block type="serial_available_write"/>
+        <block type="serial_read"></block>
+        <block type="serial_available"></block>
+        <block type="serial_available_write"></block>
         <block type="serial_find">
             <value name="TARGET">
                 <shadow type="text">
@@ -300,10 +300,10 @@
                 </shadow>
             </value>
         </block>
-        <block type="serial_flush"/>
-        <block type="serial_parse_float"/>
-        <block type="serial_parse_int"/>
-        <block type="serial_peek"/>
+        <block type="serial_flush"></block>
+        <block type="serial_parse_float"></block>
+        <block type="serial_parse_int"></block>
+        <block type="serial_peek"></block>
         <block type="serial_set_timeout">
             <value name="MILLISECONDS">
                 <shadow type="math_number">
@@ -313,14 +313,14 @@
         </block>
     </category>
     <category name="Constants" colour="#c08027">
-         <block type="high"/>
-         <block type="low"/>
-         <block type="led_builtin"/>
+         <block type="high"></block>
+         <block type="low"></block>
+         <block type="led_builtin"></block>
     </category>
     <category name="Utility" colour="#E03400">
-         <block type="comment_oneline"/>
+         <block type="comment_oneline"></block>
     </category>
-    <sep/>
+    <sep></sep>
     <category name="Wink Eyes" colour="#b71c1c">
         <block type="seteyesred">
             <value name="INTENSITY">
@@ -391,9 +391,9 @@
                 </shadow>
             </value>
         </block>
-        <block type="seteyesrgb"/>
-        <block type="turneyesoff"/>
-        <block type="eyesprevcolour"/>
+        <block type="seteyesrgb"></block>
+        <block type="turneyesoff"></block>
+        <block type="eyesprevcolour"></block>
         <block type="set_eyes">
             <value name="RED">
                 <shadow type="math_number">
@@ -476,9 +476,9 @@
                 </shadow>
             </value>
         </block>
-        <block type="setleftrgb"/>
-        <block type="turnlefteyeoff"/>
-        <block type="leftprevcolour"/>
+        <block type="setleftrgb"></block>
+        <block type="turnlefteyeoff"></block>
+        <block type="leftprevcolour"></block>
         <block type="set_left_eye">
             <value name="RED">
                 <shadow type="math_number">
@@ -561,9 +561,9 @@
                 </shadow>
             </value>
         </block>
-        <block type="setrightrgb"/>
-        <block type="turnrighteyeoff"/>
-        <block type="rightprevcolour"/>
+        <block type="setrightrgb"></block>
+        <block type="turnrighteyeoff"></block>
+        <block type="rightprevcolour"></block>
         <block type="set_right_eye">
             <value name="RED">
                 <shadow type="math_number">
@@ -590,27 +590,27 @@
           <!--</shadow>-->
         <!--</value>-->
       <!--</block>-->
-        <!--<block type="beepon" disabled="true"/>-->
-        <!--<block type="beepoff" disabled="true"/>-->
+        <!--<block type="beepon" disabled="true"></block>-->
+        <!--<block type="beepoff" disabled="true"></block>-->
     <!--</category>-->
     <category name="Wink Input" colour="#F97E35">
-        <block type="buttonwait"/>
-        <block type="button_pressed"/>
+        <block type="buttonwait"></block>
+        <block type="button_pressed"></block>
     </category>
     <category name="Wink Sensors" colour="#756f5a">
-        <block type="setirlight"/>
-        <block type="readsensor"/>
+        <block type="setirlight"></block>
+        <block type="readsensor"></block>
     </category>
     <category name="Wink IR Communication" colour="#607d8b">
-        <block type="ir_when"/>
-        <block type="restart_ir"/>
-        <block type="is_ir_done"/>
-        <block type="get_pressed_ir_button"/>
-        <block type="ir_button"/>
+        <block type="ir_when"></block>
+        <block type="restart_ir"></block>
+        <block type="is_ir_done"></block>
+        <block type="get_pressed_ir_button"></block>
+        <block type="ir_button"></block>
     </category>
     <category name="Wink Motors" colour="#459A9A">
-         <block type="bestill"/>
-         <block type="turn_by_values"/>
+         <block type="bestill"></block>
+         <block type="turn_by_values"></block>
          <block type="acceleratemotors">
              <value name="startspeed">
                  <shadow type="math_number">
@@ -655,7 +655,7 @@
              </value>
          </block>
      </category>
-    <sep/>
-    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
-    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
+    <sep></sep>
+     <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"></category>
+     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"></category>
 </xml>
