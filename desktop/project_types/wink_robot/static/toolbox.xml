@@ -3,6 +3,8 @@
         <block type="controls_if"/>
         <block type="logic_compare"/>
         <block type="logic_operation"/>
+        <block type="logic_operation_and"/>
+        <block type="logic_operation_or"/>
         <block type="logic_negate"/>
         <block type="logic_boolean"/>
         <block type="logic_null"/>
