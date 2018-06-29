@@ -267,7 +267,7 @@
         <block type="set_width"></block>
         <block type="console_log"></block>
         <block type="set_attribute"></block>
-        <block type="add_event_listener"/>
+        <block type="add_event_listener"></block>
     </category>
     <category name="Colour" colour="20">
         <block type="colour_picker"></block>
@@ -308,7 +308,7 @@
         </block>
     </category>
     <sep></sep>
-<category name="Class" colour="230" custom="CLASSES"/>
+    <category name="Class" colour="230" custom="CLASSES"></category>
 <category name="Variables" colour="#381ecc" custom="VARIABLE"></category>
 <category name="Functions" colour="#AA3A69" custom="PROCEDURE"></category>
 </xml>
