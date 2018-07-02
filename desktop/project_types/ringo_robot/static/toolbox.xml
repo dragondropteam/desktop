@@ -267,14 +267,14 @@
         <block type="serial_read"/>
     </category>
     <sep/>
-    <category name="Ringo Hardware" colour="290">
-        <category name="Input" colour="290">
+    <category name="Ringo Hardware" colour="#1565C0">
+        <category name="Input" colour="#2479D1">
             <block type="switch_button_to_pixels"></block>
             <block type="switch_pixels_to_button"></block>
             <block type="switch_motors_to_serial"></block>
             <block type="ringo_button_pressed"></block>
         </category>
-        <category name="Pixels" colour="290">
+        <category name="Pixels" colour="#328DE2">
             <block type="set_pixel_rgb">
                 <value name="RED">
                     <shadow type="math_number">
@@ -312,7 +312,7 @@
             <block type="set_pixel_rgb_colour"/>
             <block type="set_all_pixel_rgb_colour"/>
         </category>
-        <category name="Ringo Motors" colour="290">
+        <category name="Ringo Motors" colour="#459A9A">
             <block type="get_motor_max"/>
             <block type="get_left_motor"/>
             <block type="get_right_motor"/>
@@ -330,7 +330,7 @@
                 </value>
             </block>
         </category>
-        <category name="Ringo Movement" colour="290">
+        <category name="Ringo Movement" colour="#43adfe">
             <block type="maintain_heading_reset"/>
             <block type="maintain_heading">
                 <value name="HEADING">
@@ -403,12 +403,12 @@
             <!--</value>-->
             <!--</block>-->
         </category>
-        <category name="Ringo IR Communication" colour="290">
+        <category name="Ringo IR Communication" colour="#607d8b">
             <block type="restart_ir"/>
             <block type="is_ir_done"/>
             <block type="ir_when"/>
         </category>
-        <category name="Ringo Sensors" colour="290">
+        <category name="Ringo Sensors" colour="#66bcff">
             <block type="read_side_sensors"></block>
             <block type="read_left_light_sensor"></block>
             <block type="read_right_light_sensor"></block>
@@ -429,8 +429,8 @@
             <block type="switch_edge_to_ambient"></block>
         </category>
     </category>
-    <category name="Ringo Navigation" colour="290">
-        <category name="Navigation" colour="290">
+    <category name="Ringo Navigation" colour="#E03400">
+        <category name="Navigation" colour="#EC591A">
             <block type="get_gyro_calibration_multiplier"/>
             <block type="begin_navigation"/>
             <block type="simple_gyro_navigation"/>
@@ -498,7 +498,7 @@
             <block type="non_stationary_value"/>
             <block type="non_stationary_axis"/>
         </category>
-        <category name="Calculation" colour="290">
+        <category name="Calculation" colour="#F97E35">
             <block type="min_turn">
                 <value name="changeInDegrees">
                     <shadow type="math_number">
@@ -527,13 +527,13 @@
             </block>
         </category>
     </category>
-    <category name="Ringo Fun Stuff" colour="290">
-        <category name="Eyes" colour="290">
+    <category name="Ringo Fun Stuff" colour="#6A1B9A">
+        <category name="Eyes" colour="#862FB2">
             <block type="off_pixels"/>
             <block type="off_pixel"/>
             <block type="random_eyes"/>
         </category>
-        <category name="Short Animations" colour="290">
+        <category name="Short Animations" colour="#A142CA">
             <block type="play_start_chirp"/>
             <block type="play_ack"/>
             <block type="play_non_ack"/>
@@ -541,7 +541,7 @@
             <block type="play_boredom"/>
             <block type="play_excited"/>
         </category>
-        <category name="Sound" colour="290">
+        <category name="Sound" colour="#BD56E2">
             <block type="play_chirp">
                 <value name="FREQUENCY">
                     <shadow type="math_number">
