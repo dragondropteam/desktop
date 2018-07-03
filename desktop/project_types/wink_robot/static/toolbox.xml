@@ -1,4 +1,4 @@
- <xml id="toolbox" style="display: none">
+<xml id="toolbox" style="display: none">
     <category name="Logic" colour="210">
         <block type="controls_if"/>
         <block type="logic_compare"/>
@@ -313,12 +313,211 @@
         </block>
     </category>
     <category name="Constants" colour="#c08027">
-         <block type="high"/>
-         <block type="low"/>
-         <block type="led_builtin"/>
+        <block type="high"/>
+        <block type="low"/>
+        <block type="led_builtin"/>
     </category>
     <category name="Utility" colour="#E03400">
-         <block type="comment_oneline"/>
+        <block type="comment_oneline"/>
+    </category>
+    <category name="String" colour="#bc1106">
+        <block type="arduino_string_create">
+            <value name="INPUT">
+                <shadow type="text">
+                    <field name="TEXT">defaultText</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_create_base">
+            <value name="INPUT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="BASE">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_char_at">
+            <value name="LOCATION">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_compare_to">
+            <value name="LHS">
+                <shadow type="variables_get">
+                    <field name="VAR">stringA</field>
+                </shadow>
+            </value>
+            <value name="RHS">
+                <shadow type="variables_get">
+                    <field name="VAR">stringB</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_concat">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+            <value name="INPUT">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultValue</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_ends_with">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+            <value name="INPUT">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultValue</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_equals">
+            <value name="LHS">
+                <shadow type="variables_get">
+                    <field name="VAR">stringA</field>
+                </shadow>
+            </value>
+            <value name="RHS">
+                <shadow type="variables_get">
+                    <field name="VAR">stringB</field>
+                </shadow>
+            </value>
+
+        </block>
+        <block type="arduino_string_index_of">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+            <value name="INPUT">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultValue</field>
+                </shadow>
+            </value>
+            <value name="POSITION">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_length">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_remove">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+            <value name="START">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_replace">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+            <value name="LHS">
+                <shadow type="text">
+                    <field name="TEXT">defaultText</field>
+                </shadow>
+            </value>
+            <value name="RHS">
+                <shadow type="text">
+                    <field name="TEXT">defaultText</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_starts_with">
+            <value name="LHS">
+                <shadow type="variables_get">
+                    <field name="VAR">stringA</field>
+                </shadow>
+            </value>
+            <value name="RHS">
+                <shadow type="variables_get">
+                    <field name="VAR">stringB</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_substring">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+            <value name="START">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="END">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_to_int">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_to_float">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_to_lower">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_to_upper">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="arduino_string_trim">
+            <value name="STRING">
+                <shadow type="variables_get">
+                    <field name="VAR">defaultString</field>
+                </shadow>
+            </value>
+        </block>
     </category>
     <sep/>
     <category name="Wink Eyes" colour="#b71c1c">
@@ -583,15 +782,15 @@
         </block>
     </category>
     <!--<category name="Wink Sounds" colour="330">-->
-      <!--<block type="beepms" disabled="true">-->
-        <!--<value name="beepms">-->
-          <!--<shadow type="math_number">-->
-            <!--<field name="NUM">0</field>-->
-          <!--</shadow>-->
-        <!--</value>-->
-      <!--</block>-->
-        <!--<block type="beepon" disabled="true"/>-->
-        <!--<block type="beepoff" disabled="true"/>-->
+    <!--<block type="beepms" disabled="true">-->
+    <!--<value name="beepms">-->
+    <!--<shadow type="math_number">-->
+    <!--<field name="NUM">0</field>-->
+    <!--</shadow>-->
+    <!--</value>-->
+    <!--</block>-->
+    <!--<block type="beepon" disabled="true"/>-->
+    <!--<block type="beepoff" disabled="true"/>-->
     <!--</category>-->
     <category name="Wink Input" colour="#F97E35">
         <block type="buttonwait"/>
@@ -609,52 +808,52 @@
         <block type="ir_button"/>
     </category>
     <category name="Wink Motors" colour="#459A9A">
-         <block type="bestill"/>
-         <block type="turn_by_values"/>
-         <block type="acceleratemotors">
-             <value name="startspeed">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-             <value name="endspeed">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-             <value name="duration">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-         </block>
-         <block type="motors">
-             <value name="leftspeed">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-             <value name="rightspeed">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-         </block>
-         <block type="spinleft">
-             <value name="speed">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-         </block>
-         <block type="spinright">
-             <value name="speed">
-                 <shadow type="math_number">
-                     <field name="NUM">0</field>
-                 </shadow>
-             </value>
-         </block>
-     </category>
+        <block type="bestill"/>
+        <block type="turn_by_values"/>
+        <block type="acceleratemotors">
+            <value name="startspeed">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="endspeed">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="duration">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="motors">
+            <value name="leftspeed">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="rightspeed">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="spinleft">
+            <value name="speed">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="spinright">
+            <value name="speed">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
     <sep/>
     <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
