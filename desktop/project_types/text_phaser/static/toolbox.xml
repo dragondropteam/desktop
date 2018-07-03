@@ -298,11 +298,11 @@
         </value>
     </block>
 </category>
-<sep/>
+<sep></sep>
 <category name="Phaser">
-    <block type="phaser_simple_init"/>
-    <block type="create_image"/>
-    <block type="add_image"/>
+    <block type="phaser_simple_init"></block>
+    <block type="create_image"></block>
+    <block type="add_image"></block>
 </category>
 <sep></sep>
 <category name="Variables" colour="330" custom="VARIABLE"></category>
