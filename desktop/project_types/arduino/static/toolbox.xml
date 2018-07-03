@@ -153,7 +153,7 @@
                 <shadow type="math_number">
                     <field name="NUM">0</field>
                 </shadow>
-            </value>s
+            </value>
         </block>
         <block type="arduino_random_seed">
             <value name="SEED">
