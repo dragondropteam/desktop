@@ -1,12 +1,12 @@
 <xml id="toolbox" style="display: none">
     <category name="Logic" colour="210">
-        <block type="controls_if"/>
-        <block type="logic_compare"/>
-        <block type="logic_operation"/>
-        <block type="logic_negate"/>
-        <block type="logic_boolean"/>
-        <block type="logic_null"/>
-        <block type="logic_ternary"/>
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null"></block>
+        <block type="logic_ternary"></block>
     </category>
     <category name="Loops" colour="120">
         <block type="controls_repeat_ext">
@@ -16,7 +16,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_whileUntil"/>
+        <block type="controls_whileUntil"></block>
         <block type="controls_for">
             <value name="FROM">
                 <shadow type="math_number">
@@ -34,7 +34,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_flow_statements"/>
+        <block type="controls_flow_statements"></block>
     </category>
     <category name="Arrays" colour="#745BA5">
         <block type="typed_arrays_create_with"/>
@@ -43,7 +43,7 @@
         <block type="typed_arrays_delete"/>
     </category>
     <category name="Math" colour="230">
-        <block type="math_number" gap="32"/>
+        <block type="math_number" gap="32"></block>
         <block type="math_arithmetic">
             <value name="A">
                 <shadow type="math_number">
@@ -70,7 +70,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_constant"/>
+        <block type="math_constant"></block>
         <block type="math_change">
             <value name="DELTA">
                 <shadow type="math_number">
@@ -157,7 +157,7 @@
             </value>
         </block>
     </category>
-    <sep/>
+    <sep></sep>
     <category name="Time" colour="120" enabled="false">
         <block type="delayseconds">
             <value name="SECONDS">
@@ -180,8 +180,8 @@
                 </shadow>
             </value>
         </block>
-        <block type="microseconds"/>
-        <block type="milliseconds"/>
+        <block type="microseconds"></block>
+        <block type="milliseconds"></block>
     </category>
     <category name="Digital I/O" colour="120">
         <block type="pininput">
@@ -207,7 +207,7 @@
         </block>
     </category>
     <category name="Analog I/O" colour="120">
-        <block type="analog_reference"/>
+        <block type="analog_reference"></block>
         <block type="analog_read">
             <value name="PIN">
                 <shadow type="math_number">
@@ -260,19 +260,19 @@
         </block>
     </category>
     <category name="Constants" colour="120">
-        <block type="high"/>
-        <block type="low"/>
-        <block type="led_builtin"/>
+        <block type="high"></block>
+        <block type="low"></block>
+        <block type="led_builtin"></block>
     </category>
     <category name="Serial" colour="120">
-        <block type="text"/>
-        <block type="serial_begin"/>
-        <block type="serial_end"/>
-        <block type="serial_print_line"/>
-        <block type="serial_print"/>
-        <block type="serial_read"/>
+        <block type="text"></block>
+        <block type="serial_begin"></block>
+        <block type="serial_end"></block>
+        <block type="serial_print_line"></block>
+        <block type="serial_print"></block>
+        <block type="serial_read"></block>
     </category>
-    <sep/>
+    <sep></sep>
     <category name="Ringo Hardware" colour="#1565C0">
         <category name="Input" colour="#2479D1">
             <block type="switch_button_to_pixels"></block>
@@ -315,14 +315,14 @@
                     </shadow>
                 </value>
             </block>
-            <block type="set_pixel_rgb_colour"/>
-            <block type="set_all_pixel_rgb_colour"/>
+            <block type="set_pixel_rgb_colour"></block>
+            <block type="set_all_pixel_rgb_colour"></block>
         </category>
         <category name="Ringo Motors" colour="#459A9A">
-            <block type="get_motor_max"/>
-            <block type="get_left_motor"/>
-            <block type="get_right_motor"/>
-            <block type="motors_begin"/>
+            <block type="get_motor_max"></block>
+            <block type="get_left_motor"></block>
+            <block type="get_right_motor"></block>
+            <block type="motors_begin"></block>
             <block type="motors">
                 <value name="leftspeed">
                     <shadow type="math_number">
@@ -337,7 +337,7 @@
             </block>
         </category>
         <category name="Ringo Movement" colour="#43adfe">
-            <block type="maintain_heading_reset"/>
+            <block type="maintain_heading_reset"></block>
             <block type="maintain_heading">
                 <value name="HEADING">
                     <shadow type="math_number">
@@ -410,9 +410,9 @@
             <!--</block>-->
         </category>
         <category name="Ringo IR Communication" colour="#607d8b">
-            <block type="restart_ir"/>
-            <block type="is_ir_done"/>
-            <block type="ir_when"/>
+            <block type="restart_ir"></block>
+            <block type="is_ir_done"></block>
+            <block type="ir_when"></block>
         </category>
         <category name="Ringo Sensors" colour="#66bcff">
             <block type="read_side_sensors"></block>
@@ -437,10 +437,10 @@
     </category>
     <category name="Ringo Navigation" colour="#E03400">
         <category name="Navigation" colour="#EC591A">
-            <block type="get_gyro_calibration_multiplier"/>
-            <block type="begin_navigation"/>
-            <block type="simple_gyro_navigation"/>
-            <block type="simple_navigation"/>
+            <block type="get_gyro_calibration_multiplier"></block>
+            <block type="begin_navigation"></block>
+            <block type="simple_gyro_navigation"></block>
+            <block type="simple_navigation"></block>
             <block type="navigation_xy">
                 <value name="gyro_sensitivity">
                     <shadow type="math_number">
@@ -453,11 +453,11 @@
                     </shadow>
                 </value>
             </block>
-            <block type="calibrate_navigation_sensors"/>
-            <block type="zero_navigation"/>
-            <block type="pause_navigation"/>
-            <block type="resume_navigation"/>
-            <block type="navigation_paused"/>
+            <block type="calibrate_navigation_sensors"></block>
+            <block type="zero_navigation"></block>
+            <block type="pause_navigation"></block>
+            <block type="resume_navigation"></block>
+            <block type="navigation_paused"></block>
             <block type="delay_with_navigation_ms">
                 <value name="milliseconds">
                     <shadow type="math_number">
@@ -486,23 +486,23 @@
                     </shadow>
                 </value>
             </block>
-            <block type="present_heading"/>
-            <block type="get_degrees_x"/>
-            <block type="get_degrees_per_second_z"/>
-            <block type="get_degrees_per_second_x"/>
-            <block type="get_degrees_per_second_y"/>
-            <block type="get_degrees_to_stop"/>
-            <block type="get_accel_x"/>
-            <block type="get_accel_y"/>
-            <block type="get_accel_y_unzeroed"/>
-            <block type="get_accel_z"/>
-            <block type="get_vel_x"/>
-            <block type="get_vel_y"/>
-            <block type="get_pos_x"/>
-            <block type="get_pos_y"/>
-            <block type="is_stationary"/>
-            <block type="non_stationary_value"/>
-            <block type="non_stationary_axis"/>
+            <block type="present_heading"></block>
+            <block type="get_degrees_x"></block>
+            <block type="get_degrees_per_second_z"></block>
+            <block type="get_degrees_per_second_x"></block>
+            <block type="get_degrees_per_second_y"></block>
+            <block type="get_degrees_to_stop"></block>
+            <block type="get_accel_x"></block>
+            <block type="get_accel_y"></block>
+            <block type="get_accel_y_unzeroed"></block>
+            <block type="get_accel_z"></block>
+            <block type="get_vel_x"></block>
+            <block type="get_vel_y"></block>
+            <block type="get_pos_x"></block>
+            <block type="get_pos_y"></block>
+            <block type="is_stationary"></block>
+            <block type="non_stationary_value"></block>
+            <block type="non_stationary_axis"></block>
         </category>
         <category name="Calculation" colour="#F97E35">
             <block type="min_turn">
@@ -535,17 +535,17 @@
     </category>
     <category name="Ringo Fun Stuff" colour="#6A1B9A">
         <category name="Eyes" colour="#862FB2">
-            <block type="off_pixels"/>
-            <block type="off_pixel"/>
-            <block type="random_eyes"/>
+            <block type="off_pixels"></block>
+            <block type="off_pixel"></block>
+            <block type="random_eyes"></block>
         </category>
         <category name="Short Animations" colour="#A142CA">
-            <block type="play_start_chirp"/>
-            <block type="play_ack"/>
-            <block type="play_non_ack"/>
-            <block type="play_anger"/>
-            <block type="play_boredom"/>
-            <block type="play_excited"/>
+            <block type="play_start_chirp"></block>
+            <block type="play_ack"></block>
+            <block type="play_non_ack"></block>
+            <block type="play_anger"></block>
+            <block type="play_boredom"></block>
+            <block type="play_excited"></block>
         </category>
         <category name="Sound" colour="#BD56E2">
             <block type="play_chirp">
@@ -560,18 +560,18 @@
                     </shadow>
                 </value>
             </block>
-            <block type="off_chirp"/>
+            <block type="off_chirp"></block>
         </category>
     </category>
     <!--<category name="Wink Input" colour="330">-->
-        <!--<block type="buttonwait"/>-->
-        <!--<block type="button_pressed"/>-->
+        <!--<block type="buttonwait"></block>-->
+        <!--<block type="button_pressed"></block>-->
     <!--</category>-->
     <!--<category name="Wink Lights and Sensors" colour="330">-->
-        <!--<block type="setirlight"/>-->
-        <!--<block type="readsensor"/>-->
+        <!--<block type="setirlight"></block>-->
+        <!--<block type="readsensor"></block>-->
     <!--</category>-->
-    <sep/>
-    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
-    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
+    <sep></sep>
+    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"></category>
+    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"></category>
 </xml>

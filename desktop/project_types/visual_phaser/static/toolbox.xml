@@ -1,12 +1,12 @@
 <xml id="toolbox-categories" style="display: none">
     <category name="Logic" colour="210">
-        <block type="controls_if"/>
-        <block type="logic_compare"/>
-        <block type="logic_operation"/>
-        <block type="logic_negate"/>
-        <block type="logic_boolean"/>
-        <block type="logic_null"/>
-        <block type="logic_ternary"/>
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null"></block>
+        <block type="logic_ternary"></block>
     </category>
     <category name="Loops" colour="120">
         <block type="controls_repeat_ext">
@@ -16,8 +16,8 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_whileUntil"/>
-        <block type="controls_doWhile"/>
+        <block type="controls_whileUntil"></block>
+        <block type="controls_doWhile"></block>
         <block type="controls_for">
             <value name="FROM">
                 <shadow type="math_number">
@@ -35,12 +35,12 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_forEach"/>
-        <block type="controls_flow_statements"/>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
     </category>
     <category name="Math" colour="230">
-        <block type="math_number" gap="32"/>
-        <block type="math_number_binary" gap="32"/>
+        <block type="math_number" gap="32"></block>
+        <block type="math_number_binary" gap="32"></block>
         <block type="math_arithmetic">
             <value name="A">
                 <shadow type="math_number">
@@ -67,7 +67,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_constant"/>
+        <block type="math_constant"></block>
         <block type="math_number_property">
             <value name="NUMBER_TO_CHECK">
                 <shadow type="math_number">
@@ -89,7 +89,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_on_list"/>
+        <block type="math_on_list"></block>
         <block type="math_modulo">
             <value name="DIVIDEND">
                 <shadow type="math_number">
@@ -131,14 +131,14 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_random_float"/>
+        <block type="math_random_float"></block>
     </category>
     <category name="Text" colour="160">
-        <block type="text"/>
-        <block type="text_join"/>
+        <block type="text"></block>
+        <block type="text_join"></block>
         <block type="text_append">
             <value name="TEXT">
-                <shadow type="text"/>
+                <shadow type="text"></shadow>
             </value>
         </block>
         <block type="text_length">
@@ -151,7 +151,7 @@
         <block type="text_isEmpty">
             <value name="VALUE">
                 <shadow type="text">
-                    <field name="TEXT"/>
+                    <field name="TEXT"></field>
                 </shadow>
             </value>
         </block>
@@ -234,9 +234,9 @@
     </category>
     <category name="Lists" colour="260">
         <block type="lists_create_with">
-            <mutation items="0"/>
+            <mutation items="0"></mutation>
         </block>
-        <block type="lists_create_with"/>
+        <block type="lists_create_with"></block>
         <block type="lists_repeat">
             <value name="NUM">
                 <shadow type="math_number">
@@ -244,8 +244,8 @@
                 </shadow>
             </value>
         </block>
-        <block type="lists_length"/>
-        <block type="lists_isEmpty"/>
+        <block type="lists_length"></block>
+        <block type="lists_isEmpty"></block>
         <block type="lists_indexOf">
             <value name="VALUE">
                 <block type="variables_get">
@@ -301,11 +301,11 @@
                 </shadow>
             </value>
         </block>
-        <block type="lists_sort"/>
+        <block type="lists_sort"></block>
     </category>
     <category name="Colour" colour="20">
-        <block type="colour_picker"/>
-        <block type="colour_random"/>
+        <block type="colour_picker"></block>
+        <block type="colour_random"></block>
         <block type="colour_rgb">
             <value name="RED">
                 <shadow type="math_number">
@@ -341,12 +341,12 @@
             </value>
         </block>
     </category>
-    <sep/>
+    <sep></sep>
     <category name="Phaser" colour="#A1C4BD">
         <category name="Game" colour="#558b2f">
             <category name="Startup" colour="#558b2f">
-                <block type="phaser_simple_init"/>
-                <block type="start_phaser_for_states"/>
+                <block type="phaser_simple_init"></block>
+                <block type="start_phaser_for_states"></block>
             </category>
             <category name="States" colour="#689f38">
                 <block colour="689f38" type="class_type">
@@ -359,9 +359,9 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="statemanager_start_state"/>
-                <block type="statemanager_get_current_state"/>
-                <block type="statemanager_restart_state"/>
+                <block type="statemanager_start_state"></block>
+                <block type="statemanager_get_current_state"></block>
+                <block type="statemanager_restart_state"></block>
                 <block type="statemanager_check_state">
                     <value name="KEY">
                         <shadow type="text">
@@ -371,7 +371,7 @@
                 </block>
             </category>
             <category name="World" colour="#7cb342">
-                <block type="get_world_property"/>
+                <block type="get_world_property"></block>
                 <block type="set_world_bounds">
                     <value name="X_POS">
                         <shadow type="math_number">
@@ -410,11 +410,11 @@
                 </block>
                 <block type="get_game_pause"></block>
                 <!--Not necessary at the moment 0 functions take this-->
-                <!--<block type="get_world_reference"/>-->
+                <!--<block type="get_world_reference"></block>-->
             </category>
             <category name="Time" colour="#8bc34a">
-                <block type="delta_time_seconds"/>
-                <block type="delta_time_milliseconds"/>
+                <block type="delta_time_seconds"></block>
+                <block type="delta_time_milliseconds"></block>
                 <block type="set_time_numeric_member">
                     <value name="VALUE">
                         <shadow type="math_number">
@@ -422,9 +422,9 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="get_time_numeric_member"/>
-                <block type="create_timer"/>
-                <block type="time_constants"/>
+                <block type="get_time_numeric_member"></block>
+                <block type="create_timer"></block>
+                <block type="time_constants"></block>
                 <block type="start_timer">
                     <value name="TIMER">
                         <shadow type="variables_get">
@@ -939,7 +939,7 @@
             </category>
             <category name="Groups" colour="#116056">
                 <!--TODO: Add to group, block to allow a user to add existing objects to the group -->
-                <block type="create_group"/>
+                <block type="create_group"></block>
                 <block type="create_object_in_group_vi">
                     <value name="X_POS">
                         <shadow type="math_number">
@@ -1098,7 +1098,7 @@
                         </shadow>
                     </value>
                 </block>
-                <!--<block type="call_function_on_group"/>-->
+                <!--<block type="call_function_on_group"></block>-->
             </category>
             <category name="Animation" colour="#22736D">
                 <block type="add_animation_vi">
@@ -1475,7 +1475,7 @@
             </category>
             <!--TODO: -> Value Input and clean up of inline -->
             <category name="Game Object" colour="#56ADB0">
-                <!--<block type="set_object_anchor"/>-->
+                <!--<block type="set_object_anchor"></block>-->
                 <block type="get_game_object_point_field">
                     <value name="OBJECT">
                         <shadow type="variables_get">
@@ -1630,7 +1630,7 @@
         </category>
         <category name="Physics" colour="#6A1B9A">
             <category name="Setup" colour="#6A1B9A">
-                <block type="start_arcade_physics"/>
+                <block type="start_arcade_physics"></block>
                 <block type="enable_body_group_vi">
                     <value name="OBJECT">
                         <shadow type="variables_get">
@@ -2798,7 +2798,7 @@
         </category>
         <category name="Input" colour="#1565C0">
             <category name="Keyboard" colour="#1565C0">
-                <block type="is_key_down"/>
+                <block type="is_key_down"></block>
                 <block type="add_key"></block>
                 <block type="get_key_boolean_field">
                     <value name="KEY">
@@ -2860,17 +2860,17 @@
                     </value>
                 </block>
                 <!--TODO: Cursors, Key objects, and other input methods to allow students more control -->
-                <!--<block type="create_cursor_keys"/>-->
+                <!--<block type="create_cursor_keys"></block>-->
             </category>
             <!--TODO: Mouse input functions for position, key down, etc... -->
             <category name="Mouse" colour="#2C85DB">
-                <block type="get_current_mouse_position"/>
-                <block type="get_mouse_position_point"/>
-                <block type="is_mouse_button_clicked"/>
-                <block type="get_active_pointer"/>
+                <block type="get_current_mouse_position"></block>
+                <block type="get_mouse_position_point"></block>
+                <block type="is_mouse_button_clicked"></block>
+                <block type="get_active_pointer"></block>
             </category>
             <category name="Pointer" colour="#42a5f5">
-                <block type="get_active_pointer"/>
+                <block type="get_active_pointer"></block>
                 <block type="pointer_get_device_buttons_field">
                     <value name="OBJECT">
                         <shadow type="get_active_pointer">
@@ -3301,7 +3301,7 @@
         </category>
         <category name="Utility" colour="#E03400">
             <category name="General" colour="#E03400">
-                <block type="center_and_stretch"/>
+                <block type="center_and_stretch"></block>
             </category>
             <category name="Debug" colour="#E6460D">
                 <block type="debug_geom">
@@ -3316,8 +3316,8 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="enable_step"/>
-                <block type="disable_step"/>
+                <block type="enable_step"></block>
+                <block type="disable_step"></block>
                 <block type="debug_sprite">
                     <value name="OBJECT">
                         <shadow type="variables_get">
@@ -3539,9 +3539,9 @@
                 </block>
             </category>
             <category name="JavaScript" colour="#EC591A">
-                <block type="comment_oneline"/>
-                <block type="javascript_eval"/>
-                <block type="javascript_eval_output"/>
+                <block type="comment_oneline"></block>
+                <block type="javascript_eval"></block>
+                <block type="javascript_eval_output"></block>
             </category>
             <category name="Phaser Lists" colour="#F36B28">
                 <block type="list_find_closest">
@@ -3622,8 +3622,8 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="phaser_easing"/>
-                <block type="phaser_easing_linear"/>
+                <block type="phaser_easing"></block>
+                <block type="phaser_easing_linear"></block>
                 <block type="phaser_game_add_tween_to">
                     <value name="TARGET">
                         <shadow type="variables_get">
@@ -3636,7 +3636,7 @@
                         </shadow>
                     </value>
                     <value name="EASE">
-                        <shadow type="phaser_easing_linear"/>
+                        <shadow type="phaser_easing_linear"></shadow>
                     </value>
                     <value name="DELAY">
                         <shadow type="math_number">
@@ -3661,7 +3661,7 @@
                         </shadow>
                     </value>
                     <value name="EASE">
-                        <shadow type="phaser_easing_linear"/>
+                        <shadow type="phaser_easing_linear"></shadow>
                     </value>
                     <value name="DELAY">
                         <shadow type="math_number">
@@ -3729,7 +3729,7 @@
                         </shadow>
                     </value>
                 </block>-->
-                <block type="random_angle"/>
+                <block type="random_angle"></block>
                 <block type="random_pick">
                     <value name="ARRAY">
                         <shadow type="variables_get">
@@ -3896,9 +3896,9 @@
                     </shadow>
                 </value>
             </block>
-            <block type="camera_reset"/>
-            <block type="camera_reset_fx"/>
-            <block type="camera_set_bounds_to_world"/>
+            <block type="camera_reset"></block>
+            <block type="camera_reset_fx"></block>
+            <block type="camera_set_bounds_to_world"></block>
             <block type="camera_set_position">
                 <value name="POSX">
                     <shadow type="math_number">
@@ -3935,8 +3935,8 @@
                     </shadow>
                 </value>
             </block>
-            <block type="camera_unfollow"/>
-            <block type="game_camera"/>
+            <block type="camera_unfollow"></block>
+            <block type="game_camera"></block>
         </category>
         <category name="Sound" colour="#BF8B2A">
             <block type="load_sound">
@@ -3999,7 +3999,7 @@
                     </shadow>
                 </value>
                 <value name="VALUE">
-                    <shadow type="logic_boolean"/>
+                    <shadow type="logic_boolean"></shadow>
                 </value>
             </block>
             <block type="get_sound_boolean_member">
@@ -4134,13 +4134,13 @@
                 </value>
             </block>
 
-            <block type="stop_pause_resume_sounds"/>
+            <block type="stop_pause_resume_sounds"></block>
         </category>
         <!--TODO: Gamepad support-->
         <!--<category name="Gamepad" colour="#42A5F5"></category>-->
     </category>
-    <sep/>
-    <category name="Class" colour="230" custom="CLASSES"/>
-    <category name="Variables" colour="#381ECC" custom="VARIABLE"/>
-    <category name="Functions" colour="#AA3A69" custom="PROCEDURE"/>
+    <sep></sep>
+    <category name="Class" colour="230" custom="CLASSES"></category>
+    <category name="Variables" colour="#381ECC" custom="VARIABLE"></category>
+    <category name="Functions" colour="#AA3A69" custom="PROCEDURE"></category>
 </xml>
