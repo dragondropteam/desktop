@@ -152,7 +152,6 @@
                     <field name="NUM">0</field>
                 </shadow>
             </value>
-            s
         </block>
         <block type="arduino_random_seed">
             <value name="SEED">
