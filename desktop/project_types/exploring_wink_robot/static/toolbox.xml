@@ -64,9 +64,9 @@
                     </shadow>
                 </value>
             </block>
-            <block type="setleftrgb_icon"/>
-            <block type="turnlefteyeoff_icon"/>
-            <!--<block type="leftprevcolour"/>-->
+            <block type="setleftrgb_icon"></block>
+            <block type="turnlefteyeoff_icon"></block>
+            <!--<block type="leftprevcolour"></block>-->
             <block type="set_left_eye_icon">
                 <value name="RED">
                     <shadow type="math_number">
@@ -149,9 +149,9 @@
                     </shadow>
                 </value>
             </block>
-            <block type="setrightrgb_icon"/>
-            <block type="turnrighteyeoff_icon"/>
-            <!--<block type="rightprevcolour"/>-->
+            <block type="setrightrgb_icon"></block>
+            <block type="turnrighteyeoff_icon"></block>
+            <!--<block type="rightprevcolour"></block>-->
             <block type="set_right_eye_icon">
                 <value name="RED">
                     <shadow type="math_number">
@@ -240,9 +240,9 @@
                     </shadow>
                 </value>
             </block>
-            <block type="seteyesrgb_icon"/>
-            <block type="turneyesoff_icon"/>
-            <!--<block type="eyesprevcolour"/>-->
+            <block type="seteyesrgb_icon"></block>
+            <block type="turneyesoff_icon"></block>
+            <!--<block type="eyesprevcolour"></block>-->
             <block type="set_eyes_icon">
                 <value name="RED">
                     <shadow type="math_number">
@@ -294,7 +294,7 @@
     </category>
     <category name="Motors" colour="#348783">
         <category name="Beginner" colour="#348783">
-            <block type="bestill_icon"/>
+            <block type="bestill_icon"></block>
             <block type="motors_beginner_forward_slow_icon">
                 <value name="DURATION">
                     <shadow type="math_number">
@@ -353,8 +353,8 @@
             </block>
         </category>
         <category name="Advanced" colour="#459A9A">
-            <block type="bestill"/>
-            <block type="turn_by_values"/>
+            <block type="bestill"></block>
+            <block type="turn_by_values"></block>
             <block type="acceleratemotors">
                 <value name="startspeed">
                     <shadow type="math_number">
@@ -416,16 +416,16 @@
                     </shadow>
                 </value>
             </block>
-            <block type="obstacle_avoid_icon"/>
-            <block type="obstacle_approach_icon"/>
+            <block type="obstacle_avoid_icon"></block>
+            <block type="obstacle_approach_icon"></block>
         </category>
         <category name="Sensor Inputs" colour="#F97E35">
-            <block type="buttonwait"/>
-            <block type="button_pressed"/>
-            <!--<block type="ir_when"/>-->
+            <block type="buttonwait"></block>
+            <block type="button_pressed"></block>
+            <!--<block type="ir_when"></block>-->
         </category>
         <!--<category name="Sensor Output" colour="#FF9042">
-            <block type="ir_output"/>
+            <block type="ir_output"></block>
         </category>-->
     </category>
     <category name="Time" colour="#594eb1" enabled="false">
@@ -437,7 +437,7 @@
                     </shadow>
                 </value>
             </block>
-            <block type="seconds_icon"/>
+            <block type="seconds_icon"></block>
         </category>
         <category name="Advanced" colour="#6758ca">
             <block type="delayseconds">
@@ -461,24 +461,24 @@
                     </shadow>
                 </value>
             </block>
-            <block type="seconds"/>
-            <block type="milliseconds"/>
-            <block type="microseconds"/>
+            <block type="seconds"></block>
+            <block type="milliseconds"></block>
+            <block type="microseconds"></block>
         </category>
     </category>
     <category name="Utilities" colour="#EC591A">
-        <block type="comment_oneline_icon"/>
+        <block type="comment_oneline_icon"></block>
     </category>
-    <sep/>
-    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
-    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
+    <sep></sep>
+    <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"></category>
+    <category name="Functions" colour="290" custom="PROCEDURE_TYPED"></category>
     <category name="Logic" colour="210">
-        <block type="controls_if_icon"/>
-        <block type="logic_compare"/>
-        <block type="logic_operation"/>
-        <block type="logic_negate"/>
-        <block type="logic_boolean"/>
-        <block type="logic_ternary_icon"/>
+        <block type="controls_if_icon"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_ternary_icon"></block>
     </category>
     <category name="Loops" colour="120">
         <block type="controls_repeat_ext_icon">
@@ -488,7 +488,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_whileUntil_icon"/>
+        <block type="controls_whileUntil_icon"></block>
         <block type="controls_for_icon">
             <value name="FROM">
                 <shadow type="math_number">
@@ -506,10 +506,10 @@
                 </shadow>
             </value>
         </block>
-        <block type="controls_flow_statements"/>
+        <block type="controls_flow_statements"></block>
     </category>
     <category name="Math" colour="230">
-        <block type="math_number" gap="32"/>
+        <block type="math_number" gap="32"></block>
         <block type="math_arithmetic">
             <value name="A">
                 <shadow type="math_number">
@@ -536,7 +536,7 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_constant"/>
+        <block type="math_constant"></block>
         <block type="math_change">
             <value name="DELTA">
                 <shadow type="math_number">
