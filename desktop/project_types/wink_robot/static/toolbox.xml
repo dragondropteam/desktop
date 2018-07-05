@@ -36,8 +36,14 @@
         </block>
         <block type="controls_flow_statements"></block>
     </category>
-    <category name="Math" colour="230">
-        <block type="math_number" gap="32"></block>
+     <category name="Arrays" colour="#745BA5">
+         <block type="typed_arrays_create_with"/>
+         <block type="typed_arrays_setIndex"/>
+         <block type="typed_arrays_getIndex"/>
+         <block type="typed_arrays_delete"/>
+     </category>
+     <category name="Math" colour="230">
+        <block type="math_number" gap="32"/>
         <block type="math_arithmetic">
             <value name="A">
                 <shadow type="math_number">
