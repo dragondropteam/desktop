@@ -119,7 +119,7 @@ class CodeComponent extends BaseComponent {
             this.editor.setTheme(`ace/theme/${theme}`);
         }
 
-        document.getElementById(EDITOR_ID).style.fontSize = `${electronConfig.get('fontsize') || '12'}px`
+        document.getElementById(EDITOR_ID).style.fontSize = `${electronConfig.get('fontsize') || '12'}px`;
     }
 
     projectLoad(projectFactory){
@@ -143,6 +143,15 @@ class CodeComponent extends BaseComponent {
         }
 
         ipcRenderer.on('settings_updated', this.updateSettings.bind(this));
+    }
+
+    highlightError(e) {
+      this.editor.getSession().setAnnotations([{
+        row: e.line - 1,
+        column: 0,
+        text: e.message,
+        type: "error" // also warning and information
+      }]);
     }
 }
 
