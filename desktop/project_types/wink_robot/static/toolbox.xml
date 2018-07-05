@@ -7,6 +7,8 @@
         <block type="logic_boolean"></block>
         <block type="logic_null"></block>
         <block type="logic_ternary"></block>
+        <block type="logic_operation_and"></block>
+        <block type="logic_operation_or"></block>
     </category>
     <category name="Loops" colour="120">
         <block type="controls_repeat_ext">
