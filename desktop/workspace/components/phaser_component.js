@@ -3,6 +3,7 @@ const Rx = require('rxjs/Rx');
 const Config = require('electron-store');
 const electronConfig = new Config();
 const log = require('electron-log');
+const CodeComponent = require('./code_component');
 const PHASER_ID = 'phaser';
 const {ipcRenderer} = require('electron');
 
@@ -47,6 +48,14 @@ class PhaserComponent extends BaseComponent {
         }
 
         this.webview = document.getElementById('phaser');
+
+
+        this.webview.addEventListener('console-message', e => {
+            if(e.level === 2){
+                this.getSibling(CodeComponent.ID).highlightError(e);
+                alert('Your Code is Bad')
+            }
+        });
     }
 
     getSource() {

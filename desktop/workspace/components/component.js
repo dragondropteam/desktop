@@ -23,6 +23,10 @@ class BaseComponent {
         this.parent.removeComponent(this);
         this.parent = null;
     }
+
+    getSibling(name){
+        return this.parent.getComponent(name);
+    }
 }
 
 module.exports = {
