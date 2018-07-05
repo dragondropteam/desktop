@@ -682,6 +682,7 @@
             </value>
         </block>
     </category>
+    <sep>t</sep>
     <category name="Variables" colour="#381ECC" custom="VARIABLES_TYPED"/>
     <category name="Functions" colour="290" custom="PROCEDURE_TYPED"/>
     <sep></sep>

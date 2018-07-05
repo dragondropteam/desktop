@@ -490,7 +490,6 @@
             </value>
         </block>
     </category>
-    <sep/>
     <sep></sep>
     <category name="Wink Eyes" colour="#b71c1c">
         <block type="seteyesred">
@@ -509,7 +508,6 @@
             </value>
         </block>
         <block type="seteyesblue">
-
             <value name="INTENSITY">
                 <shadow type="math_number">
                     <field name="NUM">0</field>
