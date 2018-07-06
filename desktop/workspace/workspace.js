@@ -80,6 +80,16 @@ exports.Workspace = class {
     this.reloadObservable.subscribe(subscriber);
   }
 
+  registerConsoleLogObservable (consoleObservable) {
+    this.consoleSubject = consoleObservable;
+  }
+
+  registerConsoleLogSubscriber (subscriber) {
+    if(this.consoleSubject) {
+      this.consoleSubject.subscribe(subscriber);
+    }
+  }
+
   loadProject (loadedProject) {
     loadedProject.projectManager = Object.assign(new BaseProjectManager(), loadedProject.projectManager);
 
