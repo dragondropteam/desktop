@@ -9,130 +9,131 @@ const {ipcRenderer} = require('electron');
 
 class PhaserComponent extends BaseComponent {
 
-    static get ID() {
-        return 'phaserComponent';
-    }
-    static get TITLE() {
-      return 'Phaser';
-    }
+  constructor (container, componentState) {
+    super(componentState);
 
-    static registerComponent(workspace, ipc) {
-        workspace.layout.registerComponent(PhaserComponent.ID, PhaserComponent);
-        ipc.on('show_phaser', workspace.addComponentIfMissing.bind(workspace, PhaserComponent.ID, PhaserComponent.TITLE))
-    }
+    this.consoleLogObservable = new Rx.Subject();
 
-    static generateContent() {
-        return {
-            type: 'component',
-            componentName: PhaserComponent.ID,
-            title: PhaserComponent.TITLE,
-            componentState: {label: PhaserComponent.ID}
-        }
-    }
+    container.getElement().html('<webview id="phaser" style="display:flex; width:99%; height:99%; margin:auto; border-style: solid; background: black;"></webview>');
+    container.on('open', () => this.setupDOM());
 
-    constructor(container, componentState) {
-        super(componentState);
+    container.on('destroy', () => {
+      this.webview = null;
+    });
+  }
 
-        container.getElement().html('<webview id="phaser" style="display:flex; width:99%; height:99%; margin:auto; border-style: solid; background: black;"></webview>');
-        container.on('open', () => this.setupDOM());
+  static get ID () {
+    return 'phaserComponent';
+  }
 
-        container.on('destroy', () => {
-            this.webview = null;
-        });
-    }
+  static get TITLE () {
+    return 'Phaser';
+  }
 
-    setupDOM() {
-        if (!document.getElementById(PHASER_ID)) {
-            setTimeout(this.setupDOM.bind(this), TIMEOUT);
-            return;
-        }
+  static registerComponent (workspace, ipc) {
+    workspace.layout.registerComponent(PhaserComponent.ID, PhaserComponent);
+    ipc.on('show_phaser', workspace.addComponentIfMissing.bind(workspace, PhaserComponent.ID, PhaserComponent.TITLE));
+  }
 
-        this.webview = document.getElementById('phaser');
+  static generateContent () {
+    return {
+      type: 'component',
+      componentName: PhaserComponent.ID,
+      title: PhaserComponent.TITLE,
+      componentState: {label: PhaserComponent.ID}
+    };
+  }
 
-
-        this.webview.addEventListener('console-message', e => {
-            if(e.level === 2){
-                this.getSibling(CodeComponent.ID).highlightError(e);
-                alert('Your Code is Bad')
-            }
-        });
+  setupDOM () {
+    if (!document.getElementById(PHASER_ID)) {
+      setTimeout(this.setupDOM.bind(this), TIMEOUT);
+      return;
     }
 
-    getSource() {
-        return this.webview.src;
+    this.webview = document.getElementById('phaser');
+
+    this.webview.addEventListener('console-message', e => {
+      this.consoleLogObservable.next(e);
+    });
+  }
+
+  getSource () {
+    return this.webview.src;
+  }
+
+  setSource (source) {
+    //WebView may not be ready yet just wait a small ammount of time
+    if (!this.webview) {
+      setTimeout(this.setSource.bind(this), TIMEOUT, source);
+      return;
     }
 
-    setSource(source) {
-        //WebView may not be ready yet just wait a small ammount of time
-        if(!this.webview){
-            setTimeout(this.setSource.bind(this), TIMEOUT, source);
-            return;
-        }
+    log.debug(`setSource to ${source}`);
+    this.webview.src = source;
+    this.source = source;
+  }
 
-        log.debug(`setSource to ${source}`);
-        this.webview.src = source;
-        this.source = source;
+  reload () {
+    if (!this.webview.src || !this.webview.getWebContents()) {
+      this.setSource(this.source);
+    } else {
+      this.webview.reload();
+    }
+  }
+
+  projectLoad (projectFactory) {
+    const project = projectFactory();
+    this.setSource(`file://${project.project.getSourceFile('html')}`);
+  }
+
+  onAttach (workspace) {
+    super.onAttach(workspace);
+
+    ipcRenderer.on('show_embedded', this.toggleDevTools.bind(this));
+    ipcRenderer.on('pause_execution', this.pauseExecution.bind(this));
+    ipcRenderer.on('step_execution', this.stepExecution.bind(this));
+    ipcRenderer.on('resume_execution', this.resumeExecution.bind(this));
+
+    workspace.registerProjectSubscriber(this.projectLoad.bind(this));
+    workspace.registerReloadSubscriber(this.reload.bind(this));
+    workspace.registerConsoleLogObservable(this.consoleLogObservable);
+  }
+
+  onDetach (workspace) {
+    super.onDetach(workspace);
+  }
+
+  toggleDevTools () {
+    if (!this.webview) {
+      return;
     }
 
-    reload() {
-        if (!this.webview.src || !this.webview.getWebContents()) {
-            this.setSource(this.source);
-        } else {
-            this.webview.reload();
-        }
+    this.webview.openDevTools();
+  }
+
+  pauseExecution () {
+    if (!this.webview) {
+      return;
     }
 
-    projectLoad(projectFactory){
-        const project = projectFactory();
-        this.setSource(`file://${project.project.getSourceFile('html')}`)
+    this.webview.executeJavaScript('game.enableStep();');
+  }
+
+  stepExecution () {
+    if (!this.webview) {
+      return;
     }
 
-    onAttach(workspace) {
-        super.onAttach(workspace);
+    this.webview.executeJavaScript('game.step();');
+  }
 
-        ipcRenderer.on('show_embedded', this.toggleDevTools.bind(this));
-        ipcRenderer.on('pause_execution', this.pauseExecution.bind(this));
-        ipcRenderer.on('step_execution', this.stepExecution.bind(this));
-        ipcRenderer.on('resume_execution', this.resumeExecution.bind(this));
-
-        workspace.registerProjectSubscriber(this.projectLoad.bind(this));
-        workspace.registerReloadSubscriber(this.reload.bind(this));
+  resumeExecution () {
+    if (!this.webview) {
+      return;
     }
 
-    onDetach(workspace) {
-        super.onDetach(workspace);
-    }
-
-    toggleDevTools() {
-        if(!this.webview) {
-            return;
-        }
-
-        this.webview.openDevTools();
-    }
-    pauseExecution() {
-        if (!this.webview) {
-            return;
-        }
-
-        this.webview.executeJavaScript('game.enableStep();');
-    }
-
-    stepExecution() {
-        if (!this.webview) {
-            return;
-        }
-
-        this.webview.executeJavaScript('game.step();');
-    }
-
-    resumeExecution() {
-        if (!this.webview) {
-            return;
-        }
-
-        this.webview.executeJavaScript('game.disableStep();');
-    }
+    this.webview.executeJavaScript('game.disableStep();');
+  }
 }
 
 module.exports = PhaserComponent;
