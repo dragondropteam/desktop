@@ -373,6 +373,10 @@
                 </block>
             </category>
             <category name="World" colour="#7cb342">
+                <block colour="689f38" type="class_type">
+                    <mutation name="game">
+                    </mutation>
+                </block>
                 <block type="get_world_property"></block>
                 <block type="set_world_bounds">
                     <value name="X_POS">
@@ -519,6 +523,10 @@
         </category>
         <category name="Objects" colour="#004d40">
             <category name="Sprites and Images" colour="#004d40">
+                <block colour="689f38" type="class_type">
+                    <mutation name="Phaser.Sprite">
+                    </mutation>
+                </block>
                 <block type="create_image">
                     <value name="TAG">
                         <shadow type="text">
