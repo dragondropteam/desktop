@@ -423,7 +423,7 @@ function createProjectMenu (arg) {
       label: 'Archive Project',
       click () {
         const defaultPath = path.join(app.getPath('documents'), 'DragonDropProjects', `${arg.loadedProject.name}.zip`);
-        const zipfolder = require('zip-folder');
+        const zipfolder = require('zip-dir');
         const zipFile = dialog.showSaveDialog(mainWindow, {
           title: 'Archive Project', defaultPath: defaultPath, filters: [
             {name: 'ZIP Files', extensions: ['zip']}
@@ -431,7 +431,7 @@ function createProjectMenu (arg) {
         });
 
         if (zipFile) {
-          zipfolder(arg.loadPath, zipFile, (err) => {
+          zipfolder(arg.loadPath, {saveTo: zipFile}, err => {
             if (err) {
               dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
                 type: 'error',

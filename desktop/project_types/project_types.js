@@ -10,7 +10,7 @@ const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
 const {app, ipcMain} = require('electron');
 const log = require('electron-log');
-const zipFolder = require('zip-folder');
+const zipFolder = require('zip-dir');
 
 class ProjectType {
     constructor(tag, display, requirePath, enabled) {
@@ -94,7 +94,7 @@ exports.BaseProjectManager = class BaseProjectManager {
             this.copyBaseFiles(name, cachePath);
             let project = new Project(name, version, this.type, this.createMeta());
             fs.writeJsonSync(path.join(cachePath, `${name}.digiblocks`), project);
-            zipFolder(cachePath, path.join(filePath, `${name}.drop`), err => {
+            zipFolder(cachePath, {saveTo: path.join(filePath, `${name}.drop`)}, err => {
                 if (err) {
                     log.error(err);
                     return;
@@ -203,7 +203,7 @@ exports.BaseProjectManager = class BaseProjectManager {
         //Update the .drop file if present this can be async as we are not directly using the file
         if (path.extname(project.projectPath) === '.drop') {
 
-            zipFolder(project.loadPath, project.projectPath, err => {
+            zipFolder(project.loadPath, {saveTo: project.projectPath}, err => {
                 if (err) {
                     console.error(err);
                 }
