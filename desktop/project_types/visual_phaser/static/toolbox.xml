@@ -1286,6 +1286,11 @@
                             <field name="NUM">24</field>
                         </shadow>
                     </value>
+                    <value name="COLOUR">
+                        <shadow type="colour_picker">
+                            <field name="COLOUR">#ff0000</field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="set_text_vi">
                     <value name="OBJECT">
