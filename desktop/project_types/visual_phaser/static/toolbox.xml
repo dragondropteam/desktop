@@ -439,7 +439,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="timer_add_event">
+                <block type="timer_add_event_complex">
                     <value name="TIMER">
                         <shadow type="variables_get">
                             <field name="VAR">defaultTimer</field>
@@ -451,7 +451,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="timer_loop_event">
+                <block type="timer_loop_event_complex">
                     <value name="TIMER">
                         <shadow type="variables_get">
                             <field name="VAR">defaultTimer</field>
@@ -463,7 +463,7 @@
                         </shadow>
                     </value>
                 </block>
-                <block type="timer_repeat_event">
+                <block type="timer_repeat_event_complex">
                     <value name="TIMER">
                         <shadow type="variables_get">
                             <field name="VAR">defaultTimer</field>
