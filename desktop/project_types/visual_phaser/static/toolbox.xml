@@ -1757,6 +1757,7 @@
                             <field name="NUM">60</field>
                         </shadow>
                     </value>
+                </block>
                 <block type="body_set_size_complex">
                     <value name="BODY">
                         <shadow type="variables_get">
