@@ -512,7 +512,7 @@ async-exit-hook@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/async-exit-hook/-/async-exit-hook-2.0.1.tgz#8bd8b024b0ec9b1c01cccb9af9db29bd717dfaf3"
 
-async@^1.4.0:
+async@^1.4.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
@@ -3184,6 +3184,12 @@ jsx-ast-utils@^2.0.1:
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-2.0.1.tgz#e801b1b39985e20fffc87b40e3748080e2dcac7f"
   dependencies:
     array-includes "^3.0.3"
+
+jszip@^2.4.0:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/jszip/-/jszip-2.6.1.tgz#b88f3a7b2e67a2a048152982c7a3756d9c4828f0"
+  dependencies:
+    pako "~1.0.2"
 
 jszip@^3.1.5:
   version "3.1.5"
@@ -6058,11 +6064,12 @@ yauzl@2.4.1:
   dependencies:
     fd-slicer "~1.0.1"
 
-zip-folder@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/zip-folder/-/zip-folder-1.0.0.tgz#70a7744fd1789a2feb41ad3419b32e9fd87957b2"
+zip-dir@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/zip-dir/-/zip-dir-1.0.2.tgz#253f907aead62a21acd8721d8b88032b2411c051"
   dependencies:
-    archiver "^0.11.0"
+    async "^1.5.2"
+    jszip "^2.4.0"
 
 zip-stream@~0.4.0:
   version "0.4.1"

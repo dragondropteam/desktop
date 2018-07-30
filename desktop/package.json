@@ -99,7 +99,7 @@
     "serialport": "^6.0.4",
     "username": "^3.0.0",
     "yargs": "^11.0.0",
-    "zip-folder": "1.0.0"
+    "zip-dir": "^1.0.2"
   },
   "license": "UNLICENSED",
   "private": true
