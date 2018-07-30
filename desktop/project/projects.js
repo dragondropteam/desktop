@@ -10,7 +10,7 @@ const RECENT_FILES_LIMIT = 10;
 const log = require('electron-log');
 const DIGIBLOCKS_PROJECT = 'digiblocks';
 const DROP_PROJECT = 'drop';
-const zipFolder = require('zip-folder');
+const zipFolder = require('zip-dir');
 const semver = require('semver');
 
 function getRecentProjects() {
@@ -132,7 +132,7 @@ exports.migrateLegacyProject = function (project, savePath) {
     log.debug(`Migrating to ${savePath}`, project);
 
     return new Promise((resolve, reject) => {
-        zipFolder(project.loadPath, savePath, err => {
+        zipFolder(project.loadPath, {saveTo: savePath}, err => {
             if (err) {
                 reject(err)
             }
