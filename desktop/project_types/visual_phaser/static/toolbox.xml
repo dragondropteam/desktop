@@ -1747,6 +1747,51 @@
                         </shadow>
                     </value>
                 </block>
+                <block type="body_set_size">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="body_set_size_complex">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="OFFSET_X">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                    <value name="OFFSET_Y">
+                        <shadow type="math_number">
+                            <field name="NUM">60</field>
+                        </shadow>
+                    </value>
+                </block>
+
             </category>
             <category name="Util" colour="#da95e2">
                 <block type="acceleration_from_rotation">
@@ -3357,6 +3402,18 @@
                     <value name="Y">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="COLOUR">
+                        <shadow type="colour_picker">
+                            <field name="COLOUR">#ff0000</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="debug_body_render">
+                    <value name="BODY">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
                         </shadow>
                     </value>
                     <value name="COLOUR">
