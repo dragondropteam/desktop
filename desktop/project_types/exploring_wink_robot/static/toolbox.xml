@@ -599,4 +599,72 @@
             </value>
         </block>
     </category>
+    <category name="Character" colour="#bc3eb9" enabled="false">
+        <block type="char_input"></block>
+        <block type="char_to_lower">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_to_upper">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_alnum">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_alpha">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_cntrl">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_digit">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_graph">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_lower">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_print">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_punct">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_space">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_upper">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+        <block type="char_is_xdigit">
+            <value name="CHAR">
+                <shadow type="char_input"></shadow>
+            </value>
+        </block>
+    </category>
 </xml>
