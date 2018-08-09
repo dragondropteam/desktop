@@ -2969,6 +2969,11 @@
                             </value>
                         </shadow>
                     </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">50</field>
+                        </shadow>
+                    </value>
                 </block>
                 <block type="device_button_just_pressed">
                     <value name="OBJECT">
@@ -2977,6 +2982,41 @@
                                 <shadow type="get_active_pointer">
                                 </shadow>
                             </value>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">50</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="device_button_just_released_complex">
+                <value name="OBJECT">
+                    <shadow type="pointer_get_device_buttons_field">
+                        <value name="OBJECT">
+                            <shadow type="get_active_pointer">
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+                <value name="DURATION">
+                    <shadow type="math_number">
+                        <field name="NUM">250</field>
+                    </shadow>
+                </value>
+            </block>
+                <block type="device_button_just_pressed_complex">
+                    <value name="OBJECT">
+                        <shadow type="pointer_get_device_buttons_field">
+                            <value name="OBJECT">
+                                <shadow type="get_active_pointer">
+                                </shadow>
+                            </value>
+                        </shadow>
+                    </value>
+                    <value name="DURATION">
+                        <shadow type="math_number">
+                            <field name="NUM">250</field>
                         </shadow>
                     </value>
                 </block>
