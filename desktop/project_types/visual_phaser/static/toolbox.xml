@@ -1713,6 +1713,83 @@
                     </value>
                 </block>
             </category>
+            <category name="Tilemap" colour="#69dcdf">
+                <block type="set_tilemap_boolean_field">
+                    <value name="MAP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="get_tilemap_boolean_field">
+                    <value name="MAP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_direction_members"></block>
+                <block type="load_tilemap">
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">map</field>
+                        </shadow>
+                    </value>
+                    <value name="SRC">
+                        <shadow type="text">
+                            <field name="TEXT">assets/example_tilemap.json</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_tilemap_simple">
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">map</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_tilemap_complex">
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">map</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">32</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">32</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="create_tilemap_layer">
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="MAP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="add_tileset_image">
+                    <value name="TAG">
+                        <shadow type="text">
+                            <field name="TEXT">tiles</field>
+                        </shadow>
+                    </value>
+                    <value name="MAP">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
         </category>
         <category name="Physics" colour="#6A1B9A">
             <category name="Setup" colour="#6A1B9A">
