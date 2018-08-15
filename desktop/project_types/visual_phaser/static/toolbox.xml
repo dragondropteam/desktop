@@ -2063,6 +2063,344 @@
                         <shadow type="get_world"></shadow>
                     </value>
                 </block>
+                <block type="tilemap_create_from_tiles_simple">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="KEY">
+                        <shadow type="text">
+                            <field name="TEXT">tiles</field>
+                        </shadow>
+                    </value>
+                    <value name="TILES">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPLACEMENT">
+                        <shadow type="logic_null"></shadow>
+                    </value>
+                </block>
+                <block type="tilemap_create_from_tiles_complex">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="KEY">
+                        <shadow type="text">
+                            <field name="TEXT">tiles</field>
+                        </shadow>
+                    </value>
+                    <value name="TILES">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="REPLACEMENT">
+                        <shadow type="logic_null"></shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="get_world"></shadow>
+                    </value>
+                </block>
+                <block type="tilemap_create_layer_simple">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_create_layer_complex">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="GROUP">
+                        <shadow type="get_world"></shadow>
+                    </value>
+                </block>
+                <block type="tilemap_fill_simple">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_fill_complex">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="INDEX">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_for_each_simple">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="CONTEXT">
+                        <shadow type="logic_compare"></shadow>
+                    </value>
+                </block>
+                <block type="tilemap_for_each_complex">
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="WIDTH">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="CONTEXT">
+                        <shadow type="logic_compare"></shadow>
+                    </value>
+                </block>
+                <block type="tilemap_get_image_index">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">tile</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_get_layer_index">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">tile</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_get_tile_simple">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_get_tile_complex">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_get_tile_direction">
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_get_tilset_index">
+                    <value name="NAME">
+                        <shadow type="text">
+                            <field name="TEXT">tile</field>
+                        </shadow>
+                    </value>
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                </block>
+                <block type="tilemap_has_tile">
+                    <value name="OBJECT">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
+                        </shadow>
+                    </value>
+                    <value name="LAYER">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="X">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="Y">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
             </category>
         </category>
         <category name="Physics" colour="#6A1B9A">
