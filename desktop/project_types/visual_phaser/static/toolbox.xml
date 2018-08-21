@@ -1714,7 +1714,9 @@
                     </value>
                 </block>
             </category>
-            <category name="Tilemap" colour="#69dcdf">
+        </category>
+        <category name="Tilemap" colour="#69dcdf">
+            <category name="Map" colour="#69dcdf">
                 <block type="set_tilemap_boolean_field">
                     <value name="OBJECT">
                         <shadow type="variables_get">
@@ -2733,6 +2735,15 @@
                     <value name="B">
                         <shadow type="math_number">
                             <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            </category>
+            <category name="Layer" colour="#6fe5e8">
+                <block type="tilemap_layer_resize_world">
+                    <value name="LAYER">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultMap</field>
                         </shadow>
                     </value>
                 </block>
