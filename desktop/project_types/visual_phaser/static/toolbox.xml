@@ -598,6 +598,13 @@
                     <mutation name="Phaser.Sprite">
                     </mutation>
                 </block>
+                <block type="sprite_get_tag">
+                    <value name="SPRITE">
+                        <shadow type="variables_get">
+                            <field name="VAR">defaultObject</field>
+                        </shadow>
+                    </value>
+                </block>
                 <block type="create_image">
                     <value name="TAG">
                         <shadow type="text">
