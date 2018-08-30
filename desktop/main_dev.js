@@ -1,3 +1,9 @@
+/**
+ * @file Development startup
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 'use strict';
 global.development = true;
 const core = require('./main_core');

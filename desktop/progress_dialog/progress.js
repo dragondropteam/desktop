@@ -1,3 +1,9 @@
+/**
+ * @file Displays a modal indeterminate progress spinner along with a message
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 const electron = require('electron');
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 

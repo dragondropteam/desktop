@@ -1,7 +1,7 @@
 /**
- * All content copyright DigiPen Institute of Technology 2016
- *
- * Created by lukepowell on 11/8/16.
+ * @file Exports core functions for projects
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2018
  */
 require('../../project/projects');
 

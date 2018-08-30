@@ -1,3 +1,9 @@
+/**
+ * @file Core functions for all Phaser projects
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 const path = require('path');
 const username = require('username');
 const fs = require('fs-extra');

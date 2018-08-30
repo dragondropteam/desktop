@@ -1,9 +1,8 @@
 /**
- * @fileoverview Loop blocks for Blockly.
+ * @fileoverview Modification of original loops file to add Icons
  * @author fraser@google.com (Neil Fraser)
  * @author luke.powell@digipen.edu (Luke Powell)
- *
- * Modification of original loops file to
+ * @copyright DigiPen Institute of Technology 2018
  */
 'use strict';
 
