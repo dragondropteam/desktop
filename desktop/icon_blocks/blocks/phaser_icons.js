@@ -1,3 +1,9 @@
+/**
+ * @author Luke Powell
+ * @fileoverview Modification of phaser.js to add icons
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 Blockly.Blocks['phaser_simple_init_icon'] = {
     init: function () {
         this.appendDummyInput()

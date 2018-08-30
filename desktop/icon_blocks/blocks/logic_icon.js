@@ -1,6 +1,7 @@
 /**
+ * @author Luke Powell
  * @fileoverview Modification of logic.js to add icons
- * @copyright DigiPen Institute of Technology
+ * @copyright DigiPen Institute of Technology 2018
  */
 'use strict';
 

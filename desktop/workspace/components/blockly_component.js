@@ -1,3 +1,9 @@
+/**
+ * @file Sets up the Blockly GoldenLayout components
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 const {BaseComponent, TYPE_COMPONENT, TIMEOUT} = require('./component');
 const assert = require('assert');
 const Rx = require('rxjs/Rx');

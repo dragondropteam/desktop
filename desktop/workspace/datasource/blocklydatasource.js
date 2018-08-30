@@ -1,3 +1,9 @@
+/**
+ * @file Sets up the Blockly layout data sources
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 const DataSource = require('./datasource');
 const fs = require('fs-extra');
 const log = require('electron-log');

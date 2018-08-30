@@ -1,3 +1,9 @@
+/**
+ * @author Luke Powell
+ * @fileoverview Modification of variables.js to add icons
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 Blockly.Blocks['variables_get_icon'] = {
     /**
      * Block for variable getter.
