@@ -1,3 +1,9 @@
+/**
+ * @file Builds the compressed files
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 const gulp = require('gulp');
 const clean = require('gulp-clean');
 

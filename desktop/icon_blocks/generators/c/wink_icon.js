@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Pair icon generation blocks to matching non-icon generation blocks
+ * @author luke.powell@digipen.edu (Luke Powell)
+ * @copyright DigiPen Institute of Technology
+ */
+
 Blockly.C['seteyesred_icon'] = Blockly.C['seteyesred'];
 Blockly.C['seteyesgreen_icon'] = Blockly.C['seteyesgreen'];
 Blockly.C['seteyesblue_icon'] = Blockly.C['seteyesblue'];

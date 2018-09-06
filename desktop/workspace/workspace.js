@@ -1,6 +1,6 @@
 /**
  * Created by lukepowell on 12/9/16.
- *
+ *@file Creates the views for each project type
  * @author Luke Powell (luke.powell@digipen.edu)
  *
  * @licence

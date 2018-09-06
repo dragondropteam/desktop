@@ -1,3 +1,9 @@
+/**
+ * @file Sets up GoldenLayout components
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 class BaseComponent {
     constructor(componentState) {
         this.componentState = componentState;

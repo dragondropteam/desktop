@@ -1,3 +1,9 @@
+/**
+ * @file Sets up the data source for the layouts
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 class DataSource {
 
     constructor(extension) {

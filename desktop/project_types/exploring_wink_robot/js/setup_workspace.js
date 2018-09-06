@@ -1,7 +1,7 @@
 /**
- * Created by lukepowell on 10/10/16.
- *
- * All content copyright DigiPen Institute of Technology 2016
+ * @file Sets up the overall workspace for the project type
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
  */
 // const {ArduinoWorkspace} = require('../../../arduino_workspace');
 // const fs = require('fs-extra');

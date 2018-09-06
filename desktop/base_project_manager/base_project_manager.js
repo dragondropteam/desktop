@@ -1,3 +1,10 @@
+/**
+ * @file Basic functions for managing projects
+ * @copyright All content copyright DigiPen Institute of Technology
+ * @author Luke Powell
+ */
+
+
 const fs = require('fs-extra');
 const {LoadedProject, Project} = require('../project/projects');
 const path = require('path');
@@ -51,10 +58,10 @@ module.exports = BaseProjectManager = class BaseProjectManager {
     }
 
     /**
-     * Ensure the directories we need exist creating them if not
+     * Ensurse the directories we need exist, & creates them if not
      * @private
      * @param name The name of the project
-     * @param filePath path to the directory to create the project in
+     * @param filePath Path to the directory to create the project in
      */
     createProjectDir(name, filePath) {
         if (!path.isAbsolute(filePath)) {
@@ -66,7 +73,7 @@ module.exports = BaseProjectManager = class BaseProjectManager {
     }
 
     /**
-     * Copy and starting files to created directory if any defaults to doing nothing.
+     * Copy any starting files to created directory if any defaults to doing nothing.
      * @param name
      * @param filePath
      */

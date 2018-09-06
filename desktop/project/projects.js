@@ -1,3 +1,9 @@
+/**
+ * @file Wraps a project with additional information after it is loaded
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 //All content copyright DigiPen Institute of Technology 2016
 'use strict';
 
