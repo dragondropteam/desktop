@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file Core functions that are applicable to all Arduino based projects
  * @copyright All content copyright DigiPen Institute of Technology
  * @author Luke Powell
  */
@@ -29,7 +29,7 @@ const {ProgressWindow} = require('../progress_dialog/progress');
 exports.macPrefix = macPrefix;
 
 /**
- * Listing of display name to name that we pass to the command line
+ * Listing of board display names to name that we pass to the command line
  * --board package:arch:board[:parameters]
  * @type {Array}
  */
@@ -417,7 +417,12 @@ exports.showVerifyFailure = function () {
     failureNotify.show();
 };
 
-
+/**
+ * Ensures all files are in the directory
+ * @param directory Directory to check for the files in
+ * @param documentsPath Files to check
+ * @param onError Function to run if an error is thrown
+ */
 function ensureAllFilesInDirectory(directory, documentsPath, onError) {
     fs.readdir(directory).then(files => {
         files.forEach(file => {
@@ -448,6 +453,7 @@ function ensureAllFilesInDirectory(directory, documentsPath, onError) {
 
 /**
  * Ensures that all libraries exist, this will only work if the user has not changed the default location
+ * @param onError Function to run if an error is thrown
  */
 exports.ensureLibraries = function (onError) {
     const documentsPath = path.join(app.getPath('documents'), 'Arduino/libraries');

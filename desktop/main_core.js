@@ -1,7 +1,7 @@
 /**
- * Created by lukepowell on 10/11/16.
- *
- * All content copyright DigiPen Institute of Technology 2016
+ * @file Core startup file. Connects to main.js
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
  */
 let index = 'index.html';
 global.selectedPort = null;//Use the last selected board from the Arduino IDE

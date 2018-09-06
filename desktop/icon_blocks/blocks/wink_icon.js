@@ -1,3 +1,9 @@
+/**
+ * @author Luke Powell
+ * @fileoverview Modification of wink.js to add icons
+ * @copyright DigiPen Institute of Technology 2018
+ */
+
 //All content copyright DigiPen Institute of Technology 2016
 'use strict';
 

@@ -1,10 +1,12 @@
 /**
- * Listing of display name to name that we pass to the command line
- * --board package:arch:board[:parameters]
+ * @file Correlates board display names & command lines, and stores them in an array
+ * @copyright All content copyright DigiPen Institute of Technology
+ * @author Luke Powell
  */
 
 /**
- *
+ * Listing of board display names to name that we pass to the command line
+ * --board package:arch:board[:parameters]
  * @type {Array}
  */
 var Board = [];

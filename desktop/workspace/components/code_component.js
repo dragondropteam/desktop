@@ -1,3 +1,9 @@
+/**
+ * @file Sets up the editor GoldenLayout components
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 const {BaseComponent, TYPE_COMPONENT, TIMEOUT} = require('./component');
 const {ipcRenderer} = require('electron');
 const Rx = require('rxjs/Rx');

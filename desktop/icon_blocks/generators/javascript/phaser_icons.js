@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Pair icon generation blocks to matching non-icon generation blocks
+ * @author luke.powell@digipen.edu (Luke Powell)
+ * @copyright DigiPen Institute of Technology
+ */
+
 Blockly.JavaScript['phaser_simple_init_icon'] = Blockly.JavaScript['phaser_simple_init'];
 Blockly.JavaScript['create_image_icon'] = Blockly.JavaScript['create_image'];
 Blockly.JavaScript['add_text_icon'] = Blockly.JavaScript['add_text'];

@@ -1,6 +1,7 @@
 /**
- * All content copyright DigiPen Institute of Technology
- * Created by lukepowell on 11/14/16.
+ * @file Core functions for all Phaser projects
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2018
  */
 
 const Config = require('electron-store');
@@ -38,7 +39,7 @@ exports.ProjectType = ProjectType;
 /**
  * Returns the current list of projects for the current user or the default if no
  * modifications have been made to the settings
- * @returns {*[]} An array of ProjectType
+ * @returns {array} An array of ProjectType
  */
 function getProjectTypes() {
     // let projectTypes = config.get(projectTypesKey);

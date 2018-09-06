@@ -1,13 +1,7 @@
 /**
- * Created by lukepowell on 10/10/16.
- *
- * All content copyright DigiPen Institute of Technology 2016
- */
-
-/**
- * Created by lukepowell on 10/10/16.
- *
- * All content copyright DigiPen Institute of Technology 2016
+ * @file Sets up the overall workspace for the project type
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
  */
 const {Workspace} = require('../../../workspace');
 const BlocklyComponent = require('../../../workspace/components/blockly_component');

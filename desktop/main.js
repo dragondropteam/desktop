@@ -1,3 +1,9 @@
+/**
+ * @file Production startup file. Connects to package.json to start using electron
+ * @author Luke Powell
+ * @copyright DigiPen Institute of Technology 2016
+ */
+
 'use strict';
 global.development = false;
 const core = require('./main_core');
