@@ -4513,6 +4513,7 @@
                 </block>
                 <block type="enable_step"></block>
                 <block type="disable_step"></block>
+                <block type="step"></block>
                 <block type="debug_sprite">
                     <value name="OBJECT">
                         <shadow type="variables_get">
