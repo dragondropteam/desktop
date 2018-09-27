@@ -404,7 +404,9 @@
                     <mutation name="game">
                     </mutation>
                 </block>
+<!--
                 <block type="get_world"></block>
+-->
                 <block type="get_world_property"></block>
                 <block type="set_world_bounds">
                     <value name="X_POS">
