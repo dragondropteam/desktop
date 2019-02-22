@@ -548,6 +548,49 @@
             </value>
         </block>
     </category>
+    <category name="STEPPER" colour="#97a81e">
+        <block type="stepper">
+            <value name="STEPS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN1">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN2">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN3">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="PIN4">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="stepper_set_speed">
+            <value name="SPEED">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="stepper_steps">
+            <value name="STEPS">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
     <category name="Serial" colour="#bfab36">
         <block type="text"></block>
         <block type="serial_begin">
