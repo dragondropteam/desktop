@@ -6,4 +6,4 @@
 	url = https://github.com/google/closure-library
 [submodule "desktop/blockly"]
 	path = desktop/blockly
-	url = https://gitlabk12.digipen.edu/dragondrop/blockly
+	url = https://github.com/dragondropteam/blockly
