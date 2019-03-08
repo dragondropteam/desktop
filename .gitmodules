@@ -1,9 +1,6 @@
 [submodule "desktop/ace-builds"]
 	path = desktop/ace-builds
 	url = https://github.com/ajaxorg/ace-builds
-[submodule "closure-library"]
-	path = closure-library
-	url = https://github.com/google/closure-library
 [submodule "desktop/blockly"]
 	path = desktop/blockly
-	url = https://gitlabk12.digipen.edu/dragondrop/blockly
+	url = https://github.com/dragondropteam/blockly
