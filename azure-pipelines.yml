@@ -21,8 +21,8 @@ trigger:
 steps:
 
 - script: |
-    cd desktop
+    pushd desktop
     yarn install
-    gulp buildCurrentPlatform --gulpfile gulpfile.js
-    cd ..
+    gulp buildCurrentPlatform
+    popd
   displayName: 'yarn install and run gulp'
