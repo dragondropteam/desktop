@@ -20,6 +20,9 @@ trigger:
 
 steps:
 
+- checkout: self
+  submodules: true
+  
 - script: |
     pushd desktop
     yarn install
