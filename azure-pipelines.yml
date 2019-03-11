@@ -22,10 +22,11 @@ steps:
 
 - checkout: self
   submodules: true
-  
-- script: |
-    pushd desktop
-    yarn install
-    gulp buildCurrentPlatform
-    popd
-  displayName: 'yarn install and run gulp'
+
+- script: yarn install
+  workingDirectory: desktop
+  displayName: 'yarn install'
+
+- script: gulp buildCurrentPlatform
+  workingDirectory: desktop
+  displayName: 'gulp buildCurrentPlatform'
