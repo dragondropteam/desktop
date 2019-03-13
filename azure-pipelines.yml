@@ -32,11 +32,9 @@ steps:
   workingDirectory: desktop
   displayName: 'yarn install'
 
-- task: Gulp@0
-  inputs:
-    gulpFile: 'gulpfile.js' 
-    targets: buildCurrentPlatform
-    workingDirectory: desktop
+- script: gulp buildCurrentPlatform
+  workingDirectory: desktop
+  displayName: 'gulp buildCurrentPlatform'
 
 # - script: gulp buildCurrentPlatform
 #   workingDirectory: desktop
