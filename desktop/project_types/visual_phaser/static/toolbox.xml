@@ -2749,13 +2749,13 @@
                 </block>
             </category>
             <category name="Layer" colour="#6fe5e8">
-                <block type="tilemap_layer_resize_world">
+                <!--<block type="tilemap_layer_resize_world">
                     <value name="LAYER">
                         <shadow type="variables_get">
                             <field name="VAR">defaultMap</field>
                         </shadow>
                     </value>
-                </block>
+                </block>-->
             </category>
         </category>
         <category name="Physics" colour="#6A1B9A">
