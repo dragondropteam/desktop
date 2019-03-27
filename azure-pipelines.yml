@@ -24,7 +24,7 @@ steps:
   inputs:
     versionSpec: '11.x'
 
-- script: yarn global add gulp@3.9.1
+- script: yarn global add gulp@2.0.1
 
 - checkout: self
   submodules: true
