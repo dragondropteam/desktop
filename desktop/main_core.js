@@ -163,10 +163,7 @@ function addToggleDevTools (menuHash) {
 }
 
 function reportBug (err) {
-  const errorSerialize = err ? {message: err.message, stack: err.stack} : false;
-  if (mainWindow) {
-    mainWindow.webContents.send('report_bug', errorSerialize);
-  }
+    shell.openExternal(`https://github.com/dragondropteam/desktop/issues/new?assignees=&labels=&template=bug_report.md&title=`);
 }
 
 function addHelpMenu (menuHash) {
