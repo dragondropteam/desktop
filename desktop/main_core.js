@@ -163,19 +163,18 @@ function addToggleDevTools (menuHash) {
 }
 
 function reportBug (err) {
-  const errorSerialize = err ? {message: err.message, stack: err.stack} : false;
-  if (mainWindow) {
-    mainWindow.webContents.send('report_bug', errorSerialize);
-  }
+    shell.openExternal(`https://github.com/dragondropteam/desktop/issues/new?assignees=&labels=&template=bug_report.md&title=`);
 }
 
 function addHelpMenu (menuHash) {
-  menuHash['Help'] = [{
-    label: 'View Wiki',
-    click () {
-      shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
-    }
-  }];
+  // menuHash['Help'] = [{
+  //   label: 'View Wiki',
+  //   click () {
+  //     shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
+  //   }
+  // }]
+
+  menuHash['Help'] = [];
 
   menuHash['Help'].push({
     label: 'Report Bug',
