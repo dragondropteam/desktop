@@ -1,13 +1,13 @@
 {
   "name": "DragonDrop",
-  "version": "2.0.0",
+  "version": "3.0.0-rc1",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
-    "url": "wwwprod5.digipen.edu"
+    "url": "https://dragondropteam.github.io"
   },
   "description": "Blockly based visual programming IDE",
-  "homepage": "wwwwprod5.digipen.edu",
+  "homepage": "https://dragondropteam.github.io",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -35,8 +35,8 @@
     "serialport": "^6.0.4",
     "username": "^3.0.0",
     "yargs": "^11.0.0",
-    "zip-folder": "1.0.0"
+    "zip-dir": "^1.0.2"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true
 }

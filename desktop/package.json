@@ -1,21 +1,17 @@
 {
   "name": "DragonDrop",
-  "version": "2.0.0",
+  "version": "3.0.0-rc1",
   "author": {
     "name": "DigiPen Institute of Technology",
     "email": "digiblocks@digipen.edu",
-    "url": "wwwprod5.digipen.edu"
+    "url": "https://dragondropteam.github.io"
   },
   "description": "Blockly based visual programming IDE",
-  "homepage": "wwprod5.digipen.edu",
+  "homepage": "https://dragondropteam.github.io",
   "main": "main.js",
   "build": {
     "publish": [
-      {
-        "provider": "s3",
-        "bucket": "test-release",
-        "endpoint": "http://dragondrop.digipen.edu:9000"
-      }
+      "github"
     ],
     "directories": {
       "output": "../dist"
@@ -93,6 +89,7 @@
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
     "jszip": "^3.1.5",
+    "natives": "1.1.6",
     "promisepipe": "^2.1.1",
     "rxjs": "^5.5.7",
     "semver": "^5.5.0",
@@ -101,6 +98,7 @@
     "yargs": "^11.0.0",
     "zip-dir": "^1.0.2"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": "https://github.com/dragondropteam/desktop",
   "private": true
 }
