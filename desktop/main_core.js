@@ -167,12 +167,14 @@ function reportBug (err) {
 }
 
 function addHelpMenu (menuHash) {
-  menuHash['Help'] = [{
-    label: 'View Wiki',
-    click () {
-      shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
-    }
-  }];
+  // menuHash['Help'] = [{
+  //   label: 'View Wiki',
+  //   click () {
+  //     shell.openExternal('https://digipen.atlassian.net/wiki/spaces/DRAG/overview');
+  //   }
+  // }]
+
+  menuHash['Help'] = [];
 
   menuHash['Help'].push({
     label: 'Report Bug',
