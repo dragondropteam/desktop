@@ -1,0 +1,43 @@
+# Node.js with gulp
+# Build a Node.js project using the gulp task runner.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-16.04'
+    mac:
+      imageName: 'macos-10.13'
+    windows:
+      imageName: 'vs2017-win2016'
+
+pool:
+  vmImage: $(imageName)
+
+trigger:
+- master
+
+steps:
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '11.x'
+
+- script: yarn global add gulp@2.0.1
+
+- checkout: self
+  submodules: true
+  clean: true
+
+- script: yarn install
+  workingDirectory: desktop
+  displayName: 'yarn install'
+
+- script: gulp buildCurrentPlatform
+  workingDirectory: desktop
+  displayName: 'gulp buildCurrentPlatform'
+
+# - script: gulp buildCurrentPlatform
+#   workingDirectory: desktop
+#   displayName: 'gulp buildCurrentPlatform'
