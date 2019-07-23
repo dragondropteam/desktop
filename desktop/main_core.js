@@ -320,17 +320,6 @@ function createDefaultMenu() {
             createProject();
         }
     });
-    //not project
-    menuHash['File'].push({
-        label: 'Show Backup Directory',
-        click() {
-            switch (process.platform) {
-                case 'win32':
-                    console.log();
-                    break;
-            }
-        }
-    });
     menuHash['File'].push({
         label: 'Load Project',
         accelerator: 'CmdOrCtrl+O',
@@ -345,6 +334,16 @@ function createDefaultMenu() {
         accelerator: 'CmdOrCtrl+,',
         click() {
             createPreferenceWindow();
+        }
+    });
+    menuHash['File'].push({
+        label: 'Show Backup Directory',
+        click() {
+            switch (process.platform) {
+                case 'win32':
+                    shell.showItemInFolder(path.join(app.getPath('temp'), '\\Temp'));
+                    break;
+            }
         }
     });
 
@@ -444,18 +443,6 @@ function createProjectMenu(arg) {
         }
     });
 
-    //project
-    menuHash['File'].push({
-        label: 'Show Backup Directory',
-        click() {
-            switch (process.platform) {
-                case 'win32':
-                    shell.showItemInFolder(arg.loadPath);
-                    break;
-            }
-        }
-    });
-
     menuHash['File'].push({
         label: 'Save Project',
         accelerator: 'CmdOrCtrl+S',
@@ -494,6 +481,17 @@ function createProjectMenu(arg) {
         accelerator: 'CmdOrCtrl+,',
         click() {
             createPreferenceWindow();
+        }
+    });
+
+    menuHash['File'].push({
+        label: 'Show Backup Directory',
+        click() {
+            switch (process.platform) {
+                case 'win32':
+                    shell.showItemInFolder(arg.loadPath);
+                    break;
+            }
         }
     });
 
