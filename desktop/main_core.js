@@ -288,7 +288,7 @@ function createDefaultMenu () {
     click() {
         switch (process.platform) {
             case 'win32':
-                shell.showItemInFolder(path.join(app.getPath('temp'), '\\Temp'));
+                shell.showItemInFolder(path.join(app.getPath('temp'), 'dragondrop'));
                 break;
         }
     }
@@ -431,11 +431,7 @@ function createProjectMenu (arg) {
   menuHash['File'].push({
     label: 'Open Backup Directory',
     click() {
-        switch (process.platform) {
-            case 'win32':
-                shell.showItemInFolder(arg.loadPath);
-                break;
-        }
+      shell.showItemInFolder(arg.loadPath);
     }
 });
 
