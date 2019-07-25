@@ -283,6 +283,17 @@ function createDefaultMenu () {
     }
   });
 
+  menuHash['File'].push({
+    label: 'Open Backup Directory',
+    click() {
+        switch (process.platform) {
+            case 'win32':
+                shell.showItemInFolder(path.join(app.getPath('temp'), 'dragondrop'));
+                break;
+        }
+    }
+});
+
   //Add Edit
   fillEditMenu(menuHash);
   addToggleDevTools(menuHash);
@@ -416,6 +427,14 @@ function createProjectMenu (arg) {
       createPreferenceWindow();
     }
   });
+
+  menuHash['File'].push({
+    label: 'Open Backup Directory',
+    click() {
+      shell.showItemInFolder(arg.loadPath);
+    }
+});
+
 
   if (loadedproject && loadedproject.isLegacy()) {
     menuHash['File'].push({
