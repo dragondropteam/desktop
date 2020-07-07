@@ -61,7 +61,7 @@
   "devDependencies": {
     "del": "latest",
     "devtron": "^1.4.0",
-    "electron": "^1.8.6",
+    "electron": "^7.2.4",
     "electron-builder": "20.14.7",
     "electron-mocha": "^6.0.2",
     "electron-publisher-s3": "^20.13.1",
