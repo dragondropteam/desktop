@@ -72,7 +72,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-yarn": "^1.0.1",
     "pump": "^3.0.0",
-    "serve": "^6.5.5",
+    "serve": "^10.1.2",
     "standard": "^11.0.1",
     "uglify-es": "^3.2.2",
     "username": "*"
