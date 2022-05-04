@@ -113,9 +113,10 @@ angular-material@^1.1.5:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/angular-material/-/angular-material-1.1.9.tgz#840574f8701629fc39eadfea7fd8e235cc5d97c6"
 
-angular@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.0.tgz#e45d679fc8d81040a4894c7ccc16a4e1ad0a9ca6"
+angular@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.8.3.tgz#851ad75d5163c105a7e329555ef70c90aa706894"
+  integrity sha512-5qjkWIQQVsHj4Sb5TcEs4WZWpFeVFHXwxEBHUhrny41D8UrBAd6T/6nPPAsLngJCReIOqi95W3mxdveveutpZw==
 
 ansi-align@^2.0.0:
   version "2.0.0"
@@ -1058,7 +1059,7 @@ compressible@~2.0.13:
 
 compression@^1.6.2:
   version "1.7.2"
-  resolved "http://registry.npmjs.org/compression/-/compression-1.7.2.tgz#aaffbcd6aaf854b44ebb280353d5ad1651f59a69"
+  resolved "https://registry.npmjs.org/compression/-/compression-1.7.2.tgz#aaffbcd6aaf854b44ebb280353d5ad1651f59a69"
   dependencies:
     accepts "~1.3.4"
     bytes "3.0.0"
@@ -1835,7 +1836,7 @@ etag@~1.8.1:
 
 event-stream@~3.1.5:
   version "3.1.7"
-  resolved "http://registry.npmjs.org/event-stream/-/event-stream-3.1.7.tgz#b4c540012d0fe1498420f3d8946008db6393c37a"
+  resolved "https://registry.npmjs.org/event-stream/-/event-stream-3.1.7.tgz#b4c540012d0fe1498420f3d8946008db6393c37a"
   dependencies:
     duplexer "~0.1.1"
     from "~0"
