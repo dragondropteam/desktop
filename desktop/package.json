@@ -88,7 +88,7 @@
     "fs-extra": "^4.0.3",
     "golden-layout": "^1.5.8",
     "gulp-install": "^1.1.0",
-    "jszip": "^3.1.5",
+    "jszip": "^3.7.0",
     "natives": "1.1.6",
     "promisepipe": "^2.1.1",
     "rxjs": "^5.5.7",
